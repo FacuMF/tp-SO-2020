@@ -1,5 +1,28 @@
-# tp-2020-1c-PokEbola
-## TO DO List
-- [ ] Utilizar makefile en archivos de subdirectorios
-- [ ] Definir utilización del logger. Se puede tener global? Hay que pasarlo a todas las funciones? Etc.
-- [ ] Definir estructura de carpetas general del proyecto. Makefiles, logs, archivos de config, etc.
+Hola PokEbolas, como andan?
+==============
+
+El servidor y el cliente compilan los dos haciendo:
+
+    make all
+
+o tambien haciendo solo:
+
+    make
+
+Los dos ejecutables quedan adentro de la carpeta bin.
+
+Despues para ejectar, desde dos consolas distintas haces:
+
+    ./bin/Server
+
+    .bin/Cliente
+
+Listo.
+
+Si hacen cambios, antes de compilar tienen que hacer:
+
+    make clean
+
+Y volver al paso 1 xd 
+
+saludos.
