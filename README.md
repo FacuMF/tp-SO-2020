@@ -1,4 +1,4 @@
-Hola PokEbolas, como andan?
+Hola PokEbolas, como andan?.
 ==============
 
 El servidor y el cliente compilan los dos haciendo:
@@ -15,7 +15,7 @@ Despues para ejectar, desde dos consolas distintas haces:
 
     ./bin/Server
 
-    .bin/Cliente
+    ./bin/Cliente
 
 Listo.
 
