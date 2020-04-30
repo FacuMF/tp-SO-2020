@@ -8,13 +8,15 @@ int main(void)
 	int conexion;
 	char* ip;
 	char* puerto;
-
+	char * mensaje_a_enviar;
 	t_log* logger;
 	t_config* config;
 
 	logger = iniciar_logger();
 
+
 	config = leer_config();
+
 	ip = config_get_string_value(config,"IP");
 	puerto = config_get_string_value(config,"PUERTO");
 	conexion = crear_conexion(ip,puerto);
@@ -22,14 +24,25 @@ int main(void)
 
 	/*---------------------------------------------------PARTE 3-------------------------------------------------------------*/
 
+
 	//crear conexion
 	conexion = crear_conexion(ip, puerto);
 
+	log_info(logger,"Conexion Creada");
+
 	//enviar mensaje
-	enviar_mensaje("Hola bro",conexion);
+
+	printf("Ingrese el mensaje a enviar : /n ");
+	scanf("%s",mensaje_a_enviar);
+
+	enviar_mensaje(mensaje_a_enviar,conexion);
+
+	log_info(logger,"Mensaje Enviado");
 
 	//recibir mensaje
 	char *mensaje = recibir_mensaje(conexion);
+
+	log_info(logger,"Mensaje recibido");
 
 	//loguear mensaje recibido
 	log_info(logger, "El mensaje recibido es: %s\n",mensaje);
@@ -39,7 +52,7 @@ int main(void)
 t_log* iniciar_logger(void)
 {
 	t_log * logger;
-	if((logger = log_create("cliente.c","Cliente",true,LOG_LEVEL_INFO)) == NULL){
+	if((logger = log_create("./cliente.log","Cliente",true,LOG_LEVEL_INFO)) == NULL){
 		printf("Error en log\n");
 		exit(1);
 	}
@@ -49,7 +62,8 @@ t_log* iniciar_logger(void)
 t_config* leer_config(void)
 {
 	t_config *config;
-	if((config = config_create("cliente.config"))==NULL){
+	config = config_create("/home/utnso/tp-2020-1c-PokEbola/configGeneral.config");
+	if(config == NULL){
 		printf("Error en config.\n");
 		exit(2);
 	}
@@ -65,4 +79,5 @@ void terminar_programa(int conexion, t_log* logger, t_config* config)
 	if(config != NULL){
 		config_destroy(config);
 	}
+	close(conexion);
 }

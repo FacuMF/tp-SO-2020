@@ -14,8 +14,10 @@
 #include<unistd.h>
 #include<netdb.h>
 #include<commons/log.h>
+#include<commons/config.h>
 #include<commons/collections/list.h>
-#include<string.h>
+#include<commons/string.h>
+#include <readline/readline.h>
 #include<pthread.h>
 
 
@@ -40,7 +42,7 @@ pthread_t thread;
 
 void* recibir_buffer(int*, int);
 
-void iniciar_servidor(t_log* ,char*,char*);
+void iniciar_servidor(char*,char*);
 void esperar_cliente(int);
 void* recibir_mensaje(int socket_cliente, int* size);
 int recibir_operacion(int);

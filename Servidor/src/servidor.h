@@ -12,12 +12,15 @@
 #include<stdlib.h>
 #include<string.h>
 #include<commons/log.h>
+#include<commons/config.h>
 #include "utils.h"
 
 
 t_log* logger;
 
+
+t_config* leer_config(void);
 t_log* iniciar_logger(void);
-void finalizar_ejecucion(t_log* );
+void finalizar_ejecucion(t_log*,t_config*);
 
 #endif /* SERVIDOR_H_ */
