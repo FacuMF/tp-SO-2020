@@ -32,7 +32,7 @@ int main(void)
 
 	//enviar mensaje
 
-	printf("Ingrese el mensaje a enviar : /n ");
+	printf("Ingrese el mensaje a enviar : \n ");
 	scanf("%s",mensaje_a_enviar);
 
 	enviar_mensaje(mensaje_a_enviar,conexion);

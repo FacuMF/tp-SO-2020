@@ -44,7 +44,7 @@ int crear_conexion(char *ip, char* puerto)
 void enviar_mensaje(char* mensaje, int socket_cliente)
 {
 	t_paquete* paquete = malloc(sizeof(t_paquete));
-	paquete->codigo_operacion = 1;
+	paquete->codigo_operacion = 1;  							 //MENSAJE
 	paquete->buffer = malloc(sizeof(t_buffer));
 	paquete->buffer->stream = mensaje;
 	paquete->buffer->size = strlen(mensaje) + 1;
@@ -63,7 +63,7 @@ char* recibir_mensaje(int socket_cliente)
 	recv(socket_cliente, &buffer_size, sizeof(buffer_size),0);
 	char *buffer = malloc(buffer_size);
 	recv(socket_cliente, buffer, buffer_size, 0);
-	if(buffer[buffer_size -1] != '\0'){
+	if(buffer[buffer_size - 1] != '\0'){
 		printf("El buffer recibido no es un string\n");
 	}
 	return buffer;
