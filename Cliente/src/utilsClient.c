@@ -4,19 +4,19 @@
 void* serializar_paquete(t_paquete* paquete, int *bytes)
 {
 	int size_serializado = sizeof(paquete->codigo_operacion) + sizeof(paquete->buffer->size) + paquete->buffer->size;
-	void *buffer = malloc(size_serializado);
+	void *a_enviar = malloc(size_serializado);
 
 	int bytes_escritos = 0;
-	memcpy(buffer + bytes_escritos, &(paquete->codigo_operacion), sizeof(paquete->codigo_operacion));
+	memcpy(a_enviar+ bytes_escritos, &(paquete->codigo_operacion), sizeof(paquete->codigo_operacion));
 	bytes_escritos += sizeof(paquete->codigo_operacion);
-	memcpy(buffer + bytes_escritos, &(paquete->buffer->size), sizeof(paquete->buffer->size));
+	memcpy(a_enviar + bytes_escritos, &(paquete->buffer->size), sizeof(paquete->buffer->size));
 	bytes_escritos += sizeof(paquete->buffer->size);
-	memcpy(buffer + bytes_escritos, &(paquete->buffer->stream), paquete->buffer->size);
+	memcpy(a_enviar + bytes_escritos, paquete->buffer->stream, paquete->buffer->size);
 	bytes_escritos += paquete->buffer->size;
 
 
 	(*bytes) = size_serializado;
-	return buffer;
+	return a_enviar;
 }
 
 int crear_conexion(char *ip, char* puerto)
@@ -44,15 +44,18 @@ int crear_conexion(char *ip, char* puerto)
 void enviar_mensaje(char* mensaje, int socket_cliente)
 {
 	t_paquete* paquete = malloc(sizeof(t_paquete));
-	paquete->codigo_operacion = 1;  							 //MENSAJE
+	paquete->codigo_operacion = MENSAJE;  							 //MENSAJE
 	paquete->buffer = malloc(sizeof(t_buffer));
-	paquete->buffer->stream = mensaje;
 	paquete->buffer->size = strlen(mensaje) + 1;
+	paquete->buffer->stream = malloc(paquete->buffer->size);
+	paquete->buffer->stream = mensaje;
+
 	int size_serializado;
 	void* serializado = serializar_paquete(paquete,&size_serializado);
 
 	send(socket_cliente, serializado, size_serializado, 0);
 	free(serializado);
+
 }
 
 char* recibir_mensaje(int socket_cliente)
@@ -61,8 +64,10 @@ char* recibir_mensaje(int socket_cliente)
 	recv(socket_cliente, &operacion , sizeof(operacion) ,0);
 	int buffer_size;
 	recv(socket_cliente, &buffer_size, sizeof(buffer_size),0);
+	//Aca esta el error
 	char *buffer = malloc(buffer_size);
 	recv(socket_cliente, buffer, buffer_size, 0);
+
 	if(buffer[buffer_size - 1] != '\0'){
 		printf("El buffer recibido no es un string\n");
 	}
