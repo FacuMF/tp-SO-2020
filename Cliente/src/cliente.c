@@ -1,6 +1,4 @@
 #include "cliente.h"
-#include "utilsClient.h"
-
 
 int main(void)
 {
@@ -62,7 +60,7 @@ t_log* iniciar_logger(void)
 t_config* leer_config(void)
 {
 	t_config *config;
-	config = config_create("/home/utnso/tp-2020-1c-PokEbola/configGeneral.config");
+	config = config_create("/home/utnso/Documentos/tp-2020-1c-PokEbola/configGeneral.config");
 	if(config == NULL){
 		printf("Error en config.\n");
 		exit(2);

@@ -9,7 +9,7 @@
 #include<commons/config.h>
 #include<readline/readline.h>
 
-#include "utilsClient.h"
+#include "../../Utils/src/utils.h"
 
 
 t_log* iniciar_logger(void);
