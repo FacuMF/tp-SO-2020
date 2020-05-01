@@ -9,7 +9,7 @@ int main(void)
 	char * mensaje_a_enviar;
 
 	// Iniciar Logger
-	logger = iniciar_logger();
+	logger = iniciar_logger("./cliente.log","Cliente");
 
 	// Leer Config
 	config = leer_config();
@@ -34,15 +34,7 @@ int main(void)
 	terminar_programa(conexion, logger, config);
 }
 
-t_log* iniciar_logger(void)
-{
-	t_log * logger;
-	if((logger = log_create("./cliente.log","Cliente",true,LOG_LEVEL_INFO)) == NULL){
-		printf("Error en log\n");
-		exit(1);
-	}
-	return logger;
-}
+
 
 t_config* leer_config(void)
 {
@@ -57,9 +49,7 @@ t_config* leer_config(void)
 
 void terminar_programa(int conexion, t_log* logger, t_config* config)
 {
-	if(logger != NULL){
-		log_destroy(logger);
-	}
+	terminar_logger(logger);
 
 	if(config != NULL){
 		config_destroy(config);

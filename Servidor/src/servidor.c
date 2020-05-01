@@ -15,7 +15,7 @@ int main(void)
 
 	logger = malloc(sizeof(t_log));
 
-	logger = iniciar_logger();
+	logger = iniciar_logger("./servidor.log","Server");
 
 	config = leer_config();
 
@@ -29,12 +29,6 @@ int main(void)
 	return EXIT_SUCCESS;
 }
 
-
-t_log* iniciar_logger(void)
-{
-	return log_create("./servidor.log","Server",true,LOG_LEVEL_INFO);
-}
-
 t_config*leer_config(){
 	t_config *config;
 	config = config_create("/home/utnso/Documentos/tp-2020-1c-PokEbola/configGeneral.config");
@@ -46,9 +40,7 @@ t_config*leer_config(){
 }
 
 void finalizar_ejecucion(t_log* logger,t_config *config){
-	if(logger != NULL){
-			log_destroy(logger);
-		}
+	terminar_logger(logger);
 
 		if(config != NULL){
 			config_destroy(config);
