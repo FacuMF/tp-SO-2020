@@ -12,7 +12,7 @@ int main(void)
 	logger = iniciar_logger("./cliente.log","Cliente");
 
 	// Leer Config
-	config = leer_config();
+	config = leer_config("/home/utnso/Documentos/tp-2020-1c-PokEbola/Cliente/src/cliente.config");
 	ip = config_get_string_value(config,"IP");
 	puerto = config_get_string_value(config,"PUERTO");
 
@@ -32,19 +32,6 @@ int main(void)
 
 	//Finalizar mensaje
 	terminar_programa(conexion, logger, config);
-}
-
-
-
-t_config* leer_config(void)
-{
-	t_config *config;
-	config = config_create("/home/utnso/Documentos/tp-2020-1c-PokEbola/configGeneral.config");
-	if(config == NULL){
-		printf("Error en config.\n");
-		exit(2);
-	}
-	return config;
 }
 
 void terminar_programa(int conexion, t_log* logger, t_config* config)

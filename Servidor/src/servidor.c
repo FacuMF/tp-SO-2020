@@ -13,8 +13,6 @@ int main(void)
 	char * ip ;
 	char * puerto ;
 
-
-
 	logger = iniciar_logger("./servidor.log","Server");
 
 	config = leer_config();
@@ -27,12 +25,4 @@ int main(void)
 	finalizar_ejecucion(logger,config);
 
 	return EXIT_SUCCESS;
-}
-
-void finalizar_ejecucion(t_log* logger,t_config *config){
-	terminar_logger(logger);
-
-		if(config != NULL){
-			config_destroy(config);
-		}
 }

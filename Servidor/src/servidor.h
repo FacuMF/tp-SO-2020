@@ -18,8 +18,6 @@
 
 t_log* logger;
 
-
-t_config* leer_config(void);
 void finalizar_ejecucion(t_log*,t_config*);
 
 #endif /* SERVIDOR_H_ */

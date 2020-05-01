@@ -15,7 +15,6 @@ t_log* logger;
 t_config* config;
 
 
-t_config* leer_config(void);
 void terminar_programa(int, t_log*, t_config*);
 
 #endif /* CLIENTE_H_ */

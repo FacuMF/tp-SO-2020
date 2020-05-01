@@ -64,4 +64,7 @@ void devolver_mensaje(void* payload, int size, int socket_cliente);
 t_log* iniciar_logger(char* file, char* program_name);
 void terminar_logger(t_log* logger);
 
+//		CONFIG
+t_config* leer_config(char*);
+
 #endif /* UTILS_UTILS_H_ */
