@@ -32,15 +32,6 @@ int main(void)
 
 	return EXIT_SUCCESS;
 }
-
-
-
-t_log* iniciar_logger(void)
-{
-	t_log * logger = malloc(sizeof(t_log));
-	return log_create("./servidor.log","Server",true,LOG_LEVEL_INFO);
-}
-
 void finalizar_ejecucion(t_log* logger,t_config *config){
 	terminar_logger(logger);
 

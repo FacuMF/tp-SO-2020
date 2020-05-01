@@ -65,6 +65,6 @@ t_log* iniciar_logger(char* file, char* program_name);
 void terminar_logger(t_log* logger);
 
 //		CONFIG
-t_log* leer_config(char*);
+t_config* leer_config(char*);
 
 #endif /* UTILS_UTILS_H_ */
