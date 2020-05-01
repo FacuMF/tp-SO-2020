@@ -59,4 +59,9 @@ void serve_client(int *socket);
 void* serializar_paquete(t_paquete* paquete, int bytes);
 void devolver_mensaje(void* payload, int size, int socket_cliente);
 
+//      LOGGER
+
+t_log* iniciar_logger(char* file, char* program_name);
+void terminar_logger(t_log* logger);
+
 #endif /* UTILS_UTILS_H_ */
