@@ -1,5 +1,7 @@
 #include "utils.h"
 
+//Funciones
+
 t_log* iniciar_logger(char* file, char* program_name)
 {
 	t_log * logger;
