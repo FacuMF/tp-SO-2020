@@ -2,48 +2,35 @@
 
 int main(void)
 {
-	/*---------------------------------------------------PARTE 2-------------------------------------------------------------*/
+	// Iniciar variables
 	int conexion;
 	char* ip;
 	char* puerto;
 	char * mensaje_a_enviar;
-	t_log* logger;
-	t_config* config;
 
+	// Iniciar Logger
 	logger = iniciar_logger();
 
-
+	// Leer Config
 	config = leer_config();
-
 	ip = config_get_string_value(config,"IP");
 	puerto = config_get_string_value(config,"PUERTO");
+
+	// Iniciar Conexion
 	conexion = crear_conexion(ip,puerto);
-	log_info(logger, "IP: %s y PUERTO: %s \n",ip,puerto);
-
-	/*---------------------------------------------------PARTE 3-------------------------------------------------------------*/
-
-
-	//crear conexion
-	conexion = crear_conexion(ip, puerto);
-
-	log_info(logger,"Conexion Creada");
+	log_info(logger,"Conexion Creada. IP: %s y PUERTO: %s \n",ip,puerto);
 
 	//enviar mensaje
-
 	printf("Ingrese el mensaje a enviar : \n ");
 	scanf("%s",mensaje_a_enviar);
-
 	enviar_mensaje(mensaje_a_enviar,conexion);
-
 	log_info(logger,"Mensaje Enviado");
 
 	//recibir mensaje
 	char *mensaje = recibir_mensaje(conexion);
-
-	log_info(logger,"Mensaje recibido");
-
-	//loguear mensaje recibido
 	log_info(logger, "El mensaje recibido es: %s\n",mensaje);
+
+	//Finalizar mensaje
 	terminar_programa(conexion, logger, config);
 }
 

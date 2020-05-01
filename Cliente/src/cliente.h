@@ -11,6 +11,9 @@
 
 #include "../../Utils/src/utils.h"
 
+t_log* logger;
+t_config* config;
+
 
 t_log* iniciar_logger(void);
 t_config* leer_config(void);
