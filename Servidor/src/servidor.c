@@ -13,8 +13,6 @@ int main(void)
 	char * ip ;
 	char * puerto ;
 
-	logger = malloc(sizeof(t_log));
-
 	logger = iniciar_logger();
 
 	config = leer_config();
@@ -32,6 +30,7 @@ int main(void)
 
 t_log* iniciar_logger(void)
 {
+	t_log * logger = malloc(sizeof(t_log));
 	return log_create("./servidor.log","Server",true,LOG_LEVEL_INFO);
 }
 
