@@ -6,12 +6,13 @@
  */
 #include "utils.h"
 
-int crear_conexion(char *ip, char* puerto) {
+int iniciar_conexion_cliente(char *ip, char* puerto) {
 
+	//Set up conexion
 	struct addrinfo *servinfo = obtener_server_info(ip,puerto); // Address info para la conexion TCP/IP
-
 	int socket_cliente = obtener_socket(servinfo);
 
+	// Conectarse
 	if (connect(socket_cliente, servinfo->ai_addr, servinfo->ai_addrlen)
 			== -1)
 		printf("error");
@@ -21,12 +22,11 @@ int crear_conexion(char *ip, char* puerto) {
 	return socket_cliente;
 }
 
-void iniciar_servidor(char * ip, char* puerto) {
+void iniciar_conexion_servidor(char* ip, char* puerto) {
 
-	struct addrinfo *servinfo = obtener_server_info(ip,puerto); // Address info para la conexion TCP/IP
-
+	//Set up conexion
+	struct addrinfo* servinfo = obtener_server_info(ip,puerto); // Address info para la conexion TCP/IP
 	int socket_servidor = obtener_socket(servinfo);
-
 	asignar_socket_a_puerto(socket_servidor,servinfo);
 
 	freeaddrinfo(servinfo);
@@ -71,7 +71,7 @@ int obtener_socket(struct addrinfo * servinfo){
 	}
 
 	// Validar conexion exitosa
-	if (p==NULL) /*TODO: Tirar excepcion*/ ;
+	if (p==NULL) /*TODO: Tirar excepcion*/ printf("error: conexion no exitosa");
 
 	return socket_servidor;
 }
@@ -189,7 +189,7 @@ void* serializar_paquete(t_paquete* paquete, int bytes) {
 
 // OTROS
 
-void esperar_cliente(int socket_servidor) {
+void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 	struct sockaddr_in dir_cliente;	//contiene address de la comunicacion
 
 	int tam_direccion = sizeof(struct sockaddr_in);
@@ -197,9 +197,9 @@ void esperar_cliente(int socket_servidor) {
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
 			&tam_direccion);// Acepta el request del cliente y crea el socket
 
+	// Lanzar los hilos handlers
 	pthread_create(&thread, NULL, (void*) serve_client, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
 	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
-
 }
 
 void serve_client(int* socket) {

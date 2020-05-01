@@ -17,7 +17,7 @@ int main(void)
 	puerto = config_get_string_value(config,"PUERTO");
 
 	// Iniciar Conexion
-	conexion = crear_conexion(ip,puerto);
+	conexion = iniciar_conexion_cliente(ip,puerto);
 	log_info(logger,"Conexion Creada. IP: %s y PUERTO: %s \n",ip,puerto);
 
 	//enviar mensaje

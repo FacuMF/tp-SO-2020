@@ -40,7 +40,7 @@ typedef struct
 } t_paquete;
 
 void* serializar_paquete_cli(t_paquete* paquete, int *bytes);
-int crear_conexion(char* ip, char* puerto);
+int iniciar_conexion_cliente(char* ip, char* puerto);
 void enviar_mensaje(char* mensaje, int socket_cliente);
 char* recibir_mensaje(int socket_cliente);
 void eliminar_paquete(t_paquete* paquete);
@@ -50,7 +50,10 @@ pthread_t thread;
 
 void* recibir_buffer(int*, int);
 
-void iniciar_servidor(char*,char*);
+struct addrinfo* obtener_server_info(char* , char*);
+void asignar_socket_a_puerto(int,struct addrinfo*);
+int obtener_socket(struct addrinfo* );
+void iniciar_conexion_servidor(char*,char*);
 void esperar_cliente(int);
 void* recibir_mensaje_serv(int socket_cliente, int* size);
 int recibir_operacion(int);
