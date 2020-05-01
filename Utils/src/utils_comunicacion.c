@@ -10,7 +10,7 @@ int crear_conexion(char *ip, char* puerto) {
 
 	struct addrinfo *servinfo = obtener_server_info(ip,puerto); // Address info para la conexion TCP/IP
 
-	int socket_cliente = asignar_socket_a_puerto(servinfo);
+	int socket_cliente = obtener_socket(servinfo);
 
 	if (connect(socket_cliente, servinfo->ai_addr, servinfo->ai_addrlen)
 			== -1)
@@ -25,11 +25,13 @@ void iniciar_servidor(char * ip, char* puerto) {
 
 	struct addrinfo *servinfo = obtener_server_info(ip,puerto); // Address info para la conexion TCP/IP
 
-	int socket_servidor = asignar_socket_a_puerto(servinfo);
+	int socket_servidor = obtener_socket(servinfo);
 
-	listen(socket_servidor, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue
+	asignar_socket_a_puerto(socket_servidor,servinfo);
 
 	freeaddrinfo(servinfo);
+
+	listen(socket_servidor, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
 
 	while (1)
 		esperar_cliente(socket_servidor);//Queda esperando que un cliente se conecte
@@ -56,23 +58,17 @@ struct addrinfo* obtener_server_info(char * ip, char* puerto) {
 
 }
 
-int asignar_socket_a_puerto(struct addrinfo * servinfo){
+int obtener_socket(struct addrinfo * servinfo){
 	struct addrinfo *p;
 	int socket_servidor;
 
 	// Loopear por todos los resultados y conectarse al primero que pueda
 	for (p = servinfo; p != NULL; p = p->ai_next)// Por cada elemento de la lista de addr infos....
-				{
-			if ((socket_servidor = socket(p->ai_family, p->ai_socktype,
-					p->ai_protocol)) == -1)	// Si al crear el socket me da error, me fijo con el siguient
-				continue;
-
-			if (bind(socket_servidor, p->ai_addr, p->ai_addrlen) == -1) {//asigna el socket creado al puerto de mi maquina
-				close(socket_servidor);
-				continue;
-			}
-			break;
-		}
+	{
+		if ((socket_servidor = socket(p->ai_family, p->ai_socktype,p->ai_protocol)) == -1)	// Si al crear el socket me da error, me fijo con el siguient
+			continue;
+		break;	// Encontré el correcto
+	}
 
 	// Validar conexion exitosa
 	if (p==NULL) /*TODO: Tirar excepcion*/ ;
@@ -80,6 +76,13 @@ int asignar_socket_a_puerto(struct addrinfo * servinfo){
 	return socket_servidor;
 }
 
+void asignar_socket_a_puerto(int socket,struct addrinfo *p){
+	if (bind(socket, p->ai_addr, p->ai_addrlen) == -1) { //asigna el socket creado a la conexion obtenida de mi maquina
+		// ERROR DE BIND. eg: el puerto ya está siendo usado
+		// TODO: Tirar excepcion.
+		close(socket);
+	}
+}
 
 
 // MANIPULACION MENSAJES
