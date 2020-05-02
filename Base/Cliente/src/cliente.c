@@ -8,12 +8,12 @@ int main(void) {
 	char * mensaje_a_enviar = "OLA";
 
 	// Iniciar Logger
-	logger = iniciar_logger("./cliente.log", "Cliente");
+	logger = iniciar_logger("/home/utnso/tp-2020-1c-PokEbola/Base/Servidor/config/cliente.log", "Cliente");
 	log_info(logger,"");
 	// Leer Config
 	config =
 			leer_config(
-					"/home/utnso/Documentos/tp-2020-1c-PokEbola/Cliente/src/cliente.config");
+					"/home/utnso/tp-2020-1c-PokEbola/Base/Cliente/config/cliente.config");
 	ip = config_get_string_value(config, "IP");
 	puerto = config_get_string_value(config, "PUERTO");
 
