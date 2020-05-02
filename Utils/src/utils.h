@@ -21,11 +21,8 @@
 #include<commons/string.h>
 #include <readline/readline.h>
 #include<pthread.h>
+#include "utils_mensajes.h"
 
-typedef enum
-{
-	MENSAJE = 1,
-}op_code;
 
 typedef struct
 {
@@ -39,28 +36,37 @@ typedef struct
 	t_buffer* buffer;
 } t_paquete;
 
-void* serializar_paquete_cli(t_paquete* paquete, int *bytes);
-int iniciar_conexion_cliente(char* ip, char* puerto);
-void enviar_mensaje(char* mensaje, int socket_cliente);
-char* recibir_mensaje(int socket_cliente);
-void eliminar_paquete(t_paquete* paquete);
-void liberar_conexion(int socket_cliente);
+
+
 
 pthread_t thread;
 
-void* recibir_buffer(int*, int);
 
-struct addrinfo* obtener_server_info(char* , char*);
-void asignar_socket_a_puerto(int,struct addrinfo*);
-int obtener_socket(struct addrinfo* );
+// MOVER A MODULO
+int iniciar_conexion_cliente(char* ip, char* puerto);
 void iniciar_conexion_servidor(char*,char*);
+
+// INICIALIZACION DE LA CONEXION
+struct addrinfo* obtener_server_info(char* , char*);
+int obtener_socket(struct addrinfo* );
+void asignar_socket_a_puerto(int,struct addrinfo*);
+
+// MANIPULACION MENSAJES
+void enviar_mensaje(int socket, t_buffer buffer, op_code codigo_operacion);
+
+t_paquete* generar_paquete(t_buffer* , op_code); // DE UN BUFFER Y OP CODE SACA UN PAQUETE
+void* serializar_paquete(t_paquete* paquete, int *bytes); // DE UN PAQUETE OBTENGO UN STREAM Y LOS BYTES
+
+t_buffer* recibir_mensaje(int socket, op_code *);// DE UN SOCKET, DEVUELVE UN BUFFER Y UN OPCODE POR REFERENCIA.
+
+// TERMINAR CONEXION
+void liberar_conexion(int socket_cliente);
+
+// OTROS
 void esperar_cliente(int);
-void* recibir_mensaje_serv(int socket_cliente, int* size);
-int recibir_operacion(int);
-void process_request(int cod_op, int cliente_fd);
 void serve_client(int *socket);
-void* serializar_paquete(t_paquete* paquete, int bytes);
-void devolver_mensaje(void* payload, int size, int socket_cliente);
+void process_request(int cod_op, int cliente_fd);
+
 
 //      LOGGER
 

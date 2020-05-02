@@ -33,7 +33,7 @@ enviar_mensaje(){
 	env(socket,paquete,tamaño_paq,0);
 }
 
-void reciba_mensaje(socket, &buffer, &cod_op){
+t_buffer* reciba_mensaje(socket, cod_op *){
 	...deserializar...
 	return;
 }
