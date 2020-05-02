@@ -6,39 +6,6 @@
  */
 #include "utils.h"
 
-// TODO: MOVER A MODULO
-
-int iniciar_conexion_cliente(char *ip, char* puerto) {
-
-	//Set up conexion
-	struct addrinfo *servinfo = obtener_server_info(ip,puerto); // Address info para la conexion TCP/IP
-	int socket_cliente = obtener_socket(servinfo);
-
-	// Conectarse
-	if (connect(socket_cliente, servinfo->ai_addr, servinfo->ai_addrlen)
-			== -1)
-		printf("error");
-
-	freeaddrinfo(servinfo);
-
-	return socket_cliente;
-}
-
-void iniciar_conexion_servidor(char* ip, char* puerto) {
-
-	//Set up conexion
-	struct addrinfo* servinfo = obtener_server_info(ip,puerto); // Address info para la conexion TCP/IP
-	int socket_servidor = obtener_socket(servinfo);
-	asignar_socket_a_puerto(socket_servidor,servinfo);
-
-	freeaddrinfo(servinfo);
-
-	listen(socket_servidor, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
-
-	while (1)
-		esperar_cliente(socket_servidor);//Queda esperando que un cliente se conecte
-}
-
 // INICIALIZACION DE LA CONEXION
 
 struct addrinfo* obtener_server_info(char * ip, char* puerto) {
@@ -135,13 +102,21 @@ void enviar_mensaje(int socket, t_buffer* buffer, op_code codigo_operacion){
 	free(serializado);
 }
 
-t_buffer* recibir_mensaje(int socket, op_code * operacion){
-		recv(socket, operacion, sizeof(*operacion), 0);// TODO: ultimo parametro customizable?
-		int buffer_size;
-		recv(socket, &buffer_size, sizeof(buffer_size), 0);
+op_code recibir_codigo_operacion(int socket){
+	op_code operacion;
+	if (recv(socket, &operacion, sizeof(operacion), MSG_WAITALL) == -1)
+			operacion= -1;
+	return operacion;
+}
 
-		char *buffer = malloc(buffer_size);
-		recv(socket, buffer, buffer_size, 0);
+t_buffer* recibir_mensaje(int socket){	//TODO: no devuelve un buffer
+
+		t_buffer *buffer = malloc(sizeof(t_buffer));
+
+		recv(socket, &buffer->size, sizeof(buffer->size), 0);
+
+		buffer->stream = malloc(buffer->size);
+		recv(socket, buffer->stream, buffer->size, 0);
 
 		return buffer;
 }
@@ -151,45 +126,5 @@ t_buffer* recibir_mensaje(int socket, op_code * operacion){
 void liberar_conexion(int socket_cliente) {
 	close(socket_cliente);
 }
-
-
-// OTROS
-
-void esperar_cliente(int socket_servidor) {	// Hilo coordinador
-	struct sockaddr_in dir_cliente;	//contiene address de la comunicacion
-
-	int tam_direccion = sizeof(struct sockaddr_in);
-
-	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
-			&tam_direccion);// Acepta el request del cliente y crea el socket
-
-	// Lanzar los hilos handlers
-	pthread_create(&thread, NULL, (void*) serve_client, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
-	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
-}
-
-void serve_client(int* socket) {
-	int cod_op;
-	if (recv(*socket, &cod_op, sizeof(int), MSG_WAITALL) == -1)
-		cod_op = -1;
-	process_request(cod_op, *socket);
-}
-
-void process_request(int cod_op, int cliente_fd) {
-	int size;
-	void* msg;
-	switch (cod_op) {
-	case 1:
-		msg = recibir_mensaje_serv(cliente_fd, &size);
-		devolver_mensaje(msg, size, cliente_fd);
-		free(msg);
-		break;
-	case 0:
-		pthread_exit(NULL);
-	case -1:
-		pthread_exit(NULL);
-	}
-}
-
 
 

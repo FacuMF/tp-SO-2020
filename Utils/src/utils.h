@@ -21,8 +21,13 @@
 #include<commons/string.h>
 #include <readline/readline.h>
 #include<pthread.h>
-#include "utils_mensajes.h"
 
+
+// OP CODES
+typedef enum
+{
+	TEXTO = 1,
+}op_code;
 
 typedef struct
 {
@@ -37,14 +42,7 @@ typedef struct
 } t_paquete;
 
 
-
-
 pthread_t thread;
-
-
-// MOVER A MODULO
-int iniciar_conexion_cliente(char* ip, char* puerto);
-void iniciar_conexion_servidor(char*,char*);
 
 // INICIALIZACION DE LA CONEXION
 struct addrinfo* obtener_server_info(char* , char*);
@@ -52,21 +50,16 @@ int obtener_socket(struct addrinfo* );
 void asignar_socket_a_puerto(int,struct addrinfo*);
 
 // MANIPULACION MENSAJES
-void enviar_mensaje(int socket, t_buffer buffer, op_code codigo_operacion);
+void enviar_mensaje(int , t_buffer* , op_code );
 
 t_paquete* generar_paquete(t_buffer* , op_code); // DE UN BUFFER Y OP CODE SACA UN PAQUETE
 void* serializar_paquete(t_paquete* paquete, int *bytes); // DE UN PAQUETE OBTENGO UN STREAM Y LOS BYTES
 
-t_buffer* recibir_mensaje(int socket, op_code *);// DE UN SOCKET, DEVUELVE UN BUFFER Y UN OPCODE POR REFERENCIA.
+op_code recibir_codigo_operacion(int socket);
+t_buffer* recibir_mensaje(int socket);// DE UN SOCKET, DEVUELVE UN BUFFER Y UN OPCODE POR REFERENCIA.
 
 // TERMINAR CONEXION
 void liberar_conexion(int socket_cliente);
-
-// OTROS
-void esperar_cliente(int);
-void serve_client(int *socket);
-void process_request(int cod_op, int cliente_fd);
-
 
 //      LOGGER
 

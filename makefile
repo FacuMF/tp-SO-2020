@@ -1,7 +1,7 @@
 COMPILER=gcc
 BIN_PATH=bin
 LIBS = -lreadline -lcommons -lpthread
-UTILS = Utils/src/utils_comunicacion.c Utils/src/utils_config.c Utils/src/utils_logger.c Utils/src/utils.h
+UTILS = Utils/src/utils_comunicacion.c Utils/src/utils_config.c Utils/src/utils_logger.c Utils/src/utils.h Utils/src/utils_mensajes.c Utils/src/utils_mensajes.h
 CLIENTE = Cliente/src
 SERVIDOR = Servidor/src
 all:

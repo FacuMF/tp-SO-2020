@@ -8,16 +8,22 @@
 #ifndef SERVIDOR_H_		// Si el header del servidor no fue definido previamente...
 #define SERVIDOR_H_		// hacer todo lo que sigue
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<commons/log.h>
-#include<commons/config.h>
+
 #include "../../Utils/src/utils.h"
+#include "../../Utils/src/utils_mensajes.h"
 
 
 t_log* logger;
+t_config* config;
 
+
+void iniciar_conexion_servidor(char* ip, char* puerto);
 void finalizar_ejecucion(t_log*,t_config*);
+
+// OTROS
+void setear_socket_reusable(int);
+void esperar_cliente(int);
+void serve_client(int *socket);
+void process_request(int cod_op, int cliente_fd);
 
 #endif /* SERVIDOR_H_ */
