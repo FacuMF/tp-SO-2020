@@ -14,6 +14,7 @@ int main(void)
 
 	// Iniciar Logger
 	logger = iniciar_logger("./servidor.log","Server");
+	log_info(logger,"");
 
 	// Leer config
 	config = leer_config("/home/utnso/Documentos/tp-2020-1c-PokEbola/Cliente/src/cliente.config");

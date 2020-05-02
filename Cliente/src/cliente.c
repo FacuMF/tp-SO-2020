@@ -9,7 +9,7 @@ int main(void) {
 
 	// Iniciar Logger
 	logger = iniciar_logger("./cliente.log", "Cliente");
-
+	log_info(logger,"");
 	// Leer Config
 	config =
 			leer_config(

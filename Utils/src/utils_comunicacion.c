@@ -100,7 +100,6 @@ void enviar_mensaje(int socket, t_buffer* buffer, op_code codigo_operacion){
 	free(paquete->buffer);
 	*/
 	free(paquete);
-
 	free(serializado);
 
 }
@@ -112,11 +111,12 @@ op_code recibir_codigo_operacion(int socket){
 	return operacion;
 }
 
-t_buffer* recibir_mensaje(int socket){	//TODO: no devuelve un buffer
+t_buffer* recibir_mensaje(int socket){
 
 		t_buffer *buffer = malloc(sizeof(t_buffer));
 
-		recv(socket, &buffer->size, sizeof(buffer->size), 0);
+		int bytes_recibidos = recv(socket, &buffer->size, sizeof(buffer->size), 0);
+		if(bytes_recibidos<0)/*TODO: Tirar error*/;
 
 		buffer->stream = malloc(buffer->size);
 		recv(socket, buffer->stream, buffer->size, 0);
