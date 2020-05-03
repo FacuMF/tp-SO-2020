@@ -5,15 +5,15 @@ int main(void) {
 	int conexion;
 	char* ip;
 	char* puerto;
-	char * mensaje_a_enviar = "OLA";
+	char * mensaje_a_enviar = "ESTE ES EL MENSAJE XD";
+
+
 
 	// Iniciar Logger
-	logger = iniciar_logger("/home/utnso/tp-2020-1c-PokEbola/Base/Servidor/config/cliente.log", "Cliente");
-	log_info(logger,"");
+	logger = iniciar_logger("./Base/Cliente/config/cliente.log", "Cliente");
+	log_info(logger,"Primer log ingresado");
 	// Leer Config
-	config =
-			leer_config(
-					"/home/utnso/tp-2020-1c-PokEbola/Base/Cliente/config/cliente.config");
+	config =leer_config("./Base/Cliente/config/cliente.config");
 	ip = config_get_string_value(config, "IP");
 	puerto = config_get_string_value(config, "PUERTO");
 

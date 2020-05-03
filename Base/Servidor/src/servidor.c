@@ -13,11 +13,11 @@ int main(void)
 	char * puerto ;
 
 	// Iniciar Logger
-	logger = iniciar_logger("/home/utnso/tp-2020-1c-PokEbola/Base/Servidor/config/servidor.log","Server");
-	log_info(logger,"");
+	logger = iniciar_logger("./Base/Servidor/config/servidor.log","Server");
+	log_info(logger,"Primer log ingresado");
 
 	// Leer config
-	config = leer_config("/home/utnso/tp-2020-1c-PokEbola/Base/Servidor/config/servidor.config");
+	config = leer_config("./Base/Servidor/config/servidor.config");
 	ip = config_get_string_value(config, "IP");
 	puerto = config_get_string_value(config, "PUERTO");
 
