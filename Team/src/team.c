@@ -7,14 +7,14 @@ int main(void){
 	int cantidadEntrenadores;
 	t_config* config;
 	entrenador * head = NULL;
-	iniciarListaEntrenador(&head);
-	//Obtener de config los arrays y cargar las caracteristicas de los entrenadores a mi head
+	iniciarListaEntrenador(head);
+	// Obtener de config los arrays y cargar las caracteristicas de los entrenadores a mi head
 	//config_get_array_value(config,"POSICION_ENTRENADORES");
 	//config_get_array_value(config,"POKEMON_ENTRENADORES");
 	//config_get_array_value(config,"OBJETIVOS_ENTRENADORES");
 	cantidadEntrenadores = length(head);
 
-	//hilos
+	// Hilos con semáforos mutex
 	pthread_t tid[cantidadEntrenadores];
 		int i = 0;
 	    int err;
@@ -44,7 +44,7 @@ void iniciarListaEntrenador(entrenador * head){
 		}
 }
 
-//Largo de la lista de entrenadores
+// Largo de la lista de entrenadores
 int length(entrenador * head){
 	int contador = 0;
 	while(head!=NULL){
@@ -54,7 +54,7 @@ int length(entrenador * head){
 	return contador;
 }
 
-//Función al hacer entre hilos
+// Función al hacer entre hilos *por completar*
 void* doSomeThing(void *arg){
 
     pthread_mutex_lock(&lock);

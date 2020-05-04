@@ -9,7 +9,6 @@
 #include<commons/config.h>
 #include<readline/readline.h>
 
-#include<string.h>
 #include<pthread.h>
 #include<unistd.h>
 
@@ -22,8 +21,7 @@ typedef struct pokemones {
 
 
 typedef struct node {
-    int posX;
-    int posY;
+    int posicion[2];
     pokemones pokemonesObtenido;
     pokemones pokemonesPorObtener;
     struct node * next;
