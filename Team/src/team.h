@@ -7,6 +7,7 @@
 #include<commons/log.h>
 #include<commons/string.h>
 #include<commons/config.h>
+#include<commons/collections/list.h>
 #include<readline/readline.h>
 
 #include<pthread.h>
@@ -29,7 +30,7 @@ typedef struct node {
 
 
 
-
+void printoutarray(char ** pointeratoarray);
 void* doSomeThing(void *arg);
 void iniciarListaEntrenador(entrenador *);
 int length(entrenador *);
