@@ -4,47 +4,33 @@ int counter;
 pthread_mutex_t lock;
 
 int main(void){
-	// ** INICIALIZACION **
 
-
-//	int cantidad_entrenadores;
-	int i;
-	// Iniciar Logger
+	// Inicializacion
 	logger = iniciar_logger("./Team/config/team.log","Team");
 	log_info(logger,"Primer log ingresado");
 
-	//		** Obtener los entrenadores y localizarlos **
-
+	// Leer configuracion
 	config =leer_config("./Team/config/team.config");
 	log_info(logger,"Config creada");
-	t_list * head_entrenadores = list_create();
 
 	char ** posiciones = config_get_array_value(config,"POSICIONES_ENTRENADORES");
 	char ** pokemones_capturados = config_get_array_value(config,"POKEMON_ENTRENADORES");
 	char ** objetivos = config_get_array_value(config,"OBJETIVOS_ENTRENADORES");
-	for(i=0; i<3; i++){
-			log_info(logger,
-					"Leido de config entrenador %i: Posicion: %s , Pokes capturados: %s , Pokes por capturar: %s .",
-					i+1 ,posiciones[i] ,pokemones_capturados[i] ,objetivos[i] );
-	}
 
-	//cargar_y_localizar_entrenadores(head_entrenadores, posiciones, pokemones_capturados, objetivos);
-
+	// Cargado de entrenadores
+	t_list * head_entrenadores =  cargar_entrenadores(posiciones, pokemones_capturados, objetivos);
+	log_info(logger,"Entrenadores cargados");
+	//TBR
+	mostrar_entrenadores(head_entrenadores);
 
 
+	// Crear objetivo global
 
 
+	// Suscribirse a la msj queue. Puede funcar sin broker.
 
 
-
-
-
-
-
-
-
-
-
+	// MANEJO DE HILOS
 	/*
 	char entrenadores[3][50];
 	for(i=0;i<3;i++){
@@ -72,60 +58,18 @@ int main(void){
 	    pthread_join(tid[i], NULL);
 	    pthread_mutex_destroy(&lock);
 	    }
-	    */
+	 */
 
 	terminar_logger(logger);
 	config_destroy(config);
 
-
 }
 
 
-/*
-//No funciona
-void cargar_y_localizar_entrenadores(t_list* head_entrenadores, char** posiciones, char** pokemones_capturados,char** objetivos){
-	entrenador* aux;
-	int i;
-
-	for (i=0; i<=10; i++){
-		aux->posicion = de_string_a_posicion(posiciones[i]);
-
-		aux->pokemones_capturados = de_string_a_pokemon(pokemones_capturados[i]);
-
-		aux->pokemones_por_capturar = de_string_a_pokemon(objetivos[i]);
-
-		list_add(head_entrenadores, aux);
-
-	}
-
-	free(aux);
-}
-*/
-
-int* de_string_a_posicion(char* string) {
-	char** posicion_prueba = string_split(string, "|");
-	int* posicion = malloc(sizeof(int)*3);
-
-	posicion[0] = atoi(posicion_prueba[0]);
-	posicion[1]= atoi(posicion_prueba[1]);
-
-	return posicion;
-}
-
-/*
-//No Funciona
-char** de_string_a_pokemones(char* string) {
-	char** pokemones = string_split(string, "|");
-
-	return pokemones;
-}
-*/
 
 
-/*
+//MANEJO DE HILOS
 
-
-// Función al hacer entre hilos *por completar*
 /*
 void* doSomeThing(void *arg){
 
@@ -140,3 +84,64 @@ void* doSomeThing(void *arg){
 */
 
 
+// MANEJO DE LISTAS
+
+t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,char** objetivos){
+
+	log_info(logger,"Entre a funcion");
+
+	t_list* head_entrenadores = list_create();
+
+	log_info(logger,"Cree lista entrenadores");
+
+	int i=0;
+	while(posiciones[i]!= NULL){	// TODO: Cambiar a for
+		t_entrenador * entrenador = malloc(sizeof(t_entrenador));
+		entrenador->posicion = de_string_a_posicion(posiciones[i]);
+		entrenador->pokemones_capturados = string_a_pokemon_list(pokemones_capturados[i]);
+		entrenador->pokemones_por_capturar = string_a_pokemon_list(objetivos[i]);
+
+		list_add(head_entrenadores, entrenador);
+
+		i++;
+	}
+	return(head_entrenadores);
+}
+void mostrar_entrenadores(t_list * head_entrenadores){
+	t_entrenador * entrenador = malloc(sizeof(t_entrenador));
+
+	for(int i = 0;(entrenador = list_get(head_entrenadores,i)!=NULL);i++){
+		log_info(logger,"Data Entrenador %i: Posicion %i %i", i,entrenador->posicion[0],entrenador->posicion[1]);
+		char*pokemon;
+		for(int j = 0;(pokemon = list_get(entrenador->pokemones_capturados,j))!=NULL;j++) log_info(logger,"%s",pokemon);
+		for(int j = 0;(pokemon = list_get(entrenador->pokemones_por_capturar,j))!=NULL;j++) log_info(logger,"%s",pokemon);
+		i++;
+	}
+}
+
+// PARSERS DE INPUT DATA
+
+int* de_string_a_posicion(char* cadena_con_posiciones) {
+	char** posicion_prueba = string_split(cadena_con_posiciones, "|");
+
+	int* posicion = malloc(sizeof(int)*3);
+	posicion[0] = atoi(posicion_prueba[0]);
+	posicion[1]= atoi(posicion_prueba[1]);
+
+	return posicion;
+}
+t_list* string_a_pokemon_list(char* cadena_con_pokemones) {
+	char** pokemones = string_split(cadena_con_pokemones, "|");
+
+	t_list* head_pokemones = list_create();
+
+	int i = 0;
+
+	while(pokemones[i]!=NULL){
+		list_add(head_pokemones,pokemones[i]);
+		i++;
+	}
+
+	return head_pokemones;
+
+}

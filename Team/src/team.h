@@ -21,28 +21,38 @@ t_log* logger;
 t_config* config;
 
 
+typedef enum{
+	Pikachu,
+	Squirtle,
+	Pidgey,
+	Charmander,
+	Bulbasaur
+}t_pokemones;
 
-typedef struct pokemones {
-	char * pokemon;
-}pokemones;
+//TODO: chequear si va abajo o arriba o ambos
+typedef struct t_pokemon{
+	char * nombre;
+}t_pokemon;
 
 
-typedef struct node {
-    int posicion[2];
-    char** pokemones_capturados;
-    char** pokemones_por_capturar;
-} entrenador;
+typedef struct t_entrenador {
+    int * posicion;
+    t_list* pokemones_capturados;
+    t_list* pokemones_por_capturar;
+} t_entrenador;
 
 
 
 
 void* doSomeThing(void *arg);
-void iniciarListaEntrenador(entrenador *);
-int length(entrenador *);
+void iniciarListaEntrenador(t_entrenador *);
+int length(t_entrenador *);
 
-void cargar_y_localizar_entrenadores(t_list* head_entrenadores, char** posiciones, char** pokemones_capturados,char** objetivos);
+
+void mostrar_entrenadores(t_list * head_entrenadores);
+t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,char** objetivos);
 int* de_string_a_posicion(char* string);
-char** de_string_a_pokemones(char* string);
+t_list* string_a_pokemon_list(char* string);
 
 
 #endif /* TEAM_H_ */
