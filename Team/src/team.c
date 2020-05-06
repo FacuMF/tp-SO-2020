@@ -25,15 +25,10 @@ int main(void){
 	for(i=0; i<3; i++){
 			log_info(logger,
 					"Leido de config entrenador %i: Posicion: %s , Pokes capturados: %s , Pokes por capturar: %s .",
-					i ,posiciones[i] ,pokemones_capturados[i] ,objetivos[i] );
+					i+1 ,posiciones[i] ,pokemones_capturados[i] ,objetivos[i] );
 	}
 
 	//cargar_y_localizar_entrenadores(head_entrenadores, posiciones, pokemones_capturados, objetivos);
-
-
-
-
-
 
 
 
@@ -87,6 +82,7 @@ int main(void){
 
 
 /*
+//No funciona
 void cargar_y_localizar_entrenadores(t_list* head_entrenadores, char** posiciones, char** pokemones_capturados,char** objetivos){
 	entrenador* aux;
 	int i;
@@ -104,14 +100,20 @@ void cargar_y_localizar_entrenadores(t_list* head_entrenadores, char** posicione
 
 	free(aux);
 }
+*/
 
 int* de_string_a_posicion(char* string) {
-	void (*pasar_a_int)(char*) = &atoi;             // atoi(): char* => int    Pasa un numero de string a int
-	int* posicion = string_iterate_lines( string_split(string, "|") , pasar_a_int);
+	char** posicion_prueba = string_split(string, "|");
+	int* posicion = malloc(sizeof(int)*3);
+
+	posicion[0] = atoi(posicion_prueba[0]);
+	posicion[1]= atoi(posicion_prueba[1]);
 
 	return posicion;
 }
 
+/*
+//No Funciona
 char** de_string_a_pokemones(char* string) {
 	char** pokemones = string_split(string, "|");
 
