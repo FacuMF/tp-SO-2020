@@ -30,10 +30,10 @@ typedef enum{
 }t_pokemones;
 
 //TODO: chequear si va abajo o arriba o ambos
-typedef struct t_pokemon{
-	char * nombre;
-}t_pokemon;
-
+typedef struct t_objetivo{
+	char * pokemon;
+	int cantidad;
+}t_objetivo;
 
 typedef struct t_entrenador {
     int * posicion;
@@ -42,18 +42,11 @@ typedef struct t_entrenador {
 } t_entrenador;
 
 
-
-
-void* doSomeThing(void *arg);
-void iniciarListaEntrenador(t_entrenador *);
-int length(t_entrenador *);
-
-
 void mostrar_entrenadores(t_list * head_entrenadores);
 t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,char** objetivos);
 int* de_string_a_posicion(char* string);
 t_list* string_a_pokemon_list(char* string);
-
+t_list* obtener_pokemones(t_list *head_entrenadores);
 
 #endif /* TEAM_H_ */
 

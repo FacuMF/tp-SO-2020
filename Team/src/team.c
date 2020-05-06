@@ -22,10 +22,22 @@ int main(void){
 	log_info(logger,"Entrenadores cargados");
 	//TBR
 	mostrar_entrenadores(head_entrenadores);
+	log_info(logger,"Entrenadores mostrados");
 
 
-	// Crear objetivo global
+	// Crear objetivo global - Lista a partir de los pokemones_a_capturar de cada entrenador
+	t_list * objetivo_global = list_create();
+	t_list * pokemones_repetidos = obtener_pokemones(head_entrenadores);
 
+	//TBR
+	char*kokemon;
+	for(int i = 0;(kokemon= list_get(pokemones_repetidos,i))!=NULL;i++)log_info(logger,kokemon);
+
+
+
+	// Si el pokemon ya existe, sumarle la cantidad
+
+	// Si el pokemon no existe, agregarlo a la lista con cantidad 1
 
 	// Suscribirse a la msj queue. Puede funcar sin broker.
 
@@ -65,7 +77,18 @@ int main(void){
 
 }
 
+// OBJETIVO GLOBAL
+t_list* obtener_pokemones(t_list *head_entrenadores){
+	t_list * pokemones_repetidos = list_create();
+	t_entrenador * entrenador;
+	char * pokemon;
 
+	for(int i = 0;(entrenador = list_get(head_entrenadores,i))!=NULL;i++){
+		for(int j = 0;(pokemon = list_get(entrenador->pokemones_por_capturar,j))!=NULL;j++)
+			list_add(pokemones_repetidos,pokemon);
+	}
+	return pokemones_repetidos;
+}
 
 
 //MANEJO DE HILOS
@@ -110,7 +133,7 @@ t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,char*
 void mostrar_entrenadores(t_list * head_entrenadores){
 	t_entrenador * entrenador = malloc(sizeof(t_entrenador));
 
-	for(int i = 0;(entrenador = list_get(head_entrenadores,i)!=NULL);i++){
+	for(int i = 0;(entrenador = list_get(head_entrenadores,i))!=NULL;i++){
 		log_info(logger,"Data Entrenador %i: Posicion %i %i", i,entrenador->posicion[0],entrenador->posicion[1]);
 		char*pokemon;
 		for(int j = 0;(pokemon = list_get(entrenador->pokemones_capturados,j))!=NULL;j++) log_info(logger,"%s",pokemon);
