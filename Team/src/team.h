@@ -29,17 +29,20 @@ typedef struct pokemones {
 
 typedef struct node {
     int posicion[2];
-    pokemones pokemones_capturados;
-    pokemones pokemones_por_capturar;
+    char** pokemones_capturados;
+    char** pokemones_por_capturar;
 } entrenador;
 
 
 
-void printoutarray(char ** pointeratoarray);
+
 void* doSomeThing(void *arg);
 void iniciarListaEntrenador(entrenador *);
 int length(entrenador *);
+
 void cargar_y_localizar_entrenadores(t_list* head_entrenadores, char** posiciones, char** pokemones_capturados,char** objetivos);
+int* de_string_a_posicion(char* string);
+char** de_string_a_pokemones(char* string);
 
 
 #endif /* TEAM_H_ */

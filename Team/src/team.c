@@ -6,9 +6,9 @@ pthread_mutex_t lock;
 int main(void){
 	// ** INICIALIZACION **
 
-	int i;
-//	int cantidad_entrenadores;
 
+//	int cantidad_entrenadores;
+	int i;
 	// Iniciar Logger
 	logger = iniciar_logger("./Team/config/team.log","Team");
 	log_info(logger,"Primer log ingresado");
@@ -20,13 +20,32 @@ int main(void){
 	t_list * head_entrenadores = list_create();
 
 	char ** posiciones = config_get_array_value(config,"POSICIONES_ENTRENADORES");
-	log_info(logger, "Leido de config, posiciones: %s", config_get_string_value(config, "POSICIONES_ENTRENADORES"));
 	char ** pokemones_capturados = config_get_array_value(config,"POKEMON_ENTRENADORES");
-	log_info(logger, "Leido de config, pokemones capturados: %s", config_get_string_value(config, "POKEMON_ENTRENADORES"));
 	char ** objetivos = config_get_array_value(config,"OBJETIVOS_ENTRENADORES");
-	log_info(logger, "Leido de config, pokemones por capturar: %s", config_get_string_value(config, "OBJETIVOS_ENTRENADORES"));
+	for(i=0; i<3; i++){
+			log_info(logger,
+					"Leido de config entrenador %i: Posicion: %s , Pokes capturados: %s , Pokes por capturar: %s .",
+					i ,posiciones[i] ,pokemones_capturados[i] ,objetivos[i] );
+	}
 
-	cargar_y_localizar_entrenadores(head_entrenadores, posiciones, pokemones_capturados, objetivos);
+	//cargar_y_localizar_entrenadores(head_entrenadores, posiciones, pokemones_capturados, objetivos);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -66,34 +85,46 @@ int main(void){
 
 }
 
+
+/*
 void cargar_y_localizar_entrenadores(t_list* head_entrenadores, char** posiciones, char** pokemones_capturados,char** objetivos){
 	entrenador* aux;
-	int contador;
+	int i;
 
-	for(contador=0, contador<=10, contador++){
-		aux->posicion = de_string_a_posicion(posiciones[contador]);
-		aux->pokemones_capturados = pokemones_capturados[contador];
-		aux->pokemones_por_capturar = objetivos[contador];
+	for (i=0; i<=10; i++){
+		aux->posicion = de_string_a_posicion(posiciones[i]);
 
-		list_add(head_entrenadores, aux)
+		aux->pokemones_capturados = de_string_a_pokemon(pokemones_capturados[i]);
+
+		aux->pokemones_por_capturar = de_string_a_pokemon(objetivos[i]);
+
+		list_add(head_entrenadores, aux);
 
 	}
 
 	free(aux);
 }
 
+int* de_string_a_posicion(char* string) {
+	void (*pasar_a_int)(char*) = &atoi;             // atoi(): char* => int    Pasa un numero de string a int
+	int* posicion = string_iterate_lines( string_split(string, "|") , pasar_a_int);
+
+	return posicion;
+}
+
+char** de_string_a_pokemones(char* string) {
+	char** pokemones = string_split(string, "|");
+
+	return pokemones;
+}
+*/
 
 
 /*
-void printoutarray(char ** pointeratoarray){
-	int i,j;
-	for( i=0;i<=2;i++){
-		for(j=0;j<=2;j++){
-			printf("\n Element is: %s \n",&pointeratoarray[i]);
-	}
-}
+
 
 // Función al hacer entre hilos *por completar*
+/*
 void* doSomeThing(void *arg){
 
     pthread_mutex_lock(&lock);
