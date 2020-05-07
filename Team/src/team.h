@@ -41,6 +41,7 @@ typedef struct t_entrenador {
     t_list* pokemones_por_capturar;
 } t_entrenador;
 
+void mostrar_data_entrenador(void * element);
 t_list* formar_objetivo(t_list * pokemones_repetidos);
 void mostrarObjetivo(void *elemento);
 void agrego_si_no_existe(t_list * objetivo_global,void *elemento);

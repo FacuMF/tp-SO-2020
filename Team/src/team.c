@@ -175,15 +175,14 @@ t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,char*
 	return(head_entrenadores);
 }
 void mostrar_entrenadores(t_list * head_entrenadores){
-	t_entrenador * entrenador = malloc(sizeof(t_entrenador));
+	list_iterate(head_entrenadores,mostrar_data_entrenador);
+}
 
-	for(int i = 0;(entrenador = list_get(head_entrenadores,i))!=NULL;i++){
-		log_info(logger,"Data Entrenador %i: Posicion %i %i", i,entrenador->posicion[0],entrenador->posicion[1]);
-		char*pokemon;
-		for(int j = 0;(pokemon = list_get(entrenador->pokemones_capturados,j))!=NULL;j++) log_info(logger,"%s",pokemon);
-		for(int j = 0;(pokemon = list_get(entrenador->pokemones_por_capturar,j))!=NULL;j++) log_info(logger,"%s",pokemon);
-		i++;
-	}
+void mostrar_data_entrenador(void * element){
+	t_entrenador * entrenador = element;
+	log_info(logger,"Data Entrenador: Posicion %i %i",entrenador->posicion[0],entrenador->posicion[1]);
+	list_iterate(entrenador->pokemones_capturados, mostrarKokemon);
+	list_iterate(entrenador->pokemones_por_capturar, mostrarKokemon);
 }
 
 // PARSERS DE INPUT DATA
