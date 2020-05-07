@@ -41,16 +41,27 @@ typedef struct t_entrenador {
     t_list* pokemones_por_capturar;
 } t_entrenador;
 
-void mostrar_data_entrenador(void * element);
-t_list* formar_objetivo(t_list * pokemones_repetidos);
-void mostrarObjetivo(void *elemento);
-void agrego_si_no_existe(t_list * objetivo_global,void *elemento);
-void mostrarKokemon(void*elemento);
-void mostrar_entrenadores(t_list * head_entrenadores);
+// Funciones de carga de entrenador
 t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,char** objetivos);
 int* de_string_a_posicion(char* string);
 t_list* string_a_pokemon_list(char* string);
+
+//Funciones de mostrado de entrenador y pokemon  (TBR)
+void mostrar_entrenadores(t_list * head_entrenadores);
+void mostrar_data_entrenador(void * element);
+void mostrar_kokemon(void*elemento);
+
+//Funciones de obtencion de los pokemones
 t_list* obtener_pokemones(t_list *head_entrenadores);
+void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones);
+
+//Funciones de objetivo general
+t_list* formar_objetivo(t_list * pokemones_repetidos);
+void agrego_si_no_existe(t_list * objetivo_global,void *elemento);
+void mostrar_objetivo(void *elemento);
+
+
+
 
 #endif /* TEAM_H_ */
 

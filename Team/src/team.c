@@ -18,25 +18,26 @@ int main(void){
 	char ** objetivos = config_get_array_value(config,"OBJETIVOS_ENTRENADORES");
 
 	// Cargado de entrenadores
+
 	t_list * head_entrenadores =  cargar_entrenadores(posiciones, pokemones_capturados, objetivos);
 	log_info(logger,"--- Entrenadores cargados ---");
-	//TBR
+
+	//Mostrar Entrenadores (TBR)
 	mostrar_entrenadores(head_entrenadores);
 	log_info(logger," ---- Entrenadores mostrados ----");
 
 	// Crear objetivo global - Lista a partir de los pokemones_a_capturar de cada entrenador
-	t_list * pokemones_repetidos = obtener_pokemones(head_entrenadores);
-	log_info(logger," ---- Repetidos Obtenidos ----");
-	list_iterate(pokemones_repetidos,mostrarKokemon); //TBR - mostrar los repetdios
 
-	log_info(logger," ---- Repetidos mostrados ----");
+	t_list * pokemones_repetidos = obtener_pokemones(head_entrenadores);
+	log_info(logger," ---- Pokemons Obtenidos ----");
+
+	list_iterate(pokemones_repetidos,mostrar_kokemon); //TBR - mostrar los repetdios
+	log_info(logger," ---- Pokemons mostrados ----");
 
 	t_list * objetivo_global = formar_objetivo(pokemones_repetidos);
-
 	log_info(logger," ---- Objetivos Formado ----");
 
-	list_iterate(objetivo_global,mostrarObjetivo);
-
+	list_iterate(objetivo_global,mostrar_objetivo);
 	log_info(logger," ---- Objetivos Mostrados ----");
 	// Suscribirse a la msj queue. Puede funcar sin broker.
 
@@ -76,64 +77,128 @@ int main(void){
 
 }
 
+//Cargar entrenadores
+	t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,char** objetivos){
+
+		log_info(logger,"Entre a funcion");
+
+		t_list* head_entrenadores = list_create();
+
+		log_info(logger,"Cree lista entrenadores");
+
+		int i=0;
+
+		while(posiciones[i]!= NULL){	// TODO: Cambiar a for
+			t_entrenador * entrenador = malloc(sizeof(t_entrenador));
+			entrenador->posicion = de_string_a_posicion(posiciones[i]);
+			entrenador->pokemones_capturados = string_a_pokemon_list(pokemones_capturados[i]);
+			entrenador->pokemones_por_capturar = string_a_pokemon_list(objetivos[i]);
+			list_add(head_entrenadores, entrenador);
+			i++;
+			}
+		return(head_entrenadores);
+	}
+
+
+
+// PARSERS DE INPUT DATA
+
+	int* de_string_a_posicion(char* cadena_con_posiciones) {
+		char** posicion_prueba = string_split(cadena_con_posiciones, "|");
+
+		int* posicion = malloc(sizeof(int)*3);
+		posicion[0] = atoi(posicion_prueba[0]);
+		posicion[1]= atoi(posicion_prueba[1]);
+
+		return posicion;
+	}
+
+	t_list* string_a_pokemon_list(char* cadena_con_pokemones) {
+		char** pokemones = string_split(cadena_con_pokemones, "|");
+
+		t_list* head_pokemones = list_create();
+
+		int i = 0;
+
+		while(pokemones[i]!=NULL){
+			list_add(head_pokemones,pokemones[i]);
+			i++;
+		}
+
+		return head_pokemones;
+
+	}
+
+// Mostrar entrenadores
+	void mostrar_entrenadores(t_list * head_entrenadores){
+		list_iterate(head_entrenadores,mostrar_data_entrenador);
+	}
+
+	void mostrar_data_entrenador(void * element){
+		t_entrenador * entrenador = element;
+		log_info(logger,"Data Entrenador: Posicion %i %i",entrenador->posicion[0],entrenador->posicion[1]);
+		list_iterate(entrenador->pokemones_capturados, mostrar_kokemon);
+		list_iterate(entrenador->pokemones_por_capturar, mostrar_kokemon);
+	}
+
 // OBJETIVO GLOBAL
+	t_list* obtener_pokemones(t_list *head_entrenadores){
+		t_list * pokemones_repetidos = list_create();
+		void aniadir_pokemon_aux(void *pokemones){
+				aniadir_pokemon(pokemones_repetidos,pokemones);
+			}
+		void buscar_pokemon(void * head){
+						t_entrenador *entrenador=head;
+						list_iterate(entrenador->pokemones_por_capturar,aniadir_pokemon_aux);
+					}
 
-t_list* formar_objetivo(t_list * pokemones_repetidos){
-	t_list * objetivo_global = list_create();
-
-	void _agrego_si_no_existe(void *elemento){ // USO INNER FUNCTIONS TODO: pasar a readme
-		 agrego_si_no_existe(objetivo_global,elemento);
+		list_iterate(head_entrenadores,buscar_pokemon);
+		return pokemones_repetidos;
+	}
+	void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones){
+		list_add(pokemones_repetidos,pokemones);
 	}
 
-	list_iterate(pokemones_repetidos,_agrego_si_no_existe);
+	t_list* formar_objetivo(t_list * pokemones_repetidos){
+			t_list * objetivo_global = list_create();
+			void agrego_si_no_existe_aux(void *elemento){ // USO INNER FUNCTIONS TODO: pasar a readme
+				agrego_si_no_existe(objetivo_global,elemento);
+			}
 
-	return objetivo_global;
-}
+			list_iterate(pokemones_repetidos,agrego_si_no_existe_aux);
 
+			return objetivo_global;
+	}
+	void agrego_si_no_existe(t_list * objetivo_global,void *nombrePokemon){
+		bool _yaExiste(void *inputObjetivo){
+			t_objetivo *cadaObjetivo = inputObjetivo;
+			return !strcmp(cadaObjetivo->pokemon,nombrePokemon);
+			}
 
-void agrego_si_no_existe(t_list * objetivo_global,void *nombrePokemon){
-	bool _yaExiste(void *inputObjetivo){
-		t_objetivo *cadaObjetivo = inputObjetivo;
-		return !strcmp(cadaObjetivo->pokemon,nombrePokemon);
+		t_objetivo *objetivo =list_find(objetivo_global,_yaExiste);
+
+		if(objetivo!=NULL){
+			objetivo->cantidad++;
+		}else{
+			t_objetivo * nuevo_objetivo = malloc(sizeof(t_objetivo));
+			nuevo_objetivo->cantidad = 1;
+			nuevo_objetivo->pokemon = nombrePokemon;
+			list_add(objetivo_global,nuevo_objetivo);
+		}
+
 	}
 
-	t_objetivo *objetivo =list_find(objetivo_global,_yaExiste);
+	void mostrar_kokemon(void*elemento){
+		log_info(logger,elemento);
+		}
 
-	if(objetivo!=NULL){
-		objetivo->cantidad++;
-	}else{
-		t_objetivo * nuevo_objetivo = malloc(sizeof(t_objetivo));
-		nuevo_objetivo->cantidad = 1;
-		nuevo_objetivo->pokemon = nombrePokemon;
-		list_add(objetivo_global,nuevo_objetivo);
+	void mostrar_objetivo(void *elemento){
+		log_info(logger,"Data de objetivo!");
+
+		t_objetivo *objetivo = elemento;
+		log_info(logger, "objetivo: %s", objetivo->pokemon);
+		log_info(logger, "objetivo: %i", objetivo->cantidad);
 	}
-
-}
-
-void mostrarKokemon(void*elemento){	//TODO: Cambiar a naming convention
-	log_info(logger,elemento);
-}
-
-
-t_list* obtener_pokemones(t_list *head_entrenadores){
-	t_list * pokemones_repetidos = list_create();
-	t_entrenador * entrenador;
-	char * pokemon;
-
-	for(int i = 0;(entrenador = list_get(head_entrenadores,i))!=NULL;i++){
-		for(int j = 0;(pokemon = list_get(entrenador->pokemones_por_capturar,j))!=NULL;j++)
-			list_add(pokemones_repetidos,pokemon);
-	}
-	return pokemones_repetidos;
-}
-
-void mostrarObjetivo(void *elemento){
-	log_info(logger,"Data de objetivo!");
-	t_objetivo * objetivo= malloc(sizeof(t_objetivo));	// Sacar esto?
-	objetivo = elemento;
-	log_info(logger, "objetivo: %s", objetivo->pokemon);
-	log_info(logger, "objetivo: %i", objetivo->cantidad);
-}
 
 //MANEJO DE HILOS
 
@@ -153,61 +218,6 @@ void* doSomeThing(void *arg){
 
 // MANEJO DE LISTAS
 
-t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,char** objetivos){
 
-	log_info(logger,"Entre a funcion");
 
-	t_list* head_entrenadores = list_create();
 
-	log_info(logger,"Cree lista entrenadores");
-
-	int i=0;
-	while(posiciones[i]!= NULL){	// TODO: Cambiar a for
-		t_entrenador * entrenador = malloc(sizeof(t_entrenador));
-		entrenador->posicion = de_string_a_posicion(posiciones[i]);
-		entrenador->pokemones_capturados = string_a_pokemon_list(pokemones_capturados[i]);
-		entrenador->pokemones_por_capturar = string_a_pokemon_list(objetivos[i]);
-
-		list_add(head_entrenadores, entrenador);
-
-		i++;
-	}
-	return(head_entrenadores);
-}
-void mostrar_entrenadores(t_list * head_entrenadores){
-	list_iterate(head_entrenadores,mostrar_data_entrenador);
-}
-
-void mostrar_data_entrenador(void * element){
-	t_entrenador * entrenador = element;
-	log_info(logger,"Data Entrenador: Posicion %i %i",entrenador->posicion[0],entrenador->posicion[1]);
-	list_iterate(entrenador->pokemones_capturados, mostrarKokemon);
-	list_iterate(entrenador->pokemones_por_capturar, mostrarKokemon);
-}
-
-// PARSERS DE INPUT DATA
-
-int* de_string_a_posicion(char* cadena_con_posiciones) {
-	char** posicion_prueba = string_split(cadena_con_posiciones, "|");
-
-	int* posicion = malloc(sizeof(int)*3);
-	posicion[0] = atoi(posicion_prueba[0]);
-	posicion[1]= atoi(posicion_prueba[1]);
-
-	return posicion;
-}
-t_list* string_a_pokemon_list(char* cadena_con_pokemones) {
-	char** pokemones = string_split(cadena_con_pokemones, "|");
-
-	t_list* head_pokemones = list_create();
-
-	int i = 0;
-
-	while(pokemones[i]!=NULL){
-		list_add(head_pokemones,pokemones[i]);
-		i++;
-	}
-
-	return head_pokemones;
-
-}
