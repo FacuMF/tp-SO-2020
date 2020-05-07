@@ -4,7 +4,7 @@ int counter;
 pthread_mutex_t lock;
 
 int main(void){
-
+	/* INICIALIZACION*/
 	// Inicializacion
 	logger = iniciar_logger("./Team/config/team.log","Team");
 	log_info(logger,"Primer log ingresado");
@@ -38,8 +38,24 @@ int main(void){
 	list_iterate(objetivo_global,mostrarObjetivo);
 
 	log_info(logger," ---- Objetivos Mostrados ----");
-	// Suscribirse a la msj queue. Puede funcar sin broker.
 
+
+	// Suscribirse a la msj queue. Puede funcar sin broker.
+		// Proceso team se conecta al broker. un connect por cada cola de mensajes.
+		// Si el broker no existe tiene que funcar igual
+			// Reintentar cada x tiempo
+
+	//Enviar mensajes GET al broker
+		// Uno por cada pokemon del objetivo
+			// Por cada mensaje necesito un connect -- diferente de los de suscripciones.
+			// Luego de enviar el mensaje, muere.
+
+	//Conexion con gameboy
+		//Socket escucha para appeard, caught y localized.
+			// Por cada mensaje se recibe un accept.
+			// Para testeo
+
+	/* INICIALIZACION*/
 
 	// MANEJO DE HILOS
 	/*
