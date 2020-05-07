@@ -19,26 +19,25 @@ int main(void){
 
 	// Cargado de entrenadores
 	t_list * head_entrenadores =  cargar_entrenadores(posiciones, pokemones_capturados, objetivos);
-	log_info(logger,"Entrenadores cargados");
+	log_info(logger,"--- Entrenadores cargados ---");
 	//TBR
 	mostrar_entrenadores(head_entrenadores);
-	log_info(logger,"Entrenadores mostrados");
-
+	log_info(logger," ---- Entrenadores mostrados ----");
 
 	// Crear objetivo global - Lista a partir de los pokemones_a_capturar de cada entrenador
-	t_list * objetivo_global = list_create();
 	t_list * pokemones_repetidos = obtener_pokemones(head_entrenadores);
+	log_info(logger," ---- Repetidos Obtenidos ----");
+	list_iterate(pokemones_repetidos,mostrarKokemon); //TBR - mostrar los repetdios
 
-	//TBR
-	char*kokemon;
-	for(int i = 0;(kokemon= list_get(pokemones_repetidos,i))!=NULL;i++)log_info(logger,kokemon);
+	log_info(logger," ---- Repetidos mostrados ----");
 
+	t_list * objetivo_global = formar_objetivo(pokemones_repetidos);
 
+	log_info(logger," ---- Objetivos Formado ----");
 
-	// Si el pokemon ya existe, sumarle la cantidad
+	list_iterate(objetivo_global,mostrarObjetivo);
 
-	// Si el pokemon no existe, agregarlo a la lista con cantidad 1
-
+	log_info(logger," ---- Objetivos Mostrados ----");
 	// Suscribirse a la msj queue. Puede funcar sin broker.
 
 
@@ -78,6 +77,44 @@ int main(void){
 }
 
 // OBJETIVO GLOBAL
+
+t_list* formar_objetivo(t_list * pokemones_repetidos){
+	t_list * objetivo_global = list_create();
+
+	void _agrego_si_no_existe(void *elemento){ // USO INNER FUNCTIONS TODO: pasar a readme
+		 agrego_si_no_existe(objetivo_global,elemento);
+	}
+
+	list_iterate(pokemones_repetidos,_agrego_si_no_existe);
+
+	return objetivo_global;
+}
+
+
+void agrego_si_no_existe(t_list * objetivo_global,void *nombrePokemon){
+	bool _yaExiste(void *inputObjetivo){
+		t_objetivo *cadaObjetivo = inputObjetivo;
+		return !strcmp(cadaObjetivo->pokemon,nombrePokemon);
+	}
+
+	t_objetivo *objetivo =list_find(objetivo_global,_yaExiste);
+
+	if(objetivo!=NULL){
+		objetivo->cantidad++;
+	}else{
+		t_objetivo * nuevo_objetivo = malloc(sizeof(t_objetivo));
+		nuevo_objetivo->cantidad = 1;
+		nuevo_objetivo->pokemon = nombrePokemon;
+		list_add(objetivo_global,nuevo_objetivo);
+	}
+
+}
+
+void mostrarKokemon(void*elemento){	//TODO: Cambiar a naming convention
+	log_info(logger,elemento);
+}
+
+
 t_list* obtener_pokemones(t_list *head_entrenadores){
 	t_list * pokemones_repetidos = list_create();
 	t_entrenador * entrenador;
@@ -90,6 +127,13 @@ t_list* obtener_pokemones(t_list *head_entrenadores){
 	return pokemones_repetidos;
 }
 
+void mostrarObjetivo(void *elemento){
+	log_info(logger,"Data de objetivo!");
+	t_objetivo * objetivo= malloc(sizeof(t_objetivo));	// Sacar esto?
+	objetivo = elemento;
+	log_info(logger, "objetivo: %s", objetivo->pokemon);
+	log_info(logger, "objetivo: %i", objetivo->cantidad);
+}
 
 //MANEJO DE HILOS
 
