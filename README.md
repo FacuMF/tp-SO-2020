@@ -1,6 +1,60 @@
 ---
 # PokÉbola - Apuntes
 ---
+## Proceso team
+---
+// Suscribirse a la msj queue. Puede funcar sin broker.
+		// Proceso team se conecta al broker. un connect por cada cola de mensajes.
+		// Si el broker no existe tiene que funcar igual
+			// Reintentar cada x tiempo
+
+	//Enviar mensajes GET al broker
+		// Uno por cada pokemon del objetivo
+			// Por cada mensaje necesito un connect -- diferente de los de suscripciones.
+			// Luego de enviar el mensaje, muere.
+
+	//Conexion con gameboy
+		//Socket escucha para appeard, caught y localized.
+			// Por cada mensaje se recibe un accept.
+			// Para testeo
+
+
+	/* ESTADOS */
+	// Multiprogramacion grado 1:solo un entrenador en estado exec simultaneamente
+	// Cada entrenador se crea en estado new
+
+	/* Ante mensaje "LOCALIZED"
+		//Verifico si ya tengo uno localizado de esa especie
+			//Si ya tengo uno de esa especie lo descarto
+		// Verifico si lo necesito
+			//Si no lo necesito lo descarto
+			//Si lo necesito lo guardo en el mapa
+			//Planifico al entrenador mas cercano (pasar a ready)
+				// El que esta en estado NEW o BLOQUEADO (si esta bloq porque no tiene nada para hacer)
+				// Mover entrenador a la posicion del pokemon -- gastar "un ciclo de cpu"
+				// Connect al broker y mandar un catch squirtle 4 4
+				// Recibir ID del msj que envié
+				// Cerrar la conexión.
+
+	*/
+	/* Ante mensaje "CAUGHT"
+		// Verifico si es respuesta a alguno de los enviados previamente (si tengo el ID en mi lista)
+			//si no, lo descarto
+		// Lo saco del mapa (de la lista que representa el mapa)
+		// Marco que el entrenador atrapó al pokemon
+		// Verifico si tiene todos los pokemones que necesitaba
+			//Si es asi, lo paso a EXIT
+		//Verifico si tiene la cantidad maxima atrapada (= suma total de los que necesita)
+			//Si es asi queda BLOQUEADO esperando el deadlock
+		// Verifico si hay pokemons para atrapar (mensajes caught)
+			//Si es asi, lo vuelvo a planificar.
+		// Si no pasa nada de lo anterior
+			// Paso a BLOQUEADO esperando el siguiente
+	*/
+
+
+
+---
 ## Estructura general del proyecto - comunicaciones
 ---
 nota: cualq cosa hablar con art, fac, fran
@@ -65,7 +119,6 @@ nota: cualq cosa hablar con art, fac, fran
 		buffer->stream...
 		...
 		return buffer;		
-	
 	}
 ---
 ## OTROS
