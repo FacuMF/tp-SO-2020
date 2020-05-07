@@ -5,7 +5,7 @@ UTILS = Base/Utils/src/utils_comunicacion.c Base/Utils/src/utils_config.c Base/U
 CLIENTE = Base/Cliente/src
 SERVIDOR = Base/Servidor/src
 TEAM = Team/src/team.c Team/src/team.h
-GAMEBOY=Gameboy/src/gameboy.c GameBoy/src/gameboy.h
+GAMEBOY=GameBoy/src/gameboy.c GameBoy/src/gameboy.h
 all:
 	mkdir -p $(BIN_PATH)
 	#$(COMPILER) $(UTILS) $(CLIENTE)/cliente.h $(CLIENTE)/cliente.c -o $(BIN_PATH)/Cliente 	$(LIBS)
