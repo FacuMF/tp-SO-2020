@@ -28,29 +28,82 @@ int main(int argv, char* arg[]){
 	conexion = iniciar_conexion(ip,puerto);
 	log_info(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
 
-	////// Crear mensaje como corresponda //////
-
-	////// Serializar mensaje //////
+	////// Crear y Serializar mensaje //////
+	t_buffer* mensaje_serializado =  crear_serializar_mensaje( modulo, tipo_mensaje,arg);
+	log_info(logger, "El mensaje fue serializado. ");
 
 	////// Enviar mensaje //////
+	enviar_mensaje(conexion, mensaje_serializado, APPEARED_POKEMON);
+	log_info(logger, "El mensaje fue enviado; ");
+
+
+}
+
+t_buffer* crear_serializar_mensaje(t_modulo modulo,t_tipo_mensaje tipo_mensaje,void* arg){
+	t_buffer* mensaje_serializado;
+	switch(modulo){
+		case team: ////MODULO TEAM////
+			switch(tipo_mensaje){
+				case msg_appeared_pokemon:
+					mensaje_serializado = crear_serializar_appeared_pokemon(arg);
+				break;
+			}
 
 
 
-	/*
-	///////////////////////// CLIENTE  para referencia  //////////////////////////////
-	conexion = iniciar_conexion(ip, puerto);
-	log_info(logger, "Conexion Creada. IP: %s y PUERTO: %s ", ip, puerto);
+		break;
+		case broker: ////MODULO BROKER////
+			//TODO
+		break;
+		case gamecard:////MODULO GAMECARD////
+			//TODO
+		break;
+	}
+	return mensaje_serializado;
+}
 
+t_buffer* crear_serializar_appeared_pokemon(char* arg[]){
 
-	t_msjTexto* mensaje_test = crear_mensaje(mensaje_a_enviar);
-	log_info(logger, "Mensaje Creado");
+	////// CREAR MENSAJE //////
 
-	t_buffer *buffer = serializar_mensaje(mensaje_test);
-	log_info(logger, "Mensaje Serializado");
+	t_appeared_pokemon* mensaje = malloc(sizeof(t_appeared_pokemon));
+	mensaje->size_pokemon = strlen(arg[3]);
+	mensaje->pokemon = malloc( sizeof(arg[3]) + 1 );
+	mensaje->pokemon = arg[3];
+	mensaje->posx = atoi(arg[4]);
+	mensaje->posy = atoi(arg[5]);
 
-	enviar_mensaje(conexion, buffer, TEXTO);
-	log_info(logger, "Mensaje Enviado");
-	*/
+	log_info(logger,"Se creo un mensaje APPEARED_POKEMON. POKEMON: %s , X: %i , Y: %i .",
+			mensaje->pokemon, mensaje->posx, mensaje->posy );
+
+	//////  SERIALIZAR MENSAJE  //////
+
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+
+	buffer->size = 	sizeof(mensaje->pokemon)+1     +
+					sizeof(mensaje->size_pokemon)  +
+					sizeof(mensaje->posx)          +
+					sizeof(mensaje->posy);
+
+	void* stream = malloc(buffer->size);
+	int offset = 0;
+
+	memcpy(stream+offset, &(mensaje->size_pokemon), sizeof(mensaje->size_pokemon));
+	offset += (sizeof(mensaje->size_pokemon) +1);
+	memcpy(stream+offset, mensaje->pokemon, sizeof(mensaje->pokemon));
+	offset += sizeof(mensaje->pokemon);
+	memcpy(stream+offset, &(mensaje->posx), sizeof(mensaje->posx));
+	offset += sizeof(mensaje->posx);
+	memcpy(stream+offset, &(mensaje->posy), sizeof(mensaje->posy));
+	offset += sizeof(mensaje->posy);
+
+	buffer->stream = stream;
+	log_info(logger, "El buffer fue cargado. ");
+
+	free(mensaje->pokemon);
+
+	return buffer;
+
 }
 
 t_modulo string_a_modulo(char* nombre_modulo){

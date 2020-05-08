@@ -27,6 +27,7 @@
 typedef enum
 {
 	TEXTO = 1,
+	APPEARED_POKEMON = 2,
 }op_code;
 
 typedef struct

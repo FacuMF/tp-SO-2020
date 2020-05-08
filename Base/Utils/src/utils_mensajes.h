@@ -29,6 +29,7 @@ typedef struct{
 }t_get_pokemon;
 
 typedef struct{
+	int size_pokemon;
 	char* pokemon;
 	int posx;
 	int posy;
