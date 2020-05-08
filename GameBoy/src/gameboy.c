@@ -4,26 +4,29 @@ int main(int argv, char* arg[]){
 
 	//Inicio logger
 	logger = iniciar_logger("./GameBoy/config/gameboy.log","GameBoy");
-	log_info(logger,"Primer log ingresado");
 
 	// Leer configuracion
 	config =leer_config("./GameBoy/config/gameboy.config");
-	log_info(logger,"Config creada");
 
 	//////  TIPO DE MENSAJE: MODULO MENSAJE ARG1 ARG2 AGR3 ... //////
 	//////                   arg[1] arg[2]  arg[3] ...         //////
 
 	t_modulo modulo = string_a_modulo(arg[1]);
+	t_tipo_mensaje tipo_mensaje = string_a_tipo_mensaje(modulo,arg[2]);
+	/*TBR*/ if(tipo_mensaje == -1){
+		log_info(logger, "Ese mensaje no existe.");
+	}else {
+		log_info(logger, "Se quiere enviar un mensaje del tipo -%i- al modulo -%i-", tipo_mensaje, modulo);
+	}
 
 	////// Conectar con quien corresponda (iniciar conexion) /////
 	char* ip = leer_ip(modulo);
 	char* puerto = leer_puerto(modulo);
-
-	/*TBR*/ log_info(logger, "Leido de config por parametro: %s ip: %s ,puerto: %s", arg[1], ip, puerto);
+	/*TBR*/ log_info(logger, "Leido de config por parametro %s. Ip: %s y Puerto: %s", arg[1], ip, puerto);
 
 	int conexion;
 	conexion = iniciar_conexion(ip,puerto);
-
+	log_info(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
 
 	////// Crear mensaje como corresponda //////
 
@@ -62,6 +65,49 @@ t_modulo string_a_modulo(char* nombre_modulo){
 		return -1;
 	}
 }
+
+t_tipo_mensaje string_a_tipo_mensaje(t_modulo modulo, char* nombre_mensaje){
+	switch(modulo){
+		case team:
+			if(string_equals_ignore_case(nombre_mensaje, "APPEARED_POKEMON")){
+				return msg_appeared_pokemon;
+			}else{
+				log_info(logger, "Error: El modulo ingresado no recibe el mesaje: %s .", nombre_mensaje);
+				return -1;
+			}
+			break;
+		case gamecard:
+			if(string_equals_ignore_case(nombre_mensaje, "NEW_POKEMON")){
+				return msg_new_pokemon;
+			}else if(string_equals_ignore_case(nombre_mensaje, "CATCH_POKEMON")){
+				return msg_id_catch_pokemon;
+			}else if(string_equals_ignore_case(nombre_mensaje, "GET_POKEMON")){
+				return msg_get_pokemon;
+			}else{
+				log_info(logger, "Error: El modulo ingresado no recibe el mesaje: %s .", nombre_mensaje);
+				return -1;
+			}
+			break;
+		case broker:
+			if(string_equals_ignore_case(nombre_mensaje, "NEW_POKEMON")){
+				return msg_id_new_pokemon;
+			}else if(string_equals_ignore_case(nombre_mensaje, "APEARED_POKEMON")){
+				return msg_id_appeared_pokemon;
+			}else if(string_equals_ignore_case(nombre_mensaje, "CATCH_POKEMON")){
+				return msg_catch_pokemon;
+			}else if(string_equals_ignore_case(nombre_mensaje, "CAUGTH_POKEMON")){
+				return msg_caugth_pokemon;
+			}else if(string_equals_ignore_case(nombre_mensaje, "GET_POKEMON")){
+				return msg_get_pokemon;
+			}else{
+				log_info(logger, "Error: El modulo ingresado no recibe el mesaje: %s .", nombre_mensaje);
+				return -1;
+			}
+			break;
+	}
+
+}
+
 
 char* leer_ip(t_modulo modulo){
 	char* ip;
@@ -105,7 +151,7 @@ int iniciar_conexion(char *ip, char* puerto) {
 
 	// Conectarse
 	if (connect(socket_cliente, servinfo->ai_addr, servinfo->ai_addrlen) == -1)
-		printf("error");
+		log_info(logger, "Error al conectarse al socket");
 
 	freeaddrinfo(servinfo);
 
