@@ -22,6 +22,30 @@
 #include<readline/readline.h>
 #include<pthread.h>
 
+//Definiciones de modulos
+typedef enum
+{
+	team = 1,
+	gamecard = 2,
+	broker = 3,
+}t_modulo;
+
+//Definiciones de tipos de mensajes
+typedef enum
+{
+	msg_new_pokemon,
+	msg_catch_pokemon,
+	msg_caugth_pokemon,
+	msg_get_pokemon,
+	msg_appeared_pokemon,
+	msg_id_new_pokemon,
+	msg_id_catch_pokemon,
+	msg_id_appeared_pokemon,
+	msg_subscriptor,
+
+}t_tipo_mensaje;
+
+
 
 // OP CODES
 typedef enum
@@ -49,6 +73,7 @@ pthread_t thread;
 struct addrinfo* obtener_server_info(char* , char*);
 int obtener_socket(struct addrinfo* );
 void asignar_socket_a_puerto(int,struct addrinfo*);
+int iniciar_conexion(char*, char*);
 
 // MANIPULACION MENSAJES
 void enviar_mensaje(int , t_buffer* , op_code );
@@ -58,6 +83,7 @@ void* serializar_paquete(t_paquete* paquete, int *bytes); // DE UN PAQUETE OBTEN
 
 op_code recibir_codigo_operacion(int socket);
 t_buffer* recibir_mensaje(int socket);// DE UN SOCKET, DEVUELVE UN BUFFER Y UN OPCODE POR REFERENCIA.
+
 
 // TERMINAR CONEXION
 void liberar_conexion(int socket_cliente);
@@ -69,5 +95,7 @@ void terminar_logger(t_log* logger);
 
 //		CONFIG
 t_config* leer_config(char*);
+char* leer_ip(t_modulo, t_config*);
+char* leer_puerto(t_modulo, t_config*);
 
 #endif /* UTILS_UTILS_H_ */

@@ -8,10 +8,10 @@ TEAM = Team/src/team.c Team/src/team.h
 GAMEBOY=GameBoy/src/gameboy.c GameBoy/src/gameboy.h
 all:
 	mkdir -p $(BIN_PATH)
-	#$(COMPILER) $(UTILS) $(CLIENTE)/cliente.h $(CLIENTE)/cliente.c -o $(BIN_PATH)/Cliente 	$(LIBS)
-	#$(COMPILER) $(UTILS) $(SERVIDOR)/servidor.h $(SERVIDOR)/servidor.c -o $(BIN_PATH)/Server $(LIBS)
-	$(COMPILER) $(UTILS) $(TEAM) -o $(BIN_PATH)/Team $(LIBS)
-	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/GameBoy $(LIBS)
+	$(COMPILER) $(UTILS) $(CLIENTE)/cliente.h $(CLIENTE)/cliente.c -o $(BIN_PATH)/Cliente 	$(LIBS)
+	$(COMPILER) $(UTILS) $(SERVIDOR)/servidor.h $(SERVIDOR)/servidor.c -o $(BIN_PATH)/Server $(LIBS)
+	$(COMPILER) $(UTILS) $(TEAM) -o $(BIN_PATH)/ProcesoTeam $(LIBS)
+	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/ProcesoGameBoy $(LIBS)
 
 team:
 	mkdir -p $(BIN_PATH)

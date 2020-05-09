@@ -53,6 +53,21 @@ void asignar_socket_a_puerto(int socket,struct addrinfo *p){
 	}
 }
 
+int iniciar_conexion(char *ip, char* puerto) {
+
+	//Set up conexion
+	struct addrinfo *servinfo = obtener_server_info(ip, puerto); // Address info para la conexion TCP/IP
+	int socket_cliente = obtener_socket(servinfo);
+
+	// Conectarse
+	if (connect(socket_cliente, servinfo->ai_addr, servinfo->ai_addrlen) == -1)
+		printf("error");
+
+	freeaddrinfo(servinfo);
+
+	return socket_cliente;
+}
+
 // MANIPULACION MENSAJES
 t_paquete* generar_paquete(t_buffer* buffer, op_code codigo_operacion) {
 	t_paquete* paquete = malloc(sizeof(t_paquete));
@@ -116,7 +131,7 @@ t_buffer* recibir_mensaje(int socket){
 		t_buffer *buffer = malloc(sizeof(t_buffer));
 
 		int bytes_recibidos = recv(socket, &buffer->size, sizeof(buffer->size), 0);
-		if(bytes_recibidos<0)/*TODO: Tirar error*/;
+		if(bytes_recibidos<0)/*TODO: Tirar error*/
 
 		buffer->stream = malloc(buffer->size);
 		recv(socket, buffer->stream, buffer->size, 0);

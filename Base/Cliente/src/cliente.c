@@ -68,21 +68,6 @@ void handler_mensaje_texto(t_buffer* buffer_recepcion) {
 	log_info(logger,mensaje_recibido->contenido);
 }
 
-int iniciar_conexion(char *ip, char* puerto) {
-
-	//Set up conexion
-	struct addrinfo *servinfo = obtener_server_info(ip, puerto); // Address info para la conexion TCP/IP
-	int socket_cliente = obtener_socket(servinfo);
-
-	// Conectarse
-	if (connect(socket_cliente, servinfo->ai_addr, servinfo->ai_addrlen) == -1)
-		printf("error");
-
-	freeaddrinfo(servinfo);
-
-	return socket_cliente;
-}
-
 void terminar_programa(int conexion, t_log* logger, t_config* config) {
 	terminar_logger(logger);
 
