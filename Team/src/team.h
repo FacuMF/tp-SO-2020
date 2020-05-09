@@ -60,6 +60,12 @@ t_list* formar_objetivo(t_list * pokemones_repetidos);
 void agrego_si_no_existe(t_list * objetivo_global,void *elemento);
 void mostrar_objetivo(void *elemento);
 
+//Funciones socket con gameboy
+void iniciar_conexion_servidor(char* ip, char* puerto);
+void setear_socket_reusable(int);
+void esperar_cliente(int);
+void serve_client(int *socket);
+void process_request(int cod_op, int cliente_fd);
 
 
 

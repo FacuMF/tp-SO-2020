@@ -9,6 +9,29 @@ t_buffer* serializar_mensaje(t_msjTexto* mensaje) {
 	return buffer;
 }
 
+
+t_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer) {
+	t_appeared_pokemon* mensaje = malloc(sizeof(t_appeared_pokemon));
+	void* stream = buffer->stream;
+
+	//Deserializacion
+	memcpy( &(mensaje->size_pokemon), stream, sizeof(int));
+	stream += sizeof(int);
+
+	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	memcpy( (mensaje->pokemon), stream, mensaje->size_pokemon);
+	stream += mensaje->size_pokemon;
+
+	memcpy( &(mensaje->posx), stream, sizeof(int));
+	stream += sizeof(int);
+
+	memcpy( &(mensaje->posy), stream, sizeof(int));
+	stream += sizeof(int);
+
+
+	return mensaje;
+}
+
 t_msjTexto* deserializar_mensaje(t_buffer* buffer) {
 	t_msjTexto* mensaje = malloc(sizeof(t_msjTexto));
 	mensaje->contenido = malloc(buffer->size);
@@ -64,7 +87,7 @@ t_buffer* crear_serializar_new_pokemon(char* pokemon, int posicion_x,
 	return buffer;
 }
 
-t_buffer* crear_serializar_appeared_pokemon(char* pokemon, int posicion_x,
+/*t_buffer* crear_serializar_appeared_pokemon(char* pokemon, int posicion_x,
 		int posicion_y, int id_mensaje) {
 	t_id_appeared_pokemon* mensaje = malloc(sizeof(t_id_appeared_pokemon));
 	mensaje->size_pokemon = strlen(pokemon) + 1;
@@ -96,7 +119,7 @@ t_buffer* crear_serializar_appeared_pokemon(char* pokemon, int posicion_x,
 	free(mensaje);
 
 	return buffer;
-}
+}*/
 
 t_buffer* crear_serializar_catch_pokemon(char* pokemon, int posicion_x,
 		int posicion_y, int id_mensaje) {
