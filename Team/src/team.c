@@ -50,6 +50,16 @@ int main(void){
 	}
 	 */
 
+	// Conectar con gameboy
+
+	char* ip_gameboy = "127.0.0.2";
+	char* puerto_gameboy = "5002";
+
+	iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);
+
+
+	//Terminar
+
 	terminar_logger(logger);
 	config_destroy(config);
 }
@@ -193,3 +203,83 @@ void* doSomeThing(void *arg){
     pthread_mutex_unlock(&lock);
 }
 */
+
+// Socket servidor para conectar con gameboy
+
+void iniciar_conexion_servidor(char* ip, char* puerto) {
+
+	log_info(logger,"Servidor Inicializado");
+	//Set up conexion
+	struct addrinfo* servinfo = obtener_server_info(ip,puerto); // Address info para la conexion TCP/IP
+	int socket_servidor = obtener_socket(servinfo);
+	asignar_socket_a_puerto(socket_servidor,servinfo);
+	setear_socket_reusable(socket_servidor);
+	freeaddrinfo(servinfo);
+	log_info(logger, "Esperando conexion.");
+	listen(socket_servidor, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
+	log_info(logger, "Conectado, esperando cliente.");
+	while (1)
+		esperar_cliente(socket_servidor);//Queda esperando que un cliente se conecte
+}
+
+void setear_socket_reusable(int socket){
+	int activado = 1;
+	setsockopt(socket, SOL_SOCKET,SO_REUSEADDR, &activado,sizeof(activado));
+}
+
+void esperar_cliente(int socket_servidor) {	// Hilo coordinador
+	struct sockaddr_in dir_cliente;	//contiene address de la comunicacion
+
+	int tam_direccion = sizeof(struct sockaddr_in);
+
+	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
+			&tam_direccion);// Acepta el request del cliente y crea el socket
+
+	log_info(logger, "Conexion acceptada, activo hilos.");
+
+	// Lanzar los hilos handlers
+	pthread_create(&thread, NULL, (void*) serve_client, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
+	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+}
+
+void serve_client(int* socket) {
+	int cod_op = recibir_codigo_operacion(*socket);
+	process_request(cod_op, *socket);
+}
+
+void process_request(int cod_op, int cliente_fd) {
+	int size;
+	t_buffer * buffer;
+	switch (cod_op) {
+	case APPEARED_POKEMON:
+		buffer = recibir_mensaje(cliente_fd);
+
+		t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
+
+		//TBR
+		log_info(logger, "Se deserializo el mensaje APPEARED_POKEMON. Pokemon: %s , Pos: (%i,%i) .",
+				mensaje_appeared_pokemon->pokemon, mensaje_appeared_pokemon->posx, mensaje_appeared_pokemon->posy);
+
+		log_info(logger, "Mensaje Recibido.");
+
+		break;
+	case TEXTO:
+		buffer = recibir_mensaje(cliente_fd);
+		t_msjTexto* mensaje_recibido = deserializar_mensaje(buffer);
+		log_info(logger, "Mensaje Recibido.");
+		log_info(logger,mensaje_recibido->contenido);
+
+		t_buffer *buffer = serializar_mensaje(mensaje_recibido);
+		log_info(logger, "Mensaje Serializado");
+
+		enviar_mensaje(cliente_fd, buffer, TEXTO);
+		log_info(logger, "Mensaje Enviado");
+
+		free(buffer);
+		break;
+	case 0:
+		pthread_exit(NULL);
+	case -1:
+		pthread_exit(NULL);
+	}
+}

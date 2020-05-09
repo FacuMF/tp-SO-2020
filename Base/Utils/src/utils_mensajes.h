@@ -73,7 +73,10 @@ typedef struct{ //TEST MESSAGE STRUCT
 
 // SERIALIZADORES
 t_buffer* serializar_mensaje(t_msjTexto*);// DE UNA ESTRUCTURA CON EL MENSAJE, SACA UN BUFFER
+
+
 t_msjTexto* deserializar_mensaje(t_buffer* );
+t_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer);
 
 // CREADORES
 t_msjTexto* crear_mensaje(char*);

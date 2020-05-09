@@ -9,6 +9,29 @@ t_buffer* serializar_mensaje(t_msjTexto* mensaje) {
 	return buffer;
 }
 
+
+t_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer) {
+	t_appeared_pokemon* mensaje = malloc(sizeof(t_appeared_pokemon));
+	void* stream = buffer->stream;
+
+	//Deserializacion
+	memcpy( &(mensaje->size_pokemon), stream, sizeof(int));
+	stream += sizeof(int);
+
+	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	memcpy( (mensaje->pokemon), stream, mensaje->size_pokemon);
+	stream += mensaje->size_pokemon;
+
+	memcpy( &(mensaje->posx), stream, sizeof(int));
+	stream += sizeof(int);
+
+	memcpy( &(mensaje->posy), stream, sizeof(int));
+	stream += sizeof(int);
+
+
+	return mensaje;
+}
+
 t_msjTexto* deserializar_mensaje(t_buffer* buffer) {
 	t_msjTexto* mensaje = malloc(sizeof(t_msjTexto));
 	mensaje->contenido =malloc(buffer->size);

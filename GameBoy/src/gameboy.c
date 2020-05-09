@@ -40,7 +40,7 @@ int main(int argv, char* arg[]){
 }
 
 t_buffer* crear_serializar_mensaje(t_modulo modulo,t_tipo_mensaje tipo_mensaje,void* arg){
-	t_buffer* mensaje_serializado;
+	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	switch(modulo){
 		case team: ////MODULO TEAM////
 			switch(tipo_mensaje){
@@ -100,7 +100,7 @@ t_buffer* crear_serializar_appeared_pokemon(char* arg[]){
 	buffer->stream = stream;
 	log_info(logger, "El buffer fue cargado. ");
 
-	free(mensaje->pokemon);
+	//free(mensaje->pokemon);
 
 	return buffer;
 
