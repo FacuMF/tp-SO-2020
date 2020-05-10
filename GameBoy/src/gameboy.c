@@ -3,10 +3,10 @@
 int main(int argv, char* arg[]){
 
 	//Inicio logger
-	logger = iniciar_logger("../GameBoy/config/gameboy.log","GameBoy");
+	logger = iniciar_logger("./GameBoy/config/gameboy.log","GameBoy");
 
 	// Leer configuracion
-	config =leer_config("../GameBoy/config/gameboy.config");
+	config =leer_config("./GameBoy/config/gameboy.config");
 
 	//////  TIPO DE MENSAJE: MODULO MENSAJE ARG1 ARG2 AGR3 ... //////
 	//////                   arg[1] arg[2]  arg[3] ...         //////
@@ -48,9 +48,6 @@ t_buffer* crear_serializar_mensaje(t_modulo modulo,t_tipo_mensaje tipo_mensaje,v
 					mensaje_serializado = crear_serializar_appeared_pokemon(arg);
 				break;
 			}
-
-
-
 		break;
 		case broker: ////MODULO BROKER////
 			//TODO

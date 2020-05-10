@@ -89,21 +89,22 @@ t_msjTexto* crear_mensaje(char*);
 
 //CREACION DE DISTINTOS TIPOS DE MENSAJES
 t_buffer* crear_serializar_new_pokemon(char* pokemon, int posicion_x, int posicion_y, int cantidad, int id_mensaje);
-t_buffer* deserializar_new_pokemon(t_buffer* buffer);
+t_id_new_pokemon* deserializar_new_pokemon(t_buffer* buffer);
 
 //t_buffer* crear_serializar_appeared_pokemon(char* pokemon, int posicion_x, int posicion_y, int id_mensaje);
-//t_buffer* deserializar_appeared_pokemon(t_buffer* buffer);
+//t_id_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer);
+
 
 t_buffer* crear_serializar_catch_pokemon(char* pokemon, int posicion_x, int posicion_y, int id_mensaje);
-t_buffer* deserializar_catch_pokemon(t_buffer* buffer);
+t_id_catch_pokemon* deserializar_catch_pokemon(t_buffer* buffer);
 
 t_buffer* crear_serializar_caught_pokemon(int id_mensaje, int ok_fail);
-t_buffer* deserializar_caught_pokemon(t_buffer* buffer);
+t_caugth_pokemon* deserializar_caught_pokemon(t_buffer* buffer);
 
 t_buffer* crear_serializar_get_pokemon(char* pokemon);
-t_buffer* deserializar_get_pokemon(t_buffer* buffer);
+t_get_pokemon* deserializar_get_pokemon(t_buffer* buffer);
 
 t_buffer* crear_serializar_suscripcion(int cola_de_mensajes, int tiempo_de_suscripcion);
-t_buffer* deserializar_suscripcion(t_buffer* buffer);
+t_subscriptor* deserializar_suscripcion(t_buffer* buffer);
 
 #endif /* UTILS_UTILS_MENSAJES_H_ */

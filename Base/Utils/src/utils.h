@@ -52,6 +52,11 @@ typedef enum
 {
 	TEXTO = 1,
 	APPEARED_POKEMON = 2,
+	NEW_POKEMON = 3,
+	CAUGHT_POKEMON = 4,
+	CATCH_POKEMON = 5,
+	GET_POKEMON = 6,
+	SUSCRIPTOR = 7
 }op_code;
 
 typedef struct

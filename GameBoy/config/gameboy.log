@@ -148,3 +148,18 @@
 [INFO] 01:35:15:340 GameBoy/(5842:5842): El mensaje fue serializado. 
 [INFO] 01:35:15:340 GameBoy/(5842:5842): El mensaje fue enviado; 
 >>>>>>> branch 'master' of https://github.com/sisoputnfrba/tp-2020-1c-PokEbola.git
+[INFO] 13:21:22:823 GameBoy/(5155:5155): Error: El modulo ingresado es incorrecto. 
+[INFO] 13:21:22:890 GameBoy/(5155:5155): Ese mensaje no existe.
+[INFO] 13:21:39:409 GameBoy/(5157:5157): Error: El modulo ingresado no recibe el mesaje: Pikachu .
+[INFO] 13:21:39:409 GameBoy/(5157:5157): Ese mensaje no existe.
+[INFO] 13:21:39:409 GameBoy/(5157:5157): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[INFO] 13:21:39:410 GameBoy/(5157:5157): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[INFO] 13:21:39:410 GameBoy/(5157:5157): El mensaje fue serializado. 
+[INFO] 13:21:39:411 GameBoy/(5157:5157): El mensaje fue enviado ;)
+[INFO] 13:23:12:230 GameBoy/(5201:5201): Se quiere enviar un mensaje del tipo -4- al modulo -1-
+[INFO] 13:23:12:231 GameBoy/(5201:5201): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[INFO] 13:23:12:231 GameBoy/(5201:5201): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[INFO] 13:23:12:232 GameBoy/(5201:5201): Se creo un mensaje APPEARED_POKEMON. POKEMON: Pikachu , X: 3 , Y: 1 .
+[INFO] 13:23:12:232 GameBoy/(5201:5201): El buffer fue cargado. 
+[INFO] 13:23:12:232 GameBoy/(5201:5201): El mensaje fue serializado. 
+[INFO] 13:23:12:232 GameBoy/(5201:5201): El mensaje fue enviado ;)

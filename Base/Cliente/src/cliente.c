@@ -27,18 +27,25 @@ int main(void) {
 	fflush(stdin);
 	gets(mensaje_a_enviar);
 	*/
+	//Prueba new pokemon
+	//t_buffer* mensaje_new = crear_serializar_new_pokemon("PIKACHU",3,2,5,1);
 
-	t_msjTexto* mensaje_test = crear_mensaje(mensaje_a_enviar);
+	//Prueba mjeTexto
+
+	//t_msjTexto* mensaje_test = crear_mensaje(mensaje_a_enviar);
+
+	//Prueba get pokemon
+	t_buffer* mensaje_get = crear_serializar_get_pokemon("Pikachu");
 	log_info(logger, "Mensaje Creado");
 
-	t_buffer *buffer = serializar_mensaje(mensaje_test);
+	//t_buffer *buffer = serializar_mensaje(mensaje_test);
 	log_info(logger, "Mensaje Serializado");
-
-	enviar_mensaje(conexion, buffer, TEXTO);
+	enviar_mensaje(conexion,mensaje_get,GET_POKEMON);
+	//enviar_mensaje(conexion, buffer, TEXTO);
 	log_info(logger, "Mensaje Enviado");
-
+	free(mensaje_get);
 	// Recibir mensaje
-	op_code codigo_operacion = recibir_codigo_operacion(conexion);
+	/*op_code codigo_operacion = recibir_codigo_operacion(conexion);
 	log_info(logger, "Codigo operacion recibido.");
 
 	char str[2];
@@ -56,10 +63,11 @@ int main(void) {
 		break;
 	default:
 		log_info(logger, "Invalid op_code\n");
-	}
+	}*/
 
 	//Finalizar mensaje
 	terminar_programa(conexion, logger, config);
+	return 0;
 }
 
 void handler_mensaje_texto(t_buffer* buffer_recepcion) {
