@@ -62,8 +62,7 @@ t_buffer* crear_serializar_new_pokemon(char* pokemon, int posicion_x,
 
 	buffer->stream = stream;
 	free(stream);
-	//Tira segmentation fault
-	//free(mensaje->pokemon);
+	free(mensaje->pokemon);
 	free(mensaje);
 	return buffer;
 }
@@ -148,7 +147,6 @@ t_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer) {
 
 	memcpy( &(mensaje->posy), stream, sizeof(int));
 	stream += sizeof(int);
-
 
 	return mensaje;
 }

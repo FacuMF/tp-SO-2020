@@ -36,6 +36,9 @@ int main(int argv, char* arg[]){
 	enviar_mensaje(conexion, mensaje_serializado, APPEARED_POKEMON);
 	log_info(logger, "El mensaje fue enviado ;)");
 
+	free(mensaje_serializado->stream);
+	free(mensaje_serializado);
+
 
 }
 
@@ -64,41 +67,39 @@ t_buffer* crear_serializar_appeared_pokemon(char* arg[]){
 	////// CREAR MENSAJE //////
 
 	t_appeared_pokemon* mensaje = malloc(sizeof(t_appeared_pokemon));
-	mensaje->size_pokemon = strlen(arg[3]);
-	mensaje->pokemon = malloc( sizeof(arg[3]) + 1 );
+	mensaje->size_pokemon = strlen(arg[3])+1;
+	mensaje->pokemon = malloc(mensaje->size_pokemon);
 	mensaje->pokemon = arg[3];
 	mensaje->posx = atoi(arg[4]);
 	mensaje->posy = atoi(arg[5]);
 
-	log_info(logger,"Se creo un mensaje APPEARED_POKEMON. POKEMON: %s , X: %i , Y: %i .",
-			mensaje->pokemon, mensaje->posx, mensaje->posy );
+	log_info(logger,"Se creo un mensaje APPEARED_POKEMON. Tamanio : %i POKEMON: %s , X: %i , Y: %i .",
+			 mensaje->size_pokemon,mensaje->pokemon, mensaje->posx, mensaje->posy );
 
 	//////  SERIALIZAR MENSAJE  //////
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer->size = 	sizeof(mensaje->pokemon)+1     +
-					sizeof(mensaje->size_pokemon)  +
-					sizeof(mensaje->posx)          +
-					sizeof(mensaje->posy);
+	buffer->size = 	mensaje->size_pokemon +
+					sizeof(int)*3;
 
 	void* stream = malloc(buffer->size);
 	int offset = 0;
 
-	memcpy(stream+offset, &(mensaje->size_pokemon), sizeof(mensaje->size_pokemon));
-	offset += (sizeof(mensaje->size_pokemon) +1);
-	memcpy(stream+offset, mensaje->pokemon, sizeof(mensaje->pokemon));
-	offset += sizeof(mensaje->pokemon);
-	memcpy(stream+offset, &(mensaje->posx), sizeof(mensaje->posx));
-	offset += sizeof(mensaje->posx);
-	memcpy(stream+offset, &(mensaje->posy), sizeof(mensaje->posy));
-	offset += sizeof(mensaje->posy);
+	memcpy(stream+offset, &(mensaje->size_pokemon), sizeof(int));
+	offset += sizeof(int);
+
+	memcpy(stream+offset, mensaje->pokemon,mensaje->size_pokemon);
+	offset += mensaje->size_pokemon;
+
+	memcpy(stream+offset, &(mensaje->posx), sizeof(int));
+	offset += sizeof(int);
+
+	memcpy(stream+offset, &(mensaje->posy), sizeof(int));
+	offset += sizeof(int);
 
 	buffer->stream = stream;
 	log_info(logger, "El buffer fue cargado. ");
-
-	//free(mensaje->pokemon);
-
 	return buffer;
 
 }

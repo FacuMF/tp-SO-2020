@@ -257,10 +257,12 @@ void process_request(int cod_op, int cliente_fd) {
 		t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
 
 		//TBR
-		log_info(logger, "Se deserializo el mensaje APPEARED_POKEMON. Pokemon: %s , Pos: (%i,%i) .",
-				mensaje_appeared_pokemon->pokemon, mensaje_appeared_pokemon->posx, mensaje_appeared_pokemon->posy);
+		log_info(logger, "Se deserializo el mensaje APPEARED_POKEMON.Tamanio : %i Pokemon: %s , Pos: (%i,%i) .",
+				mensaje_appeared_pokemon->size_pokemon,mensaje_appeared_pokemon->pokemon, mensaje_appeared_pokemon->posx, mensaje_appeared_pokemon->posy);
 
 		log_info(logger, "Mensaje Recibido.");
+
+		free(mensaje_appeared_pokemon);
 
 		break;
 	case TEXTO:

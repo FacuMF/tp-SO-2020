@@ -11,7 +11,7 @@ all:
 	$(COMPILER) $(UTILS) $(CLIENTE) -o $(BIN_PATH)/Cliente 	$(LIBS)
 	$(COMPILER) $(UTILS) $(SERVIDOR) -o $(BIN_PATH)/Server $(LIBS)
 	$(COMPILER) $(UTILS) $(TEAM) -o $(BIN_PATH)/ProcesoTeam $(LIBS)
-	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/ProcesoGameBoy $(LIBS)
+	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/GameBoy $(LIBS)
 
 team:
 	mkdir -p $(BIN_PATH)
