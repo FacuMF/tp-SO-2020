@@ -132,10 +132,8 @@ t_buffer* recibir_mensaje(int socket){
 
 		int bytes_recibidos = recv(socket, &buffer->size, sizeof(buffer->size), 0);
 		if(bytes_recibidos<0)printf("Error de serializacion");
-
 		buffer->stream = malloc(buffer->size);
 		recv(socket, buffer->stream, buffer->size, 0);
-
 		return buffer;
 }
 

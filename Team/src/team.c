@@ -253,7 +253,6 @@ void process_request(int cod_op, int cliente_fd) {
 	switch (cod_op) {
 	case APPEARED_POKEMON:
 		buffer = recibir_mensaje(cliente_fd);
-
 		t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
 
 		//TBR

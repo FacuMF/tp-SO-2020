@@ -23,8 +23,8 @@ gameboy:
 
 clienteservidor:
 	mkdir -p $(BIN_PATH)
-	$(COMPILER) $(UTILS) $(CLIENTE)/cliente.h $(CLIENTE)/cliente.c -o $(BIN_PATH)/Cliente 	$(LIBS)
-	$(COMPILER) $(UTILS) $(SERVIDOR)/servidor.h $(SERVIDOR)/servidor.c -o $(BIN_PATH)/Server $(LIBS)
+	$(COMPILER) $(UTILS) $(CLIENTE) -o $(BIN_PATH)/Cliente 	$(LIBS)
+	$(COMPILER) $(UTILS) $(SERVIDOR) -o $(BIN_PATH)/Server $(LIBS)
 	
 
 clean:

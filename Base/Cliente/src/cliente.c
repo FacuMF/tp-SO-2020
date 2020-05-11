@@ -36,6 +36,7 @@ int main(void) {
 
 	//Prueba get pokemon
 	t_buffer* mensaje_get = crear_serializar_get_pokemon("Pikachu");
+
 	log_info(logger, "Mensaje Creado");
 
 	//t_buffer *buffer = serializar_mensaje(mensaje_test);
