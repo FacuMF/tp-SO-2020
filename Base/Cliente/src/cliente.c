@@ -35,13 +35,14 @@ int main(void) {
 	//t_msjTexto* mensaje_test = crear_mensaje(mensaje_a_enviar);
 
 	//Prueba get pokemon
-	t_buffer* mensaje_get = crear_serializar_get_pokemon("Pikachu");
+	t_get_pokemon *mensaje_get = crear_get_pokemon("Pikachu");
+	t_buffer* buffer_get = serializar_get_pokemon(mensaje_get);
 
 	log_info(logger, "Mensaje Creado");
 
 	//t_buffer *buffer = serializar_mensaje(mensaje_test);
 	log_info(logger, "Mensaje Serializado");
-	enviar_mensaje(conexion,mensaje_get,GET_POKEMON);
+	enviar_mensaje(conexion,buffer_get,GET_POKEMON);
 	//enviar_mensaje(conexion, buffer, TEXTO);
 	log_info(logger, "Mensaje Enviado");
 	free(mensaje_get);

@@ -101,7 +101,8 @@ t_id_catch_pokemon* deserializar_catch_pokemon(t_buffer* buffer);
 t_buffer* crear_serializar_caught_pokemon(int id_mensaje, int ok_fail);
 t_caugth_pokemon* deserializar_caught_pokemon(t_buffer* buffer);
 
-t_buffer* crear_serializar_get_pokemon(char* pokemon);
+t_get_pokemon* crear_get_pokemon(char*);
+t_buffer* serializar_get_pokemon(t_get_pokemon*);
 t_get_pokemon* deserializar_get_pokemon(t_buffer* buffer);
 
 t_buffer* crear_serializar_suscripcion(int cola_de_mensajes, int tiempo_de_suscripcion);
