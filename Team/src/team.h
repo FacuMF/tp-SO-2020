@@ -67,6 +67,9 @@ void esperar_cliente(int);
 void serve_client(int *socket);
 void process_request(int cod_op, int cliente_fd);
 
+// Funciones de Manejo de Hilos
+void lanzar_hilos(void*element);
+void ser_entrenador();
 
 
 #endif /* TEAM_H_ */

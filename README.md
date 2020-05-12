@@ -29,7 +29,7 @@
 		// Verifico si lo necesito
 			//Si no lo necesito lo descarto
 			//Si lo necesito lo guardo en el mapa
-			//Planifico al entrenador mas cercano (pasar a ready)
+			//Planifico al entrenador mas cercano (pasar a ready) -- Mas cercano => ((Xe - Xp)2+(Ye - Yp)2)1/2 = d
 				// El que esta en estado NEW o BLOQUEADO (si esta bloq porque no tiene nada para hacer)
 				// Mover entrenador a la posicion del pokemon -- gastar "un ciclo de cpu"
 				// Connect al broker y mandar un catch squirtle 4 4

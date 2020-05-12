@@ -11,7 +11,7 @@ int main(void){
 
 	// Leer configuracion
 	config =leer_config("./Team/config/team.config");
-	log_info(logger,"Config creada");
+	log_trace(logger,"Config creada");
 
 	char ** posiciones = config_get_array_value(config,"POSICIONES_ENTRENADORES");
 	char ** pokemones_capturados = config_get_array_value(config,"POKEMON_ENTRENADORES");
@@ -29,41 +29,81 @@ int main(void){
 	list_iterate(objetivo_global,mostrar_objetivo);
 
 
+	//WAIT = pthread_mutex_lock(&lock);
+	//SIGNAL = pthread_mutex_unlock(/*semaforo*/);
 
-	/* MANEJO DE HILOS (con semáforos mutex)
-	pthread_t tid[cantidad_entrenadores];
-	int i = 0;
-	int error;
-	if (pthread_mutex_init(&lock, NULL) != 0){
-		printf("\n mutex init failed\n");
-		return 1;
-	}
-	while(i < cantidad_entrenadores){
-		error = pthread_create(&(tid[i]), NULL, &doSomeThing, NULL);
-		if (error != 0)
-			printf("\ncan't create thread :[%s]", strerror(error));
-		i++;
-	}
-	for(i=0;i<cantidad_entrenadores;i++){
-		pthread_join(tid[i], NULL);
-		pthread_mutex_destroy(&lock);
-	}
-	 */
 
-	// Conectar con gameboy
+	/* MANEJO DE HILOS (con semáforos mutex)*/
+	pthread_mutex_init(&lock,NULL);
+
+	pthread_mutex_lock(&lock);
+
+	list_iterate(head_entrenadores,lanzar_hilos);
+	log_trace(logger,"Hilos lanzados");
+
+
+
+
+
+
+	/* Conectar con gameboy
 
 	char* ip_gameboy = "127.0.0.2";
 	char* puerto_gameboy = "5002";
 
 	iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);
-
+	*/
 
 	//Terminar
 
+	pthread_mutex_destroy(&lock);
 	terminar_logger(logger);
 	config_destroy(config);
 }
 
+// MANEJO DE HILOS
+
+void lanzar_hilos(void*element){
+	t_entrenador * entrenador = element;
+
+	/* Inicializar el mutex de este entrenador en 0.
+	 * Cuando el entrenador arranque y tire wait va a pasar a -1 y se bloquea.
+	 * Cuando haya un localizado que el es el mas cercano le tire signal, pasa a 0 y se desbloquea.
+	 * Cuando lo atrapa, vuelve a hacer wait (por el while no haya terminado su objetivo) y se bloquea de nuevo.
+	 * Antes de tirar el signal (o al localizar, filtrar aquellos que su sem esta < 1), chequear si el sem < 0 significa que esta esperando. Si es 0 esta laburando, no me sirve.
+	*/
+
+	pthread_t hilo_entrenador;
+	int result = pthread_create(&hilo_entrenador,NULL, (void*) ser_entrenador, NULL);
+	if (result!=0) log_error(logger,"Error lanzando el hilo"); //TODO: revisar manejo de errores
+
+	result = pthread_join(hilo_entrenador,NULL);
+	if (result!=0) log_error(logger,"Error joineando el hilo"); //TODO: revisar manejo de errores
+
+	return;
+
+}
+
+void ser_entrenador(/*t_entrenador* entrenador*/){
+	//While objetivo propio no fue cumplido{
+	//tira un wait a su semaforo, el cual se inicializa en 0 y espera a que el orchestrato le tire un signal
+
+	/*
+	 * Tirar un wait a la lista de localizados
+	 * va a buscar a la lista de localizados el pokemon para moverse y mandar mensaje CAUGHT
+	 * Tirar un signal a la lista de localizados
+	 * ...
+	 * */
+
+	//}
+	// Tiro return
+	// El mismo NO se desbloquea, esto no va
+
+	// Para tests
+	pthread_mutex_lock(&lock);
+	printf("Holis \n");
+	pthread_mutex_unlock(&lock);
+}
 
 // CARGAR ENTRENADORES
 
