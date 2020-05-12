@@ -100,8 +100,7 @@ void process_request(int cod_op, int cliente_fd) {
 	case NEW_POKEMON:
 		;
 		buffer = recibir_mensaje(cliente_fd);
-		t_id_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(
-				buffer);
+		t_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(buffer);
 		log_info(logger, "Mensaje new pokemon recibido");
 		log_info(logger,
 				"Pokemon: %s, Posicion X: %d, Posicion Y: %d, Cantidad: %d, ID: %d",
@@ -112,8 +111,30 @@ void process_request(int cod_op, int cliente_fd) {
 		free(buffer);
 		break;
 	case CATCH_POKEMON:
+		;
+		buffer = recibir_mensaje(cliente_fd);
+		t_catch_pokemon* mensaje_catch_pokemon = deserializar_catch_pokemon(
+				buffer);
+		log_info(logger, "Mensaje catch pokemon recibido");
+		log_info(logger, "Pokemon: %s, Posicion X: %d, Posicion Y: %d, ID: %d",
+				mensaje_catch_pokemon->pokemon, mensaje_catch_pokemon->posx,
+				mensaje_catch_pokemon->posy, mensaje_catch_pokemon->id_mensaje);
+		free(mensaje_catch_pokemon);
+		free(buffer);
+		break;
 		break;
 	case CAUGHT_POKEMON:
+		;
+		buffer = recibir_mensaje(cliente_fd);
+		t_caugth_pokemon* mensaje_caugth_pokemon = deserializar_caught_pokemon(
+				buffer);
+		log_info(logger, "Mensaje caugth pokemon recibido");
+		log_info(logger, "ID: %d, OK/FAIL: %d",
+				mensaje_caugth_pokemon->id_mensaje,
+				mensaje_caugth_pokemon->ok_or_fail);
+		free(mensaje_caugth_pokemon);
+		free(buffer);
+		break;
 		break;
 	case GET_POKEMON:
 		;
@@ -125,7 +146,18 @@ void process_request(int cod_op, int cliente_fd) {
 		free(buffer);
 		break;
 	case SUSCRIPTOR:
+		;
+		buffer = recibir_mensaje(cliente_fd);
+		t_subscriptor* mensaje_suscriptor = deserializar_suscripcion(buffer);
+		log_info(logger, "Mensaje de suscripcion recibido");
+		log_info(logger,
+				"Cola de mensajes: %d, tiempo de suscripcion: %d segundos",
+				mensaje_suscriptor->cola_de_mensaje,
+				mensaje_suscriptor->tiempo);
+		free(mensaje_suscriptor);
+		free(buffer);
 		break;
+
 	case 0:
 		log_info(logger, "Codigo invalido");
 		pthread_exit(NULL);
