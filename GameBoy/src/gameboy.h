@@ -5,11 +5,30 @@ t_log* logger;
 t_config* config;
 
 // Funciones
-t_modulo string_a_modulo(char* nombre_modulo);
-t_tipo_mensaje string_a_tipo_mensaje(t_modulo modulo, char* nombre_mensaje);
+t_modulo string_a_modulo(char*);
+op_code string_a_tipo_mensaje(char*);
 
 
 // Funciones Mensajes
-t_buffer* crear_serializar_mensaje(t_modulo modulo,t_tipo_mensaje tipo_mensaje,void* arg);
-t_buffer* crear_serializar_appeared_pokemon(char* arg[]);
+t_buffer* mensaje_a_enviar(t_modulo, op_code, char**);
+//t_buffer* crear_serializar_appeared_pokemon(char*);
 
+
+//Pruebas de mensajes
+
+/*
+ * BROKER NEW_POKEMON BULBASAUR 3 1 5
+ * BROKER APPEARED_POKEMON BULBASAUR 3 1 2
+ * BROKER CATCH_POKEMON PIKACHU 3 1 5
+ * BROKER CAUGHT_POKEMON 5 4
+ * BROKER GET_POKEMON SQUIRTLE
+ *
+ * TEAM APPEARED_POKEMON CHARMANDER 4 6
+ *
+ * GAMECARD NEW_POKEMON BULBASAUR 3 1 5 8
+ * GAMECARD CATCH_POKEMON PIKACHU 8 4 3
+ * GAMECARD GET_POKEMON SQUIRTLE 3
+ *
+ * SUSCRIPTOR NEW_POKEMON 10
+ *
+ */

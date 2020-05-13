@@ -1,35 +1,47 @@
 #include "gameboy.h"
 
-int main(int argv, char* arg[]){
+int main(int argv, char* arg[]) {
 
 	//Inicio logger
-	logger = iniciar_logger("./GameBoy/config/gameboy.log","GameBoy");
+	logger = iniciar_logger("./GameBoy/config/gameboy.log", "GameBoy");
 
 	// Leer configuracion
-	config =leer_config("./GameBoy/config/gameboy.config");
+	config = leer_config("./GameBoy/config/gameboy.config");
 
 	//////  TIPO DE MENSAJE: MODULO MENSAJE ARG1 ARG2 AGR3 ... //////
 	//////                   arg[1] arg[2]  arg[3] ...         //////
+	char* modulo_recibido = malloc(sizeof(arg[1]));
+	strcpy(modulo_recibido, arg[1]);
+	t_modulo modulo = string_a_modulo(modulo_recibido);
 
-	t_modulo modulo = string_a_modulo(arg[1]);
-	t_tipo_mensaje tipo_mensaje = string_a_tipo_mensaje(modulo,arg[2]);
-	/*TBR*/ if(tipo_mensaje == -1){
+	char* tipo_mensaje_recibido = malloc(sizeof(arg[2]));
+	log_trace(logger, "declare el tipo de mensaje %s", arg[2]);
+	strcpy(tipo_mensaje_recibido, arg[2]);
+	op_code tipo_mensaje = string_a_tipo_mensaje(tipo_mensaje_recibido);
+	log_trace(logger, "Obtuve el tipo de mensaje");
+
+	/*TBR*/if (tipo_mensaje == -1) {
 		log_info(logger, "Ese mensaje no existe.");
-	}else {
-		log_info(logger, "Se quiere enviar un mensaje del tipo -%i- al modulo -%i-", tipo_mensaje, modulo);
+	} else {
+		log_info(logger,
+				"Se quiere enviar un mensaje del tipo -%i- al modulo -%i-",
+				tipo_mensaje, modulo);
 	}
 
 	////// Conectar con quien corresponda (iniciar conexion) /////
-	char* ip = leer_ip(modulo,config);
-	char* puerto = leer_puerto(modulo,config);
-	/*TBR*/ log_info(logger, "Leido de config por parametro %s. Ip: %s y Puerto: %s", arg[1], ip, puerto);
+	char* ip = leer_ip(modulo, config);
+	char* puerto = leer_puerto(modulo, config);
+	/*TBR*/log_info(logger,
+			"Leido de config por parametro %s. Ip: %s y Puerto: %s", arg[1], ip,
+			puerto);
 
 	int conexion;
-	conexion = iniciar_conexion(ip,puerto);
+	conexion = iniciar_conexion(ip, puerto);
 	log_info(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
 
 	////// Crear y Serializar mensaje //////
-	t_buffer* mensaje_serializado =  crear_serializar_mensaje( modulo, tipo_mensaje,arg);
+	t_buffer* mensaje_serializado = mensaje_a_enviar(modulo,
+			tipo_mensaje, arg);
 	log_info(logger, "El mensaje fue serializado. ");
 
 	////// Enviar mensaje //////
@@ -39,123 +51,172 @@ int main(int argv, char* arg[]){
 	free(mensaje_serializado->stream);
 	free(mensaje_serializado);
 
-
 }
 
-t_buffer* crear_serializar_mensaje(t_modulo modulo,t_tipo_mensaje tipo_mensaje,void* arg){
+t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje,
+		char* arg[]) {
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
-	switch(modulo){
-		case team: ////MODULO TEAM////
-			switch(tipo_mensaje){
-				case msg_appeared_pokemon:
-					mensaje_serializado = crear_serializar_appeared_pokemon(arg);
-				break;
-			}
+	char* pokemon;
+	int pos_x, pos_y, cantidad, id_mensaje, cola_de_mensajes,
+			tiempo_suscripcion, id_mensaje_correlativo;
+	bool ok_fail;
+	switch (modulo) {
+	case team: ////MODULO TEAM////
+		;
+		t_appeared_pokemon* mensaje_appeared;
+		if (tipo_mensaje == APPEARED_POKEMON) {
+			pokemon = malloc(sizeof(arg[3]));
+			strcpy(pokemon, arg[3]);
+			log_trace(logger, "El pokemon es: %s", pokemon);
+			pos_x = atoi(arg[4]);
+			pos_y = atoi(arg[5]);
+			mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
+					-1);
+			mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared);
+		}
 		break;
-		case broker: ////MODULO BROKER////
-			//TODO
+	case broker: ////MODULO BROKER////
+		switch (tipo_mensaje) {
+		case NEW_POKEMON:
+			;
+			t_new_pokemon* mensaje_new;
+			pokemon = malloc(sizeof(arg[3]));
+			strcpy(pokemon, arg[3]);
+			log_trace(logger, "El pokemon es: %s", pokemon);
+			pos_x = atoi(arg[4]);
+			pos_y = atoi(arg[5]);
+			cantidad = atoi(arg[6]);
+			mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,
+					-1);
+			mensaje_serializado = serializar_new_pokemon(mensaje_new);
+			break;
+		case APPEARED_POKEMON:
+			;
+			t_appeared_pokemon* mensaje_appeared;
+			pokemon = malloc(sizeof(arg[3]));
+			strcpy(pokemon, arg[3]);
+			log_trace(logger, "El pokemon es: %s", pokemon);
+			pos_x = atoi(arg[4]);
+			pos_y = atoi(arg[5]);
+			id_mensaje_correlativo = atoi(arg[6]);
+			mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
+					id_mensaje_correlativo);
+			mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared);
+			break;
+		case CATCH_POKEMON:
+			;
+			t_catch_pokemon* mensaje_catch;
+			pokemon = malloc(sizeof(arg[3]));
+			strcpy(pokemon, arg[3]);
+			log_trace(logger, "El pokemon es: %s", pokemon);
+			pos_x = atoi(arg[4]);
+			pos_y = atoi(arg[5]);
+			mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y, -1);
+			mensaje_serializado = serializar_catch_pokemon(mensaje_catch);
+			break;
+		case CAUGHT_POKEMON:
+			;
+			t_caugth_pokemon* mensaje_caugth;
+			id_mensaje_correlativo = atoi(arg[3]);
+			ok_fail = atoi(arg[4]);
+			mensaje_caugth = crear_caugth_pokemon(id_mensaje_correlativo,
+					ok_fail);
+			mensaje_serializado = serializar_caught_pokemon(mensaje_caugth);
+			break;
+		case GET_POKEMON:
+			;
+			t_get_pokemon* mensaje_get;
+			pokemon = malloc(sizeof(arg[3]));
+			strcpy(pokemon, arg[3]);
+			log_trace(logger, "El pokemon es: %s", pokemon);
+			mensaje_get = crear_get_pokemon(pokemon, -1);
+			mensaje_serializado = serializar_get_pokemon(mensaje_get);
+			break;
+		}
 		break;
-		case gamecard:////MODULO GAMECARD////
-			//TODO
+	case gamecard:			////MODULO GAMECARD////
+		switch (tipo_mensaje) {
+		case NEW_POKEMON:
+			;
+			t_new_pokemon* mensaje_new;
+			pokemon = malloc(sizeof(arg[3]));
+			strcpy(pokemon, arg[3]);
+			log_trace(logger, "El pokemon es: %s", pokemon);
+			pos_x = atoi(arg[4]);
+			pos_y = atoi(arg[5]);
+			cantidad = atoi(arg[6]);
+			id_mensaje = atoi(arg[7]);
+			mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,
+					id_mensaje);
+			mensaje_serializado = serializar_new_pokemon(mensaje_new);
+			break;
+		case CATCH_POKEMON:
+			;
+			t_catch_pokemon* mensaje_catch;
+			pokemon = malloc(sizeof(arg[3]));
+			strcpy(pokemon, arg[3]);
+			log_trace(logger, "El pokemon es: %s", pokemon);
+			pos_x = atoi(arg[4]);
+			pos_y = atoi(arg[5]);
+			id_mensaje = atoi(arg[6]);
+			mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y,
+					id_mensaje);
+			mensaje_serializado = serializar_catch_pokemon(mensaje_catch);
+			break;
+		case GET_POKEMON:
+			;
+			t_get_pokemon* mensaje_get;
+			pokemon = malloc(sizeof(arg[3]));
+			strcpy(pokemon, arg[3]);
+			log_trace(logger, "El pokemon es: %s", pokemon);
+			id_mensaje = atoi(arg[4]);
+			mensaje_get = crear_get_pokemon(pokemon, id_mensaje);
+			mensaje_serializado = serializar_get_pokemon(mensaje_get);
+			break;
+		}
+		break;
+	case SUSCRIPTOR:
+		;
+		t_subscriptor* mensaje_suscripcion;
+		cola_de_mensajes = string_a_tipo_mensaje(arg[1]);
+		tiempo_suscripcion = atoi(arg[3]);
+		mensaje_suscripcion = crear_suscripcion(cola_de_mensajes, tiempo_suscripcion);
+		mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
 		break;
 	}
 	return mensaje_serializado;
 }
 
-t_buffer* crear_serializar_appeared_pokemon(char* arg[]){
-
-	////// CREAR MENSAJE //////
-
-	t_appeared_pokemon* mensaje = malloc(sizeof(t_appeared_pokemon));
-	mensaje->size_pokemon = strlen(arg[3])+1;
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
-	mensaje->pokemon = arg[3];
-	mensaje->posx = atoi(arg[4]);
-	mensaje->posy = atoi(arg[5]);
-
-	log_info(logger,"Se creo un mensaje APPEARED_POKEMON. Tamanio : %i POKEMON: %s , X: %i , Y: %i .",
-			 mensaje->size_pokemon,mensaje->pokemon, mensaje->posx, mensaje->posy );
-
-	//////  SERIALIZAR MENSAJE  //////
-
-	t_buffer* buffer = malloc(sizeof(t_buffer));
-
-	buffer->size = 	mensaje->size_pokemon +
-					sizeof(int)*3;
-
-	void* stream = malloc(buffer->size);
-	int offset = 0;
-
-	memcpy(stream+offset, &(mensaje->size_pokemon), sizeof(int));
-	offset += sizeof(int);
-
-	memcpy(stream+offset, mensaje->pokemon,mensaje->size_pokemon);
-	offset += mensaje->size_pokemon;
-
-	memcpy(stream+offset, &(mensaje->posx), sizeof(int));
-	offset += sizeof(int);
-
-	memcpy(stream+offset, &(mensaje->posy), sizeof(int));
-	offset += sizeof(int);
-
-	buffer->stream = stream;
-	log_info(logger, "El buffer fue cargado. ");
-	return buffer;
-
-}
-
-
-t_modulo string_a_modulo(char* nombre_modulo){
-	if(string_equals_ignore_case(nombre_modulo, "TEAM")){
+t_modulo string_a_modulo(char* nombre_modulo) {
+	if (string_equals_ignore_case(nombre_modulo, "TEAM")) {
 		return team;
-	}else if(string_equals_ignore_case(nombre_modulo, "GAMECARD")){
+	} else if (string_equals_ignore_case(nombre_modulo, "GAMECARD")) {
 		return gamecard;
-	}else if(string_equals_ignore_case(nombre_modulo, "BROKER")){
+	} else if (string_equals_ignore_case(nombre_modulo, "BROKER")) {
 		return broker;
-	}else{
+	} else if (string_equals_ignore_case(nombre_modulo, "SUSCRIPTOR")) {
+		return SUSCRIPTOR;
+	} else {
 		log_info(logger, "Error: El modulo ingresado es incorrecto. ");
 		return -1;
 	}
 }
 
-t_tipo_mensaje string_a_tipo_mensaje(t_modulo modulo, char* nombre_mensaje){
-	switch(modulo){
-		case team:
-			if(string_equals_ignore_case(nombre_mensaje, "APPEARED_POKEMON")){
-				return msg_appeared_pokemon;
-			}else{
-				log_info(logger, "Error: El modulo ingresado no recibe el mesaje: %s .", nombre_mensaje);
-				return -1;
-			}
-			break;
-		case gamecard:
-			if(string_equals_ignore_case(nombre_mensaje, "NEW_POKEMON")){
-				return msg_new_pokemon;
-			}else if(string_equals_ignore_case(nombre_mensaje, "CATCH_POKEMON")){
-				return msg_id_catch_pokemon;
-			}else if(string_equals_ignore_case(nombre_mensaje, "GET_POKEMON")){
-				return msg_get_pokemon;
-			}else{
-				log_info(logger, "Error: El modulo ingresado no recibe el mesaje: %s .", nombre_mensaje);
-				return -1;
-			}
-			break;
-		case broker:
-			if(string_equals_ignore_case(nombre_mensaje, "NEW_POKEMON")){
-				return msg_id_new_pokemon;
-			}else if(string_equals_ignore_case(nombre_mensaje, "APEARED_POKEMON")){
-				return msg_id_appeared_pokemon;
-			}else if(string_equals_ignore_case(nombre_mensaje, "CATCH_POKEMON")){
-				return msg_catch_pokemon;
-			}else if(string_equals_ignore_case(nombre_mensaje, "CAUGTH_POKEMON")){
-				return msg_caugth_pokemon;
-			}else if(string_equals_ignore_case(nombre_mensaje, "GET_POKEMON")){
-				return msg_get_pokemon;
-			}else{
-				log_info(logger, "Error: El modulo ingresado no recibe el mesaje: %s .", nombre_mensaje);
-				return -1;
-			}
-			break;
-	}
+op_code string_a_tipo_mensaje(char* nombre_mensaje) {
+	if (string_equals_ignore_case(nombre_mensaje, "NEW_POKEMON")) {
+		return NEW_POKEMON;
+	} else if (string_equals_ignore_case(nombre_mensaje, "APPEARED_POKEMON")) {
+		return APPEARED_POKEMON;
+	} else if (string_equals_ignore_case(nombre_mensaje, "CATCH_POKEMON")) {
+		return CATCH_POKEMON;
+	} else if (string_equals_ignore_case(nombre_mensaje, "CAUGTH_POKEMON")) {
+		return CAUGHT_POKEMON;
+	} else if (string_equals_ignore_case(nombre_mensaje, "GET_POKEMON")) {
+		return GET_POKEMON;
+	} else if (string_equals_ignore_case(nombre_mensaje, "SUSCRIPTOR")) {
+		return SUSCRIPTOR;
+	} else
+		log_info(logger, "Error: El modulo ingresado no recibe el mesaje: %s .",
+				nombre_mensaje);
 	return -1;
 }

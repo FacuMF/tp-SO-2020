@@ -30,23 +30,6 @@ typedef enum
 	broker = 3,
 }t_modulo;
 
-//Definiciones de tipos de mensajes
-typedef enum
-{
-	msg_new_pokemon,
-	msg_catch_pokemon,
-	msg_caugth_pokemon,
-	msg_get_pokemon,
-	msg_appeared_pokemon,
-	msg_id_new_pokemon,
-	msg_id_catch_pokemon,
-	msg_id_appeared_pokemon,
-	msg_subscriptor,
-
-}t_tipo_mensaje;
-
-
-
 // OP CODES
 typedef enum
 {

@@ -518,3 +518,110 @@
 [INFO] 17:57:04:350 GameBoy/(14129:14129): El buffer fue cargado. 
 [INFO] 17:57:04:350 GameBoy/(14129:14129): El mensaje fue serializado. 
 [INFO] 17:57:04:350 GameBoy/(14129:14129): El mensaje fue enviado ;)
+[TRACE] 00:32:40:132 GameBoy/(11947:11947): Obtuve el modulo
+[TRACE] 00:35:16:120 GameBoy/(12066:12066): declare el tipo de mensaje
+[TRACE] 00:35:45:811 GameBoy/(12109:12109): declare el tipo de mensaje APPEARED_POKEMON
+[TRACE] 00:35:45:812 GameBoy/(12109:12109): Obtuve el tipo de mensaje
+[INFO] 00:35:45:812 GameBoy/(12109:12109): Se quiere enviar un mensaje del tipo -2- al modulo -1-
+[INFO] 00:35:45:812 GameBoy/(12109:12109): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[INFO] 00:35:45:813 GameBoy/(12109:12109): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[INFO] 00:35:45:813 GameBoy/(12109:12109): El mensaje fue serializado. 
+[TRACE] 00:37:19:691 GameBoy/(12143:12143): declare el tipo de mensaje APPEARED_POKEMON
+[TRACE] 00:37:19:692 GameBoy/(12143:12143): Obtuve el tipo de mensaje
+[INFO] 00:37:19:692 GameBoy/(12143:12143): Se quiere enviar un mensaje del tipo -2- al modulo -1-
+[INFO] 00:37:19:692 GameBoy/(12143:12143): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[INFO] 00:37:19:693 GameBoy/(12143:12143): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[INFO] 00:37:19:693 GameBoy/(12143:12143): El mensaje fue serializado. 
+[TRACE] 00:37:22:964 GameBoy/(12144:12144): declare el tipo de mensaje APPEARED_POKEMON
+[TRACE] 00:37:22:965 GameBoy/(12144:12144): Obtuve el tipo de mensaje
+[INFO] 00:37:22:965 GameBoy/(12144:12144): Se quiere enviar un mensaje del tipo -2- al modulo -1-
+[INFO] 00:37:22:966 GameBoy/(12144:12144): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[INFO] 00:37:22:966 GameBoy/(12144:12144): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[INFO] 00:37:22:966 GameBoy/(12144:12144): El mensaje fue serializado. 
+[TRACE] 00:37:30:132 GameBoy/(12148:12148): declare el tipo de mensaje APPEARED_POKEMON
+[TRACE] 00:37:30:133 GameBoy/(12148:12148): Obtuve el tipo de mensaje
+[INFO] 00:37:30:133 GameBoy/(12148:12148): Se quiere enviar un mensaje del tipo -2- al modulo -1-
+[INFO] 00:37:30:133 GameBoy/(12148:12148): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[INFO] 00:37:30:134 GameBoy/(12148:12148): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[INFO] 00:37:30:134 GameBoy/(12148:12148): El mensaje fue serializado. 
+[TRACE] 00:39:02:194 GameBoy/(12280:12280): declare el tipo de mensaje APPEARED_POKEMON
+[TRACE] 00:39:02:194 GameBoy/(12280:12280): Obtuve el tipo de mensaje
+[INFO] 00:39:02:194 GameBoy/(12280:12280): Se quiere enviar un mensaje del tipo -2- al modulo -1-
+[INFO] 00:39:02:194 GameBoy/(12280:12280): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[INFO] 00:39:02:195 GameBoy/(12280:12280): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[INFO] 00:39:02:195 GameBoy/(12280:12280): El mensaje fue serializado. 
+[INFO] 00:39:02:196 GameBoy/(12280:12280): El mensaje fue enviado ;)
+[TRACE] 00:59:05:995 GameBoy/(13369:13369): declare el tipo de mensaje NEW_POKEMON
+[TRACE] 00:59:06:23 GameBoy/(13369:13369): Obtuve el tipo de mensaje
+[INFO] 00:59:06:23 GameBoy/(13369:13369): Se quiere enviar un mensaje del tipo -3- al modulo -3-
+[INFO] 00:59:06:23 GameBoy/(13369:13369): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 5003
+[INFO] 00:59:06:24 GameBoy/(13369:13369): Conexion Creada. Ip: 127.0.0.1 y Puerto: 5003 
+[TRACE] 00:59:06:24 GameBoy/(13369:13369): El pokemon es: BULBASAUR
+[INFO] 00:59:06:24 GameBoy/(13369:13369): El mensaje fue serializado. 
+[TRACE] 00:59:27:499 GameBoy/(13372:13372): declare el tipo de mensaje APPEARED_POKEMON
+[TRACE] 00:59:27:499 GameBoy/(13372:13372): Obtuve el tipo de mensaje
+[INFO] 00:59:27:500 GameBoy/(13372:13372): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[INFO] 00:59:27:500 GameBoy/(13372:13372): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 5003
+[INFO] 00:59:27:500 GameBoy/(13372:13372): Conexion Creada. Ip: 127.0.0.1 y Puerto: 5003 
+[TRACE] 00:59:27:501 GameBoy/(13372:13372): El pokemon es: BULBASAUR
+[INFO] 00:59:27:501 GameBoy/(13372:13372): El mensaje fue serializado. 
+[TRACE] 00:59:37:811 GameBoy/(13377:13377): declare el tipo de mensaje CATCH_POKEMON
+[TRACE] 00:59:37:811 GameBoy/(13377:13377): Obtuve el tipo de mensaje
+[INFO] 00:59:37:811 GameBoy/(13377:13377): Se quiere enviar un mensaje del tipo -5- al modulo -3-
+[INFO] 00:59:37:811 GameBoy/(13377:13377): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 5003
+[INFO] 00:59:37:812 GameBoy/(13377:13377): Conexion Creada. Ip: 127.0.0.1 y Puerto: 5003 
+[TRACE] 00:59:37:812 GameBoy/(13377:13377): El pokemon es: PIKACHU
+[INFO] 00:59:37:812 GameBoy/(13377:13377): El mensaje fue serializado. 
+[TRACE] 00:59:57:74 GameBoy/(13381:13381): declare el tipo de mensaje CAUGHT_POKEMON
+[INFO] 00:59:57:75 GameBoy/(13381:13381): Error: El modulo ingresado no recibe el mesaje: CAUGHT_POKEMON .
+[TRACE] 00:59:57:75 GameBoy/(13381:13381): Obtuve el tipo de mensaje
+[INFO] 00:59:57:75 GameBoy/(13381:13381): Ese mensaje no existe.
+[INFO] 00:59:57:76 GameBoy/(13381:13381): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 5003
+[INFO] 00:59:57:76 GameBoy/(13381:13381): Conexion Creada. Ip: 127.0.0.1 y Puerto: 5003 
+[INFO] 00:59:57:77 GameBoy/(13381:13381): El mensaje fue serializado. 
+[TRACE] 01:00:13:849 GameBoy/(13394:13394): declare el tipo de mensaje GET_POKEMON
+[TRACE] 01:00:13:849 GameBoy/(13394:13394): Obtuve el tipo de mensaje
+[INFO] 01:00:13:849 GameBoy/(13394:13394): Se quiere enviar un mensaje del tipo -6- al modulo -3-
+[INFO] 01:00:13:850 GameBoy/(13394:13394): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 5003
+[INFO] 01:00:13:850 GameBoy/(13394:13394): Conexion Creada. Ip: 127.0.0.1 y Puerto: 5003 
+[TRACE] 01:00:13:850 GameBoy/(13394:13394): El pokemon es: SQUIRTLE
+[INFO] 01:00:13:851 GameBoy/(13394:13394): El mensaje fue serializado. 
+[TRACE] 01:00:24:127 GameBoy/(13396:13396): declare el tipo de mensaje APPEARED_POKEMON
+[TRACE] 01:00:24:127 GameBoy/(13396:13396): Obtuve el tipo de mensaje
+[INFO] 01:00:24:127 GameBoy/(13396:13396): Se quiere enviar un mensaje del tipo -2- al modulo -1-
+[INFO] 01:00:24:127 GameBoy/(13396:13396): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[INFO] 01:00:24:128 GameBoy/(13396:13396): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[TRACE] 01:00:24:128 GameBoy/(13396:13396): El pokemon es: CHARMANDER
+[INFO] 01:00:24:128 GameBoy/(13396:13396): El mensaje fue serializado. 
+[TRACE] 01:00:33:500 GameBoy/(13398:13398): declare el tipo de mensaje NEW_POKEMON
+[TRACE] 01:00:33:500 GameBoy/(13398:13398): Obtuve el tipo de mensaje
+[INFO] 01:00:33:500 GameBoy/(13398:13398): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[INFO] 01:00:33:501 GameBoy/(13398:13398): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[INFO] 01:00:33:501 GameBoy/(13398:13398): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 01:00:33:501 GameBoy/(13398:13398): El pokemon es: BULBASAUR
+[INFO] 01:00:33:502 GameBoy/(13398:13398): El mensaje fue serializado. 
+[TRACE] 01:00:48:268 GameBoy/(13407:13407): declare el tipo de mensaje CATCH_POKEMON
+[TRACE] 01:00:48:269 GameBoy/(13407:13407): Obtuve el tipo de mensaje
+[INFO] 01:00:48:269 GameBoy/(13407:13407): Se quiere enviar un mensaje del tipo -5- al modulo -2-
+[INFO] 01:00:48:269 GameBoy/(13407:13407): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[INFO] 01:00:48:270 GameBoy/(13407:13407): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 01:00:48:270 GameBoy/(13407:13407): El pokemon es: PIKACHU
+[INFO] 01:00:48:270 GameBoy/(13407:13407): El mensaje fue serializado. 
+[TRACE] 01:00:59:917 GameBoy/(13409:13409): declare el tipo de mensaje GET_POKEMON
+[TRACE] 01:00:59:918 GameBoy/(13409:13409): Obtuve el tipo de mensaje
+[INFO] 01:00:59:918 GameBoy/(13409:13409): Se quiere enviar un mensaje del tipo -6- al modulo -2-
+[INFO] 01:00:59:918 GameBoy/(13409:13409): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[INFO] 01:00:59:918 GameBoy/(13409:13409): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 01:00:59:919 GameBoy/(13409:13409): El pokemon es: SQUIRTLE
+[INFO] 01:00:59:919 GameBoy/(13409:13409): El mensaje fue serializado. 
+[INFO] 01:01:09:643 GameBoy/(13412:13412): Error: El modulo ingresado es incorrecto. 
+[TRACE] 01:01:09:643 GameBoy/(13412:13412): declare el tipo de mensaje NEW_POKEMON
+[TRACE] 01:01:09:644 GameBoy/(13412:13412): Obtuve el tipo de mensaje
+[INFO] 01:01:09:644 GameBoy/(13412:13412): Se quiere enviar un mensaje del tipo -3- al modulo --1-
+[INFO] 01:02:31:639 GameBoy/(13497:13497): Error: El modulo ingresado es incorrecto. 
+[TRACE] 01:02:31:640 GameBoy/(13497:13497): declare el tipo de mensaje NEW_POKEMON
+[TRACE] 01:02:31:640 GameBoy/(13497:13497): Obtuve el tipo de mensaje
+[INFO] 01:02:31:640 GameBoy/(13497:13497): Se quiere enviar un mensaje del tipo -3- al modulo --1-
+[TRACE] 01:04:10:522 GameBoy/(13566:13566): declare el tipo de mensaje NEW_POKEMON
+[TRACE] 01:04:10:523 GameBoy/(13566:13566): Obtuve el tipo de mensaje
+[INFO] 01:04:10:523 GameBoy/(13566:13566): Se quiere enviar un mensaje del tipo -3- al modulo -7-

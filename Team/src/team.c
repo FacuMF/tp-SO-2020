@@ -3,59 +3,54 @@
 int counter;
 pthread_mutex_t lock;
 
-int main(void){
+int main(void) {
 	/* INICIALIZACION*/
 	// Inicializacion
-	logger = iniciar_logger("./Team/config/team.log","Team");
-	log_trace(logger,"--- Log inicializado ---");
+	logger = iniciar_logger("./Team/config/team.log", "Team");
+	log_trace(logger, "--- Log inicializado ---");
 
 	// Leer configuracion
-	config =leer_config("./Team/config/team.config");
-	log_trace(logger,"Config creada");
+	config = leer_config("./Team/config/team.config");
+	log_trace(logger, "Config creada");
 
-	char ** posiciones = config_get_array_value(config,"POSICIONES_ENTRENADORES");
-	char ** pokemones_capturados = config_get_array_value(config,"POKEMON_ENTRENADORES");
-	char ** objetivos = config_get_array_value(config,"OBJETIVOS_ENTRENADORES");
+	char ** posiciones = config_get_array_value(config,
+			"POSICIONES_ENTRENADORES");
+	char ** pokemones_capturados = config_get_array_value(config,
+			"POKEMON_ENTRENADORES");
+	char ** objetivos = config_get_array_value(config,
+			"OBJETIVOS_ENTRENADORES");
 
 	// Cargado de entrenadores
-	t_list * head_entrenadores =  cargar_entrenadores(posiciones, pokemones_capturados, objetivos);
+	t_list * head_entrenadores = cargar_entrenadores(posiciones,
+			pokemones_capturados, objetivos);
 	mostrar_entrenadores(head_entrenadores);
 
 	// Crear objetivo global - Lista a partir de los pokemones_a_capturar de cada entrenador
 	t_list * pokemones_repetidos = obtener_pokemones(head_entrenadores);
-	list_iterate(pokemones_repetidos,mostrar_kokemon);
+	list_iterate(pokemones_repetidos, mostrar_kokemon);
 
 	t_list * objetivo_global = formar_objetivo(pokemones_repetidos);
-	list_iterate(objetivo_global,mostrar_objetivo);
-
+	list_iterate(objetivo_global, mostrar_objetivo);
 
 	//WAIT = pthread_mutex_lock(&lock);
 	//SIGNAL = pthread_mutex_unlock(/*semaforo*/);
 
-
 	/* MANEJO DE HILOS (con semáforos mutex)*/
-	pthread_mutex_init(&lock,NULL);
+	pthread_mutex_init(&lock, NULL);
 
 	pthread_mutex_lock(&lock);
 
-	list_iterate(head_entrenadores,lanzar_hilos);
-	log_trace(logger,"Hilos lanzados");
+	list_iterate(head_entrenadores, lanzar_hilos);
+	log_trace(logger, "Hilos lanzados");
 
+	//Conectar con gameboy
 
+	/*char* ip_gameboy = "127.0.0.2";
+	 char* puerto_gameboy = "5002";
 
-
-
-
-	/* Conectar con gameboy
-
-	char* ip_gameboy = "127.0.0.2";
-	char* puerto_gameboy = "5002";
-
-	iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);
-	*/
+	 iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);*/
 
 	//Terminar
-
 	pthread_mutex_destroy(&lock);
 	terminar_logger(logger);
 	config_destroy(config);
@@ -63,7 +58,7 @@ int main(void){
 
 // MANEJO DE HILOS
 
-void lanzar_hilos(void*element){
+void lanzar_hilos(void*element) {
 	t_entrenador * entrenador = element;
 
 	/* Inicializar el mutex de este entrenador en 0.
@@ -71,20 +66,23 @@ void lanzar_hilos(void*element){
 	 * Cuando haya un localizado que el es el mas cercano le tire signal, pasa a 0 y se desbloquea.
 	 * Cuando lo atrapa, vuelve a hacer wait (por el while no haya terminado su objetivo) y se bloquea de nuevo.
 	 * Antes de tirar el signal (o al localizar, filtrar aquellos que su sem esta < 1), chequear si el sem < 0 significa que esta esperando. Si es 0 esta laburando, no me sirve.
-	*/
+	 */
 
 	pthread_t hilo_entrenador;
-	int result = pthread_create(&hilo_entrenador,NULL, (void*) ser_entrenador, NULL);
-	if (result!=0) log_error(logger,"Error lanzando el hilo"); //TODO: revisar manejo de errores
+	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,
+			NULL);
+	if (result != 0)
+		log_error(logger, "Error lanzando el hilo"); //TODO: revisar manejo de errores
 
-	result = pthread_join(hilo_entrenador,NULL);
-	if (result!=0) log_error(logger,"Error joineando el hilo"); //TODO: revisar manejo de errores
+	result = pthread_join(hilo_entrenador, NULL);
+	if (result != 0)
+		log_error(logger, "Error joineando el hilo"); //TODO: revisar manejo de errores
 
 	return;
 
 }
 
-void ser_entrenador(/*t_entrenador* entrenador*/){
+void ser_entrenador(/*t_entrenador* entrenador*/) {
 	//While objetivo propio no fue cumplido{
 	//tira un wait a su semaforo, el cual se inicializa en 0 y espera a que el orchestrato le tire un signal
 
@@ -98,7 +96,6 @@ void ser_entrenador(/*t_entrenador* entrenador*/){
 	//}
 	// Tiro return
 	// El mismo NO se desbloquea, esto no va
-
 	// Para tests
 	pthread_mutex_lock(&lock);
 	printf("Holis \n");
@@ -107,31 +104,35 @@ void ser_entrenador(/*t_entrenador* entrenador*/){
 
 // CARGAR ENTRENADORES
 
-t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,char** objetivos){
+t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,
+		char** objetivos) {
 	t_list* head_entrenadores = list_create();
 
-	int i=0;
-	while(posiciones[i]!= NULL){	// TODO: Cambiar a for
+	int i = 0;
+	while (posiciones[i] != NULL) {	// TODO: Cambiar a for
 		t_entrenador * entrenador = malloc(sizeof(t_entrenador));
 		entrenador->posicion = de_string_a_posicion(posiciones[i]);
-		entrenador->pokemones_capturados = string_a_pokemon_list(pokemones_capturados[i]);
-		entrenador->pokemones_por_capturar = string_a_pokemon_list(objetivos[i]);
+		entrenador->pokemones_capturados = string_a_pokemon_list(
+				pokemones_capturados[i]);
+		entrenador->pokemones_por_capturar = string_a_pokemon_list(
+				objetivos[i]);
 		list_add(head_entrenadores, entrenador);
 		i++;
 	}
 
-	log_trace(logger,"--- Entrenadores cargados ---");
-	return(head_entrenadores);
+	log_trace(logger, "--- Entrenadores cargados ---");
+	return (head_entrenadores);
 }
 
-void mostrar_entrenadores(t_list * head_entrenadores){
-	list_iterate(head_entrenadores,mostrar_data_entrenador);
-	log_trace(logger,"--- Entrenadores mostrados ---");
+void mostrar_entrenadores(t_list * head_entrenadores) {
+	list_iterate(head_entrenadores, mostrar_data_entrenador);
+	log_trace(logger, "--- Entrenadores mostrados ---");
 }
 
-void mostrar_data_entrenador(void * element){
+void mostrar_data_entrenador(void * element) {
 	t_entrenador * entrenador = element;
-	log_info(logger,"Data Entrenador: Posicion %i %i",entrenador->posicion[0],entrenador->posicion[1]);
+	log_info(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
+			entrenador->posicion[1]);
 	list_iterate(entrenador->pokemones_capturados, mostrar_kokemon);
 	list_iterate(entrenador->pokemones_por_capturar, mostrar_kokemon);
 }
@@ -141,9 +142,9 @@ void mostrar_data_entrenador(void * element){
 int* de_string_a_posicion(char* cadena_con_posiciones) {
 	char** posicion_prueba = string_split(cadena_con_posiciones, "|");
 
-	int* posicion = malloc(sizeof(int)*3);
+	int* posicion = malloc(sizeof(int) * 3);
 	posicion[0] = atoi(posicion_prueba[0]);
-	posicion[1]= atoi(posicion_prueba[1]);
+	posicion[1] = atoi(posicion_prueba[1]);
 
 	return posicion;
 }
@@ -155,8 +156,8 @@ t_list* string_a_pokemon_list(char* cadena_con_pokemones) {
 
 	int i = 0;
 
-	while(pokemones[i]!=NULL){
-		list_add(head_pokemones,pokemones[i]);
+	while (pokemones[i] != NULL) {
+		list_add(head_pokemones, pokemones[i]);
 		i++;
 	}
 
@@ -165,63 +166,63 @@ t_list* string_a_pokemon_list(char* cadena_con_pokemones) {
 }
 
 // OBJETIVO GLOBAL
-void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones){
-	list_add(pokemones_repetidos,pokemones);
+void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones) {
+	list_add(pokemones_repetidos, pokemones);
 }
 
-t_list* formar_objetivo(t_list * pokemones_repetidos){
+t_list* formar_objetivo(t_list * pokemones_repetidos) {
 	t_list * objetivo_global = list_create();
-	void agrego_si_no_existe_aux(void *elemento){ // USO INNER FUNCTIONS TODO: pasar a readme
-		agrego_si_no_existe(objetivo_global,elemento);
+	void agrego_si_no_existe_aux(void *elemento) { // USO INNER FUNCTIONS TODO: pasar a readme
+		agrego_si_no_existe(objetivo_global, elemento);
 	}
 
-	list_iterate(pokemones_repetidos,agrego_si_no_existe_aux);
+	list_iterate(pokemones_repetidos, agrego_si_no_existe_aux);
 
-	log_trace(logger," ---- Objetivos Formados ----");
+	log_trace(logger, " ---- Objetivos Formados ----");
 	return objetivo_global;
 }
 
-void agrego_si_no_existe(t_list * objetivo_global,void *nombrePokemon){
-	bool _yaExiste(void *inputObjetivo){
+void agrego_si_no_existe(t_list * objetivo_global, void *nombrePokemon) {
+	bool _yaExiste(void *inputObjetivo) {
 		t_objetivo *cadaObjetivo = inputObjetivo;
-		return !strcmp(cadaObjetivo->pokemon,nombrePokemon);
-		}
+		return !strcmp(cadaObjetivo->pokemon, nombrePokemon);
+	}
 
-	t_objetivo *objetivo =list_find(objetivo_global,_yaExiste);
+	t_objetivo *objetivo = list_find(objetivo_global, _yaExiste);
 
-	if(objetivo!=NULL){
+	if (objetivo != NULL) {
 		objetivo->cantidad++;
-	}else{
+	} else {
 		t_objetivo * nuevo_objetivo = malloc(sizeof(t_objetivo));
 		nuevo_objetivo->cantidad = 1;
 		nuevo_objetivo->pokemon = nombrePokemon;
-		list_add(objetivo_global,nuevo_objetivo);
+		list_add(objetivo_global, nuevo_objetivo);
 	}
 
 }
 
-t_list* obtener_pokemones(t_list *head_entrenadores){
+t_list* obtener_pokemones(t_list *head_entrenadores) {
 	t_list * pokemones_repetidos = list_create();
-	void aniadir_pokemon_aux(void *pokemones){
-			aniadir_pokemon(pokemones_repetidos,pokemones);
-		}
-	void buscar_pokemon(void * head){
-					t_entrenador *entrenador=head;
-					list_iterate(entrenador->pokemones_por_capturar,aniadir_pokemon_aux);
-				}
+	void aniadir_pokemon_aux(void *pokemones) {
+		aniadir_pokemon(pokemones_repetidos, pokemones);
+	}
+	void buscar_pokemon(void * head) {
+		t_entrenador *entrenador = head;
+		list_iterate(entrenador->pokemones_por_capturar, aniadir_pokemon_aux);
+	}
 
-	list_iterate(head_entrenadores,buscar_pokemon);
+	list_iterate(head_entrenadores, buscar_pokemon);
 
-	log_trace(logger,"--- Kokemones obtenidos ---");
+	log_trace(logger, "--- Kokemones obtenidos ---");
 	return pokemones_repetidos;
 }
 
-void mostrar_kokemon(void*elemento){
-	log_info(logger,elemento);
+void mostrar_kokemon(void*elemento) {
+	log_info(logger, elemento);
 }
 
-void mostrar_objetivo(void *elemento){
-	log_info(logger,"Data de objetivo!");
+void mostrar_objetivo(void *elemento) {
+	log_info(logger, "Data de objetivo!");
 
 	t_objetivo *objetivo = elemento;
 	log_info(logger, "objetivo: %s", objetivo->pokemon);
@@ -232,27 +233,26 @@ void mostrar_objetivo(void *elemento){
 //MANEJO DE HILOS
 
 /*
-void* doSomeThing(void *arg){
+ void* doSomeThing(void *arg){
 
-    pthread_mutex_lock(&lock);
-    unsigned long i = 0;
-    counter += 1;
-    printf("\n Hilo %d started\n", counter);
-    for(i=0; i<(0xFFFFFFFF);i++);
-    printf("\n Hilo %d finished\n", counter);
-    pthread_mutex_unlock(&lock);
-}
-*/
+ pthread_mutex_lock(&lock);
+ unsigned long i = 0;
+ counter += 1;
+ printf("\n Hilo %d started\n", counter);
+ for(i=0; i<(0xFFFFFFFF);i++);
+ printf("\n Hilo %d finished\n", counter);
+ pthread_mutex_unlock(&lock);
+ }
+ */
 
 // Socket servidor para conectar con gameboy
-
 void iniciar_conexion_servidor(char* ip, char* puerto) {
 
-	log_info(logger,"Servidor Inicializado");
+	log_info(logger, "Servidor Inicializado");
 	//Set up conexion
-	struct addrinfo* servinfo = obtener_server_info(ip,puerto); // Address info para la conexion TCP/IP
+	struct addrinfo* servinfo = obtener_server_info(ip, puerto); // Address info para la conexion TCP/IP
 	int socket_servidor = obtener_socket(servinfo);
-	asignar_socket_a_puerto(socket_servidor,servinfo);
+	asignar_socket_a_puerto(socket_servidor, servinfo);
 	setear_socket_reusable(socket_servidor);
 	freeaddrinfo(servinfo);
 	log_info(logger, "Esperando conexion.");
@@ -262,9 +262,9 @@ void iniciar_conexion_servidor(char* ip, char* puerto) {
 		esperar_cliente(socket_servidor);//Queda esperando que un cliente se conecte
 }
 
-void setear_socket_reusable(int socket){
+void setear_socket_reusable(int socket) {
 	int activado = 1;
-	setsockopt(socket, SOL_SOCKET,SO_REUSEADDR, &activado,sizeof(activado));
+	setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado));
 }
 
 void esperar_cliente(int socket_servidor) {	// Hilo coordinador
@@ -293,11 +293,15 @@ void process_request(int cod_op, int cliente_fd) {
 	switch (cod_op) {
 	case APPEARED_POKEMON:
 		buffer = recibir_mensaje(cliente_fd);
-		t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
+		t_appeared_pokemon* mensaje_appeared_pokemon =
+				deserializar_appeared_pokemon(buffer);
 
 		//TBR
-		log_info(logger, "Se deserializo el mensaje APPEARED_POKEMON.Tamanio : %i Pokemon: %s , Pos: (%i,%i) .",
-				mensaje_appeared_pokemon->size_pokemon,mensaje_appeared_pokemon->pokemon, mensaje_appeared_pokemon->posx, mensaje_appeared_pokemon->posy);
+		log_info(logger,
+				"Se deserializo el mensaje APPEARED_POKEMON.Tamanio : %i Pokemon: %s , Pos: (%i,%i) .",
+				mensaje_appeared_pokemon->size_pokemon,
+				mensaje_appeared_pokemon->pokemon,
+				mensaje_appeared_pokemon->posx, mensaje_appeared_pokemon->posy);
 
 		log_info(logger, "Mensaje Recibido.");
 
@@ -308,7 +312,7 @@ void process_request(int cod_op, int cliente_fd) {
 		buffer = recibir_mensaje(cliente_fd);
 		t_msjTexto* mensaje_recibido = deserializar_mensaje(buffer);
 		log_info(logger, "Mensaje Recibido.");
-		log_info(logger,mensaje_recibido->contenido);
+		log_info(logger, mensaje_recibido->contenido);
 
 		t_buffer *buffer = serializar_mensaje(mensaje_recibido);
 		log_info(logger, "Mensaje Serializado");

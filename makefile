@@ -6,12 +6,14 @@ CLIENTE = Base/Cliente/src/cliente.h Base/Cliente/src/cliente.c
 SERVIDOR = Base/Servidor/src/servidor.h Base/Servidor/src/servidor.c
 TEAM = Team/src/team.c Team/src/team.h
 GAMEBOY=GameBoy/src/gameboy.c GameBoy/src/gameboy.h
+BROKER = Broker/src/broker.c Broker/src/broker.h
 all:
 	mkdir -p $(BIN_PATH)
 	$(COMPILER) $(UTILS) $(CLIENTE) -o $(BIN_PATH)/Cliente 	$(LIBS)
 	$(COMPILER) $(UTILS) $(SERVIDOR) -o $(BIN_PATH)/Server $(LIBS)
 	$(COMPILER) $(UTILS) $(TEAM) -o $(BIN_PATH)/ProcesoTeam $(LIBS)
 	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/GameBoy $(LIBS)
+	#$(COMPILER) $(UTILS) $(BROKER) -o $(BIN_PATH)/Broker $(LIBS)
 
 team:
 	mkdir -p $(BIN_PATH)

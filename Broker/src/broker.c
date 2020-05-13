@@ -88,8 +88,6 @@ int main(void) {
 
 
 
-
-
 	terminar_logger(logger);
 	config_destroy(config);
 

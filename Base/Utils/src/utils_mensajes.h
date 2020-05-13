@@ -4,8 +4,6 @@
 #include "utils.h"
 
 // ESTRUCTURAS DE MENSAJES
-
-// Mensajes sin id
 typedef struct{
 	int id_mensaje;
 	bool ok_or_fail;
@@ -14,16 +12,8 @@ typedef struct{
 typedef struct{
 	int size_pokemon;
 	char* pokemon;
+	int id_mensaje;
 }t_get_pokemon;
-
-typedef struct{
-	int size_pokemon;
-	char* pokemon;
-	int posx;
-	int posy;
-}t_appeared_pokemon;
-
-// Mensajes con id
 
 typedef struct{
 	int size_pokemon;
@@ -48,7 +38,7 @@ typedef struct{
 	int posx;
 	int posy;
 	int id_mensaje;
-}t_id_appeared_pokemon;
+}t_appeared_pokemon;
 
 //Mensaje subscriptor
 
@@ -77,8 +67,9 @@ t_new_pokemon* crear_new_pokemon(char*, int, int, int, int);
 t_buffer* serializar_new_pokemon(t_new_pokemon*);
 t_new_pokemon* deserializar_new_pokemon(t_buffer* buffer);
 
-//t_buffer* crear_serializar_appeared_pokemon(char* pokemon, int posicion_x, int posicion_y, int id_mensaje);
-//t_id_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer);
+t_appeared_pokemon* crear_appeared_pokemon(char*, int, int, int);
+t_buffer* serializar_appeared_pokemon(t_appeared_pokemon*);
+t_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer);
 
 
 t_catch_pokemon* crear_catch_pokemon(char*, int, int, int);
@@ -89,7 +80,7 @@ t_caugth_pokemon* crear_caugth_pokemon(int, bool);
 t_buffer* serializar_caught_pokemon(t_caugth_pokemon*);
 t_caugth_pokemon* deserializar_caught_pokemon(t_buffer* buffer);
 
-t_get_pokemon* crear_get_pokemon(char*);
+t_get_pokemon* crear_get_pokemon(char*,int);
 t_buffer* serializar_get_pokemon(t_get_pokemon*);
 t_get_pokemon* deserializar_get_pokemon(t_buffer* buffer);
 

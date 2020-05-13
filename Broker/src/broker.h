@@ -10,7 +10,7 @@ typedef struct{
 }t_queue;
 
 typedef struct{
-	t_tipo_mensaje tipo_mensaje;
+	op_code tipo_mensaje;
 	int id;
 	int id_correlacional;
 	t_list subscribers_enviados; //Subscriptores a esta cola
