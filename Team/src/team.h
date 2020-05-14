@@ -36,6 +36,7 @@ typedef struct t_objetivo{
 }t_objetivo;
 
 typedef struct t_entrenador {
+	pthread_mutex_t sem_est;
     int * posicion;
     t_list* pokemones_capturados;
     t_list* pokemones_por_capturar;
@@ -70,7 +71,7 @@ void process_request(int cod_op, int cliente_fd);
 // Funciones de Manejo de Hilos
 void lanzar_hilos(void*element);
 void ser_entrenador();
-
+//bool objetivo_cumplido;
 
 #endif /* TEAM_H_ */
 

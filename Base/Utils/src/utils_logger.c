@@ -5,7 +5,7 @@
 t_log* iniciar_logger(char* file, char* program_name)
 {
 	t_log * logger;
-	if((logger = log_create(file,program_name,true,LOG_LEVEL_TRACE)) == NULL){
+	if((logger = log_create(file,program_name,true,LOG_LEVEL_ERROR)) == NULL){
 		printf("Error en log\n");
 		exit(1);
 	}

@@ -7,7 +7,7 @@ int main(void) {
 
 	// Leer configuracion
 	config =leer_config("./Broker/config/broker.config");
-	log_info(logger,"Config creada");
+	log_trace(logger,"Config creada");
 
 	// Inicializacion de las distintas colas de mensajes
 

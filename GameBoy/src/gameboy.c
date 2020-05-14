@@ -21,7 +21,7 @@ int main(int argv, char* arg[]) {
 	log_trace(logger, "Obtuve el tipo de mensaje");
 
 	/*TBR*/if (tipo_mensaje == -1) {
-		log_info(logger, "Ese mensaje no existe.");
+		log_error(logger, "Ese mensaje no existe.");
 	} else {
 		log_info(logger,
 				"Se quiere enviar un mensaje del tipo -%i- al modulo -%i-",
@@ -37,16 +37,16 @@ int main(int argv, char* arg[]) {
 
 	int conexion;
 	conexion = iniciar_conexion(ip, puerto);
-	log_info(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
+	log_trace(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
 
 	////// Crear y Serializar mensaje //////
 	t_buffer* mensaje_serializado = mensaje_a_enviar(modulo,
 			tipo_mensaje, arg);
-	log_info(logger, "El mensaje fue serializado. ");
+	log_trace(logger, "El mensaje fue serializado. ");
 
 	////// Enviar mensaje //////
 	enviar_mensaje(conexion, mensaje_serializado, APPEARED_POKEMON);
-	log_info(logger, "El mensaje fue enviado ;)");
+	log_trace(logger, "El mensaje fue enviado ;)");
 
 	free(mensaje_serializado->stream);
 	free(mensaje_serializado);

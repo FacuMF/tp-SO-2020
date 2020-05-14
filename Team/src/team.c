@@ -60,6 +60,8 @@ int main(void) {
 
 void lanzar_hilos(void*element) {
 	t_entrenador * entrenador = element;
+	// Inicializo mutex de cada entrenador en 0
+	pthread_mutex_lock(&(entrenador->sem_est));
 
 	/* Inicializar el mutex de este entrenador en 0.
 	 * Cuando el entrenador arranque y tire wait va a pasar a -1 y se bloquea.
@@ -83,11 +85,15 @@ void lanzar_hilos(void*element) {
 }
 
 void ser_entrenador(/*t_entrenador* entrenador*/) {
-	//While objetivo propio no fue cumplido{
-	//tira un wait a su semaforo, el cual se inicializa en 0 y espera a que el orchestrato le tire un signal
+	//While(objetivo_cumplido(entrenador)!=1){
+	//pthread_mutex_lock(&(entrenador->sem_est);
+	//El entrenador se bloquea al
+	//tirar un wait a su semaforo,
+	//el cual se inicializo en 0 y queda en -1 y espera a que el orchestrato( Cuando se Encuentra el entrenador mas cercano)
+	//le tire un signal
 
 	/*
-	 * Tirar un wait a la lista de localizados
+	 * Tirar un wait a la lista de localizados // otro semaforo
 	 * va a buscar a la lista de localizados el pokemon para moverse y mandar mensaje CAUGHT
 	 * Tirar un signal a la lista de localizados
 	 * ...
@@ -111,6 +117,7 @@ t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,
 	int i = 0;
 	while (posiciones[i] != NULL) {	// TODO: Cambiar a for
 		t_entrenador * entrenador = malloc(sizeof(t_entrenador));
+		pthread_mutex_init(&entrenador->sem_est,NULL);
 		entrenador->posicion = de_string_a_posicion(posiciones[i]);
 		entrenador->pokemones_capturados = string_a_pokemon_list(
 				pokemones_capturados[i]);
@@ -229,6 +236,14 @@ void mostrar_objetivo(void *elemento) {
 	log_info(logger, "objetivo: %i", objetivo->cantidad);
 
 }
+
+//Chequear objetivo personal cumplido
+/*
+ bool objetivo_cumplido(t*entrenador entrenador){
+	return list_is_empty(entrenador->pokemones_por_capturar) ;
+}
+*/
+
 
 //MANEJO DE HILOS
 
