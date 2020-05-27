@@ -4,6 +4,9 @@
 t_log* logger;
 t_config* config;
 
+char* log_nivel_key;
+t_log_level log_nivel_minimo;
+
 // Funciones
 t_modulo string_a_modulo(char*);
 op_code string_a_tipo_mensaje(char*);

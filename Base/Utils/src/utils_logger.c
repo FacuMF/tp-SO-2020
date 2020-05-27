@@ -2,10 +2,10 @@
 
 //Funciones
 
-t_log* iniciar_logger(char* file, char* program_name)
+t_log* iniciar_logger(char* file, char* program_name, t_log_level nivel_minimo)
 {
 	t_log * logger;
-	if((logger = log_create(file,program_name,true,LOG_LEVEL_ERROR)) == NULL){
+	if((logger = log_create(file,program_name,true,nivel_minimo)) == NULL){
 		printf("Error en log\n");
 		exit(1);
 	}

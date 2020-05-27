@@ -2,7 +2,7 @@
 
 int main(void) {
 	// Inicio logger
-	logger = iniciar_logger("./Broker/config/broker.log","Team");
+	logger = iniciar_logger("./Broker/config/broker.log","Team", LOG_LEVEL_ERROR);
 	log_trace(logger,"--- Log inicializado ---");
 
 	// Leer configuracion

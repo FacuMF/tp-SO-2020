@@ -2,11 +2,13 @@
 
 int main(int argv, char* arg[]) {
 
-	//Inicio logger
-	logger = iniciar_logger("./GameBoy/config/gameboy.log", "GameBoy");
-
 	// Leer configuracion
 	config = leer_config("./GameBoy/config/gameboy.config");
+	log_nivel_key = config_get_string_value(config, "LOG_NIVEL_MINIMO");
+	log_nivel_minimo = log_level_from_string(log_nivel_key);
+
+	//Inicio logger
+	logger = iniciar_logger("./GameBoy/config/gameboy.log", "GameBoy", log_nivel_minimo);
 
 	//////  TIPO DE MENSAJE: MODULO MENSAJE ARG1 ARG2 AGR3 ... //////
 	//////                   arg[1] arg[2]  arg[3] ...         //////
@@ -40,8 +42,7 @@ int main(int argv, char* arg[]) {
 	log_trace(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
 
 	////// Crear y Serializar mensaje //////
-	t_buffer* mensaje_serializado = mensaje_a_enviar(modulo,
-			tipo_mensaje, arg);
+	t_buffer* mensaje_serializado = mensaje_a_enviar(modulo, tipo_mensaje, arg);
 	log_trace(logger, "El mensaje fue serializado. ");
 
 	////// Enviar mensaje //////
@@ -53,8 +54,7 @@ int main(int argv, char* arg[]) {
 
 }
 
-t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje,
-		char* arg[]) {
+t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	char* pokemon;
 	int pos_x, pos_y, cantidad, id_mensaje, cola_de_mensajes,
@@ -180,7 +180,8 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje,
 		t_subscriptor* mensaje_suscripcion;
 		cola_de_mensajes = string_a_tipo_mensaje(arg[1]);
 		tiempo_suscripcion = atoi(arg[3]);
-		mensaje_suscripcion = crear_suscripcion(cola_de_mensajes, tiempo_suscripcion);
+		mensaje_suscripcion = crear_suscripcion(cola_de_mensajes,
+				tiempo_suscripcion);
 		mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
 		break;
 	}

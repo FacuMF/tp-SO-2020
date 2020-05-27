@@ -5,12 +5,14 @@ pthread_mutex_t lock;
 
 int main(void) {
 	/* INICIALIZACION*/
-	// Inicializacion
-	logger = iniciar_logger("./Team/config/team.log", "Team");
-	log_trace(logger, "--- Log inicializado ---");
-
 	// Leer configuracion
 	config = leer_config("./Team/config/team.config");
+	log_nivel_key = config_get_string_value(config, "LOG_NIVEL_MINIMO");
+	log_nivel_minimo = log_level_from_string(log_nivel_key);
+
+	logger = iniciar_logger("./Team/config/team.log", "Team", log_nivel_minimo);
+	log_trace(logger, "--- Log inicializado ---");
+
 	log_trace(logger, "Config creada");
 
 	char ** posiciones = config_get_array_value(config,
@@ -72,7 +74,7 @@ void lanzar_hilos(void*element) {
 
 	pthread_t hilo_entrenador;
 	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,
-			NULL);
+	NULL);
 	if (result != 0)
 		log_error(logger, "Error lanzando el hilo"); //TODO: revisar manejo de errores
 
@@ -117,7 +119,7 @@ t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,
 	int i = 0;
 	while (posiciones[i] != NULL) {	// TODO: Cambiar a for
 		t_entrenador * entrenador = malloc(sizeof(t_entrenador));
-		pthread_mutex_init(&entrenador->sem_est,NULL);
+		pthread_mutex_init(&entrenador->sem_est, NULL);
 		entrenador->posicion = de_string_a_posicion(posiciones[i]);
 		entrenador->pokemones_capturados = string_a_pokemon_list(
 				pokemones_capturados[i]);
@@ -240,13 +242,11 @@ void mostrar_objetivo(void *elemento) {
 //Chequear objetivo personal cumplido
 /*
  bool objetivo_cumplido(t*entrenador entrenador){
-	return list_is_empty(entrenador->pokemones_por_capturar) ;
-}
-*/
-
+ return list_is_empty(entrenador->pokemones_por_capturar) ;
+ }
+ */
 
 //MANEJO DE HILOS
-
 /*
  void* doSomeThing(void *arg){
 

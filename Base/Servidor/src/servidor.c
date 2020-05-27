@@ -11,12 +11,17 @@ int main(void) {
 	char * ip;
 	char * puerto;
 
-	// Iniciar Logger
-	logger = iniciar_logger("./Base/Servidor/config/servidor.log", "Server");
-	log_info(logger, "Primer log ingresado");
-
 	// Leer config
 	config = leer_config("./Base/Servidor/config/servidor.config");
+
+	log_nivel_key = config_get_string_value(config, "LOG_NIVEL_MINIMO");
+	log_nivel_minimo = log_level_from_string(log_nivel_key);
+
+	// Iniciar Logger
+	logger = iniciar_logger("./Base/Servidor/config/servidor.log", "Server",
+			log_nivel_minimo);
+	log_info(logger, "Primer log ingresado");
+
 	ip = config_get_string_value(config, "IP");
 	puerto = config_get_string_value(config, "PUERTO");
 

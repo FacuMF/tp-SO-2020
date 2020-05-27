@@ -7,11 +7,15 @@ int main(void) {
 	char* puerto;
 	char * mensaje_a_enviar = "ESTE ES EL MENSAJE XD";
 
-	// Iniciar Logger
-	logger = iniciar_logger("./Base/Cliente/config/cliente.log", "Cliente");
-	log_info(logger, "Primer log ingresado");
 	// Leer Config
 	config = leer_config("./Base/Cliente/config/cliente.config");
+	log_nivel_key = config_get_string_value(config,"LOG_NIVEL_MINIMO");
+	log_nivel_minimo = log_level_from_string(log_nivel_key);
+
+	// Iniciar Logger
+	logger = iniciar_logger("./Base/Cliente/config/cliente.log", "Cliente", log_nivel_minimo);
+	log_info(logger, "Primer log ingresado");
+
 	ip = config_get_string_value(config, "IP");
 	puerto = config_get_string_value(config, "PUERTO");
 
@@ -22,8 +26,8 @@ int main(void) {
 	// Enviar mensaje
 
 	//Prueba new pokemon
-	/*t_new_pokemon* mensaje_new = crear_new_pokemon("PIKACHU",3,2,5,1);
-	 t_buffer* buffer_new = serializar_new_pokemon(mensaje_new);*/
+	t_new_pokemon* mensaje_new = crear_new_pokemon("PIKACHU",3,2,5,1);
+	 t_buffer* buffer_new = serializar_new_pokemon(mensaje_new);
 
 	//Prueba mjeTexto
 	//t_msjTexto* mensaje_test = crear_mensaje(mensaje_a_enviar);
@@ -41,15 +45,15 @@ int main(void) {
 	 t_buffer* buffer_caugth = serializar_caught_pokemon(mensaje_caugth);*/
 
 	//Prueba suscripcion
-	t_subscriptor* mensaje_suscriptor = crear_suscripcion(1, 10);
+	/*t_subscriptor* mensaje_suscriptor = crear_suscripcion(1, 10);
 	t_buffer* buffer_suscriptor = serializar_suscripcion(mensaje_suscriptor);
-	log_info(logger, "Mensaje Creado");
+	log_info(logger, "Mensaje Creado");*/
 
-	//enviar_mensaje(conexion, buffer_new, NEW_POKEMON);
+	enviar_mensaje(conexion, buffer_new, NEW_POKEMON);
 	//enviar_mensaje(conexion,buffer_get,GET_POKEMON);
 	//enviar_mensaje(conexion, buffer_catch, CATCH_POKEMON);
 	//enviar_mensaje(conexion, buffer_caugth, CAUGHT_POKEMON);
-	enviar_mensaje(conexion, buffer_suscriptor, SUSCRIPTOR);
+	//enviar_mensaje(conexion, buffer_suscriptor, SUSCRIPTOR);
 	log_info(logger, "Mensaje Serializado");
 
 	log_info(logger, "Mensaje Enviado");

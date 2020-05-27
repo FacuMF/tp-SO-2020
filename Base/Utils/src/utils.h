@@ -78,8 +78,8 @@ void liberar_conexion(int socket_cliente);
 
 //      LOGGER
 
-t_log* iniciar_logger(char* file, char* program_name);
-void terminar_logger(t_log* logger);
+t_log* iniciar_logger(char*, char*, t_log_level);
+void terminar_logger(t_log*);
 
 //		CONFIG
 t_config* leer_config(char*);
