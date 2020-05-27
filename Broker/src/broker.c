@@ -36,8 +36,47 @@ int main(void) {
 	new_pokemon->subscriptores = list_create();
 	new_pokemon->mensajes = list_create();
 
+	/*
+	pthread_create( iniciar_conexion() )
+
+	iniciar_conexion(){
+		while(True) {
+			listen(socketEscucha, )   //Se bloquea y solo sigue si alguien se le conecta
+			log( El socket esta escuchando algo, se pasa a aceptar. )
+			lanzoHilo(handleMenssage)
+		}
+	}
+
+	handleMenssaje() {
+		int code_op = recibir_codigo_operacion();
+		process_request(cod_op, *socket);
+	}
+
+	proces_request() {
+		if( Subscripcion ){
+			deserializar_subscription()
+			agregar_subscriptor_a_cola()
+			enviar_a_subscriptor_mensajes_cola() \\Se le envian todos los mensajes que ya estan almacenados en la cola.
+
+		}
+		if( Mensaje ){
+			deserializar_mensjae()
+			asignar_id()
+			informar_id_a_cliente()
+			almacenar_en_cola()
+			enviar_a_todos_los_subs() \\Y esperar confirmacion
+			cachear_mensaje()
+		}
+	}
+	*/
+
+	terminar_logger(logger);
+	config_destroy(config);
+
+}
 
 
+//  REQUERIMIENTOS 
 	//  Administrar Subsciptores
 
 		// Espera solicitudes de distintos modulos.
@@ -82,13 +121,3 @@ int main(void) {
 		//  Mantener su estado
 
 		//  Borrar mensajes que fueron entregados a todos los subs.
-
-
-
-
-
-
-	terminar_logger(logger);
-	config_destroy(config);
-
-}
