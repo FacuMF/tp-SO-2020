@@ -2,17 +2,6 @@
 #ifndef TEAM_H_
 #define TEAM_H_
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<commons/log.h>
-#include<commons/string.h>
-#include<commons/config.h>
-#include<commons/collections/list.h>
-#include<readline/readline.h>
-
-#include<pthread.h>
-#include<unistd.h>
-
 #include "../../Base/Utils/src/utils.h"
 #include "../../Base/Utils/src/utils_mensajes.h"
 
