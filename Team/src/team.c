@@ -3,14 +3,23 @@
 int counter;
 pthread_mutex_t lock;
 
-int main(void) {
+int main(int argv,char*archivo_config[]) {
 	/* INICIALIZACION*/
 	// Leer configuracion
-	config = leer_config("./Team/config/team.config");
+
+	char * archivo_leido= malloc(sizeof(archivo_config[1]));
+	strcpy(archivo_leido,archivo_config[1]);
+	char *path_log=obtener_path(archivo_leido);
+	config = leer_config(path_log);
+	free(archivo_leido);
+
+
 	log_nivel_key = config_get_string_value(config, "LOG_NIVEL_MINIMO");
 	log_nivel_minimo = log_level_from_string(log_nivel_key);
+	char* log_leido= config_get_string_value(config,"LOG_FILE");
 
-	logger = iniciar_logger("./Team/config/team.log", "Team", log_nivel_minimo);
+	char * log_path=obtener_path(log_leido);
+	logger = iniciar_logger(log_path, "Team", log_nivel_minimo);
 	log_trace(logger, "--- Log inicializado ---");
 
 	log_trace(logger, "Config creada");
@@ -56,6 +65,13 @@ int main(void) {
 	pthread_mutex_destroy(&lock);
 	terminar_logger(logger);
 	config_destroy(config);
+}
+// Cargar path de config y log
+char *obtener_path(char *path_leido){
+	 char* path=string_new();
+	 string_append(&path,"./Team/config/");
+	 string_append(&path,path_leido);
+	return path;
 }
 
 // MANEJO DE HILOS

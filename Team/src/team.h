@@ -32,6 +32,7 @@ t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,
 		char** objetivos);
 int* de_string_a_posicion(char* string);
 t_list* string_a_pokemon_list(char* string);
+char * obtener_path(char*string);
 
 //Funciones de mostrado de entrenador y pokemon  (TBR)
 void mostrar_entrenadores(t_list * head_entrenadores);
