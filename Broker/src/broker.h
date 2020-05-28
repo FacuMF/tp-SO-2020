@@ -16,3 +16,5 @@ typedef struct{
 	t_list subscribers_enviados; //Subscriptores a esta cola
 	t_list subscribers_ack; //Subscriptores que recibieron el mensaje
 }t_mensaje;
+
+pthread_t tid[2];

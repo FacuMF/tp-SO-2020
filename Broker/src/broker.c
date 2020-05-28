@@ -36,29 +36,14 @@ int main(void) {
 	new_pokemon->subscriptores = list_create();
 	new_pokemon->mensajes = list_create();
 
+	int error;
+	error = pthread_create(&(tid[0]), NULL, esperar_mensajes, NULL);
+	if (error != 0){
+		log_error(logger, "Error al crear hilo Esperar_Mensajes");
+		return error;
+	}
+
 	/*
-	pthread_create( iniciar_conexion() )
-
-	iniciar_conexion(){
-		while(True) {
-			listen(socketEscucha, )   //Se bloquea y solo sigue si alguien se le conecta
-			log( El socket esta escuchando algo, se pasa a aceptar. )
-			lanzoHilo(handleMenssage)
-		}
-	}
-
-	handleMenssaje() {
-		int code_op = recibir_codigo_operacion();
-		process_request(cod_op, *socket);
-	}
-
-	proces_request() {
-		if( Subscripcion ){
-			deserializar_subscription()
-			agregar_subscriptor_a_cola()
-			enviar_a_subscriptor_mensajes_cola() \\Se le envian todos los mensajes que ya estan almacenados en la cola.
-
-		}
 		if( Mensaje ){
 			deserializar_mensjae()
 			asignar_id()
@@ -75,6 +60,96 @@ int main(void) {
 
 }
 
+void* esperar_mensajes(void *arg){
+		while(1==1) {
+			char* ip = config_get_string_value(config, "IP");
+			char* puerto = config_get_string_value(config, "PUERTO");
+			iniciar_conexion(ip, puerto);
+		}
+}
+
+void iniciar_conexion(char* ip, char* puerto) {
+
+	log_info(logger, "Servidor Inicializado");
+	//Set up conexion
+	struct addrinfo* servinfo = obtener_server_info(ip, puerto); 
+	int socket_servidor = obtener_socket(servinfo);
+	asignar_socket_a_puerto(socket_servidor, servinfo);
+	setear_socket_reusable(socket_servidor);
+	freeaddrinfo(servinfo);
+
+	listen(socket_servidor, SOMAXCONN);	
+
+	while (1)
+		handle_cliente(socket_servidor);
+}
+
+void handle_cliente(int socket_servidor) {
+	struct sockaddr_in dir_cliente;
+
+	int tam_direccion = sizeof(struct sockaddr_in);
+
+	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
+			&tam_direccion);
+
+	//TODO la variable thread es una sola, esto va a dar problemas, hay que hacer que sean varias de alguna forma. Finitas o infinitas?
+	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
+	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+}
+
+void recibir_mensaje_del_cliente(int* socket) {
+	int cod_op = recibir_codigo_operacion(*socket);
+	handle_mensaje(cod_op, *socket);
+}
+
+void handle_mensaje(int cod_op, int cliente_fd){
+	switch (cod_op) {
+	case SUSCRIPTOR:
+		log_trace(logger, "Se recibio un mensaje SUSCRIPTOR");
+		/*
+		deserializar_subscription()
+		agregar_subscriptor_a_cola()
+		enviar_a_subscriptor_mensajes_cola() \\Se le envian todos los mensajes que ya estan almacenados en la cola.
+		*/
+
+		break;
+
+	/*  PSEUDOCODIGO PARA TODOS LOS MENSAJES
+		if( Mensaje ){
+			deserializar_mensjae()
+			asignar_id()
+			informar_id_a_cliente()
+			almacenar_en_cola()
+			enviar_a_todos_los_subs() \\Y esperar confirmacion
+			cachear_mensaje()
+		}   */
+
+	case APPEARED_POKEMON:
+		log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
+
+		break;
+	case NEW_POKEMON:
+		log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
+
+		break;
+	case CATCH_POKEMON:
+		log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
+
+		break;
+	case CAUGHT_POKEMON:
+		log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
+
+		break;
+	case GET_POKEMON:
+		log_trace(logger, "Se recibio un mensaje GET_POKEMON");
+
+		break;
+	case LOCALIZED_POKEMON:
+		log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
+
+		break;
+	}
+}
 
 //  REQUERIMIENTOS 
 	//  Administrar Subsciptores
