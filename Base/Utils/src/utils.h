@@ -21,6 +21,7 @@
 #include<commons/string.h>
 #include<readline/readline.h>
 #include<pthread.h>
+#include<math.h>
 
 //Definiciones de modulos
 typedef enum

@@ -122,6 +122,12 @@ nota: cualq cosa hablar con art, fac, fran
 	}
 ---
 ## OTROS
+
+---
+### Inicializacion de proceso team
+---
+Recordar que al inicializar el proceso team es necesario que pasen como parametro el archivo de config que corresponda a dicho team
+
 ---
 ### Manejo de makefiles
 ---

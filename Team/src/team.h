@@ -4,6 +4,7 @@
 #include "../../Base/Utils/src/utils.h"
 #include "../../Base/Utils/src/utils_mensajes.h"
 
+
 t_log* logger;
 t_config* config;
 
@@ -57,8 +58,13 @@ void process_request(int cod_op, int cliente_fd);
 
 // Funciones de Manejo de Hilos
 void lanzar_hilos(void*element);
-void ser_entrenador();
-//bool objetivo_cumplido;
+void ser_entrenador(void *element);
+int objetivo_cumplido(t_entrenador*entrenador);
 
+//Funciones de Planificacion
+int distancia(t_entrenador * entrenador, int posx, int posy);
+int suma_de_distancias_al_cuadrado(t_entrenador*entrenador, int posx, int posy);
+int distancia_en_eje(t_entrenador *entrenador, int pos_eje, int pos);
+// t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,posx,posy);
 #endif /* TEAM_H_ */
 

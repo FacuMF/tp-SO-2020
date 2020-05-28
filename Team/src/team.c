@@ -76,6 +76,9 @@ char *obtener_path(char *path_leido){
 
 // MANEJO DE HILOS
 
+int objetivo_cumplido(t_entrenador *entrenador){
+	return list_is_empty(entrenador->pokemones_por_capturar);
+}
 void lanzar_hilos(void*element) {
 	t_entrenador * entrenador = element;
 	// Inicializo mutex de cada entrenador en 0
@@ -89,8 +92,7 @@ void lanzar_hilos(void*element) {
 	 */
 
 	pthread_t hilo_entrenador;
-	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,
-	NULL);
+	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,(void*)entrenador);
 	if (result != 0)
 		log_error(logger, "Error lanzando el hilo"); //TODO: revisar manejo de errores
 
@@ -102,9 +104,19 @@ void lanzar_hilos(void*element) {
 
 }
 
-void ser_entrenador(/*t_entrenador* entrenador*/) {
-	//While(objetivo_cumplido(entrenador)!=1){
-	//pthread_mutex_lock(&(entrenador->sem_est);
+void ser_entrenador(void *element) {
+	t_entrenador * entrenador = element;
+	int count = 0;
+
+	while(!(objetivo_cumplido(entrenador)) && count <1)
+	{
+		log_trace(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
+					entrenador->posicion[1]);
+		count ++;
+	}
+}
+
+//pthread_mutex_lock(&(entrenador->sem_est);
 	//El entrenador se bloquea al
 	//tirar un wait a su semaforo,
 	//el cual se inicializo en 0 y queda en -1 y espera a que el orchestrato( Cuando se Encuentra el entrenador mas cercano)
@@ -121,10 +133,28 @@ void ser_entrenador(/*t_entrenador* entrenador*/) {
 	// Tiro return
 	// El mismo NO se desbloquea, esto no va
 	// Para tests
-	pthread_mutex_lock(&lock);
-	printf("Holis \n");
-	pthread_mutex_unlock(&lock);
+
+
+
+int distancia(t_entrenador * entrenador, int posx, int posy){
+	int distancia_e= sqrt(suma_de_distancias_al_cuadrado(entrenador,posx,posy));
+	return distancia_e;
 }
+int suma_de_distancias_al_cuadrado(t_entrenador*entrenador, int posx, int posy){
+	int suma = pow(distancia_en_eje(entrenador,posx,1),2) + pow(distancia_en_eje(entrenador,posy,2),2);
+	return suma;
+}
+int distancia_en_eje(t_entrenador *entrenador, int pose, int pos){
+	return entrenador->posicion[pos] - pose;
+}
+
+// Funciones para planificacion del entrenador
+
+/*t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,posx,posy){
+	t_list * entrenadores_mas_cercanos= list_sorted(head_entrenadores,//Aca iria lo del compared)
+	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,0);
+	return entrenador_mas_cercano;
+}*/
 
 // CARGAR ENTRENADORES
 
