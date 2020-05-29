@@ -31,15 +31,17 @@ int main(int argv, char* arg[]) {
 	}
 
 	////// Conectar con quien corresponda (iniciar conexion) /////
-	char* ip = leer_ip(modulo, config);
+	/*char* ip = leer_ip(modulo, config);
 	char* puerto = leer_puerto(modulo, config);
-	/*TBR*/log_info(logger,
+	/*TBR*//*log_info(logger,
 			"Leido de config por parametro %s. Ip: %s y Puerto: %s", arg[1], ip,
-			puerto);
+			puerto);*/
 
 	int conexion;
-	conexion = iniciar_conexion(ip, puerto);
-	log_trace(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
+
+	//conexion = iniciar_conexion(ip, puerto);
+	conexion = iniciar_conexion("127.0.0.1", "4444");
+	//log_trace(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
 
 	////// Crear y Serializar mensaje //////
 	t_buffer* mensaje_serializado = mensaje_a_enviar(modulo, tipo_mensaje, arg);
@@ -178,7 +180,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 	case SUSCRIPTOR:
 		;
 		t_subscriptor* mensaje_suscripcion;
-		cola_de_mensajes = string_a_tipo_mensaje(arg[1]);
+		cola_de_mensajes = string_a_tipo_mensaje(arg[2]);
 		tiempo_suscripcion = atoi(arg[3]);
 		mensaje_suscripcion = crear_suscripcion(cola_de_mensajes,
 				tiempo_suscripcion);
