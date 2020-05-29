@@ -10,7 +10,6 @@ int main(void) {
 	log_trace(logger,"Config creada");
 
 	// Inicializacion de las distintas colas de mensajes
-
 		//  NEW_POKEMON
 	t_queue* new_pokemon = malloc(sizeof(t_queue));
 	new_pokemon->subscriptores = list_create();
@@ -57,11 +56,10 @@ int main(void) {
 
 	terminar_logger(logger);
 	config_destroy(config);
-
 }
 
 void* esperar_mensajes(void *arg){
-		while(1==1) {
+		while(1) {
 			char* ip = config_get_string_value(config, "IP");
 			char* puerto = config_get_string_value(config, "PUERTO");
 			iniciar_conexion(ip, puerto);
@@ -103,14 +101,18 @@ void recibir_mensaje_del_cliente(int* socket) {
 }
 
 void handle_mensaje(int cod_op, int cliente_fd){
+	t_buffer * buffer;
+	
 	switch (cod_op) {
 	case SUSCRIPTOR:
 		log_trace(logger, "Se recibio un mensaje SUSCRIPTOR");
-		/*
-		deserializar_subscription()
-		agregar_subscriptor_a_cola()
-		enviar_a_subscriptor_mensajes_cola() \\Se le envian todos los mensajes que ya estan almacenados en la cola.
-		*/
+		buffer = recibir_mensaje(cliente_fd);
+		t_cliente cliente = deserializar_cliente(buffer);
+		t_subscriptor subscripcion = deserializar_suscripcion(buffer);
+		log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
+
+		suscribir(cliente, subscripcion);
+		enviar_mensajes_de_cola(subscripcion);
 
 		break;
 
@@ -126,6 +128,15 @@ void handle_mensaje(int cod_op, int cliente_fd){
 
 	case APPEARED_POKEMON:
 		log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
+		buffer = recibir_mensaje(cliente_fd);
+		t_cliente cliente = deserializar_cliente(buffer);
+		buffer = buffer_sin_cliente(buffer);
+		t_new_pokemon* mensaje_new_pokemon = deserializar_appeared_pokemon(buffer);
+
+		char* id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_new_pokemon);
+		informar_id_a_cliente(cliente ,id_mensaje_recibido);// Definir como pasarle este mensaje solo a este cliente
+		almacenar_en_cola_appeared_pokemon(mensaje);
+		cachear_appeared_pokemon(mensaje);
 
 		break;
 	case NEW_POKEMON:
@@ -150,6 +161,54 @@ void handle_mensaje(int cod_op, int cliente_fd){
 		break;
 	}
 }
+
+// Funciones Generales 
+
+t_buffer buffer_sin_cliente(t_buffer buffer){
+
+}
+
+
+// Funciones especificas por mensaje
+	// SUSCRIPTOR
+
+void suscribir(t_cliente cliente, t_subscriptor subscripcion){
+	//TODO
+	return 0;
+}
+
+void enviar_mensajes_de_cola(t_subscriptor subscripcion){
+	//TODO
+	return 0;
+}
+
+	// APPEARED_POKEMON
+
+char* asignar_id_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
+	char* id;
+	//TODO
+	return id;
+}
+void informar_id_a_cliente(t_cliente cliente ,id_mensaje_recibido){
+	//TODO
+	return 0;
+}
+void almacenar_en_cola_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
+	
+	//TODO
+	enviar_a_todos_los_subs_appeared_pokemon(mensaje);
+	return 0;
+}
+void enviar_a_todos_los_subs_appeared_pokemon(mensaje){
+	//TODO
+	return 0;
+}
+void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
+	//TODO
+	return 0;
+}
+
+
 
 //  REQUERIMIENTOS 
 	//  Administrar Subsciptores

@@ -10,6 +10,11 @@ typedef struct{
 }t_queue;
 
 typedef struct{
+	t_modulo modulo;
+	int instancia;
+}t_cliente;
+
+typedef struct{
 	op_code tipo_mensaje;
 	int id;
 	int id_correlacional;
