@@ -4,6 +4,9 @@
 t_log* logger;
 t_config* config;
 
+char* log_nivel_key;
+t_log_level log_nivel_minimo;
+
 typedef struct{
 	t_list subscriptores;
 	t_list mensajes; // lista de t_mensajes

@@ -1,58 +1,61 @@
 #include "broker.h"
 
 int main(void) {
-	// Inicio logger
-	logger = iniciar_logger("./Broker/config/broker.log","Team", LOG_LEVEL_ERROR);
-	log_trace(logger,"--- Log inicializado ---");
-
 	// Leer configuracion
-	config =leer_config("./Broker/config/broker.config");
-	log_trace(logger,"Config creada");
+	config = leer_config("./Broker/config/broker.config");
+	log_trace(logger, "Config creada");
+	log_nivel_key = config_get_string_value(config, "LOG_NIVEL_MINIMO");
+	log_nivel_minimo = log_level_from_string(log_nivel_key);
+
+	// Inicio logger
+	logger = iniciar_logger("./Broker/config/broker.log", "Team",
+			log_nivel_minimo);
+	log_trace(logger, "--- Log inicializado ---");
 
 	// Inicializacion de las distintas colas de mensajes
-		//  NEW_POKEMON
+	//  NEW_POKEMON
 	t_queue* new_pokemon = malloc(sizeof(t_queue));
 	new_pokemon->subscriptores = list_create();
 	new_pokemon->mensajes = list_create();
-		//  APPEARED_POKEMON
+	//  APPEARED_POKEMON
 	t_queue* appeared_pokemon = malloc(sizeof(t_queue));
-	new_pokemon->subscriptores = list_create();
-	new_pokemon->mensajes = list_create();
-		//  CATCH_POKEMON
+	appeared_pokemon->subscriptores = list_create();
+	appeared_pokemon->mensajes = list_create();
+	//  CATCH_POKEMON
 	t_queue* catch_pokemon = malloc(sizeof(t_queue));
-	new_pokemon->subscriptores = list_create();
-	new_pokemon->mensajes = list_create();
-		//  CAUGHT_POKEMON
+	catch_pokemon->subscriptores = list_create();
+	catch_pokemon->mensajes = list_create();
+	//  CAUGHT_POKEMON
 	t_queue* caught_pokemon = malloc(sizeof(t_queue));
-	new_pokemon->subscriptores = list_create();
-	new_pokemon->mensajes = list_create();
-		//  GET_POKEMON
+	caught_pokemon->subscriptores = list_create();
+	caught_pokemon->mensajes = list_create();
+	//  GET_POKEMON
 	t_queue* get_pokemon = malloc(sizeof(t_queue));
-	new_pokemon->subscriptores = list_create();
-	new_pokemon->mensajes = list_create();
-		//  LOCALIZED_POKEMON
+	get_pokemon->subscriptores = list_create();
+	get_pokemon->mensajes = list_create();
+	//  LOCALIZED_POKEMON
 	t_queue* localizad_pokemon = malloc(sizeof(t_queue));
-	new_pokemon->subscriptores = list_create();
-	new_pokemon->mensajes = list_create();
+	localizad_pokemon->subscriptores = list_create();
+	localizad_pokemon->mensajes = list_create();
 
-	int error;
+	int error;// Ver si no tira error(valga la redundancia). "error" es palabra reservada parece
 	error = pthread_create(&(tid[0]), NULL, esperar_mensajes, NULL);
-	if (error != 0){
+	if (error != 0) {
 		log_error(logger, "Error al crear hilo Esperar_Mensajes");
 		return error;
 	}
 
 	/*
-		if( Mensaje ){
-			deserializar_mensjae()
-			asignar_id()
-			informar_id_a_cliente()
-			almacenar_en_cola()
-			enviar_a_todos_los_subs() \\Y esperar confirmacion
-			cachear_mensaje()
-		}
-	}
-	*/
+	 if( Mensaje ){
+	 deserializar_mensjae()
+	 asignar_id()
+	 informar_id_a_cliente()
+	 almacenar_en_cola()
+	 enviar_a_todos_los_subs() \\Y esperar confirmacion
+	 cachear_mensaje()
+	 }
+	 }
+	 */
 
 	terminar_logger(logger);
 	config_destroy(config);
@@ -60,7 +63,7 @@ int main(void) {
 
 void* esperar_mensajes(void *arg){
 	log_trace(logger, "Entro a esperando mensaje. ");
-	while(1) {
+	while (1) {
 		char* ip = config_get_string_value(config, "IP");
 		char* puerto = config_get_string_value(config, "PUERTO");
 		iniciar_conexion(ip, puerto);
@@ -71,13 +74,13 @@ void iniciar_conexion(char* ip, char* puerto) {
 
 	log_info(logger, "Servidor Inicializado");
 	//Set up conexion
-	struct addrinfo* servinfo = obtener_server_info(ip, puerto); 
+	struct addrinfo* servinfo = obtener_server_info(ip, puerto);
 	int socket_servidor = obtener_socket(servinfo);
 	asignar_socket_a_puerto(socket_servidor, servinfo);
 	setear_socket_reusable(socket_servidor);
 	freeaddrinfo(servinfo);
 
-	listen(socket_servidor, SOMAXCONN);	
+	listen(socket_servidor, SOMAXCONN);
 
 	while (1)
 		handle_cliente(socket_servidor);
@@ -92,7 +95,8 @@ void handle_cliente(int socket_servidor) {
 			&tam_direccion);
 
 	//TODO la variable thread es una sola, esto va a dar problemas, hay que hacer que sean varias de alguna forma. Finitas o infinitas?
-	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
+	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente,
+			&socket_cliente);// Crea un thread que se quede atendiendo al cliente
 	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 }
 
@@ -101,9 +105,9 @@ void recibir_mensaje_del_cliente(int* socket) {
 	handle_mensaje(cod_op, *socket);
 }
 
-void handle_mensaje(int cod_op, int cliente_fd){
+void handle_mensaje(int cod_op, int cliente_fd) {
 	t_buffer * buffer;
-	
+
 	switch (cod_op) {
 	case SUSCRIPTOR:
 		log_trace(logger, "Se recibio un mensaje SUSCRIPTOR");
@@ -117,25 +121,27 @@ void handle_mensaje(int cod_op, int cliente_fd){
 
 		break;
 
-	/*  PSEUDOCODIGO PARA TODOS LOS MENSAJES
-		if( Mensaje ){
-			deserializar_mensjae()
-			asignar_id()
-			informar_id_a_cliente()
-			almacenar_en_cola()
-			enviar_a_todos_los_subs() \\Y esperar confirmacion
-			cachear_mensaje()
-		}   */
+		/*  PSEUDOCODIGO PARA TODOS LOS MENSAJES
+		 if( Mensaje ){
+		 deserializar_mensjae()
+		 asignar_id()
+		 informar_id_a_cliente()
+		 almacenar_en_cola()
+		 enviar_a_todos_los_subs() \\Y esperar confirmacion
+		 cachear_mensaje()
+		 }   */
 
 	case APPEARED_POKEMON:
 		log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
 		buffer = recibir_mensaje(cliente_fd);
 		t_cliente cliente = deserializar_cliente(buffer);
 		buffer = buffer_sin_cliente(buffer);
+
 		t_new_pokemon* mensaje_apeared_pokemon = deserializar_appeared_pokemon(buffer);
 
 		char* id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_apeared_pokemon);
 		informar_id_a_cliente(cliente ,id_mensaje_recibido);// Definir como pasarle este mensaje solo a este cliente
+		// ver si se puede armar una funciona almacenar_en_cola y pasarle la cola que quiero.
 		almacenar_en_cola_appeared_pokemon(mensaje_apeared_pokemon);
 		cachear_appeared_pokemon(mensaje_apeared_pokemon);
 
@@ -169,84 +175,77 @@ t_buffer buffer_sin_cliente(t_buffer buffer){
 	return buffer;
 }
 
-
 // Funciones especificas por mensaje
-	// SUSCRIPTOR
+// SUSCRIPTOR
 
-void suscribir(t_cliente cliente, t_subscriptor subscripcion){
+void suscribir(t_cliente cliente, t_subscriptor subscripcion) {
 	//TODO
 }
 
-void enviar_mensajes_de_cola(t_subscriptor subscripcion){
+void enviar_mensajes_de_cola(t_subscriptor subscripcion) {
 	//TODO
 }
 
-	// APPEARED_POKEMON
+// APPEARED_POKEMON
 
-char* asignar_id_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
+char* asignar_id_appeared_pokemon(t_mensaje_appeared_pokemon mensaje) {
 	char* id;
 	//TODO
 	return id;
 }
-void informar_id_a_cliente(t_cliente cliente ,id_mensaje_recibido){
+void informar_id_a_cliente(t_cliente cliente, id_mensaje_recibido) {
 	//TODO
 }
-void almacenar_en_cola_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
-	
+void almacenar_en_cola_appeared_pokemon(t_mensaje_appeared_pokemon mensaje) {
+
 	//TODO
 	enviar_a_todos_los_subs_appeared_pokemon(mensaje);
 }
-void enviar_a_todos_los_subs_appeared_pokemon(mensaje){
+void enviar_a_todos_los_subs_appeared_pokemon( mensaje) {
 	//TODO
 }
-void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
+void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje) {
 	//TODO
 }
-
-
 
 //  REQUERIMIENTOS 
-	//  Administrar Subsciptores
+//  Administrar Subsciptores
 
-		// Espera solicitudes de distintos modulos.
+// Espera solicitudes de distintos modulos.
 
-		// Lista de subscriptores por cada cola que administra.
+// Lista de subscriptores por cada cola que administra.
 
-		// Enviar a nuevos subscriptores, los mensajes cacheados
+// Enviar a nuevos subscriptores, los mensajes cacheados
 
+//  Administrar recepcion, envio y confirmacion de mensajes
 
+//  Recibir mensajes
 
-	//  Administrar recepcion, envio y confirmacion de mensajes
+//  Analizar a que cola pertenece.
 
-		//  Recibir mensajes
+//  Identificar unoquibocamente el mensaje (ID)
 
-			//  Analizar a que cola pertenece.
+//  Almacenar en dicha cola.
 
-			//  Identificar unoquibocamente el mensaje (ID)
+//  Cachear mensajes
 
-			//  Almacenar en dicha cola.
+//  Enviar a todos los subscriptores
 
-			//  Cachear mensajes
+//  Todo mensaje debe permanecer en la cola hasta que todos sus
+//  subs lo reciban
 
-	//  Enviar a todos los subscriptores
+//  Notificacion de recepcion: Todo mnesaje debe ser confirmado
+//  por cada subscriptor, para no volver a enviarlo al mismo.
 
-			//  Todo mensaje debe permanecer en la cola hasta que todos sus
-			//  subs lo reciban
+//  La recepcion y notificacion de mensajes puede diferir en
+//  el tiempo
 
-			//  Notificacion de recepcion: Todo mnesaje debe ser confirmado
-			//  por cada subscriptor, para no volver a enviarlo al mismo.
+//  Mantener un registro de los ultimos mensajes recibidos para
+//  futuros subs
 
-			//  La recepcion y notificacion de mensajes puede diferir en
-			//  el tiempo
+//  Mantener e infomrar en todo momento los estados de las colas
+//  con sus mensajes y subscriptores.
 
+//  Mantener su estado
 
-
-	//  Mantener un registro de los ultimos mensajes recibidos para
-	//  futuros subs
-
-	//  Mantener e infomrar en todo momento los estados de las colas
-	//  con sus mensajes y subscriptores.
-
-		//  Mantener su estado
-
-		//  Borrar mensajes que fueron entregados a todos los subs.
+//  Borrar mensajes que fueron entregados a todos los subs.
