@@ -8,8 +8,8 @@ char* log_nivel_key;
 t_log_level log_nivel_minimo;
 
 typedef struct{
-	t_list subscriptores;
-	t_list mensajes; // lista de t_mensajes
+	t_list * subscriptores; // lista de t_cliente
+	t_list * mensajes; // lista de t_mensajes
 }t_queue;
 
 typedef struct{
@@ -24,5 +24,10 @@ typedef struct{
 	t_list subscribers_enviados; //Subscriptores a esta cola
 	t_list subscribers_ack; //Subscriptores que recibieron el mensaje
 }t_mensaje;
+
+void* esperar_mensajes(void *arg);
+void* iniciar_conexion_con_modulo(char* ip, char* puerto);
+
+void setear_socket_reusable(int socket);
 
 pthread_t tid[2];

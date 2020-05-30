@@ -15,10 +15,11 @@ all:
 	$(COMPILER) $(UTILS) $(TEAM) -o $(BIN_PATH)/ProcesoTeam $(LIBS)
 	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/GameBoy $(LIBS)
 	$(COMPILER) $(UTILS) $(BROKER) -o $(BIN_PATH)/Broker $(LIBS)
+	$(COMPILER) $(UTILS) $(GAMECARD) -o $(BIN_PATH)/GameCard $(LIBS)
 
-gameboy:
+gamecard:
 	mkdir -p $(BIN_PATH)
-	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/GameBoy $(LIBS)
+	$(COMPILER) $(UTILS) $(GAMECARD) -o $(BIN_PATH)/GameCard $(LIBS)
 
 broker:
 	mkdir -p $(BIN_PATH)
