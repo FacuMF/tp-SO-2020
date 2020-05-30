@@ -48,6 +48,7 @@ void iniciar_conexion_servidor(char* ip, char* puerto) {
 	asignar_socket_a_puerto(socket_servidor, servinfo);
 	setear_socket_reusable(socket_servidor);
 	freeaddrinfo(servinfo);
+	log_info(logger, "Todo bien");
 
 	listen(socket_servidor, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
 

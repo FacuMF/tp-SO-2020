@@ -6,7 +6,7 @@ int main(void) {
 	log_trace(logger,"Log inicializado");
 
 	// Leer configuracion
-	config =leer_config("./Broker/config/broker.config");
+	config = leer_config("./Broker/config/broker.config");
 	log_trace(logger,"Config creada");
 
 	// Inicializacion de las distintas colas de mensajes
@@ -52,10 +52,10 @@ int main(void) {
 void* esperar_mensajes(void *arg){
 		log_trace(logger, "Esperando mensajes. ");
 		int i = 0;
-		while(1) {
+		while(i<20) {
 			i++;
-			char* ip = config_get_string_value(config, "IP");
-			char* puerto = config_get_string_value(config, "PUERTO");
+			char* ip = config_get_string_value(config, "IP_BROKER");
+			char* puerto = config_get_string_value(config, "PUERTO_BROKER");
 			iniciar_conexion_con_modulo(ip, puerto);
 		}
 }
@@ -64,35 +64,40 @@ void* iniciar_conexion_con_modulo(char* ip, char* puerto) {
 
 	log_trace(logger, "Servidor Inicializado");
 	//Set up conexion
-	
+
 	struct addrinfo* servinfo = obtener_server_info(ip, puerto); 
 	int socket_servidor = obtener_socket(servinfo);
 	asignar_socket_a_puerto(socket_servidor, servinfo);
 	setear_socket_reusable(socket_servidor);
 	freeaddrinfo(servinfo);
-	log_info(logger, "Va a arrancar el listen");
+	log_info(logger, "Listen");
 
 	listen(socket_servidor, SOMAXCONN);	
 	
-	/*
-	while (1)
-		handle_cliente(socket_servidor); */
+	
+	while (1) {
+		log_info(logger, "Ejecutar Handle Cliente");
+		handle_cliente(socket_servidor);
+	}
 		return 0;
 }
-/*
+
 void handle_cliente(int socket_servidor) {
+	log_info(logger, "Adentro del Handle Cliente");
 	struct sockaddr_in dir_cliente;
 
 	int tam_direccion = sizeof(struct sockaddr_in);
 
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
 			&tam_direccion);
-
+	/*
 	//TODO la variable thread es una sola, esto va a dar problemas, hay que hacer que sean varias de alguna forma. Finitas o infinitas?
 	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
 	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+	*/
 }
 
+/*
 void recibir_mensaje_del_cliente(int* socket) {
 	int cod_op = recibir_codigo_operacion(*socket);
 	handle_mensaje(cod_op, *socket);
