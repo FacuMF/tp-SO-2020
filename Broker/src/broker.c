@@ -59,11 +59,12 @@ int main(void) {
 }
 
 void* esperar_mensajes(void *arg){
-		while(1) {
-			char* ip = config_get_string_value(config, "IP");
-			char* puerto = config_get_string_value(config, "PUERTO");
-			iniciar_conexion(ip, puerto);
-		}
+	log_trace(logger, "Entro a esperando mensaje. ");
+	while(1) {
+		char* ip = config_get_string_value(config, "IP");
+		char* puerto = config_get_string_value(config, "PUERTO");
+		iniciar_conexion(ip, puerto);
+	}
 }
 
 void iniciar_conexion(char* ip, char* puerto) {
@@ -131,12 +132,12 @@ void handle_mensaje(int cod_op, int cliente_fd){
 		buffer = recibir_mensaje(cliente_fd);
 		t_cliente cliente = deserializar_cliente(buffer);
 		buffer = buffer_sin_cliente(buffer);
-		t_new_pokemon* mensaje_new_pokemon = deserializar_appeared_pokemon(buffer);
+		t_new_pokemon* mensaje_apeared_pokemon = deserializar_appeared_pokemon(buffer);
 
-		char* id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_new_pokemon);
+		char* id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_apeared_pokemon);
 		informar_id_a_cliente(cliente ,id_mensaje_recibido);// Definir como pasarle este mensaje solo a este cliente
-		almacenar_en_cola_appeared_pokemon(mensaje);
-		cachear_appeared_pokemon(mensaje);
+		almacenar_en_cola_appeared_pokemon(mensaje_apeared_pokemon);
+		cachear_appeared_pokemon(mensaje_apeared_pokemon);
 
 		break;
 	case NEW_POKEMON:
@@ -165,7 +166,7 @@ void handle_mensaje(int cod_op, int cliente_fd){
 // Funciones Generales 
 
 t_buffer buffer_sin_cliente(t_buffer buffer){
-
+	return buffer;
 }
 
 
@@ -174,12 +175,10 @@ t_buffer buffer_sin_cliente(t_buffer buffer){
 
 void suscribir(t_cliente cliente, t_subscriptor subscripcion){
 	//TODO
-	return 0;
 }
 
 void enviar_mensajes_de_cola(t_subscriptor subscripcion){
 	//TODO
-	return 0;
 }
 
 	// APPEARED_POKEMON
@@ -191,21 +190,17 @@ char* asignar_id_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
 }
 void informar_id_a_cliente(t_cliente cliente ,id_mensaje_recibido){
 	//TODO
-	return 0;
 }
 void almacenar_en_cola_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
 	
 	//TODO
 	enviar_a_todos_los_subs_appeared_pokemon(mensaje);
-	return 0;
 }
 void enviar_a_todos_los_subs_appeared_pokemon(mensaje){
 	//TODO
-	return 0;
 }
 void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
 	//TODO
-	return 0;
 }
 
 
