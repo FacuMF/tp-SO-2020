@@ -62,9 +62,10 @@ void ser_entrenador(void *element);
 int objetivo_cumplido(t_entrenador*entrenador);
 
 //Funciones de Planificacion
-int distancia(t_entrenador * entrenador, int posx, int posy);
-int suma_de_distancias_al_cuadrado(t_entrenador*entrenador, int posx, int posy);
-int distancia_en_eje(t_entrenador *entrenador, int pos_eje, int pos);
-// t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,posx,posy);
+double distancia(t_entrenador * entrenador, double posx, double posy);
+double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy);
+double distancia_en_eje(t_entrenador *entrenador, double pos_eje, int pos);
+t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores, double posx, double posy);
+
 #endif /* TEAM_H_ */
 

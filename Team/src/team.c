@@ -42,6 +42,7 @@ int main(int argv,char*archivo_config[]) {
 
 	t_list * objetivo_global = formar_objetivo(pokemones_repetidos);
 	list_iterate(objetivo_global, mostrar_objetivo);
+	// LANZAMIENTO DE MENSAJE GET_POKEMON POR CADA ESPECIE DE POKEMON EN EL OBJETIVO GLOBAL.
 
 	//WAIT = pthread_mutex_lock(&lock);
 	//SIGNAL = pthread_mutex_unlock(/*semaforo*/);
@@ -53,7 +54,10 @@ int main(int argv,char*archivo_config[]) {
 
 	list_iterate(head_entrenadores, lanzar_hilos);
 	log_trace(logger, "Hilos lanzados");
-
+	//TBR, PRUEBA SI FUNCIONA ALGORITMO DE HALLAR MAS CERCANO
+	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(head_entrenadores,1,3);
+	log_info(logger, "Posicion entrenador cercano: Posicion %i %i", entrenador_cercano->posicion[0],
+					entrenador_cercano->posicion[1]);
 	//Conectar con gameboy
 
 	/*char* ip_gameboy = "127.0.0.2";
@@ -110,7 +114,7 @@ void ser_entrenador(void *element) {
 
 	while(!(objetivo_cumplido(entrenador)) && count <1)
 	{
-		log_trace(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
+		log_info(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
 					entrenador->posicion[1]);
 		count ++;
 	}
@@ -136,25 +140,36 @@ void ser_entrenador(void *element) {
 
 
 
-int distancia(t_entrenador * entrenador, int posx, int posy){
-	int distancia_e= sqrt(suma_de_distancias_al_cuadrado(entrenador,posx,posy));
+double distancia(t_entrenador * entrenador, double posx, double posy){
+	double distancia_e= sqrt(suma_de_distancias_al_cuadrado(entrenador,posx,posy));
 	return distancia_e;
 }
-int suma_de_distancias_al_cuadrado(t_entrenador*entrenador, int posx, int posy){
-	int suma = pow(distancia_en_eje(entrenador,posx,1),2) + pow(distancia_en_eje(entrenador,posy,2),2);
+double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy){
+	double suma = pow(distancia_en_eje(entrenador,posx,1),2) + pow(distancia_en_eje(entrenador,posy,2),2);
 	return suma;
 }
-int distancia_en_eje(t_entrenador *entrenador, int pose, int pos){
-	return entrenador->posicion[pos] - pose;
+double distancia_en_eje(t_entrenador *entrenador, double pose, int pos){
+	double resta= entrenador->posicion[pos] - pose;
+	return resta;
 }
 
 // Funciones para planificacion del entrenador
 
-/*t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,posx,posy){
-	t_list * entrenadores_mas_cercanos= list_sorted(head_entrenadores,//Aca iria lo del compared)
+t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,double posx, double posy){
+
+	bool menor_distancia(void*elemento_1,void*elemento_2){
+		t_entrenador *entrenador_1 = elemento_1;
+		t_entrenador *entrenador_2 = elemento_2;
+		return distancia(entrenador_1,posx,posy) > distancia(entrenador_2,posx,posy);
+	}
+
+	t_list * entrenadores_mas_cercanos = list_sorted(head_entrenadores, menor_distancia);
 	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,0);
+	log_trace(logger,"Entrenador Mas cercano encontrado");
 	return entrenador_mas_cercano;
-}*/
+}
+
+
 
 // CARGAR ENTRENADORES
 
