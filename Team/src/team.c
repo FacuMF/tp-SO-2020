@@ -18,7 +18,11 @@ int main(int argv,char*archivo_config[]) {
 
 	lanzar_hilos(head_entrenadores);
 
-	// TT
+	// Suscribir  a cola broker
+
+	// Atender mensajes
+
+	// TT - To Test
 	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(head_entrenadores,1,3);
 
 	//TT
@@ -27,7 +31,7 @@ int main(int argv,char*archivo_config[]) {
 	finalizar_team();
 }
 
-//TT
+// TT
 void conectar_con_gameboy(){
 	char* ip_gameboy = "127.0.0.2";
 	char* puerto_gameboy = "5002";
@@ -82,15 +86,6 @@ int objetivo_cumplido(t_entrenador *entrenador){
 }
 void lanzar_hilo_entrenador(void*element) {
 	t_entrenador * entrenador = element;
-
-	pthread_mutex_lock(&(entrenador->sem_est));	// Ver como inicializar hilo en 0 - Mover a cargar entrenadores
-
-	/* Inicializar el mutex de este entrenador en 0.
-	 * Cuando el entrenador arranque y tire wait va a pasar a -1 y se bloquea.
-	 * Cuando haya un localizado que el es el mas cercano le tire signal, pasa a 0 y se desbloquea.
-	 * Cuando lo atrapa, vuelve a hacer wait (por el while no haya terminado su objetivo) y se bloquea de nuevo.
-	 * Antes de tirar el signal (o al localizar, filtrar aquellos que su sem esta < 1), chequear si el sem < 0 significa que esta esperando. Si es 0 esta laburando, no me sirve.
-	 */
 
 	pthread_t hilo_entrenador;
 	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,(void*)entrenador);
@@ -185,11 +180,11 @@ t_list* cargar_entrenadores() {
 	while (posiciones[i] != NULL) {	// TODO: Cambiar a for
 		t_entrenador * entrenador = malloc(sizeof(t_entrenador));
 		pthread_mutex_init(&entrenador->sem_est, NULL);
+		pthread_mutex_lock(&(entrenador->sem_est));	//TODO: Ver como inicializar hilo en 0 sin hacer lock inmediatamente
+
 		entrenador->posicion = de_string_a_posicion(posiciones[i]);
-		entrenador->pokemones_capturados = string_a_pokemon_list(
-				pokemones_capturados[i]);
-		entrenador->pokemones_por_capturar = string_a_pokemon_list(
-				objetivos[i]);
+		entrenador->pokemones_capturados = string_a_pokemon_list(pokemones_capturados[i]);
+		entrenador->pokemones_por_capturar = string_a_pokemon_list(objetivos[i]);
 		list_add(head_entrenadores, entrenador);
 		i++;
 	}
@@ -307,109 +302,4 @@ void mostrar_objetivo(void *elemento) {
 	log_trace(logger, "objetivo: %s", objetivo->pokemon);
 	log_trace(logger, "objetivo: %i", objetivo->cantidad);
 
-}
-
-//Chequear objetivo personal cumplido
-/*
- bool objetivo_cumplido(t*entrenador entrenador){
- return list_is_empty(entrenador->pokemones_por_capturar) ;
- }
- */
-
-//MANEJO DE HILOS
-/*
- void* doSomeThing(void *arg){
-
- pthread_mutex_lock(&lock);
- unsigned long i = 0;
- counter += 1;
- printf("\n Hilo %d started\n", counter);
- for(i=0; i<(0xFFFFFFFF);i++);
- printf("\n Hilo %d finished\n", counter);
- pthread_mutex_unlock(&lock);
- }
- */
-
-// Socket servidor para conectar con gameboy
-void iniciar_conexion_servidor(char* ip, char* puerto) {
-
-	log_info(logger, "Servidor Inicializado");
-	//Set up conexion
-	struct addrinfo* servinfo = obtener_server_info(ip, puerto); // Address info para la conexion TCP/IP
-	int socket_servidor = obtener_socket(servinfo);
-	asignar_socket_a_puerto(socket_servidor, servinfo);
-	setear_socket_reusable(socket_servidor);
-	freeaddrinfo(servinfo);
-	log_info(logger, "Esperando conexion.");
-	listen(socket_servidor, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
-	log_info(logger, "Conectado, esperando cliente.");
-	while (1)
-		esperar_cliente(socket_servidor);//Queda esperando que un cliente se conecte
-}
-
-void setear_socket_reusable(int socket) {
-	int activado = 1;
-	setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado));
-}
-
-void esperar_cliente(int socket_servidor) {	// Hilo coordinador
-	struct sockaddr_in dir_cliente;	//contiene address de la comunicacion
-
-	int tam_direccion = sizeof(struct sockaddr_in);
-
-	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
-			&tam_direccion);// Acepta el request del cliente y crea el socket
-
-	log_info(logger, "Conexion acceptada, activo hilos.");
-
-	// Lanzar los hilos handlers
-	pthread_create(&thread, NULL, (void*) serve_client, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
-	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
-}
-
-void serve_client(int* socket) {
-	int cod_op = recibir_codigo_operacion(*socket);
-	process_request(cod_op, *socket);
-}
-
-void process_request(int cod_op, int cliente_fd) {
-	int size;
-	t_buffer * buffer;
-	switch (cod_op) {
-	case APPEARED_POKEMON:
-		buffer = recibir_mensaje(cliente_fd);
-		t_appeared_pokemon* mensaje_appeared_pokemon =
-				deserializar_appeared_pokemon(buffer);
-
-		//TBR
-		log_info(logger,
-				"Se deserializo el mensaje APPEARED_POKEMON.Tamanio : %i Pokemon: %s , Pos: (%i,%i) .",
-				mensaje_appeared_pokemon->size_pokemon,
-				mensaje_appeared_pokemon->pokemon,
-				mensaje_appeared_pokemon->posx, mensaje_appeared_pokemon->posy);
-
-		log_info(logger, "Mensaje Recibido.");
-
-		free(mensaje_appeared_pokemon);
-
-		break;
-	case TEXTO:
-		buffer = recibir_mensaje(cliente_fd);
-		t_msjTexto* mensaje_recibido = deserializar_mensaje(buffer);
-		log_info(logger, "Mensaje Recibido.");
-		log_info(logger, mensaje_recibido->contenido);
-
-		t_buffer *buffer = serializar_mensaje(mensaje_recibido);
-		log_info(logger, "Mensaje Serializado");
-
-		enviar_mensaje(cliente_fd, buffer, TEXTO);
-		log_info(logger, "Mensaje Enviado");
-
-		free(buffer);
-		break;
-	case 0:
-		pthread_exit(NULL);
-	case -1:
-		pthread_exit(NULL);
-	}
 }

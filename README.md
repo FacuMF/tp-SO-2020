@@ -3,6 +3,26 @@
 ---
 ## Proceso team
 ---
+### Hilos
+ Inicializar el mutex de este entrenador en 0.
+ Cuando el entrenador arranque y tire wait va a pasar a -1 y se bloquea.
+ Cuando haya un localizado que el es el mas cercano le tire signal, pasa a 0 y se desbloquea.
+ Cuando lo atrapa, vuelve a hacer wait (por el while no haya terminado su objetivo) y se bloquea de nuevo.
+ Antes de tirar el signal (o al localizar, filtrar aquellos que su sem esta < 1), chequear si el sem < 0 significa que esta esperando. Si es 0 esta laburando, no me sirve.
+
+### Atender Mensajes
+// TD - To Develop - Atender Mensajes
+/* Esperar Localized
+ *
+ * while 1 - o hasta que muera el proceso
+ * 		esperar mensaje localized
+ * 			cuando llega: lanza hilo atender_localized
+ *
+ *Atender_localized
+ *		hace all the procedimiento para localized
+ * */
+
+### Resto
 // Suscribirse a la msj queue. Puede funcar sin broker.
 		// Proceso team se conecta al broker. un connect por cada cola de mensajes.
 		// Si el broker no existe tiene que funcar igual
