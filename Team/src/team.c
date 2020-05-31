@@ -25,17 +25,10 @@ int main(int argv,char*archivo_config[]) {
 	// TT - To Test
 	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(head_entrenadores,1,3);
 
-	//TT
-	//conectar_con_gameboy();
+
+	// Conectar_con_gameboy
 
 	finalizar_team();
-}
-
-// TT
-void conectar_con_gameboy(){
-	char* ip_gameboy = "127.0.0.2";
-	char* puerto_gameboy = "5002";
-	iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);
 }
 
 // Funciones Generales
