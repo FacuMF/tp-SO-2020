@@ -84,7 +84,6 @@ void process_request(int cod_op, int cliente_fd) {
 	t_buffer * buffer;
 	int valor;
 	char* mensaje;
-	log_info(logger, "Codigo de operacion: %d", cod_op);
 	switch (cod_op) {
 	case TEXTO:
 		;

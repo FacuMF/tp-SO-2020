@@ -5,41 +5,42 @@ int main(int argv, char* arg[]) {
 	inicializar_gameboy();
 
 	/*  Obtener Caracteristicas Msj
-		Tipo de mensaje: MODULO MENSAJE ARG1 ARG2 AGR3 ... 
-	                   	 arg[1] arg[2]  arg[3] ...         
-	*/
+	 Tipo de mensaje: MODULO MENSAJE ARG1 ARG2 AGR3 ...
+	 arg[1] arg[2]  arg[3] ...
+	 */
 
 	t_modulo modulo = string_a_modulo(arg[1]);
+
+	if(modulo == -1) log_error(logger, "El modulo ingresado es incorrecto.");
 	op_code tipo_mensaje = string_a_tipo_mensaje(arg[2]);
+
 	log_trace(logger, "Caracteristicas de mensaje obtenidas");
 
-	if (tipo_mensaje == -1) {
+	if (tipo_mensaje == -1)
 		log_error(logger, "Tipo de mensaje invalido");
-	} else {
+	else
 		log_trace(logger,
 				"Se quiere enviar un mensaje del tipo -%i- al modulo -%i-",
 				tipo_mensaje, modulo);
-	}
 
 	////// Conectar con quien corresponda (iniciar conexion) /////
 	char* ip = leer_ip(modulo, config);
 	char* puerto = leer_puerto(modulo, config);
-	/*TBR*/log_info(logger,
+	/*TBR*/log_trace(logger,
 			"Leido de config por parametro %s. Ip: %s y Puerto: %s", arg[1], ip,
 			puerto);
 
 	int conexion;
 
-	//conexion = iniciar_conexion(ip, puerto);
-	conexion = iniciar_conexion("127.0.0.1", "4444");
-	//log_trace(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
+	conexion = iniciar_conexion(ip, puerto);
+	log_trace(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
 
 	////// Crear y Serializar mensaje //////
 	t_buffer* mensaje_serializado = mensaje_a_enviar(modulo, tipo_mensaje, arg);
 	log_trace(logger, "El mensaje fue serializado. ");
 
 	////// Enviar mensaje //////
-	enviar_mensaje(conexion, mensaje_serializado, APPEARED_POKEMON);
+	enviar_mensaje(conexion, mensaje_serializado, tipo_mensaje);
 	log_trace(logger, "El mensaje fue enviado ;)");
 
 	free(mensaje_serializado->stream);
@@ -47,16 +48,17 @@ int main(int argv, char* arg[]) {
 
 }
 
-void inicializar_gameboy(){
+void inicializar_gameboy() {
 	// Leer configuracion
 	config = leer_config("./GameBoy/config/gameboy.config");
-	string_nivel_log_minimo = config_get_string_value(config, "LOG_NIVEL_MINIMO");
+	string_nivel_log_minimo = config_get_string_value(config,
+			"LOG_NIVEL_MINIMO");
 	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
 
 	//Inicio logger
-	logger = iniciar_logger("./GameBoy/config/gameboy.log", "GameBoy", log_nivel_minimo);
+	logger = iniciar_logger("./GameBoy/config/gameboy.log", "GameBoy",
+			log_nivel_minimo);
 }
-
 
 t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
@@ -71,7 +73,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		if (tipo_mensaje == APPEARED_POKEMON) {
 			pokemon = malloc(sizeof(arg[3]));
 			strcpy(pokemon, arg[3]);
-			log_trace(logger, "El pokemon es: %s", pokemon);
 			pos_x = atoi(arg[4]);
 			pos_y = atoi(arg[5]);
 			mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
@@ -86,7 +87,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			t_new_pokemon* mensaje_new;
 			pokemon = malloc(sizeof(arg[3]));
 			strcpy(pokemon, arg[3]);
-			log_trace(logger, "El pokemon es: %s", pokemon);
 			pos_x = atoi(arg[4]);
 			pos_y = atoi(arg[5]);
 			cantidad = atoi(arg[6]);
@@ -99,7 +99,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			t_appeared_pokemon* mensaje_appeared;
 			pokemon = malloc(sizeof(arg[3]));
 			strcpy(pokemon, arg[3]);
-			log_trace(logger, "El pokemon es: %s", pokemon);
 			pos_x = atoi(arg[4]);
 			pos_y = atoi(arg[5]);
 			id_mensaje_correlativo = atoi(arg[6]);
@@ -112,7 +111,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			t_catch_pokemon* mensaje_catch;
 			pokemon = malloc(sizeof(arg[3]));
 			strcpy(pokemon, arg[3]);
-			log_trace(logger, "El pokemon es: %s", pokemon);
 			pos_x = atoi(arg[4]);
 			pos_y = atoi(arg[5]);
 			mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y, -1);
@@ -132,7 +130,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			t_get_pokemon* mensaje_get;
 			pokemon = malloc(sizeof(arg[3]));
 			strcpy(pokemon, arg[3]);
-			log_trace(logger, "El pokemon es: %s", pokemon);
 			mensaje_get = crear_get_pokemon(pokemon, -1);
 			mensaje_serializado = serializar_get_pokemon(mensaje_get);
 			break;
@@ -145,7 +142,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			t_new_pokemon* mensaje_new;
 			pokemon = malloc(sizeof(arg[3]));
 			strcpy(pokemon, arg[3]);
-			log_trace(logger, "El pokemon es: %s", pokemon);
 			pos_x = atoi(arg[4]);
 			pos_y = atoi(arg[5]);
 			cantidad = atoi(arg[6]);
@@ -159,7 +155,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			t_catch_pokemon* mensaje_catch;
 			pokemon = malloc(sizeof(arg[3]));
 			strcpy(pokemon, arg[3]);
-			log_trace(logger, "El pokemon es: %s", pokemon);
 			pos_x = atoi(arg[4]);
 			pos_y = atoi(arg[5]);
 			id_mensaje = atoi(arg[6]);
@@ -172,7 +167,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			t_get_pokemon* mensaje_get;
 			pokemon = malloc(sizeof(arg[3]));
 			strcpy(pokemon, arg[3]);
-			log_trace(logger, "El pokemon es: %s", pokemon);
 			id_mensaje = atoi(arg[4]);
 			mensaje_get = crear_get_pokemon(pokemon, id_mensaje);
 			mensaje_serializado = serializar_get_pokemon(mensaje_get);
@@ -202,7 +196,6 @@ t_modulo string_a_modulo(char* nombre_modulo) {
 	} else if (string_equals_ignore_case(nombre_modulo, "SUSCRIPTOR")) {
 		return SUSCRIPTOR;
 	} else {
-		log_error(logger, "El modulo ingresado es incorrecto. ");
 		return -1;
 	}
 }
@@ -221,7 +214,5 @@ op_code string_a_tipo_mensaje(char* nombre_mensaje) {
 	} else if (string_equals_ignore_case(nombre_mensaje, "SUSCRIPTOR")) {
 		return SUSCRIPTOR;
 	} else
-		log_error(logger, "El modulo ingresado no recibe el mesaje: %s .",
-				nombre_mensaje);
-	return -1;
+		return -1;
 }
