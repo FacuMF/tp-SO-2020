@@ -72,7 +72,32 @@
 			// Paso a BLOQUEADO esperando el siguiente
 	*/
 
+---
+## Broker
+---
+###  Requerimientos
 
+	// Administrar Subsciptores
+	// Espera solicitudes de distintos modulos.
+	// Lista de subscriptores por cada cola que administra.
+	// Enviar a nuevos subscriptores, los mensajes cacheados
+
+//  Administrar recepcion, envio y confirmacion de mensajes
+		//  Recibir mensajes
+		//  Analizar a que cola pertenece.
+		//  Identificar unoquibocamente el mensaje (ID)
+		//  Almacenar en dicha cola.
+		//  Cachear mensajes
+		//  Enviar a todos los subscriptores
+		//  Todo mensaje debe permanecer en la cola hasta que todos sus
+		//  subs lo reciban
+		//  Notificacion de recepcion: Todo mnesaje debe ser confirmado por cada subscriptor, para no volver a enviarlo al mismo.
+		//  La recepcion y notificacion de mensajes puede diferir en el tiempo
+
+//  Mantener un registro de los ultimos mensajes recibidos para futuros subs
+		//  Mantener e infomrar en todo momento los estados de las colas con sus mensajes y subscriptores.
+		//  Mantener su estado
+		//  Borrar mensajes que fueron entregados a todos los subs.
 
 ---
 ## Estructura general del proyecto - comunicaciones
