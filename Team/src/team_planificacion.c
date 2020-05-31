@@ -14,22 +14,27 @@ void lanzar_hilo_entrenador(void*element) {
 	if (result != 0)
 		log_error(logger, "Error lanzando el hilo"); //TODO: revisar manejo de errores
 
-	result = pthread_join(hilo_entrenador, NULL);
+	//POR AHORA NO HACE FALTA result = pthread_join(hilo_entrenador, NULL);
+
 	if (result != 0)
 		log_error(logger, "Error joineando el hilo"); //TODO: revisar manejo de errores
 
-	return;
+	log_trace(logger, "Entrenador lanzado");
 
+	return;
 }
 
 void ser_entrenador(void *element) {
 	t_entrenador * entrenador = element;
 
+	log_info(logger, "HOlAAAA SOY UN HIJOOOOOOO");
+
 	while(!(objetivo_cumplido(entrenador)))
 	{
-		pthread_mutex_lock(&(entrenador->sem_est));
 		log_trace(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
 					entrenador->posicion[1]);
+
+		pthread_mutex_lock(&(entrenador->sem_est));
 		//ir a buscar pokemon, etc
 
 	}
@@ -57,7 +62,7 @@ t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,double p
 		t_entrenador *entrenador_2 = elemento_2;
 		return distancia(entrenador_1,posx,posy) > distancia(entrenador_2,posx,posy);
 	}
-
+	//TO DO:  FILTER entrenadores tiene_espacio_disponible() == true  =>>size de pokemones capturados< pokemones_por_capturar
 	t_list * entrenadores_mas_cercanos = list_sorted(head_entrenadores, menor_distancia);
 	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,0);
 
