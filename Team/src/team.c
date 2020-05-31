@@ -106,26 +106,6 @@ void ser_entrenador(void *element) {
 	}
 }
 
-//pthread_mutex_lock(&(entrenador->sem_est);
-	//El entrenador se bloquea al
-	//tirar un wait a su semaforo,
-	//el cual se inicializo en 0 y queda en -1 y espera a que el orchestrato( Cuando se Encuentra el entrenador mas cercano)
-	//le tire un signal
-
-	/*
-	 * Tirar un wait a la lista de localizados // otro semaforo
-	 * va a buscar a la lista de localizados el pokemon para moverse y mandar mensaje CAUGHT
-	 * Tirar un signal a la lista de localizados
-	 * ...
-	 * */
-
-	//}
-	// Tiro return
-	// El mismo NO se desbloquea, esto no va
-	// Para tests
-
-
-
 double distancia(t_entrenador * entrenador, double posx, double posy){
 	double distancia_e= sqrt(suma_de_distancias_al_cuadrado(entrenador,posx,posy));
 	return distancia_e;

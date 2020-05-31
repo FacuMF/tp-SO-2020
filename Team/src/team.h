@@ -34,40 +34,32 @@ void conectar_con_gameboy();
 // Funciones generales
 void iniciar_team(char*archivo_config[]);
 void finalizar_team();
+char * obtener_path(char*string);
 
-// Funciones de carga de entrenador
+// Funciones de carga de entrenador - team_entrenadores
 t_list* cargar_entrenadores();
 int* de_string_a_posicion(char* string);
 t_list* string_a_pokemon_list(char* string);
-char * obtener_path(char*string);
-
-//Funciones de mostrado de entrenador y pokemon
+//Funciones de obtencion de los pokemones
+t_list* obtener_pokemones(t_list *head_entrenadores);
+void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones);
+//Funciones de mostrado de entrenador y pokemon  -  print_data_entrenadores
 void mostrar_entrenadores(t_list * head_entrenadores);
 void mostrar_data_entrenador(void * element);
 void mostrar_kokemon(void*elemento);
 
-//Funciones de obtencion de los pokemones
-t_list* obtener_pokemones(t_list *head_entrenadores);
-void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones);
 
-//Funciones de objetivo general
+//Funciones de objetivo general - team_objetivos
 t_list* formar_objetivo(t_list * pokemones_repetidos);
 void agrego_si_no_existe(t_list * objetivo_global, void *elemento);
 void mostrar_objetivo(void *elemento);
+int objetivo_cumplido(t_entrenador*entrenador);
 
-//Funciones socket con gameboy
-void iniciar_conexion_servidor(char* ip, char* puerto);
-void setear_socket_reusable(int);
-void esperar_cliente(int);
-void serve_client(int *socket);
-void process_request(int cod_op, int cliente_fd);
 
-// Funciones de Manejo de Hilos
+// Funciones de Manejo de Hilos - team_planificacion
 void lanzar_hilos(t_list *head_entrenadores);
 void lanzar_hilo_entrenador(void*element);
 void ser_entrenador(void *element);
-int objetivo_cumplido(t_entrenador*entrenador);
-
 //Funciones de Planificacion
 double distancia(t_entrenador * entrenador, double posx, double posy);
 double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy);
