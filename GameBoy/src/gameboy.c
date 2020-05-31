@@ -2,40 +2,31 @@
 
 int main(int argv, char* arg[]) {
 
-	// Leer configuracion
-	config = leer_config("./GameBoy/config/gameboy.config");
-	log_nivel_key = config_get_string_value(config, "LOG_NIVEL_MINIMO");
-	log_nivel_minimo = log_level_from_string(log_nivel_key);
+	inicializar_gameboy();
 
-	//Inicio logger
-	logger = iniciar_logger("./GameBoy/config/gameboy.log", "GameBoy", log_nivel_minimo);
+	/*  Obtener Caracteristicas Msj
+		Tipo de mensaje: MODULO MENSAJE ARG1 ARG2 AGR3 ... 
+	                   	 arg[1] arg[2]  arg[3] ...         
+	*/
 
-	//////  TIPO DE MENSAJE: MODULO MENSAJE ARG1 ARG2 AGR3 ... //////
-	//////                   arg[1] arg[2]  arg[3] ...         //////
-	char* modulo_recibido = malloc(sizeof(arg[1]));
-	strcpy(modulo_recibido, arg[1]);
-	t_modulo modulo = string_a_modulo(modulo_recibido);
+	t_modulo modulo = string_a_modulo(arg[1]);
+	op_code tipo_mensaje = string_a_tipo_mensaje(arg[2]);
+	log_trace(logger, "Caracteristicas de mensaje obtenidas");
 
-	char* tipo_mensaje_recibido = malloc(sizeof(arg[2]));
-	log_trace(logger, "declare el tipo de mensaje %s", arg[2]);
-	strcpy(tipo_mensaje_recibido, arg[2]);
-	op_code tipo_mensaje = string_a_tipo_mensaje(tipo_mensaje_recibido);
-	log_trace(logger, "Obtuve el tipo de mensaje");
-
-	/*TBR*/if (tipo_mensaje == -1) {
-		log_error(logger, "Ese mensaje no existe.");
+	if (tipo_mensaje == -1) {
+		log_error(logger, "Tipo de mensaje invalido");
 	} else {
-		log_info(logger,
+		log_trace(logger,
 				"Se quiere enviar un mensaje del tipo -%i- al modulo -%i-",
 				tipo_mensaje, modulo);
 	}
 
 	////// Conectar con quien corresponda (iniciar conexion) /////
-	/*char* ip = leer_ip(modulo, config);
+	char* ip = leer_ip(modulo, config);
 	char* puerto = leer_puerto(modulo, config);
-	/*TBR*//*log_info(logger,
+	/*TBR*/log_info(logger,
 			"Leido de config por parametro %s. Ip: %s y Puerto: %s", arg[1], ip,
-			puerto);*/
+			puerto);
 
 	int conexion;
 
@@ -55,6 +46,17 @@ int main(int argv, char* arg[]) {
 	free(mensaje_serializado);
 
 }
+
+void inicializar_gameboy(){
+	// Leer configuracion
+	config = leer_config("./GameBoy/config/gameboy.config");
+	string_nivel_log_minimo = config_get_string_value(config, "LOG_NIVEL_MINIMO");
+	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
+
+	//Inicio logger
+	logger = iniciar_logger("./GameBoy/config/gameboy.log", "GameBoy", log_nivel_minimo);
+}
+
 
 t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
@@ -200,7 +202,7 @@ t_modulo string_a_modulo(char* nombre_modulo) {
 	} else if (string_equals_ignore_case(nombre_modulo, "SUSCRIPTOR")) {
 		return SUSCRIPTOR;
 	} else {
-		log_info(logger, "Error: El modulo ingresado es incorrecto. ");
+		log_error(logger, "El modulo ingresado es incorrecto. ");
 		return -1;
 	}
 }
@@ -219,7 +221,7 @@ op_code string_a_tipo_mensaje(char* nombre_mensaje) {
 	} else if (string_equals_ignore_case(nombre_mensaje, "SUSCRIPTOR")) {
 		return SUSCRIPTOR;
 	} else
-		log_info(logger, "Error: El modulo ingresado no recibe el mesaje: %s .",
+		log_error(logger, "El modulo ingresado no recibe el mesaje: %s .",
 				nombre_mensaje);
 	return -1;
 }

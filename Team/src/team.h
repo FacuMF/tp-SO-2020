@@ -8,7 +8,7 @@
 t_log* logger;
 t_config* config;
 
-char* log_nivel_key;
+char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
 typedef enum {
@@ -28,14 +28,20 @@ typedef struct t_entrenador {
 	t_list* pokemones_por_capturar;
 } t_entrenador;
 
+// TT
+void conectar_con_gameboy();
+
+// Funciones generales
+void iniciar_team(char*archivo_config[]);
+void finalizar_team();
+
 // Funciones de carga de entrenador
-t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,
-		char** objetivos);
+t_list* cargar_entrenadores();
 int* de_string_a_posicion(char* string);
 t_list* string_a_pokemon_list(char* string);
 char * obtener_path(char*string);
 
-//Funciones de mostrado de entrenador y pokemon  (TBR)
+//Funciones de mostrado de entrenador y pokemon
 void mostrar_entrenadores(t_list * head_entrenadores);
 void mostrar_data_entrenador(void * element);
 void mostrar_kokemon(void*elemento);
@@ -57,7 +63,8 @@ void serve_client(int *socket);
 void process_request(int cod_op, int cliente_fd);
 
 // Funciones de Manejo de Hilos
-void lanzar_hilos(void*element);
+void lanzar_hilos(t_list *head_entrenadores);
+void lanzar_hilo_entrenador(void*element);
 void ser_entrenador(void *element);
 int objetivo_cumplido(t_entrenador*entrenador);
 

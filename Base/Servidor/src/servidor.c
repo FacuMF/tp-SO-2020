@@ -14,8 +14,8 @@ int main(void) {
 	// Leer config
 	config = leer_config("./Base/Servidor/config/servidor.config");
 
-	log_nivel_key = config_get_string_value(config, "LOG_NIVEL_MINIMO");
-	log_nivel_minimo = log_level_from_string(log_nivel_key);
+	string_nivel_log_minimo = config_get_string_value(config, "LOG_NIVEL_MINIMO");
+	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
 
 	// Iniciar Logger
 	logger = iniciar_logger("./Base/Servidor/config/servidor.log", "Server",

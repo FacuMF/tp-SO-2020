@@ -1,75 +1,68 @@
 #include "team.h"
 
 int counter;
-pthread_mutex_t lock;
 
 int main(int argv,char*archivo_config[]) {
-	/* INICIALIZACION*/
-	// Leer configuracion
 
-	char * archivo_leido= malloc(sizeof(archivo_config[1]));
-	strcpy(archivo_leido,archivo_config[1]);
-	char *path_log=obtener_path(archivo_leido);
-	config = leer_config(path_log);
-	free(archivo_leido);
+	iniciar_team(archivo_config);
 
+	t_list * head_entrenadores = cargar_entrenadores();
 
-	log_nivel_key = config_get_string_value(config, "LOG_NIVEL_MINIMO");
-	log_nivel_minimo = log_level_from_string(log_nivel_key);
-	char* log_leido= config_get_string_value(config,"LOG_FILE");
-
-	char * log_path=obtener_path(log_leido);
-	logger = iniciar_logger(log_path, "Team", log_nivel_minimo);
-	log_trace(logger, "--- Log inicializado ---");
-
-	log_trace(logger, "Config creada");
-
-	char ** posiciones = config_get_array_value(config,
-			"POSICIONES_ENTRENADORES");
-	char ** pokemones_capturados = config_get_array_value(config,
-			"POKEMON_ENTRENADORES");
-	char ** objetivos = config_get_array_value(config,
-			"OBJETIVOS_ENTRENADORES");
-
-	// Cargado de entrenadores
-	t_list * head_entrenadores = cargar_entrenadores(posiciones,
-			pokemones_capturados, objetivos);
-	mostrar_entrenadores(head_entrenadores);
-
-	// Crear objetivo global - Lista a partir de los pokemones_a_capturar de cada entrenador
 	t_list * pokemones_repetidos = obtener_pokemones(head_entrenadores);
-	list_iterate(pokemones_repetidos, mostrar_kokemon);
 
 	t_list * objetivo_global = formar_objetivo(pokemones_repetidos);
-	list_iterate(objetivo_global, mostrar_objetivo);
-	// LANZAMIENTO DE MENSAJE GET_POKEMON POR CADA ESPECIE DE POKEMON EN EL OBJETIVO GLOBAL.
 
-	//WAIT = pthread_mutex_lock(&lock);
-	//SIGNAL = pthread_mutex_unlock(/*semaforo*/);
+	// TO DO: LANZAMIENTO DE MENSAJE GET_POKEMON POR CADA ESPECIE DE POKEMON EN EL OBJETIVO GLOBAL.
 
-	/* MANEJO DE HILOS (con semáforos mutex)*/
-	pthread_mutex_init(&lock, NULL);
+	log_info(logger, "Esto es un mensaje obligatorio");
 
-	pthread_mutex_lock(&lock);
+	lanzar_hilos(head_entrenadores);
 
-	list_iterate(head_entrenadores, lanzar_hilos);
-	log_trace(logger, "Hilos lanzados");
-	//TBR, PRUEBA SI FUNCIONA ALGORITMO DE HALLAR MAS CERCANO
+	// TT
 	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(head_entrenadores,1,3);
-	log_info(logger, "Posicion entrenador cercano: Posicion %i %i", entrenador_cercano->posicion[0],
-					entrenador_cercano->posicion[1]);
-	//Conectar con gameboy
 
-	/*char* ip_gameboy = "127.0.0.2";
-	 char* puerto_gameboy = "5002";
+	//TT
+	//conectar_con_gameboy();
 
-	 iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);*/
+	finalizar_team();
+}
 
-	//Terminar
-	pthread_mutex_destroy(&lock);
+//TT
+void conectar_con_gameboy(){
+	char* ip_gameboy = "127.0.0.2";
+	char* puerto_gameboy = "5002";
+	iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);
+}
+
+// Funciones Generales
+void iniciar_team(char*argumentos_iniciales[]){
+	// Calcular archivo a abrir
+	char * nombre_archivo_config= malloc(sizeof(argumentos_iniciales[1]));
+	strcpy(nombre_archivo_config,argumentos_iniciales[1]);
+	char *path_config = obtener_path(nombre_archivo_config);
+
+	// Obtener info de config
+	config = leer_config(path_config);
+	free(nombre_archivo_config);
+
+	// Leer data sobre looger del config
+	string_nivel_log_minimo = config_get_string_value(config, "LOG_NIVEL_MINIMO");
+	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
+	char* nombre_archivo_log= config_get_string_value(config,"LOG_FILE");
+
+	char * path_log=obtener_path(nombre_archivo_log);
+	logger = iniciar_logger(path_log, "Team", log_nivel_minimo);
+
+	log_trace(logger, "--- Log inicializado ---");
+
+}
+
+void finalizar_team(){
 	terminar_logger(logger);
 	config_destroy(config);
 }
+
+
 // Cargar path de config y log
 char *obtener_path(char *path_leido){
 	 char* path=string_new();
@@ -79,14 +72,18 @@ char *obtener_path(char *path_leido){
 }
 
 // MANEJO DE HILOS
+void lanzar_hilos(t_list *head_entrenadores){
+	list_iterate(head_entrenadores, lanzar_hilo_entrenador);
+	log_trace(logger, "Hilos lanzados");
+}
 
 int objetivo_cumplido(t_entrenador *entrenador){
 	return list_is_empty(entrenador->pokemones_por_capturar);
 }
-void lanzar_hilos(void*element) {
+void lanzar_hilo_entrenador(void*element) {
 	t_entrenador * entrenador = element;
-	// Inicializo mutex de cada entrenador en 0
-	pthread_mutex_lock(&(entrenador->sem_est));
+
+	pthread_mutex_lock(&(entrenador->sem_est));	// Ver como inicializar hilo en 0 - Mover a cargar entrenadores
 
 	/* Inicializar el mutex de este entrenador en 0.
 	 * Cuando el entrenador arranque y tire wait va a pasar a -1 y se bloquea.
@@ -110,13 +107,14 @@ void lanzar_hilos(void*element) {
 
 void ser_entrenador(void *element) {
 	t_entrenador * entrenador = element;
-	int count = 0;
 
-	while(!(objetivo_cumplido(entrenador)) && count <1)
+	while(!(objetivo_cumplido(entrenador)))
 	{
-		log_info(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
+		pthread_mutex_lock(&(entrenador->sem_est));
+		log_trace(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
 					entrenador->posicion[1]);
-		count ++;
+		//ir a buscar pokemon, etc
+
 	}
 }
 
@@ -165,17 +163,23 @@ t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,double p
 
 	t_list * entrenadores_mas_cercanos = list_sorted(head_entrenadores, menor_distancia);
 	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,0);
-	log_trace(logger,"Entrenador Mas cercano encontrado");
+
+	log_trace(logger, "Posicion entrenador cercano: Posicion %i %i", entrenador_mas_cercano->posicion[0], entrenador_mas_cercano->posicion[1]);
 	return entrenador_mas_cercano;
 }
 
 
-
 // CARGAR ENTRENADORES
 
-t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,
-		char** objetivos) {
+t_list* cargar_entrenadores() {
 	t_list* head_entrenadores = list_create();
+
+	char ** posiciones = config_get_array_value(config,
+				"POSICIONES_ENTRENADORES");
+		char ** pokemones_capturados = config_get_array_value(config,
+				"POKEMON_ENTRENADORES");
+		char ** objetivos = config_get_array_value(config,
+				"OBJETIVOS_ENTRENADORES");
 
 	int i = 0;
 	while (posiciones[i] != NULL) {	// TODO: Cambiar a for
@@ -191,6 +195,8 @@ t_list* cargar_entrenadores(char** posiciones, char** pokemones_capturados,
 	}
 
 	log_trace(logger, "--- Entrenadores cargados ---");
+	mostrar_entrenadores(head_entrenadores);
+
 	return (head_entrenadores);
 }
 
@@ -201,7 +207,7 @@ void mostrar_entrenadores(t_list * head_entrenadores) {
 
 void mostrar_data_entrenador(void * element) {
 	t_entrenador * entrenador = element;
-	log_info(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
+	log_trace(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
 			entrenador->posicion[1]);
 	list_iterate(entrenador->pokemones_capturados, mostrar_kokemon);
 	list_iterate(entrenador->pokemones_por_capturar, mostrar_kokemon);
@@ -249,6 +255,8 @@ t_list* formar_objetivo(t_list * pokemones_repetidos) {
 	list_iterate(pokemones_repetidos, agrego_si_no_existe_aux);
 
 	log_trace(logger, " ---- Objetivos Formados ----");
+	list_iterate(objetivo_global, mostrar_objetivo);
+
 	return objetivo_global;
 }
 
@@ -284,19 +292,20 @@ t_list* obtener_pokemones(t_list *head_entrenadores) {
 	list_iterate(head_entrenadores, buscar_pokemon);
 
 	log_trace(logger, "--- Kokemones obtenidos ---");
+	list_iterate(pokemones_repetidos, mostrar_kokemon);
 	return pokemones_repetidos;
 }
 
 void mostrar_kokemon(void*elemento) {
-	log_info(logger, elemento);
+	log_trace(logger, elemento);
 }
 
 void mostrar_objetivo(void *elemento) {
-	log_info(logger, "Data de objetivo!");
+	log_trace(logger, "Data de objetivo!");
 
 	t_objetivo *objetivo = elemento;
-	log_info(logger, "objetivo: %s", objetivo->pokemon);
-	log_info(logger, "objetivo: %i", objetivo->cantidad);
+	log_trace(logger, "objetivo: %s", objetivo->pokemon);
+	log_trace(logger, "objetivo: %i", objetivo->cantidad);
 
 }
 

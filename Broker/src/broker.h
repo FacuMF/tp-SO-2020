@@ -4,7 +4,7 @@
 t_log* logger;
 t_config* config;
 
-char* log_nivel_key;
+char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
 typedef struct{
