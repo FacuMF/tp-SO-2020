@@ -8,19 +8,20 @@ int main(int argv,char*archivo_config[]) {
 
 	t_list * head_entrenadores = cargar_entrenadores();
 
-	t_list * pokemones_repetidos = obtener_pokemones(head_entrenadores);
+	t_list * pokemones_con_repetidos = obtener_pokemones(head_entrenadores);
 
-	t_list * objetivo_global = formar_objetivo(pokemones_repetidos);
-
-	// TO DO: LANZAMIENTO DE MENSAJE GET_POKEMON POR CADA ESPECIE DE POKEMON EN EL OBJETIVO GLOBAL.
-
-	log_info(logger, "Esto es un mensaje obligatorio");
+	t_list * objetivo_global = formar_objetivo(pokemones_con_repetidos);
 
 	lanzar_hilos(head_entrenadores);
 
-	// Suscribir  a cola broker
+	iniciar_conexion_con_gameboy();	//TO DO
+
+	//iniciar_conexion_con_broker();
+
+	//enviar_requests_pokemones()
 
 	// Atender mensajes
+
 
 	// TT - To Test
 	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(head_entrenadores,1,3);
@@ -30,6 +31,35 @@ int main(int argv,char*archivo_config[]) {
 
 	finalizar_team();
 }
+
+
+// Comunicacion con broker
+
+void enviar_requests_pokemones(t_list *objetivo_global){
+
+	//iterar por cada elemento de la lista objetivo_global
+		// Enviar mensajes
+
+	//log_trace(logger,"Gets enviados");
+}
+
+void iniciar_conexion_con_broker(){
+	// conectar con broker
+	// mandar mensajes de suscripcion
+}
+
+void iniciar_conexion_con_gameboy(){
+	// conectar con gameboy
+
+}
+
+
+
+
+
+
+
+
 
 // Funciones Generales
 void iniciar_team(char*argumentos_iniciales[]){

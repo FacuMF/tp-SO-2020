@@ -35,8 +35,6 @@ void agrego_si_no_existe(t_list * objetivo_global, void *nombrePokemon) {
 
 }
 
-
-
 void mostrar_objetivo(void *elemento) {
 	log_trace(logger, "Data de objetivo!");
 
@@ -46,5 +44,7 @@ void mostrar_objetivo(void *elemento) {
 
 }
 int objetivo_cumplido(t_entrenador *entrenador){
+	mostrar_kokemon(entrenador->pokemones_por_capturar);
+	//TODO: cambiar la condicion a que por cada pokemon_por_capturar este en pokemones_capturados
 	return list_is_empty(entrenador->pokemones_por_capturar);
 }

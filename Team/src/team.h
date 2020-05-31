@@ -36,14 +36,21 @@ void iniciar_team(char*archivo_config[]);
 void finalizar_team();
 char * obtener_path(char*string);
 
+// Comunicacion
+void iniciar_conexion_con_gameboy();
+void iniciar_conexion_con_broker();
+void enviar_requests_pokemones(t_list *objetivo_global);
+
 // Funciones de carga de entrenador - team_entrenadores
 t_list* cargar_entrenadores();
 int* de_string_a_posicion(char* string);
 t_list* string_a_pokemon_list(char* string);
+
 //Funciones de obtencion de los pokemones
 t_list* obtener_pokemones(t_list *head_entrenadores);
 void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones);
-//Funciones de mostrado de entrenador y pokemon  -  print_data_entrenadores
+
+//Funciones de mostrado de entrenador y pokemon
 void mostrar_entrenadores(t_list * head_entrenadores);
 void mostrar_data_entrenador(void * element);
 void mostrar_kokemon(void*elemento);
