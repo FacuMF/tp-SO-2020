@@ -15,4 +15,8 @@ void handler_mensaje_texto(t_buffer* buffer_recepcion);
 
 void terminar_programa(int, t_log*, t_config*);
 
+//TBR
+int recibir_mensaje_del_server(int* socket);
+void process_request(int cod_op, int cliente_fd);
+
 #endif /* CLIENTE_H_ */

@@ -17,6 +17,11 @@ t_config* config;
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
+//TBR
+int sockets_mensajes[3];
+int numero_mensajes;
+
+
 void iniciar_conexion_servidor(char* ip, char* puerto);
 void finalizar_ejecucion(t_log*, t_config*);
 
