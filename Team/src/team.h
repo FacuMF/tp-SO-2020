@@ -26,6 +26,7 @@ typedef struct t_entrenador {
 	int * posicion;
 	t_list* pokemones_capturados;
 	t_list* pokemones_por_capturar;
+	// tarea
 } t_entrenador;
 
 // TT

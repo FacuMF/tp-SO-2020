@@ -27,17 +27,22 @@ void lanzar_hilo_entrenador(void*element) {
 void ser_entrenador(void *element) {
 	t_entrenador * entrenador = element;
 
-	log_info(logger, "HOlAAAA SOY UN HIJOOOOOOO");
+	log_debug(logger, "HOlAAAA SOY UN HIJOOOOOOO");
 
-	while(!(objetivo_cumplido(entrenador)))
+	while(1)
+	//while(!(objetivo_cumplido(entrenador)))
 	{
-		log_trace(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
+		log_debug(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
 					entrenador->posicion[1]);
 
 		pthread_mutex_lock(&(entrenador->sem_est));
-		//ir a buscar pokemon, etc
 
+		//case(entrenador->tarea)
+			// ir a buscar pokemon, etc
+			// solucionar deadlock activo
+			// solucionar deadlock pasivo
 	}
+
 }
 
 double distancia(t_entrenador * entrenador, double posx, double posy){

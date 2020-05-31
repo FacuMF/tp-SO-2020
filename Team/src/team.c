@@ -29,6 +29,7 @@ int main(int argv,char*archivo_config[]) {
 
 	// Conectar_con_gameboy
 
+	sleep(15); //TT
 	finalizar_team();
 }
 
