@@ -50,7 +50,7 @@ void handle_mensaje(int cod_op, int cliente_fd);
 //Funciones especificas por mensaje
 
 //SUSCRIPTOR
-//void suscribir(t_cliente cliente, t_subscriptor subscripcion);
+void suscribir(int cliente, t_subscriptor subscripcion);
 //void enviar_mensajes_de_cola(t_subscriptor subscripcion);
 
 // APPEARED_POKEMON

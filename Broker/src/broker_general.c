@@ -121,9 +121,9 @@ void handle_cliente(int socket_servidor) {
 		log_trace(logger, "Se recibio un mensaje SUSCRIPTOR");
 		buffer = recibir_mensaje(cliente_fd);
 		t_subscriptor* subscripcion = deserializar_suscripcion(buffer);
-		//log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
+		log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
 
-		//suscribir(cliente, subscripcion);
+		suscribir(cliente_fd, subscripcion);
 		//enviar_mensajes_de_cola(subscripcion);
 
 		break;
