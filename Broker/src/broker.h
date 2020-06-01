@@ -34,6 +34,10 @@ typedef struct{
 }t_mensaje;
 
 //Funciones Generales
+void inicializacion_broker(void);
+void lanzar_hilo_receptor_mensajes(void);
+void terminar_proceso(void);
+
 void inicializacion_colas(void);
 void* esperar_mensajes(void *arg);
 void setear_socket_reusable(int socket);
@@ -46,15 +50,15 @@ void handle_mensaje(int cod_op, int cliente_fd);
 //Funciones especificas por mensaje
 
 //SUSCRIPTOR
-void suscribir(t_cliente cliente, t_subscriptor subscripcion);
-void enviar_mensajes_de_cola(t_subscriptor subscripcion);
+//void suscribir(t_cliente cliente, t_subscriptor subscripcion);
+//void enviar_mensajes_de_cola(t_subscriptor subscripcion);
 
 // APPEARED_POKEMON
-char* asignar_id_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
-void informar_id_a_cliente(t_cliente cliente ,id_mensaje_recibido);
-void almacenar_en_cola_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
-void enviar_a_todos_los_subs_appeared_pokemon(mensaje);
-void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
+//char* asignar_id_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
+//void informar_id_a_cliente(t_cliente cliente ,id_mensaje_recibido);
+//void almacenar_en_cola_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
+//void enviar_a_todos_los_subs_appeared_pokemon(mensaje);
+//void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
 
 // NEW_POKEMON
 

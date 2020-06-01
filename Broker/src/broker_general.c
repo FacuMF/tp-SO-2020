@@ -1,5 +1,36 @@
 #include "broker.h"
 
+void inicializacion_broker(void){
+    // Inicio logger
+	logger = iniciar_logger("./Broker/config/broker.log", "Team", LOG_LEVEL_TRACE);
+	log_trace(logger, "Log inicializado");
+
+	// Leer configuracion
+	config = leer_config("./Broker/config/broker.config");
+	log_trace(logger, "Config creada");
+
+	// Inicializacion de las distintas colas de mensajes
+	inicializacion_colas();
+}
+
+void lanzar_hilo_receptor_mensajes(void){
+    // Lanzar hilo activador
+	log_trace(logger, "Va a ejecutar hilo");
+	int error;
+	error = pthread_create(&(tid[0]), NULL, esperar_mensajes, NULL);
+	if (error != 0) {
+		log_error(logger, "Error al crear hilo Esperar_Mensajes");
+		return error;
+	}
+}
+
+void terminar_proceso(void){
+    pthread_join(tid[0], NULL);
+	terminar_logger(logger);
+	config_destroy(config);
+}
+
+
 void inicializacion_colas(void) {
 	//  NEW_POKEMON
 	new_pokemon = malloc(sizeof(t_queue));
@@ -25,11 +56,12 @@ void inicializacion_colas(void) {
 	localized_pokemon = malloc(sizeof(t_queue));
 	localized_pokemon->subscriptores = list_create();
 	localized_pokemon->mensajes = list_create();
-
+    log_trace(logger, "Colas inicializadas");
 }
+
 void* esperar_mensajes(void *arg) {
 	log_trace(logger, "Esperando mensajes. ");
-	int i = 0;
+	int i = 0; //El while va hasta 20 para evitar que entre en un loop infinito. Hay que pasarlo a while(true)
 	while (i < 20) {
 		i++;
 		char* ip = config_get_string_value(config, "IP_BROKER");
@@ -48,19 +80,19 @@ void* iniciar_conexion_con_modulo(char* ip, char* puerto) {
 	asignar_socket_a_puerto(socket_servidor, servinfo);
 	setear_socket_reusable(socket_servidor);
 	freeaddrinfo(servinfo);
-	log_info(logger, "Listen");
+	log_trace(logger, "Listen");
 
 	listen(socket_servidor, SOMAXCONN);
 
 	while (1) {
-		log_info(logger, "Ejecutar Handle Cliente");
+		log_trace(logger, "Ejecutar Handle Cliente");
 		handle_cliente(socket_servidor);
 	}
 	return 0;
 }
 
 void handle_cliente(int socket_servidor) {
-	log_info(logger, "Adentro del Handle Cliente");
+	log_trace(logger, "Adentro del Handle Cliente");
 	struct sockaddr_in dir_cliente;
 
 	int tam_direccion = sizeof(struct sockaddr_in);
@@ -88,12 +120,11 @@ void handle_cliente(int socket_servidor) {
 
 		log_trace(logger, "Se recibio un mensaje SUSCRIPTOR");
 		buffer = recibir_mensaje(cliente_fd);
-		t_cliente cliente = deserializar_cliente(buffer);
-		t_subscriptor subscripcion = deserializar_suscripcion(buffer);
-		log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
+		t_subscriptor* subscripcion = deserializar_suscripcion(buffer);
+		//log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
 
-		suscribir(cliente, subscripcion);
-		enviar_mensajes_de_cola(subscripcion);
+		//suscribir(cliente, subscripcion);
+		//enviar_mensajes_de_cola(subscripcion);
 
 		break;
 
@@ -111,7 +142,8 @@ void handle_cliente(int socket_servidor) {
 		case APPEARED_POKEMON:
 
 		log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
-		buffer = recibir_mensaje(cliente_fd);
+		/*
+        buffer = recibir_mensaje(cliente_fd);
 		t_cliente cliente = deserializar_cliente(buffer);
 		buffer = buffer_sin_cliente(buffer);
 		t_new_pokemon* mensaje_new_pokemon = deserializar_appeared_pokemon(buffer);
@@ -120,6 +152,7 @@ void handle_cliente(int socket_servidor) {
 		informar_id_a_cliente(cliente ,id_mensaje_recibido);// Definir como pasarle este mensaje solo a este cliente
 		almacenar_en_cola_appeared_pokemon(mensaje);
 		cachear_appeared_pokemon(mensaje);
+        */
 
 		break;
 		case NEW_POKEMON:
