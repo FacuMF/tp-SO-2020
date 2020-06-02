@@ -53627,3 +53627,242 @@
 [TRACE] 21:31:17:394 Team/(16709:16710): Listen
 [TRACE] 21:31:17:394 Team/(16709:16710): Ejecutar Handle Cliente
 [TRACE] 21:31:17:395 Team/(16709:16710): Adentro del Handle Cliente
+[TRACE] 11:23:13:654 Team/(7089:7089): Log inicializado
+[TRACE] 11:23:13:660 Team/(7089:7089): Config creada
+[TRACE] 11:23:13:660 Team/(7089:7089): Colas inicializadas
+[TRACE] 11:23:13:660 Team/(7089:7089): Va a ejecutar hilo
+[TRACE] 11:23:13:660 Team/(7089:7090): Esperando mensajes. 
+[TRACE] 11:23:13:660 Team/(7089:7090): Servidor Inicializado
+[TRACE] 11:23:13:660 Team/(7089:7090): Listen
+[TRACE] 11:23:13:661 Team/(7089:7090): Ejecutar Handle Cliente
+[TRACE] 11:23:13:661 Team/(7089:7090): Adentro del Handle Cliente
+[TRACE] 11:24:36:136 Team/(7183:7183): Log, Config y Colas inicializadas.
+[TRACE] 11:24:36:136 Team/(7183:7183): Va a ejecutar hilo
+[TRACE] 11:24:36:136 Team/(7183:7184): Esperando mensajes. 
+[TRACE] 11:24:36:136 Team/(7183:7184): Servidor Inicializado
+[TRACE] 11:24:36:136 Team/(7183:7184): Listen
+[TRACE] 11:24:36:136 Team/(7183:7184): Ejecutar Handle Cliente
+[TRACE] 11:24:36:136 Team/(7183:7184): Adentro del Handle Cliente
+[TRACE] 11:27:26:537 Team/(7343:7343): Log, Config y Colas inicializadas.
+[TRACE] 11:27:26:537 Team/(7343:7343): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 11:27:26:537 Team/(7343:7344): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 11:27:26:537 Team/(7343:7344): Servidor Inicializado
+[TRACE] 11:27:26:537 Team/(7343:7344): Listen
+[TRACE] 11:27:26:537 Team/(7343:7344): Ejecutar Handle Cliente
+[TRACE] 11:27:26:537 Team/(7343:7344): Adentro del Handle Cliente
+[TRACE] 11:30:26:65 Team/(7511:7511): Log, Config y Colas inicializadas.
+[TRACE] 11:30:26:65 Team/(7511:7511): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 11:30:26:65 Team/(7511:7512): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 11:30:26:65 Team/(7511:7512): Se va a ejeutar 'listen'.
+[TRACE] 11:30:26:65 Team/(7511:7512): Se va a ejecutar 'handle_cliente'.
+[TRACE] 11:30:26:65 Team/(7511:7512): Se va a ejecutar 'accept'.
+[TRACE] 11:31:00:392 Team/(7558:7558): Log, Config y Colas inicializadas.
+[TRACE] 11:31:00:392 Team/(7558:7558): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 11:31:00:392 Team/(7558:7559): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 11:31:00:393 Team/(7558:7559): Va a ejeutar 'listen'.
+[TRACE] 11:31:00:393 Team/(7558:7559): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:31:00:393 Team/(7558:7559): Va a ejecutar 'accept'.
+[TRACE] 11:34:34:520 Team/(7751:7751): Log, Config y Colas inicializadas.
+[TRACE] 11:34:34:520 Team/(7751:7751): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 11:34:34:520 Team/(7751:7752): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 11:34:34:520 Team/(7751:7752): Va a ejeutar 'listen'.
+[TRACE] 11:34:34:520 Team/(7751:7752): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:34:34:521 Team/(7751:7752): Va a ejecutar 'accept'.
+[TRACE] 11:35:07:99 Team/(7834:7834): Log, Config y Colas inicializadas.
+[TRACE] 11:35:07:99 Team/(7834:7834): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 11:35:07:99 Team/(7834:7835): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 11:35:07:100 Team/(7834:7835): Va a ejeutar 'listen'.
+[TRACE] 11:35:07:100 Team/(7834:7835): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:35:07:100 Team/(7834:7835): Va a ejecutar 'accept'.
+[TRACE] 11:37:26:64 Team/(8024:8024): Log, Config y Colas inicializadas.
+[TRACE] 11:37:26:64 Team/(8024:8024): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 11:37:26:64 Team/(8024:8025): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 11:37:26:65 Team/(8024:8025): Va a ejeutar 'listen'.
+[TRACE] 11:37:26:65 Team/(8024:8025): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:37:26:65 Team/(8024:8025): Va a ejecutar 'accept'.
+[TRACE] 11:38:13:972 Team/(8024:8025): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 11:38:13:973 Team/(8024:8025): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:38:13:973 Team/(8024:8025): Va a ejecutar 'accept'.
+[TRACE] 11:38:13:973 Team/(8024:8044): Mensaje recibido, cod_op: -1.
+[TRACE] 11:38:38:230 Team/(8024:8025): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 11:38:38:230 Team/(8024:8025): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:38:38:230 Team/(8024:8025): Va a ejecutar 'accept'.
+[TRACE] 11:38:38:230 Team/(8024:8047): Mensaje recibido, cod_op: -1.
+[TRACE] 11:39:25:140 Team/(8024:8025): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 11:39:25:140 Team/(8024:8025): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:39:25:140 Team/(8024:8025): Va a ejecutar 'accept'.
+[TRACE] 11:39:25:141 Team/(8024:8265): Mensaje recibido, cod_op: -1.
+[TRACE] 11:39:39:229 Team/(8024:8025): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 11:39:39:229 Team/(8024:8025): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:39:39:229 Team/(8024:8025): Va a ejecutar 'accept'.
+[TRACE] 11:39:39:229 Team/(8024:8289): Mensaje recibido, cod_op: -1.
+[TRACE] 11:48:31:680 Team/(8024:8025): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 11:48:31:680 Team/(8024:8025): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:48:31:680 Team/(8024:8025): Va a ejecutar 'accept'.
+[TRACE] 11:48:31:681 Team/(8024:8429): Mensaje recibido, cod_op: -1.
+[TRACE] 11:48:37:735 Team/(8024:8025): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 11:48:37:735 Team/(8024:8025): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:48:37:735 Team/(8024:8025): Va a ejecutar 'accept'.
+[TRACE] 11:48:37:736 Team/(8024:8436): Mensaje recibido, cod_op: -1.
+[TRACE] 11:48:53:700 Team/(8024:8025): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 11:48:53:700 Team/(8024:8025): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:48:53:700 Team/(8024:8025): Va a ejecutar 'accept'.
+[TRACE] 11:48:53:700 Team/(8024:8441): Mensaje recibido, cod_op: -1.
+[TRACE] 11:48:57:30 Team/(8024:8025): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 11:48:57:31 Team/(8024:8025): Va a ejecutar 'handle_cliente'.
+[TRACE] 11:48:57:31 Team/(8024:8025): Va a ejecutar 'accept'.
+[TRACE] 11:48:57:31 Team/(8024:8444): Mensaje recibido, cod_op: -1.
+[TRACE] 12:08:18:520 Team/(9085:9085): Log, Config y Colas inicializadas.
+[TRACE] 12:08:18:520 Team/(9085:9085): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 12:08:18:520 Team/(9085:9086): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 12:08:18:520 Team/(9085:9086): Va a ejeutar 'listen'.
+[TRACE] 12:08:18:520 Team/(9085:9086): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:08:18:521 Team/(9085:9086): Va a ejecutar 'accept'.
+[TRACE] 12:08:32:77 Team/(9142:9142): Log, Config y Colas inicializadas.
+[TRACE] 12:08:32:77 Team/(9142:9142): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 12:08:32:77 Team/(9142:9143): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 12:08:32:77 Team/(9142:9143): Va a ejeutar 'listen'.
+[TRACE] 12:08:32:77 Team/(9142:9143): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:08:32:77 Team/(9142:9143): Va a ejecutar 'accept'.
+[TRACE] 12:55:28:443 Team/(11023:11023): Log, Config y Colas inicializadas.
+[TRACE] 12:55:28:443 Team/(11023:11023): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 12:55:28:443 Team/(11023:11024): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 12:55:28:444 Team/(11023:11024): Va a ejeutar 'listen'.
+[TRACE] 12:55:28:444 Team/(11023:11024): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:55:28:444 Team/(11023:11024): Va a ejecutar 'accept'.
+[TRACE] 12:55:32:6 Team/(11023:11024): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 12:55:32:9 Team/(11023:11024): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:55:32:10 Team/(11023:11024): Va a ejecutar 'accept'.
+[TRACE] 12:55:32:10 Team/(11023:11026): Mensaje recibido, cod_op: -1.
+[TRACE] 12:56:30:790 Team/(11023:11024): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 12:56:30:790 Team/(11023:11024): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:56:30:790 Team/(11023:11024): Va a ejecutar 'accept'.
+[TRACE] 12:56:30:790 Team/(11023:11042): Mensaje recibido, cod_op: -1.
+[TRACE] 13:03:32:774 Team/(11372:11372): Log, Config y Colas inicializadas.
+[TRACE] 13:03:32:775 Team/(11372:11372): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:03:32:775 Team/(11372:11373): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:03:32:775 Team/(11372:11373): Va a ejeutar 'listen'.
+[TRACE] 13:03:32:775 Team/(11372:11373): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:03:32:775 Team/(11372:11373): Va a ejecutar 'accept'.
+[TRACE] 13:03:35:858 Team/(11372:11373): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:03:35:858 Team/(11372:11373): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:03:35:858 Team/(11372:11373): Va a ejecutar 'accept'.
+[TRACE] 13:03:35:858 Team/(11372:11375): Mensaje recibido, cod_op: -1.
+[TRACE] 13:05:23:965 Team/(11492:11492): Log, Config y Colas inicializadas.
+[TRACE] 13:05:23:965 Team/(11492:11492): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:05:23:965 Team/(11492:11493): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:05:23:965 Team/(11492:11493): Va a ejeutar 'listen'.
+[TRACE] 13:05:23:966 Team/(11492:11493): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:05:23:966 Team/(11492:11493): Va a ejecutar 'accept'.
+[TRACE] 13:05:29:190 Team/(11492:11493): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:05:29:191 Team/(11492:11493): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:05:29:191 Team/(11492:11493): Va a ejecutar 'accept'.
+[TRACE] 13:05:29:191 Team/(11492:11495): Mensaje recibido, cod_op: -1.
+[TRACE] 13:10:12:355 Team/(11652:11652): Log, Config y Colas inicializadas.
+[TRACE] 13:10:12:355 Team/(11652:11652): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:10:12:355 Team/(11652:11653): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:10:12:356 Team/(11652:11653): Va a ejeutar 'listen'.
+[TRACE] 13:10:12:356 Team/(11652:11653): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:10:12:356 Team/(11652:11653): Va a ejecutar 'accept'.
+[TRACE] 13:10:15:623 Team/(11652:11653): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:10:15:623 Team/(11652:11653): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:10:15:623 Team/(11652:11653): Va a ejecutar 'accept'.
+[TRACE] 13:10:15:624 Team/(11652:11655): Mensaje recibido, cod_op: -1.
+[TRACE] 13:11:40:463 Team/(11652:11653): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:11:40:463 Team/(11652:11653): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:11:40:463 Team/(11652:11653): Va a ejecutar 'accept'.
+[TRACE] 13:11:40:464 Team/(11652:11710): Mensaje recibido, cod_op: -1.
+[TRACE] 13:11:51:576 Team/(11793:11793): Log, Config y Colas inicializadas.
+[TRACE] 13:11:51:576 Team/(11793:11793): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:11:51:576 Team/(11793:11794): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:11:51:576 Team/(11793:11794): Va a ejeutar 'listen'.
+[TRACE] 13:11:51:576 Team/(11793:11794): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:11:51:576 Team/(11793:11794): Va a ejecutar 'accept'.
+[TRACE] 13:11:54:434 Team/(11793:11794): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:11:54:435 Team/(11793:11794): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:11:54:435 Team/(11793:11794): Va a ejecutar 'accept'.
+[TRACE] 13:11:54:436 Team/(11793:11796): Mensaje recibido, cod_op: -1.
+[TRACE] 13:18:48:340 Team/(12010:12010): Log, Config y Colas inicializadas.
+[TRACE] 13:18:48:340 Team/(12010:12010): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:18:48:341 Team/(12010:12011): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:18:48:341 Team/(12010:12011): Va a ejeutar 'listen'.
+[TRACE] 13:18:48:341 Team/(12010:12011): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:18:48:341 Team/(12010:12011): Va a ejecutar 'accept'.
+[TRACE] 13:18:51:894 Team/(12010:12011): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:18:51:894 Team/(12010:12011): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:18:51:894 Team/(12010:12011): Va a ejecutar 'accept'.
+[TRACE] 13:18:51:895 Team/(12010:12013): Mensaje recibido, cod_op: -100.
+[TRACE] 13:19:01:434 Team/(12010:12011): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:19:01:435 Team/(12010:12011): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:19:01:435 Team/(12010:12011): Va a ejecutar 'accept'.
+[TRACE] 13:19:01:435 Team/(12010:12022): Mensaje recibido, cod_op: -100.
+[TRACE] 13:19:23:416 Team/(12158:12158): Log, Config y Colas inicializadas.
+[TRACE] 13:19:23:416 Team/(12158:12158): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:19:23:416 Team/(12158:12159): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:19:23:416 Team/(12158:12159): Va a ejeutar 'listen'.
+[TRACE] 13:19:23:416 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:19:23:416 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:19:26:273 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:19:26:273 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:19:26:273 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:19:26:274 Team/(12158:12161): Mensaje recibido, cod_op: -1.
+[TRACE] 13:19:47:678 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:19:47:678 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:19:47:679 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:19:47:680 Team/(12158:12165): Mensaje recibido, cod_op: -1.
+[TRACE] 13:19:49:360 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:19:49:360 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:19:49:360 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:19:49:360 Team/(12158:12167): Mensaje recibido, cod_op: -1.
+[TRACE] 13:19:58:350 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:19:58:350 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:19:58:350 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:19:58:350 Team/(12158:12174): Mensaje recibido, cod_op: -1.
+[TRACE] 13:20:14:395 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:20:14:395 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:20:14:395 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:20:14:395 Team/(12158:12183): Mensaje recibido, cod_op: -1.
+[TRACE] 13:20:17:138 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:20:17:138 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:20:17:138 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:20:17:138 Team/(12158:12186): Mensaje recibido, cod_op: -1.
+[TRACE] 13:20:18:82 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:20:18:82 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:20:18:82 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:20:18:82 Team/(12158:12194): Mensaje recibido, cod_op: -1.
+[TRACE] 13:20:18:994 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:20:18:995 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:20:18:995 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:20:18:995 Team/(12158:12197): Mensaje recibido, cod_op: -1.
+[TRACE] 13:20:19:747 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:20:19:747 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:20:19:747 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:20:19:747 Team/(12158:12200): Mensaje recibido, cod_op: -1.
+[TRACE] 13:20:34:784 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:20:34:784 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:20:34:784 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:20:34:784 Team/(12158:12211): Mensaje recibido, cod_op: -1.
+[TRACE] 13:20:39:948 Team/(12158:12159): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:20:39:949 Team/(12158:12159): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:20:39:949 Team/(12158:12159): Va a ejecutar 'accept'.
+[TRACE] 13:20:39:949 Team/(12158:12219): Mensaje recibido, cod_op: -1.
+[TRACE] 13:23:47:850 Team/(12520:12520): Log, Config y Colas inicializadas.
+[TRACE] 13:23:47:850 Team/(12520:12520): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:23:47:850 Team/(12520:12521): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:23:47:850 Team/(12520:12521): Va a ejeutar 'listen'.
+[TRACE] 13:23:47:850 Team/(12520:12521): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:23:47:850 Team/(12520:12521): Va a ejecutar 'accept'.
+[TRACE] 13:23:57:448 Team/(12520:12521): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:23:57:449 Team/(12520:12521): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:23:57:449 Team/(12520:12521): Va a ejecutar 'accept'.
+[ERROR] 13:23:57:450 Team/(12520:12523): Error en 'recibir_codigo_operacion'
+[TRACE] 13:24:48:159 Team/(12592:12592): Log, Config y Colas inicializadas.
+[TRACE] 13:24:48:159 Team/(12592:12592): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:24:48:159 Team/(12592:12593): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:24:48:159 Team/(12592:12593): Va a ejeutar 'listen'.
+[TRACE] 13:24:48:159 Team/(12592:12593): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:24:48:159 Team/(12592:12593): Va a ejecutar 'accept'.
+[TRACE] 13:24:52:684 Team/(12592:12593): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:24:52:684 Team/(12592:12593): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:24:52:684 Team/(12592:12593): Va a ejecutar 'accept'.
+[ERROR] 13:24:52:685 Team/(12592:12595): Error en 'recibir_codigo_operacion'

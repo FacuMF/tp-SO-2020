@@ -6,13 +6,20 @@ int main(int argv, char* arg[]) {
 
 	/*  Obtener Caracteristicas Msj
 	 Tipo de mensaje: MODULO MENSAJE ARG1 ARG2 AGR3 ...
-	 arg[1] arg[2]  arg[3] ...
+	 	 	 	 	  arg[1] arg[2]  arg[3] ...
 	 */
 
 	t_modulo modulo = string_a_modulo(arg[1]);
 
-	if(modulo == -1) log_error(logger, "El modulo ingresado es incorrecto.");
-	op_code tipo_mensaje = string_a_tipo_mensaje(arg[2]);
+	op_code tipo_mensaje;
+	if(modulo == -1){
+		log_error(logger, "El modulo ingresado es incorrecto.");
+	}else if(modulo == SUSCRIPTOR){
+		modulo = broker;
+		tipo_mensaje = string_a_tipo_mensaje(arg[1]);
+	} else {
+		tipo_mensaje = string_a_tipo_mensaje(arg[2]);
+	}
 
 	log_trace(logger, "Caracteristicas de mensaje obtenidas");
 
@@ -82,6 +89,16 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		break;
 	case broker: ////MODULO BROKER////
 		switch (tipo_mensaje) {
+		case SUSCRIPTOR:
+			;
+			t_subscriptor* mensaje_suscripcion;
+			log_trace(logger, "Mensaje: SUSCRIPTOR Cola:%s, Tiempo:%s.", arg[2], arg[3]);
+			cola_de_mensajes = string_a_tipo_mensaje(arg[2]);
+			tiempo_suscripcion = atoi(arg[3]);
+			mensaje_suscripcion = crear_suscripcion(cola_de_mensajes,
+													tiempo_suscripcion);
+			mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
+			break;
 		case NEW_POKEMON:
 			;
 			t_new_pokemon* mensaje_new;
@@ -172,15 +189,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			mensaje_serializado = serializar_get_pokemon(mensaje_get);
 			break;
 		}
-		break;
-	case SUSCRIPTOR:
-		;
-		t_subscriptor* mensaje_suscripcion;
-		cola_de_mensajes = string_a_tipo_mensaje(arg[2]);
-		tiempo_suscripcion = atoi(arg[3]);
-		mensaje_suscripcion = crear_suscripcion(cola_de_mensajes,
-				tiempo_suscripcion);
-		mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
 		break;
 	}
 	return mensaje_serializado;

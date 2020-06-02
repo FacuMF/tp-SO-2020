@@ -6,7 +6,7 @@ CLIENTE = Base/Cliente/src/cliente.h Base/Cliente/src/cliente.c
 SERVIDOR = Base/Servidor/src/servidor.h Base/Servidor/src/servidor.c
 TEAM = Team/src/team.c Team/src/team.h Team/src/team_planificacion.c Team/src/team_entrenadores.c Team/src/team_objetivo.c
 GAMEBOY=GameBoy/src/gameboy.c GameBoy/src/gameboy.h
-BROKER = Broker/src/broker.c Broker/src/broker_general.c Broker/src/broker_appeared.c Broker/src/broker_catch.c Broker/src/broker_caught.c Broker/src/broker_get.c Broker/src/broker_localized.c Broker/src/broker_new.c Broker/src/broker.h
+BROKER = Broker/src/broker.c Broker/src/broker_general.c Broker/src/broker_appeared.c Broker/src/broker_catch.c Broker/src/broker_caught.c Broker/src/broker_get.c Broker/src/broker_localized.c Broker/src/broker_new.c Broker/src/broker_subscriptor.c Broker/src/broker.h
 GAMECARD = Gamecard/src/gamecard.c Gamecard/src/gamecard.h Gamecard/src/utils_gamecard.c  
 all:
 	mkdir -p $(BIN_PATH)
@@ -37,6 +37,12 @@ clienteservidor:
 	mkdir -p $(BIN_PATH)
 	$(COMPILER) $(UTILS) $(CLIENTE) -o $(BIN_PATH)/Cliente 	$(LIBS)
 	$(COMPILER) $(UTILS) $(SERVIDOR) -o $(BIN_PATH)/Server $(LIBS)
+	
+gbb: #gameboy y broker
+	mkdir -p $(BIN_PATH)
+	$(COMPILER) $(UTILS) $(BROKER) -o $(BIN_PATH)/Broker $(LIBS)
+	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/GameBoy $(LIBS)
+	
 	
 
 clean:

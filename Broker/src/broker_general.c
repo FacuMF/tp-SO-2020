@@ -3,24 +3,21 @@
 void inicializacion_broker(void){
     // Inicio logger
 	logger = iniciar_logger("./Broker/config/broker.log", "Team", LOG_LEVEL_TRACE);
-	log_trace(logger, "Log inicializado");
-
 	// Leer configuracion
 	config = leer_config("./Broker/config/broker.config");
-	log_trace(logger, "Config creada");
-
 	// Inicializacion de las distintas colas de mensajes
 	inicializacion_colas();
+	log_trace(logger, "Log, Config y Colas inicializadas.");
 }
 
 void lanzar_hilo_receptor_mensajes(void){
     // Lanzar hilo activador
-	log_trace(logger, "Va a ejecutar hilo");
+	log_trace(logger, "Va a ejecutar hilo 'esperar_mensaje'.");
 	int error;
 	error = pthread_create(&(tid[0]), NULL, esperar_mensajes, NULL);
 	if (error != 0) {
 		log_error(logger, "Error al crear hilo Esperar_Mensajes");
-		return error;
+		// return error; // Es void, no puede devolver
 	}
 }
 
@@ -56,74 +53,73 @@ void inicializacion_colas(void) {
 	localized_pokemon = malloc(sizeof(t_queue));
 	localized_pokemon->subscriptores = list_create();
 	localized_pokemon->mensajes = list_create();
-    log_trace(logger, "Colas inicializadas");
 }
 
 void* esperar_mensajes(void *arg) {
-	log_trace(logger, "Esperando mensajes. ");
 	int i = 0; //El while va hasta 20 para evitar que entre en un loop infinito. Hay que pasarlo a while(true)
 	while (i < 20) {
 		i++;
 		char* ip = config_get_string_value(config, "IP_BROKER");
 		char* puerto = config_get_string_value(config, "PUERTO_BROKER");
+
+		log_trace(logger, "Se va a ejecutar 'iniciar_conexion_con_el_modulo'.");
 		iniciar_conexion_con_modulo(ip, puerto);
 	}
 }
 
 void* iniciar_conexion_con_modulo(char* ip, char* puerto) {
-
-	log_trace(logger, "Servidor Inicializado");
 	//Set up conexion
-
 	struct addrinfo* servinfo = obtener_server_info(ip, puerto);
 	int socket_servidor = obtener_socket(servinfo);
 	asignar_socket_a_puerto(socket_servidor, servinfo);
 	setear_socket_reusable(socket_servidor);
 	freeaddrinfo(servinfo);
-	log_trace(logger, "Listen");
 
+	log_trace(logger, "Va a ejeutar 'listen'.");
 	listen(socket_servidor, SOMAXCONN);
 
 	while (1) {
-		log_trace(logger, "Ejecutar Handle Cliente");
+		log_trace(logger, "Va a ejecutar 'handle_cliente'.");
 		handle_cliente(socket_servidor);
 	}
 	return 0;
 }
 
 void handle_cliente(int socket_servidor) {
-	log_trace(logger, "Adentro del Handle Cliente");
 	struct sockaddr_in dir_cliente;
 
 	int tam_direccion = sizeof(struct sockaddr_in);
 
-	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
-			&tam_direccion);
-	/*
+	log_trace(logger, "Va a ejecutar 'accept'.");
+	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);
+
 	 //TODO la variable thread es una sola, esto va a dar problemas, hay que hacer que sean varias de alguna forma. Finitas o infinitas?
-	 pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
-	 pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
-	 */
+	log_trace(logger, "Va a lanzar hilo 'recibir_mensaje_del_cliente'.");
+	pthread_create(&(tid[1]), NULL, (void*) recibir_mensaje_del_cliente, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
+	pthread_detach(tid[1]);	// Si termina el hilo, que sus recursos se liberen automaticamente
+
 }
 
 
- void recibir_mensaje_del_cliente(int* socket) {
- int cod_op = recibir_codigo_operacion(*socket);
- handle_mensaje(cod_op, *socket);
+ void recibir_mensaje_del_cliente(int* socket_cliente) {
+ int cod_op = recibir_codigo_operacion(*socket_cliente);
+ (cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
+		 	 	 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
+ handle_mensaje(cod_op, *socket_cliente);
  }
 
- void handle_mensaje(int cod_op, int cliente_fd){
+ void handle_mensaje(int cod_op, int socket_cliente){
 	t_buffer * buffer;
 
 	switch (cod_op) {
 		case SUSCRIPTOR:
 
 		log_trace(logger, "Se recibio un mensaje SUSCRIPTOR");
-		buffer = recibir_mensaje(cliente_fd);
+		buffer = recibir_mensaje(socket_cliente);
 		t_subscriptor* subscripcion = deserializar_suscripcion(buffer);
 		log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
 
-		suscribir(cliente_fd, subscripcion);
+		subscribir(socket_cliente, subscripcion);
 		//enviar_mensajes_de_cola(subscripcion);
 
 		break;
