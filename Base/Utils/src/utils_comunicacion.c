@@ -121,8 +121,10 @@ void enviar_mensaje(int socket, t_buffer* buffer, op_code codigo_operacion){
 
 op_code recibir_codigo_operacion(int socket){
 	op_code operacion;
+
 	if (recv(socket, &operacion, sizeof(operacion), MSG_WAITALL) == -1)
-			operacion= -1;
+				operacion= -1;
+
 	return operacion;
 }
 

@@ -8785,3 +8785,10 @@
 [TRACE] 13:39:48:545 Server/(8841:8841): Se recibio el mensaje 2 por socket: 8
 [TRACE] 13:39:48:545 Server/(8841:8841): Enviar mensaje a cliente
 [TRACE] 13:39:48:545 Server/(8841:8841): Mensaje enviado
+[TRACE] 17:56:28:177 Server/(5132:5132): Primer log ingresado
+[TRACE] 17:56:28:183 Server/(5132:5132): Servidor Inicializado
+[TRACE] 17:56:28:183 Server/(5132:5132): Todo bien
+[TRACE] 17:56:32:182 Server/(5132:5132): Se recibio el mensaje 0 por socket: 5
+[TRACE] 17:56:32:183 Server/(5132:5134): Codigo de operacion: 8
+[TRACE] 17:56:32:183 Server/(5132:5134): Mensaje de suscripcion recibido
+[TRACE] 17:56:32:183 Server/(5132:5134): Cola de mensajes: 3, tiempo de suscripcion: 10 segundos

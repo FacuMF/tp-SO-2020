@@ -78,10 +78,11 @@ void* iniciar_conexion_con_modulo(char* ip, char* puerto) {
 	log_trace(logger, "Va a ejeutar 'listen'.");
 	listen(socket_servidor, SOMAXCONN);
 
-	while (1) {
-		log_trace(logger, "Va a ejecutar 'handle_cliente'.");
-		handle_cliente(socket_servidor);
+	while(1){
+	log_trace(logger, "Va a ejecutar 'handle_cliente'.");
+	handle_cliente(socket_servidor);
 	}
+
 	return 0;
 }
 
@@ -93,10 +94,14 @@ void handle_cliente(int socket_servidor) {
 	log_trace(logger, "Va a ejecutar 'accept'.");
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);
 
-	 //TODO la variable thread es una sola, esto va a dar problemas, hay que hacer que sean varias de alguna forma. Finitas o infinitas?
+
 	log_trace(logger, "Va a lanzar hilo 'recibir_mensaje_del_cliente'.");
-	pthread_create(&(tid[1]), NULL, (void*) recibir_mensaje_del_cliente, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
-	pthread_detach(tid[1]);	// Si termina el hilo, que sus recursos se liberen automaticamente
+
+	recibir_mensaje_del_cliente(&socket_cliente);
+
+	//TODO la variable thread es una sola, esto va a dar problemas, hay que hacer que sean varias de alguna forma. Finitas o infinitas?
+	//pthread_create(&(tid[1]), NULL, (void*) recibir_mensaje_del_cliente, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
+	//pthread_detach(tid[1]);	// Si termina el hilo, que sus recursos se liberen automaticamente
 
 }
 
