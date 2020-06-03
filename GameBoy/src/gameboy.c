@@ -136,12 +136,12 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			break;
 		case CAUGHT_POKEMON:
 			;
-			t_caugth_pokemon* mensaje_caugth;
+			t_caught_pokemon* mensaje_caught;
 			id_mensaje_correlativo = atoi(arg[3]);
 			ok_fail = atoi(arg[4]);
-			mensaje_caugth = crear_caugth_pokemon(id_mensaje_correlativo,
+			mensaje_caught = crear_caught_pokemon(id_mensaje_correlativo,
 					ok_fail);
-			mensaje_serializado = serializar_caught_pokemon(mensaje_caugth);
+			mensaje_serializado = serializar_caught_pokemon(mensaje_caught);
 			break;
 		case GET_POKEMON:
 			;

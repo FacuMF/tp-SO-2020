@@ -29,6 +29,5 @@ void finalizar_ejecucion(t_log*, t_config*);
 void setear_socket_reusable(int);
 void esperar_cliente(int);
 void serve_client(int *socket);
-void process_request(int cod_op, int cliente_fd);
 
 #endif /* SERVIDOR_H_ */

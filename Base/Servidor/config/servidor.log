@@ -8792,3 +8792,11 @@
 [TRACE] 17:56:32:183 Server/(5132:5134): Codigo de operacion: 8
 [TRACE] 17:56:32:183 Server/(5132:5134): Mensaje de suscripcion recibido
 [TRACE] 17:56:32:183 Server/(5132:5134): Cola de mensajes: 3, tiempo de suscripcion: 10 segundos
+[TRACE] 15:37:32:828 Server/(5240:5240): Primer log ingresado
+[TRACE] 15:37:32:855 Server/(5240:5240): Servidor Inicializado
+[TRACE] 15:37:32:855 Server/(5240:5240): Todo bien
+[TRACE] 15:37:40:176 Server/(5240:5240): Se recibio el mensaje 0 por socket: 5
+[TRACE] 15:37:57:962 Server/(5240:5240): Se recibio el mensaje 1 por socket: 7
+[TRACE] 15:38:00:592 Server/(5240:5240): Se recibio el mensaje 2 por socket: 8
+[TRACE] 15:38:00:592 Server/(5240:5240): Enviar mensaje a cliente
+[TRACE] 15:38:00:592 Server/(5240:5240): Mensaje enviado

@@ -27,7 +27,7 @@ void lanzar_hilo_entrenador(void*element) {
 void ser_entrenador(void *element) {
 	t_entrenador * entrenador = element;
 
-<<<<<<< HEAD
+
 	log_info(logger, "HOlAAAA SOY UN HIJOOOOOOO");
 
 	while(!(objetivo_cumplido(entrenador)))
@@ -37,17 +37,16 @@ void ser_entrenador(void *element) {
 
 		pthread_mutex_lock(&(entrenador->sem_est));
 		//ir a buscar pokemon, etc
-=======
-	log_debug(logger, "HOlAAAA SOY UN HIJOOOOOOO");
+	/*log_debug(logger, "HOlAAAA SOY UN HIJOOOOOOO");
 
 	while(1)
 	//while(!(objetivo_cumplido(entrenador)))
 	{
 		log_debug(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
 					entrenador->posicion[1]);
->>>>>>> 227bd55564c5e963116ca8817d4a26cb05d73781
 
-		pthread_mutex_lock(&(entrenador->sem_est));
+
+		pthread_mutex_lock(&(entrenador->sem_est));*/
 
 		//case(entrenador->tarea)
 			// ir a buscar pokemon, etc
