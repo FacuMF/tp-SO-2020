@@ -31,13 +31,13 @@ t_msjTexto* crear_mensaje(char* contenido) {
 	return mensaje_test;
 }
 
-void deserializar_tipo_mensaje(int cod_op, int cliente_fd,
-		char* parametros_recibidos) {
+char* deserializar_tipo_mensaje(int cod_op, int cliente_fd) {
 	int size;
 	t_buffer * buffer;
 	int valor;
 	char* mensaje;
 	//log_trace(logger, "Codigo de operacion: %d", cod_op);
+	char* parametros_recibidos = malloc(sizeof(char) * 100);
 	switch (cod_op) {
 	case TEXTO:
 		;
@@ -58,6 +58,8 @@ void deserializar_tipo_mensaje(int cod_op, int cliente_fd,
 		buffer = recibir_mensaje(cliente_fd);
 		t_appeared_pokemon* mensaje_appeared_pokemon =
 				deserializar_appeared_pokemon(buffer);
+		parametros_recibidos = mostrar_appeared_pokemon(
+				mensaje_appeared_pokemon);
 		free(mensaje_appeared_pokemon);
 		free(buffer);
 		break;
@@ -71,6 +73,7 @@ void deserializar_tipo_mensaje(int cod_op, int cliente_fd,
 		 mensaje_new_pokemon->pokemon, mensaje_new_pokemon->posx,
 		 mensaje_new_pokemon->posy, mensaje_new_pokemon->cantidad,
 		 mensaje_new_pokemon->id_mensaje);*/
+		parametros_recibidos = mostrar_new_pokemon(mensaje_new_pokemon);
 		free(mensaje_new_pokemon);
 		free(buffer);
 		break;
@@ -83,6 +86,7 @@ void deserializar_tipo_mensaje(int cod_op, int cliente_fd,
 		/*log_trace(logger, "Pokemon: %s, Posicion X: %d, Posicion Y: %d, ID: %d",
 		 mensaje_catch_pokemon->pokemon, mensaje_catch_pokemon->posx,
 		 mensaje_catch_pokemon->posy, mensaje_catch_pokemon->id_mensaje);*/
+		parametros_recibidos = mostrar_catch_pokemon(mensaje_catch_pokemon);
 		free(mensaje_catch_pokemon);
 		free(buffer);
 		break;
@@ -96,6 +100,7 @@ void deserializar_tipo_mensaje(int cod_op, int cliente_fd,
 		/*log_trace(logger, "ID: %d, OK/FAIL: %d",
 		 mensaje_caugth_pokemon->id_mensaje,
 		 mensaje_caugth_pokemon->ok_or_fail);*/
+		parametros_recibidos = mostrar_caught_pokemon(mensaje_caught_pokemon);
 		free(mensaje_caught_pokemon);
 		free(buffer);
 		break;
@@ -106,6 +111,7 @@ void deserializar_tipo_mensaje(int cod_op, int cliente_fd,
 		t_get_pokemon* mensaje_get_pokemon = deserializar_get_pokemon(buffer);
 		//log_trace(logger, "Mensaje new pokemon recibido");
 		//log_trace(logger, "Pokemon: %s", mensaje_get_pokemon->pokemon);
+		parametros_recibidos = mostrar_get_pokemon(mensaje_get_pokemon);
 		free(mensaje_get_pokemon);
 		free(buffer);
 		break;
@@ -118,6 +124,7 @@ void deserializar_tipo_mensaje(int cod_op, int cliente_fd,
 		 "Cola de mensajes: %d, tiempo de suscripcion: %d segundos",
 		 mensaje_suscriptor->cola_de_mensaje,
 		 mensaje_suscriptor->tiempo);*/
+		parametros_recibidos = mostrar_suscriptor(mensaje_suscriptor);
 		free(mensaje_suscriptor);
 		free(buffer);
 		break;
@@ -130,6 +137,7 @@ void deserializar_tipo_mensaje(int cod_op, int cliente_fd,
 		pthread_exit(NULL);
 		break;
 	}
+	return parametros_recibidos;
 }
 
 /*--------TODO: AGREGAR FREES A CADA FUNCION--------------*/
@@ -256,6 +264,8 @@ t_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer) {
 
 	memcpy(&(mensaje->posy), stream, sizeof(mensaje->posy));
 	stream += sizeof(mensaje->posy);
+
+	memcpy(&(mensaje->id_mensaje), stream, sizeof(mensaje->id_mensaje));
 
 	return mensaje;
 }
@@ -459,4 +469,53 @@ t_subscriptor* deserializar_suscripcion(t_buffer* buffer) {
 }
 
 //Muestro de mensajes
+
+char* mostrar_new_pokemon(t_new_pokemon* mensaje) {
+	int max_size = 100;
+	char* parametros = malloc(sizeof(char) * max_size);
+	snprintf(parametros, max_size,
+			"Pokemon: %s, Posicion X: %d, Posicion Y: %d, Cantidad: %d, Id mensaje: %d",
+			mensaje->pokemon, mensaje->posx, mensaje->posy, mensaje->cantidad,
+			mensaje->id_mensaje);
+	return parametros;
+}
+
+char* mostrar_appeared_pokemon(t_appeared_pokemon* mensaje) {
+	int max_size = 100;
+	char* parametros = malloc(sizeof(char) * max_size);
+	snprintf(parametros, max_size,
+			"Pokemon: %s, Posicion X: %d, Posicion X: %d, Id mensaje: %d",
+			mensaje->pokemon, mensaje->posx, mensaje->posy,
+			mensaje->id_mensaje);
+	return parametros;
+}
+char* mostrar_catch_pokemon(t_catch_pokemon* mensaje) {
+	int max_size = 100;
+	char* parametros = malloc(sizeof(char) * max_size);
+	snprintf(parametros, max_size,
+			"Pokemon: %s, Posicion X: %d, Posicion Y: %d, Id mensaje: %d",
+			mensaje->pokemon, mensaje->posx, mensaje->posy,
+			mensaje->id_mensaje);
+	return parametros;
+}
+char* mostrar_caught_pokemon(t_caught_pokemon* mensaje) {
+	int max_size = 100;
+	char* parametros = malloc(sizeof(char) * max_size);
+	snprintf(parametros, max_size, "ID mensaje: %d, ok/fail: %d",
+			mensaje->id_mensaje, mensaje->ok_or_fail);
+	return parametros;
+}
+char* mostrar_get_pokemon(t_get_pokemon* mensaje) {
+	int max_size = 100;
+	char* parametros = malloc(sizeof(char) * max_size);
+	snprintf(parametros, max_size, "Pokemon: %s, Id mensaje: %d",
+			mensaje->pokemon, mensaje->id_mensaje);
+	return parametros;
+}
+char* mostrar_suscriptor(t_subscriptor* mensaje) {
+	int max_size = 100;
+	char* parametros = malloc(sizeof(char) * max_size);
+	snprintf(parametros, max_size, "Cola de mensaje: %d, Tiempo: %d", mensaje->cola_de_mensaje, mensaje->tiempo);
+	return parametros;
+}
 

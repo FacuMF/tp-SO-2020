@@ -94,8 +94,9 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 
 void serve_client(int* socket) {
 	int cod_op = recibir_codigo_operacion(*socket);
-	char* parametros_recibidos;
-	deserializar_tipo_mensaje(cod_op, *socket, parametros_recibidos);
+	char* parametros_recibidos = malloc(sizeof(char)*100);
+	parametros_recibidos = deserializar_tipo_mensaje(cod_op, *socket);
+	log_trace(logger, parametros_recibidos);
 }
 
 

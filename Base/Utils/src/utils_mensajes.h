@@ -62,7 +62,7 @@ t_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer);
 t_msjTexto* crear_mensaje(char*);
 
 //DESERIALIZAR MENSAJE SEGUN TIPO
-void deserializar_tipo_mensaje(int, int, char*);
+char* deserializar_tipo_mensaje(int, int);
 
 //CREACION, SERIALIZACION Y DESERIALIZACION DE DISTINTOS TIPOS DE MENSAJES
 t_new_pokemon* crear_new_pokemon(char*, int, int, int, int);

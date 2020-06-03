@@ -9,11 +9,13 @@ int main(void) {
 
 	// Leer Config
 	config = leer_config("./Base/Cliente/config/cliente.config");
-	string_nivel_log_minimo = config_get_string_value(config,"LOG_NIVEL_MINIMO");
+	string_nivel_log_minimo = config_get_string_value(config,
+			"LOG_NIVEL_MINIMO");
 	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
 
 	// Iniciar Logger
-	logger = iniciar_logger("./Base/Cliente/config/cliente.log", "Cliente", log_nivel_minimo);
+	logger = iniciar_logger("./Base/Cliente/config/cliente.log", "Cliente",
+			log_nivel_minimo);
 	log_trace(logger, "Primer log ingresado");
 
 	ip = config_get_string_value(config, "IP");
@@ -24,25 +26,29 @@ int main(void) {
 	log_trace(logger, "Conexion Creada. IP: %s y PUERTO: %s ", ip, puerto);
 
 	// Enviar mensaje
-
-	//Prueba new pokemon
-	/*t_new_pokemon* mensaje_new = crear_new_pokemon("PIKACHU",3,2,5,1);
-	 t_buffer* buffer_new = serializar_new_pokemon(mensaje_new);*/
-
 	//Prueba mjeTexto
 	//t_msjTexto* mensaje_test = crear_mensaje(mensaje_a_enviar);
 	//t_buffer *buffer = serializar_mensaje(mensaje_test);
-	//Prueba get pokemon
-	/*t_get_pokemon *mensaje_get = crear_get_pokemon("Pikachu");
-	 t_buffer* buffer_get = serializar_get_pokemon(mensaje_get);*/
+
+	//Prueba new pokemon
+	/*t_new_pokemon* mensaje_new = crear_new_pokemon("PIKACHU", 3, 2, 5, 1);
+	 t_buffer* buffer_new = serializar_new_pokemon(mensaje_new);*/
+
+	//Prueba appeared pokemon
+	/*t_appeared_pokemon* mensaje_appeared = crear_appeared_pokemon("PIKACHU", 3, 2, 1);
+	 t_buffer* buffer_appeared = serializar_appeared_pokemon(mensaje_appeared);*/
 
 	//Prueba catch pokemon
 	/*t_catch_pokemon* mensaje_catch = crear_catch_pokemon("PIKACHU", 3, 2, 5);
 	 t_buffer* buffer_catch = serializar_catch_pokemon(mensaje_catch);*/
 
 	//Prueba caugth pokemon
-	/*t_caugth_pokemon* mensaje_caugth = crear_caugth_pokemon(1, 0);
-	 t_buffer* buffer_caugth = serializar_caught_pokemon(mensaje_caugth);*/
+	/*t_caught_pokemon* mensaje_caught = crear_caught_pokemon(1, 0);
+	 t_buffer* buffer_caught = serializar_caught_pokemon(mensaje_caught);*/
+
+	//Prueba get pokemon
+	/*t_get_pokemon *mensaje_get = crear_get_pokemon("Pikachu", 5);
+	 t_buffer* buffer_get = serializar_get_pokemon(mensaje_get);*/
 
 	//Prueba suscripcion
 	t_subscriptor* mensaje_suscriptor = crear_suscripcion(NEW_POKEMON, 10);
@@ -50,9 +56,10 @@ int main(void) {
 	log_trace(logger, "Mensaje Creado");
 
 	//enviar_mensaje(conexion, buffer_new, NEW_POKEMON);
-	//enviar_mensaje(conexion,buffer_get,GET_POKEMON);
+	//enviar_mensaje(conexion, buffer_appeared, APPEARED_POKEMON);
 	//enviar_mensaje(conexion, buffer_catch, CATCH_POKEMON);
-	//enviar_mensaje(conexion, buffer_caugth, CAUGHT_POKEMON);
+	//enviar_mensaje(conexion, buffer_caught, CAUGHT_POKEMON);
+	//enviar_mensaje(conexion, buffer_get, GET_POKEMON);
 	enviar_mensaje(conexion, buffer_suscriptor, SUSCRIPTOR);
 	log_trace(logger, "Mensaje Serializado");
 	log_trace(logger, "Mensaje Enviado");
@@ -60,7 +67,6 @@ int main(void) {
 	//TBR Recibir mensaje
 	//Lo que hace es quedarse esperando que el server le envie un mensaje. Solo sabe recibir el mensaje SUBSCRIPCION. Es para hacer pruebas.
 	recibir_mensaje_del_server(&conexion);
-
 
 	//Finalizar mensaje
 	terminar_programa(conexion, logger, config);
@@ -83,7 +89,6 @@ void terminar_programa(int conexion, t_log* logger, t_config* config) {
 	close(conexion);
 }
 
-
 //TBR 
 int recibir_mensaje_del_server(int* socket) {
 	log_trace(logger, "Recibir mensaje del server...");
@@ -100,7 +105,7 @@ void process_request(int cod_op, int cliente_fd) {
 	char* mensaje;
 	log_trace(logger, "Codigo de operacion: %d", cod_op);
 	switch (cod_op) {
-		case SUSCRIPTOR:
+	case SUSCRIPTOR:
 		;
 		buffer = recibir_mensaje(cliente_fd);
 		t_subscriptor* mensaje_suscriptor = deserializar_suscripcion(buffer);
@@ -113,11 +118,11 @@ void process_request(int cod_op, int cliente_fd) {
 		free(buffer);
 		break;
 
-		case 0:
+	case 0:
 		log_trace(logger, "Codigo invalido");
 		pthread_exit(NULL);
 		break;
-		case -1:
+	case -1:
 		pthread_exit(NULL);
 		break;
 	}
