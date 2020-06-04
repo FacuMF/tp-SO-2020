@@ -26,9 +26,7 @@ void lanzar_hilo_entrenador(void*element) {
 
 void ser_entrenador(void *element) {
 	t_entrenador * entrenador = element;
-
-
-	log_info(logger, "HOlAAAA SOY UN HIJOOOOOOO");
+	log_info(logger,"Hola, Soy un entrenador");
 
 	while(!(objetivo_cumplido(entrenador)))
 	{
@@ -73,13 +71,20 @@ double distancia_en_eje(t_entrenador *entrenador, double pose, int pos){
 
 t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,double posx, double posy){
 
+	bool tiene_espacio_disponible(void * elemento){
+		t_entrenador * entrenador = elemento;
+		int size_capturados = list_size(entrenador->pokemones_capturados);
+		int size_por_capturar= list_size(entrenador->pokemones_por_capturar);
+		return size_capturados < size_por_capturar;
+	}
 	bool menor_distancia(void*elemento_1,void*elemento_2){
 		t_entrenador *entrenador_1 = elemento_1;
 		t_entrenador *entrenador_2 = elemento_2;
 		return distancia(entrenador_1,posx,posy) > distancia(entrenador_2,posx,posy);
 	}
 	//TO DO:  FILTER entrenadores tiene_espacio_disponible() == true  =>>size de pokemones capturados< pokemones_por_capturar
-	t_list * entrenadores_mas_cercanos = list_sorted(head_entrenadores, menor_distancia);
+	t_list *entrenadores_disponibles = list_filter(head_entrenadores,tiene_espacio_disponible);
+	t_list * entrenadores_mas_cercanos = list_sorted(entrenadores_disponibles, menor_distancia);
 	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,0);
 
 	log_trace(logger, "Posicion entrenador cercano: Posicion %i %i", entrenador_mas_cercano->posicion[0], entrenador_mas_cercano->posicion[1]);

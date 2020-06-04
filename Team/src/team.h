@@ -61,7 +61,11 @@ void mostrar_kokemon(void*elemento);
 t_list* formar_objetivo(t_list * pokemones_repetidos);
 void agrego_si_no_existe(t_list * objetivo_global, void *elemento);
 void mostrar_objetivo(void *elemento);
-int objetivo_cumplido(t_entrenador*entrenador);
+bool objetivo_cumplido(t_entrenador *entrenador);
+bool pokemon_igual(char *un_pokemon, char * otro_pokemon);
+bool esta_en_lista(char * pokemon,t_list * lista_pokemones);
+int cantidad_repeticiones_en_lista(char *pokemon, t_list * lista_pokemones);
+bool es_repetido(char *pokemon, t_list *lista_pokemones);
 
 
 // Funciones de Manejo de Hilos - team_planificacion

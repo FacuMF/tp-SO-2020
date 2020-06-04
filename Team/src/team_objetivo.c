@@ -44,8 +44,55 @@ void mostrar_objetivo(void *elemento) {
 
 }
 
-int objetivo_cumplido(t_entrenador *entrenador){
-	mostrar_kokemon(entrenador->pokemones_por_capturar);
+bool objetivo_cumplido(t_entrenador *entrenador){
+	t_list *pokemone_por_capturar= entrenador->pokemones_por_capturar;
+	t_list * pokemone_capturados = entrenador->pokemones_capturados;
+	bool fue_capturado(void *pokemon){
+		char * pokemon_a_chequear = pokemon;
+		bool capturado;
+		if(es_repetido(pokemon,pokemone_por_capturar)){
+			int repeticiones_en_capturados = cantidad_repeticiones_en_lista(pokemon_a_chequear,pokemone_capturados);
+			int repeticiones_en_por_capturar= cantidad_repeticiones_en_lista(pokemon_a_chequear,pokemone_por_capturar);
+			capturado = repeticiones_en_capturados == repeticiones_en_por_capturar ;
+		}else{
+		capturado = esta_en_lista(pokemon_a_chequear,pokemone_capturados);
+		}
+		return capturado;
+	}
+	bool cumpli_objetivo= list_all_satisfy(pokemone_por_capturar,fue_capturado);
+	return cumpli_objetivo;
 	//TODO: cambiar la condicion a que por cada pokemon_por_capturar este en pokemones_capturados
-	return list_is_empty(entrenador->pokemones_por_capturar);
+}
+
+bool pokemon_igual(char *un_pokemon, char * otro_pokemon){
+	return !strcmp(un_pokemon,otro_pokemon);
+}
+bool esta_en_lista(char * pokemon,t_list * lista_pokemones){
+	bool pokemon_igual_aux(void*elemento){
+			char * pokemon_a_comparar =elemento;
+			bool captura = pokemon_igual(pokemon_a_comparar,pokemon);
+			return captura;
+		}
+	bool pokemon_encontrado = list_any_satisfy(lista_pokemones,pokemon_igual_aux);
+	return pokemon_encontrado;
+}
+int cantidad_repeticiones_en_lista(char *pokemon, t_list * lista_pokemones){
+	bool es_un_repetido_aux(void*elemento){
+		char *pokemon_a_comparar = elemento;
+		bool repetido = pokemon_igual(pokemon_a_comparar,pokemon);
+		return repetido;
+	}
+	int cantidad = list_count_satisfying(lista_pokemones,es_un_repetido_aux);
+	return cantidad;
+}
+
+bool es_repetido(char *pokemon, t_list *lista_pokemones){
+
+	bool es_un_repetido_aux(void*elemento){
+			char *pokemon_a_comparar = elemento;
+			bool repetido = pokemon_igual(pokemon_a_comparar,pokemon);
+			return repetido;
+		}
+	int cantidad = list_count_satisfying(lista_pokemones,es_un_repetido_aux);
+	return cantidad >1;
 }
