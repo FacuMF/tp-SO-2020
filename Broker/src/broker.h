@@ -51,6 +51,7 @@ void handle_mensaje(int cod_op, int cliente_fd);
 
 //SUSCRIPTOR
 void subscribir(int cliente, t_subscriptor* subscripcion);
+void agregar_cliente_a_cola(t_queue* cola, int cliente);
 //void enviar_mensajes_de_cola(t_subscriptor subscripcion);
 
 // APPEARED_POKEMON

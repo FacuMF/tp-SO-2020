@@ -54211,3 +54211,296 @@
 [TRACE] 18:27:31:482 Team/(6834:6835): Adentro de suscribir
 [TRACE] 18:27:31:482 Team/(6834:6835): Va a ejecutar 'handle_cliente'.
 [TRACE] 18:27:31:482 Team/(6834:6835): Va a ejecutar 'accept'.
+[TRACE] 09:30:32:226 Team/(4414:4414): Log, Config y Colas inicializadas.
+[TRACE] 09:30:32:233 Team/(4414:4414): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 09:30:32:234 Team/(4414:4415): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 09:30:32:234 Team/(4414:4415): Va a ejeutar 'listen'.
+[TRACE] 09:30:32:234 Team/(4414:4415): Va a ejecutar 'handle_cliente'.
+[TRACE] 09:30:32:234 Team/(4414:4415): Va a ejecutar 'accept'.
+[TRACE] 09:30:53:451 Team/(4414:4415): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 09:30:53:451 Team/(4414:4415): Mensaje recibido, cod_op: 8.
+[TRACE] 09:30:53:451 Team/(4414:4415): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 09:30:53:451 Team/(4414:4415): Mensaje SUSCRIPTOR recibido.
+[TRACE] 09:30:53:451 Team/(4414:4415): Adentro de suscribir
+[TRACE] 09:30:53:451 Team/(4414:4415): Va a ejecutar 'handle_cliente'.
+[TRACE] 09:30:53:452 Team/(4414:4415): Va a ejecutar 'accept'.
+[TRACE] 09:56:17:855 Team/(5664:5664): Log, Config y Colas inicializadas.
+[TRACE] 09:56:17:855 Team/(5664:5664): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 09:56:17:855 Team/(5664:5665): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 09:56:17:856 Team/(5664:5665): Va a ejeutar 'listen'.
+[TRACE] 09:56:17:856 Team/(5664:5665): Va a ejecutar 'handle_cliente'.
+[TRACE] 09:56:17:856 Team/(5664:5665): Va a ejecutar 'accept'.
+[TRACE] 09:56:30:686 Team/(5664:5665): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 09:56:30:686 Team/(5664:5665): Mensaje recibido, cod_op: 8.
+[TRACE] 09:56:30:686 Team/(5664:5665): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 09:56:30:686 Team/(5664:5665): Mensaje SUSCRIPTOR recibido.
+[TRACE] 09:56:30:686 Team/(5664:5665): Adentro de suscribir
+[TRACE] 09:56:30:686 Team/(5664:5665): Va a ejecutar 'handle_cliente'.
+[TRACE] 09:56:30:686 Team/(5664:5665): Va a ejecutar 'accept'.
+[TRACE] 09:59:10:634 Team/(5910:5910): Log, Config y Colas inicializadas.
+[TRACE] 09:59:10:634 Team/(5910:5910): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 09:59:10:634 Team/(5910:5911): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 09:59:10:634 Team/(5910:5911): Va a ejeutar 'listen'.
+[TRACE] 09:59:10:634 Team/(5910:5911): Va a ejecutar 'handle_cliente'.
+[TRACE] 09:59:10:634 Team/(5910:5911): Va a ejecutar 'accept'.
+[TRACE] 09:59:14:370 Team/(5910:5911): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 09:59:14:370 Team/(5910:5911): Mensaje recibido, cod_op: 8.
+[TRACE] 09:59:14:370 Team/(5910:5911): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 09:59:14:370 Team/(5910:5911): Mensaje SUSCRIPTOR recibido.
+[TRACE] 09:59:14:370 Team/(5910:5911): Suscribir a 5 a cola APPEARED_POKEMON.
+[TRACE] 09:59:14:370 Team/(5910:5911): Se agrego 0 a la cola en la posicion 1.
+[TRACE] 09:59:14:371 Team/(5910:5911): Adentro de suscribir
+[TRACE] 09:59:14:371 Team/(5910:5911): Va a ejecutar 'handle_cliente'.
+[TRACE] 09:59:14:371 Team/(5910:5911): Va a ejecutar 'accept'.
+[TRACE] 10:01:01:875 Team/(6027:6027): Log, Config y Colas inicializadas.
+[TRACE] 10:01:01:875 Team/(6027:6027): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 10:01:01:875 Team/(6027:6028): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 10:01:01:875 Team/(6027:6028): Va a ejeutar 'listen'.
+[TRACE] 10:01:01:875 Team/(6027:6028): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:01:01:875 Team/(6027:6028): Va a ejecutar 'accept'.
+[TRACE] 10:01:06:298 Team/(6027:6028): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:01:06:298 Team/(6027:6028): Mensaje recibido, cod_op: 8.
+[TRACE] 10:01:06:298 Team/(6027:6028): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:01:06:298 Team/(6027:6028): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:01:06:298 Team/(6027:6028): Suscribir a 5 a cola APPEARED_POKEMON.
+[TRACE] 10:01:06:298 Team/(6027:6028): Tamano de la lista: 1
+[TRACE] 10:01:06:298 Team/(6027:6028): Adentro de suscribir
+[TRACE] 10:01:06:298 Team/(6027:6028): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:01:06:298 Team/(6027:6028): Va a ejecutar 'accept'.
+[TRACE] 10:01:45:605 Team/(6113:6113): Log, Config y Colas inicializadas.
+[TRACE] 10:01:45:605 Team/(6113:6113): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 10:01:45:605 Team/(6113:6114): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 10:01:45:605 Team/(6113:6114): Va a ejeutar 'listen'.
+[TRACE] 10:01:45:605 Team/(6113:6114): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:01:45:605 Team/(6113:6114): Va a ejecutar 'accept'.
+[TRACE] 10:01:49:316 Team/(6113:6114): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:01:49:317 Team/(6113:6114): Mensaje recibido, cod_op: 8.
+[TRACE] 10:01:49:317 Team/(6113:6114): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:01:49:317 Team/(6113:6114): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:01:49:317 Team/(6113:6114): Suscribir a 5 a cola APPEARED_POKEMON.
+[TRACE] 10:01:49:317 Team/(6113:6114): Se agrego -1219546540 a la cola en la posicion 1.
+[TRACE] 10:01:49:317 Team/(6113:6114): Adentro de suscribir
+[TRACE] 10:01:49:317 Team/(6113:6114): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:01:49:317 Team/(6113:6114): Va a ejecutar 'accept'.
+[TRACE] 10:03:58:418 Team/(6276:6276): Log, Config y Colas inicializadas.
+[TRACE] 10:03:58:418 Team/(6276:6276): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 10:03:58:418 Team/(6276:6277): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 10:03:58:419 Team/(6276:6277): Va a ejeutar 'listen'.
+[TRACE] 10:03:58:419 Team/(6276:6277): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:03:58:419 Team/(6276:6277): Va a ejecutar 'accept'.
+[TRACE] 10:04:01:324 Team/(6276:6277): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:04:01:324 Team/(6276:6277): Mensaje recibido, cod_op: 8.
+[TRACE] 10:04:01:324 Team/(6276:6277): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:04:01:324 Team/(6276:6277): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:04:01:324 Team/(6276:6277): Suscribir a 5 a cola APPEARED_POKEMON.
+[TRACE] 10:04:01:324 Team/(6276:6277): Se agrego -1218592172 a la cola en la posicion 1.
+[TRACE] 10:04:01:324 Team/(6276:6277): Adentro de suscribir
+[TRACE] 10:04:01:324 Team/(6276:6277): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:04:01:324 Team/(6276:6277): Va a ejecutar 'accept'.
+[TRACE] 10:07:52:815 Team/(6640:6640): Log, Config y Colas inicializadas.
+[TRACE] 10:07:52:815 Team/(6640:6640): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 10:07:52:815 Team/(6640:6641): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 10:07:52:816 Team/(6640:6641): Va a ejeutar 'listen'.
+[TRACE] 10:07:52:816 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:07:52:816 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:07:55:967 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:07:55:967 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:07:55:967 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:07:55:967 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:07:55:967 Team/(6640:6641): Suscribir a 5 a cola APPEARED_POKEMON.
+[TRACE] 10:07:55:967 Team/(6640:6641): Se agrego 5 a la cola en la posicion 1.
+[TRACE] 10:07:55:967 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:07:55:967 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:07:55:967 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:11:206 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:11:207 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:11:207 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:11:207 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:11:207 Team/(6640:6641): Suscribir a 7 a cola APPEARED_POKEMON.
+[TRACE] 10:08:11:207 Team/(6640:6641): Se agrego 7 a la cola en la posicion 2.
+[TRACE] 10:08:11:207 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:11:207 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:11:207 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:13:345 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:13:346 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:13:346 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:13:346 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:13:346 Team/(6640:6641): Suscribir a 8 a cola APPEARED_POKEMON.
+[TRACE] 10:08:13:346 Team/(6640:6641): Se agrego 8 a la cola en la posicion 3.
+[TRACE] 10:08:13:346 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:13:346 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:13:346 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:14:469 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:14:469 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:14:469 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:14:469 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:14:469 Team/(6640:6641): Suscribir a 9 a cola APPEARED_POKEMON.
+[TRACE] 10:08:14:469 Team/(6640:6641): Se agrego 9 a la cola en la posicion 4.
+[TRACE] 10:08:14:469 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:14:469 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:14:469 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:15:729 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:15:729 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:15:730 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:15:730 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:15:730 Team/(6640:6641): Suscribir a 10 a cola APPEARED_POKEMON.
+[TRACE] 10:08:15:730 Team/(6640:6641): Se agrego 10 a la cola en la posicion 5.
+[TRACE] 10:08:15:730 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:15:730 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:15:730 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:16:686 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:16:686 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:16:686 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:16:686 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:16:686 Team/(6640:6641): Suscribir a 11 a cola APPEARED_POKEMON.
+[TRACE] 10:08:16:686 Team/(6640:6641): Se agrego 11 a la cola en la posicion 6.
+[TRACE] 10:08:16:686 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:16:686 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:16:686 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:19:790 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:19:790 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:19:790 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:19:790 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:19:790 Team/(6640:6641): Suscribir a 12 a cola APPEARED_POKEMON.
+[TRACE] 10:08:19:790 Team/(6640:6641): Se agrego 12 a la cola en la posicion 7.
+[TRACE] 10:08:19:791 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:19:791 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:19:791 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:20:858 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:20:859 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:20:859 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:20:859 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:20:859 Team/(6640:6641): Suscribir a 13 a cola APPEARED_POKEMON.
+[TRACE] 10:08:20:859 Team/(6640:6641): Se agrego 13 a la cola en la posicion 8.
+[TRACE] 10:08:20:859 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:20:859 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:20:859 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:21:838 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:21:839 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:21:839 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:21:839 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:21:839 Team/(6640:6641): Suscribir a 14 a cola APPEARED_POKEMON.
+[TRACE] 10:08:21:839 Team/(6640:6641): Se agrego 14 a la cola en la posicion 9.
+[TRACE] 10:08:21:839 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:21:839 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:21:839 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:22:568 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:22:568 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:22:568 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:22:568 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:22:568 Team/(6640:6641): Suscribir a 15 a cola APPEARED_POKEMON.
+[TRACE] 10:08:22:568 Team/(6640:6641): Se agrego 15 a la cola en la posicion 10.
+[TRACE] 10:08:22:568 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:22:568 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:22:568 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:23:52 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:23:52 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:23:52 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:23:52 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:23:52 Team/(6640:6641): Suscribir a 16 a cola APPEARED_POKEMON.
+[TRACE] 10:08:23:52 Team/(6640:6641): Se agrego 16 a la cola en la posicion 11.
+[TRACE] 10:08:23:52 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:23:52 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:23:52 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:23:671 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:23:672 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:23:672 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:23:672 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:23:672 Team/(6640:6641): Suscribir a 17 a cola APPEARED_POKEMON.
+[TRACE] 10:08:23:672 Team/(6640:6641): Se agrego 17 a la cola en la posicion 12.
+[TRACE] 10:08:23:672 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:23:672 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:23:672 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:08:24:178 Team/(6640:6641): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:08:24:178 Team/(6640:6641): Mensaje recibido, cod_op: 8.
+[TRACE] 10:08:24:178 Team/(6640:6641): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:08:24:178 Team/(6640:6641): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:08:24:178 Team/(6640:6641): Suscribir a 18 a cola APPEARED_POKEMON.
+[TRACE] 10:08:24:178 Team/(6640:6641): Se agrego 18 a la cola en la posicion 13.
+[TRACE] 10:08:24:178 Team/(6640:6641): Adentro de suscribir
+[TRACE] 10:08:24:178 Team/(6640:6641): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:08:24:178 Team/(6640:6641): Va a ejecutar 'accept'.
+[TRACE] 10:11:06:949 Team/(6757:6757): Log, Config y Colas inicializadas.
+[TRACE] 10:11:06:949 Team/(6757:6757): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 10:11:06:949 Team/(6757:6758): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 10:11:06:949 Team/(6757:6758): Va a ejeutar 'listen'.
+[TRACE] 10:11:06:949 Team/(6757:6758): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:11:06:949 Team/(6757:6758): Va a ejecutar 'accept'.
+[TRACE] 10:11:32:597 Team/(6853:6853): Log, Config y Colas inicializadas.
+[TRACE] 10:11:32:597 Team/(6853:6853): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 10:11:32:597 Team/(6853:6854): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 10:11:32:597 Team/(6853:6854): Va a ejeutar 'listen'.
+[TRACE] 10:11:32:597 Team/(6853:6854): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:11:32:597 Team/(6853:6854): Va a ejecutar 'accept'.
+[TRACE] 10:11:40:46 Team/(6853:6854): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:11:40:47 Team/(6853:6854): Mensaje recibido, cod_op: 8.
+[TRACE] 10:11:40:47 Team/(6853:6854): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:11:40:47 Team/(6853:6854): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:11:40:47 Team/(6853:6854): Suscribir a 5 a cola APPEARED_POKEMON.
+[TRACE] 10:11:40:47 Team/(6853:6854): Se agrego 5 a la cola en la posicion 1.
+[TRACE] 10:11:40:47 Team/(6853:6854): Adentro de suscribir
+[TRACE] 10:11:40:47 Team/(6853:6854): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:11:40:47 Team/(6853:6854): Va a ejecutar 'accept'.
+[TRACE] 10:11:53:883 Team/(6853:6854): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:11:53:884 Team/(6853:6854): Mensaje recibido, cod_op: 8.
+[TRACE] 10:11:53:884 Team/(6853:6854): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:11:53:884 Team/(6853:6854): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:11:53:884 Team/(6853:6854): Suscribir a 7 a cola NEW_POKEMON
+[TRACE] 10:11:53:884 Team/(6853:6854): Se agrego 7 a la cola en la posicion 1.
+[TRACE] 10:11:53:884 Team/(6853:6854): Adentro de suscribir
+[TRACE] 10:11:53:884 Team/(6853:6854): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:11:53:884 Team/(6853:6854): Va a ejecutar 'accept'.
+[TRACE] 10:11:58:901 Team/(6853:6854): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:11:58:901 Team/(6853:6854): Mensaje recibido, cod_op: 8.
+[TRACE] 10:11:58:901 Team/(6853:6854): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:11:58:901 Team/(6853:6854): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:11:58:901 Team/(6853:6854): Suscribir a 8 a cola NEW_POKEMON
+[TRACE] 10:11:58:901 Team/(6853:6854): Se agrego 8 a la cola en la posicion 2.
+[TRACE] 10:11:58:902 Team/(6853:6854): Adentro de suscribir
+[TRACE] 10:11:58:902 Team/(6853:6854): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:11:58:902 Team/(6853:6854): Va a ejecutar 'accept'.
+[TRACE] 10:12:00:759 Team/(6853:6854): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:12:00:759 Team/(6853:6854): Mensaje recibido, cod_op: 8.
+[TRACE] 10:12:00:759 Team/(6853:6854): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:12:00:759 Team/(6853:6854): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:12:00:759 Team/(6853:6854): Suscribir a 9 a cola APPEARED_POKEMON.
+[TRACE] 10:12:00:759 Team/(6853:6854): Se agrego 9 a la cola en la posicion 2.
+[TRACE] 10:12:00:759 Team/(6853:6854): Adentro de suscribir
+[TRACE] 10:12:00:759 Team/(6853:6854): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:12:00:759 Team/(6853:6854): Va a ejecutar 'accept'.
+[TRACE] 10:12:14:850 Team/(6853:6854): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:12:14:850 Team/(6853:6854): Mensaje recibido, cod_op: 8.
+[TRACE] 10:12:14:850 Team/(6853:6854): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:12:14:850 Team/(6853:6854): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:12:14:850 Team/(6853:6854): Suscribir a 10 a cola CATCH_POKEMON
+[TRACE] 10:12:14:850 Team/(6853:6854): Se agrego 10 a la cola en la posicion 1.
+[TRACE] 10:12:14:850 Team/(6853:6854): Adentro de suscribir
+[TRACE] 10:12:14:851 Team/(6853:6854): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:12:14:851 Team/(6853:6854): Va a ejecutar 'accept'.
+[TRACE] 10:12:27:72 Team/(6853:6854): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:12:27:72 Team/(6853:6854): Mensaje recibido, cod_op: 8.
+[TRACE] 10:12:27:72 Team/(6853:6854): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:12:27:72 Team/(6853:6854): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:12:27:72 Team/(6853:6854): Suscribir a 11 a cola APPEARED_POKEMON.
+[TRACE] 10:12:27:72 Team/(6853:6854): Se agrego 11 a la cola en la posicion 3.
+[TRACE] 10:12:27:72 Team/(6853:6854): Adentro de suscribir
+[TRACE] 10:12:27:72 Team/(6853:6854): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:12:27:72 Team/(6853:6854): Va a ejecutar 'accept'.
+[TRACE] 10:12:29:716 Team/(6853:6854): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:12:29:717 Team/(6853:6854): Mensaje recibido, cod_op: 8.
+[TRACE] 10:12:29:717 Team/(6853:6854): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:12:29:717 Team/(6853:6854): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:12:29:717 Team/(6853:6854): Suscribir a 12 a cola APPEARED_POKEMON.
+[TRACE] 10:12:29:717 Team/(6853:6854): Se agrego 12 a la cola en la posicion 4.
+[TRACE] 10:12:29:717 Team/(6853:6854): Adentro de suscribir
+[TRACE] 10:12:29:717 Team/(6853:6854): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:12:29:717 Team/(6853:6854): Va a ejecutar 'accept'.
+[TRACE] 10:12:31:771 Team/(6853:6854): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 10:12:31:772 Team/(6853:6854): Mensaje recibido, cod_op: 8.
+[TRACE] 10:12:31:772 Team/(6853:6854): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 10:12:31:772 Team/(6853:6854): Mensaje SUSCRIPTOR recibido.
+[TRACE] 10:12:31:772 Team/(6853:6854): Suscribir a 13 a cola APPEARED_POKEMON.
+[TRACE] 10:12:31:772 Team/(6853:6854): Se agrego 13 a la cola en la posicion 5.
+[TRACE] 10:12:31:772 Team/(6853:6854): Adentro de suscribir
+[TRACE] 10:12:31:772 Team/(6853:6854): Va a ejecutar 'handle_cliente'.
+[TRACE] 10:12:31:772 Team/(6853:6854): Va a ejecutar 'accept'.

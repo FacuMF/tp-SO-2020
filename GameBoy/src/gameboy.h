@@ -33,6 +33,7 @@ t_buffer* mensaje_a_enviar(t_modulo, op_code, char**);
  * GAMECARD CATCH_POKEMON PIKACHU 8 4 3
  * GAMECARD GET_POKEMON SQUIRTLE 3
  *
+ * SUSCRIPTOR APPEARED_POKEMON 10
  * SUSCRIPTOR NEW_POKEMON 10
  *
  */
