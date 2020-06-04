@@ -43,6 +43,7 @@ void mostrar_objetivo(void *elemento) {
 	log_trace(logger, "objetivo: %i", objetivo->cantidad);
 
 }
+
 int objetivo_cumplido(t_entrenador *entrenador){
 	mostrar_kokemon(entrenador->pokemones_por_capturar);
 	//TODO: cambiar la condicion a que por cada pokemon_por_capturar este en pokemones_capturados

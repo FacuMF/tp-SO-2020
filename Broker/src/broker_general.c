@@ -79,8 +79,8 @@ void* iniciar_conexion_con_modulo(char* ip, char* puerto) {
 	listen(socket_servidor, SOMAXCONN);
 
 	while(1){
-	log_trace(logger, "Va a ejecutar 'handle_cliente'.");
-	handle_cliente(socket_servidor);
+		log_trace(logger, "Va a ejecutar 'handle_cliente'.");
+		handle_cliente(socket_servidor);
 	}
 
 	return 0;
@@ -125,7 +125,7 @@ void handle_cliente(int socket_servidor) {
 		log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
 
 		subscribir(socket_cliente, subscripcion);
-		//enviar_mensajes_de_cola(subscripcion);
+		enviar_mensajes_de_suscripcion_a_cliente(subscripcion, socket_cliente);
 
 		break;
 
@@ -182,4 +182,8 @@ void handle_cliente(int socket_servidor) {
 void setear_socket_reusable(int socket) {
 	int activado = 1;
 	setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado));
+}
+
+void enviar_mensaje_de_cola(void* mensaje, int ciente){
+
 }

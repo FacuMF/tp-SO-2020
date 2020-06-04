@@ -46,13 +46,16 @@ void handle_cliente(int socket_servidor);
 void recibir_mensaje_del_cliente(int* socket);
 void handle_mensaje(int cod_op, int cliente_fd);
 
+void enviar_mensaje_de_cola(void* mensaje, int ciente);
+
 
 //Funciones especificas por mensaje
 
 //SUSCRIPTOR
 void subscribir(int cliente, t_subscriptor* subscripcion);
 void agregar_cliente_a_cola(t_queue* cola, int cliente);
-//void enviar_mensajes_de_cola(t_subscriptor subscripcion);
+void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor subscripcion,  int cliente);
+void enviar_mensajes_de_cola_a_cliente(t_queue* cola,  int cliente);
 
 // APPEARED_POKEMON
 //char* asignar_id_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
