@@ -40,13 +40,23 @@ typedef struct{
 	int id_mensaje;
 }t_appeared_pokemon;
 
-//Mensaje subscriptor
-
 typedef struct{
 	int cola_de_mensaje;
 	int tiempo;
 }t_subscriptor;
 
+typedef struct{
+	int id_mensaje;
+	int size_pokemon;
+	char* pokemon;
+	int cantidad_posiciones;
+	t_list* posiciones;
+}t_localized;
+
+typedef struct{
+	int x;
+	int y;
+}t_posicion;
 
 typedef struct{ //TEST MESSAGE STRUCT
 	char* contenido;
@@ -89,6 +99,10 @@ t_get_pokemon* deserializar_get_pokemon(t_buffer* buffer);
 t_subscriptor* crear_suscripcion(int,int);
 t_buffer* serializar_suscripcion(t_subscriptor*);
 t_subscriptor* deserializar_suscripcion(t_buffer* buffer);
+
+t_localized* crear_localized(int,int);
+t_buffer* serializar_localized(t_localized*);
+t_localized* deserializar_localized(t_buffer* buffer);
 
 //Muestro de mensajes
 char* mostrar_new_pokemon(t_new_pokemon*);
