@@ -100,7 +100,7 @@ t_subscriptor* crear_suscripcion(int,int);
 t_buffer* serializar_suscripcion(t_subscriptor*);
 t_subscriptor* deserializar_suscripcion(t_buffer* buffer);
 
-t_localized* crear_localized(int,int);
+t_localized* crear_localized(int,char*,t_list*);
 t_buffer* serializar_localized(t_localized*);
 t_localized* deserializar_localized(t_buffer* buffer);
 
