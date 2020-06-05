@@ -49,10 +49,22 @@ int main(int argv, char* arg[]) {
 	////// Enviar mensaje //////
 	log_trace(logger, "OPERATION CODE: %i", tipo_mensaje);
 	enviar_mensaje(conexion, mensaje_serializado, tipo_mensaje);
-	log_trace(logger, "El mensaje fue enviado ;)");
+	log_trace(logger, "El mensaje fue enviado.");
 
 	free(mensaje_serializado->stream);
 	free(mensaje_serializado);
+
+	// Esperar respuesta //
+
+	if(tipo_mensaje == SUSCRIPTOR) {
+		// Si el mensaje que se envio fue una suscripcion, quiero recibir todos los mensjaes de esa cola.
+		while(1){
+			recibir_respuesta(&conexion);
+		}
+	} else {
+		// Para el resto de mensajes, se va a recibir el mismo mensaje pero con el id asignado por el broker.
+		recibir_respuesta(&conexion);
+	}
 
 }
 
@@ -224,4 +236,60 @@ op_code string_a_tipo_mensaje(char* nombre_mensaje) {
 		return SUSCRIPTOR;
 	} else
 		return -1;
+}
+
+void recibir_respuesta(int* socket_broker){
+	int cod_op = recibir_codigo_operacion(*socket_cliente);
+	(cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
+			 	 	 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
+	handle_respuesta(cod_op, *socket_cliente);
+}
+
+void handle_respuesta(int cod_op, int socket_broker){
+	t_buffer * buffer;
+
+	switch (cod_op) {
+			case SUSCRIPTOR:
+
+			log_trace(logger, "Se recibio una respuesta SUSCRIPTOR");
+			buffer = recibir_mensaje(socket_broker);
+			t_subscriptor* subscripcion = deserializar_suscripcion(buffer);
+
+			break;
+
+			case APPEARED_POKEMON:
+
+			log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
+	        buffer = recibir_mensaje(socket_cliente);
+			t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
+
+			log_trace(logger, "ID asignado a APPEARED_POKEMON: %i.", mensaje_appeared_pokemon->id_mensaje);
+
+			break;
+			case NEW_POKEMON:
+			log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
+
+			break;
+			case CATCH_POKEMON:
+			log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
+
+			break;
+			case CAUGHT_POKEMON:
+			log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
+
+			break;
+			case GET_POKEMON:
+			log_trace(logger, "Se recibio un mensaje GET_POKEMON");
+
+			break;
+			case LOCALIZED_POKEMON:
+			log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
+
+			break;
+
+
+
+
+
+
 }

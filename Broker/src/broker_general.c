@@ -125,7 +125,7 @@ void handle_cliente(int socket_servidor) {
 		log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
 
 		subscribir(socket_cliente, subscripcion);
-		enviar_mensajes_de_suscripcion_a_cliente(subscripcion, socket_cliente);
+		enviar_mensajes_de_suscripcion_a_cliente(subscripcion, socket_cliente); //TODO
 
 		break;
 
@@ -143,17 +143,17 @@ void handle_cliente(int socket_servidor) {
 		case APPEARED_POKEMON:
 
 		log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
-		/*
-        buffer = recibir_mensaje(cliente_fd);
-		t_cliente cliente = deserializar_cliente(buffer);
-		buffer = buffer_sin_cliente(buffer);
-		t_new_pokemon* mensaje_new_pokemon = deserializar_appeared_pokemon(buffer);
+        buffer = recibir_mensaje(socket_cliente);
+		t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
 
-		char* id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_new_pokemon);
-		informar_id_a_cliente(cliente ,id_mensaje_recibido);// Definir como pasarle este mensaje solo a este cliente
-		almacenar_en_cola_appeared_pokemon(mensaje);
-		cachear_appeared_pokemon(mensaje);
-        */
+		int id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_appeared_pokemon);
+		log_trace("ID asignado a APPEARED_POKEON: %i.", id_appeared_pokemon);
+
+		devolver_appeared_pokemon(socket_cliente ,mensaje_appeared_pokemon);
+		log_trace(logger, "Se devolvio el mensajaje APPEARED_POKEMON con id asignado.");
+
+		//almacenar_en_cola_appeared_pokemon(mensaje);
+		//cachear_appeared_pokemon(mensaje);
 
 		break;
 		case NEW_POKEMON:

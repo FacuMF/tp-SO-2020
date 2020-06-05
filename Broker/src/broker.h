@@ -25,6 +25,14 @@ t_queue* caught_pokemon;
 t_queue* get_pokemon;
 t_queue* localized_pokemon;
 
+//Declaracion id
+int id_new_pokemon = 0;
+int id_appeared_pokemon = 0;
+int id_catch_pokemon = 0;
+int id_caugth_pokemon = 0;
+int id_get_pokemon = 0;
+int id_localized_pokemon = 0;
+
 typedef struct{
 	op_code tipo_mensaje;
 	int id;
@@ -58,8 +66,8 @@ void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor subscripcion,  int c
 void enviar_mensajes_de_cola_a_cliente(t_queue* cola,  int cliente);
 
 // APPEARED_POKEMON
-//char* asignar_id_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
-//void informar_id_a_cliente(t_cliente cliente ,id_mensaje_recibido);
+int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje);
+void devolver_appeared_pokemon(int socket_cliente ,t_appeared_pokemon mensaje_appeared_pokemon);
 //void almacenar_en_cola_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
 //void enviar_a_todos_los_subs_appeared_pokemon(mensaje);
 //void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);

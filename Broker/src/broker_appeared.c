@@ -1,14 +1,19 @@
 #include "broker.h"
+
+ int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje){
+	 int id = id_appeared_pokemon;
+	 id_appeared_pokemon++;
+	 mensaje->id_mensaje = id;
+	 return id;
+ }
+
+void devolver_appeared_pokemon(int socket_cliente ,t_appeared_pokemon mensaje_appeared_pokemon){
+	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+	mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared_pokemon);
+	enviar_mensaje(socket_cliente, mensaje_serializado, APPEARED_POKEMON);
+}
+
 /*
- char* asignar_id_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
- char* id;
- //TODO
- return id;
- }
- void informar_id_a_cliente(t_cliente cliente ,id_mensaje_recibido){
- //TODO
- return 0;
- }
  void almacenar_en_cola_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
 
  //TODO
