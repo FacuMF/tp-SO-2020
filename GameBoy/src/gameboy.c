@@ -239,10 +239,10 @@ op_code string_a_tipo_mensaje(char* nombre_mensaje) {
 }
 
 void recibir_respuesta(int* socket_broker){
-	int cod_op = recibir_codigo_operacion(*socket_cliente);
+	int cod_op = recibir_codigo_operacion(*socket_broker);
 	(cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
 			 	 	 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
-	handle_respuesta(cod_op, *socket_cliente);
+	handle_respuesta(cod_op, *socket_broker);
 }
 
 void handle_respuesta(int cod_op, int socket_broker){
@@ -260,7 +260,7 @@ void handle_respuesta(int cod_op, int socket_broker){
 			case APPEARED_POKEMON:
 
 			log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
-	        buffer = recibir_mensaje(socket_cliente);
+	        buffer = recibir_mensaje(socket_broker);
 			t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
 
 			log_trace(logger, "ID asignado a APPEARED_POKEMON: %i.", mensaje_appeared_pokemon->id_mensaje);
@@ -286,10 +286,5 @@ void handle_respuesta(int cod_op, int socket_broker){
 			log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
 
 			break;
-
-
-
-
-
-
+	}
 }

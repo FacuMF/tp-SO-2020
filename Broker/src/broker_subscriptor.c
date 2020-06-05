@@ -54,40 +54,40 @@ void agregar_cliente_a_cola(t_queue* cola, int cliente){
  }
 
 
-void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor subscripcion,  int cliente){
+void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor* subscripcion,  int cliente){
 	switch (subscripcion->cola_de_mensaje) {
 	case APPEARED_POKEMON:
-		enviar_mensajes_de_cola_a_cliente(appeared_pokemon, cliente);
+		//enviar_mensajes_de_cola_a_cliente(appeared_pokemon, cliente);
 		break;
 
 	case NEW_POKEMON:
-		enviar_mensajes_de_cola_a_cliente(new_pokemon, cliente);
+		//enviar_mensajes_de_cola_a_cliente(new_pokemon, cliente);
 		break;
 
 	case CATCH_POKEMON:
-		enviar_mensajes_de_cola_a_cliente(catch_pokemon, cliente);
+		//enviar_mensajes_de_cola_a_cliente(catch_pokemon, cliente);
 		break;
 
 	case CAUGHT_POKEMON:
-		enviar_mensajes_de_cola_a_cliente(caught_pokemon, cliente);
+		//enviar_mensajes_de_cola_a_cliente(caught_pokemon, cliente);
 		break;
 
 	case GET_POKEMON:
-		enviar_mensajes_de_cola_a_cliente(get_pokemon, cliente);
+		//enviar_mensajes_de_cola_a_cliente(get_pokemon, cliente);
 		break;
 
 	case LOCALIZED_POKEMON:
-		enviar_mensajes_de_cola_a_cliente(localized_pokemon, cliente);
+		//enviar_mensajes_de_cola_a_cliente(localized_pokemon, cliente);
 		break;
+	}
 }
 
+/*
 void enviar_mensajes_de_cola_a_cliente(t_queue* cola,  int cliente){
 
 	void enviar_mensaje_de_cola_aux(void* mensaje) {
-		enviar_mensaje_de_cola(mensaje, ciente);
+		//enviar_mensaje_de_cola(mensaje, ciente);
 	}
 
-
-
-
 }
+*/

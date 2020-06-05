@@ -7,7 +7,7 @@
 	 return id;
  }
 
-void devolver_appeared_pokemon(int socket_cliente ,t_appeared_pokemon mensaje_appeared_pokemon){
+void devolver_appeared_pokemon(int socket_cliente ,t_appeared_pokemon* mensaje_appeared_pokemon){
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared_pokemon);
 	enviar_mensaje(socket_cliente, mensaje_serializado, APPEARED_POKEMON);
