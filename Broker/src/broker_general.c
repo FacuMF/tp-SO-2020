@@ -136,20 +136,11 @@ void handle_cliente(int socket_servidor) {
 		log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
 
 		subscribir(socket_cliente, subscripcion);
-		//enviar_mensajes_de_suscripcion_a_cliente(subscripcion, socket_cliente); //TODO
+
+		//enviar_mensajes_de_suscripcion_a_cliente(subscripcion, socket_cliente);
+		//TODO se necesita tener los mensajes cacheados.
 
 		break;
-
-		/*  PSEUDOCODIGO PARA TODOS LOS MENSAJES
-		if( Mensaje ){
-		deserializar_mensjae()
-		asignar_id()
-		informar_id_a_cliente()
-		almacenar_en_cola()
-		enviar_a_todos_los_subs() \\Y esperar confirmacion
-		cachear_mensaje()
-		}   */
-
 
 		case APPEARED_POKEMON:
 
@@ -161,9 +152,11 @@ void handle_cliente(int socket_servidor) {
 		log_trace(logger, "ID asignado a APPEARED_POKEON: %i.", id_mensaje_recibido);
 
 		devolver_appeared_pokemon(socket_cliente ,mensaje_appeared_pokemon);
-		log_trace(logger, "Se devolvio el mensajaje APPEARED_POKEMON con id asignado.");
+		log_trace(logger, "Se devolvio el mensaje APPEARED_POKEMON con id asignado.");
 
-		//almacenar_en_cola_appeared_pokemon(mensaje);
+		almacenar_en_cola_appeared_pokemon(mensaje_appeared_pokemon);
+		log_trace(logger, "Se almaceno el mensaje APPEARED_POKEMON en la cola.");
+
 		//cachear_appeared_pokemon(mensaje);
 
 		break;

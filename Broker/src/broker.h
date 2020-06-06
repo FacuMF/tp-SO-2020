@@ -13,8 +13,8 @@ t_log_level log_nivel_minimo;
 pthread_t tid[2];
 
 typedef struct{
-	t_list * subscriptores; // lista de t_cliente
-	t_list * mensajes; // lista de t_mensajes
+	t_list* subscriptores; // lista de t_cliente
+	t_list* mensajes; // lista de t_mensajes
 }t_queue;
 
 //Declaracion de queues
@@ -70,7 +70,7 @@ void agregar_cliente_a_cola(t_queue* cola, int cliente);
 // APPEARED_POKEMON
 int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje);
 void devolver_appeared_pokemon(int socket_cliente ,t_appeared_pokemon* mensaje_appeared_pokemon);
-//void almacenar_en_cola_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
+void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje);
 //void enviar_a_todos_los_subs_appeared_pokemon(mensaje);
 //void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
 
