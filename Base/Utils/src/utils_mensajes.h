@@ -58,6 +58,11 @@ typedef struct{
 	int y;
 }t_posicion;
 
+typedef struct{
+	int tipo_mensaje;
+	int mensaje;
+}t_confirmacion;
+
 typedef struct{ //TEST MESSAGE STRUCT
 	char* contenido;
 }t_msjTexto;
