@@ -22,22 +22,26 @@ void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje){
 	log_trace(logger, "Se agrego a la cola APPEARED_POKEMON el mensaje con id: %i.",
 						elemento_agregado->id_mensaje);
 
-	//enviar_a_todos_los_subs_appeared_pokemon(mensaje); //TODO
+	enviar_a_todos_los_subs_appeared_pokemon(mensaje); //TODO
 
 
 }
 
 void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje){
+	log_trace(logger, "Se van a enviar a todos los subs, el nuevo APPEARED_POKEMON.");
 
-	void enviar_appeared_pokemon_a_suscriptor_aux(t_suscriptor_queue* suscriptor){
+	void enviar_appeared_pokemon_a_suscriptor_aux(void* suscriptor_aux){
+		t_suscriptor_queue* suscriptor = suscriptor_aux;
 		enviar_appeared_pokemon_a_suscriptor(suscriptor, mensaje);
 	}
 
 	list_iterate(appeared_pokemon->subscriptores, enviar_appeared_pokemon_a_suscriptor_aux);
 
+	log_trace(logger, "Se van a envio a todos los subs, el nuevo APPEARED_POKEMON.");
 }
 
 void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appeared_pokemon* mensaje){
+
 	log_trace(logger, "Se va a enviar mensaje APPEARED_POKEMON id: %i a sub: %i."
 			, mensaje->id_mensaje, suscriptor->socket);
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));

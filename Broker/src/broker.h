@@ -76,7 +76,9 @@ void agregar_cliente_a_cola(t_queue* cola, int cliente);
 int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje);
 void devolver_appeared_pokemon(int socket_cliente ,t_appeared_pokemon* mensaje_appeared_pokemon);
 void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje);
+
 void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje);
+void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appeared_pokemon* mensaje);
 //void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
 
 // NEW_POKEMON
