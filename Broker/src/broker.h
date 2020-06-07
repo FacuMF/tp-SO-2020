@@ -17,6 +17,11 @@ typedef struct{
 	t_list* mensajes; // lista de t_mensajes
 }t_queue;
 
+typedef struct{
+	int socket;
+	t_list* mensajes_recibidos; // Lista de IDs
+}t_suscriptor_queue;
+
 //Declaracion de queues
 t_queue* new_pokemon;
 t_queue* appeared_pokemon;
@@ -71,7 +76,7 @@ void agregar_cliente_a_cola(t_queue* cola, int cliente);
 int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje);
 void devolver_appeared_pokemon(int socket_cliente ,t_appeared_pokemon* mensaje_appeared_pokemon);
 void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje);
-//void enviar_a_todos_los_subs_appeared_pokemon(mensaje);
+void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje);
 //void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
 
 // NEW_POKEMON

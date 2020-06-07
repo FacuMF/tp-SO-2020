@@ -45,12 +45,13 @@
  }
 
 void agregar_cliente_a_cola(t_queue* cola, int cliente){
-	int* cliente_a_agregar = cliente;
+	t_suscriptor_queue* cliente_a_agregar = malloc(sizeof(t_suscriptor_queue));
+	cliente_a_agregar->socket = cliente;
 	list_add(cola->subscriptores, cliente_a_agregar);
 	int size = list_size(cola->subscriptores);
-	int elemento_agregado = (int) list_get(cola->subscriptores, size-1);
+	t_suscriptor_queue* elemento_agregado = list_get(cola->subscriptores, size-1);
 
-	log_trace(logger, "Se agrego %i a la cola en la posicion %i.", elemento_agregado, size);
+	log_trace(logger, "Se agrego %i a la cola en la posicion %i.", elemento_agregado->socket, size);
  }
 
 
