@@ -28,13 +28,8 @@ void main(){
 	pthread_create(&thread_socket, NULL, (void*) listen, PUERTO_BROKER);
 	*/
 
-	//Al recibir NEW_POKEMON
+	// Al recibir mensajes
 	recibir_mensajes_gamecard();
-	if(file_open()){
-		// Reintentar la operación luego de REINTENTO_OPERACION
-	} else {
-
-	}
 
 }
 

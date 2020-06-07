@@ -111,14 +111,27 @@ void write_file(char* path, char* data) {
     fclose(file);
 }
 
+
+bool verificar_posiciones_file(){
+
+	return true;
+}
 // Base de crear archivos
 
 t_config* read_pokemon_metadata(char* table) {
     return config_create(pokemon_metadata_path(table));
 }
 
+t_config* read_file_metadata(char* table){
+	return config_create(files_base_path(table));
+}
+
 void create_pokemon_dir(char* tableName) {
     create_dir(files_base_path(tableName));
+    t_config* config = read_file_metadata(tableName);
+    config_set_value(config, "DIRECTORY", "Y");
+    config_save(config);
+    config_destroy(config);
 }
 
 void create_pokemon_metadata_file(char* tableName){
@@ -151,9 +164,25 @@ void suscribirse_a(int* conexion, int cola){
 
 }
 
+bool file_existing(char* path){
+	FILE * file = fopen(path, "rb");
+	if(file == NULL){
+		fclose(file);
+		return false;
+	} else {
+	fclose(file);
+	return true;
+	}
+}
+
+bool file_open(char* path){
+
+	return true;
+}
+
 void recibir_mensajes_gamecard(int *socket){
 	 int cod_op = recibir_codigo_operacion(*socket);
-	 handle_mensajes_gamecard(cop_op, *socket);
+	 handle_mensajes_gamecard(cod_op, *socket);
 }
 
 
@@ -165,7 +194,18 @@ void handle_mensajes_gamecard(int cod_op, int socket){
 		// logear new_pokemon recibido
 		buffer = recibir_mensaje(socket);
 		t_new_pokemon pokemon = deserializar_new_pokemon(buffer);
+		char* file = pokemon_metadata_path(pokemon->pokemon);
+		if(!file_existing(file)){
+			create_pokemon_dir(pokemon->pokemon);
+			create_pokemon_metadata_file(pokemon->pokemon);
+		}
+		// Fijarse los bloques con config_get_array
+		if (!file_open()){
+			//if(verificar_posiciones_file(pokemon->posx,pokemon->posy,EL FILE DE LOS BLOQUES)){
 
+			//}
+		}
+			//  Reintentar la operación luego de REINTENTO_OPERACION
 	}
 
 }
