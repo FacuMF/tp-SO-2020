@@ -50,6 +50,7 @@ typedef struct{
 	int size_pokemon;
 	char* pokemon;
 	int cantidad_posiciones;
+	int size_lista;
 	t_list* posiciones;
 }t_localized;
 
@@ -121,6 +122,7 @@ char* mostrar_catch_pokemon(t_catch_pokemon*);
 char* mostrar_caught_pokemon(t_caught_pokemon*);
 char* mostrar_get_pokemon(t_get_pokemon*);
 char* mostrar_suscriptor(t_subscriptor*);
+char* mostrar_localized(t_localized*);
 char* mostrar_confirmacion(t_confirmacion*);
 
 

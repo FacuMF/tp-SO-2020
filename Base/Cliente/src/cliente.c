@@ -52,12 +52,27 @@ int main(void) {
 
 	//Prueba suscripcion
 	/*t_subscriptor* mensaje_suscriptor = crear_suscripcion(NEW_POKEMON, 10);
-	t_buffer* buffer_suscriptor = serializar_suscripcion(mensaje_suscriptor);
-	log_trace(logger, "Mensaje Creado");*/
+	 t_buffer* buffer_suscriptor = serializar_suscripcion(mensaje_suscriptor);*/
 
-	//Prueba suscripcion
-	t_confirmacion* mensaje_confirmacion = crear_confirmacion(NEW_POKEMON, 10);
-	t_buffer* buffer_confirmacion = serializar_confirmacion(mensaje_confirmacion);
+	//Prueba localized
+	t_list* posiciones = list_create();
+	t_posicion* posicion1 = malloc(sizeof(t_posicion));
+	posicion1->x = 1;
+	posicion1->y = 2;
+	t_posicion* posicion2 = malloc(sizeof(t_posicion));
+	posicion2->x = 5;
+	posicion2->y = 8;
+
+	list_add(posiciones, posicion1);
+	list_add(posiciones, posicion2);
+
+	t_localized* mensaje_localized = crear_localized(10, "Bulbasaur", posiciones);
+	t_buffer* buffer_localized = serializar_localized(mensaje_localized);
+
+	//Prueba confirmacion
+	/*t_confirmacion* mensaje_confirmacion = crear_confirmacion(NEW_POKEMON, 10);
+	 t_buffer* buffer_confirmacion = serializar_confirmacion(mensaje_confirmacion);*/
+
 	log_trace(logger, "Mensaje Creado");
 
 	//enviar_mensaje(conexion, buffer_new, NEW_POKEMON);
@@ -66,7 +81,8 @@ int main(void) {
 	//enviar_mensaje(conexion, buffer_caught, CAUGHT_POKEMON);
 	//enviar_mensaje(conexion, buffer_get, GET_POKEMON);
 	//enviar_mensaje(conexion, buffer_suscriptor, SUSCRIPTOR);
-	enviar_mensaje(conexion, buffer_confirmacion, CONFIRMACION);
+	//enviar_mensaje(conexion, buffer_confirmacion, CONFIRMACION);
+	enviar_mensaje(conexion, buffer_localized, LOCALIZED_POKEMON);
 	log_trace(logger, "Mensaje Serializado");
 	log_trace(logger, "Mensaje Enviado");
 
