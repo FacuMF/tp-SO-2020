@@ -41,7 +41,8 @@ typedef enum
 	CATCH_POKEMON = 5,
 	GET_POKEMON = 6,
 	LOCALIZED_POKEMON = 7,
-	SUSCRIPTOR = 8
+	SUSCRIPTOR = 8,
+	CONFIRMACION = 9
 }op_code;
 
 typedef struct

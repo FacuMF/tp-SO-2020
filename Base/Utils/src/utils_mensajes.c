@@ -100,7 +100,15 @@ char* deserializar_tipo_mensaje(int cod_op, int cliente_fd) {
 		free(mensaje_suscriptor);
 		free(buffer);
 		break;
-
+	case CONFIRMACION:
+		;
+		buffer = recibir_mensaje(cliente_fd);
+		t_confirmacion* mensaje_confirmacion = deserializar_confirmacion(
+				buffer);
+		parametros_recibidos = mostrar_confirmacion(mensaje_confirmacion);
+		free(mensaje_confirmacion);
+		free(buffer);
+		break;
 	case 0:
 		//log_trace(logger, "Codigo invalido");
 		pthread_exit(NULL);
@@ -504,6 +512,43 @@ t_localized* deserializar_localized(t_buffer* buffer) {
 
 	return mensaje;
 }
+t_confirmacion* crear_confirmacion(int tipo_mensaje, int mje) {
+	t_confirmacion* mensaje = malloc(sizeof(t_confirmacion));
+
+	mensaje->tipo_mensaje = tipo_mensaje;
+	mensaje->mensaje = mje;
+
+	return mensaje;
+}
+t_buffer* serializar_confirmacion(t_confirmacion* mensaje) {
+	t_buffer* buffer = malloc(sizeof(t_buffer));
+	buffer->size = sizeof(int) * 2;
+
+	void* stream = malloc(buffer->size);
+	int offset = 0;
+
+	memcpy(stream + offset, &(mensaje->tipo_mensaje),
+			sizeof(mensaje->tipo_mensaje));
+	offset += sizeof(mensaje->tipo_mensaje);
+
+	memcpy(stream + offset, &(mensaje->mensaje), sizeof(mensaje->mensaje));
+
+	buffer->stream = stream;
+	return buffer;
+}
+t_confirmacion* deserializar_confirmacion(t_buffer* buffer) {
+	t_confirmacion* mensaje = malloc(sizeof(t_confirmacion));
+	void* stream = buffer->stream;
+
+	//Deserializacion
+	memcpy(&(mensaje->tipo_mensaje), stream, sizeof(mensaje->tipo_mensaje));
+	stream += sizeof(int);
+
+	memcpy(&(mensaje->mensaje), stream, sizeof(mensaje->mensaje));
+
+	return mensaje;
+}
+
 //Muestro de mensajes
 
 char* mostrar_new_pokemon(t_new_pokemon* mensaje) {
@@ -556,3 +601,10 @@ char* mostrar_suscriptor(t_subscriptor* mensaje) {
 	return parametros;
 }
 
+char* mostrar_confirmacion(t_confirmacion* mensaje) {
+	int max_size = 100;
+	char* parametros = malloc(sizeof(char) * max_size);
+	snprintf(parametros, max_size, "Tipo de mensaje: %d, mensaje: %d",
+			mensaje->tipo_mensaje, mensaje->mensaje);
+	return parametros;
+}

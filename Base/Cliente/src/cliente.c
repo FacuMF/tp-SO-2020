@@ -51,8 +51,13 @@ int main(void) {
 	 t_buffer* buffer_get = serializar_get_pokemon(mensaje_get);*/
 
 	//Prueba suscripcion
-	t_subscriptor* mensaje_suscriptor = crear_suscripcion(NEW_POKEMON, 10);
+	/*t_subscriptor* mensaje_suscriptor = crear_suscripcion(NEW_POKEMON, 10);
 	t_buffer* buffer_suscriptor = serializar_suscripcion(mensaje_suscriptor);
+	log_trace(logger, "Mensaje Creado");*/
+
+	//Prueba suscripcion
+	t_confirmacion* mensaje_confirmacion = crear_confirmacion(NEW_POKEMON, 10);
+	t_buffer* buffer_confirmacion = serializar_confirmacion(mensaje_confirmacion);
 	log_trace(logger, "Mensaje Creado");
 
 	//enviar_mensaje(conexion, buffer_new, NEW_POKEMON);
@@ -60,7 +65,8 @@ int main(void) {
 	//enviar_mensaje(conexion, buffer_catch, CATCH_POKEMON);
 	//enviar_mensaje(conexion, buffer_caught, CAUGHT_POKEMON);
 	//enviar_mensaje(conexion, buffer_get, GET_POKEMON);
-	enviar_mensaje(conexion, buffer_suscriptor, SUSCRIPTOR);
+	//enviar_mensaje(conexion, buffer_suscriptor, SUSCRIPTOR);
+	enviar_mensaje(conexion, buffer_confirmacion, CONFIRMACION);
 	log_trace(logger, "Mensaje Serializado");
 	log_trace(logger, "Mensaje Enviado");
 

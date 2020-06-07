@@ -109,6 +109,11 @@ t_localized* crear_localized(int,char*,t_list*);
 t_buffer* serializar_localized(t_localized*);
 t_localized* deserializar_localized(t_buffer* buffer);
 
+t_confirmacion* crear_confirmacion(int,int);
+t_buffer* serializar_confirmacion(t_confirmacion*);
+t_confirmacion* deserializar_confirmacion(t_buffer* buffer);
+
+
 //Muestro de mensajes
 char* mostrar_new_pokemon(t_new_pokemon*);
 char* mostrar_appeared_pokemon(t_appeared_pokemon*);
@@ -116,6 +121,7 @@ char* mostrar_catch_pokemon(t_catch_pokemon*);
 char* mostrar_caught_pokemon(t_caught_pokemon*);
 char* mostrar_get_pokemon(t_get_pokemon*);
 char* mostrar_suscriptor(t_subscriptor*);
+char* mostrar_confirmacion(t_confirmacion*);
 
 
 #endif /* UTILS_UTILS_MENSAJES_H_ */
