@@ -125,5 +125,7 @@ char* mostrar_suscriptor(t_subscriptor*);
 char* mostrar_localized(t_localized*);
 char* mostrar_confirmacion(t_confirmacion*);
 
+//Confirmar recepcion
+void confirmar_recepcion(int socket_broker, int cod_op, int id_mensaje);
 
 #endif /* UTILS_UTILS_MENSAJES_H_ */

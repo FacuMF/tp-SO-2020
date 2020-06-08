@@ -48,7 +48,10 @@ void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appe
 	mensaje_serializado = serializar_appeared_pokemon(mensaje);
 	enviar_mensaje(suscriptor->socket, mensaje_serializado, APPEARED_POKEMON);
 	log_trace(logger, "Se envio mensaje APPEARED_POKEMON");
+
+	recibir_mensaje_del_cliente(&(suscriptor->socket));
 }
+
 
 /*
  void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){

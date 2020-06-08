@@ -636,3 +636,13 @@ char* mostrar_localized(t_localized* mensaje) {
 			mensaje->id_mensaje, mensaje->pokemon, mensaje->cantidad_posiciones);
 	return parametros;
 }
+
+//Confirmar Recepcion
+
+void confirmar_recepcion(int socket_broker, int cod_op, int id_mensaje){
+	t_confirmacion* mensaje_confirmacion = crear_confirmacion(cod_op, id_mensaje);
+	t_buffer* buffer_confirmacion = serializar_confirmacion(mensaje_confirmacion);
+
+	enviar_mensaje(socket_broker, buffer_confirmacion, CONFIRMACION);
+}
+

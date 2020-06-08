@@ -7,6 +7,8 @@ t_config* config;
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
+int es_suscriptor; //Para saber si enviar confirmacion o no
+
 // Funciones
 void inicializar_gameboy();
 t_modulo string_a_modulo(char*);
@@ -20,6 +22,8 @@ t_buffer* mensaje_a_enviar(t_modulo, op_code, char**);
 //Funciones Respuesta
 void recibir_respuesta(int* socket_broker);
 void handle_respuesta(int cod_op, int socket_broker);
+
+
 
 //Pruebas de mensajes
 

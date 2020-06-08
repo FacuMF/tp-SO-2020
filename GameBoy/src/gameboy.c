@@ -9,7 +9,10 @@ int main(int argv, char* arg[]) {
 	 	 	 	 	  arg[1] arg[2]  arg[3] ...
 	 */
 
+
 	t_modulo modulo = string_a_modulo(arg[1]);
+
+	if(modulo == SUSCRIPTOR){es_suscriptor = 1;}else{ es_suscriptor = 0; }
 
 	op_code tipo_mensaje;
 	if(modulo == -1){
@@ -262,8 +265,14 @@ void handle_respuesta(int cod_op, int socket_broker){
 			log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
 	        buffer = recibir_mensaje(socket_broker);
 			t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
-
 			log_trace(logger, "ID asignado a APPEARED_POKEMON: %i.", mensaje_appeared_pokemon->id_mensaje);
+
+			//Confirmar Recepcion si es Suscripcion //TODO pasar a otra funcion.
+			if ( es_suscriptor ) {
+				log_trace(logger, "Se confirmara la recepcion.");
+				confirmar_recepcion(socket_broker, cod_op, mensaje_appeared_pokemon->id_mensaje);
+				log_trace(logger, "Recepcion confirmada.");
+			}
 
 			break;
 			case NEW_POKEMON:
@@ -287,4 +296,6 @@ void handle_respuesta(int cod_op, int socket_broker){
 
 			break;
 	}
+
 }
+

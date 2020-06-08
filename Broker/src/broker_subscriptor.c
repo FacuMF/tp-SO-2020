@@ -38,7 +38,6 @@
      		agregar_cliente_a_cola(localized_pokemon, cliente);
 
      		break;
-
      }
 
 	 log_trace(logger, "Adentro de suscribir");
