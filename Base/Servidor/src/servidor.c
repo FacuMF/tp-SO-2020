@@ -25,6 +25,7 @@ int main(void) {
 	ip = config_get_string_value(config, "IP");
 	puerto = config_get_string_value(config, "PUERTO");
 
+
 	// Inicar conexion
 	iniciar_conexion_servidor(ip, puerto);
 

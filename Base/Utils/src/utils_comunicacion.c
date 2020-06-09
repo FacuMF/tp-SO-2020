@@ -9,6 +9,10 @@
 
 // INICIALIZACION DE LA CONEXION
 
+// TBR
+
+
+
 struct addrinfo* obtener_server_info(char * ip, char* puerto) {
 	struct addrinfo hints, *servinfo;
 	int status;
@@ -75,6 +79,9 @@ int iniciar_conexion(char *ip, char* puerto) {
 void iniciar_conexion_servidor(char* ip, char* puerto) {
 
 	//Set up conexion
+	//TBR
+	t_log * logger_temporal = iniciar_logger ("logger_temporal.log","Utils_comunicacion",LOG_LEVEL_TRACE);
+	log_trace(logger_temporal,"Servidor inicializado");
 	struct addrinfo* servinfo = obtener_server_info(ip, puerto); // Address info para la conexion TCP/IP
 	int socket_servidor = obtener_socket(servinfo);
 	asignar_socket_a_puerto(socket_servidor, servinfo);
@@ -83,9 +90,10 @@ void iniciar_conexion_servidor(char* ip, char* puerto) {
 
 	listen(socket_servidor, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
 
-	int i;
-	for(i=0; i<3; i++){
+	while(1){
+		log_trace(logger_temporal,"Esperando Cliente");
 		esperar_cliente(socket_servidor);//Queda esperando que un cliente se conecte
+
 	}
 }
 
@@ -113,10 +121,12 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 }
 
 void serve_client(int* socket) {
+	// TBR
+	t_log * logger_temporal1 = iniciar_logger ("logger_temporal1.log","Utils_comunicacion",LOG_LEVEL_TRACE);
 	int cod_op = recibir_codigo_operacion(*socket);
 	char* parametros_recibidos = malloc(sizeof(char)*100);
+	log_trace(logger_temporal1,"Deserializando Mensaje");
 	parametros_recibidos = deserializar_tipo_mensaje(cod_op, *socket);
-
 }
 
 

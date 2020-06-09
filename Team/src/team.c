@@ -12,7 +12,7 @@ int main(int argv,char*archivo_config[]) {
 
 	t_list * objetivo_global = formar_objetivo(pokemones_con_repetidos);
 
-	lanzar_hilos(head_entrenadores);
+	//lanzar_hilos(head_entrenadores);
 
 	iniciar_conexion_con_gameboy();	//TO DO
 
@@ -29,7 +29,7 @@ int main(int argv,char*archivo_config[]) {
 
 	// Conectar_con_gameboy
 
-	sleep(15); //TT
+	//sleep(15); //TT
 	finalizar_team();
 }
 
@@ -50,7 +50,12 @@ void iniciar_conexion_con_broker(){
 }
 
 void iniciar_conexion_con_gameboy(){
-	// conectar con gameboy
+	char * ip_gameboy = config_get_string_value(config,"IP_GAMEBOY");
+	char * puerto_gameboy=config_get_string_value(config,"PUERTO_GAMEBOY");
+	log_trace(logger,"Ip Gameboy Leida : %s Puerto Gameboy Leido : %s\n",ip_gameboy,puerto_gameboy);
+	iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);
+	log_trace(logger,"Mensaje Recibido");
+
 
 }
 
