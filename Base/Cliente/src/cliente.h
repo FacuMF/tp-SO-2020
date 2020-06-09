@@ -10,7 +10,6 @@ t_config* config;
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
-int iniciar_conexion(char* ip, char* puerto);
 void handler_mensaje_texto(t_buffer* buffer_recepcion);
 
 void terminar_programa(int, t_log*, t_config*);

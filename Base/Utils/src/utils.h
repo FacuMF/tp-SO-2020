@@ -8,6 +8,7 @@
 #ifndef UTILS_UTILS_H_
 #define UTILS_UTILS_H_
 
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<signal.h>
@@ -64,7 +65,21 @@ pthread_t thread;
 struct addrinfo* obtener_server_info(char* , char*);
 int obtener_socket(struct addrinfo* );
 void asignar_socket_a_puerto(int,struct addrinfo*);
+
+// FUNCIONES DE INICIALIZACION DE LA CONEXION PARA EL CLIENTE
 int iniciar_conexion(char*, char*);
+
+// FUNCIONES DE INICIALIZACION DE LA CONEXION PARA EL SERVIDOR
+void iniciar_conexion_servidor(char* ip, char* puerto);
+void setear_socket_reusable(int socket);
+void esperar_cliente(int socket_servidor);
+void serve_client(int* socket);
+
+//TBR
+int sockets_mensajes[3];
+int numero_mensajes;
+
+
 
 // MANIPULACION MENSAJES
 void enviar_mensaje(int , t_buffer* , op_code );

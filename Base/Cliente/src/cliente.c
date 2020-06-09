@@ -8,13 +8,13 @@ int main(void) {
 	char * mensaje_a_enviar = "ESTE ES EL MENSAJE XD";
 
 	// Leer Config
-	config = leer_config("./Base/Cliente/config/cliente.config");
+	config = leer_config("./Base/Utils/config/cliente_servidor.config");
 	string_nivel_log_minimo = config_get_string_value(config,
 			"LOG_NIVEL_MINIMO");
 	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
 
 	// Iniciar Logger
-	logger = iniciar_logger("./Base/Cliente/config/cliente.log", "Cliente",
+	logger = iniciar_logger("./Base/Utils/config/cliente.log", "Cliente",
 			log_nivel_minimo);
 	log_trace(logger, "Primer log ingresado");
 

@@ -5,6 +5,7 @@
  *      Author: utnso
  */
 #include "utils.h"
+#include "utils_mensajes.h"
 
 // INICIALIZACION DE LA CONEXION
 
@@ -67,6 +68,59 @@ int iniciar_conexion(char *ip, char* puerto) {
 
 	return socket_cliente;
 }
+
+
+// Inicializar conexion servidor
+
+void iniciar_conexion_servidor(char* ip, char* puerto) {
+
+	//Set up conexion
+	struct addrinfo* servinfo = obtener_server_info(ip, puerto); // Address info para la conexion TCP/IP
+	int socket_servidor = obtener_socket(servinfo);
+	asignar_socket_a_puerto(socket_servidor, servinfo);
+	setear_socket_reusable(socket_servidor);
+	freeaddrinfo(servinfo);
+
+	listen(socket_servidor, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
+
+	int i;
+	for(i=0; i<3; i++){
+		esperar_cliente(socket_servidor);//Queda esperando que un cliente se conecte
+	}
+}
+
+void setear_socket_reusable(int socket) {
+	int activado = 1;
+	setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado));
+}
+
+void esperar_cliente(int socket_servidor) {	// Hilo coordinador
+	struct sockaddr_in dir_cliente;	//contiene address de la comunicacion
+
+	int tam_direccion = sizeof(struct sockaddr_in);
+
+	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
+			&tam_direccion);// Acepta el request del cliente y crea el socket
+
+
+	sockets_mensajes[numero_mensajes] = socket_cliente;
+	numero_mensajes++;
+
+
+	// Lanzar los hilos handlers
+	pthread_create(&thread, NULL, (void*) serve_client, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
+	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+}
+
+void serve_client(int* socket) {
+	int cod_op = recibir_codigo_operacion(*socket);
+	char* parametros_recibidos = malloc(sizeof(char)*100);
+	parametros_recibidos = deserializar_tipo_mensaje(cod_op, *socket);
+
+}
+
+
+
 
 // MANIPULACION MENSAJES
 t_paquete* generar_paquete(t_buffer* buffer, op_code codigo_operacion) {
