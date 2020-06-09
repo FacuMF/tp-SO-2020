@@ -1,8 +1,7 @@
 #include "broker.h"
 
  int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje){
-	 int id = id_appeared_pokemon;
-	 id_appeared_pokemon++;
+	 int id = get_id_mensajes();
 	 mensaje->id_mensaje = id;
 	 return id;
  }
@@ -22,7 +21,7 @@ void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje){
 	log_trace(logger, "Se agrego a la cola APPEARED_POKEMON el mensaje con id: %i.",
 						elemento_agregado->id_mensaje);
 
-	enviar_a_todos_los_subs_appeared_pokemon(mensaje); //TODO
+	enviar_a_todos_los_subs_appeared_pokemon(mensaje);
 
 
 }
@@ -47,6 +46,9 @@ void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appe
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	mensaje_serializado = serializar_appeared_pokemon(mensaje);
 	enviar_mensaje(suscriptor->socket, mensaje_serializado, APPEARED_POKEMON);
+
+	log_info(logger, "Envio de APPEARED_POKEMON %i a suscriptor %i", mensaje->id_mensaje, suscriptor->socket);
+
 	log_trace(logger, "Se envio mensaje APPEARED_POKEMON");
 
 	recibir_mensaje_del_cliente(&(suscriptor->socket));

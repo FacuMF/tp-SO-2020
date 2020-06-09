@@ -66,12 +66,7 @@ void inicializacion_colas(void) {
 }
 
 void inizializacion_ids(void){
-	id_new_pokemon = 0;
-	id_appeared_pokemon= 0;
-	id_catch_pokemon= 0;
-	id_caugth_pokemon= 0;
-	id_get_pokemon= 0;
-	id_localized_pokemon= 0;
+	id_mensajes = 0;
 }
 
 void* esperar_mensajes(void *arg) {
@@ -113,6 +108,7 @@ void handle_cliente(int socket_servidor) {
 	log_trace(logger, "Va a ejecutar 'accept'.");
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);
 
+	log_info(logger, "Conexion de %i al Broker.", socket_cliente);
 
 	log_trace(logger, "Va a lanzar hilo 'recibir_mensaje_del_cliente'.");
 
@@ -143,6 +139,8 @@ void handle_cliente(int socket_servidor) {
 			t_subscriptor* subscripcion = deserializar_suscripcion(buffer);
 			log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
 
+			log_info(logger,"Suscripcion de %i a la cola %i.", socket_cliente, subscripcion->cola_de_mensaje);
+
 			subscribir(socket_cliente, subscripcion);
 
 			//enviar_mensajes_de_suscripcion_a_cliente(subscripcion, socket_cliente);
@@ -159,7 +157,8 @@ void handle_cliente(int socket_servidor) {
 			t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
 
 			int id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_appeared_pokemon);
-			log_trace(logger, "ID asignado a APPEARED_POKEON: %i.", id_mensaje_recibido);
+
+			log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEON", id_mensaje_recibido);
 
 			devolver_appeared_pokemon(socket_cliente ,mensaje_appeared_pokemon);
 			log_trace(logger, "Se devolvio el mensaje APPEARED_POKEMON con id asignado.");
@@ -213,4 +212,11 @@ void setear_socket_reusable(int socket) {
 
 void enviar_mensaje_de_cola(void* mensaje, int ciente){
 
+}
+
+int get_id_mensajes(void) {
+	 //TODO MUTEX
+	 int id = id_mensajes;
+	 id_mensajes++;
+	 return id;
 }

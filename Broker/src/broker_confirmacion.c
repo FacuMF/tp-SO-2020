@@ -48,6 +48,7 @@ void si_coincide_cliente_agregar_id_recibido(t_suscriptor_queue* suscriptor, int
 	if(suscriptor->socket == socket_suscriptor){
 		log_trace(logger, "Se encontro al suscriptor %i.", socket_suscriptor);
 		list_add(suscriptor->mensajes_recibidos, id_mensaje_recibido);
-		log_trace(logger, "Se confirmo que el suscriptor %i recibio el mensaje ID: %i.", socket_suscriptor, id_mensaje_recibido);
+
+		log_info(logger, "Confirmacion de recepcion de suscriptor %i al envio del mensaje %i.", socket_suscriptor, id_mensaje_recibido);
 	}
 }

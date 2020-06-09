@@ -41,12 +41,7 @@ t_queue* get_pokemon;
 t_queue* localized_pokemon;
 
 //Declaracion id
-int id_new_pokemon;
-int id_appeared_pokemon;
-int id_catch_pokemon;
-int id_caugth_pokemon;
-int id_get_pokemon;
-int id_localized_pokemon;
+int id_mensajes;
 
 
 //Funciones Generales
@@ -65,6 +60,8 @@ void recibir_mensaje_del_cliente(int* socket);
 void handle_mensaje(int cod_op, int cliente_fd);
 
 void enviar_mensaje_de_cola(void* mensaje, int ciente);
+
+int get_id_mensajes(void);
 
 
 //Funciones especificas por mensaje
