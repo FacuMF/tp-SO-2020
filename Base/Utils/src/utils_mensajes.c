@@ -467,15 +467,14 @@ t_localized* crear_localized(int id_mensaje, char* pokemon, t_list* posiciones) 
 	mensaje->pokemon = malloc(mensaje->size_pokemon);
 	strcpy(mensaje->pokemon, pokemon);
 	mensaje->cantidad_posiciones = cantidad_posiciones;
-	mensaje->size_lista = sizeof(posiciones);
-	mensaje->posiciones = posiciones;
+	mensaje->posiciones = list_duplicate(posiciones);
 
 	return mensaje;
 }
 t_buffer* serializar_localized(t_localized* mensaje) {
 	t_buffer* buffer = malloc(sizeof(t_buffer));
-	buffer->size = sizeof(int) * 4 + mensaje->size_pokemon
-			+ sizeof(mensaje->posiciones);
+	buffer->size = sizeof(int) * 3 + mensaje->size_pokemon
+			+ mensaje->cantidad_posiciones * sizeof(t_posicion);
 
 	void* stream = malloc(buffer->size);
 	int offset = 0;
@@ -495,12 +494,11 @@ t_buffer* serializar_localized(t_localized* mensaje) {
 			sizeof(mensaje->cantidad_posiciones));
 	offset += sizeof(mensaje->cantidad_posiciones);
 
-	memcpy(stream + offset, &(mensaje->size_lista),
-			sizeof(mensaje->size_lista));
-	offset += sizeof(mensaje->size_lista);
-
-	memcpy(stream + offset, mensaje->posiciones, sizeof(mensaje->posiciones));
-
+	for(int i = 0; i< mensaje->cantidad_posiciones; i++){
+		t_posicion* pos_aux = list_get(mensaje->posiciones,i);
+		memcpy(stream + offset, pos_aux, sizeof(t_posicion));
+			offset += sizeof(t_posicion);
+	}
 	buffer->stream = stream;
 	return buffer;
 }
@@ -523,13 +521,14 @@ t_localized* deserializar_localized(t_buffer* buffer) {
 			sizeof(mensaje->cantidad_posiciones));
 	stream += sizeof(mensaje->cantidad_posiciones);
 
-	memcpy(&(mensaje->size_lista), stream,
-			sizeof(mensaje->size_lista));
-	stream += sizeof(mensaje->size_lista);
-
-	mensaje->posiciones = malloc(mensaje->size_lista);
-	memcpy(mensaje->posiciones, stream, sizeof(mensaje->posiciones));
-
+	mensaje->posiciones = list_create();
+	for(int i = 0;i<mensaje->cantidad_posiciones; i++){
+		t_posicion* pos_aux = malloc(sizeof(t_posicion));
+		memcpy(pos_aux, stream,
+					sizeof(t_posicion));
+			stream += sizeof(t_posicion);
+		list_add(mensaje->posiciones, pos_aux);
+	}
 	return mensaje;
 }
 
@@ -630,11 +629,33 @@ char* mostrar_confirmacion(t_confirmacion* mensaje) {
 	return parametros;
 }
 char* mostrar_localized(t_localized* mensaje) {
-	int max_size = 100;
+	int max_size = 200;
 	char* parametros = malloc(sizeof(char) * max_size);
-	snprintf(parametros, max_size, "Id_mensaje: %d, Pokemon: %s, Cantidad: %d",
+
+	void mostrar_posiciones_aux(void* posicion){
+		char* aux = malloc(sizeof(char)*10);
+		//puts("1");
+		aux = mostrar_posiciones(posicion);
+		//puts("2");
+		strcat(parametros, aux);
+		//puts("3");
+	}
+
+	int a = list_size(mensaje->posiciones);
+	snprintf(parametros, max_size, "Id_mensaje: %d, Pokemon: %s, Cantidad: %d, Posiciones:",
 			mensaje->id_mensaje, mensaje->pokemon, mensaje->cantidad_posiciones);
+	puts(parametros);
+
+	list_iterate(mensaje->posiciones, mostrar_posiciones_aux);
+
 	return parametros;
+}
+
+char* mostrar_posiciones(t_posicion* posicion){
+	char* pos = malloc(sizeof(char)*10);
+	snprintf(pos,10,"%d %d ", posicion->x, posicion->y);
+	//puts(pos);
+	return pos;
 }
 
 //Confirmar Recepcion

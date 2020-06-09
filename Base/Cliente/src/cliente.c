@@ -63,10 +63,16 @@ int main(void) {
 	posicion2->x = 5;
 	posicion2->y = 8;
 
+	t_posicion* posicion3 = malloc(sizeof(t_posicion));
+	posicion3->x = 8;
+	posicion3->y = 6;
+
 	list_add(posiciones, posicion1);
 	list_add(posiciones, posicion2);
+	list_add(posiciones, posicion3);
 
-	t_localized* mensaje_localized = crear_localized(10, "Bulbasaur", posiciones);
+	t_localized* mensaje_localized = crear_localized(10, "Bulbasaur",
+			posiciones);
 	t_buffer* buffer_localized = serializar_localized(mensaje_localized);
 
 	//Prueba confirmacion
