@@ -55162,3 +55162,392 @@
 [TRACE] 15:26:06:410 Broker/(4554:4555): Se almaceno el mensaje APPEARED_POKEMON en la cola.
 [TRACE] 15:26:06:410 Broker/(4554:4555): Va a ejecutar 'handle_cliente'.
 [TRACE] 15:26:06:410 Broker/(4554:4555): Va a ejecutar 'accept'.
+[TRACE] 12:14:10:939 Broker/(3901:3901): Log, Config y Colas inicializadas.
+[TRACE] 12:14:10:945 Broker/(3901:3901): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 12:14:10:946 Broker/(3901:3902): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 12:14:10:946 Broker/(3901:3902): Va a ejeutar 'listen'.
+[TRACE] 12:14:10:946 Broker/(3901:3902): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:14:10:946 Broker/(3901:3902): Va a ejecutar 'accept'.
+[INFO] 12:16:45:467 Broker/(3901:3902): Conexion de 5 al Broker.
+[TRACE] 12:16:45:467 Broker/(3901:3902): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 12:16:45:468 Broker/(3901:3902): Mensaje recibido, cod_op: 8.
+[TRACE] 12:16:45:468 Broker/(3901:3902): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 12:16:45:468 Broker/(3901:3902): Mensaje SUSCRIPTOR recibido.
+[INFO] 12:16:45:468 Broker/(3901:3902): Suscripcion de 5 a la cola 2.
+[TRACE] 12:16:45:468 Broker/(3901:3902): Suscribir a 5 a cola APPEARED_POKEMON.
+[TRACE] 12:16:45:468 Broker/(3901:3902): Se agrego 5 a la cola en la posicion 1.
+[TRACE] 12:16:45:468 Broker/(3901:3902): Adentro de suscribir
+[TRACE] 12:16:45:468 Broker/(3901:3902): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:16:45:468 Broker/(3901:3902): Va a ejecutar 'accept'.
+[INFO] 12:17:06:217 Broker/(3901:3902): Conexion de 7 al Broker.
+[TRACE] 12:17:06:217 Broker/(3901:3902): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Mensaje recibido, cod_op: 2.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se recibio un mensaje APPEARED_POKEMON
+[INFO] 12:17:06:218 Broker/(3901:3902): Llegada de mensaje nuevo 0 a cola APPEARED_POKEON
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se devolvio el mensaje APPEARED_POKEMON con id asignado.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se agrego a la cola APPEARED_POKEMON el mensaje con id: 0.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se van a enviar a todos los subs, el nuevo APPEARED_POKEMON.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se va a enviar mensaje APPEARED_POKEMON id: 0 a sub: 5.
+[INFO] 12:17:06:218 Broker/(3901:3902): Envio de APPEARED_POKEMON 0 a suscriptor 5
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se envio mensaje APPEARED_POKEMON
+[TRACE] 12:17:06:218 Broker/(3901:3902): Mensaje recibido, cod_op: 9.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se recibio una CONFIRMACION.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se confirmara la recepcion del mensaje: Tipo: 2, ID: 0, Cliente: 5.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se encontro al suscriptor 5.
+[INFO] 12:17:06:218 Broker/(3901:3902): Confirmacion de recepcion de suscriptor 5 al envio del mensaje 0.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se confirmo la recepcion del mensaje
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se van a envio a todos los subs, el nuevo APPEARED_POKEMON.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Se almaceno el mensaje APPEARED_POKEMON en la cola.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:17:06:218 Broker/(3901:3902): Va a ejecutar 'accept'.
+[INFO] 12:18:33:460 Broker/(3901:3902): Conexion de 8 al Broker.
+[TRACE] 12:18:33:460 Broker/(3901:3902): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 12:18:33:461 Broker/(3901:3902): Mensaje recibido, cod_op: 2.
+[TRACE] 12:18:33:461 Broker/(3901:3902): Se recibio un mensaje APPEARED_POKEMON
+[INFO] 12:18:33:461 Broker/(3901:3902): Llegada de mensaje nuevo 1 a cola APPEARED_POKEON
+[TRACE] 12:18:33:461 Broker/(3901:3902): Se devolvio el mensaje APPEARED_POKEMON con id asignado.
+[TRACE] 12:18:33:461 Broker/(3901:3902): Se agrego a la cola APPEARED_POKEMON el mensaje con id: 1.
+[TRACE] 12:18:33:461 Broker/(3901:3902): Se van a enviar a todos los subs, el nuevo APPEARED_POKEMON.
+[TRACE] 12:18:33:461 Broker/(3901:3902): Se va a enviar mensaje APPEARED_POKEMON id: 1 a sub: 5.
+[INFO] 12:18:33:461 Broker/(3901:3902): Envio de APPEARED_POKEMON 1 a suscriptor 5
+[TRACE] 12:18:33:461 Broker/(3901:3902): Se envio mensaje APPEARED_POKEMON
+[TRACE] 12:18:33:461 Broker/(3901:3902): Mensaje recibido, cod_op: 9.
+[TRACE] 12:18:33:461 Broker/(3901:3902): Se recibio una CONFIRMACION.
+[TRACE] 12:18:33:461 Broker/(3901:3902): Se confirmara la recepcion del mensaje: Tipo: 2, ID: 1, Cliente: 5.
+[TRACE] 12:18:33:461 Broker/(3901:3902): Se encontro al suscriptor 5.
+[INFO] 12:18:33:462 Broker/(3901:3902): Confirmacion de recepcion de suscriptor 5 al envio del mensaje 1.
+[TRACE] 12:18:33:462 Broker/(3901:3902): Se confirmo la recepcion del mensaje
+[TRACE] 12:18:33:462 Broker/(3901:3902): Se van a envio a todos los subs, el nuevo APPEARED_POKEMON.
+[TRACE] 12:18:33:462 Broker/(3901:3902): Se almaceno el mensaje APPEARED_POKEMON en la cola.
+[TRACE] 12:18:33:462 Broker/(3901:3902): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:18:33:462 Broker/(3901:3902): Va a ejecutar 'accept'.
+[TRACE] 12:43:24:162 Broker/(5196:5196): Log, Config y Colas inicializadas.
+[TRACE] 12:43:24:163 Broker/(5196:5196): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 12:43:24:164 Broker/(5196:5197): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 12:43:24:165 Broker/(5196:5197): Va a ejeutar 'listen'.
+[TRACE] 12:43:24:166 Broker/(5196:5197): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:43:24:170 Broker/(5196:5197): Va a ejecutar 'accept'.
+[INFO] 12:44:49:199 Broker/(5196:5197): Conexion de 5 al Broker.
+[TRACE] 12:44:49:199 Broker/(5196:5197): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 12:44:49:204 Broker/(5196:5197): Mensaje recibido, cod_op: 8.
+[TRACE] 12:44:49:204 Broker/(5196:5197): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 12:44:49:204 Broker/(5196:5197): Mensaje SUSCRIPTOR recibido.
+[INFO] 12:44:49:204 Broker/(5196:5197): Suscripcion de 5 a la cola -1.
+[TRACE] 12:44:49:204 Broker/(5196:5197): Adentro de suscribir
+[TRACE] 12:44:49:204 Broker/(5196:5197): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:44:49:204 Broker/(5196:5197): Va a ejecutar 'accept'.
+[INFO] 12:46:04:307 Broker/(5196:5197): Conexion de 7 al Broker.
+[TRACE] 12:46:04:307 Broker/(5196:5197): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[ERROR] 12:46:04:308 Broker/(5196:5197): Error en 'recibir_codigo_operacion'
+[TRACE] 12:46:04:308 Broker/(5196:5197): Va a ejecutar 'handle_cliente'.
+[TRACE] 12:46:04:308 Broker/(5196:5197): Va a ejecutar 'accept'.
+[TRACE] 13:08:29:839 Broker/(5805:5805): Log, Config y Colas inicializadas.
+[TRACE] 13:08:29:841 Broker/(5805:5805): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:08:29:841 Broker/(5805:5806): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:08:29:842 Broker/(5805:5806): Va a ejeutar 'listen'.
+[TRACE] 13:08:29:842 Broker/(5805:5806): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:08:29:843 Broker/(5805:5806): Va a ejecutar 'accept'.
+[INFO] 13:09:13:198 Broker/(5805:5806): Conexion de 5 al Broker.
+[TRACE] 13:09:13:198 Broker/(5805:5806): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:09:13:202 Broker/(5805:5806): Mensaje recibido, cod_op: 8.
+[TRACE] 13:09:13:202 Broker/(5805:5806): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 13:09:13:202 Broker/(5805:5806): Mensaje SUSCRIPTOR recibido.
+[INFO] 13:09:13:202 Broker/(5805:5806): Suscripcion de 5 a la cola 3.
+[TRACE] 13:09:13:202 Broker/(5805:5806): Suscribir a 5 a cola NEW_POKEMON
+[TRACE] 13:09:13:202 Broker/(5805:5806): Se agrego 5 a la cola en la posicion 1.
+[TRACE] 13:09:13:203 Broker/(5805:5806): Adentro de suscribir
+[TRACE] 13:09:13:203 Broker/(5805:5806): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:09:13:203 Broker/(5805:5806): Va a ejecutar 'accept'.
+[INFO] 13:09:31:69 Broker/(5805:5806): Conexion de 7 al Broker.
+[TRACE] 13:09:31:69 Broker/(5805:5806): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:09:31:72 Broker/(5805:5806): Mensaje recibido, cod_op: 3.
+[TRACE] 13:09:31:72 Broker/(5805:5806): Se recibio un mensaje NEW_POKEMON
+[INFO] 13:09:31:72 Broker/(5805:5806): Llegada de mensaje nuevo 0 a cola NEW_POKEON
+[TRACE] 13:09:31:72 Broker/(5805:5806): Se devolvio el mensaje NEW_POKEMON con id asignado.
+[TRACE] 13:09:31:72 Broker/(5805:5806): Se agrego a la cola NEW_POKEMON el mensaje con id: 0.
+[TRACE] 13:09:31:72 Broker/(5805:5806): Se van a enviar a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:09:31:72 Broker/(5805:5806): Se va a enviar mensaje NEW_POKEMON id: 0 a sub: 5.
+[INFO] 13:09:31:72 Broker/(5805:5806): Envio de NEW_POKEMON 0 a suscriptor 5
+[TRACE] 13:09:31:72 Broker/(5805:5806): Se envio mensaje NEW_POKEMON
+[TRACE] 13:10:06:105 Broker/(5805:5806): Mensaje recibido, cod_op: -1219247832.
+[TRACE] 13:10:06:106 Broker/(5805:5806): Se van a envio a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:10:06:106 Broker/(5805:5806): Se almaceno el mensaje NEW_POKEMON en la cola.
+[TRACE] 13:10:06:106 Broker/(5805:5806): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:10:06:106 Broker/(5805:5806): Va a ejecutar 'accept'.
+[INFO] 13:10:06:106 Broker/(5805:5806): Conexion de 8 al Broker.
+[TRACE] 13:10:06:106 Broker/(5805:5806): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:10:06:106 Broker/(5805:5806): Mensaje recibido, cod_op: 3.
+[TRACE] 13:10:06:106 Broker/(5805:5806): Se recibio un mensaje NEW_POKEMON
+[INFO] 13:10:06:106 Broker/(5805:5806): Llegada de mensaje nuevo 1 a cola NEW_POKEON
+[TRACE] 13:10:06:106 Broker/(5805:5806): Se devolvio el mensaje NEW_POKEMON con id asignado.
+[TRACE] 13:10:06:107 Broker/(5805:5806): Se agrego a la cola NEW_POKEMON el mensaje con id: 1.
+[TRACE] 13:10:06:107 Broker/(5805:5806): Se van a enviar a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:10:06:107 Broker/(5805:5806): Se va a enviar mensaje NEW_POKEMON id: 1 a sub: 5.
+[INFO] 13:10:06:107 Broker/(5805:5806): Envio de NEW_POKEMON 1 a suscriptor 5
+[TRACE] 13:10:06:107 Broker/(5805:5806): Se envio mensaje NEW_POKEMON
+[TRACE] 13:10:06:107 Broker/(5805:5806): Mensaje recibido, cod_op: -1219247832.
+[TRACE] 13:10:06:107 Broker/(5805:5806): Se van a envio a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:10:06:107 Broker/(5805:5806): Se almaceno el mensaje NEW_POKEMON en la cola.
+[TRACE] 13:10:06:107 Broker/(5805:5806): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:10:06:107 Broker/(5805:5806): Va a ejecutar 'accept'.
+[TRACE] 13:10:17:720 Broker/(5826:5826): Log, Config y Colas inicializadas.
+[TRACE] 13:10:17:722 Broker/(5826:5826): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:10:17:723 Broker/(5826:5827): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:10:17:724 Broker/(5826:5827): Va a ejeutar 'listen'.
+[TRACE] 13:10:17:726 Broker/(5826:5827): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:10:17:727 Broker/(5826:5827): Va a ejecutar 'accept'.
+[INFO] 13:10:37:906 Broker/(5826:5827): Conexion de 5 al Broker.
+[TRACE] 13:10:37:906 Broker/(5826:5827): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:10:37:910 Broker/(5826:5827): Mensaje recibido, cod_op: 8.
+[TRACE] 13:10:37:910 Broker/(5826:5827): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 13:10:37:910 Broker/(5826:5827): Mensaje SUSCRIPTOR recibido.
+[INFO] 13:10:37:910 Broker/(5826:5827): Suscripcion de 5 a la cola 3.
+[TRACE] 13:10:37:910 Broker/(5826:5827): Suscribir a 5 a cola NEW_POKEMON
+[TRACE] 13:10:37:911 Broker/(5826:5827): Se agrego 5 a la cola en la posicion 1.
+[TRACE] 13:10:37:911 Broker/(5826:5827): Adentro de suscribir
+[TRACE] 13:10:37:911 Broker/(5826:5827): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:10:37:911 Broker/(5826:5827): Va a ejecutar 'accept'.
+[INFO] 13:11:16:433 Broker/(5826:5827): Conexion de 7 al Broker.
+[TRACE] 13:11:16:433 Broker/(5826:5827): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:11:16:435 Broker/(5826:5827): Mensaje recibido, cod_op: 3.
+[TRACE] 13:11:16:435 Broker/(5826:5827): Se recibio un mensaje NEW_POKEMON
+[INFO] 13:11:16:435 Broker/(5826:5827): Llegada de mensaje nuevo 0 a cola NEW_POKEON
+[TRACE] 13:11:16:435 Broker/(5826:5827): Se devolvio el mensaje NEW_POKEMON con id asignado.
+[TRACE] 13:11:16:435 Broker/(5826:5827): Se agrego a la cola NEW_POKEMON el mensaje con id: 0.
+[TRACE] 13:11:16:435 Broker/(5826:5827): Se van a enviar a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:11:16:435 Broker/(5826:5827): Se va a enviar mensaje NEW_POKEMON id: 0 a sub: 5.
+[INFO] 13:11:16:435 Broker/(5826:5827): Envio de NEW_POKEMON 0 a suscriptor 5
+[TRACE] 13:11:16:435 Broker/(5826:5827): Se envio mensaje NEW_POKEMON
+[TRACE] 13:26:00:575 Broker/(6139:6139): Log, Config y Colas inicializadas.
+[TRACE] 13:26:00:576 Broker/(6139:6139): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:26:00:576 Broker/(6139:6140): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:26:00:577 Broker/(6139:6140): Va a ejeutar 'listen'.
+[TRACE] 13:26:00:578 Broker/(6139:6140): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:26:00:578 Broker/(6139:6140): Va a ejecutar 'accept'.
+[INFO] 13:26:12:652 Broker/(6139:6140): Conexion de 5 al Broker.
+[TRACE] 13:26:12:652 Broker/(6139:6140): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:26:12:653 Broker/(6139:6140): Mensaje recibido, cod_op: 8.
+[TRACE] 13:26:12:653 Broker/(6139:6140): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 13:26:12:653 Broker/(6139:6140): Mensaje SUSCRIPTOR recibido.
+[INFO] 13:26:12:653 Broker/(6139:6140): Suscripcion de 5 a la cola 3.
+[TRACE] 13:26:12:653 Broker/(6139:6140): Suscribir a 5 a cola NEW_POKEMON
+[TRACE] 13:26:12:653 Broker/(6139:6140): Se agrego 5 a la cola en la posicion 1.
+[TRACE] 13:26:12:653 Broker/(6139:6140): Adentro de suscribir
+[TRACE] 13:26:12:653 Broker/(6139:6140): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:26:12:653 Broker/(6139:6140): Va a ejecutar 'accept'.
+[INFO] 13:26:20:201 Broker/(6139:6140): Conexion de 7 al Broker.
+[TRACE] 13:26:20:201 Broker/(6139:6140): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:26:20:204 Broker/(6139:6140): Mensaje recibido, cod_op: 3.
+[TRACE] 13:26:20:204 Broker/(6139:6140): Se recibio un mensaje NEW_POKEMON
+[INFO] 13:26:20:204 Broker/(6139:6140): Llegada de mensaje nuevo 0 a cola NEW_POKEON
+[TRACE] 13:26:20:204 Broker/(6139:6140): Se devolvio el mensaje NEW_POKEMON con id asignado.
+[TRACE] 13:26:20:204 Broker/(6139:6140): Se agrego a la cola NEW_POKEMON el mensaje con id: 0.
+[TRACE] 13:26:20:204 Broker/(6139:6140): Se van a enviar a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:26:20:204 Broker/(6139:6140): Se va a enviar mensaje NEW_POKEMON id: 0 a sub: 5.
+[INFO] 13:26:20:204 Broker/(6139:6140): Envio de NEW_POKEMON 0 a suscriptor 5
+[TRACE] 13:26:20:206 Broker/(6139:6140): Se envio mensaje NEW_POKEMON
+[TRACE] 13:26:20:206 Broker/(6139:6140): Mensaje recibido, cod_op: 9.
+[TRACE] 13:26:20:206 Broker/(6139:6140): Se recibio una CONFIRMACION.
+[TRACE] 13:26:20:206 Broker/(6139:6140): Se confirmara la recepcion del mensaje: Tipo: 3, ID: 0, Cliente: 5.
+[TRACE] 13:26:20:206 Broker/(6139:6140): Se encontro al suscriptor 5.
+[INFO] 13:26:20:206 Broker/(6139:6140): Confirmacion de recepcion de suscriptor 5 al envio del mensaje 0.
+[TRACE] 13:26:20:206 Broker/(6139:6140): Se confirmo la recepcion del mensaje
+[TRACE] 13:26:20:206 Broker/(6139:6140): Se van a envio a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:26:20:206 Broker/(6139:6140): Se almaceno el mensaje NEW_POKEMON en la cola.
+[TRACE] 13:26:20:206 Broker/(6139:6140): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:26:20:206 Broker/(6139:6140): Va a ejecutar 'accept'.
+[INFO] 13:26:34:867 Broker/(6139:6140): Conexion de 8 al Broker.
+[TRACE] 13:26:34:867 Broker/(6139:6140): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Mensaje recibido, cod_op: 3.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se recibio un mensaje NEW_POKEMON
+[INFO] 13:26:34:869 Broker/(6139:6140): Llegada de mensaje nuevo 1 a cola NEW_POKEON
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se devolvio el mensaje NEW_POKEMON con id asignado.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se agrego a la cola NEW_POKEMON el mensaje con id: 1.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se van a enviar a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se va a enviar mensaje NEW_POKEMON id: 1 a sub: 5.
+[INFO] 13:26:34:869 Broker/(6139:6140): Envio de NEW_POKEMON 1 a suscriptor 5
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se envio mensaje NEW_POKEMON
+[TRACE] 13:26:34:869 Broker/(6139:6140): Mensaje recibido, cod_op: 9.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se recibio una CONFIRMACION.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se confirmara la recepcion del mensaje: Tipo: 3, ID: 1, Cliente: 5.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se encontro al suscriptor 5.
+[INFO] 13:26:34:869 Broker/(6139:6140): Confirmacion de recepcion de suscriptor 5 al envio del mensaje 1.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se confirmo la recepcion del mensaje
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se van a envio a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Se almaceno el mensaje NEW_POKEMON en la cola.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:26:34:869 Broker/(6139:6140): Va a ejecutar 'accept'.
+[INFO] 13:26:36:499 Broker/(6139:6140): Conexion de 9 al Broker.
+[TRACE] 13:26:36:499 Broker/(6139:6140): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Mensaje recibido, cod_op: 3.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se recibio un mensaje NEW_POKEMON
+[INFO] 13:26:36:502 Broker/(6139:6140): Llegada de mensaje nuevo 2 a cola NEW_POKEON
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se devolvio el mensaje NEW_POKEMON con id asignado.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se agrego a la cola NEW_POKEMON el mensaje con id: 2.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se van a enviar a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se va a enviar mensaje NEW_POKEMON id: 2 a sub: 5.
+[INFO] 13:26:36:502 Broker/(6139:6140): Envio de NEW_POKEMON 2 a suscriptor 5
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se envio mensaje NEW_POKEMON
+[TRACE] 13:26:36:502 Broker/(6139:6140): Mensaje recibido, cod_op: 9.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se recibio una CONFIRMACION.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se confirmara la recepcion del mensaje: Tipo: 3, ID: 2, Cliente: 5.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se encontro al suscriptor 5.
+[INFO] 13:26:36:502 Broker/(6139:6140): Confirmacion de recepcion de suscriptor 5 al envio del mensaje 2.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se confirmo la recepcion del mensaje
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se van a envio a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Se almaceno el mensaje NEW_POKEMON en la cola.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:26:36:502 Broker/(6139:6140): Va a ejecutar 'accept'.
+[INFO] 13:26:37:894 Broker/(6139:6140): Conexion de 10 al Broker.
+[TRACE] 13:26:37:894 Broker/(6139:6140): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:26:37:896 Broker/(6139:6140): Mensaje recibido, cod_op: 3.
+[TRACE] 13:26:37:896 Broker/(6139:6140): Se recibio un mensaje NEW_POKEMON
+[INFO] 13:26:37:896 Broker/(6139:6140): Llegada de mensaje nuevo 3 a cola NEW_POKEON
+[TRACE] 13:26:37:896 Broker/(6139:6140): Se devolvio el mensaje NEW_POKEMON con id asignado.
+[TRACE] 13:26:37:896 Broker/(6139:6140): Se agrego a la cola NEW_POKEMON el mensaje con id: 3.
+[TRACE] 13:26:37:896 Broker/(6139:6140): Se van a enviar a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:26:37:896 Broker/(6139:6140): Se va a enviar mensaje NEW_POKEMON id: 3 a sub: 5.
+[INFO] 13:26:37:896 Broker/(6139:6140): Envio de NEW_POKEMON 3 a suscriptor 5
+[TRACE] 13:26:37:897 Broker/(6139:6140): Se envio mensaje NEW_POKEMON
+[TRACE] 13:26:37:897 Broker/(6139:6140): Mensaje recibido, cod_op: 9.
+[TRACE] 13:26:37:897 Broker/(6139:6140): Se recibio una CONFIRMACION.
+[TRACE] 13:26:37:897 Broker/(6139:6140): Se confirmara la recepcion del mensaje: Tipo: 3, ID: 3, Cliente: 5.
+[TRACE] 13:26:37:897 Broker/(6139:6140): Se encontro al suscriptor 5.
+[INFO] 13:26:37:897 Broker/(6139:6140): Confirmacion de recepcion de suscriptor 5 al envio del mensaje 3.
+[TRACE] 13:26:37:897 Broker/(6139:6140): Se confirmo la recepcion del mensaje
+[TRACE] 13:26:37:897 Broker/(6139:6140): Se van a envio a todos los subs, el nuevo NEW_POKEMON.
+[TRACE] 13:26:37:897 Broker/(6139:6140): Se almaceno el mensaje NEW_POKEMON en la cola.
+[TRACE] 13:26:37:897 Broker/(6139:6140): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:26:37:897 Broker/(6139:6140): Va a ejecutar 'accept'.
+[INFO] 13:27:21:456 Broker/(6139:6140): Conexion de 11 al Broker.
+[TRACE] 13:27:21:456 Broker/(6139:6140): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:27:21:458 Broker/(6139:6140): Mensaje recibido, cod_op: 8.
+[TRACE] 13:27:21:458 Broker/(6139:6140): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 13:27:21:458 Broker/(6139:6140): Mensaje SUSCRIPTOR recibido.
+[INFO] 13:27:21:458 Broker/(6139:6140): Suscripcion de 11 a la cola 5.
+[TRACE] 13:27:21:458 Broker/(6139:6140): Suscribir a 11 a cola CATCH_POKEMON
+[TRACE] 13:27:21:458 Broker/(6139:6140): Se agrego 11 a la cola en la posicion 1.
+[TRACE] 13:27:21:458 Broker/(6139:6140): Adentro de suscribir
+[TRACE] 13:27:21:458 Broker/(6139:6140): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:27:21:458 Broker/(6139:6140): Va a ejecutar 'accept'.
+[INFO] 13:28:13:784 Broker/(6139:6140): Conexion de 12 al Broker.
+[TRACE] 13:28:13:784 Broker/(6139:6140): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:28:13:787 Broker/(6139:6140): Mensaje recibido, cod_op: 5.
+[TRACE] 13:28:13:787 Broker/(6139:6140): Se recibio un mensaje CATCH_POKEMON
+[INFO] 13:28:13:787 Broker/(6139:6140): Llegada de mensaje nuevo 4 a cola CATCH_POKEMON
+[TRACE] 13:28:13:787 Broker/(6139:6140): Se devolvio el mensaje CATCH_POKEMON con id asignado.
+[TRACE] 13:28:13:787 Broker/(6139:6140): Se agrego a la cola CATCH_POKEMON el mensaje con id: 4.
+[TRACE] 13:28:13:787 Broker/(6139:6140): Se van a enviar a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 13:28:13:787 Broker/(6139:6140): Se va a enviar mensaje CATCH_POKEMON id: 4 a sub: 11.
+[INFO] 13:28:13:787 Broker/(6139:6140): Envio de CATCH_POKEMON 4 a suscriptor 11
+[TRACE] 13:28:13:787 Broker/(6139:6140): Se envio mensaje CATCH_POKEMON
+[TRACE] 13:28:13:787 Broker/(6139:6140): Mensaje recibido, cod_op: 9.
+[TRACE] 13:28:13:787 Broker/(6139:6140): Se recibio una CONFIRMACION.
+[TRACE] 13:28:13:787 Broker/(6139:6140): Se confirmara la recepcion del mensaje: Tipo: 5, ID: 4, Cliente: 11.
+[TRACE] 13:28:13:788 Broker/(6139:6140): Se encontro al suscriptor 11.
+[INFO] 13:28:13:788 Broker/(6139:6140): Confirmacion de recepcion de suscriptor 11 al envio del mensaje 4.
+[TRACE] 13:28:13:788 Broker/(6139:6140): Se confirmo la recepcion del mensaje
+[TRACE] 13:28:13:788 Broker/(6139:6140): Se van a envio a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 13:28:13:788 Broker/(6139:6140): Se almaceno el mensaje CATCH_POKEMON en la cola.
+[TRACE] 13:28:13:788 Broker/(6139:6140): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:28:13:788 Broker/(6139:6140): Va a ejecutar 'accept'.
+[INFO] 13:29:08:758 Broker/(6139:6140): Conexion de 13 al Broker.
+[TRACE] 13:29:08:758 Broker/(6139:6140): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:29:08:760 Broker/(6139:6140): Mensaje recibido, cod_op: 8.
+[TRACE] 13:29:08:760 Broker/(6139:6140): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 13:29:08:761 Broker/(6139:6140): Mensaje SUSCRIPTOR recibido.
+[INFO] 13:29:08:761 Broker/(6139:6140): Suscripcion de 13 a la cola -1.
+[TRACE] 13:29:08:761 Broker/(6139:6140): Adentro de suscribir
+[TRACE] 13:29:08:761 Broker/(6139:6140): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:29:08:761 Broker/(6139:6140): Va a ejecutar 'accept'.
+[TRACE] 13:32:18:928 Broker/(6426:6426): Log, Config y Colas inicializadas.
+[TRACE] 13:32:18:929 Broker/(6426:6426): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 13:32:18:929 Broker/(6426:6427): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 13:32:18:930 Broker/(6426:6427): Va a ejeutar 'listen'.
+[TRACE] 13:32:18:930 Broker/(6426:6427): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:32:18:930 Broker/(6426:6427): Va a ejecutar 'accept'.
+[INFO] 13:32:23:30 Broker/(6426:6427): Conexion de 5 al Broker.
+[TRACE] 13:32:23:30 Broker/(6426:6427): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:32:23:32 Broker/(6426:6427): Mensaje recibido, cod_op: 8.
+[TRACE] 13:32:23:32 Broker/(6426:6427): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 13:32:23:32 Broker/(6426:6427): Mensaje SUSCRIPTOR recibido.
+[INFO] 13:32:23:32 Broker/(6426:6427): Suscripcion de 5 a la cola 4.
+[TRACE] 13:32:23:32 Broker/(6426:6427): Suscribir a 5 a cola CAUGHT_POKEMON
+[TRACE] 13:32:23:32 Broker/(6426:6427): Se agrego 5 a la cola en la posicion 1.
+[TRACE] 13:32:23:32 Broker/(6426:6427): Adentro de suscribir
+[TRACE] 13:32:23:32 Broker/(6426:6427): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:32:23:32 Broker/(6426:6427): Va a ejecutar 'accept'.
+[INFO] 13:32:35:495 Broker/(6426:6427): Conexion de 7 al Broker.
+[TRACE] 13:32:35:495 Broker/(6426:6427): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:32:35:497 Broker/(6426:6427): Mensaje recibido, cod_op: 4.
+[TRACE] 13:32:35:497 Broker/(6426:6427): Se recibio un mensaje CAUGHT_POKEMON
+[INFO] 13:32:35:497 Broker/(6426:6427): Llegada de mensaje nuevo 0 a cola CAUGTH_POKEON
+[TRACE] 13:32:35:497 Broker/(6426:6427): Se devolvio el mensaje CAUGTH_POKEMON con id asignado.
+[TRACE] 13:32:35:497 Broker/(6426:6427): Se agrego a la cola CAUGHT_POKEMON el mensaje con id: 0.
+[TRACE] 13:32:35:497 Broker/(6426:6427): Se van a enviar a todos los subs, el nuevo CAUGHT_POKEMON.
+[TRACE] 13:32:35:497 Broker/(6426:6427): Se va a enviar mensaje CAUGHT_POKEMON id: 0 a sub: 5.
+[INFO] 13:32:35:497 Broker/(6426:6427): Envio de CAUGHT_POKEMON 0 a suscriptor 5
+[TRACE] 13:32:35:498 Broker/(6426:6427): Se envio mensaje CAUGHT_POKEMON
+[TRACE] 13:32:35:498 Broker/(6426:6427): Mensaje recibido, cod_op: 9.
+[TRACE] 13:32:35:498 Broker/(6426:6427): Se recibio una CONFIRMACION.
+[TRACE] 13:32:35:498 Broker/(6426:6427): Se confirmara la recepcion del mensaje: Tipo: 4, ID: 0, Cliente: 5.
+[TRACE] 13:32:35:498 Broker/(6426:6427): Se encontro al suscriptor 5.
+[INFO] 13:32:35:498 Broker/(6426:6427): Confirmacion de recepcion de suscriptor 5 al envio del mensaje 0.
+[TRACE] 13:32:35:498 Broker/(6426:6427): Se confirmo la recepcion del mensaje
+[TRACE] 13:32:35:498 Broker/(6426:6427): Se van a envio a todos los subs, el nuevo CAUGHT_POKEMON.
+[TRACE] 13:32:35:498 Broker/(6426:6427): Se almaceno el mensaje CAUGTH_POKEMON en la cola.
+[TRACE] 13:32:35:498 Broker/(6426:6427): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:32:35:498 Broker/(6426:6427): Va a ejecutar 'accept'.
+[INFO] 13:33:49:842 Broker/(6426:6427): Conexion de 8 al Broker.
+[TRACE] 13:33:49:842 Broker/(6426:6427): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:33:49:844 Broker/(6426:6427): Mensaje recibido, cod_op: 4.
+[TRACE] 13:33:49:844 Broker/(6426:6427): Se recibio un mensaje CAUGHT_POKEMON
+[INFO] 13:33:49:844 Broker/(6426:6427): Llegada de mensaje nuevo 1 a cola CAUGTH_POKEON
+[TRACE] 13:33:49:844 Broker/(6426:6427): Se devolvio el mensaje CAUGTH_POKEMON con id asignado.
+[TRACE] 13:33:49:844 Broker/(6426:6427): Se agrego a la cola CAUGHT_POKEMON el mensaje con id: 1.
+[TRACE] 13:33:49:845 Broker/(6426:6427): Se van a enviar a todos los subs, el nuevo CAUGHT_POKEMON.
+[TRACE] 13:33:49:845 Broker/(6426:6427): Se va a enviar mensaje CAUGHT_POKEMON id: 1 a sub: 5.
+[INFO] 13:33:49:845 Broker/(6426:6427): Envio de CAUGHT_POKEMON 1 a suscriptor 5
+[TRACE] 13:33:49:845 Broker/(6426:6427): Se envio mensaje CAUGHT_POKEMON
+[TRACE] 13:33:49:845 Broker/(6426:6427): Mensaje recibido, cod_op: 9.
+[TRACE] 13:33:49:845 Broker/(6426:6427): Se recibio una CONFIRMACION.
+[TRACE] 13:33:49:845 Broker/(6426:6427): Se confirmara la recepcion del mensaje: Tipo: 4, ID: 1, Cliente: 5.
+[TRACE] 13:33:49:845 Broker/(6426:6427): Se encontro al suscriptor 5.
+[INFO] 13:33:49:845 Broker/(6426:6427): Confirmacion de recepcion de suscriptor 5 al envio del mensaje 1.
+[TRACE] 13:33:49:845 Broker/(6426:6427): Se confirmo la recepcion del mensaje
+[TRACE] 13:33:49:845 Broker/(6426:6427): Se van a envio a todos los subs, el nuevo CAUGHT_POKEMON.
+[TRACE] 13:33:49:845 Broker/(6426:6427): Se almaceno el mensaje CAUGTH_POKEMON en la cola.
+[TRACE] 13:33:49:845 Broker/(6426:6427): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:33:49:845 Broker/(6426:6427): Va a ejecutar 'accept'.
+[INFO] 13:34:32:288 Broker/(6426:6427): Conexion de 9 al Broker.
+[TRACE] 13:34:32:289 Broker/(6426:6427): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:34:32:295 Broker/(6426:6427): Mensaje recibido, cod_op: 8.
+[TRACE] 13:34:32:295 Broker/(6426:6427): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 13:34:32:295 Broker/(6426:6427): Mensaje SUSCRIPTOR recibido.
+[INFO] 13:34:32:295 Broker/(6426:6427): Suscripcion de 9 a la cola 6.
+[TRACE] 13:34:32:295 Broker/(6426:6427): Suscribir a 9 a cola GET_POKEMON
+[TRACE] 13:34:32:295 Broker/(6426:6427): Se agrego 9 a la cola en la posicion 1.
+[TRACE] 13:34:32:295 Broker/(6426:6427): Adentro de suscribir
+[TRACE] 13:34:32:295 Broker/(6426:6427): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:34:32:295 Broker/(6426:6427): Va a ejecutar 'accept'.
+[INFO] 13:34:48:64 Broker/(6426:6427): Conexion de 10 al Broker.
+[TRACE] 13:34:48:64 Broker/(6426:6427): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 13:34:48:64 Broker/(6426:6427): Mensaje recibido, cod_op: 6.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se recibio un mensaje GET_POKEMON
+[INFO] 13:34:48:65 Broker/(6426:6427): Llegada de mensaje nuevo 2 a cola GET_POKEON
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se devolvio el mensaje GET_POKEMON con id asignado.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se agrego a la cola GET_POKEMON el mensaje con id: 2.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se van a enviar a todos los subs, el nuevo GET_POKEMON.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se va a enviar mensaje GET_POKEMON id: 2 a sub: 9.
+[INFO] 13:34:48:65 Broker/(6426:6427): Envio de GET_POKEMON 2 a suscriptor 9
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se envio mensaje GET_POKEMON
+[TRACE] 13:34:48:65 Broker/(6426:6427): Mensaje recibido, cod_op: 9.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se recibio una CONFIRMACION.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se confirmara la recepcion del mensaje: Tipo: 6, ID: 2, Cliente: 9.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se encontro al suscriptor 9.
+[INFO] 13:34:48:65 Broker/(6426:6427): Confirmacion de recepcion de suscriptor 9 al envio del mensaje 2.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se confirmo la recepcion del mensaje
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se van a envio a todos los subs, el nuevo GET_POKEMON.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Se almaceno el mensaje GET_POKEMON en la cola.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Va a ejecutar 'handle_cliente'.
+[TRACE] 13:34:48:65 Broker/(6426:6427): Va a ejecutar 'accept'.

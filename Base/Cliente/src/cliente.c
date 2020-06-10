@@ -71,9 +71,9 @@ int main(void) {
 	list_add(posiciones, posicion2);
 	list_add(posiciones, posicion3);
 
-	t_localized* mensaje_localized = crear_localized(10, "Bulbasaur",
+	t_localized* mensaje_localized = crear_localized_pokemon(10, "Bulbasaur",
 			posiciones);
-	t_buffer* buffer_localized = serializar_localized(mensaje_localized);
+	t_buffer* buffer_localized = serializar_localized_pokemon(mensaje_localized);
 
 	//Prueba confirmacion
 	/*t_confirmacion* mensaje_confirmacion = crear_confirmacion(NEW_POKEMON, 10);
