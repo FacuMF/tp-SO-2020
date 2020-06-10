@@ -130,6 +130,7 @@ void handle_cliente(int socket_servidor) {
 
  void handle_mensaje(int cod_op, int socket_cliente){
 	t_buffer * buffer;
+	int id_mensaje_recibido;
 
 	switch (cod_op) {
 		case SUSCRIPTOR:
@@ -156,7 +157,7 @@ void handle_cliente(int socket_servidor) {
 			buffer = recibir_mensaje(socket_cliente);
 			t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
 
-			int id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_appeared_pokemon);
+			id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_appeared_pokemon);
 
 			log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEON", id_mensaje_recibido);
 
@@ -173,22 +174,103 @@ void handle_cliente(int socket_servidor) {
 			break;
 		case NEW_POKEMON:
 			log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
+			buffer = recibir_mensaje(socket_cliente);
+			t_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(buffer);
+
+			id_mensaje_recibido = asignar_id_new_pokemon(mensaje_new_pokemon);
+
+			log_info(logger, "Llegada de mensaje nuevo %i a cola NEW_POKEON", id_mensaje_recibido);
+
+			devolver_new_pokemon(socket_cliente ,mensaje_new_pokemon);
+			log_trace(logger, "Se devolvio el mensaje NEW_POKEMON con id asignado.");
+
+			almacenar_en_cola_new_pokemon(mensaje_new_pokemon);
+			log_trace(logger, "Se almaceno el mensaje NEW_POKEMON en la cola.");
+
+			//cachear_new_pokemon(mensaje);
+
+			//free (liberar memoria)
 
 			break;
 		case CATCH_POKEMON:
 			log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
+			buffer = recibir_mensaje(socket_cliente);
+			t_catch_pokemon* mensaje_catch_pokemon = deserializar_catch_pokemon(buffer);
+
+			id_mensaje_recibido = asignar_id_catch_pokemon(mensaje_catch_pokemon);
+
+			log_info(logger, "Llegada de mensaje nuevo %i a cola CATCH_POKEMON", id_mensaje_recibido);
+
+			devolver_catch_pokemon(socket_cliente ,mensaje_catch_pokemon);
+			log_trace(logger, "Se devolvio el mensaje CATCH_POKEMON con id asignado.");
+
+			almacenar_en_cola_catch_pokemon(mensaje_catch_pokemon);
+			log_trace(logger, "Se almaceno el mensaje CATCH_POKEMON en la cola.");
+
+			//cachear_catch_pokemon(mensaje);
+
+			//free (liberar memoria)
+
 
 			break;
 		case CAUGHT_POKEMON:
 			log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
+			buffer = recibir_mensaje(socket_cliente);
+			t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(buffer);
+
+			id_mensaje_recibido = asignar_id_caught_pokemon(mensaje_caught_pokemon);
+
+			log_info(logger, "Llegada de mensaje nuevo %i a cola CAUGTH_POKEON", id_mensaje_recibido);
+
+			devolver_caught_pokemon(socket_cliente ,mensaje_caught_pokemon);
+			log_trace(logger, "Se devolvio el mensaje CAUGTH_POKEMON con id asignado.");
+
+			almacenar_en_cola_caught_pokemon(mensaje_caught_pokemon);
+			log_trace(logger, "Se almaceno el mensaje CAUGTH_POKEMON en la cola.");
+
+			//cachear_caught_pokemon(mensaje);
+
+			//free (liberar memoria)
 
 			break;
 		case GET_POKEMON:
 			log_trace(logger, "Se recibio un mensaje GET_POKEMON");
+			buffer = recibir_mensaje(socket_cliente);
+			t_get_pokemon* mensaje_get_pokemon = deserializar_get_pokemon(buffer);
+
+			id_mensaje_recibido = asignar_id_get_pokemon(mensaje_get_pokemon);
+
+			log_info(logger, "Llegada de mensaje nuevo %i a cola GET_POKEON", id_mensaje_recibido);
+
+			devolver_get_pokemon(socket_cliente ,mensaje_get_pokemon);
+			log_trace(logger, "Se devolvio el mensaje GET_POKEMON con id asignado.");
+
+			almacenar_en_cola_get_pokemon(mensaje_get_pokemon);
+			log_trace(logger, "Se almaceno el mensaje GET_POKEMON en la cola.");
+
+			//cachear_get_pokemon(mensaje);
+
+			//free (liberar memoria)
 
 			break;
 		case LOCALIZED_POKEMON:
 			log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
+			buffer = recibir_mensaje(socket_cliente);
+			t_localized* mensaje_localized_pokemon = deserializar_localized(buffer);
+
+			id_mensaje_recibido = asignar_id_localized_pokemon(mensaje_localized_pokemon);
+
+			log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEON", id_mensaje_recibido);
+
+			devolver_localized_pokemon(socket_cliente ,mensaje_localized_pokemon);
+			log_trace(logger, "Se devolvio el mensaje localized_pokemon con id asignado.");
+
+			almacenar_en_cola_localized_pokemon(mensaje_localized_pokemon);
+			log_trace(logger, "Se almaceno el mensaje localized_pokemon en la cola.");
+
+			//cachear_localized_pokemon(mensaje);
+
+			//free (liberar memoria)
 
 			break;
 		case CONFIRMACION:
@@ -204,11 +286,6 @@ void handle_cliente(int socket_servidor) {
 			break;
  	}
  }
-
-void setear_socket_reusable(int socket) {
-	int activado = 1;
-	setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado));
-}
 
 void enviar_mensaje_de_cola(void* mensaje, int ciente){
 

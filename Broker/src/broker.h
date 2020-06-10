@@ -53,7 +53,6 @@ void inicializacion_colas(void);
 void inizializacion_ids(void);
 
 void* esperar_mensajes(void *arg);
-void setear_socket_reusable(int socket);
 void* iniciar_conexion_con_modulo(char* ip, char* puerto);
 void handle_cliente(int socket_servidor);
 void recibir_mensaje_del_cliente(int* socket);
@@ -82,14 +81,49 @@ void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appe
 //void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
 
 // NEW_POKEMON
+int asignar_id_new_pokemon(t_new_pokemon* mensaje);
+void devolver_new_pokemon(int socket_cliente ,t_new_pokemon* mensaje_new_pokemon);
+void almacenar_en_cola_new_pokemon(t_new_pokemon* mensaje);
+
+void enviar_a_todos_los_subs_new_pokemon(t_new_pokemon* mensaje);
+void enviar_new_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_new_pokemon* mensaje);
+//void cachear_new_pokemon(t_mensaje_new_pokemon mensaje);
 
 // CATCH_POKEMON
+int asignar_id_catch_pokemon(t_catch_pokemon* mensaje);
+void devolver_catch_pokemon(int socket_cliente ,t_catch_pokemon* mensaje_catch_pokemon);
+void almacenar_en_cola_catch_pokemon(t_catch_pokemon* mensaje);
+
+void enviar_a_todos_los_subs_catch_pokemon(t_catch_pokemon* mensaje);
+void enviar_catch_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_catch_pokemon* mensaje);
+//void cachear_catch_pokemon(t_mensaje_catch_pokemon mensaje);
 
 // CAUGHT_POKEMON
+int asignar_id_caugth_pokemon(t_caught_pokemon* mensaje);
+void devolver_caugth_pokemon(int socket_cliente ,t_caught_pokemon* mensaje_caugth_pokemon);
+void almacenar_en_cola_caugth_pokemon(t_caught_pokemon* mensaje);
+
+void enviar_a_todos_los_subs_caugth_pokemon(t_caught_pokemon* mensaje);
+void enviar_caugth_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_caught_pokemon* mensaje);
+//void cachear_caugth_pokemon(t_mensaje_caugth_pokemon mensaje);
 
 // GET_POKEMON
+int asignar_id_get_pokemon(t_get_pokemon* mensaje);
+void devolver_get_pokemon(int socket_cliente ,t_get_pokemon* mensaje_get_pokemon);
+void almacenar_en_cola_get_pokemon(t_get_pokemon* mensaje);
+
+void enviar_a_todos_los_subs_get_pokemon(t_get_pokemon* mensaje);
+void enviar_get_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_get_pokemon* mensaje);
+//void cachear_get_pokemon(t_mensaje_get_pokemon mensaje);
 
 // LOCALIZED_POKEMON
+int asignar_id_localized_pokemon(t_localized* mensaje);
+void devolver_localized_pokemon(int socket_cliente ,t_localized* mensaje_localized_pokemon);
+void almacenar_en_cola_localized_pokemon(t_localized* mensaje);
+
+void enviar_a_todos_los_subs_localized_pokemon(t_localized* mensaje);
+void enviar_localized_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_localized* mensaje);
+//void cachear_localized_pokemon(t_mensaje_localized_pokemon mensaje);
 
 //CONFIRMACION
 void confirmar_cliente_recibio(t_confirmacion* mensaje_confirmacion, int socket_cliente);
