@@ -112,7 +112,7 @@ char* deserializar_tipo_mensaje(int cod_op, int cliente_fd) {
 	case LOCALIZED_POKEMON:
 		;
 		buffer = recibir_mensaje(cliente_fd);
-		t_localized* mensaje_localized = deserializar_localized(buffer);
+		t_localized* mensaje_localized = deserializar_localized_pokemon(buffer);
 		puts("pase la deserializacion");
 		parametros_recibidos = mostrar_localized(mensaje_localized);
 		free(mensaje_localized);
@@ -458,7 +458,7 @@ t_subscriptor* deserializar_suscripcion(t_buffer* buffer) {
 }
 
 //MENSAJE LOCALIZED
-t_localized* crear_localized(int id_mensaje, char* pokemon, t_list* posiciones) {
+t_localized* crear_localized_pokemon(int id_mensaje, char* pokemon, t_list* posiciones) {
 	t_localized* mensaje = malloc(sizeof(t_localized));
 	int cantidad_posiciones = list_size(posiciones);
 
@@ -471,7 +471,7 @@ t_localized* crear_localized(int id_mensaje, char* pokemon, t_list* posiciones) 
 
 	return mensaje;
 }
-t_buffer* serializar_localized(t_localized* mensaje) {
+t_buffer* serializar_localized_pokemon(t_localized* mensaje) {
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 	buffer->size = sizeof(int) * 3 + mensaje->size_pokemon
 			+ mensaje->cantidad_posiciones * sizeof(t_posicion);
@@ -502,7 +502,7 @@ t_buffer* serializar_localized(t_localized* mensaje) {
 	buffer->stream = stream;
 	return buffer;
 }
-t_localized* deserializar_localized(t_buffer* buffer) {
+t_localized* deserializar_localized_pokemon(t_buffer* buffer) {
 	t_localized* mensaje = malloc(sizeof(t_localized));
 	void* stream = buffer->stream;
 

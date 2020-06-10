@@ -256,7 +256,7 @@ void handle_cliente(int socket_servidor) {
 		case LOCALIZED_POKEMON:
 			log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
 			buffer = recibir_mensaje(socket_cliente);
-			t_localized* mensaje_localized_pokemon = deserializar_localized(buffer);
+			t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(buffer);
 
 			id_mensaje_recibido = asignar_id_localized_pokemon(mensaje_localized_pokemon);
 

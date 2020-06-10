@@ -8,7 +8,7 @@ int asignar_id_localized_pokemon(t_localized* mensaje){
 
 void devolver_localized_pokemon(int socket_cliente ,t_localized* mensaje_localized_pokemon){
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
-	mensaje_serializado = serializar_localized(mensaje_localized_pokemon);
+	mensaje_serializado = serializar_localized_pokemon(mensaje_localized_pokemon);
 	enviar_mensaje(socket_cliente, mensaje_serializado, LOCALIZED_POKEMON);
 }
 
@@ -44,7 +44,7 @@ void enviar_localized_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_loc
 	log_trace(logger, "Se va a enviar mensaje LOCALIZED_POKEMON id: %i a sub: %i."
 			, mensaje->id_mensaje, suscriptor->socket);
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
-	mensaje_serializado = serializar_localized(mensaje);
+	mensaje_serializado = serializar_localized_pokemon(mensaje);
 	enviar_mensaje(suscriptor->socket, mensaje_serializado, LOCALIZED_POKEMON);
 
 	log_info(logger, "Envio de LOCALIZED_POKEMON %i a suscriptor %i", mensaje->id_mensaje, suscriptor->socket);
