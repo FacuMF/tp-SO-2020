@@ -55628,3 +55628,59 @@
 [TRACE] 23:50:08:214 Broker/(15033:15034): Se agrego a la cola APPEARED_POKEMON el mensaje con id: 1.
 [TRACE] 23:50:08:214 Broker/(15033:15034): Se van a enviar a todos los subs, el nuevo APPEARED_POKEMON.
 [TRACE] 23:50:08:214 Broker/(15033:15034): Se va a enviar mensaje APPEARED_POKEMON id: 1 a sub: 5.
+[TRACE] 19:38:22:112 Broker/(20458:20458): Log, Config y Colas inicializadas.
+[TRACE] 19:38:22:112 Broker/(20458:20458): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 19:38:22:112 Broker/(20458:20459): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 19:38:22:112 Broker/(20458:20459): Va a ejeutar 'listen'.
+[TRACE] 19:38:22:113 Broker/(20458:20459): Va a ejecutar 'handle_cliente'.
+[TRACE] 19:38:22:113 Broker/(20458:20459): Va a ejecutar 'accept'.
+[TRACE] 19:38:31:894 Broker/(20458:20459): Conexion de 5 al Broker.
+[TRACE] 19:38:31:894 Broker/(20458:20459): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 19:38:31:894 Broker/(20458:20459): Mensaje recibido, cod_op: 8.
+[TRACE] 19:38:31:894 Broker/(20458:20459): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 19:38:31:894 Broker/(20458:20459): Mensaje SUSCRIPTOR recibido.
+[INFO] 19:38:31:894 Broker/(20458:20459): Suscripcion de 5 a la cola 2.
+[TRACE] 19:38:31:894 Broker/(20458:20459): Suscribir a 5 a cola APPEARED_POKEMON.
+[TRACE] 19:38:31:894 Broker/(20458:20459): Se agrego 5 a la cola en la posicion 1.
+[TRACE] 19:38:31:894 Broker/(20458:20459): Adentro de suscribir
+[TRACE] 19:38:31:894 Broker/(20458:20459): Va a ejecutar 'handle_cliente'.
+[TRACE] 19:38:31:894 Broker/(20458:20459): Va a ejecutar 'accept'.
+[TRACE] 19:39:37:192 Broker/(20633:20633): Log, Config y Colas inicializadas.
+[TRACE] 19:39:37:192 Broker/(20633:20633): Va a ejecutar hilo 'esperar_mensaje'.
+[TRACE] 19:39:37:192 Broker/(20633:20634): Se va a ejecutar 'iniciar_conexion_con_el_modulo'.
+[TRACE] 19:39:37:192 Broker/(20633:20634): Va a ejeutar 'listen'.
+[TRACE] 19:39:37:192 Broker/(20633:20634): Va a ejecutar 'handle_cliente'.
+[TRACE] 19:39:37:192 Broker/(20633:20634): Va a ejecutar 'accept'.
+[TRACE] 19:39:39:374 Broker/(20633:20634): Conexion de 5 al Broker.
+[TRACE] 19:39:39:374 Broker/(20633:20634): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Mensaje recibido, cod_op: 8.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 19:39:39:375 Broker/(20633:20634): Mensaje SUSCRIPTOR recibido.
+[INFO] 19:39:39:375 Broker/(20633:20634): Suscripcion de 5 a la cola 2.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Suscribir a 5 a cola APPEARED_POKEMON.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Se agrego 5 a la cola en la posicion 1.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Adentro de suscribir
+[TRACE] 19:39:39:375 Broker/(20633:20634): Va a ejecutar 'handle_cliente'.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Va a ejecutar 'accept'.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Conexion de 7 al Broker.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Mensaje recibido, cod_op: 8.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 19:39:39:375 Broker/(20633:20634): Mensaje SUSCRIPTOR recibido.
+[INFO] 19:39:39:375 Broker/(20633:20634): Suscripcion de 7 a la cola 7.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Suscribir a 7 a cola LOCALIZED_POKEMON
+[TRACE] 19:39:39:375 Broker/(20633:20634): Se agrego 7 a la cola en la posicion 1.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Adentro de suscribir
+[TRACE] 19:39:39:375 Broker/(20633:20634): Va a ejecutar 'handle_cliente'.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Va a ejecutar 'accept'.
+[TRACE] 19:39:39:375 Broker/(20633:20634): Conexion de 8 al Broker.
+[TRACE] 19:39:39:376 Broker/(20633:20634): Va a lanzar hilo 'recibir_mensaje_del_cliente'.
+[TRACE] 19:39:39:376 Broker/(20633:20634): Mensaje recibido, cod_op: 8.
+[TRACE] 19:39:39:376 Broker/(20633:20634): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 19:39:39:376 Broker/(20633:20634): Mensaje SUSCRIPTOR recibido.
+[INFO] 19:39:39:376 Broker/(20633:20634): Suscripcion de 8 a la cola 4.
+[TRACE] 19:39:39:376 Broker/(20633:20634): Suscribir a 8 a cola CAUGHT_POKEMON
+[TRACE] 19:39:39:376 Broker/(20633:20634): Se agrego 8 a la cola en la posicion 1.
+[TRACE] 19:39:39:376 Broker/(20633:20634): Adentro de suscribir
+[TRACE] 19:39:39:376 Broker/(20633:20634): Va a ejecutar 'handle_cliente'.
+[TRACE] 19:39:39:376 Broker/(20633:20634): Va a ejecutar 'accept'.

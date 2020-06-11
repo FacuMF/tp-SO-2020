@@ -30,7 +30,6 @@ typedef struct t_entrenador {
 } t_entrenador;
 
 // TT
-void conectar_con_gameboy();
 void manejar_recepcion_mensaje(int* socket_cliente);
 void esperar_cliente(int socket_servidor);
 
@@ -39,10 +38,15 @@ void iniciar_team(char*archivo_config[]);
 void finalizar_team();
 char * obtener_path(char*string);
 
-// Comunicacion
-void iniciar_conexion_con_gameboy();
-void iniciar_conexion_con_broker();
+// Comunicacion Broker
+void suscribirse_a_colas_necesarias();
+void enviar_suscripcion_broker(op_code tipo_mensaje);
+void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
+int iniciar_conexion_con_broker();
 void enviar_requests_pokemones(t_list *objetivo_global);
+
+
+void iniciar_conexion_con_gameboy();
 
 // Funciones de carga de entrenador - team_entrenadores
 t_list* cargar_entrenadores();

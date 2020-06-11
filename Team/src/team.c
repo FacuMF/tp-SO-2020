@@ -2,7 +2,7 @@
 
 int counter;
 
-int main(int argv,char*archivo_config[]) {
+int main(int argv, char*archivo_config[]) {
 
 	iniciar_team(archivo_config);
 
@@ -12,20 +12,19 @@ int main(int argv,char*archivo_config[]) {
 
 	t_list * objetivo_global = formar_objetivo(pokemones_con_repetidos);
 
+	suscribirse_a_colas_necesarias();
+
+	//enviar_requests_pokemones()
+
 	//lanzar_hilos(head_entrenadores);
 
 	//iniciar_conexion_con_gameboy();	//TO DO
 
-	iniciar_conexion_con_broker();
-
-	//enviar_requests_pokemones()
-
 	// Atender mensajes
 
-
 	// TT - To Test
-	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(head_entrenadores,1,3);
-
+	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(
+			head_entrenadores, 1, 3);
 
 	// Conectar_con_gameboy
 
@@ -33,49 +32,72 @@ int main(int argv,char*archivo_config[]) {
 	finalizar_team();
 }
 
-
 // Comunicacion con broker
+void suscribirse_a_colas_necesarias(){
+	enviar_suscripcion_broker(APPEARED_POKEMON);
+	enviar_suscripcion_broker(LOCALIZED_POKEMON);
+	enviar_suscripcion_broker(CAUGHT_POKEMON);
 
-void enviar_requests_pokemones(t_list *objetivo_global){
-
-	//iterar por cada elemento de la lista objetivo_global
-		// Enviar mensajes
-
-	//log_trace(logger,"Gets enviados");
 }
 
-void iniciar_conexion_con_broker(){
-	char * ip_broker = config_get_string_value(config,"IP_BROKER");
-	char * puerto_broker=config_get_string_value(config,"PUERTO_BROKER");
-	log_trace(logger,"Ip BROKER Leida : %s Puerto BROKER Leido : %s\n",ip_broker,puerto_broker);
+void enviar_suscripcion_broker(op_code tipo_mensaje) {
 
-	int conexion = iniciar_conexion(ip_broker, puerto_broker);
+	int socket_broker = iniciar_conexion_con_broker();
+	enviar_mensaje_suscripcion(tipo_mensaje, socket_broker);
+/*
+	while (1) {
+		int cod_op = recibir_codigo_operacion(socket_broker);
+		(cod_op == -1) ?
+				log_error(logger, "Error en 'recibir_codigo_operacion'") :
+				log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
+		// Manejar recepcion mensajes
+	}
+*/
+}
 
+void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 	t_subscriptor* mensaje_suscripcion;
-	mensaje_suscripcion = crear_suscripcion(APPEARED_POKEMON,30);
+	mensaje_suscripcion = crear_suscripcion(mensaje, -10);
 
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
 
 	enviar_mensaje(conexion, mensaje_serializado, SUSCRIPTOR);
-
-	// me quedo esperando mensajes de la cola
-	int cod_op = recibir_codigo_operacion(conexion);
-		(cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
-				 	 	 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
 }
 
-void iniciar_conexion_con_gameboy(){
-	char * ip_gameboy = config_get_string_value(config,"IP_GAMEBOY");
-	char * puerto_gameboy=config_get_string_value(config,"PUERTO_GAMEBOY");
-	log_trace(logger,"Ip Gameboy Leida : %s Puerto Gameboy Leido : %s\n",ip_gameboy,puerto_gameboy);
+void enviar_requests_pokemones(t_list *objetivo_global) {
 
-	int socket_gameboy = iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);
+	//iterar por cada elemento de la lista objetivo_global
+	// Enviar mensajes
 
-	listen(socket_gameboy, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
+	//log_trace(logger,"Gets enviados");
+}
 
-	while(1){
-		log_trace(logger,"Esperando Cliente");
+
+
+int iniciar_conexion_con_broker() {
+	char * ip_broker = config_get_string_value(config, "IP_BROKER");
+	char * puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
+	log_trace(logger, "Ip BROKER Leida : %s Puerto BROKER Leido : %s\n",
+			ip_broker, puerto_broker);
+
+	int conexion = iniciar_conexion(ip_broker, puerto_broker);
+
+	return conexion;
+}
+
+void iniciar_conexion_con_gameboy() {
+	char * ip_gameboy = config_get_string_value(config, "IP_GAMEBOY");
+	char * puerto_gameboy = config_get_string_value(config, "PUERTO_GAMEBOY");
+	log_trace(logger, "Ip Gameboy Leida : %s Puerto Gameboy Leido : %s\n",
+			ip_gameboy, puerto_gameboy);
+
+	int socket_gameboy = iniciar_conexion_servidor(ip_gameboy, puerto_gameboy);
+
+	listen(socket_gameboy, SOMAXCONN);// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
+
+	while (1) {
+		log_trace(logger, "Esperando Cliente");
 		esperar_cliente(socket_gameboy);//Queda esperando que un cliente se conecte
 	}
 }
@@ -86,8 +108,8 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 	int tam_direccion = sizeof(struct sockaddr_in);
 
 	log_trace(logger, "Va a ejecutar 'accept'.");
-	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);// Acepta el request del cliente y crea el socket
-
+	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
+			&tam_direccion);// Acepta el request del cliente y crea el socket
 
 	manejar_recepcion_mensaje(&socket_cliente);
 
@@ -96,16 +118,16 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 }
 
-void manejar_recepcion_mensaje(int* socket_cliente){
+void manejar_recepcion_mensaje(int* socket_cliente) {
 	int cod_op = recibir_codigo_operacion(*socket_cliente);
-	log_trace(logger,"Mensaje Recibido codop: %d",cod_op);
+	log_trace(logger, "Mensaje Recibido codop: %d", cod_op);
 }
 
 // Funciones Generales
-void iniciar_team(char*argumentos_iniciales[]){
+void iniciar_team(char*argumentos_iniciales[]) {
 	// Calcular archivo a abrir
-	char * nombre_archivo_config= malloc(sizeof(argumentos_iniciales[1]));
-	strcpy(nombre_archivo_config,argumentos_iniciales[1]);
+	char * nombre_archivo_config = malloc(sizeof(argumentos_iniciales[1]));
+	strcpy(nombre_archivo_config, argumentos_iniciales[1]);
 	char *path_config = obtener_path(nombre_archivo_config);
 
 	// Obtener info de config
@@ -113,28 +135,28 @@ void iniciar_team(char*argumentos_iniciales[]){
 	free(nombre_archivo_config);
 
 	// Leer data sobre looger del config
-	string_nivel_log_minimo = config_get_string_value(config, "LOG_NIVEL_MINIMO");
+	string_nivel_log_minimo = config_get_string_value(config,
+			"LOG_NIVEL_MINIMO");
 	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
-	char* nombre_archivo_log= config_get_string_value(config,"LOG_FILE");
+	char* nombre_archivo_log = config_get_string_value(config, "LOG_FILE");
 
-	char * path_log=obtener_path(nombre_archivo_log);
+	char * path_log = obtener_path(nombre_archivo_log);
 	logger = iniciar_logger(path_log, "Team", log_nivel_minimo);
 
 	log_trace(logger, "--- Log inicializado ---");
 
 }
 
-void finalizar_team(){
+void finalizar_team() {
 	terminar_logger(logger);
 	config_destroy(config);
 }
 
-
 // Cargar path de config y log
-char *obtener_path(char *path_leido){
-	 char* path=string_new();
-	 string_append(&path,"./Team/config/");
-	 string_append(&path,path_leido);
+char *obtener_path(char *path_leido) {
+	char* path = string_new();
+	string_append(&path, "./Team/config/");
+	string_append(&path, path_leido);
 	return path;
 }
 
