@@ -31,6 +31,8 @@ typedef struct t_entrenador {
 
 // TT
 void conectar_con_gameboy();
+void manejar_recepcion_mensaje(int* socket_cliente);
+void esperar_cliente(int socket_servidor);
 
 // Funciones generales
 void iniciar_team(char*archivo_config[]);

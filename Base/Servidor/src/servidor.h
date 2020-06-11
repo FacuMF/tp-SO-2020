@@ -21,7 +21,7 @@ t_log_level log_nivel_minimo;
 
 
 
-void iniciar_conexion_servidor(char* ip, char* puerto);
+int iniciar_conexion_servidor(char* ip, char* puerto);
 void finalizar_ejecucion(t_log*, t_config*);
 
 // OTROS

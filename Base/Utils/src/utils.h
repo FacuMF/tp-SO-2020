@@ -70,7 +70,7 @@ void asignar_socket_a_puerto(int,struct addrinfo*);
 int iniciar_conexion(char*, char*);
 
 // FUNCIONES DE INICIALIZACION DE LA CONEXION PARA EL SERVIDOR
-void iniciar_conexion_servidor(char* ip, char* puerto);
+int iniciar_conexion_servidor(char* ip, char* puerto);
 void setear_socket_reusable(int socket);
 void esperar_cliente(int socket_servidor);
 void serve_client(int* socket);

@@ -27,7 +27,7 @@ int main(void) {
 
 
 	// Inicar conexion
-	iniciar_conexion_servidor(ip, puerto);
+	int sock = iniciar_conexion_servidor(ip, puerto);
 
 	// TBR Enviar mensaje al 2do mensaje
 	// Recibe mensajes de 3 clientes, guarda los sockets y solo le responde al 2do. Esto significa que puedo elegir a que cliente responderle determinado mensaje. Es para hacer pruebas.

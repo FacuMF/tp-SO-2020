@@ -76,7 +76,7 @@ int iniciar_conexion(char *ip, char* puerto) {
 
 // Inicializar conexion servidor
 
-void iniciar_conexion_servidor(char* ip, char* puerto) {
+int iniciar_conexion_servidor(char* ip, char* puerto) {
 
 	//Set up conexion
 	//TBR
@@ -88,13 +88,7 @@ void iniciar_conexion_servidor(char* ip, char* puerto) {
 	setear_socket_reusable(socket_servidor);
 	freeaddrinfo(servinfo);
 
-	listen(socket_servidor, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
-
-	while(1){
-		log_trace(logger_temporal,"Esperando Cliente");
-		esperar_cliente(socket_servidor);//Queda esperando que un cliente se conecte
-
-	}
+	return socket_servidor;
 }
 
 void setear_socket_reusable(int socket) {
@@ -102,23 +96,7 @@ void setear_socket_reusable(int socket) {
 	setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado));
 }
 
-void esperar_cliente(int socket_servidor) {	// Hilo coordinador
-	struct sockaddr_in dir_cliente;	//contiene address de la comunicacion
 
-	int tam_direccion = sizeof(struct sockaddr_in);
-
-	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
-			&tam_direccion);// Acepta el request del cliente y crea el socket
-
-
-	sockets_mensajes[numero_mensajes] = socket_cliente;
-	numero_mensajes++;
-
-
-	// Lanzar los hilos handlers
-	pthread_create(&thread, NULL, (void*) serve_client, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
-	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
-}
 
 void serve_client(int* socket) {
 	// TBR

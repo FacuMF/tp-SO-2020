@@ -29,7 +29,7 @@ int main(int argv,char*archivo_config[]) {
 
 	// Conectar_con_gameboy
 
-	//sleep(15); //TT
+	sleep(30); //TT
 	finalizar_team();
 }
 
@@ -53,19 +53,35 @@ void iniciar_conexion_con_gameboy(){
 	char * ip_gameboy = config_get_string_value(config,"IP_GAMEBOY");
 	char * puerto_gameboy=config_get_string_value(config,"PUERTO_GAMEBOY");
 	log_trace(logger,"Ip Gameboy Leida : %s Puerto Gameboy Leido : %s\n",ip_gameboy,puerto_gameboy);
-	iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);
-	log_trace(logger,"Mensaje Recibido");
 
+	int socket_gameboy = iniciar_conexion_servidor(ip_gameboy,puerto_gameboy);
 
+	listen(socket_gameboy, SOMAXCONN);	// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
+
+	while(1){
+		log_trace(logger,"Esperando Cliente");
+		esperar_cliente(socket_gameboy);//Queda esperando que un cliente se conecte
+	}
 }
 
+void esperar_cliente(int socket_servidor) {	// Hilo coordinador
+	struct sockaddr_in dir_cliente;	//contiene address de la comunicacion
 
+	int tam_direccion = sizeof(struct sockaddr_in);
 
+	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
+			&tam_direccion);// Acepta el request del cliente y crea el socket
 
+	// Lanzar los hilos handlers
+	pthread_create(&thread, NULL, (void*) manejar_recepcion_mensaje, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
+	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+}
 
+void manejar_recepcion_mensaje(int* socket_cliente){
+	int cod_op = recibir_codigo_operacion(*socket_cliente);
 
-
-
+	log_trace(logger,"Mensaje Recibido codop: %d",cod_op);
+}
 
 // Funciones Generales
 void iniciar_team(char*argumentos_iniciales[]){
