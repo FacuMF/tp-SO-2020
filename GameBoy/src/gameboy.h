@@ -11,19 +11,10 @@ int es_suscriptor; //Para saber si enviar confirmacion o no
 
 // Funciones
 void inicializar_gameboy();
-t_modulo string_a_modulo(char*);
-op_code string_a_tipo_mensaje(char*);
-
-
-// Funciones Mensajes
-t_buffer* mensaje_a_enviar(t_modulo, op_code, char**);
-//t_buffer* crear_serializar_appeared_pokemon(char*);
 
 //Funciones Respuesta
 void recibir_respuesta(int* socket_broker);
 void handle_respuesta(int cod_op, int socket_broker);
-
-
 
 //Pruebas de mensajes
 
