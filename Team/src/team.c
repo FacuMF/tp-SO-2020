@@ -28,31 +28,30 @@ int main(int argv, char*archivo_config[]) {
 
 	// Conectar_con_gameboy
 
-	sleep(30); //TT
+	sleep(10000); //TT
 	finalizar_team();
 }
 
 // Comunicacion con broker
-void suscribirse_a_colas_necesarias(){
+void suscribirse_a_colas_necesarias() {
 	enviar_suscripcion_broker(APPEARED_POKEMON);
 	enviar_suscripcion_broker(LOCALIZED_POKEMON);
 	enviar_suscripcion_broker(CAUGHT_POKEMON);
-
 }
 
 void enviar_suscripcion_broker(op_code tipo_mensaje) {
 
 	int socket_broker = iniciar_conexion_con_broker();
 	enviar_mensaje_suscripcion(tipo_mensaje, socket_broker);
-/*
-	while (1) {
-		int cod_op = recibir_codigo_operacion(socket_broker);
-		(cod_op == -1) ?
-				log_error(logger, "Error en 'recibir_codigo_operacion'") :
-				log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
-		// Manejar recepcion mensajes
-	}
-*/
+
+	log_trace(logger,"socket a esperar %d",socket_broker);
+
+	int* argument = malloc(sizeof(int));
+	*argument = socket_broker;
+	pthread_create(&thread, NULL, (void*)esperar_mensajes_cola, argument);
+
+	log_trace(logger,"Suscripcion completada");
+
 }
 
 void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
@@ -63,7 +62,30 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 	mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
 
 	enviar_mensaje(conexion, mensaje_serializado, SUSCRIPTOR);
+	log_trace(logger,"Mensaje suscripcion enviado");
 }
+
+void esperar_mensajes_cola(void* input) {
+	int conexion = *((int *)input);
+	log_trace(logger,"Esperando que aparezcan mensajes en %d",conexion);
+	//while (1) {
+		pthread_t thread;
+		int cod_op = recibir_codigo_operacion(conexion);
+		(cod_op == -1) ?
+				log_error(logger, "Error en 'recibir_codigo_operacion'") :
+				log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
+
+		//pthread_create(&thread, NULL, manejar_mensaje_cola, conexion);
+	//}
+}
+
+void manejar_mensaje_cola(void* input){
+	int conexion = (int)input;
+	log_trace(logger,"Manejando mensaje recibido");
+	//Case viendo el tipo de mensaje, etc
+}
+
+
 
 void enviar_requests_pokemones(t_list *objetivo_global) {
 
@@ -72,8 +94,6 @@ void enviar_requests_pokemones(t_list *objetivo_global) {
 
 	//log_trace(logger,"Gets enviados");
 }
-
-
 
 int iniciar_conexion_con_broker() {
 	char * ip_broker = config_get_string_value(config, "IP_BROKER");

@@ -96,20 +96,6 @@ void setear_socket_reusable(int socket) {
 	setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado));
 }
 
-
-
-void serve_client(int* socket) {
-	// TBR
-	t_log * logger_temporal1 = iniciar_logger ("logger_temporal1.log","Utils_comunicacion",LOG_LEVEL_TRACE);
-	int cod_op = recibir_codigo_operacion(*socket);
-	char* parametros_recibidos = malloc(sizeof(char)*100);
-	log_trace(logger_temporal1,"Deserializando Mensaje");
-	parametros_recibidos = deserializar_tipo_mensaje(cod_op, *socket);
-}
-
-
-
-
 // MANIPULACION MENSAJES
 t_paquete* generar_paquete(t_buffer* buffer, op_code codigo_operacion) {
 	t_paquete* paquete = malloc(sizeof(t_paquete));
