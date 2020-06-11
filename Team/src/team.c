@@ -69,17 +69,19 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 
 	int tam_direccion = sizeof(struct sockaddr_in);
 
-	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
-			&tam_direccion);// Acepta el request del cliente y crea el socket
+	log_trace(logger, "Va a ejecutar 'accept'.");
+	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);// Acepta el request del cliente y crea el socket
+
+
+	manejar_recepcion_mensaje(&socket_cliente);
 
 	// Lanzar los hilos handlers
-	pthread_create(&thread, NULL, (void*) manejar_recepcion_mensaje, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
-	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+	//pthread_create(&thread, NULL, (void*) manejar_recepcion_mensaje, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
+	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 }
 
 void manejar_recepcion_mensaje(int* socket_cliente){
 	int cod_op = recibir_codigo_operacion(*socket_cliente);
-
 	log_trace(logger,"Mensaje Recibido codop: %d",cod_op);
 }
 

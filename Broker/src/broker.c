@@ -108,7 +108,7 @@ void handle_cliente(int socket_servidor) {
 	log_trace(logger, "Va a ejecutar 'accept'.");
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);
 
-	log_info(logger, "Conexion de %i al Broker.", socket_cliente);
+	log_trace(logger, "Conexion de %i al Broker.", socket_cliente);
 
 	log_trace(logger, "Va a lanzar hilo 'recibir_mensaje_del_cliente'.");
 

@@ -99,7 +99,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			pos_x = atoi(arg[4]);
 			pos_y = atoi(arg[5]);
 			mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
-					-1);
+					8);
 			mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared);
 		}
 		break;
