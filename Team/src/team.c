@@ -14,9 +14,9 @@ int main(int argv,char*archivo_config[]) {
 
 	//lanzar_hilos(head_entrenadores);
 
-	iniciar_conexion_con_gameboy();	//TO DO
+	//iniciar_conexion_con_gameboy();	//TO DO
 
-	//iniciar_conexion_con_broker();
+	iniciar_conexion_con_broker();
 
 	//enviar_requests_pokemones()
 
@@ -45,8 +45,24 @@ void enviar_requests_pokemones(t_list *objetivo_global){
 }
 
 void iniciar_conexion_con_broker(){
-	// conectar con broker
-	// mandar mensajes de suscripcion
+	char * ip_broker = config_get_string_value(config,"IP_BROKER");
+	char * puerto_broker=config_get_string_value(config,"PUERTO_BROKER");
+	log_trace(logger,"Ip BROKER Leida : %s Puerto BROKER Leido : %s\n",ip_broker,puerto_broker);
+
+	int conexion = iniciar_conexion(ip_broker, puerto_broker);
+
+	t_subscriptor* mensaje_suscripcion;
+	mensaje_suscripcion = crear_suscripcion(APPEARED_POKEMON,30);
+
+	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+	mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
+
+	enviar_mensaje(conexion, mensaje_serializado, SUSCRIPTOR);
+
+	// me quedo esperando mensajes de la cola
+	int cod_op = recibir_codigo_operacion(conexion);
+		(cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
+				 	 	 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
 }
 
 void iniciar_conexion_con_gameboy(){
