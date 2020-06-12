@@ -45,8 +45,9 @@ void suscribirse_a_colas_necesarias();
 void enviar_suscripcion_broker(op_code tipo_mensaje);
 void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
 int iniciar_conexion_con_broker();
-void enviar_requests_pokemones(t_list *objetivo_global);
 
+void enviar_requests_pokemones(t_list *objetivo_global);
+void enviar_mensaje_get(int socket_broker, void*element);
 
 void iniciar_conexion_con_gameboy();
 

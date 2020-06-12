@@ -18,7 +18,7 @@ void handle_respuesta(int cod_op, int socket_broker);
 
 //Pruebas de mensajes
 
-/*
+/*./bin/GameBoy
  * BROKER NEW_POKEMON BULBASAUR 3 1 5
  * BROKER APPEARED_POKEMON BULBASAUR 3 1 2
  * BROKER CATCH_POKEMON PIKACHU 3 1

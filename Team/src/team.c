@@ -14,7 +14,7 @@ int main(int argv, char*archivo_config[]) {
 
 	suscribirse_a_colas_necesarias();
 
-	//enviar_requests_pokemones()
+	enviar_requests_pokemones(objetivo_global);
 
 	//lanzar_hilos(head_entrenadores);
 
@@ -68,31 +68,52 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 void esperar_mensajes_cola(void* input) {
 	int conexion = *((int *)input);
 	log_trace(logger,"Esperando que aparezcan mensajes en %d",conexion);
-	//while (1) {
-		pthread_t thread;
+	while (1) {
 		int cod_op = recibir_codigo_operacion(conexion);
 		(cod_op == -1) ?
 				log_error(logger, "Error en 'recibir_codigo_operacion'") :
 				log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
 
-		//pthread_create(&thread, NULL, manejar_mensaje_cola, conexion);
-	//}
+		int* argument = malloc(sizeof(int));
+		*argument = conexion;
+		pthread_create(&thread, NULL, (void*)manejar_mensaje_cola, argument);
+	}
 }
 
-void manejar_mensaje_cola(void* input){
-	int conexion = (int)input;
+void manejar_mensaje_cola(void* input){  //TODO: pending
+	int conexion = *((int *)input);
+
+	t_buffer * buffer = recibir_mensaje(conexion);
+
+
 	log_trace(logger,"Manejando mensaje recibido");
 	//Case viendo el tipo de mensaje, etc
 }
 
 
 
-void enviar_requests_pokemones(t_list *objetivo_global) {
+void enviar_requests_pokemones(t_list *objetivo_global) { // RECONTRA LIMPIAR
+	int socket_broker = iniciar_conexion_con_broker();
 
-	//iterar por cada elemento de la lista objetivo_global
-	// Enviar mensajes
+	void enviar_mensaje_get_aux(void *elemento) { // USO INNER FUNCTIONS TODO: pasar a readme
+		enviar_mensaje_get(socket_broker, elemento);
+	}
 
-	//log_trace(logger,"Gets enviados");
+	list_iterate(objetivo_global,enviar_mensaje_get_aux);
+
+	log_trace(logger,"Gets enviados");
+}
+
+void enviar_mensaje_get(int socket_broker, void*element){
+	t_objetivo *objetivo = element;
+	t_get_pokemon* mensaje_get= crear_get_pokemon(objetivo->pokemon, -10);
+	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+	mensaje_serializado = serializar_get_pokemon(mensaje_get);
+
+	enviar_mensaje(socket_broker, mensaje_serializado, GET_POKEMON);
+	log_trace(logger, "Enviado get para: %s", objetivo->pokemon);
+
+
 }
 
 int iniciar_conexion_con_broker() {
