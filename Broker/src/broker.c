@@ -112,20 +112,22 @@ void handle_cliente(int socket_servidor) {
 
 	log_trace(logger, "Va a lanzar hilo 'recibir_mensaje_del_cliente'.");
 
-	recibir_mensaje_del_cliente(&socket_cliente);
 
-	//TODO la variable thread es una sola, esto va a dar problemas, hay que hacer que sean varias de alguna forma. Finitas o infinitas?
-	//pthread_create(&(tid[1]), NULL, (void*) recibir_mensaje_del_cliente, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
+	int* argument = malloc(sizeof(int));
+	*argument = socket_cliente;
+
+	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, argument);// Crea un thread que se quede atendiendo al cliente
 	//pthread_detach(tid[1]);	// Si termina el hilo, que sus recursos se liberen automaticamente
 
 }
 
 
- void recibir_mensaje_del_cliente(int* socket_cliente) {
- int cod_op = recibir_codigo_operacion(*socket_cliente);
- (cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
-		 	 	 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
- handle_mensaje(cod_op, *socket_cliente);
+ void recibir_mensaje_del_cliente(void* input) {
+	 int socket_cliente = *((int *)input);
+	 int cod_op = recibir_codigo_operacion(socket_cliente);
+	 (cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
+					 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
+	 handle_mensaje(cod_op, socket_cliente);
  }
 
  void handle_mensaje(int cod_op, int socket_cliente){

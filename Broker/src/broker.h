@@ -55,7 +55,7 @@ void inizializacion_ids(void);
 void* esperar_mensajes(void *arg);
 void* iniciar_conexion_con_modulo(char* ip, char* puerto);
 void handle_cliente(int socket_servidor);
-void recibir_mensaje_del_cliente(int* socket);
+void recibir_mensaje_del_cliente(void* );
 void handle_mensaje(int cod_op, int cliente_fd);
 
 void enviar_mensaje_de_cola(void* mensaje, int ciente);
