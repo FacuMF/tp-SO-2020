@@ -12,13 +12,13 @@ int main(int argv, char*archivo_config[]) {
 
 	t_list * objetivo_global = formar_objetivo(pokemones_con_repetidos);
 
-	suscribirse_a_colas_necesarias();
+	//suscribirse_a_colas_necesarias();
 
-	enviar_requests_pokemones(objetivo_global);
+	//enviar_requests_pokemones(objetivo_global);
 
 	//lanzar_hilos(head_entrenadores);
 
-	//iniciar_conexion_con_gameboy();	//TO DO
+	iniciar_conexion_con_gameboy();	//TO DO
 
 	// Atender mensajes
 
@@ -28,7 +28,7 @@ int main(int argv, char*archivo_config[]) {
 
 	// Conectar_con_gameboy
 
-	sleep(10000); //TT
+	//sleep(10000); //TT
 	finalizar_team();
 }
 
@@ -162,7 +162,19 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 void manejar_recepcion_mensaje(int* socket_cliente) {
 	int cod_op = recibir_codigo_operacion(*socket_cliente);
 	log_trace(logger, "Mensaje Recibido codop: %d", cod_op);
+	// Solo recibe appeared_pokemon del gameboy-> no hace falta los cases.
+	t_appeared_pokemon * appeared_recibido = obtener_appeared_recibido(*socket_cliente);
+	log_trace(logger, " Appeared Recibido, Pokemon: %s  Posicion en X : %d, Posicion en Y : %d",
+			 appeared_recibido->pokemon, appeared_recibido->posx, appeared_recibido->posy);
 }
+
+t_appeared_pokemon * obtener_appeared_recibido(int socket_cliente){
+	t_buffer * buffer= recibir_mensaje(socket_cliente);
+
+	t_appeared_pokemon * appeared = deserializar_appeared_pokemon(buffer);
+	return appeared;
+}
+
 
 // Funciones Generales
 void iniciar_team(char*argumentos_iniciales[]) {

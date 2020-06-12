@@ -7054,3 +7054,10 @@
 [TRACE] 21:58:40:412 GameBoy/(457:457): Mensaje recibido, cod_op: 2.
 [TRACE] 21:58:40:412 GameBoy/(457:457): Se recibio un mensaje APPEARED_POKEMON
 [TRACE] 21:58:40:412 GameBoy/(457:457): ID asignado a APPEARED_POKEMON: 1.
+[TRACE] 17:13:49:645 GameBoy/(10220:10220): Caracteristicas de mensaje obtenidas
+[TRACE] 17:13:49:646 GameBoy/(10220:10220): Se quiere enviar un mensaje del tipo -2- al modulo -1-
+[TRACE] 17:13:49:646 GameBoy/(10220:10220): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[TRACE] 17:13:49:646 GameBoy/(10220:10220): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[TRACE] 17:13:49:646 GameBoy/(10220:10220): El mensaje fue serializado. 
+[TRACE] 17:13:49:646 GameBoy/(10220:10220): OPERATION CODE: 2
+[TRACE] 17:13:49:646 GameBoy/(10220:10220): El mensaje fue enviado.
