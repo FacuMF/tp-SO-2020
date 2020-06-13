@@ -33,7 +33,7 @@ typedef struct t_entrenador {
 void manejar_recepcion_mensaje(int* socket_cliente);
 void esperar_cliente(int socket_servidor);
 void esperar_mensajes_cola(void* input);
-void manejar_mensaje_cola(void* input);
+void manejar_mensaje_cola(int conexion,op_code cod_op);
 
 // Funciones generales
 void iniciar_team(char*archivo_config[]);

@@ -13,19 +13,16 @@ int main(int argv, char*archivo_config[]) {
 	t_list * objetivo_global = formar_objetivo(pokemones_con_repetidos);
 
 	suscribirse_a_colas_necesarias();
+	iniciar_conexion_con_gameboy();
 
 	enviar_requests_pokemones(objetivo_global);
 
 	//lanzar_hilos(head_entrenadores);
 
-	iniciar_conexion_con_gameboy();
-
-	// Atender mensajes
 
 	// TT - To Test
 	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(
 			head_entrenadores, 1, 3);
-
 
 	sleep(10000); //TT
 	finalizar_team();
@@ -68,25 +65,47 @@ void esperar_mensajes_cola(void* input) {
 	int conexion = *((int *)input);
 	log_trace(logger,"Esperando que aparezcan mensajes en %d",conexion);
 	while (1) {
-		int cod_op = recibir_codigo_operacion(conexion);
+		op_code cod_op = recibir_codigo_operacion(conexion);
 		(cod_op == -1) ?
 				log_error(logger, "Error en 'recibir_codigo_operacion'") :
 				log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
 
-		int* argument = malloc(sizeof(int));
+		/*int* argument = malloc(sizeof(int));
 		*argument = conexion;
-		pthread_create(&thread, NULL, (void*)manejar_mensaje_cola, argument);
+		pthread_create(&thread, NULL, (void*)manejar_mensaje_cola, argument);*/
+		manejar_mensaje_cola(conexion,cod_op);
 	}
 }
 
-void manejar_mensaje_cola(void* input){  //TODO: pending
-	int conexion = *((int *)input);
+void manejar_mensaje_cola(int conexion,op_code cod_op){  //TODO: pending
 
 	t_buffer * buffer = recibir_mensaje(conexion);
 
+	switch (cod_op) {
+				case APPEARED_POKEMON:
 
-	log_trace(logger,"Manejando mensaje recibido");
-	//Case viendo el tipo de mensaje, etc
+					log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
+					t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
+
+				break;
+				case CAUGHT_POKEMON:
+
+					log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
+					t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(buffer);
+
+				break;
+				case LOCALIZED_POKEMON:
+
+					log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
+					t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(buffer);
+
+					break;
+				default:
+					log_error(logger,"Opcode inválido.");
+					break;
+	}
+
+	log_trace(logger,"Mensaje recibido manejado.");
 }
 
 
