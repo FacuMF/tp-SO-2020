@@ -167,49 +167,14 @@ void handle_mensaje(void* stream) { //Lanzar un hilo para manejar cada mensaje u
 
 		break;
 	case CATCH_POKEMON:
+
 		log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
-
-		t_catch_pokemon* mensaje_catch_pokemon = deserializar_catch_pokemon(
-				buffer);
-
-		id_mensaje_recibido = asignar_id_catch_pokemon(mensaje_catch_pokemon);
-
-		log_info(logger, "Llegada de mensaje nuevo %i a cola CATCH_POKEMON",
-				id_mensaje_recibido);
-
-		devolver_catch_pokemon(socket_cliente, mensaje_catch_pokemon);
-		log_trace(logger,
-				"Se devolvio el mensaje CATCH_POKEMON con id asignado.");
-
-		almacenar_en_cola_catch_pokemon(mensaje_catch_pokemon);
-		log_trace(logger, "Se almaceno el mensaje CATCH_POKEMON en la cola.");
-
-		//cachear_catch_pokemon(mensaje);
-
-		//free (liberar memoria)
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_catch,info_mensaje_a_manejar);
 
 		break;
 	case CAUGHT_POKEMON:
 		log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
-
-		t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(
-				buffer);
-
-		id_mensaje_recibido = asignar_id_caught_pokemon(mensaje_caught_pokemon);
-
-		log_info(logger, "Llegada de mensaje nuevo %i a cola CAUGTH_POKEON",
-				id_mensaje_recibido);
-
-		devolver_caught_pokemon(socket_cliente, mensaje_caught_pokemon);
-		log_trace(logger,
-				"Se devolvio el mensaje CAUGTH_POKEMON con id asignado.");
-
-		almacenar_en_cola_caught_pokemon(mensaje_caught_pokemon);
-		log_trace(logger, "Se almaceno el mensaje CAUGTH_POKEMON en la cola.");
-
-		//cachear_caught_pokemon(mensaje);
-
-		//free (liberar memoria)
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_caught,info_mensaje_a_manejar);
 
 		break;
 	case GET_POKEMON:
@@ -220,39 +185,12 @@ void handle_mensaje(void* stream) { //Lanzar un hilo para manejar cada mensaje u
 		break;
 	case LOCALIZED_POKEMON:
 		log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
-
-		t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(
-				buffer);
-
-		id_mensaje_recibido = asignar_id_localized_pokemon(
-				mensaje_localized_pokemon);
-
-		log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEON",
-				id_mensaje_recibido);
-
-		devolver_localized_pokemon(socket_cliente, mensaje_localized_pokemon);
-		log_trace(logger,
-				"Se devolvio el mensaje localized_pokemon con id asignado.");
-
-		almacenar_en_cola_localized_pokemon(mensaje_localized_pokemon);
-		log_trace(logger,
-				"Se almaceno el mensaje localized_pokemon en la cola.");
-
-		//cachear_localized_pokemon(mensaje);
-
-		//free (liberar memoria)
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_localized,info_mensaje_a_manejar);
 
 		break;
 	case CONFIRMACION:
 		log_trace(logger, "Se recibio una CONFIRMACION.");
-
-		t_confirmacion* mensaje_confirmacion = deserializar_confirmacion(
-				buffer);
-
-		confirmar_cliente_recibio(mensaje_confirmacion, socket_cliente);
-
-		//free(mensaje_confirmacion);
-		//free(buffer);
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_confirmacion,info_mensaje_a_manejar);
 
 		break;
 	default:

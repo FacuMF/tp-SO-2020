@@ -1,5 +1,27 @@
 #include "broker.h"
 
+void manejar_mensaje_caught(t_conexion_buffer *combo) {
+	t_buffer * buffer = combo->buffer;
+		int socket_cliente= combo->conexion;
+	t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(buffer);
+
+			int id_mensaje_recibido = asignar_id_caught_pokemon(mensaje_caught_pokemon);
+
+			log_info(logger, "Llegada de mensaje nuevo %i a cola CAUGHT_POKEON",
+					id_mensaje_recibido);
+
+			devolver_caught_pokemon(socket_cliente, mensaje_caught_pokemon);
+			log_trace(logger,
+					"Se devolvio el mensaje CAUGHT_POKEMON con id asignado.");
+
+			almacenar_en_cola_caught_pokemon(mensaje_caught_pokemon);
+			log_trace(logger, "Se almaceno el mensaje CAUGHT_POKEMON en la cola.");
+
+			//cachear_caught_pokemon(mensaje);
+
+			//free (liberar memoria)
+}
+
  int asignar_id_caught_pokemon(t_caught_pokemon* mensaje){
 	 int id = get_id_mensajes();
 	 mensaje->id_mensaje = id;
@@ -50,8 +72,6 @@ void enviar_caught_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_caught
 	log_info(logger, "Envio de CAUGHT_POKEMON %i a suscriptor %i", mensaje->id_mensaje, suscriptor->socket);
 
 	log_trace(logger, "Se envio mensaje CAUGHT_POKEMON");
-
-	recibir_mensaje_del_cliente(&(suscriptor->socket));
 }
 
 
