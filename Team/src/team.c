@@ -13,9 +13,10 @@ int main(int argv, char*archivo_config[]) {
 	t_list * objetivo_global = formar_objetivo(pokemones_con_repetidos);
 
 	suscribirse_a_colas_necesarias();
-	iniciar_conexion_con_gameboy();
 
 	enviar_requests_pokemones(objetivo_global);
+
+	iniciar_conexion_con_gameboy();
 
 	//lanzar_hilos(head_entrenadores);
 
