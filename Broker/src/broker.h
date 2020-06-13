@@ -53,7 +53,6 @@ int id_mensajes;
 
 //Funciones Generales
 void inicializacion_broker(void);
-void lanzar_hilo_receptor_mensajes(void);
 void terminar_proceso(void);
 
 void inicializacion_colas(void);

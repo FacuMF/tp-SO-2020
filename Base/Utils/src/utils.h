@@ -74,6 +74,7 @@ int iniciar_conexion_servidor(char* ip, char* puerto);
 void setear_socket_reusable(int socket);
 void esperar_cliente(int socket_servidor);
 void serve_client(int* socket);
+int escuchar_socket_cliente(char* ip,char* puerto);
 
 //TBR
 int sockets_mensajes[3];

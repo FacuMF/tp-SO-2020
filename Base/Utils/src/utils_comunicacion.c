@@ -96,6 +96,19 @@ void setear_socket_reusable(int socket) {
 	setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado));
 }
 
+int escuchar_socket_cliente(char* ip,char* puerto){
+
+	struct addrinfo* servinfo = obtener_server_info(ip, puerto);
+	int socket_servidor = obtener_socket(servinfo);
+	asignar_socket_a_puerto(socket_servidor, servinfo);
+	setear_socket_reusable(socket_servidor);
+	freeaddrinfo(servinfo);
+
+	listen(socket_servidor, SOMAXCONN);
+
+	return socket_servidor;
+}
+
 // MANIPULACION MENSAJES
 t_paquete* generar_paquete(t_buffer* buffer, op_code codigo_operacion) {
 	t_paquete* paquete = malloc(sizeof(t_paquete));

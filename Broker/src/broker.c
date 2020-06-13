@@ -2,7 +2,6 @@
 
 int main(void) {
 	inicializacion_broker();
-	//lanzar_hilo_receptor_mensajes();
 	esperar_mensajes(NULL);
 	terminar_proceso();
 
@@ -19,17 +18,6 @@ void inicializacion_broker(void){
 	log_trace(logger, "Log, Config y Colas inicializadas.");
 	//Inicializacion IDs
 	inizializacion_ids();
-}
-
-void lanzar_hilo_receptor_mensajes(void){ 	//TODO BORRAR ESTA FUUCNION
-    // Lanzar hilo activador
-	log_trace(logger, "Va a ejecutar hilo 'esperar_mensaje'.");
-	int error;
-	error = pthread_create(&(tid[0]), NULL, esperar_mensajes, NULL);
-	if (error != 0) {
-		log_error(logger, "Error al crear hilo Esperar_Mensajes");
-		// return error; // Es void, no puede devolver
-	}
 }
 
 void terminar_proceso(void){
@@ -71,27 +59,17 @@ void inizializacion_ids(void){
 }
 
 void* esperar_mensajes(void *arg) {
-	int i = 0; //El while va hasta 20 para evitar que entre en un loop infinito. Hay que pasarlo a while(true)
-	while (i < 20) {
-		i++;
 		char* ip = config_get_string_value(config, "IP_BROKER");
 		char* puerto = config_get_string_value(config, "PUERTO_BROKER");
 
 		log_trace(logger, "Se va a ejecutar 'iniciar_conexion_con_el_modulo'.");
 		iniciar_conexion_con_modulo(ip, puerto);
-	}
+
+		return 0;
 }
 
 void* iniciar_conexion_con_modulo(char* ip, char* puerto) {
-	//Set up conexion
-	struct addrinfo* servinfo = obtener_server_info(ip, puerto);
-	int socket_servidor = obtener_socket(servinfo);
-	asignar_socket_a_puerto(socket_servidor, servinfo);
-	setear_socket_reusable(socket_servidor);
-	freeaddrinfo(servinfo);
-
-	log_trace(logger, "Va a ejeutar 'listen'.");
-	listen(socket_servidor, SOMAXCONN);
+	int socket_servidor = escuchar_socket_cliente(ip, puerto);
 
 	while(1){
 		log_trace(logger, "Va a ejecutar 'handle_cliente'.");
@@ -115,7 +93,6 @@ void handle_cliente(int socket_servidor) {
 	int* argument = malloc(sizeof(int));
 	*argument = socket_cliente;
 	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, argument);
-	// Crea un thread que se quede atendiendo al cliente
 	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 
 
@@ -125,7 +102,7 @@ void handle_cliente(int socket_servidor) {
  void recibir_mensaje_del_cliente(void* input) {
 	int socket_cliente = *((int *)input);
 
-	while(1){ //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
+	//while(1){ //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
 
 		int cod_op = recibir_codigo_operacion(socket_cliente);
 		(cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
@@ -136,7 +113,7 @@ void handle_cliente(int socket_servidor) {
 		info_mensaje->socket_cliente=socket_cliente;
 
 		handle_mensaje(info_mensaje);
-	}
+	//}
 
 
  }
