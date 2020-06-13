@@ -53,11 +53,14 @@ int main(int argv, char* arg[]) {
 
 	// Esperar respuesta //
 
+	int cod_op_respuesta = 0;
+
 	if(tipo_mensaje == SUSCRIPTOR) {
 		// Si el mensaje que se envio fue una suscripcion, quiero recibir todos los mensjaes de esa cola.
-		while(1){
-			recibir_respuesta(&conexion);
+		while(cod_op_respuesta>=0){
+			cod_op_respuesta = recibir_respuesta(&conexion);
 		}
+		log_warning(logger, "Se salio del while del socket %i.", conexion);
 	} else {
 		// Para el resto de mensajes, se va a recibir el mismo mensaje pero con el id asignado por el broker.
 		recibir_respuesta(&conexion);
@@ -77,11 +80,14 @@ void inicializar_gameboy() {
 			log_nivel_minimo);
 }
 
-void recibir_respuesta(int* socket_broker){
+int recibir_respuesta(int* socket_broker){
 	int cod_op = recibir_codigo_operacion(*socket_broker);
 	(cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
 			 	 	 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
-	handle_respuesta(cod_op, *socket_broker);
+
+	(cod_op>=0)? handle_respuesta(cod_op, *socket_broker):
+			log_warning(logger, "El broker cerro el socket %i.", *socket_broker);
+	return cod_op;
 }
 
 void handle_respuesta(int cod_op, int socket_broker){
