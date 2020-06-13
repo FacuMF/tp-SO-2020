@@ -36,7 +36,7 @@ void enviar_a_todos_los_subs_caught_pokemon(t_caught_pokemon* mensaje){
 
 	list_iterate(caught_pokemon->subscriptores, enviar_caught_pokemon_a_suscriptor_aux);
 
-	log_trace(logger, "Se van a envio a todos los subs, el nuevo CAUGHT_POKEMON.");
+	log_trace(logger, "Se va a enviar a todos los subs, el nuevo CAUGHT_POKEMON.");
 }
 
 void enviar_caught_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_caught_pokemon* mensaje){

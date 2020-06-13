@@ -36,7 +36,7 @@ void enviar_a_todos_los_subs_localized_pokemon(t_localized* mensaje){
 
 	list_iterate(localized_pokemon->subscriptores, enviar_localized_pokemon_a_suscriptor_aux);
 
-	log_trace(logger, "Se van a envio a todos los subs, el nuevo LOCALIZED_POKEMON.");
+	log_trace(logger, "Se va a enviar a todos los subs, el nuevo LOCALIZED_POKEMON.");
 }
 
 void enviar_localized_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_localized* mensaje){

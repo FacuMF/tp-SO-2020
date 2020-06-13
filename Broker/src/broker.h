@@ -11,6 +11,7 @@ char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
 pthread_t tid[2];
+pthread_mutex_t mutex_handler_mensaje; //Para que reciba el mensaje entero antes de el cod_op siguiente.
 
 typedef struct{
 	t_list* subscriptores; // lista de suscriptor_queue
@@ -31,6 +32,12 @@ typedef struct{
 	t_list subscribers_ack; //Subscriptores que recibieron el mensaje
 }t_mensaje;
 */
+
+typedef struct {
+	int op_code;
+	int socket_cliente;
+}t_info_mensaje; // Para handle_mensaje.
+
 
 //Declaracion de queues
 t_queue* new_pokemon;
@@ -56,7 +63,7 @@ void* esperar_mensajes(void *arg);
 void* iniciar_conexion_con_modulo(char* ip, char* puerto);
 void handle_cliente(int socket_servidor);
 void recibir_mensaje_del_cliente(void* );
-void handle_mensaje(int cod_op, int cliente_fd);
+void handle_mensaje(void* info_mensaje);
 
 void enviar_mensaje_de_cola(void* mensaje, int ciente);
 

@@ -2,7 +2,8 @@
 
 int main(void) {
 	inicializacion_broker();
-	lanzar_hilo_receptor_mensajes();
+	//lanzar_hilo_receptor_mensajes();
+	esperar_mensajes(NULL);
 	terminar_proceso();
 
 	return 0;
@@ -20,7 +21,7 @@ void inicializacion_broker(void){
 	inizializacion_ids();
 }
 
-void lanzar_hilo_receptor_mensajes(void){
+void lanzar_hilo_receptor_mensajes(void){ 	//TODO BORRAR ESTA FUUCNION
     // Lanzar hilo activador
 	log_trace(logger, "Va a ejecutar hilo 'esperar_mensaje'.");
 	int error;
@@ -107,30 +108,53 @@ void handle_cliente(int socket_servidor) {
 
 	log_trace(logger, "Va a ejecutar 'accept'.");
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);
-
 	log_trace(logger, "Conexion de %i al Broker.", socket_cliente);
 
 	log_trace(logger, "Va a lanzar hilo 'recibir_mensaje_del_cliente'.");
 
-
 	int* argument = malloc(sizeof(int));
 	*argument = socket_cliente;
-
-	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, argument);// Crea un thread que se quede atendiendo al cliente
+	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, argument);
+	// Crea un thread que se quede atendiendo al cliente
 	//pthread_detach(tid[1]);	// Si termina el hilo, que sus recursos se liberen automaticamente
+
 
 }
 
 
  void recibir_mensaje_del_cliente(void* input) {
-	 int socket_cliente = *((int *)input);
-	 int cod_op = recibir_codigo_operacion(socket_cliente);
-	 (cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
-					 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
-	 handle_mensaje(cod_op, socket_cliente);
+	int socket_cliente = *((int *)input);
+	int error_mutex;
+	error_mutex = pthread_mutex_init(&mutex_handler_mensaje,  NULL);
+
+	if ( error_mutex != 0 ) log_error(logger, "Error en el mutex dentro de 'recibir_mensaje_cliente'");
+
+
+	//while(1){ //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
+		pthread_mutex_lock(&mutex_handler_mensaje);
+
+		int cod_op = recibir_codigo_operacion(socket_cliente);
+		(cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
+						 log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
+
+		t_info_mensaje* info_mensaje = malloc(sizeof(t_info_mensaje));
+		info_mensaje->op_code = cod_op;
+		info_mensaje->socket_cliente=socket_cliente;
+
+		pthread_create(&thread, NULL, (void*) handle_mensaje, info_mensaje);
+		//handle_mensaje(info_mensaje);
+	//}
+
+	pthread_mutex_destroy(&mutex_handler_mensaje);
+
  }
 
- void handle_mensaje(int cod_op, int socket_cliente){
+ void handle_mensaje(void* stream){
+	t_info_mensaje* info_mensaje = stream;
+
+	int cod_op = info_mensaje->op_code;
+	int socket_cliente = info_mensaje->socket_cliente;
+
 	t_buffer * buffer;
 	int id_mensaje_recibido;
 
@@ -139,10 +163,12 @@ void handle_cliente(int socket_servidor) {
 
 			log_trace(logger, "Se recibio un mensaje SUSCRIPTOR");
 			buffer = recibir_mensaje(socket_cliente);
+
 			t_subscriptor* subscripcion = deserializar_suscripcion(buffer);
 			log_trace(logger, "Mensaje SUSCRIPTOR recibido.");
 
 			log_info(logger,"Suscripcion de %i a la cola %i.", socket_cliente, subscripcion->cola_de_mensaje);
+
 
 			subscribir(socket_cliente, subscripcion);
 
@@ -157,11 +183,14 @@ void handle_cliente(int socket_servidor) {
 
 			log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
 			buffer = recibir_mensaje(socket_cliente);
+
 			t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
 
 			id_mensaje_recibido = asignar_id_appeared_pokemon(mensaje_appeared_pokemon);
 
 			log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEON", id_mensaje_recibido);
+
+
 
 			devolver_appeared_pokemon(socket_cliente ,mensaje_appeared_pokemon);
 			log_trace(logger, "Se devolvio el mensaje APPEARED_POKEMON con id asignado.");
@@ -177,6 +206,7 @@ void handle_cliente(int socket_servidor) {
 		case NEW_POKEMON:
 			log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
 			buffer = recibir_mensaje(socket_cliente);
+
 			t_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(buffer);
 
 			id_mensaje_recibido = asignar_id_new_pokemon(mensaje_new_pokemon);
@@ -197,6 +227,7 @@ void handle_cliente(int socket_servidor) {
 		case CATCH_POKEMON:
 			log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
 			buffer = recibir_mensaje(socket_cliente);
+
 			t_catch_pokemon* mensaje_catch_pokemon = deserializar_catch_pokemon(buffer);
 
 			id_mensaje_recibido = asignar_id_catch_pokemon(mensaje_catch_pokemon);
@@ -218,6 +249,7 @@ void handle_cliente(int socket_servidor) {
 		case CAUGHT_POKEMON:
 			log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
 			buffer = recibir_mensaje(socket_cliente);
+
 			t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(buffer);
 
 			id_mensaje_recibido = asignar_id_caught_pokemon(mensaje_caught_pokemon);
@@ -238,6 +270,7 @@ void handle_cliente(int socket_servidor) {
 		case GET_POKEMON:
 			log_trace(logger, "Se recibio un mensaje GET_POKEMON");
 			buffer = recibir_mensaje(socket_cliente);
+
 			t_get_pokemon* mensaje_get_pokemon = deserializar_get_pokemon(buffer);
 
 			id_mensaje_recibido = asignar_id_get_pokemon(mensaje_get_pokemon);
@@ -258,6 +291,7 @@ void handle_cliente(int socket_servidor) {
 		case LOCALIZED_POKEMON:
 			log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
 			buffer = recibir_mensaje(socket_cliente);
+
 			t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(buffer);
 
 			id_mensaje_recibido = asignar_id_localized_pokemon(mensaje_localized_pokemon);
@@ -278,6 +312,7 @@ void handle_cliente(int socket_servidor) {
 		case CONFIRMACION:
 			log_trace(logger, "Se recibio una CONFIRMACION.");
 			buffer = recibir_mensaje(socket_cliente);
+
 			t_confirmacion* mensaje_confirmacion = deserializar_confirmacion(buffer);
 
 			confirmar_cliente_recibio(mensaje_confirmacion, socket_cliente);
@@ -287,6 +322,8 @@ void handle_cliente(int socket_servidor) {
 
 			break;
  	}
+
+	pthread_mutex_unlock(&mutex_handler_mensaje); //Tiene que estar mas arriba, pero es para probar.
  }
 
 void enviar_mensaje_de_cola(void* mensaje, int ciente){

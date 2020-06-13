@@ -36,7 +36,7 @@ void enviar_a_todos_los_subs_get_pokemon(t_get_pokemon* mensaje){
 
 	list_iterate(get_pokemon->subscriptores, enviar_get_pokemon_a_suscriptor_aux);
 
-	log_trace(logger, "Se van a envio a todos los subs, el nuevo GET_POKEMON.");
+	log_trace(logger, "Se va a enviar a todos los subs, el nuevo GET_POKEMON.");
 }
 
 void enviar_get_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_get_pokemon* mensaje){

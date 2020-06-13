@@ -36,7 +36,7 @@ void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje){
 
 	list_iterate(appeared_pokemon->subscriptores, enviar_appeared_pokemon_a_suscriptor_aux);
 
-	log_trace(logger, "Se van a envio a todos los subs, el nuevo APPEARED_POKEMON.");
+	log_trace(logger, "Se va a enviar a todos los subs, el nuevo APPEARED_POKEMON.");
 }
 
 void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appeared_pokemon* mensaje){
