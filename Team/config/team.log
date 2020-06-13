@@ -1461,3 +1461,84 @@
 [INFO] 13:53:37:36 Team/(31635:31640): Se recibio un mensaje APPEARED_POKEMON, Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 6
 [TRACE] 13:53:37:36 Team/(31635:31640): Mensaje recibido manejado.
 >>>>>>> 838b0359a043c385694735092045f4bb96c826bc
+[TRACE] 14:11:18:285 Team/(718:718): --- Log inicializado ---
+[TRACE] 14:11:18:285 Team/(718:718): --- Entrenadores cargados ---
+[TRACE] 14:11:18:285 Team/(718:718): Data Entrenador: Posicion 1 2
+[TRACE] 14:11:18:286 Team/(718:718): Pikachu
+[TRACE] 14:11:18:286 Team/(718:718): Squirtle
+[TRACE] 14:11:18:286 Team/(718:718): Pidgey
+[TRACE] 14:11:18:286 Team/(718:718): Pikachu
+[TRACE] 14:11:18:286 Team/(718:718): Pikachu
+[TRACE] 14:11:18:286 Team/(718:718): Squirtle
+[TRACE] 14:11:18:286 Team/(718:718): Pidgey
+[TRACE] 14:11:18:286 Team/(718:718): Data Entrenador: Posicion 3 7
+[TRACE] 14:11:18:287 Team/(718:718): Squirtle
+[TRACE] 14:11:18:287 Team/(718:718): Charmander
+[TRACE] 14:11:18:287 Team/(718:718): Pikachu
+[TRACE] 14:11:18:287 Team/(718:718): Charmander
+[TRACE] 14:11:18:287 Team/(718:718): Charmander
+[TRACE] 14:11:18:287 Team/(718:718): Data Entrenador: Posicion 5 5
+[TRACE] 14:11:18:287 Team/(718:718): Bulbasaur
+[TRACE] 14:11:18:287 Team/(718:718): Squirtle
+[TRACE] 14:11:18:287 Team/(718:718): Bulbasaur
+[TRACE] 14:11:18:287 Team/(718:718): --- Entrenadores mostrados ---
+[TRACE] 14:11:18:288 Team/(718:718): --- Kokemones obtenidos ---
+[TRACE] 14:11:18:288 Team/(718:718): Pikachu
+[TRACE] 14:11:18:288 Team/(718:718): Pikachu
+[TRACE] 14:11:18:288 Team/(718:718): Squirtle
+[TRACE] 14:11:18:288 Team/(718:718): Pidgey
+[TRACE] 14:11:18:288 Team/(718:718): Pikachu
+[TRACE] 14:11:18:288 Team/(718:718): Charmander
+[TRACE] 14:11:18:288 Team/(718:718): Charmander
+[TRACE] 14:11:18:288 Team/(718:718): Squirtle
+[TRACE] 14:11:18:288 Team/(718:718): Bulbasaur
+[TRACE] 14:11:18:288 Team/(718:718):  ---- Objetivos Formados ----
+[TRACE] 14:11:18:289 Team/(718:718): Data de objetivo!
+[TRACE] 14:11:18:289 Team/(718:718): objetivo: Pikachu
+[TRACE] 14:11:18:289 Team/(718:718): objetivo: 3
+[TRACE] 14:11:18:289 Team/(718:718): Data de objetivo!
+[TRACE] 14:11:18:289 Team/(718:718): objetivo: Squirtle
+[TRACE] 14:11:18:289 Team/(718:718): objetivo: 2
+[TRACE] 14:11:18:289 Team/(718:718): Data de objetivo!
+[TRACE] 14:11:18:289 Team/(718:718): objetivo: Pidgey
+[TRACE] 14:11:18:289 Team/(718:718): objetivo: 1
+[TRACE] 14:11:18:289 Team/(718:718): Data de objetivo!
+[TRACE] 14:11:18:289 Team/(718:718): objetivo: Charmander
+[TRACE] 14:11:18:290 Team/(718:718): objetivo: 2
+[TRACE] 14:11:18:290 Team/(718:718): Data de objetivo!
+[TRACE] 14:11:18:290 Team/(718:718): objetivo: Bulbasaur
+[TRACE] 14:11:18:290 Team/(718:718): objetivo: 1
+[TRACE] 14:11:18:290 Team/(718:718): Ip Gameboy Leida : 127.0.0.2 Puerto Gameboy Leido :  5002
+
+[TRACE] 14:11:18:290 Team/(718:718): Esperando Cliente
+[TRACE] 14:11:18:290 Team/(718:720): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 14:11:18:291 Team/(718:720): Enviado get para: Pikachu
+[TRACE] 14:11:18:291 Team/(718:720): Enviado get para: Squirtle
+[TRACE] 14:11:18:291 Team/(718:720): Enviado get para: Pidgey
+[TRACE] 14:11:18:291 Team/(718:720): Enviado get para: Charmander
+[TRACE] 14:11:18:291 Team/(718:720): Enviado get para: Bulbasaur
+[TRACE] 14:11:18:291 Team/(718:719): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 14:11:18:292 Team/(718:719): Mensaje suscripcion enviado
+[TRACE] 14:11:18:292 Team/(718:719): socket a esperar 8
+[TRACE] 14:11:18:292 Team/(718:719): Suscripcion completada
+[TRACE] 14:11:18:292 Team/(718:719): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 14:11:18:292 Team/(718:719): Mensaje suscripcion enviado
+[TRACE] 14:11:18:292 Team/(718:719): socket a esperar 9
+[TRACE] 14:11:18:293 Team/(718:719): Suscripcion completada
+[TRACE] 14:11:18:293 Team/(718:719): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 14:11:18:293 Team/(718:719): Mensaje suscripcion enviado
+[TRACE] 14:11:18:294 Team/(718:719): socket a esperar 10
+[TRACE] 14:11:18:294 Team/(718:719): Suscripcion completada
+[TRACE] 14:11:18:297 Team/(718:727): Esperando que aparezcan mensajes en 10
+[TRACE] 14:11:18:298 Team/(718:725): Esperando que aparezcan mensajes en 9
+[TRACE] 14:11:18:300 Team/(718:723): Esperando que aparezcan mensajes en 8
+[TRACE] 14:11:23:90 Team/(718:723): Mensaje recibido, cod_op: 2.
+[INFO] 14:11:23:90 Team/(718:723): Se recibio un mensaje APPEARED_POKEMON, Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 5
+[TRACE] 14:11:23:90 Team/(718:723): Mensaje recibido manejado.
+[TRACE] 14:11:25:336 Team/(718:727): Mensaje recibido, cod_op: 4.
+[INFO] 14:11:25:336 Team/(718:727): Se recibio un mensaje CAUGHT_POKEMON, ID mensaje: 6, ok/fail: 1
+[TRACE] 14:11:25:337 Team/(718:727): Mensaje recibido manejado.
