@@ -83,13 +83,13 @@ void esperar_mensajes_cola(void* input) {
 void manejar_mensaje_cola(int conexion, op_code cod_op) {  //TODO: pending
 
 	t_buffer * buffer = recibir_mensaje(conexion);
-
+	char* message_data;
 	switch (cod_op) {
 	case APPEARED_POKEMON:
 		;
 		t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
 
-		char* message_data = mostrar_appeared_pokemon(mensaje_appeared_pokemon);
+		message_data = mostrar_appeared_pokemon(mensaje_appeared_pokemon);
 		log_info(logger, "Se recibio un mensaje APPEARED_POKEMON, %s", message_data);
 
 		break;
@@ -97,7 +97,7 @@ void manejar_mensaje_cola(int conexion, op_code cod_op) {  //TODO: pending
 		;
 		t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(buffer);
 
-		char* message_data = mostrar_caught_pokemon(mensaje_caught_pokemon);
+		message_data = mostrar_caught_pokemon(mensaje_caught_pokemon);
 		log_info(logger, "Se recibio un mensaje CAUGHT_POKEMON, %s", message_data);
 
 		break;
@@ -105,7 +105,7 @@ void manejar_mensaje_cola(int conexion, op_code cod_op) {  //TODO: pending
 		;
 		t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(buffer);
 
-		char* message_data = mostrar_localized_pokemon(mensaje_localized_pokemon);
+		message_data = mostrar_localized(mensaje_localized_pokemon);
 		log_info(logger, "Se recibio un mensaje LOCALIZED_POKEMON, %s", message_data);
 
 		break;
