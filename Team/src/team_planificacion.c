@@ -54,22 +54,54 @@ void ser_entrenador(void *element) {
 
 }
 
-double distancia(t_entrenador * entrenador, double posx, double posy){
-	double distancia_e= sqrt(suma_de_distancias_al_cuadrado(entrenador,posx,posy));
+int distancia(t_entrenador * entrenador, int posx, int posy){
+	int distancia_e= abs(distancia_en_eje(entrenador,posx,1)) + abs(distancia_en_eje(entrenador,posx,2));
 	return distancia_e;
 }
-double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy){
+/*double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy){
 	double suma = pow(distancia_en_eje(entrenador,posx,1),2) + pow(distancia_en_eje(entrenador,posy,2),2);
 	return suma;
-}
-double distancia_en_eje(t_entrenador *entrenador, double pose, int pos){
-	double resta= entrenador->posicion[pos] - pose;
+}*/
+int distancia_en_eje(t_entrenador *entrenador, int pose, int pos){
+	int resta= entrenador->posicion[pos] - pose;
 	return resta;
 }
 
 // Funciones para planificacion del entrenador
+void desbloquear_entrenador(t_entrenador * entrenador){
+	pthread_mutex_unlock(&(entrenador->sem_est));
+}
+void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy ){
+	int distancia_en_x = abs(distancia_en_eje(entrenador,posx,1));
+	int distancia_en_y= abs(distancia_en_eje(entrenador,posy,2));
+	int retardo_ciclo = config_get_int_value(config,"RETARDO_CICLO_CPU");
+	while(distancia_en_x !=0){
+		sleep(retardo_ciclo);
+		distancia_en_x --;
+	}
+	while(distancia_en_y !=0){
+		sleep(retardo_ciclo);
+		distancia_en_y --;
+	}
+	cambiar_posicion_entrenador(entrenador,posx,posy);
+}
+void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy){
+	entrenador->posicion[1] = posx;
+	entrenador->posicion[2]=posy;
+}
+// Funcion de Planificacion de entrenadores
+void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido,t_list * head_entrenadores){
+	t_entrenador *entrenador_a_planificar= hallar_entrenador_mas_cercano_segun_appeared(appeared_recibido,head_entrenadores);
+	desbloquear_entrenador(entrenador_a_planificar);
+	mover_entrenador_a_posicion(entrenador_a_planificar,appeared_recibido->posx,appeared_recibido->posy);
+	// atrapar_pokemon(entrenador_a_planificar,appeared_recibido);
+}
+t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido,t_list * head_entrenadores){
+	t_entrenador * entrenador_a_planificar_cercano = hallar_entrenador_mas_cercano(head_entrenadores,appeared_recibido->posx,appeared_recibido->posy);
+	return entrenador_a_planificar_cercano;
+}
 
-t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,double posx, double posy){
+t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,int posx, int posy){
 
 	bool tiene_espacio_disponible(void * elemento){
 		t_entrenador * entrenador = elemento;
@@ -82,7 +114,6 @@ t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,double p
 		t_entrenador *entrenador_2 = elemento_2;
 		return distancia(entrenador_1,posx,posy) > distancia(entrenador_2,posx,posy);
 	}
-	//TO DO:  FILTER entrenadores tiene_espacio_disponible() == true  =>>size de pokemones capturados< pokemones_por_capturar
 	t_list *entrenadores_disponibles = list_filter(head_entrenadores,tiene_espacio_disponible);
 	t_list * entrenadores_mas_cercanos = list_sorted(entrenadores_disponibles, menor_distancia);
 	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,0);
@@ -90,3 +121,5 @@ t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,double p
 	log_trace(logger, "Posicion entrenador cercano: Posicion %i %i", entrenador_mas_cercano->posicion[0], entrenador_mas_cercano->posicion[1]);
 	return entrenador_mas_cercano;
 }
+
+

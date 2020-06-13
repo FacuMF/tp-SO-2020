@@ -49,7 +49,9 @@ int iniciar_conexion_con_broker();
 void enviar_requests_pokemones(t_list *objetivo_global);
 void enviar_mensaje_get(int socket_broker, void*element);
 
+//Comunicacion con Gameboy
 void iniciar_conexion_con_gameboy();
+t_appeared_pokemon * obtener_appeared_recibido(int socket_cliente);
 
 // Funciones de carga de entrenador - team_entrenadores
 t_list* cargar_entrenadores();
@@ -81,11 +83,18 @@ bool es_repetido(char *pokemon, t_list *lista_pokemones);
 void lanzar_hilos(t_list *head_entrenadores);
 void lanzar_hilo_entrenador(void*element);
 void ser_entrenador(void *element);
+
 //Funciones de Planificacion
-double distancia(t_entrenador * entrenador, double posx, double posy);
-double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy);
-double distancia_en_eje(t_entrenador *entrenador, double pos_eje, int pos);
-t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores, double posx, double posy);
+int distancia(t_entrenador * entrenador, int posx, int posy);
+//double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy);
+int distancia_en_eje(t_entrenador *entrenador, int pos_eje, int pos);
+void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido,t_list * head_entrenadores);
+t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido,t_list * head_entrenadores);
+t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores, int posx, int posy);
+void desbloquear_entrenador(t_entrenador * entrenador);
+void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy);
+void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy);
+// atrapar_pokemon(entrenador,appeared_pokemon);
 
 #endif /* TEAM_H_ */
 

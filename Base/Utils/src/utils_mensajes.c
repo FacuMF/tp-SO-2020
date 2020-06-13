@@ -586,7 +586,7 @@ char* mostrar_appeared_pokemon(t_appeared_pokemon* mensaje) {
 	int max_size = 100;
 	char* parametros = malloc(sizeof(char) * max_size);
 	snprintf(parametros, max_size,
-			"Pokemon: %s, Posicion X: %d, Posicion X: %d, Id mensaje: %d",
+			"Pokemon: %s, Posicion X: %d, Posicion Y: %d, Id mensaje: %d",
 			mensaje->pokemon, mensaje->posx, mensaje->posy,
 			mensaje->id_mensaje);
 	return parametros;
