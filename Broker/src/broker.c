@@ -116,7 +116,7 @@ void handle_cliente(int socket_servidor) {
 	*argument = socket_cliente;
 	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, argument);
 	// Crea un thread que se quede atendiendo al cliente
-	//pthread_detach(tid[1]);	// Si termina el hilo, que sus recursos se liberen automaticamente
+	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 
 
 }
@@ -124,14 +124,8 @@ void handle_cliente(int socket_servidor) {
 
  void recibir_mensaje_del_cliente(void* input) {
 	int socket_cliente = *((int *)input);
-	int error_mutex;
-	error_mutex = pthread_mutex_init(&mutex_handler_mensaje,  NULL);
 
-	if ( error_mutex != 0 ) log_error(logger, "Error en el mutex dentro de 'recibir_mensaje_cliente'");
-
-
-	//while(1){ //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
-		pthread_mutex_lock(&mutex_handler_mensaje);
+	while(1){ //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
 
 		int cod_op = recibir_codigo_operacion(socket_cliente);
 		(cod_op == -1)? log_error(logger, "Error en 'recibir_codigo_operacion'") :
@@ -141,15 +135,13 @@ void handle_cliente(int socket_servidor) {
 		info_mensaje->op_code = cod_op;
 		info_mensaje->socket_cliente=socket_cliente;
 
-		pthread_create(&thread, NULL, (void*) handle_mensaje, info_mensaje);
-		//handle_mensaje(info_mensaje);
-	//}
+		handle_mensaje(info_mensaje);
+	}
 
-	pthread_mutex_destroy(&mutex_handler_mensaje);
 
  }
 
- void handle_mensaje(void* stream){
+ void handle_mensaje(void* stream){ //Lanzar un hilo para manejar cada mensaje una vez deserializado?
 	t_info_mensaje* info_mensaje = stream;
 
 	int cod_op = info_mensaje->op_code;
@@ -323,7 +315,6 @@ void handle_cliente(int socket_servidor) {
 			break;
  	}
 
-	pthread_mutex_unlock(&mutex_handler_mensaje); //Tiene que estar mas arriba, pero es para probar.
  }
 
 void enviar_mensaje_de_cola(void* mensaje, int ciente){

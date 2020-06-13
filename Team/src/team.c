@@ -12,13 +12,13 @@ int main(int argv, char*archivo_config[]) {
 
 	t_list * objetivo_global = formar_objetivo(pokemones_con_repetidos);
 
-	//suscribirse_a_colas_necesarias();
+	suscribirse_a_colas_necesarias();
 
-	//enviar_requests_pokemones(objetivo_global);
+	enviar_requests_pokemones(objetivo_global);
 
 	//lanzar_hilos(head_entrenadores);
 
-	iniciar_conexion_con_gameboy();	//TO DO
+	iniciar_conexion_con_gameboy();
 
 	// Atender mensajes
 
@@ -26,9 +26,8 @@ int main(int argv, char*archivo_config[]) {
 	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(
 			head_entrenadores, 1, 3);
 
-	// Conectar_con_gameboy
 
-	//sleep(10000); //TT
+	sleep(10000); //TT
 	finalizar_team();
 }
 
