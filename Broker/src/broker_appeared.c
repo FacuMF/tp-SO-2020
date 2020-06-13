@@ -1,5 +1,30 @@
 #include "broker.h"
 
+void manejar_mensaje_appeared(t_conexion_buffer *combo) {
+	t_buffer * buffer = combo->buffer;
+	int socket_cliente= combo->conexion;
+
+	t_appeared_pokemon* mensaje_appeared_pokemon =
+			deserializar_appeared_pokemon(buffer);
+
+	int id_mensaje_recibido = asignar_id_appeared_pokemon(
+			mensaje_appeared_pokemon);
+
+	log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEON",
+			id_mensaje_recibido);
+
+	devolver_appeared_pokemon(socket_cliente, mensaje_appeared_pokemon);
+	log_trace(logger,
+			"Se devolvio el mensaje APPEARED_POKEMON con id asignado.");
+
+	almacenar_en_cola_appeared_pokemon(mensaje_appeared_pokemon);
+	log_trace(logger, "Se almaceno el mensaje APPEARED_POKEMON en la cola.");
+
+	//cachear_appeared_pokemon(mensaje);
+
+	//free (liberar memoria)
+}
+
 int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje) {
 	int id = get_id_mensajes();
 	mensaje->id_mensaje = id;
@@ -61,30 +86,6 @@ void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 	recibir_mensaje_del_cliente(&(suscriptor->socket));
 }
 
-void manejar_mensaje_appeared(t_conexion_buffer *combo) {
-	t_buffer * buffer = combo->buffer;
-	int socket_cliente= combo->conexion;
-
-	t_appeared_pokemon* mensaje_appeared_pokemon =
-			deserializar_appeared_pokemon(buffer);
-
-	int id_mensaje_recibido = asignar_id_appeared_pokemon(
-			mensaje_appeared_pokemon);
-
-	log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEON",
-			id_mensaje_recibido);
-
-	devolver_appeared_pokemon(socket_cliente, mensaje_appeared_pokemon);
-	log_trace(logger,
-			"Se devolvio el mensaje APPEARED_POKEMON con id asignado.");
-
-	almacenar_en_cola_appeared_pokemon(mensaje_appeared_pokemon);
-	log_trace(logger, "Se almaceno el mensaje APPEARED_POKEMON en la cola.");
-
-	//cachear_appeared_pokemon(mensaje);
-
-	//free (liberar memoria)
-}
 
 /*
  void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){

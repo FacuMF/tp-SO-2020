@@ -161,25 +161,9 @@ void handle_mensaje(void* stream) { //Lanzar un hilo para manejar cada mensaje u
 
 		break;
 	case NEW_POKEMON:
+
 		log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
-
-		t_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(buffer);
-
-		id_mensaje_recibido = asignar_id_new_pokemon(mensaje_new_pokemon);
-
-		log_info(logger, "Llegada de mensaje nuevo %i a cola NEW_POKEON",
-				id_mensaje_recibido);
-
-		devolver_new_pokemon(socket_cliente, mensaje_new_pokemon);
-		log_trace(logger,
-				"Se devolvio el mensaje NEW_POKEMON con id asignado.");
-
-		almacenar_en_cola_new_pokemon(mensaje_new_pokemon);
-		log_trace(logger, "Se almaceno el mensaje NEW_POKEMON en la cola.");
-
-		//cachear_new_pokemon(mensaje);
-
-		//free (liberar memoria)
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_new,info_mensaje_a_manejar);
 
 		break;
 	case CATCH_POKEMON:

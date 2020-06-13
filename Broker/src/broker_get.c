@@ -1,6 +1,5 @@
 #include "broker.h"
 
-
 void manejar_mensaje_get(t_conexion_buffer *combo) {
 	t_buffer * buffer = combo->buffer;
 		int socket_cliente= combo->conexion;
