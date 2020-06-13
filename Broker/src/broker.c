@@ -72,7 +72,7 @@ void* esperar_mensajes(void *arg) {
 }
 
 void* iniciar_conexion_con_modulo(char* ip, char* puerto) {
-	int socket_servidor = escuchar_socket_cliente(ip, puerto);
+	int socket_servidor = iniciar_conexion_servidor(ip, puerto);
 
 	while (1) {
 		log_trace(logger, "Va a ejecutar 'handle_cliente'.");
@@ -96,8 +96,7 @@ void handle_cliente(int socket_servidor) {
 
 	int* argument = malloc(sizeof(int));
 	*argument = socket_cliente;
-	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente,
-			argument);
+	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente,argument);
 	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 
 }

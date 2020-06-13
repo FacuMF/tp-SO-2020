@@ -12,13 +12,15 @@ int main(int argv, char*archivo_config[]) {
 
 	t_list * objetivo_global = formar_objetivo(pokemones_con_repetidos);
 
-	suscribirse_a_colas_necesarias();
+	//suscribirse_a_colas_necesarias();
+	pthread_create(&thread, NULL, (void*)suscribirse_a_colas_necesarias,NULL);
 
-	enviar_requests_pokemones(objetivo_global);
+	//enviar_requests_pokemones(objetivo_global);
+	pthread_create(&thread, NULL, (void*)enviar_requests_pokemones,objetivo_global);
 
 	iniciar_conexion_con_gameboy();
-
 	//lanzar_hilos(head_entrenadores);
+
 
 
 	// TT - To Test
@@ -64,17 +66,18 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 
 void esperar_mensajes_cola(void* input) {
 	int conexion = *((int *)input);
+	int cod_op = 1;
+
 	log_trace(logger,"Esperando que aparezcan mensajes en %d",conexion);
-	while (1) {
-		op_code cod_op = recibir_codigo_operacion(conexion);
+
+	while (cod_op>=0) {
+		cod_op = recibir_codigo_operacion(conexion);
 		(cod_op == -1) ?
 				log_error(logger, "Error en 'recibir_codigo_operacion'") :
 				log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
 
-		/*int* argument = malloc(sizeof(int));
-		*argument = conexion;
-		pthread_create(&thread, NULL, (void*)manejar_mensaje_cola, argument);*/
-		manejar_mensaje_cola(conexion,cod_op);
+		if(cod_op>=0)
+			manejar_mensaje_cola(conexion,cod_op);
 	}
 }
 
@@ -152,9 +155,8 @@ void iniciar_conexion_con_gameboy() {
 	log_trace(logger, "Ip Gameboy Leida : %s Puerto Gameboy Leido : %s\n",
 			ip_gameboy, puerto_gameboy);
 
-	int socket_gameboy = iniciar_conexion_servidor(ip_gameboy, puerto_gameboy);
 
-	listen(socket_gameboy, SOMAXCONN);// Prepara el socket para crear una conexión con el request que llegue. SOMAXCONN = numero maximo de conexiones acumulables
+	int socket_gameboy = iniciar_conexion_servidor(ip_gameboy, puerto_gameboy);
 
 	while (1) {
 		log_trace(logger, "Esperando Cliente");
@@ -170,14 +172,16 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 	log_trace(logger, "Va a ejecutar 'accept'.");
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
 			&tam_direccion);// Acepta el request del cliente y crea el socket
+	log_trace(logger, "Conexion de %i al Broker.", socket_cliente);
 
-	manejar_recepcion_mensaje(&socket_cliente);
+	log_trace(logger, "Va a lanzar hilo 'recibir_mensaje_del_cliente'.");
 
-	// Lanzar los hilos handlers
-	//pthread_create(&thread, NULL, (void*) manejar_recepcion_mensaje, &socket_cliente);// Crea un thread que se quede atendiendo al cliente
-	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+	int * argument = malloc(sizeof(int));
+	* argument = socket_cliente;
+	pthread_create(&thread, NULL, (void*)esperar_mensajes_cola, argument);
 }
 
+/*
 void manejar_recepcion_mensaje(int* socket_cliente) {
 	int cod_op = recibir_codigo_operacion(*socket_cliente);
 	log_trace(logger, "Mensaje Recibido codop: %d", cod_op);
@@ -193,7 +197,7 @@ t_appeared_pokemon * obtener_appeared_recibido(int socket_cliente){
 	t_appeared_pokemon * appeared = deserializar_appeared_pokemon(buffer);
 	return appeared;
 }
-
+*/
 
 // Funciones Generales
 void iniciar_team(char*argumentos_iniciales[]) {
