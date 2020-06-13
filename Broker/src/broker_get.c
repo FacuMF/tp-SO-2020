@@ -74,8 +74,6 @@ void enviar_get_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_get_pokem
 	log_info(logger, "Envio de GET_POKEMON %i a suscriptor %i", mensaje->id_mensaje, suscriptor->socket);
 
 	log_trace(logger, "Se envio mensaje GET_POKEMON");
-
-	recibir_mensaje_del_cliente(&(suscriptor->socket));
 }
 
 

@@ -979,6 +979,242 @@
 [TRACE] 13:22:11:711 Team/(29337:29344): Esperando que aparezcan mensajes en 9
 [TRACE] 13:22:11:711 Team/(29337:29346): Esperando que aparezcan mensajes en 10
 [TRACE] 13:22:11:712 Team/(29337:29342): Esperando que aparezcan mensajes en 8
+<<<<<<< HEAD
+[TRACE] 13:33:36:284 Team/(20705:20705): --- Log inicializado ---
+[TRACE] 13:33:36:284 Team/(20705:20705): --- Entrenadores cargados ---
+[TRACE] 13:33:36:284 Team/(20705:20705): Data Entrenador: Posicion 1 2
+[TRACE] 13:33:36:284 Team/(20705:20705): Pikachu
+[TRACE] 13:33:36:285 Team/(20705:20705): Squirtle
+[TRACE] 13:33:36:285 Team/(20705:20705): Pidgey
+[TRACE] 13:33:36:285 Team/(20705:20705): Pikachu
+[TRACE] 13:33:36:285 Team/(20705:20705): Pikachu
+[TRACE] 13:33:36:285 Team/(20705:20705): Squirtle
+[TRACE] 13:33:36:285 Team/(20705:20705): Pidgey
+[TRACE] 13:33:36:285 Team/(20705:20705): Data Entrenador: Posicion 3 7
+[TRACE] 13:33:36:285 Team/(20705:20705): Squirtle
+[TRACE] 13:33:36:285 Team/(20705:20705): Charmander
+[TRACE] 13:33:36:286 Team/(20705:20705): Pikachu
+[TRACE] 13:33:36:286 Team/(20705:20705): Charmander
+[TRACE] 13:33:36:286 Team/(20705:20705): Charmander
+[TRACE] 13:33:36:286 Team/(20705:20705): Data Entrenador: Posicion 5 5
+[TRACE] 13:33:36:286 Team/(20705:20705): Bulbasaur
+[TRACE] 13:33:36:286 Team/(20705:20705): Squirtle
+[TRACE] 13:33:36:286 Team/(20705:20705): Bulbasaur
+[TRACE] 13:33:36:286 Team/(20705:20705): --- Entrenadores mostrados ---
+[TRACE] 13:33:36:286 Team/(20705:20705): --- Kokemones obtenidos ---
+[TRACE] 13:33:36:286 Team/(20705:20705): Pikachu
+[TRACE] 13:33:36:287 Team/(20705:20705): Pikachu
+[TRACE] 13:33:36:287 Team/(20705:20705): Squirtle
+[TRACE] 13:33:36:287 Team/(20705:20705): Pidgey
+[TRACE] 13:33:36:287 Team/(20705:20705): Pikachu
+[TRACE] 13:33:36:287 Team/(20705:20705): Charmander
+[TRACE] 13:33:36:287 Team/(20705:20705): Charmander
+[TRACE] 13:33:36:289 Team/(20705:20705): Squirtle
+[TRACE] 13:33:36:289 Team/(20705:20705): Bulbasaur
+[TRACE] 13:33:36:289 Team/(20705:20705):  ---- Objetivos Formados ----
+[TRACE] 13:33:36:289 Team/(20705:20705): Data de objetivo!
+[TRACE] 13:33:36:289 Team/(20705:20705): objetivo: Pikachu
+[TRACE] 13:33:36:289 Team/(20705:20705): objetivo: 3
+[TRACE] 13:33:36:289 Team/(20705:20705): Data de objetivo!
+[TRACE] 13:33:36:289 Team/(20705:20705): objetivo: Squirtle
+[TRACE] 13:33:36:289 Team/(20705:20705): objetivo: 2
+[TRACE] 13:33:36:289 Team/(20705:20705): Data de objetivo!
+[TRACE] 13:33:36:290 Team/(20705:20705): objetivo: Pidgey
+[TRACE] 13:33:36:290 Team/(20705:20705): objetivo: 1
+[TRACE] 13:33:36:290 Team/(20705:20705): Data de objetivo!
+[TRACE] 13:33:36:290 Team/(20705:20705): objetivo: Charmander
+[TRACE] 13:33:36:290 Team/(20705:20705): objetivo: 2
+[TRACE] 13:33:36:290 Team/(20705:20705): Data de objetivo!
+[TRACE] 13:33:36:290 Team/(20705:20705): objetivo: Bulbasaur
+[TRACE] 13:33:36:290 Team/(20705:20705): objetivo: 1
+[TRACE] 13:33:36:290 Team/(20705:20705): Ip Gameboy Leida : 127.0.0.2 Puerto Gameboy Leido :  5002
+
+[TRACE] 13:33:36:290 Team/(20705:20705): Esperando Cliente
+[TRACE] 13:33:36:290 Team/(20705:20705): Va a ejecutar 'accept'.
+[TRACE] 13:33:36:291 Team/(20705:20707): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:33:36:291 Team/(20705:20707): Enviado get para: Pikachu
+[TRACE] 13:33:36:291 Team/(20705:20707): Enviado get para: Squirtle
+[TRACE] 13:33:36:291 Team/(20705:20707): Enviado get para: Pidgey
+[TRACE] 13:33:36:291 Team/(20705:20707): Enviado get para: Charmander
+[TRACE] 13:33:36:292 Team/(20705:20707): Enviado get para: Bulbasaur
+[TRACE] 13:33:36:292 Team/(20705:20707): Gets enviados
+[TRACE] 13:33:36:292 Team/(20705:20706): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:33:36:292 Team/(20705:20706): Mensaje suscripcion enviado
+[TRACE] 13:33:36:292 Team/(20705:20706): socket a esperar 8
+[TRACE] 13:33:36:292 Team/(20705:20706): Suscripcion completada
+[TRACE] 13:33:36:292 Team/(20705:20706): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:33:36:293 Team/(20705:20706): Mensaje suscripcion enviado
+[TRACE] 13:33:36:293 Team/(20705:20706): socket a esperar 9
+[TRACE] 13:33:36:293 Team/(20705:20706): Suscripcion completada
+[TRACE] 13:33:36:293 Team/(20705:20706): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:33:36:293 Team/(20705:20706): Mensaje suscripcion enviado
+[TRACE] 13:33:36:294 Team/(20705:20706): socket a esperar 10
+[TRACE] 13:33:36:294 Team/(20705:20706): Suscripcion completada
+[TRACE] 13:33:36:295 Team/(20705:20713): Esperando que aparezcan mensajes en 9
+[TRACE] 13:33:36:295 Team/(20705:20716): Esperando que aparezcan mensajes en 10
+[TRACE] 13:33:36:300 Team/(20705:20710): Esperando que aparezcan mensajes en 8
+[TRACE] 13:37:32:239 Team/(20747:20747): --- Log inicializado ---
+[TRACE] 13:37:32:240 Team/(20747:20747): --- Entrenadores cargados ---
+[TRACE] 13:37:32:240 Team/(20747:20747): Data Entrenador: Posicion 1 2
+[TRACE] 13:37:32:241 Team/(20747:20747): Pikachu
+[TRACE] 13:37:32:241 Team/(20747:20747): Squirtle
+[TRACE] 13:37:32:241 Team/(20747:20747): Pidgey
+[TRACE] 13:37:32:241 Team/(20747:20747): Pikachu
+[TRACE] 13:37:32:241 Team/(20747:20747): Pikachu
+[TRACE] 13:37:32:241 Team/(20747:20747): Squirtle
+[TRACE] 13:37:32:241 Team/(20747:20747): Pidgey
+[TRACE] 13:37:32:241 Team/(20747:20747): Data Entrenador: Posicion 3 7
+[TRACE] 13:37:32:241 Team/(20747:20747): Squirtle
+[TRACE] 13:37:32:242 Team/(20747:20747): Charmander
+[TRACE] 13:37:32:242 Team/(20747:20747): Pikachu
+[TRACE] 13:37:32:242 Team/(20747:20747): Charmander
+[TRACE] 13:37:32:242 Team/(20747:20747): Charmander
+[TRACE] 13:37:32:242 Team/(20747:20747): Data Entrenador: Posicion 5 5
+[TRACE] 13:37:32:242 Team/(20747:20747): Bulbasaur
+[TRACE] 13:37:32:242 Team/(20747:20747): Squirtle
+[TRACE] 13:37:32:242 Team/(20747:20747): Bulbasaur
+[TRACE] 13:37:32:242 Team/(20747:20747): --- Entrenadores mostrados ---
+[TRACE] 13:37:32:242 Team/(20747:20747): --- Kokemones obtenidos ---
+[TRACE] 13:37:32:243 Team/(20747:20747): Pikachu
+[TRACE] 13:37:32:243 Team/(20747:20747): Pikachu
+[TRACE] 13:37:32:243 Team/(20747:20747): Squirtle
+[TRACE] 13:37:32:243 Team/(20747:20747): Pidgey
+[TRACE] 13:37:32:243 Team/(20747:20747): Pikachu
+[TRACE] 13:37:32:243 Team/(20747:20747): Charmander
+[TRACE] 13:37:32:243 Team/(20747:20747): Charmander
+[TRACE] 13:37:32:243 Team/(20747:20747): Squirtle
+[TRACE] 13:37:32:243 Team/(20747:20747): Bulbasaur
+[TRACE] 13:37:32:243 Team/(20747:20747):  ---- Objetivos Formados ----
+[TRACE] 13:37:32:244 Team/(20747:20747): Data de objetivo!
+[TRACE] 13:37:32:244 Team/(20747:20747): objetivo: Pikachu
+[TRACE] 13:37:32:244 Team/(20747:20747): objetivo: 3
+[TRACE] 13:37:32:244 Team/(20747:20747): Data de objetivo!
+[TRACE] 13:37:32:244 Team/(20747:20747): objetivo: Squirtle
+[TRACE] 13:37:32:245 Team/(20747:20747): objetivo: 2
+[TRACE] 13:37:32:245 Team/(20747:20747): Data de objetivo!
+[TRACE] 13:37:32:245 Team/(20747:20747): objetivo: Pidgey
+[TRACE] 13:37:32:245 Team/(20747:20747): objetivo: 1
+[TRACE] 13:37:32:245 Team/(20747:20747): Data de objetivo!
+[TRACE] 13:37:32:246 Team/(20747:20747): objetivo: Charmander
+[TRACE] 13:37:32:246 Team/(20747:20747): objetivo: 2
+[TRACE] 13:37:32:246 Team/(20747:20747): Data de objetivo!
+[TRACE] 13:37:32:246 Team/(20747:20747): objetivo: Bulbasaur
+[TRACE] 13:37:32:246 Team/(20747:20747): objetivo: 1
+[TRACE] 13:37:32:246 Team/(20747:20747): Ip Gameboy Leida : 127.0.0.2 Puerto Gameboy Leido :  5002
+
+[TRACE] 13:37:32:246 Team/(20747:20747): Esperando Cliente
+[TRACE] 13:37:32:246 Team/(20747:20747): Va a ejecutar 'accept'.
+[TRACE] 13:37:32:246 Team/(20747:20749): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:37:32:248 Team/(20747:20749): Enviado get para: Pikachu
+[TRACE] 13:37:32:248 Team/(20747:20749): Enviado get para: Squirtle
+[TRACE] 13:37:32:248 Team/(20747:20749): Enviado get para: Pidgey
+[TRACE] 13:37:32:248 Team/(20747:20749): Enviado get para: Charmander
+[TRACE] 13:37:32:249 Team/(20747:20749): Enviado get para: Bulbasaur
+[TRACE] 13:37:32:249 Team/(20747:20749): Gets enviados
+[TRACE] 13:37:32:253 Team/(20747:20748): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:37:32:270 Team/(20747:20748): Mensaje suscripcion enviado
+[TRACE] 13:37:32:270 Team/(20747:20748): socket a esperar 8
+[TRACE] 13:37:32:270 Team/(20747:20748): Suscripcion completada
+[TRACE] 13:37:32:270 Team/(20747:20748): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:37:32:270 Team/(20747:20748): Mensaje suscripcion enviado
+[TRACE] 13:37:32:270 Team/(20747:20748): socket a esperar 9
+[TRACE] 13:37:32:271 Team/(20747:20748): Suscripcion completada
+[TRACE] 13:37:32:271 Team/(20747:20748): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:37:32:271 Team/(20747:20748): Mensaje suscripcion enviado
+[TRACE] 13:37:32:271 Team/(20747:20748): socket a esperar 10
+[TRACE] 13:37:32:271 Team/(20747:20748): Suscripcion completada
+[TRACE] 13:37:32:272 Team/(20747:20761): Esperando que aparezcan mensajes en 10
+[TRACE] 13:37:32:272 Team/(20747:20759): Esperando que aparezcan mensajes en 9
+[TRACE] 13:37:32:272 Team/(20747:20757): Esperando que aparezcan mensajes en 8
+[TRACE] 13:38:26:276 Team/(20769:20769): --- Log inicializado ---
+[TRACE] 13:38:26:276 Team/(20769:20769): --- Entrenadores cargados ---
+[TRACE] 13:38:26:276 Team/(20769:20769): Data Entrenador: Posicion 1 2
+[TRACE] 13:38:26:277 Team/(20769:20769): Pikachu
+[TRACE] 13:38:26:277 Team/(20769:20769): Squirtle
+[TRACE] 13:38:26:277 Team/(20769:20769): Pidgey
+[TRACE] 13:38:26:277 Team/(20769:20769): Pikachu
+[TRACE] 13:38:26:277 Team/(20769:20769): Pikachu
+[TRACE] 13:38:26:277 Team/(20769:20769): Squirtle
+[TRACE] 13:38:26:277 Team/(20769:20769): Pidgey
+[TRACE] 13:38:26:277 Team/(20769:20769): Data Entrenador: Posicion 3 7
+[TRACE] 13:38:26:277 Team/(20769:20769): Squirtle
+[TRACE] 13:38:26:277 Team/(20769:20769): Charmander
+[TRACE] 13:38:26:277 Team/(20769:20769): Pikachu
+[TRACE] 13:38:26:277 Team/(20769:20769): Charmander
+[TRACE] 13:38:26:277 Team/(20769:20769): Charmander
+[TRACE] 13:38:26:277 Team/(20769:20769): Data Entrenador: Posicion 5 5
+[TRACE] 13:38:26:278 Team/(20769:20769): Bulbasaur
+[TRACE] 13:38:26:278 Team/(20769:20769): Squirtle
+[TRACE] 13:38:26:278 Team/(20769:20769): Bulbasaur
+[TRACE] 13:38:26:278 Team/(20769:20769): --- Entrenadores mostrados ---
+[TRACE] 13:38:26:278 Team/(20769:20769): --- Kokemones obtenidos ---
+[TRACE] 13:38:26:278 Team/(20769:20769): Pikachu
+[TRACE] 13:38:26:278 Team/(20769:20769): Pikachu
+[TRACE] 13:38:26:278 Team/(20769:20769): Squirtle
+[TRACE] 13:38:26:278 Team/(20769:20769): Pidgey
+[TRACE] 13:38:26:278 Team/(20769:20769): Pikachu
+[TRACE] 13:38:26:278 Team/(20769:20769): Charmander
+[TRACE] 13:38:26:278 Team/(20769:20769): Charmander
+[TRACE] 13:38:26:278 Team/(20769:20769): Squirtle
+[TRACE] 13:38:26:279 Team/(20769:20769): Bulbasaur
+[TRACE] 13:38:26:279 Team/(20769:20769):  ---- Objetivos Formados ----
+[TRACE] 13:38:26:279 Team/(20769:20769): Data de objetivo!
+[TRACE] 13:38:26:279 Team/(20769:20769): objetivo: Pikachu
+[TRACE] 13:38:26:279 Team/(20769:20769): objetivo: 3
+[TRACE] 13:38:26:279 Team/(20769:20769): Data de objetivo!
+[TRACE] 13:38:26:279 Team/(20769:20769): objetivo: Squirtle
+[TRACE] 13:38:26:279 Team/(20769:20769): objetivo: 2
+[TRACE] 13:38:26:279 Team/(20769:20769): Data de objetivo!
+[TRACE] 13:38:26:279 Team/(20769:20769): objetivo: Pidgey
+[TRACE] 13:38:26:279 Team/(20769:20769): objetivo: 1
+[TRACE] 13:38:26:279 Team/(20769:20769): Data de objetivo!
+[TRACE] 13:38:26:279 Team/(20769:20769): objetivo: Charmander
+[TRACE] 13:38:26:279 Team/(20769:20769): objetivo: 2
+[TRACE] 13:38:26:280 Team/(20769:20769): Data de objetivo!
+[TRACE] 13:38:26:280 Team/(20769:20769): objetivo: Bulbasaur
+[TRACE] 13:38:26:280 Team/(20769:20769): objetivo: 1
+[TRACE] 13:38:26:280 Team/(20769:20769): Ip Gameboy Leida : 127.0.0.2 Puerto Gameboy Leido :  5002
+
+[TRACE] 13:38:26:280 Team/(20769:20769): Esperando Cliente
+[TRACE] 13:38:26:280 Team/(20769:20769): Va a ejecutar 'accept'.
+[TRACE] 13:38:26:280 Team/(20769:20771): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:38:26:281 Team/(20769:20771): Enviado get para: Pikachu
+[TRACE] 13:38:26:281 Team/(20769:20771): Enviado get para: Squirtle
+[TRACE] 13:38:26:281 Team/(20769:20771): Enviado get para: Pidgey
+[TRACE] 13:38:26:281 Team/(20769:20771): Enviado get para: Charmander
+[TRACE] 13:38:26:281 Team/(20769:20771): Enviado get para: Bulbasaur
+[TRACE] 13:38:26:281 Team/(20769:20771): Gets enviados
+[TRACE] 13:38:26:281 Team/(20769:20770): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:38:26:281 Team/(20769:20770): Mensaje suscripcion enviado
+[TRACE] 13:38:26:281 Team/(20769:20770): socket a esperar 8
+[TRACE] 13:38:26:282 Team/(20769:20770): Suscripcion completada
+[TRACE] 13:38:26:282 Team/(20769:20770): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:38:26:286 Team/(20769:20770): Mensaje suscripcion enviado
+[TRACE] 13:38:26:286 Team/(20769:20770): socket a esperar 9
+[TRACE] 13:38:26:286 Team/(20769:20770): Suscripcion completada
+[TRACE] 13:38:26:286 Team/(20769:20770): Ip BROKER Leida : 127.0.0.1 Puerto BROKER Leido : 4444
+
+[TRACE] 13:38:26:287 Team/(20769:20770): Mensaje suscripcion enviado
+[TRACE] 13:38:26:287 Team/(20769:20770): socket a esperar 10
+[TRACE] 13:38:26:287 Team/(20769:20770): Suscripcion completada
+[TRACE] 13:38:26:287 Team/(20769:20780): Esperando que aparezcan mensajes en 9
+[TRACE] 13:38:26:290 Team/(20769:20783): Esperando que aparezcan mensajes en 10
+[TRACE] 13:38:26:292 Team/(20769:20774): Esperando que aparezcan mensajes en 8
+[TRACE] 13:45:14:560 Team/(20769:20783): Mensaje recibido, cod_op: -1254108344.
+[TRACE] 13:45:14:560 Team/(20769:20780): Mensaje recibido, cod_op: -1245715640.
+[TRACE] 13:45:14:560 Team/(20769:20774): Mensaje recibido, cod_op: -1237322936.
+=======
 [TRACE] 13:41:41:589 Team/(30449:30449): --- Log inicializado ---
 [TRACE] 13:41:41:589 Team/(30449:30449): --- Entrenadores cargados ---
 [TRACE] 13:41:41:589 Team/(30449:30449): Data Entrenador: Posicion 1 2
@@ -1224,3 +1460,4 @@
 [TRACE] 13:53:37:36 Team/(31635:31640): Mensaje recibido, cod_op: 2.
 [INFO] 13:53:37:36 Team/(31635:31640): Se recibio un mensaje APPEARED_POKEMON, Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 6
 [TRACE] 13:53:37:36 Team/(31635:31640): Mensaje recibido manejado.
+>>>>>>> 838b0359a043c385694735092045f4bb96c826bc
