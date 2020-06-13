@@ -190,7 +190,7 @@ void handle_mensaje(void* stream) { //Lanzar un hilo para manejar cada mensaje u
 		break;
 	case CONFIRMACION:
 		log_trace(logger, "Se recibio una CONFIRMACION.");
-		pthread_create(&thread, NULL, (void*) manejar_mensaje_confirmacion,info_mensaje_a_manejar);
+		manejar_mensaje_confirmacion(info_mensaje_a_manejar);
 
 		break;
 	default:
