@@ -116,7 +116,7 @@ void handle_cliente(int socket_servidor) {
 	*argument = socket_cliente;
 	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente, argument);
 	// Crea un thread que se quede atendiendo al cliente
-	pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 
 
 }
