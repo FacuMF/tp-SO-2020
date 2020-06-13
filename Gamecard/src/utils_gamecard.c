@@ -63,7 +63,7 @@ char* bitmap_path() {
 }
 
 char* pokemon_metadata_path(char* fileName) {
-    return concat(files_base_path(fileName), METADATA_FILE_NAME); // Se debería agregar un '/' al comienzo del METADATA_FILE_NAME
+    return concat(files_base_path(fileName), METADATA_FILE_NAME);
 }
 
 // Manejo de archivos
@@ -175,9 +175,19 @@ bool file_existing(char* path){
 	}
 }
 
-bool file_open(char* path){
+bool file_open(char* pokemon){
+	t_config* config = read_pokemon_metadata(pokemon);
+	char* estado = config_get_string_value(config,"OPEN");
+	if (estado == "Y"){
+		return true;
+	} else {
+		return false;
+	}
+}
 
-	return true;
+char* extraer_bloques(char* pokemon){
+	t_config* config = read_pokemon_metadata(pokemon);
+	return config_get_array_value(config,"BLOCKS");
 }
 
 void recibir_mensajes_gamecard(int *socket){
@@ -185,6 +195,10 @@ void recibir_mensajes_gamecard(int *socket){
 	 handle_mensajes_gamecard(cod_op, *socket);
 }
 
+bool verificar_posciones_file(int x, int y, char** bloques){
+
+	return true;
+}
 
 void handle_mensajes_gamecard(int cod_op, int socket){
 	t_buffer * buffer;
@@ -199,11 +213,12 @@ void handle_mensajes_gamecard(int cod_op, int socket){
 			create_pokemon_dir(pokemon->pokemon);
 			create_pokemon_metadata_file(pokemon->pokemon);
 		}
-		// Fijarse los bloques con config_get_array
-		if (!file_open()){
-			//if(verificar_posiciones_file(pokemon->posx,pokemon->posy,EL FILE DE LOS BLOQUES)){
+		if (!file_open(pokemon->pokemon)){
+			//Buscar los bloques del pokemon
+			char** bloques = extraer_bloques(pokemon->pokemon);
+			if(verificar_posiciones_file(pokemon->posx,pokemon->posy,bloques)){
 
-			//}
+			}
 		}
 			//  Reintentar la operación luego de REINTENTO_OPERACION
 	}
