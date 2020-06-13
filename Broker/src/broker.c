@@ -103,20 +103,19 @@ void handle_cliente(int socket_servidor) {
 
 void recibir_mensaje_del_cliente(void* input) {
 	int socket_cliente = *((int *) input);
-	int cod_op = 1;
+	int cod_op = 0;
 
 	while (cod_op>=0) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
 
 		cod_op = recibir_codigo_operacion(socket_cliente);
-		(cod_op == -1) ?
-				log_error(logger, "Error en 'recibir_codigo_operacion'") :
-				log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
+		if (cod_op == -1) log_error(logger, "Error en 'recibir_codigo_operacion'");
 
 		t_info_mensaje* info_mensaje = malloc(sizeof(t_info_mensaje));
 		info_mensaje->op_code = cod_op;
 		info_mensaje->socket_cliente = socket_cliente;
-		if(cod_op>=0)
-			handle_mensaje(info_mensaje);
+
+		(cod_op>=0)? handle_mensaje(info_mensaje):
+				     log_warning(logger, "El cliente %i cerro el socket.", socket_cliente);
 	}
 
 }
@@ -311,6 +310,10 @@ void handle_mensaje(void* stream) { //Lanzar un hilo para manejar cada mensaje u
 		//free(buffer);
 
 		break;
+	default:
+		log_warning(logger, "El cliente %i cerro el socket.", socket_cliente);
+		break;
+
 	}
 
 }

@@ -13,7 +13,7 @@ int es_suscriptor; //Para saber si enviar confirmacion o no
 void inicializar_gameboy();
 
 //Funciones Respuesta
-void recibir_respuesta(int* socket_broker);
+int recibir_respuesta(int* socket_broker);
 void handle_respuesta(int cod_op, int socket_broker);
 
 //Pruebas de mensajes

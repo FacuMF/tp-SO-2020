@@ -19,6 +19,7 @@ int main(int argv, char*archivo_config[]) {
 	pthread_create(&thread, NULL, (void*)enviar_requests_pokemones,objetivo_global);
 
 	iniciar_conexion_con_gameboy();
+
 	//lanzar_hilos(head_entrenadores);
 
 
