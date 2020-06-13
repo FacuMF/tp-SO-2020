@@ -1,5 +1,27 @@
 #include "broker.h"
 
+void manejar_mensaje_localized(t_conexion_buffer *combo) {
+	t_buffer * buffer = combo->buffer;
+		int socket_cliente= combo->conexion;
+	t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(buffer);
+
+			int id_mensaje_recibido = asignar_id_localized_pokemon(mensaje_localized_pokemon);
+
+			log_info(logger, "Llegada de mensaje nuevo %i a cola LOCALIZED_POKEON",
+					id_mensaje_recibido);
+
+			devolver_localized_pokemon(socket_cliente, mensaje_localized_pokemon);
+			log_trace(logger,
+					"Se devolvio el mensaje LOCALIZED_POKEMON con id asignado.");
+
+			almacenar_en_cola_localized_pokemon(mensaje_localized_pokemon);
+			log_trace(logger, "Se almaceno el mensaje LOCALIZED_POKEMON en la cola.");
+
+			//cachear_localized_pokemon(mensaje);
+
+			//free (liberar memoria)
+}
+
 int asignar_id_localized_pokemon(t_localized* mensaje){
 	int id = get_id_mensajes();
 	mensaje->id_mensaje = id;
@@ -50,6 +72,4 @@ void enviar_localized_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_loc
 	log_info(logger, "Envio de LOCALIZED_POKEMON %i a suscriptor %i", mensaje->id_mensaje, suscriptor->socket);
 
 	log_trace(logger, "Se envio mensaje LOCALIZED_POKEMON");
-
-	recibir_mensaje_del_cliente(&(suscriptor->socket));
 }

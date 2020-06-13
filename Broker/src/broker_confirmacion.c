@@ -1,5 +1,18 @@
 #include "broker.h"
 
+void manejar_mensaje_confirmacion(t_conexion_buffer *combo) {
+	t_buffer * buffer = combo->buffer;
+		int socket_cliente= combo->conexion;
+
+	t_confirmacion* mensaje_confirmacion = deserializar_confirmacion(
+			buffer);
+
+	confirmar_cliente_recibio(mensaje_confirmacion, socket_cliente);
+
+	//free(mensaje_confirmacion);
+	//free(buffer);
+}
+
 void confirmar_cliente_recibio(t_confirmacion* mensaje_confirmacion, int socket_cliente){
 	log_trace(logger, "Se confirmara la recepcion del mensaje: Tipo: %i, ID: %i, Cliente: %i.",
 			mensaje_confirmacion->tipo_mensaje, mensaje_confirmacion->mensaje, socket_cliente);

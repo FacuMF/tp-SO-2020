@@ -107,12 +107,22 @@ void handle_respuesta(int cod_op, int socket_broker){
 
 			log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
 			t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(buffer);
+			if ( es_suscriptor ) {
+				log_trace(logger, "Se confirmara la recepcion.");
+				confirmar_recepcion(socket_broker, cod_op, mensaje_caught_pokemon->id_mensaje);
+				log_trace(logger, "Recepcion confirmada.");
+			}
 
 		break;
 		case LOCALIZED_POKEMON:
 
 			log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
 			t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(buffer);
+			if ( es_suscriptor ) {
+				log_trace(logger, "Se confirmara la recepcion.");
+				confirmar_recepcion(socket_broker, cod_op, mensaje_localized_pokemon->id_mensaje);
+				log_trace(logger, "Recepcion confirmada.");
+			}
 
 			break;
 		case NEW_POKEMON:
@@ -139,7 +149,11 @@ void handle_respuesta(int cod_op, int socket_broker){
 
 			log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
 			t_catch_pokemon* mensaje_catch_pokemon = deserializar_catch_pokemon(buffer);
-
+			if ( es_suscriptor ) {
+				log_trace(logger, "Se confirmara la recepcion.");
+				confirmar_recepcion(socket_broker, cod_op, mensaje_catch_pokemon->id_mensaje);
+				log_trace(logger, "Recepcion confirmada.");
+			}
 			break;
 		default:
 			log_error(logger,"Opcode inválido.");
