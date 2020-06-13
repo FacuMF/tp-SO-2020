@@ -106,12 +106,12 @@ void enviar_catch_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_catch_p
 //void cachear_catch_pokemon(t_mensaje_catch_pokemon mensaje);
 
 // CAUGHT_POKEMON
-int asignar_id_caugth_pokemon(t_caught_pokemon* mensaje);
-void devolver_caugth_pokemon(int socket_cliente ,t_caught_pokemon* mensaje_caugth_pokemon);
-void almacenar_en_cola_caugth_pokemon(t_caught_pokemon* mensaje);
+int asignar_id_caught_pokemon(t_caught_pokemon* mensaje);
+void devolver_caught_pokemon(int socket_cliente ,t_caught_pokemon* mensaje_caught_pokemon);
+void almacenar_en_cola_caught_pokemon(t_caught_pokemon* mensaje);
 
-void enviar_a_todos_los_subs_caugth_pokemon(t_caught_pokemon* mensaje);
-void enviar_caugth_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_caught_pokemon* mensaje);
+void enviar_a_todos_los_subs_caught_pokemon(t_caught_pokemon* mensaje);
+void enviar_caught_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_caught_pokemon* mensaje);
 //void cachear_caugth_pokemon(t_mensaje_caugth_pokemon mensaje);
 
 // GET_POKEMON

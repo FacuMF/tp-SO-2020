@@ -10,7 +10,7 @@ void confirmar_cliente_recibio(t_confirmacion* mensaje_confirmacion, int socket_
 
 	t_queue* cola_de_mensajes = get_cola_segun_tipo(mensaje_confirmacion->tipo_mensaje);
 
-	list_iterate( cola_de_mensajes->subscriptores, si_coincide_cliente_agregar_id_recibido_aux );
+	list_iterate( cola_de_mensajes->subscriptores, (void*)si_coincide_cliente_agregar_id_recibido_aux );
 
 	log_trace(logger, "Se confirmo la recepcion del mensaje");
 	// TODO
@@ -47,7 +47,7 @@ t_queue* get_cola_segun_tipo(int tipo_mensaje){
 void si_coincide_cliente_agregar_id_recibido(t_suscriptor_queue* suscriptor, int socket_suscriptor, int id_mensaje_recibido) {
 	if(suscriptor->socket == socket_suscriptor){
 		log_trace(logger, "Se encontro al suscriptor %i.", socket_suscriptor);
-		list_add(suscriptor->mensajes_recibidos, id_mensaje_recibido);
+		list_add(suscriptor->mensajes_recibidos, (void*) id_mensaje_recibido);
 
 		log_info(logger, "Confirmacion de recepcion de suscriptor %i al envio del mensaje %i.", socket_suscriptor, id_mensaje_recibido);
 	}
