@@ -125,7 +125,11 @@ void handle_respuesta(int cod_op, int socket_broker){
 
 			log_trace(logger, "Se recibio un mensaje GET_POKEMON");
 			t_get_pokemon* mensaje_get_pokemon = deserializar_get_pokemon(buffer);
-
+			if ( es_suscriptor ) {
+				log_trace(logger, "Se confirmara la recepcion.");
+				confirmar_recepcion(socket_broker, cod_op, mensaje_get_pokemon->id_mensaje);
+				log_trace(logger, "Recepcion confirmada.");
+			}
 			break;
 		case CATCH_POKEMON:
 
