@@ -76,27 +76,12 @@ int iniciar_conexion(char *ip, char* puerto) {
 
 // Inicializar conexion servidor
 
-int iniciar_conexion_servidor(char* ip, char* puerto) {
-
-	//Set up conexion
-	//TBR
-	t_log * logger_temporal = iniciar_logger ("logger_temporal.log","Utils_comunicacion",LOG_LEVEL_TRACE);
-	log_trace(logger_temporal,"Servidor inicializado");
-	struct addrinfo* servinfo = obtener_server_info(ip, puerto); // Address info para la conexion TCP/IP
-	int socket_servidor = obtener_socket(servinfo);
-	asignar_socket_a_puerto(socket_servidor, servinfo);
-	setear_socket_reusable(socket_servidor);
-	freeaddrinfo(servinfo);
-
-	return socket_servidor;
-}
-
 void setear_socket_reusable(int socket) {
 	int activado = 1;
 	setsockopt(socket, SOL_SOCKET, SO_REUSEADDR, &activado, sizeof(activado));
 }
 
-int escuchar_socket_cliente(char* ip,char* puerto){
+int iniciar_conexion_servidor(char* ip,char* puerto){
 
 	struct addrinfo* servinfo = obtener_server_info(ip, puerto);
 	int socket_servidor = obtener_socket(servinfo);
