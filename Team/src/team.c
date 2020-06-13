@@ -24,8 +24,7 @@ int main(int argv, char*archivo_config[]) {
 
 
 	// TT - To Test
-	t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(
-			head_entrenadores, 1, 3);
+	//t_entrenador * entrenador_cercano = hallar_entrenador_mas_cercano(head_entrenadores, 1, 3);
 
 	sleep(10000); //TT
 	finalizar_team();
