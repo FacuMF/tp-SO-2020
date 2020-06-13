@@ -1422,3 +1422,10 @@
 [TRACE] 14:11:25:335 GameBoy/(744:744): Se recibio un mensaje CAUGHT_POKEMON
 [TRACE] 14:11:25:335 GameBoy/(744:744): Mensaje recibido manejado.
 >>>>>>> 3645cae7ca0315f1d7948650ddb624d7c1fc3cb2
+[TRACE] 18:14:03:204 GameBoy/(27251:27251): Caracteristicas de mensaje obtenidas
+[TRACE] 18:14:03:212 GameBoy/(27251:27251): Se quiere enviar un mensaje del tipo -2- al modulo -1-
+[TRACE] 18:14:03:212 GameBoy/(27251:27251): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[TRACE] 18:14:03:213 GameBoy/(27251:27251): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[TRACE] 18:14:03:213 GameBoy/(27251:27251): El mensaje fue serializado. 
+[TRACE] 18:14:03:213 GameBoy/(27251:27251): OPERATION CODE: 2
+[TRACE] 18:14:03:213 GameBoy/(27251:27251): El mensaje fue enviado.

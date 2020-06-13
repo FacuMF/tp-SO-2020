@@ -26,32 +26,41 @@ typedef struct t_entrenador {
 	int * posicion;
 	t_list* pokemones_capturados;
 	t_list* pokemones_por_capturar;
-	// tarea
 } t_entrenador;
 
-// TT
-void manejar_recepcion_mensaje(int* socket_cliente);
-void esperar_cliente(int socket_servidor);
-void esperar_mensajes_cola(void* input);
-void manejar_mensaje_cola(int conexion,op_code cod_op);
 
 // Funciones generales
 void iniciar_team(char*archivo_config[]);
 void finalizar_team();
 char * obtener_path(char*string);
 
-// Comunicacion Broker
+// Funciones de comunicacion general
+void esperar_cliente(int socket_servidor);
+void esperar_mensajes_cola(void* input);
+void manejar_recibo_mensajes(int conexion,op_code cod_op);
+
+// Funciones de inicio de conexion
+int iniciar_conexion_con_broker();
+void iniciar_conexion_con_gameboy();
+
+// Funciones de envio de mensajes y suscripciones
 void suscribirse_a_colas_necesarias();
 void enviar_suscripcion_broker(op_code tipo_mensaje);
 void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
-int iniciar_conexion_con_broker();
+
 
 void enviar_requests_pokemones(t_list *objetivo_global);
 void enviar_mensaje_get(int socket_broker, void*element);
 
-//Comunicacion con Gameboy
-void iniciar_conexion_con_gameboy();
-t_appeared_pokemon * obtener_appeared_recibido(int socket_cliente);
+// Funciones de recepcion de mensajes
+void recibir_mensaje_appeared(t_buffer * buffer);
+void recibir_mensaje_caught(t_buffer * buffer);
+void recibir_mensaje_localized(t_buffer * buffer);
+
+// Funciones de handle de mensajes
+// void handle_appeared_pokemon(t_appeared_pokemon *mensaje_appeared);
+//void handle_caught_pokemon(t_caught_pokemon * mensaje_caguth);
+// void handle_localized_pokemon (t_localized_pokemon * mensaje_localized);
 
 // Funciones de carga de entrenador - team_entrenadores
 t_list* cargar_entrenadores();
