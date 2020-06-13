@@ -1,5 +1,28 @@
 #include "broker.h"
 
+
+void manejar_mensaje_get(t_conexion_buffer *combo) {
+	t_buffer * buffer = combo->buffer;
+		int socket_cliente= combo->conexion;
+	t_get_pokemon* mensaje_get_pokemon = deserializar_get_pokemon(buffer);
+
+			int id_mensaje_recibido = asignar_id_get_pokemon(mensaje_get_pokemon);
+
+			log_info(logger, "Llegada de mensaje nuevo %i a cola GET_POKEON",
+					id_mensaje_recibido);
+
+			devolver_get_pokemon(socket_cliente, mensaje_get_pokemon);
+			log_trace(logger,
+					"Se devolvio el mensaje GET_POKEMON con id asignado.");
+
+			almacenar_en_cola_get_pokemon(mensaje_get_pokemon);
+			log_trace(logger, "Se almaceno el mensaje GET_POKEMON en la cola.");
+
+			//cachear_get_pokemon(mensaje);
+
+			//free (liberar memoria)
+}
+
  int asignar_id_get_pokemon(t_get_pokemon* mensaje){
 	 int id = get_id_mensajes();
 	 mensaje->id_mensaje = id;
@@ -34,9 +57,10 @@ void enviar_a_todos_los_subs_get_pokemon(t_get_pokemon* mensaje){
 		enviar_get_pokemon_a_suscriptor(suscriptor, mensaje);
 	}
 
+	log_trace(logger, "Se va a enviar a todos los subs, el nuevo GET_POKEMON.");
+
 	list_iterate(get_pokemon->subscriptores, enviar_get_pokemon_a_suscriptor_aux);
 
-	log_trace(logger, "Se va a enviar a todos los subs, el nuevo GET_POKEMON.");
 }
 
 void enviar_get_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_get_pokemon* mensaje){

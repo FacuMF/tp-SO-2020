@@ -39,6 +39,13 @@ typedef struct {
 }t_info_mensaje; // Para handle_mensaje.
 
 
+typedef struct {
+	int conexion;
+	t_buffer * buffer;
+}t_conexion_buffer; // Para handle_mensaje.
+
+
+
 //Declaracion de queues
 t_queue* new_pokemon;
 t_queue* appeared_pokemon;
@@ -78,6 +85,8 @@ void agregar_cliente_a_cola(t_queue* cola, int cliente);
 //void enviar_mensajes_de_cola_a_cliente(t_queue* cola,  int cliente);
 
 // APPEARED_POKEMON
+void manejar_mensaje_appeared(t_conexion_buffer *combo);
+
 int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje);
 void devolver_appeared_pokemon(int socket_cliente ,t_appeared_pokemon* mensaje_appeared_pokemon);
 void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje);
@@ -114,6 +123,7 @@ void enviar_caught_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_caught
 //void cachear_caugth_pokemon(t_mensaje_caugth_pokemon mensaje);
 
 // GET_POKEMON
+void manejar_mensaje_get(t_conexion_buffer *combo);
 int asignar_id_get_pokemon(t_get_pokemon* mensaje);
 void devolver_get_pokemon(int socket_cliente ,t_get_pokemon* mensaje_get_pokemon);
 void almacenar_en_cola_get_pokemon(t_get_pokemon* mensaje);
