@@ -11,6 +11,9 @@ int es_suscriptor; //Para saber si enviar confirmacion o no
 
 // Funciones
 void inicializar_gameboy();
+t_buffer* mensaje_a_enviar(t_modulo, op_code, char**);
+t_modulo obtener_modulo(char**);
+op_code obtener_tipo_mensaje(char**);
 
 //Funciones Respuesta
 int recibir_respuesta(int* socket_broker);

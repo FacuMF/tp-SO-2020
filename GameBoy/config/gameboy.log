@@ -1998,3 +1998,33 @@
 [TRACE] 21:19:03:650 GameBoy/(27986:27986): Se confirmara la recepcion.
 [TRACE] 21:19:03:650 GameBoy/(27986:27986): Recepcion confirmada.
 [TRACE] 21:19:03:651 GameBoy/(27986:27986): Mensaje recibido manejado.
+[TRACE] 20:37:15:170 GameBoy/(5264:5264): Caracteristicas de mensaje obtenidas
+[TRACE] 20:37:15:339 GameBoy/(5264:5264): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 20:37:15:339 GameBoy/(5264:5264): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 20:37:15:339 GameBoy/(5264:5264): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 20:49:10:981 GameBoy/(5723:5723): Caracteristicas de mensaje obtenidas
+[TRACE] 20:49:10:993 GameBoy/(5723:5723): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 20:49:10:993 GameBoy/(5723:5723): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 20:49:10:993 GameBoy/(5723:5723): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 20:49:10:994 GameBoy/(5723:5723): El mensaje fue serializado. 
+[TRACE] 20:49:10:994 GameBoy/(5723:5723): OPERATION CODE: 8
+[TRACE] 20:52:17:282 GameBoy/(5891:5891): 1
+[TRACE] 20:52:17:282 GameBoy/(5891:5891): Caracteristicas de mensaje obtenidas
+[TRACE] 20:52:17:282 GameBoy/(5891:5891): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 20:52:17:282 GameBoy/(5891:5891): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 20:52:17:283 GameBoy/(5891:5891): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 20:52:17:283 GameBoy/(5891:5891): El mensaje fue serializado. 
+[TRACE] 20:52:17:283 GameBoy/(5891:5891): OPERATION CODE: 8
+[ERROR] 20:54:29:893 GameBoy/(6036:6036): El modulo ingresado es incorrecto.
+[TRACE] 20:54:29:894 GameBoy/(6036:6036): 0
+[TRACE] 20:54:29:894 GameBoy/(6036:6036): Caracteristicas de mensaje obtenidas
+[TRACE] 20:54:29:894 GameBoy/(6036:6036): Se quiere enviar un mensaje del tipo -2- al modulo --1-
+[ERROR] 20:54:49:752 GameBoy/(6038:6038): El modulo ingresado es incorrecto.
+[ERROR] 20:54:49:755 GameBoy/(6038:6038): Tipo de mensaje invalido
+[TRACE] 20:54:49:755 GameBoy/(6038:6038): 0
+[TRACE] 20:54:49:755 GameBoy/(6038:6038): Caracteristicas de mensaje obtenidas
+[TRACE] 20:54:49:755 GameBoy/(6038:6038): Se quiere enviar un mensaje del tipo --1- al modulo --1-
+[ERROR] 20:55:20:523 GameBoy/(6160:6160): El modulo ingresado es incorrecto.
+[ERROR] 20:55:20:523 GameBoy/(6160:6160): Tipo de mensaje invalido
+[TRACE] 20:55:20:524 GameBoy/(6160:6160): Caracteristicas de mensaje obtenidas
+[TRACE] 20:55:20:524 GameBoy/(6160:6160): Se quiere enviar un mensaje del tipo --1- al modulo --1-

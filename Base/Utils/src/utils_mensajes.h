@@ -126,7 +126,6 @@ char* mostrar_posiciones(t_posicion*);
 char* mostrar_confirmacion(t_confirmacion*);
 
 //Armado de mensajes del Gameboy
-t_buffer* mensaje_a_enviar(t_modulo, op_code, char**);
 t_modulo string_a_modulo(char*);
 op_code string_a_tipo_mensaje(char*);
 
