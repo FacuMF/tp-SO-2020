@@ -94,6 +94,17 @@ int iniciar_conexion_servidor(char* ip,char* puerto){
 	return socket_servidor;
 }
 
+int aceptar_cliente(int socket_servidor){
+	struct sockaddr_in dir_cliente;
+
+	int tam_direccion = sizeof(struct sockaddr_in);
+
+	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
+				&tam_direccion);
+
+	return socket_cliente;
+}
+
 // MANIPULACION MENSAJES
 t_paquete* generar_paquete(t_buffer* buffer, op_code codigo_operacion) {
 	t_paquete* paquete = malloc(sizeof(t_paquete));

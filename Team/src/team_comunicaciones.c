@@ -27,12 +27,18 @@ void iniciar_conexion_con_gameboy() {
 
 // Funciones comunicacion generales
 void esperar_cliente(int socket_servidor) {	// Hilo coordinador
+
+	// --- USAR FUNCION int aceptar_cliente(int socket_servidor)
+
 	struct sockaddr_in dir_cliente;	//contiene address de la comunicacion
 
 	int tam_direccion = sizeof(struct sockaddr_in);
 
 	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
 			&tam_direccion);// Acepta el request del cliente y crea el socket
+
+	// --- HASTA ACA.
+
 	log_trace(logger, "Conexion de %i al Broker.", socket_cliente);
 
 	int * argument = malloc(sizeof(int));

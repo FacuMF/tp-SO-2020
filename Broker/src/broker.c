@@ -64,14 +64,6 @@ void inizializacion_ids(void) {
 void* esperar_mensajes(void *arg) {
 	char* ip = config_get_string_value(config, "IP_BROKER");
 	char* puerto = config_get_string_value(config, "PUERTO_BROKER");
-
-	log_trace(logger, "Se va a ejecutar 'iniciar_conexion_con_el_modulo'.");
-	iniciar_conexion_con_modulo(ip, puerto);
-
-	return 0;
-}
-
-void* iniciar_conexion_con_modulo(char* ip, char* puerto) {
 	int socket_servidor = iniciar_conexion_servidor(ip, puerto);
 
 	while (1) {
@@ -83,22 +75,16 @@ void* iniciar_conexion_con_modulo(char* ip, char* puerto) {
 }
 
 void handle_cliente(int socket_servidor) {
-	struct sockaddr_in dir_cliente;
 
-	int tam_direccion = sizeof(struct sockaddr_in);
+	log_trace(logger, "Aceptando cliente...");
+	int socket_cliente = aceptar_cliente(socket_servidor);
 
-	log_trace(logger, "Va a ejecutar 'accept'.");
-	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
-			&tam_direccion);
 	log_trace(logger, "Conexion de %i al Broker.", socket_cliente);
-
-	log_trace(logger, "Va a lanzar hilo 'recibir_mensaje_del_cliente'.");
 
 	int* argument = malloc(sizeof(int));
 	*argument = socket_cliente;
 	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente,argument);
 	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
-
 }
 
 void recibir_mensaje_del_cliente(void* input) {
