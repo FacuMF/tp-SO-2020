@@ -66,7 +66,6 @@ void inicializacion_colas(void);
 void inizializacion_ids(void);
 
 void* esperar_mensajes(void *arg);
-//void* iniciar_conexion_con_modulo(char* ip, char* puerto);
 void handle_cliente(int socket_servidor);
 void recibir_mensaje_del_cliente(void* );
 void handle_mensaje(void* info_mensaje);
