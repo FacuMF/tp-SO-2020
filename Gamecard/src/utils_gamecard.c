@@ -201,27 +201,63 @@ bool verificar_posciones_file(int x, int y, char** bloques){
 }
 
 void handle_mensajes_gamecard(int cod_op, int socket){
-	t_buffer * buffer;
+	t_buffer * buffer = recibir_mensaje(socket);
+	t_conexion_buffer * info_mensaje_a_manejar = malloc (sizeof(t_conexion_buffer));
+	info_mensaje_a_manejar->conexion = socket;
+	info_mensaje_a_manejar->buffer = buffer;
 
 	switch(cod_op){
 	case NEW_POKEMON:
-		// logear new_pokemon recibido
-		buffer = recibir_mensaje(socket);
-		t_new_pokemon pokemon = deserializar_new_pokemon(buffer);
-		char* file = pokemon_metadata_path(pokemon->pokemon);
-		if(!file_existing(file)){
-			create_pokemon_dir(pokemon->pokemon);
-			create_pokemon_metadata_file(pokemon->pokemon);
-		}
-		if (!file_open(pokemon->pokemon)){
-			//Buscar los bloques del pokemon
-			char** bloques = extraer_bloques(pokemon->pokemon);
-			if(verificar_posiciones_file(pokemon->posx,pokemon->posy,bloques)){
+		log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
+		pthread_create(&thread, NULL, (void*) gamecard_manejar_new_pokemon,info_mensaje_a_manejar);
 
-			}
-		}
-			//  Reintentar la operación luego de REINTENTO_OPERACION
+
+		break;
+
+	case APPEARED_POKEMON:
+		log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
+		pthread_create(&thread, NULL, (void*) gamecard_manejar_appeared_pokemon,info_mensaje_a_manejar);
+
+		break;
+
+	case GET_POKEMON:
+		log_trace(logger, "Se recibio un mensaje GET_POKEMON");
+		pthread_create(&thread, NULL, (void*) gamecard_manejar_get_pokemon,info_mensaje_a_manejar);
+
+		break;
+
+	default:
+		log_warning(logger, "El cliente %i cerro el socket.", socket);
+
+		break;
 	}
+
+}
+
+void gamecard_manejar_new_pokemon(t_conexion_buffer * combo){
+	t_buffer * buffer = combo->buffer;
+	int socket = combo->conexion;
+	t_new_pokemon pokemon = deserializar_new_pokemon(buffer);
+	char* file = pokemon_metadata_path(pokemon->pokemon);
+	if(!file_existing(file)){
+		create_pokemon_dir(pokemon->pokemon);
+		create_pokemon_metadata_file(pokemon->pokemon);
+	}
+	if (!file_open(pokemon->pokemon)){ // SEMAFORO MUTEX PARA MANEJAR LOS OPEN
+		//Buscar los bloques del pokemon
+		char** bloques = extraer_bloques(pokemon->pokemon);
+		if(verificar_posiciones_file(pokemon->posx,pokemon->posy,bloques)){
+
+		}
+	}
+				//  Reintentar la operación luego de REINTENTO_OPERACION
+}
+
+void gamecard_manejar_appeared_pokemon(t_conexion_buffer * combo){
+
+}
+
+void gamecard_manejar_get_pokemon(t_conexion_buffer * combo){
 
 }
 

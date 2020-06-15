@@ -1,6 +1,8 @@
 #include "gamecard.h"
 
 void main(){
+	// Logger
+	logger = iniciar_logger("./Gamecard/config/gamecard.log", "Gamecard", LOG_LEVEL_TRACE);
 	// Leer config
 	config = leer_config("./Gamecard/config/gamecard.config");
 	set_base_path(config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"));
@@ -22,11 +24,6 @@ void main(){
 	// Al recibir: 	Informar la recepción del mismo (ACK)
 	//				Crear hilo que atienda solicitud
 	//				Volver al estado escucha de la MQ
-
-	/*
-	pthread_t thread_socket;
-	pthread_create(&thread_socket, NULL, (void*) listen, PUERTO_BROKER);
-	*/
 
 	// Al recibir mensajes
 	recibir_mensajes_gamecard();
