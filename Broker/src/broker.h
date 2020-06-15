@@ -78,10 +78,16 @@ int get_id_mensajes(void);
 //Funciones especificas por mensaje
 
 //SUSCRIPTOR
+void manejar_mensaje_suscriptor(t_conexion_buffer *combo);
+
 void subscribir(int cliente, t_subscriptor* subscripcion);
 void agregar_cliente_a_cola(t_queue* cola, int cliente);
+
 //void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor* subscripcion,  int cliente);
 //void enviar_mensajes_de_cola_a_cliente(t_queue* cola,  int cliente);
+
+void desuscribir(int cliente, t_subscriptor* suscripcion);
+void sacar_cliente_a_cola(t_queue* cola, int cliente);
 
 // APPEARED_POKEMON
 void manejar_mensaje_appeared(t_conexion_buffer *combo);

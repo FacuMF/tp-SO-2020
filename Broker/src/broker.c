@@ -127,16 +127,7 @@ void handle_mensaje(void* stream) { //Lanzar un hilo para manejar cada mensaje u
 	case SUSCRIPTOR:
 
 		log_trace(logger, "Se recibio un mensaje SUSCRIPTOR");
-		t_subscriptor* subscripcion = deserializar_suscripcion(buffer);
-
-		log_info(logger, "Suscripcion de %i a la cola %i.", socket_cliente,subscripcion->cola_de_mensaje);
-
-		subscribir(socket_cliente, subscripcion);
-
-		//enviar_mensajes_de_suscripcion_a_cliente(subscripcion, socket_cliente);
-		//TODO se necesita tener los mensajes cacheados.
-
-		//free (liberar memoria)
+		manejar_mensaje_suscriptor(info_mensaje_a_manejar);
 
 		break;
 

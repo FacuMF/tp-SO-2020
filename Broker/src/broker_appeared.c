@@ -82,8 +82,6 @@ void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 			mensaje->id_mensaje, suscriptor->socket);
 
 	log_trace(logger, "Se envio mensaje APPEARED_POKEMON");
-
-	recibir_mensaje_del_cliente(&(suscriptor->socket));
 }
 
 
