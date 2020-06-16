@@ -35,8 +35,8 @@ int main(int argv, char* arg[]) {
 	enviar_mensaje(conexion, mensaje_serializado, tipo_mensaje);
 	log_trace(logger, "El mensaje fue enviado.");
 
-	free(mensaje_serializado->stream);
-	free(mensaje_serializado);
+	//free(mensaje_serializado->stream); //Esto tira seg fault con localized_pokemon
+	//free(mensaje_serializado);
 
 	// Esperar respuesta //
 
@@ -89,6 +89,7 @@ void inicializar_gameboy() {
 }
 
 int recibir_respuesta(int* socket_broker) {
+
 	int cod_op = recibir_codigo_operacion(*socket_broker);
 	(cod_op == -1) ?
 			log_error(logger, "Error en 'recibir_codigo_operacion'") :
@@ -102,6 +103,7 @@ int recibir_respuesta(int* socket_broker) {
 }
 
 void handle_respuesta(int cod_op, int socket_broker) {
+
 	t_buffer * buffer = recibir_mensaje(socket_broker);
 	switch (cod_op) {
 	case APPEARED_POKEMON:
@@ -177,7 +179,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		}
 		break;
 	default:
-		log_error(logger, "Opcode inválido.");
+		log_error(logger, "Op_code inválido.");
 		break;
 	}
 	log_trace(logger, "Mensaje recibido manejado.");
@@ -191,141 +193,145 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			tiempo_suscripcion, id_mensaje_correlativo;
 	bool ok_fail;
 	switch (modulo) {
-	case team: ////MODULO TEAM////
-		;
-		t_appeared_pokemon* mensaje_appeared;
-		if (tipo_mensaje == APPEARED_POKEMON) {
-			pokemon = malloc(sizeof(arg[3]));
-			strcpy(pokemon, arg[3]);
-			pos_x = atoi(arg[4]);
-			pos_y = atoi(arg[5]);
-			mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
-					-1);
-			mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared);
-		}
-		break;
-	case broker: ////MODULO BROKER////
-		switch (tipo_mensaje) {
-		case SUSCRIPTOR:
-			;
-			t_subscriptor* mensaje_suscripcion;
-			cola_de_mensajes = string_a_tipo_mensaje(arg[2]);
-			tiempo_suscripcion = atoi(arg[3]);
-			mensaje_suscripcion = crear_suscripcion(cola_de_mensajes,
-					tiempo_suscripcion);
-			mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
-			break;
-		case NEW_POKEMON:
-			;
-			t_new_pokemon* mensaje_new;
-			pokemon = malloc(sizeof(arg[3]));
-			strcpy(pokemon, arg[3]);
-			pos_x = atoi(arg[4]);
-			pos_y = atoi(arg[5]);
-			cantidad = atoi(arg[6]);
-			mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,
-					-1);
-			mensaje_serializado = serializar_new_pokemon(mensaje_new);
-			break;
-		case APPEARED_POKEMON:
+		case team: ////MODULO TEAM////
 			;
 			t_appeared_pokemon* mensaje_appeared;
-			pokemon = malloc(sizeof(arg[3]));
-			strcpy(pokemon, arg[3]);
-			pos_x = atoi(arg[4]);
-			pos_y = atoi(arg[5]);
-			id_mensaje_correlativo = atoi(arg[6]);
-			mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
-					id_mensaje_correlativo);
-			mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared);
-			break;
-		case CATCH_POKEMON:
-			;
-			t_catch_pokemon* mensaje_catch;
-			pokemon = malloc(sizeof(arg[3]));
-			strcpy(pokemon, arg[3]);
-			pos_x = atoi(arg[4]);
-			pos_y = atoi(arg[5]);
-			mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y, -1);
-			mensaje_serializado = serializar_catch_pokemon(mensaje_catch);
-			break;
-		case CAUGHT_POKEMON:
-			;
-			t_caught_pokemon* mensaje_caught;
-			id_mensaje_correlativo = atoi(arg[3]);
-			ok_fail = atoi(arg[4]);
-			mensaje_caught = crear_caught_pokemon(id_mensaje_correlativo,
-					ok_fail);
-			mensaje_serializado = serializar_caught_pokemon(mensaje_caught);
-			break;
-		case GET_POKEMON:
-			;
-			t_get_pokemon* mensaje_get;
-			pokemon = malloc(sizeof(arg[3]));
-			strcpy(pokemon, arg[3]);
-			mensaje_get = crear_get_pokemon(pokemon, -1);
-			mensaje_serializado = serializar_get_pokemon(mensaje_get);
-			break;
-		}
-		break;
-	case gamecard:			////MODULO GAMECARD////
-		switch (tipo_mensaje) {
-		case NEW_POKEMON:
-			;
-			t_new_pokemon* mensaje_new;
-			pokemon = malloc(sizeof(arg[3]));
-			strcpy(pokemon, arg[3]);
-			pos_x = atoi(arg[4]);
-			pos_y = atoi(arg[5]);
-			cantidad = atoi(arg[6]);
-			id_mensaje = atoi(arg[7]);
-			mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,
-					id_mensaje);
-			mensaje_serializado = serializar_new_pokemon(mensaje_new);
-			break;
-		case CATCH_POKEMON:
-			;
-			t_catch_pokemon* mensaje_catch;
-			pokemon = malloc(sizeof(arg[3]));
-			strcpy(pokemon, arg[3]);
-			pos_x = atoi(arg[4]);
-			pos_y = atoi(arg[5]);
-			id_mensaje = atoi(arg[6]);
-			mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y,
-					id_mensaje);
-			mensaje_serializado = serializar_catch_pokemon(mensaje_catch);
-			break;
-		case GET_POKEMON:
-			;
-			t_get_pokemon* mensaje_get;
-			pokemon = malloc(sizeof(arg[3]));
-			strcpy(pokemon, arg[3]);
-			id_mensaje = atoi(arg[4]);
-			mensaje_get = crear_get_pokemon(pokemon, id_mensaje);
-			mensaje_serializado = serializar_get_pokemon(mensaje_get);
-			break;
-		case LOCALIZED_POKEMON: //No es un bug, es una feature. No esta en la consigna, pero para probar el broker lo agrego.
-			;
-			t_localized* mensaje_localized;
-			pokemon = malloc(sizeof(arg[3]));
-			strcpy(pokemon,arg[3]);
-			int cantidad_de_pociciones = atoi(arg[4]);
-			t_list* lista_posiciones;
-
-			for (int i = cantidad_de_pociciones; i<0; i--){
-				t_posicion* posicion_a_agregar = malloc(sizeof(t_posicion));
-				posicion_a_agregar->x = atoi(arg[ 4 + (i*2) - 1 ]);
-				posicion_a_agregar->y = atoi(arg[ 4 + (i*2) ]);
-
-				list_add(lista_posiciones, (void*) posicion_a_agregar);
+			if (tipo_mensaje == APPEARED_POKEMON) {
+				pokemon = malloc(sizeof(arg[3]));
+				strcpy(pokemon, arg[3]);
+				pos_x = atoi(arg[4]);
+				pos_y = atoi(arg[5]);
+				mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
+						-1);
+				mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared);
 			}
+			break;
+		case broker: ////MODULO BROKER////
+			switch (tipo_mensaje) {
+			case SUSCRIPTOR:
+				;
+				t_subscriptor* mensaje_suscripcion;
+				cola_de_mensajes = string_a_tipo_mensaje(arg[2]);
+				tiempo_suscripcion = atoi(arg[3]);
+				mensaje_suscripcion = crear_suscripcion(cola_de_mensajes,
+						tiempo_suscripcion);
+				mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
+				break;
+			case NEW_POKEMON:
+				;
+				t_new_pokemon* mensaje_new;
+				pokemon = malloc(sizeof(arg[3]));
+				strcpy(pokemon, arg[3]);
+				pos_x = atoi(arg[4]);
+				pos_y = atoi(arg[5]);
+				cantidad = atoi(arg[6]);
+				mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,
+						-1);
+				mensaje_serializado = serializar_new_pokemon(mensaje_new);
+				break;
+			case APPEARED_POKEMON:
+				;
+				t_appeared_pokemon* mensaje_appeared;
+				pokemon = malloc(sizeof(arg[3]));
+				strcpy(pokemon, arg[3]);
+				pos_x = atoi(arg[4]);
+				pos_y = atoi(arg[5]);
+				id_mensaje_correlativo = atoi(arg[6]);
+				mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
+						id_mensaje_correlativo);
+				mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared);
+				break;
+			case CATCH_POKEMON:
+				;
+				t_catch_pokemon* mensaje_catch;
+				pokemon = malloc(sizeof(arg[3]));
+				strcpy(pokemon, arg[3]);
+				pos_x = atoi(arg[4]);
+				pos_y = atoi(arg[5]);
+				mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y, -1);
+				mensaje_serializado = serializar_catch_pokemon(mensaje_catch);
+				break;
+			case CAUGHT_POKEMON:
+				;
+				t_caught_pokemon* mensaje_caught;
+				id_mensaje_correlativo = atoi(arg[3]);
+				ok_fail = atoi(arg[4]);
+				mensaje_caught = crear_caught_pokemon(id_mensaje_correlativo,
+						ok_fail);
+				mensaje_serializado = serializar_caught_pokemon(mensaje_caught);
+				break;
+			case GET_POKEMON:
+				;
+				t_get_pokemon* mensaje_get;
+				pokemon = malloc(sizeof(arg[3]));
+				strcpy(pokemon, arg[3]);
+				mensaje_get = crear_get_pokemon(pokemon, -1);
+				mensaje_serializado = serializar_get_pokemon(mensaje_get);
+				break;
+			case LOCALIZED_POKEMON: //No es un bug, es una feature. No esta en la consigna, pero para probar el broker lo agrego.
+				;
+				t_localized* mensaje_localized;
+				pokemon = malloc(sizeof(arg[3]));
+				strcpy(pokemon,arg[3]);
+				int cantidad_de_pociciones = atoi(arg[4]);
+				t_list* lista_posiciones = list_create();
 
-			mensaje_localized = crear_localized_pokemon(-1, pokemon, lista_posiciones);
-			mensaje_serializado = serializar_localized_pokemon(mensaje_localized);
+				for (int i = cantidad_de_pociciones; i<0; i--){
+					t_posicion* posicion_a_agregar = malloc(sizeof(t_posicion));
+					posicion_a_agregar->x = atoi(arg[ 4 + (i*2) - 1 ]);
+					posicion_a_agregar->y = atoi(arg[ 4 + (i*2) ]);
 
+					list_add(lista_posiciones, (void*) posicion_a_agregar);
+
+
+				}
+
+				mensaje_localized = crear_localized_pokemon(0, pokemon, lista_posiciones);
+
+				mensaje_serializado = serializar_localized_pokemon(mensaje_localized);
+
+				break;
+			}
+			break;
+		case gamecard:			////MODULO GAMECARD////
+			switch (tipo_mensaje) {
+			case NEW_POKEMON:
+				;
+				t_new_pokemon* mensaje_new;
+				pokemon = malloc(sizeof(arg[3]));
+				strcpy(pokemon, arg[3]);
+				pos_x = atoi(arg[4]);
+				pos_y = atoi(arg[5]);
+				cantidad = atoi(arg[6]);
+				id_mensaje = atoi(arg[7]);
+				mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,
+						id_mensaje);
+				mensaje_serializado = serializar_new_pokemon(mensaje_new);
+				break;
+			case CATCH_POKEMON:
+				;
+				t_catch_pokemon* mensaje_catch;
+				pokemon = malloc(sizeof(arg[3]));
+				strcpy(pokemon, arg[3]);
+				pos_x = atoi(arg[4]);
+				pos_y = atoi(arg[5]);
+				id_mensaje = atoi(arg[6]);
+				mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y,
+						id_mensaje);
+				mensaje_serializado = serializar_catch_pokemon(mensaje_catch);
+				break;
+			case GET_POKEMON:
+				;
+				t_get_pokemon* mensaje_get;
+				pokemon = malloc(sizeof(arg[3]));
+				strcpy(pokemon, arg[3]);
+				id_mensaje = atoi(arg[4]);
+				mensaje_get = crear_get_pokemon(pokemon, id_mensaje);
+				mensaje_serializado = serializar_get_pokemon(mensaje_get);
+				break;
+			}
 			break;
 		}
-		break;
-	}
+
 	return mensaje_serializado;
 }

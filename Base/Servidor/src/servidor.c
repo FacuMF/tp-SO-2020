@@ -29,13 +29,14 @@ int main(void) {
 	// Inicar conexion
 	int sock = iniciar_conexion_servidor(ip, puerto);
 
-	// TBR Enviar mensaje al 2do mensaje
+	/* // TBR Enviar mensaje al 2do mensaje
 	// Recibe mensajes de 3 clientes, guarda los sockets y solo le responde al 2do. Esto significa que puedo elegir a que cliente responderle determinado mensaje. Es para hacer pruebas.
 	log_trace(logger, "Enviar mensaje a cliente");
 	t_subscriptor* mensaje_suscriptor = crear_suscripcion(NEW_POKEMON, 10);
 	t_buffer* buffer_suscriptor = serializar_suscripcion(mensaje_suscriptor);
 	enviar_mensaje(sockets_mensajes[1], buffer_suscriptor, SUSCRIPTOR);
 	log_trace(logger, "Mensaje enviado");
+	*/
 
 	
 

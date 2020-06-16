@@ -135,6 +135,7 @@ void enviar_caught_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_caught
 
 // GET_POKEMON
 void manejar_mensaje_get(t_conexion_buffer *combo);
+
 int asignar_id_get_pokemon(t_get_pokemon* mensaje);
 void devolver_get_pokemon(int socket_cliente ,t_get_pokemon* mensaje_get_pokemon);
 void almacenar_en_cola_get_pokemon(t_get_pokemon* mensaje);

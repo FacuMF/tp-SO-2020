@@ -42,4 +42,9 @@ void handle_respuesta(int cod_op, int socket_broker);
  * SUSCRIPTOR GET_POKEMON -1
  * SUSCRIPTOR LOCALIZED_POKEMON -1
  *
+ *
+ * ./bin/GameBoy SUSCRIPTOR LOCALIZED_POKEMON -1
+ * ./bin/GameBoy BROKER LOCALIZED_POKEMON PIKACHU 1 1 3
+ * ./bin/GameBoy BROKER LOCALIZED_POKEMON BULBASAUR 2 1 3 4 5
+ * ./bin/GameBoy BROKER LOCALIZED_POKEMON PIKACHU 3 1 3 4 5 3 4
  */
