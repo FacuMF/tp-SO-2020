@@ -696,7 +696,9 @@ op_code string_a_tipo_mensaje(char* nombre_mensaje) {
 		return GET_POKEMON;
 	} else if (string_equals_ignore_case(nombre_mensaje, "SUSCRIPTOR")) {
 		return SUSCRIPTOR;
-	} else
+	} else if (string_equals_ignore_case(nombre_mensaje, "LOCALIZED_POKEMON")) {
+		return LOCALIZED_POKEMON;
+	}else
 		return -1;
 }
 

@@ -22,11 +22,11 @@ void manejar_mensaje_localized(t_conexion_buffer *combo) {
 			//free (liberar memoria)
 }
 
-int asignar_id_localized_pokemon(t_localized* mensaje){
-	int id = get_id_mensajes();
-	mensaje->id_mensaje = id;
-	return id;
-}
+ int asignar_id_localized_pokemon(t_localized* mensaje){
+	 int id = get_id_mensajes();
+	 mensaje->id_mensaje = id;
+	 return id;
+ }
 
 void devolver_localized_pokemon(int socket_cliente ,t_localized* mensaje_localized_pokemon){
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));

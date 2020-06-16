@@ -182,100 +182,6 @@ void handle_respuesta(int cod_op, int socket_broker) {
 	}
 	log_trace(logger, "Mensaje recibido manejado.");
 }
-/*
- switch (cod_op) {
- case APPEARED_POKEMON:
-
- log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
- buffer = recibir_mensaje(socket_broker);
- t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_appeared_pokemon(buffer);
- log_trace(logger, "ID asignado a APPEARED_POKEMON: %i.", mensaje_appeared_pokemon->id_mensaje);
-
- //Confirmar Recepcion si es Suscripcion //TODO pasar a otra funcion.
- if ( es_suscriptor ) {
- log_trace(logger, "Se confirmara la recepcion.");
- confirmar_recepcion(socket_broker, cod_op, mensaje_appeared_pokemon->id_mensaje);
- log_trace(logger, "Recepcion confirmada.");
- }
-
- break;
- case NEW_POKEMON:
-
- log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
- buffer = recibir_mensaje(socket_broker);
- t_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(buffer);
- log_trace(logger, "ID asignado a NEW_POKEMON: %i.", mensaje_new_pokemon->id_mensaje);
-
- //Confirmar Recepcion si es Suscripcion //TODO pasar a otra funcion.
- if ( es_suscriptor ) {
- log_trace(logger, "Se confirmara la recepcion.");
- confirmar_recepcion(socket_broker, cod_op, mensaje_new_pokemon->id_mensaje);
- log_trace(logger, "Recepcion confirmada.");
- }
-
- break;
- case CATCH_POKEMON:
-
- log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
- buffer = recibir_mensaje(socket_broker);
- t_catch_pokemon* mensaje_catch_pokemon = deserializar_catch_pokemon(buffer);
- log_trace(logger, "ID asignado a CATCH_POKEMON: %i.", mensaje_catch_pokemon->id_mensaje);
-
- //Confirmar Recepcion si es Suscripcion //TODO pasar a otra funcion.
- if ( es_suscriptor ) {
- log_trace(logger, "Se confirmara la recepcion.");
- confirmar_recepcion(socket_broker, cod_op, mensaje_catch_pokemon->id_mensaje);
- log_trace(logger, "Recepcion confirmada.");
- }
-
- break;
- case CAUGHT_POKEMON:
-
- log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
- buffer = recibir_mensaje(socket_broker);
- t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(buffer);
- log_trace(logger, "ID asignado a CAUGHT_POKEMON: %i.", mensaje_caught_pokemon->id_mensaje);
-
- //Confirmar Recepcion si es Suscripcion //TODO pasar a otra funcion.
- if ( es_suscriptor ) {
- log_trace(logger, "Se confirmara la recepcion.");
- confirmar_recepcion(socket_broker, cod_op, mensaje_caught_pokemon->id_mensaje);
- log_trace(logger, "Recepcion confirmada.");
- }
-
- break;
- case GET_POKEMON:
-
- log_trace(logger, "Se recibio un mensaje GET_POKEMON");
- buffer = recibir_mensaje(socket_broker);
- t_get_pokemon* mensaje_get_pokemon = deserializar_get_pokemon(buffer);
- log_trace(logger, "ID asignado a GET_POKEMON: %i.", mensaje_get_pokemon->id_mensaje);
-
- //Confirmar Recepcion si es Suscripcion //TODO pasar a otra funcion.
- if ( es_suscriptor ) {
- log_trace(logger, "Se confirmara la recepcion.");
- confirmar_recepcion(socket_broker, cod_op, mensaje_get_pokemon->id_mensaje);
- log_trace(logger, "Recepcion confirmada.");
- }
-
- break;
- case LOCALIZED_POKEMON:
-
- log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
- buffer = recibir_mensaje(socket_broker);
- t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(buffer);
- log_trace(logger, "ID asignado a LOCALIZED_POKEMON: %i.", mensaje_localized_pokemon->id_mensaje);
-
- //Confirmar Recepcion si es Suscripcion //TODO pasar a otra funcion.
- if ( es_suscriptor ) {
- log_trace(logger, "Se confirmara la recepcion.");
- confirmar_recepcion(socket_broker, cod_op, mensaje_localized_pokemon->id_mensaje);
- log_trace(logger, "Recepcion confirmada.");
- }
-
- break;
- }
- */
 
 //Armado de mensajes del Gameboy
 t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
@@ -397,6 +303,26 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 			id_mensaje = atoi(arg[4]);
 			mensaje_get = crear_get_pokemon(pokemon, id_mensaje);
 			mensaje_serializado = serializar_get_pokemon(mensaje_get);
+			break;
+		case LOCALIZED_POKEMON: //No es un bug, es una feature. No esta en la consigna, pero para probar el broker lo agrego.
+			;
+			t_localized* mensaje_localized;
+			pokemon = malloc(sizeof(arg[3]));
+			strcpy(pokemon,arg[3]);
+			int cantidad_de_pociciones = atoi(arg[4]);
+			t_list* lista_posiciones;
+
+			for (int i = cantidad_de_pociciones; i<0; i--){
+				t_posicion* posicion_a_agregar = malloc(sizeof(t_posicion));
+				posicion_a_agregar->x = atoi(arg[ 4 + (i*2) - 1 ]);
+				posicion_a_agregar->y = atoi(arg[ 4 + (i*2) ]);
+
+				list_add(lista_posiciones, (void*) posicion_a_agregar);
+			}
+
+			mensaje_localized = crear_localized_pokemon(-1, pokemon, lista_posiciones);
+			mensaje_serializado = serializar_localized_pokemon(mensaje_localized);
+
 			break;
 		}
 		break;
