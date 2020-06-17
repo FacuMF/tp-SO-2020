@@ -18,10 +18,14 @@ void inicializacion_broker(void) {
 
 	// Inicializacion de las distintas colas de mensajes
 	inicializacion_colas();
-	log_trace(logger, "Log, Config y Colas inicializadas.");
 
 	//Inicializacion IDs
-	inizializacion_ids();
+	inicializacion_ids();
+
+	//Inicializacion cache;
+	inicializacion_cache();
+
+	log_trace(logger, "Inicialiazacion terminada.");
 }
 
 void terminar_proceso(void) {
@@ -57,9 +61,58 @@ void inicializacion_colas(void) {
 	localized_pokemon->mensajes = list_create();
 }
 
-void inizializacion_ids(void) {
+void inicializacion_ids(void) {
 	id_mensajes = 0;
 }
+
+void inicializacion_cache(void){
+	tamano_memoria = config_get_int_value(config, "TAMANO_MEMORIA");
+	tamano_minimo_particion = config_get_int_value(config, "TAMANO_MINIMO_PARTICION");
+
+	algoritmo_memoria = de_string_a_alg_memoria(
+			config_get_string_value(config, "ALGORITMO_MEMORIA")
+	);
+	algoritmo_remplazo = de_string_a_alg_remplazo(
+		config_get_string_value(config, "ALGORITMO_REEMPLAZO")
+	);
+	algoritmo_particion_libre = de_string_a_alg_particion_libre(
+		config_get_string_value(config, "ALGORITMO_PARTICION_LIBRE")
+	);
+
+	frecuencia_compactacion = config_get_int_value(config, "FRECUENCIA_COMPACTACION");
+
+	memoria_cache = malloc(atoi(tamano_memoria));
+}
+
+int de_string_a_alg_memoria(char* string){
+	if(string_equals_ignore_case(string , "PARTICIONES")) 	{
+		return PARTICIONES;
+	} else if(string_equals_ignore_case(string , "BS")) 	{
+		return BS;
+	} else 													{
+		return -1;
+	}
+}
+int de_string_a_alg_remplazo(char* string){
+	if(string_equals_ignore_case(string , "FIFO")) 			{
+		return FIFO;
+	} else if(string_equals_ignore_case(string , "LRU")) 	{
+		return LRU;
+	} else 													{
+		return -1;
+	}
+}
+int de_string_a_alg_particion_libre(char* string){
+	if(string_equals_ignore_case(string , "FF")) 			{
+		return FF;
+	} else if(string_equals_ignore_case(string , "BF")) 	{
+		return BF;
+	} else 													{
+		return -1;
+	}
+}
+
+
 
 void* esperar_mensajes(void *arg) {
 	char* ip = config_get_string_value(config, "IP_BROKER");
@@ -96,32 +149,19 @@ void recibir_mensaje_del_cliente(void* input) {
 		cod_op = recibir_codigo_operacion(socket_cliente);
 		if (cod_op == -1) log_error(logger, "Error en 'recibir_codigo_operacion'");
 
-		t_info_mensaje* info_mensaje = malloc(sizeof(t_info_mensaje));
-		info_mensaje->op_code = cod_op;
-		info_mensaje->socket_cliente = socket_cliente;
-
-		(cod_op>=0)? handle_mensaje(info_mensaje):
+		(cod_op>=0)? handle_mensaje(cod_op, socket_cliente):
 				     log_warning(logger, "El cliente %i cerro el socket.", socket_cliente);
 	}
 
 }
 
-void handle_mensaje(void* stream) { //Lanzar un hilo para manejar cada mensaje una vez deserializado?
-	// TODO: Sacar, no hace falta que sea stream, no es iun hilo
-	t_info_mensaje* info_mensaje = stream;
-	int cod_op = info_mensaje->op_code;
-	int socket_cliente = info_mensaje->socket_cliente;
+void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para manejar cada mensaje una vez deserializado?
 
 	t_buffer * buffer= recibir_mensaje(socket_cliente);
 
-	// TODO: sacar, no hace falta
-	int id_mensaje_recibido;
-
-	// Nueva metodologia
 	t_conexion_buffer * info_mensaje_a_manejar = malloc (sizeof(t_conexion_buffer));
 	info_mensaje_a_manejar->conexion = socket_cliente;
 	info_mensaje_a_manejar->buffer = buffer;
-
 
 	switch (cod_op) {
 	case SUSCRIPTOR:

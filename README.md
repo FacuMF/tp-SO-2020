@@ -106,9 +106,6 @@ Se debe registrar:
 2. Tipo mensaje (Cola)
 3. Subs a los que se le envio
 4. Subs que retornaron
-5. Offset donde empieza
-6. Tamano particion
-7. Flags de LRU
 	
 Dos esquemas de admin de memoria (se elegiran por config):
 - Particiones Dinamicas
@@ -119,13 +116,17 @@ Tamanio maximo de particion = Tamanio memoria (config)
 
 	//Un solo malloc con toda la memoria
 	stream memoria_cache = malloc ( tamanio_memoria );
-		--> datos mensaje
+		--> datos mensaje (anexo 2)
 	
 	//Memoria dinamica para almacenar los datos necesarios
 	t_estructura_cache* info_cache = malloc ( t_estructura_cache ); 
 		--> tipo mensaje
 		--> id
-		--> flags... 
+		--> subs enviados
+		--> subs recibidos
+		--> offset donde empieza
+		--> tamano particion
+		--> flags de LRU...
 
 Agregar funciones:
 
@@ -136,7 +137,7 @@ Agregar funciones:
 ---
 ### Particiones dinamicas con compactacion.
 	
-- Por cada valor se reserva el tamano exacto.
+- Por cada valor se reserva el tamano exacto. (Salvo que sea menos que el minimo)
 
 Procedimiento:
 1. Se busca particion con tamanio suficiente.
@@ -152,6 +153,15 @@ Procedimiento:
  - Lru
  x. Paso 1
  
+ Busco Particiones
+ - La encuentro -> Divido particion ocupo la primera y la otra quedara como fragmentacion.
+ 
+ Cuando elimino una particion
+ - Elijo victima -> Me fijo si tiene a la derecha o al la izquierda una particion vacia y las uno.
+ 
+ Frecuencia de compactacion. Cada cuantas veces que livero, compacto.
+ - Compactacion: Llevo todas las particiones libres al inicio y las ocupadas al final.
+ 
 ---
 ### Buddy System
 
@@ -159,10 +169,11 @@ Procedimiento:
 
 Procedimiento: 
 
-3. Se elimina una particion de datos. 
- - Fifo 
- - Lru
- x. Paso 1
+- Llega un mensaje
+- Dividimos la memoria hasta que haya una particion del tamano correcto
+
+Cuando livero una particion siempre tengo que consolidar con su budy si esta libre.
+- luego de consolidar, vuelvo a chekear si hay que consolidar.
  
 ---
 ### Dump de cache

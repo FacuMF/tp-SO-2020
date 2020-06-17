@@ -11,7 +11,18 @@ char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
 pthread_t tid[2];
-pthread_mutex_t mutex_handler_mensaje; //Para que reciba el mensaje entero antes de el cod_op siguiente.
+
+//Memoria cache
+void memoria_cache;
+t_list* struct_admin_cache;
+
+int tamano_memoria;
+int tamano_minimo_particion;
+int algoritmo_memoria;
+int algoritmo_remplazo;
+int algoritmo_particion_libre;
+int frecuencia_compactacion;
+
 
 typedef struct{
 	t_list* subscriptores; // lista de suscriptor_queue
@@ -20,31 +31,50 @@ typedef struct{
 
 typedef struct{
 	int socket;
+	t_list* mensajes_enviados;	// Lista de IDs (int)
 	t_list* mensajes_recibidos; // Lista de IDs (int)
 }t_suscriptor_queue;
 
-/*
+//Cache
+
 typedef struct{
 	op_code tipo_mensaje;
 	int id;
-	int id_correlacional;
-	t_list subscribers_enviados; //Subscriptores a esta cola
-	t_list subscribers_ack; //Subscriptores que recibieron el mensaje
-}t_mensaje;
-*/
+	t_list subscribers_enviados; // Subscriptores a la cola a los que fue enviado
+	t_list subscribers_recibidos; // Subscriptores que recibieron el mensaje
+	int offset; //Bytes
+	int tamanio; //Bytes
+	int flags_lru;
+}t_mensaje_cache;
+
+//Structs auxiliares
 
 typedef struct {
 	int op_code;
 	int socket_cliente;
 }t_info_mensaje; // Para handle_mensaje.
 
-
 typedef struct {
 	int conexion;
 	t_buffer * buffer;
 }t_conexion_buffer; // Para handle_mensaje.
 
+//Enums algoritmos
 
+typedef enum {
+	PARTICIONES = 0,
+	BS = 1
+}t_algoritmo_memoria;
+
+typedef enum {
+	FIFO = 0,
+	LRU = 1
+}t_algoritmo_remplazo;
+
+typedef enum {
+	FF=0,
+	BF=1
+}t_algoritmo_particion_libre;
 
 //Declaracion de queues
 t_queue* new_pokemon;
@@ -57,23 +87,28 @@ t_queue* localized_pokemon;
 //Declaracion id
 int id_mensajes;
 
-
 //Funciones Generales
 void inicializacion_broker(void);
 void terminar_proceso(void);
 
 void inicializacion_colas(void);
-void inizializacion_ids(void);
+void inicializacion_ids(void);
+void inicializacion_cache(void);
 
 void* esperar_mensajes(void *arg);
 void handle_cliente(int socket_servidor);
 void recibir_mensaje_del_cliente(void* );
-void handle_mensaje(void* info_mensaje);
+void handle_mensaje(int cod_op, int socket_cliente);
 
 void enviar_mensaje_de_cola(void* mensaje, int ciente);
 
 int get_id_mensajes(void);
 
+//Cache
+
+int de_string_a_alg_memoria(char* string);
+int de_string_a_alg_remplazo(char* string);
+int de_string_a_alg_particion_libre(char* string);
 
 //Funciones especificas por mensaje
 
