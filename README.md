@@ -103,9 +103,12 @@ Administrar recepcion, envio y confirmacion de mensajes:
 
 Se debe registrar:
 1. ID mensaje
-2. Tipo mensaje
+2. Tipo mensaje (Cola)
 3. Subs a los que se le envio
 4. Subs que retornaron
+5. Offset donde empieza
+6. Tamano particion
+7. Flags de LRU
 	
 Dos esquemas de admin de memoria (se elegiran por config):
 - Particiones Dinamicas
@@ -173,6 +176,14 @@ Se quiere ver:
 - Tiempo en LRU
 - Cola de mensaje
 - ID mensaje
+
+Ejemplo: 
+	--------------------------
+	Dump: 14/07/2012 10:11:12
+	Partición 1: 0x000 - 0x3FF.	    [X]	    Size: 1024b  LRU:<VALOR>  Cola:<COLA>  ID:<ID>
+	Partición 2: 0x400 - 0x409. 	[L]	    Size: 9b
+	Partición 3: 0x40A - 0x40B. 	[L] 	Size: 1b
+	--------------------------
 
 ---
 ### Pseudocodigo
