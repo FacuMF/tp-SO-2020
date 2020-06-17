@@ -77,25 +77,25 @@
 ---
 ###  Requerimientos
 
-// Administrar Subsciptores
-// Espera solicitudes de distintos modulos.
-// Lista de subscriptores por cada cola que administra.
-// Enviar a nuevos subscriptores, los mensajes cacheados
+- Administrar Subsciptores
+- Espera solicitudes de distintos modulos.
+- Lista de subscriptores por cada cola que administra.
+- Enviar a nuevos subscriptores, los mensajes cacheados
 
-[]  Administrar recepcion, envio y confirmacion de mensajes
-		[o]  Recibir mensajes
-		[o]  Analizar a que cola pertenece.
-		[o]  Identificar unoquibocamente el mensaje (ID)
-		[o]  Almacenar en dicha cola.
-		[]  Cachear mensajes
-		[o]  Enviar a todos los subscriptores
-		[]  Todo mensaje debe permanecer en la cola hasta que todos sus subs lo reciban
-		[o]  Notificacion de recepcion: Todo mnesaje debe ser confirmado por cada subscriptor, para no volver a enviarlo al mismo.
-		[o]  La recepcion y notificacion de mensajes puede diferir en el tiempo
-		[]  Mantener un registro de los ultimos mensajes recibidos para futuros subs
-		[o]  Mantener e informar en todo momento los estados de las colas con sus mensajes y subscriptores.
-		[]  Mantener su estado
-		[]  Borrar mensajes que fueron entregados a todos los subs.
+Administrar recepcion, envio y confirmacion de mensajes:
+	[0]  Recibir mensajes
+	[0]  Analizar a que cola pertenece.
+	[]  Identificar unoquibocamente el mensaje (ID)
+	[0]  Almacenar en dicha cola.
+	[]  Cachear mensajes
+	[0]  Enviar a todos los subscriptores
+	[]  Todo mensaje debe permanecer en la cola hasta que todos sus subs lo reciban
+	[0]  Notificacion de recepcion: Todo mnesaje debe ser confirmado por cada subscriptor, para no volver a enviarlo al mismo.
+	[0]  La recepcion y notificacion de mensajes puede diferir en el tiempo
+	[]  Mantener un registro de los ultimos mensajes recibidos para futuros subs
+	[0]  Mantener e informar en todo momento los estados de las colas con sus mensajes y subscriptores.
+	[]  Mantener su estado
+	[]  Borrar mensajes que fueron entregados a todos los subs.
 
 ---	
 ### Cache
