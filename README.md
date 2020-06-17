@@ -77,27 +77,108 @@
 ---
 ###  Requerimientos
 
-	// Administrar Subsciptores
-	// Espera solicitudes de distintos modulos.
-	// Lista de subscriptores por cada cola que administra.
-	// Enviar a nuevos subscriptores, los mensajes cacheados
+// Administrar Subsciptores
+// Espera solicitudes de distintos modulos.
+// Lista de subscriptores por cada cola que administra.
+// Enviar a nuevos subscriptores, los mensajes cacheados
 
-//  Administrar recepcion, envio y confirmacion de mensajes
-		//  Recibir mensajes
-		//  Analizar a que cola pertenece.
-		//  Identificar unoquibocamente el mensaje (ID)
-		//  Almacenar en dicha cola.
-		//  Cachear mensajes
-		//  Enviar a todos los subscriptores
-		//  Todo mensaje debe permanecer en la cola hasta que todos sus
-		//  subs lo reciban
-		//  Notificacion de recepcion: Todo mnesaje debe ser confirmado por cada subscriptor, para no volver a enviarlo al mismo.
-		//  La recepcion y notificacion de mensajes puede diferir en el tiempo
+[]  Administrar recepcion, envio y confirmacion de mensajes
+		[o]  Recibir mensajes
+		[o]  Analizar a que cola pertenece.
+		[o]  Identificar unoquibocamente el mensaje (ID)
+		[o]  Almacenar en dicha cola.
+		[]  Cachear mensajes
+		[o]  Enviar a todos los subscriptores
+		[]  Todo mensaje debe permanecer en la cola hasta que todos sus subs lo reciban
+		[o]  Notificacion de recepcion: Todo mnesaje debe ser confirmado por cada subscriptor, para no volver a enviarlo al mismo.
+		[o]  La recepcion y notificacion de mensajes puede diferir en el tiempo
+		[]  Mantener un registro de los ultimos mensajes recibidos para futuros subs
+		[o]  Mantener e informar en todo momento los estados de las colas con sus mensajes y subscriptores.
+		[]  Mantener su estado
+		[]  Borrar mensajes que fueron entregados a todos los subs.
 
-//  Mantener un registro de los ultimos mensajes recibidos para futuros subs
-		//  Mantener e infomrar en todo momento los estados de las colas con sus mensajes y subscriptores.
-		//  Mantener su estado
-		//  Borrar mensajes que fueron entregados a todos los subs.
+---	
+### Cache
+
+Se debe registrar:
+1. ID mensaje
+2. Tipo mensaje
+3. Subs a los que se le envio
+4. Subs que retornaron
+	
+Dos esquemas de admin de memoria (se elegiran por config):
+- Particiones Dinamicas
+- Buddy System
+
+Tamanio minimo de particion (config).
+Tamanio maximo de particion = Tamanio memoria (config)
+
+	//Un solo malloc con toda la memoria
+	stream memoria_cache = malloc ( tamanio_memoria );
+		--> datos mensaje
+	
+	//Memoria dinamica para almacenar los datos necesarios
+	t_estructura_cache* info_cache = malloc ( t_estructura_cache ); 
+		--> tipo mensaje
+		--> id
+		--> flags... 
+
+Agregar funciones:
+
+	enviar_a_sub_mensajes_cache(tipo_mensaje, subscriptor);
+	subscribir_cache(cola, suscriptor);
+	confirmar_recepcion_cache(cola, id_mensaje, suscripcion);
+	
+---
+### Particiones dinamicas con compactacion.
+	
+- Por cada valor se reserva el tamano exacto.
+
+Procedimiento:
+1. Se busca particion con tamanio suficiente.
+ - Fist fit
+ - Best fit
+ x. Si no se encuentra se pasara al paso 2 o al 3.
+	
+2. Se compatara la memoria.
+ x. Paso 1
+
+3. Se elimina una particion de datos. 
+ - Fifo 
+ - Lru
+ x. Paso 1
+ 
+---
+### Buddy System
+
+- Por cada valor se reserva la cantidad de memoria mas cercana que sea potencia de 2.
+
+Procedimiento: 
+
+3. Se elimina una particion de datos. 
+ - Fifo 
+ - Lru
+ x. Paso 1
+ 
+---
+### Dump de cache
+
+- Se iniciara cuando se recibe la senal SIGUSR1. Tiene que ser inicializada y manejada.
+
+Se quiere ver:
+- Particiones asignadas/libres
+- Direccion de comienzo y fin
+- Tamanio en bytes
+- Tiempo en LRU
+- Cola de mensaje
+- ID mensaje
+
+---
+### Pseudocodigo
+
+	// Leo config
+	// Funcion enviar mensaje a
+	// ETCs
 
 ---
 ## Estructura general del proyecto - comunicaciones
