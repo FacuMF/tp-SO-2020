@@ -83,6 +83,7 @@
 - Enviar a nuevos subscriptores, los mensajes cacheados
 
 Administrar recepcion, envio y confirmacion de mensajes:
+
 	- [X]  Recibir mensajes
 	- [X]  Analizar a que cola pertenece.
 	- [ ]  Identificar unoquibocamente el mensaje (ID)
