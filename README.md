@@ -84,19 +84,19 @@
 
 Administrar recepcion, envio y confirmacion de mensajes:
 
-	- [X]  Recibir mensajes
-	- [X]  Analizar a que cola pertenece.
-	- [ ]  Identificar unoquibocamente el mensaje (ID)
-	- [X]  Almacenar en dicha cola.
-	- [ ]  Cachear mensajes
-	- [X]  Enviar a todos los subscriptores
-	- [ ]  Todo mensaje debe permanecer en la cola hasta que todos sus subs lo reciban
-	- [X]  Notificacion de recepcion: Todo mnesaje debe ser confirmado por cada subscriptor, para no volver a enviarlo al mismo.
-	- [X]  La recepcion y notificacion de mensajes puede diferir en el tiempo
-	- [ ]  Mantener un registro de los ultimos mensajes recibidos para futuros subs
-	- [X]  Mantener e informar en todo momento los estados de las colas con sus mensajes y subscriptores.
-	- [ ]  Mantener su estado
-	- [ ]  Borrar mensajes que fueron entregados a todos los subs.
+- [X]  Recibir mensajes
+- [X]  Analizar a que cola pertenece.
+- [ ]  Identificar unoquibocamente el mensaje (ID)
+- [X]  Almacenar en dicha cola.
+- [ ]  Cachear mensajes
+- [X]  Enviar a todos los subscriptores
+- [ ]  Todo mensaje debe permanecer en la cola hasta que todos sus subs lo reciban
+- [X]  Notificacion de recepcion: Todo mnesaje debe ser confirmado por cada subscriptor, para no volver a enviarlo al mismo.
+- [X]  La recepcion y notificacion de mensajes puede diferir en el tiempo
+- [ ]  Mantener un registro de los ultimos mensajes recibidos para futuros subs
+- [X]  Mantener e informar en todo momento los estados de las colas con sus mensajes y subscriptores.
+- [ ]  Mantener su estado
+- [ ]  Borrar mensajes que fueron entregados a todos los subs.
 
 ---	
 ### Cache
