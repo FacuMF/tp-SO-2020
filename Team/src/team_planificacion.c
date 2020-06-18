@@ -74,7 +74,7 @@ void desbloquear_entrenador(t_entrenador * entrenador){
 void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy ){
 	int distancia_en_x = abs(distancia_en_eje(entrenador,posx,1));
 	int distancia_en_y= abs(distancia_en_eje(entrenador,posy,2));
-	int retardo_ciclo = config_get_int_value(config,"RETARDO_CICLO_CPU");
+	int retardo_ciclo = config_get_int_value(config,"RETARDO_CICLO_CPU"); // TODO pasar a variable global ya que probablemente se use en varias funciones
 	while(distancia_en_x !=0){
 		sleep(retardo_ciclo);
 		distancia_en_x --;
@@ -93,8 +93,8 @@ void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy){
 void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido,t_list * head_entrenadores){
 	t_entrenador *entrenador_a_planificar= hallar_entrenador_mas_cercano_segun_appeared(appeared_recibido,head_entrenadores);
 	desbloquear_entrenador(entrenador_a_planificar);
-	mover_entrenador_a_posicion(entrenador_a_planificar,appeared_recibido->posx,appeared_recibido->posy);
-	// atrapar_pokemon(entrenador_a_planificar,appeared_recibido);
+	//mover_entrenador_a_posicion(entrenador_a_planificar,appeared_recibido->posx,appeared_recibido->posy); // Comento para poder testear sin modificar entrenadores
+	// atrapar_pokemon(entrenador_a_planificar,appeared_recibido); TODO lanzar mensaje catch_pokemon
 }
 t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido,t_list * head_entrenadores){
 	t_entrenador * entrenador_a_planificar_cercano = hallar_entrenador_mas_cercano(head_entrenadores,appeared_recibido->posx,appeared_recibido->posy);
@@ -122,4 +122,34 @@ t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores,int posx
 	return entrenador_mas_cercano;
 }
 
+bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared){
+
+	bool pokemon_requerido = esta_pokemon_objetivo(mensaje_appeared->pokemon) && !capture_pokemon_objetivo(mensaje_appeared->pokemon);
+	return pokemon_requerido;
+}
+
+bool esta_pokemon_objetivo(char *pokemon_candidato){
+	t_list *lista_pokemones_objetivo_global = obtener_pokemones_de_lista_seleccionada(objetivo_global);
+	bool esta = esta_en_lista(pokemon_candidato,lista_pokemones_objetivo_global);
+	return esta;
+	}
+
+bool capture_pokemon_objetivo(char * pokemon_candidato){
+
+	t_list * lista_pokemones_globales_capturados = obtener_pokemones_de_lista_seleccionada(pokemones_globales_capturados);
+
+	if(esta_en_lista(pokemon_candidato,lista_pokemones_globales_capturados))
+	{
+		bool atrape_repeticiones_necesarias = pokemon_fue_atrapado_cantidad_necesaria(pokemon_candidato);
+		return atrape_repeticiones_necesarias;
+	}else
+	{
+	return false;
+	}
+}
+bool pokemon_fue_atrapado_cantidad_necesaria(char *pokemon){
+	int cantidad_en_objetivo = cantidad_pokemon_en_lista_objetivos(objetivo_global,pokemon);
+	int cantidad_veces_atrapado = cantidad_pokemon_en_lista_objetivos(pokemones_globales_capturados,pokemon);
+	return cantidad_en_objetivo == cantidad_veces_atrapado;
+}
 

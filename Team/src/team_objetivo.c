@@ -43,6 +43,28 @@ void mostrar_objetivo(void *elemento) {
 	log_trace(logger, "objetivo: %i", objetivo->cantidad);
 
 }
+t_list * obtener_pokemones_de_lista_seleccionada(t_list * lista_seleccionada){
+	t_list * lista_pokemones_objetivos_capturados = list_create();
+	void aniadir_pokemon_a_lista(void *elemento){
+				t_objetivo * objetivo = elemento;
+				list_add(lista_pokemones_objetivos_capturados,objetivo->pokemon);
+			}
+			list_iterate(lista_seleccionada,aniadir_pokemon_a_lista);
+		return lista_pokemones_objetivos_capturados;
+
+}
+
+
+ int cantidad_pokemon_en_lista_objetivos(t_list * lista_seleccionada, char * pokemon){
+	 bool es_pokemon_requerido(void *elemento){
+	 		 t_objetivo * objetivo_a_comparar=elemento;
+	 		 return !strcmp(objetivo_a_comparar->pokemon,pokemon);
+	 	 }
+	 	t_objetivo * objetivo_de_pokemon = list_find(lista_seleccionada,es_pokemon_requerido);
+	 	 int cantidad= objetivo_de_pokemon->cantidad;
+	 	return cantidad;
+ }
+
 
 bool objetivo_cumplido(t_entrenador *entrenador){
 	t_list *pokemone_por_capturar= entrenador->pokemones_por_capturar;

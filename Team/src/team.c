@@ -6,11 +6,13 @@ int main(int argv, char*archivo_config[]) {
 
 	iniciar_team(archivo_config);
 
-	t_list * head_entrenadores = cargar_entrenadores();
+	head_entrenadores = cargar_entrenadores();
 
-	t_list * pokemones_con_repetidos = obtener_pokemones(head_entrenadores);
+	pokemones_con_repetidos = obtener_pokemones(head_entrenadores);
 
-	t_list * objetivo_global = formar_objetivo(pokemones_con_repetidos);
+	objetivo_global = formar_objetivo(pokemones_con_repetidos);
+
+	pokemones_globales_capturados = list_create();
 
 	//suscribirse_a_colas_necesarias();
 	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);

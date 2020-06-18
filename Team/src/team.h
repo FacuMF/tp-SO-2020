@@ -8,6 +8,12 @@
 t_log* logger;
 t_config* config;
 
+//Listas globales de pokemones y entrenadores
+t_list * objetivo_global;
+t_list * pokemones_con_repetidos;
+t_list * head_entrenadores;
+t_list * pokemones_globales_capturados;
+
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
@@ -58,7 +64,7 @@ void recibir_mensaje_caught(t_buffer * buffer);
 void recibir_mensaje_localized(t_buffer * buffer);
 
 // Funciones de handle de mensajes
-// void handle_appeared_pokemon(t_appeared_pokemon *mensaje_appeared);
+ void handle_appeared_pokemon(t_appeared_pokemon *mensaje_appeared);
 //void handle_caught_pokemon(t_caught_pokemon * mensaje_caguth);
 // void handle_localized_pokemon (t_localized_pokemon * mensaje_localized);
 
@@ -81,6 +87,8 @@ void mostrar_kokemon(void*elemento);
 t_list* formar_objetivo(t_list * pokemones_repetidos);
 void agrego_si_no_existe(t_list * objetivo_global, void *elemento);
 void mostrar_objetivo(void *elemento);
+t_list * obtener_pokemones_de_lista_seleccionada(t_list * lista_seleccionada);
+int cantidad_pokemon_en_lista_objetivos(t_list * lista_seleccionada, char * pokemon);
 bool objetivo_cumplido(t_entrenador *entrenador);
 bool pokemon_igual(char *un_pokemon, char * otro_pokemon);
 bool esta_en_lista(char * pokemon,t_list * lista_pokemones);
@@ -104,6 +112,12 @@ void desbloquear_entrenador(t_entrenador * entrenador);
 void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy);
 void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy);
 // atrapar_pokemon(entrenador,appeared_pokemon);
+bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared);
+bool esta_pokemon_objetivo(char *pokemon_candidato);
+bool capture_pokemon_objetivo(char * pokemon_candidato);
+bool pokemon_fue_atrapado_cantidad_necesaria(char *pokemon);
+
+
 
 #endif /* TEAM_H_ */
 

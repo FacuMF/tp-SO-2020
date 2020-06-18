@@ -133,7 +133,7 @@ void enviar_mensaje_get(int socket_broker, void*element) {
 void recibir_mensaje_appeared(t_buffer * buffer){
 	char * message_data;
 	t_appeared_pokemon * mensaje_appeared = deserializar_appeared_pokemon(buffer);
-	// handle_appeared_pokemon(mensaje_appeared);
+	handle_appeared_pokemon(mensaje_appeared);
 	message_data = mostrar_appeared_pokemon(mensaje_appeared);
 	log_info(logger, "Se recibio un mensaje APPEARED_POKEMON, %s", message_data);
 }
@@ -152,3 +152,15 @@ void recibir_mensaje_localized(t_buffer * buffer){
 	message_data = mostrar_localized(mensaje_localized_pokemon);
 	log_info(logger, "Se recibio un mensaje LOCALIZED_POKEMON, %s", message_data);
 }
+
+void handle_appeared_pokemon(t_appeared_pokemon * mensaje_appeared){
+	if(requiero_pokemon(mensaje_appeared)){
+		hallar_entrenador_mas_cercano_segun_appeared(mensaje_appeared,head_entrenadores); // TODO Ejecutar hilo de planificacion?
+	}
+	else
+	{
+		log_trace(logger,"Mensaje appeared se desechara, no lo requiero");
+	}
+}
+
+
