@@ -14,6 +14,9 @@ int main(int argv, char*archivo_config[]) {
 
 	pokemones_globales_capturados = list_create();
 
+	// To test
+	agregar_atrapado_global();
+	list_iterate(pokemones_globales_capturados,mostrar_objetivo);
 	//suscribirse_a_colas_necesarias();
 	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
@@ -32,6 +35,13 @@ int main(int argv, char*archivo_config[]) {
 	finalizar_team();
 }
 
+// Funcion Para testear
+ void agregar_atrapado_global(){
+	 t_objetivo * objetivo_test= malloc(sizeof(t_objetivo));
+	 	objetivo_test->cantidad=1;
+	 	objetivo_test->pokemon = "Pikachu";
+	 	list_add(pokemones_globales_capturados,objetivo_test);
+ }
 // Funciones Generales
 void iniciar_team(char*argumentos_iniciales[]) {
 	// Calcular archivo a abrir

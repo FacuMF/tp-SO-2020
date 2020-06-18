@@ -155,11 +155,11 @@ void recibir_mensaje_localized(t_buffer * buffer){
 
 void handle_appeared_pokemon(t_appeared_pokemon * mensaje_appeared){
 	if(requiero_pokemon(mensaje_appeared)){
-		hallar_entrenador_mas_cercano_segun_appeared(mensaje_appeared,head_entrenadores); // TODO Ejecutar hilo de planificacion?
+		comenzar_planificacion_entrenadores(mensaje_appeared); // TODO Ejecutar hilo de planificacion?
 	}
 	else
 	{
-		log_trace(logger,"Mensaje appeared se desechara, no lo requiero");
+		log_trace(logger,"Mensaje appeared se desechara, no es requerido");
 	}
 }
 

@@ -58,7 +58,7 @@ t_list * obtener_pokemones_de_lista_seleccionada(t_list * lista_seleccionada){
  int cantidad_pokemon_en_lista_objetivos(t_list * lista_seleccionada, char * pokemon){
 	 bool es_pokemon_requerido(void *elemento){
 	 		 t_objetivo * objetivo_a_comparar=elemento;
-	 		 return !strcmp(objetivo_a_comparar->pokemon,pokemon);
+	 		 return !strcasecmp(objetivo_a_comparar->pokemon,pokemon);
 	 	 }
 	 	t_objetivo * objetivo_de_pokemon = list_find(lista_seleccionada,es_pokemon_requerido);
 	 	 int cantidad= objetivo_de_pokemon->cantidad;
@@ -87,7 +87,7 @@ bool objetivo_cumplido(t_entrenador *entrenador){
 }
 
 bool pokemon_igual(char *un_pokemon, char * otro_pokemon){
-	return !strcmp(un_pokemon,otro_pokemon);
+	return !strcasecmp(un_pokemon,otro_pokemon);
 }
 bool esta_en_lista(char * pokemon,t_list * lista_pokemones){
 	bool pokemon_igual_aux(void*elemento){

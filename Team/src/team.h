@@ -40,6 +40,7 @@ void iniciar_team(char*archivo_config[]);
 void finalizar_team();
 char * obtener_path(char*string);
 
+void agregar_atrapado_global();
 // Funciones de comunicacion general
 void esperar_cliente(int socket_servidor);
 void esperar_mensajes_cola(void* input);
@@ -105,9 +106,9 @@ void ser_entrenador(void *element);
 int distancia(t_entrenador * entrenador, int posx, int posy);
 //double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy);
 int distancia_en_eje(t_entrenador *entrenador, int pos_eje, int pos);
-void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido,t_list * head_entrenadores);
-t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido,t_list * head_entrenadores);
-t_entrenador * hallar_entrenador_mas_cercano(t_list * head_entrenadores, int posx, int posy);
+void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido);
+t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido);
+t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy);
 void desbloquear_entrenador(t_entrenador * entrenador);
 void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy);
 void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy);
