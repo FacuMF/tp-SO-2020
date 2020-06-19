@@ -321,11 +321,10 @@ t_catch_pokemon* deserializar_catch_pokemon(t_buffer* buffer) {
 }
 
 //MENSAJE CAUGTH POKEMON
-t_caught_pokemon* crear_caught_pokemon(int id_mensaje, bool ok_fail) {
+t_caught_pokemon* crear_caught_pokemon(int id_mensaje, int ok_fail) {
 	t_caught_pokemon* mensaje = malloc(sizeof(t_caught_pokemon));
 	mensaje->id_mensaje = id_mensaje;
-	mensaje->ok_or_fail = ok_fail;
-
+	mensaje->ok_or_fail = (ok_fail)? true : false;
 	return mensaje;
 }
 t_buffer* serializar_caught_pokemon(t_caught_pokemon* mensaje) {

@@ -16,9 +16,17 @@ t_modulo obtener_modulo(char**);
 op_code obtener_tipo_mensaje(char**);
 
 //Funciones Respuesta
-int recibir_respuesta(int* socket_broker);
-void handle_respuesta(int cod_op, int socket_broker);
+int recibir_respuesta(int*);
+void handle_respuesta(int, int);
+void confirmar_si_es_suscriptor(int, int, int);
 
+//Carga de mensajes
+void cargar_parametros_appeared_pokemon(char*, int*, int*, int*, char**, int);
+void cargar_parametros_new_pokemon(char*, int*, int*, int*, int*, char**, int);
+void cargar_parametros_caught_pokemon(int*, int*, char**);
+void cargar_parametros_catch_pokemon(char*, int*, int*, int*, char**, int);
+void cargar_parametros_get_pokemon(char*, int*, char**, int);
+void cargar_parametros_suscriptor(int*, int*, char**);
 //Pruebas de mensajes
 
 /*
