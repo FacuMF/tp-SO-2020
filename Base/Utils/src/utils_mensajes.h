@@ -128,6 +128,7 @@ char* mostrar_confirmacion(t_confirmacion*);
 //Armado de mensajes del Gameboy
 t_modulo string_a_modulo(char*);
 op_code string_a_tipo_mensaje(char*);
+char* op_code_a_string(int);
 
 //Confirmar recepcion
 void confirmar_recepcion(int socket_broker, int cod_op, int id_mensaje);

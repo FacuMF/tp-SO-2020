@@ -458,7 +458,8 @@ t_subscriptor* deserializar_suscripcion(t_buffer* buffer) {
 }
 
 //MENSAJE LOCALIZED
-t_localized* crear_localized_pokemon(int id_mensaje, char* pokemon, t_list* posiciones) {
+t_localized* crear_localized_pokemon(int id_mensaje, char* pokemon,
+		t_list* posiciones) {
 	t_localized* mensaje = malloc(sizeof(t_localized));
 	int cantidad_posiciones = list_size(posiciones);
 
@@ -494,10 +495,10 @@ t_buffer* serializar_localized_pokemon(t_localized* mensaje) {
 			sizeof(mensaje->cantidad_posiciones));
 	offset += sizeof(mensaje->cantidad_posiciones);
 
-	for(int i = 0; i< mensaje->cantidad_posiciones; i++){
-		t_posicion* pos_aux = list_get(mensaje->posiciones,i);
+	for (int i = 0; i < mensaje->cantidad_posiciones; i++) {
+		t_posicion* pos_aux = list_get(mensaje->posiciones, i);
 		memcpy(stream + offset, pos_aux, sizeof(t_posicion));
-			offset += sizeof(t_posicion);
+		offset += sizeof(t_posicion);
 	}
 	buffer->stream = stream;
 	return buffer;
@@ -522,11 +523,10 @@ t_localized* deserializar_localized_pokemon(t_buffer* buffer) {
 	stream += sizeof(mensaje->cantidad_posiciones);
 
 	mensaje->posiciones = list_create();
-	for(int i = 0;i<mensaje->cantidad_posiciones; i++){
+	for (int i = 0; i < mensaje->cantidad_posiciones; i++) {
 		t_posicion* pos_aux = malloc(sizeof(t_posicion));
-		memcpy(pos_aux, stream,
-					sizeof(t_posicion));
-			stream += sizeof(t_posicion);
+		memcpy(pos_aux, stream, sizeof(t_posicion));
+		stream += sizeof(t_posicion);
 		list_add(mensaje->posiciones, pos_aux);
 	}
 	return mensaje;
@@ -632,8 +632,8 @@ char* mostrar_localized(t_localized* mensaje) {
 	int max_size = 200;
 	char* parametros = malloc(sizeof(char) * max_size);
 
-	void mostrar_posiciones_aux(void* posicion){
-		char* aux = malloc(sizeof(char)*10);
+	void mostrar_posiciones_aux(void* posicion) {
+		char* aux = malloc(sizeof(char) * 10);
 		//puts("1");
 		aux = mostrar_posiciones(posicion);
 		//puts("2");
@@ -642,8 +642,10 @@ char* mostrar_localized(t_localized* mensaje) {
 	}
 
 	int a = list_size(mensaje->posiciones);
-	snprintf(parametros, max_size, "Id_mensaje: %d, Pokemon: %s, Cantidad: %d, Posiciones:",
-			mensaje->id_mensaje, mensaje->pokemon, mensaje->cantidad_posiciones);
+	snprintf(parametros, max_size,
+			"Id_mensaje: %d, Pokemon: %s, Cantidad: %d, Posiciones:",
+			mensaje->id_mensaje, mensaje->pokemon,
+			mensaje->cantidad_posiciones);
 	puts(parametros);
 
 	list_iterate(mensaje->posiciones, mostrar_posiciones_aux);
@@ -651,23 +653,23 @@ char* mostrar_localized(t_localized* mensaje) {
 	return parametros;
 }
 
-char* mostrar_posiciones(t_posicion* posicion){
-	char* pos = malloc(sizeof(char)*10);
-	snprintf(pos,10,"%d %d ", posicion->x, posicion->y);
+char* mostrar_posiciones(t_posicion* posicion) {
+	char* pos = malloc(sizeof(char) * 10);
+	snprintf(pos, 10, "%d %d ", posicion->x, posicion->y);
 	//puts(pos);
 	return pos;
 }
 
 //Confirmar Recepcion
 
-void confirmar_recepcion(int socket_broker, int cod_op, int id_mensaje){
-	t_confirmacion* mensaje_confirmacion = crear_confirmacion(cod_op, id_mensaje);
-	t_buffer* buffer_confirmacion = serializar_confirmacion(mensaje_confirmacion);
+void confirmar_recepcion(int socket_broker, int cod_op, int id_mensaje) {
+	t_confirmacion* mensaje_confirmacion = crear_confirmacion(cod_op,
+			id_mensaje);
+	t_buffer* buffer_confirmacion = serializar_confirmacion(
+			mensaje_confirmacion);
 
 	enviar_mensaje(socket_broker, buffer_confirmacion, CONFIRMACION);
 }
-
-
 
 t_modulo string_a_modulo(char* nombre_modulo) {
 	if (string_equals_ignore_case(nombre_modulo, "TEAM")) {
@@ -698,7 +700,38 @@ op_code string_a_tipo_mensaje(char* nombre_mensaje) {
 		return SUSCRIPTOR;
 	} else if (string_equals_ignore_case(nombre_mensaje, "LOCALIZED_POKEMON")) {
 		return LOCALIZED_POKEMON;
-	}else
+	} else
 		return -1;
 }
 
+char* op_code_a_string(int op) {
+	char* tipo_mensaje = malloc(sizeof(char) * 20);
+	switch (op) {
+	case APPEARED_POKEMON:
+		strcpy(tipo_mensaje, "APPEARED_POKEMON");
+		break;
+	case NEW_POKEMON:
+		strcpy(tipo_mensaje, "NEW_POKEMON");
+		break;
+	case CAUGHT_POKEMON:
+		strcpy(tipo_mensaje, "CAUGHT_POKEMON");
+		break;
+	case CATCH_POKEMON:
+		strcpy(tipo_mensaje, "CATCH_POKEMON");
+		break;
+	case GET_POKEMON:
+		strcpy(tipo_mensaje, "GET_POKEMON");
+		break;
+	case LOCALIZED_POKEMON:
+		strcpy(tipo_mensaje, "LOCALIZED_POKEMON");
+		break;
+	case SUSCRIPTOR:
+		strcpy(tipo_mensaje, "SUSCRIPTOR");
+		break;
+	case CONFIRMACION:
+		strcpy(tipo_mensaje, "CONFIRMACION");
+		break;
+	}
+	return tipo_mensaje;
+
+}

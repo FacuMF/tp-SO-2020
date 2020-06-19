@@ -105,10 +105,12 @@ int recibir_respuesta(int* socket_broker) {
 void handle_respuesta(int cod_op, int socket_broker) {
 
 	t_buffer * buffer = recibir_mensaje(socket_broker);
+	char* tipo_mensaje = malloc(sizeof(char)*20);
+	tipo_mensaje = op_code_a_string(cod_op);
+	log_trace(logger, "Se recibio un mensaje %s", tipo_mensaje);
 	switch (cod_op) {
 	case APPEARED_POKEMON:
-
-		log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
+		;
 		t_appeared_pokemon* mensaje_appeared_pokemon =
 				deserializar_appeared_pokemon(buffer);
 		if (es_suscriptor) {
@@ -119,8 +121,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		}
 		break;
 	case CAUGHT_POKEMON:
-
-		log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
+		;
 		t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(
 				buffer);
 		if (es_suscriptor) {
@@ -132,8 +133,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 
 		break;
 	case LOCALIZED_POKEMON:
-
-		log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
+		;
 		t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(
 				buffer);
 		if (es_suscriptor) {
@@ -145,8 +145,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 
 		break;
 	case NEW_POKEMON:
-
-		log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
+		;
 		t_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(buffer);
 		if (es_suscriptor) {
 			log_trace(logger, "Se confirmara la recepcion.");
@@ -156,8 +155,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		}
 		break;
 	case GET_POKEMON:
-
-		log_trace(logger, "Se recibio un mensaje GET_POKEMON");
+		;
 		t_get_pokemon* mensaje_get_pokemon = deserializar_get_pokemon(buffer);
 		if (es_suscriptor) {
 			log_trace(logger, "Se confirmara la recepcion.");
@@ -167,8 +165,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		}
 		break;
 	case CATCH_POKEMON:
-
-		log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
+		;
 		t_catch_pokemon* mensaje_catch_pokemon = deserializar_catch_pokemon(
 				buffer);
 		if (es_suscriptor) {
