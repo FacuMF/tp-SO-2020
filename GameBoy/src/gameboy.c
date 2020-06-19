@@ -44,7 +44,7 @@ int main(int argv, char* arg[]) {
 			cod_op_respuesta = recibir_respuesta(&conexion);
 		}
 		log_warning(logger, "Se salio del while del socket %i.", conexion);
-	} else {
+	} else if(modulo != team) {
 		// Para el resto de mensajes, se va a recibir el mismo mensaje pero con el id asignado por el broker.
 		recibir_respuesta(&conexion);
 	}
