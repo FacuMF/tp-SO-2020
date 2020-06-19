@@ -13,7 +13,7 @@ t_log_level log_nivel_minimo;
 pthread_t tid[2];
 
 //Memoria cache
-void memoria_cache;
+//void memoria_cache;
 t_list* struct_admin_cache;
 
 int tamano_memoria;

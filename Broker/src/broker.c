@@ -81,7 +81,7 @@ void inicializacion_cache(void){
 
 	frecuencia_compactacion = config_get_int_value(config, "FRECUENCIA_COMPACTACION");
 
-	memoria_cache = malloc(atoi(tamano_memoria));
+	//memoria_cache = malloc(atoi(tamano_memoria));
 }
 
 int de_string_a_alg_memoria(char* string){
