@@ -8,12 +8,21 @@ char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
 int es_suscriptor; //Para saber si enviar confirmacion o no
+t_modulo modulo;
+op_code tipo_mensaje;
+char* ip;
+char* puerto;
+int conexion;
+int cod_op_respuesta;
 
 // Funciones
 void inicializar_gameboy();
 t_buffer* mensaje_a_enviar(t_modulo, op_code, char**);
 t_modulo obtener_modulo(char**);
 op_code obtener_tipo_mensaje(char**);
+void obtener_argumentos(char**);
+void enviar_mensaje_gameboy(char**);
+void esperar_respuesta(void);
 
 //Funciones Respuesta
 int recibir_respuesta(int*);

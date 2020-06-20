@@ -62288,3 +62288,147 @@
 [TRACE] 00:05:38:530 Team/(12054:12057): Entrenador se movio de posicion: Nueva posicion en X: 4 , En y: 6
 [TRACE] 00:05:38:530 Team/(12054:12057): Aca ejecutaria envio de catch pokemon
 [INFO] 00:05:38:530 Team/(12054:12057): Se recibio un mensaje APPEARED_POKEMON, Pokemon: CHARMANDER, Posicion X: 4, Posicion Y: 6, Id mensaje: -1
+[TRACE] 15:12:43:999 Team/(4589:4589): --- Log inicializado ---
+[TRACE] 15:12:44:18 Team/(4589:4589): --- Entrenadores cargados ---
+[TRACE] 15:12:44:18 Team/(4589:4589): Data Entrenador: Posicion 1 2
+[TRACE] 15:12:44:19 Team/(4589:4589): Pikachu
+[TRACE] 15:12:44:19 Team/(4589:4589): Squirtle
+[TRACE] 15:12:44:19 Team/(4589:4589): Pidgey
+[TRACE] 15:12:44:20 Team/(4589:4589): Pikachu
+[TRACE] 15:12:44:20 Team/(4589:4589): Pikachu
+[TRACE] 15:12:44:20 Team/(4589:4589): Squirtle
+[TRACE] 15:12:44:21 Team/(4589:4589): Pidgey
+[TRACE] 15:12:44:21 Team/(4589:4589): Data Entrenador: Posicion 3 7
+[TRACE] 15:12:44:21 Team/(4589:4589): Squirtle
+[TRACE] 15:12:44:22 Team/(4589:4589): Charmander
+[TRACE] 15:12:44:22 Team/(4589:4589): Pikachu
+[TRACE] 15:12:44:22 Team/(4589:4589): Charmander
+[TRACE] 15:12:44:23 Team/(4589:4589): Charmander
+[TRACE] 15:12:44:23 Team/(4589:4589): Data Entrenador: Posicion 5 5
+[TRACE] 15:12:44:23 Team/(4589:4589): Bulbasaur
+[TRACE] 15:12:44:25 Team/(4589:4589): Squirtle
+[TRACE] 15:12:44:25 Team/(4589:4589): Bulbasaur
+[TRACE] 15:12:44:25 Team/(4589:4589): --- Entrenadores mostrados ---
+[TRACE] 15:12:44:25 Team/(4589:4589): --- Kokemones obtenidos ---
+[TRACE] 15:12:44:25 Team/(4589:4589): Pikachu
+[TRACE] 15:12:44:25 Team/(4589:4589): Pikachu
+[TRACE] 15:12:44:25 Team/(4589:4589): Squirtle
+[TRACE] 15:12:44:26 Team/(4589:4589): Pidgey
+[TRACE] 15:12:44:26 Team/(4589:4589): Pikachu
+[TRACE] 15:12:44:26 Team/(4589:4589): Charmander
+[TRACE] 15:12:44:26 Team/(4589:4589): Charmander
+[TRACE] 15:12:44:26 Team/(4589:4589): Squirtle
+[TRACE] 15:12:44:26 Team/(4589:4589): Bulbasaur
+[TRACE] 15:12:44:26 Team/(4589:4589):  ---- Objetivos Formados ----
+[TRACE] 15:12:44:26 Team/(4589:4589): Data de objetivo!
+[TRACE] 15:12:44:26 Team/(4589:4589): objetivo: Pikachu
+[TRACE] 15:12:44:26 Team/(4589:4589): objetivo: 3
+[TRACE] 15:12:44:26 Team/(4589:4589): Data de objetivo!
+[TRACE] 15:12:44:26 Team/(4589:4589): objetivo: Squirtle
+[TRACE] 15:12:44:26 Team/(4589:4589): objetivo: 2
+[TRACE] 15:12:44:26 Team/(4589:4589): Data de objetivo!
+[TRACE] 15:12:44:26 Team/(4589:4589): objetivo: Pidgey
+[TRACE] 15:12:44:26 Team/(4589:4589): objetivo: 1
+[TRACE] 15:12:44:26 Team/(4589:4589): Data de objetivo!
+[TRACE] 15:12:44:26 Team/(4589:4589): objetivo: Charmander
+[TRACE] 15:12:44:26 Team/(4589:4589): objetivo: 2
+[TRACE] 15:12:44:26 Team/(4589:4589): Data de objetivo!
+[TRACE] 15:12:44:26 Team/(4589:4589): objetivo: Bulbasaur
+[TRACE] 15:12:44:27 Team/(4589:4589): objetivo: 1
+[TRACE] 15:12:44:27 Team/(4589:4589): Data de objetivo!
+[TRACE] 15:12:44:30 Team/(4589:4589): objetivo: Pikachu
+[TRACE] 15:12:44:30 Team/(4589:4589): objetivo: 1
+[TRACE] 15:12:44:30 Team/(4589:4589): Ip Gameboy Leida : 127.0.0.2 Puerto Gameboy Leido :  5002
+
+[TRACE] 15:12:44:30 Team/(4589:4589): Esperando Cliente
+[TRACE] 15:12:55:695 Team/(4589:4589): Conexion de 5 al Broker.
+[TRACE] 15:12:55:695 Team/(4589:4589): Esperando Cliente
+[TRACE] 15:12:55:699 Team/(4589:4595): Esperando que aparezcan mensajes en 5
+[TRACE] 15:12:55:699 Team/(4589:4595): Mensaje recibido, cod_op: 2.
+[TRACE] 15:12:55:700 Team/(4589:4595): Mensaje recibido manejado.
+[TRACE] 15:12:55:701 Team/(4589:4595): Mensaje recibido, cod_op: -1219415224.
+[TRACE] 15:12:55:701 Team/(4589:4596): Lista de pokemones objetivo
+[TRACE] 15:12:55:712 Team/(4589:4596): Pikachu
+[TRACE] 15:12:55:712 Team/(4589:4596): Squirtle
+[TRACE] 15:12:55:712 Team/(4589:4596): Pidgey
+[TRACE] 15:12:55:712 Team/(4589:4596): Charmander
+[TRACE] 15:12:55:712 Team/(4589:4596): Bulbasaur
+[TRACE] 15:12:55:712 Team/(4589:4596): Pokemon esta en objetivo 1 
+
+[TRACE] 15:12:55:712 Team/(4589:4596): Pokemon no esta en la lista, no fue capturado
+[TRACE] 15:12:55:712 Team/(4589:4596): Posicion entrenador cercano: Posicion 1 2
+[TRACE] 15:13:09:714 Team/(4589:4596): Entrenador se movio de posicion: Nueva posicion en X: 4 , En y: 6
+[TRACE] 15:13:09:714 Team/(4589:4596): Aca ejecutaria envio de catch pokemon
+[INFO] 15:13:09:714 Team/(4589:4596): Se recibio un mensaje APPEARED_POKEMON, Pokemon: CHARMANDER, Posicion X: 4, Posicion Y: 6, Id mensaje: -1
+[TRACE] 15:24:01:133 Team/(5261:5261): --- Log inicializado ---
+[TRACE] 15:24:01:134 Team/(5261:5261): --- Entrenadores cargados ---
+[TRACE] 15:24:01:134 Team/(5261:5261): Data Entrenador: Posicion 1 2
+[TRACE] 15:24:01:134 Team/(5261:5261): Pikachu
+[TRACE] 15:24:01:134 Team/(5261:5261): Squirtle
+[TRACE] 15:24:01:134 Team/(5261:5261): Pidgey
+[TRACE] 15:24:01:135 Team/(5261:5261): Pikachu
+[TRACE] 15:24:01:135 Team/(5261:5261): Pikachu
+[TRACE] 15:24:01:135 Team/(5261:5261): Squirtle
+[TRACE] 15:24:01:135 Team/(5261:5261): Pidgey
+[TRACE] 15:24:01:136 Team/(5261:5261): Data Entrenador: Posicion 3 7
+[TRACE] 15:24:01:136 Team/(5261:5261): Squirtle
+[TRACE] 15:24:01:136 Team/(5261:5261): Charmander
+[TRACE] 15:24:01:136 Team/(5261:5261): Pikachu
+[TRACE] 15:24:01:136 Team/(5261:5261): Charmander
+[TRACE] 15:24:01:136 Team/(5261:5261): Charmander
+[TRACE] 15:24:01:136 Team/(5261:5261): Data Entrenador: Posicion 5 5
+[TRACE] 15:24:01:137 Team/(5261:5261): Bulbasaur
+[TRACE] 15:24:01:137 Team/(5261:5261): Squirtle
+[TRACE] 15:24:01:137 Team/(5261:5261): Bulbasaur
+[TRACE] 15:24:01:137 Team/(5261:5261): --- Entrenadores mostrados ---
+[TRACE] 15:24:01:137 Team/(5261:5261): --- Kokemones obtenidos ---
+[TRACE] 15:24:01:138 Team/(5261:5261): Pikachu
+[TRACE] 15:24:01:138 Team/(5261:5261): Pikachu
+[TRACE] 15:24:01:138 Team/(5261:5261): Squirtle
+[TRACE] 15:24:01:138 Team/(5261:5261): Pidgey
+[TRACE] 15:24:01:138 Team/(5261:5261): Pikachu
+[TRACE] 15:24:01:138 Team/(5261:5261): Charmander
+[TRACE] 15:24:01:138 Team/(5261:5261): Charmander
+[TRACE] 15:24:01:139 Team/(5261:5261): Squirtle
+[TRACE] 15:24:01:139 Team/(5261:5261): Bulbasaur
+[TRACE] 15:24:01:139 Team/(5261:5261):  ---- Objetivos Formados ----
+[TRACE] 15:24:01:139 Team/(5261:5261): Data de objetivo!
+[TRACE] 15:24:01:139 Team/(5261:5261): objetivo: Pikachu
+[TRACE] 15:24:01:139 Team/(5261:5261): objetivo: 3
+[TRACE] 15:24:01:139 Team/(5261:5261): Data de objetivo!
+[TRACE] 15:24:01:140 Team/(5261:5261): objetivo: Squirtle
+[TRACE] 15:24:01:140 Team/(5261:5261): objetivo: 2
+[TRACE] 15:24:01:140 Team/(5261:5261): Data de objetivo!
+[TRACE] 15:24:01:140 Team/(5261:5261): objetivo: Pidgey
+[TRACE] 15:24:01:140 Team/(5261:5261): objetivo: 1
+[TRACE] 15:24:01:140 Team/(5261:5261): Data de objetivo!
+[TRACE] 15:24:01:140 Team/(5261:5261): objetivo: Charmander
+[TRACE] 15:24:01:140 Team/(5261:5261): objetivo: 2
+[TRACE] 15:24:01:140 Team/(5261:5261): Data de objetivo!
+[TRACE] 15:24:01:140 Team/(5261:5261): objetivo: Bulbasaur
+[TRACE] 15:24:01:140 Team/(5261:5261): objetivo: 1
+[TRACE] 15:24:01:141 Team/(5261:5261): Data de objetivo!
+[TRACE] 15:24:01:141 Team/(5261:5261): objetivo: Pikachu
+[TRACE] 15:24:01:141 Team/(5261:5261): objetivo: 1
+[TRACE] 15:24:01:141 Team/(5261:5261): Ip Gameboy Leida : 127.0.0.2 Puerto Gameboy Leido :  5002
+
+[TRACE] 15:24:01:141 Team/(5261:5261): Esperando Cliente
+[TRACE] 15:24:13:928 Team/(5261:5261): Conexion de 5 al Broker.
+[TRACE] 15:24:13:928 Team/(5261:5261): Esperando Cliente
+[TRACE] 15:24:13:932 Team/(5261:5264): Esperando que aparezcan mensajes en 5
+[TRACE] 15:24:13:932 Team/(5261:5264): Mensaje recibido, cod_op: 2.
+[TRACE] 15:24:13:933 Team/(5261:5264): Mensaje recibido manejado.
+[TRACE] 15:24:13:934 Team/(5261:5264): Mensaje recibido, cod_op: -1218743480.
+[TRACE] 15:24:13:934 Team/(5261:5265): Lista de pokemones objetivo
+[TRACE] 15:24:13:934 Team/(5261:5265): Pikachu
+[TRACE] 15:24:13:934 Team/(5261:5265): Squirtle
+[TRACE] 15:24:13:935 Team/(5261:5265): Pidgey
+[TRACE] 15:24:13:935 Team/(5261:5265): Charmander
+[TRACE] 15:24:13:935 Team/(5261:5265): Bulbasaur
+[TRACE] 15:24:13:935 Team/(5261:5265): Pokemon esta en objetivo 1 
+
+[TRACE] 15:24:13:940 Team/(5261:5265): Pokemon no esta en la lista, no fue capturado
+[TRACE] 15:24:13:940 Team/(5261:5265): Posicion entrenador cercano: Posicion 1 2
+[TRACE] 15:24:27:943 Team/(5261:5265): Entrenador se movio de posicion: Nueva posicion en X: 4 , En y: 6
+[TRACE] 15:24:27:943 Team/(5261:5265): Aca ejecutaria envio de catch pokemon
+[INFO] 15:24:27:943 Team/(5261:5265): Se recibio un mensaje APPEARED_POKEMON, Pokemon: CHARMANDER, Posicion X: 4, Posicion Y: 6, Id mensaje: -1

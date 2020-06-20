@@ -4,11 +4,18 @@ int main(int argv, char* arg[]) {
 
 	inicializar_gameboy();
 
-	//TODO obtener_argumentos()
+	obtener_argumentos(arg);
 
+	enviar_mensaje_gameboy(arg);
+
+	cod_op_respuesta = 0;
+	esperar_respuesta();
+}
+
+void obtener_argumentos(char** arg) {
 	es_suscriptor = (string_a_modulo(arg[1]) == SUSCRIPTOR) ? 1 : 0;
-	t_modulo modulo = obtener_modulo(arg);
-	op_code tipo_mensaje = obtener_tipo_mensaje(arg);
+	modulo = obtener_modulo(arg);
+	tipo_mensaje = obtener_tipo_mensaje(arg);
 
 	log_trace(logger, "Caracteristicas de mensaje obtenidas");
 
@@ -16,16 +23,14 @@ int main(int argv, char* arg[]) {
 			"Se quiere enviar un mensaje del tipo -%i- al modulo -%i-",
 			tipo_mensaje, modulo);
 
-	char* ip = leer_ip(modulo, config);
-	char* puerto = leer_puerto(modulo, config);
+	ip = leer_ip(modulo, config);
+	puerto = leer_puerto(modulo, config);
 	/*TBR*/log_trace(logger,
 			"Leido de config por parametro %s. Ip: %s y Puerto: %s", arg[1], ip,
 			puerto);
+}
 
-	//fin obtener_argumentos()
-	//TODO enviar_mensaje_gameboy() (capaz otro nombre menos general)
-
-	int conexion;
+void enviar_mensaje_gameboy(char** arg) {
 	conexion = iniciar_conexion(ip, puerto);
 	log_trace(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
 
@@ -38,25 +43,19 @@ int main(int argv, char* arg[]) {
 
 	//free(mensaje_serializado->stream); //Esto tira seg fault con localized_pokemon
 	//free(mensaje_serializado);
+}
 
-	// fin enviar_mensaje_gameboy()
-	// TODO esperar_respuesta()
-
-	int cod_op_respuesta = 0;
-
+void esperar_respuesta(void) {
 	if (tipo_mensaje == SUSCRIPTOR) {
 		// Si el mensaje que se envio fue una suscripcion, quiero recibir todos los mensjaes de esa cola.
 		while (cod_op_respuesta >= 0) {
 			cod_op_respuesta = recibir_respuesta(&conexion);
 		}
 		log_warning(logger, "Se salio del while del socket %i.", conexion);
-	} else if(modulo != team) {
+	} else if (modulo != team) {
 		// Para el resto de mensajes, se va a recibir el mismo mensaje pero con el id asignado por el broker.
 		recibir_respuesta(&conexion);
 	}
-
-	//fin esperar_respuesta()
-
 }
 
 t_modulo obtener_modulo(char** arg) {
@@ -80,6 +79,7 @@ op_code obtener_tipo_mensaje(char** arg) {
 		log_error(logger, "Tipo de mensaje invalido");
 	return tipo_mensaje;
 }
+
 void inicializar_gameboy() {
 	// Leer configuracion
 	config = leer_config("./GameBoy/config/gameboy.config");
@@ -105,6 +105,7 @@ int recibir_respuesta(int* socket_broker) {
 					*socket_broker);
 	return cod_op;
 }
+
 void confirmar_si_es_suscriptor(int socket, int cop_op, int id_mensaje) {
 	if (es_suscriptor) {
 		log_trace(logger, "Se confirmara la recepcion.");
@@ -179,22 +180,27 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		;
 		t_appeared_pokemon* mensaje_appeared;
 		pokemon = malloc(sizeof(arg[3]));
-		cargar_parametros_appeared_pokemon(pokemon, &pos_x, &pos_y, &id_mensaje, arg, modulo);
-		mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,id_mensaje);
+		cargar_parametros_appeared_pokemon(pokemon, &pos_x, &pos_y, &id_mensaje,
+				arg, modulo);
+		mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
+				id_mensaje);
 		mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared);
 		break;
 	case NEW_POKEMON:
 		;
 		t_new_pokemon* mensaje_new;
 		pokemon = malloc(sizeof(arg[3]));
-		cargar_parametros_new_pokemon(pokemon, &pos_x, &pos_y, &cantidad, &id_mensaje, arg, modulo);
-		mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,id_mensaje);
+		cargar_parametros_new_pokemon(pokemon, &pos_x, &pos_y, &cantidad,
+				&id_mensaje, arg, modulo);
+		mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,
+				id_mensaje);
 		mensaje_serializado = serializar_new_pokemon(mensaje_new);
 		break;
 	case CAUGHT_POKEMON:
 		;
 		t_caught_pokemon* mensaje_caught;
-		cargar_parametros_caught_pokemon(&id_mensaje_correlativo, &ok_fail, arg);
+		cargar_parametros_caught_pokemon(&id_mensaje_correlativo, &ok_fail,
+				arg);
 		mensaje_caught = crear_caught_pokemon(id_mensaje_correlativo, ok_fail);
 		mensaje_serializado = serializar_caught_pokemon(mensaje_caught);
 		break;
@@ -202,7 +208,8 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		;
 		t_catch_pokemon* mensaje_catch;
 		pokemon = malloc(sizeof(arg[3]));
-		cargar_parametros_catch_pokemon(pokemon, &pos_x, &pos_y, &id_mensaje, arg, modulo);
+		cargar_parametros_catch_pokemon(pokemon, &pos_x, &pos_y, &id_mensaje,
+				arg, modulo);
 		mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y, id_mensaje);
 		mensaje_serializado = serializar_catch_pokemon(mensaje_catch);
 
@@ -240,7 +247,8 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 	case SUSCRIPTOR:
 		;
 		t_subscriptor* mensaje_suscripcion;
-		cargar_parametros_suscriptor(&cola_de_mensajes, &tiempo_suscripcion, arg);
+		cargar_parametros_suscriptor(&cola_de_mensajes, &tiempo_suscripcion,
+				arg);
 		mensaje_suscripcion = crear_suscripcion(cola_de_mensajes,
 				tiempo_suscripcion);
 		mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
