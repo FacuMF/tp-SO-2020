@@ -20,7 +20,7 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 	almacenar_en_cola_appeared_pokemon(mensaje_appeared_pokemon);
 	log_trace(logger, "Se almaceno el mensaje APPEARED_POKEMON en la cola.");
 
-	//cachear_appeared_pokemon(mensaje);
+	cachear_appeared_pokemon(mensaje_appeared_pokemon);
 
 	//free (liberar memoria)
 }
@@ -85,9 +85,60 @@ void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 }
 
 
+
+void cachear_appeared_pokemon(t_appeared_pokemon mensaje){
 /*
- void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje){
- //TODO
- return 0;
- }
- */
+	void* mensaje_a_cachear = serializar_cache_appeared_pokemon(mensaje);
+
+	//De aca en adelante se puede generalizar para todos los mensajes, no solo appeared.
+
+	int tamano_mensaje_a_cachear = size(mensaje_a_cachear);
+
+	_Bool se_agrego_mensaje_a_cache = false;
+
+	while (se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
+
+		// Buscar particion a llenar
+		list_sort(struct_admin_cache, ordenar_para_remplazo);
+			// Se ordenan las particiones, tanto ocupadas como desocupadas, dejando adelante las libres y con tamano suficiente
+			// y dejando primera la que se debe remplazar.En Fest Fit, se deja primero la de offset menor, y en BestFit la de tamano menor.
+
+		if( particion_valida_para_llenar( list_get (struct_admin_cache, 1) , tamano_mensaje_a_cachear ) ){
+			// Este if va a dejar llenar la particion si la que quedo primera, que deberia ser la mas cercana a poder ser llenada, efectivamente lo es.
+			// Si esta no tiene tamano suficiente, significa que ninguna lo tiene, entonces habra que eliminar una particion (else)
+
+			t_mensaje_cache* particion_mensaje = crear_particion_mensaje(mensaje, list_get (struct_admin_cache, 1) );
+					//Se crea la particion llena con el contenido del mensaje, en base a la info de la particion vacia elegida.
+			list_add(struct_admin_cache, particion_mensaje);
+				// Al final de la estructura administrativa agrego un elemento que referencia el mensaje por agregar.
+
+			if( queda espacio_libre( tamano_mensaje_a_cachear, list_get (struct_admin_cache, 1) ) ){
+
+				t_mensaje_cache* particion_sobrante = cear_particion_sobrante(mensaje, list_get (struct_admin_cache, 1));
+				list_add(struct_admin_cache, particion_sobrante);
+				// Si el mensaje deja espacio suficiente como para generar una nueva particion libre, esta tambien se agrega al final
+				// de la estructura administrativa.
+
+			}
+
+			list_remove_and_destroy_element(struct_admin_cache, 1, free );
+			// Ahora borro el primer elemento de la estructura administrativa. Es la particion libre elegida, que se llenara total o parcialmente,
+			// pero en ambos casos su informacion ya esta contemplada por los elementos que acabo de agregar.
+
+			agregar_mensaje_a_cache(mensaje_a_cachear, particion_mensaje);
+			// Se agrega el mensaje a cachear al malloc de la cache con el offset que indica en la estructura administrativa.
+
+			se_agrego_mensaje_a_cache = true; //Para que salga del while.
+
+			list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria); // Se reordena la estructura administrativa.
+
+		}else{
+			elegir_vitima_y_eliminarla() // Y consolido
+			compactar_cache_si_corresponde();
+			}
+	}
+*/
+}
+
+
+

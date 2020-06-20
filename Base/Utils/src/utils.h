@@ -35,6 +35,7 @@ typedef enum
 // OP CODES
 typedef enum
 {
+	VACIO = 0, //Para las particiones en cache.
 	TEXTO = 1,
 	APPEARED_POKEMON = 2,
 	NEW_POKEMON = 3,

@@ -112,8 +112,6 @@ int de_string_a_alg_particion_libre(char* string){
 	}
 }
 
-
-
 void* esperar_mensajes(void *arg) {
 	char* ip = config_get_string_value(config, "IP_BROKER");
 	char* puerto = config_get_string_value(config, "PUERTO_BROKER");
@@ -163,55 +161,49 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 	info_mensaje_a_manejar->conexion = socket_cliente;
 	info_mensaje_a_manejar->buffer = buffer;
 
+	log_trace(logger, "Se recibio un mensaje %s", op_code_a_string(cod_op));
+
 	switch (cod_op) {
 	case SUSCRIPTOR:
 
-		log_trace(logger, "Se recibio un mensaje SUSCRIPTOR");
 		manejar_mensaje_suscriptor(info_mensaje_a_manejar);
-
 		break;
 
 	case APPEARED_POKEMON:
 
-		log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_appeared,info_mensaje_a_manejar);
-
 		break;
+
 	case NEW_POKEMON:
 
-		log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_new,info_mensaje_a_manejar);
-
 		break;
+
 	case CATCH_POKEMON:
 
-		log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_catch,info_mensaje_a_manejar);
-
 		break;
+
 	case CAUGHT_POKEMON:
-		log_trace(logger, "Se recibio un mensaje CAUGHT_POKEMON");
+
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_caught,info_mensaje_a_manejar);
-
 		break;
+
 	case GET_POKEMON:
-		log_trace(logger, "Se recibio un mensaje GET_POKEMON");
+
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_get,info_mensaje_a_manejar);
-
-
 		break;
 	case LOCALIZED_POKEMON:
-		log_trace(logger, "Se recibio un mensaje LOCALIZED_POKEMON");
-		pthread_create(&thread, NULL, (void*) manejar_mensaje_localized,info_mensaje_a_manejar);
 
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_localized,info_mensaje_a_manejar);
 		break;
 	case CONFIRMACION:
-		log_trace(logger, "Se recibio una CONFIRMACION.");
-		manejar_mensaje_confirmacion(info_mensaje_a_manejar);
 
+		manejar_mensaje_confirmacion(info_mensaje_a_manejar);
 		break;
 	default:
-		log_warning(logger, "El cliente %i cerro el socket.", socket_cliente);
+
+		log_trace(logger, "El cliente %i cerro el socket.", socket_cliente);
 		break;
 
 	}

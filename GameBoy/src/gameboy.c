@@ -4,6 +4,8 @@ int main(int argv, char* arg[]) {
 
 	inicializar_gameboy();
 
+	//TODO obtener_argumentos()
+
 	es_suscriptor = (string_a_modulo(arg[1]) == SUSCRIPTOR) ? 1 : 0;
 	t_modulo modulo = obtener_modulo(arg);
 	op_code tipo_mensaje = obtener_tipo_mensaje(arg);
@@ -20,6 +22,9 @@ int main(int argv, char* arg[]) {
 			"Leido de config por parametro %s. Ip: %s y Puerto: %s", arg[1], ip,
 			puerto);
 
+	//fin obtener_argumentos()
+	//TODO enviar_mensaje_gameboy() (capaz otro nombre menos general)
+
 	int conexion;
 	conexion = iniciar_conexion(ip, puerto);
 	log_trace(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
@@ -34,7 +39,8 @@ int main(int argv, char* arg[]) {
 	//free(mensaje_serializado->stream); //Esto tira seg fault con localized_pokemon
 	//free(mensaje_serializado);
 
-	// Esperar respuesta //
+	// fin enviar_mensaje_gameboy()
+	// TODO esperar_respuesta()
 
 	int cod_op_respuesta = 0;
 
@@ -48,6 +54,8 @@ int main(int argv, char* arg[]) {
 		// Para el resto de mensajes, se va a recibir el mismo mensaje pero con el id asignado por el broker.
 		recibir_respuesta(&conexion);
 	}
+
+	//fin esperar_respuesta()
 
 }
 
