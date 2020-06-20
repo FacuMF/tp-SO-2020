@@ -96,7 +96,7 @@ void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido)
 	desbloquear_entrenador(entrenador_a_planificar);
 	mover_entrenador_a_posicion(entrenador_a_planificar,appeared_recibido->posx,appeared_recibido->posy); // Comento para poder testear sin modificar entrenadores
 	log_trace(logger,"Aca ejecutaria envio de catch pokemon");
-	//atrapar_pokemon(entrenador_a_planificar,appeared_recibido); TODO lanzar mensaje catch_pokemon
+	atrapar_pokemon(entrenador_a_planificar,appeared_recibido); TODO lanzar mensaje catch_pokemon
 }
 t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido){
 	t_entrenador * entrenador_a_planificar_cercano = hallar_entrenador_mas_cercano(appeared_recibido->posx,appeared_recibido->posy);
@@ -124,40 +124,5 @@ t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy){
 	return entrenador_mas_cercano;
 }
 
-bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared){
 
-	bool pokemon_requerido = esta_pokemon_objetivo(mensaje_appeared->pokemon) && !capture_pokemon_objetivo(mensaje_appeared->pokemon);
-	return pokemon_requerido;
-}
-
-bool esta_pokemon_objetivo(char *pokemon_candidato){
-	t_list *lista_pokemones_objetivo_global = obtener_pokemones_de_lista_seleccionada(objetivo_global);
-	log_trace(logger,"Lista de pokemones objetivo");
-	list_iterate(lista_pokemones_objetivo_global,mostrar_kokemon);
-	bool esta = esta_en_lista(pokemon_candidato,lista_pokemones_objetivo_global);
-	log_trace(logger,"Pokemon esta en objetivo %d \n",esta);
-	return esta;
-	}
-
-bool capture_pokemon_objetivo(char * pokemon_candidato){
-
-	t_list * lista_pokemones_globales_capturados = obtener_pokemones_de_lista_seleccionada(pokemones_globales_capturados);
-
-	if(esta_en_lista(pokemon_candidato,lista_pokemones_globales_capturados))
-	{
-		log_trace(logger,"Pokemon Capturado previamente");
-		bool atrape_repeticiones_necesarias = pokemon_fue_atrapado_cantidad_necesaria(pokemon_candidato);
-		log_trace(logger,"Pokemon fue atrapado veces necesarias %d \n",atrape_repeticiones_necesarias);
-		return atrape_repeticiones_necesarias;
-	}else
-	{
-	log_trace(logger,"Pokemon no esta en la lista, no fue capturado");
-	return false;
-	}
-}
-bool pokemon_fue_atrapado_cantidad_necesaria(char *pokemon){
-	int cantidad_en_objetivo = cantidad_pokemon_en_lista_objetivos(objetivo_global,pokemon);
-	int cantidad_veces_atrapado = cantidad_pokemon_en_lista_objetivos(pokemones_globales_capturados,pokemon);
-	return cantidad_en_objetivo == cantidad_veces_atrapado;
-}
 

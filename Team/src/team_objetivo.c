@@ -43,6 +43,38 @@ void mostrar_objetivo(void *elemento) {
 	log_trace(logger, "objetivo: %i", objetivo->cantidad);
 
 }
+
+// Funciones de fijarse si se requiere pokemon para objetivo global
+bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared){
+
+	bool pokemon_requerido = esta_pokemon_objetivo(mensaje_appeared->pokemon) && !capture_pokemon_objetivo(mensaje_appeared->pokemon);
+	return pokemon_requerido;
+}
+ bool esta_pokemon_objetivo(char *pokemon_candidato){
+ 	t_list *lista_pokemones_objetivo_global = obtener_pokemones_de_lista_seleccionada(objetivo_global);
+ 	log_trace(logger,"Lista de pokemones objetivo");
+ 	bool esta = esta_en_lista(pokemon_candidato,lista_pokemones_objetivo_global);
+ 	log_trace(logger,"Pokemon esta en objetivo %d \n",esta);
+ 	return esta;
+ 	}
+
+ bool capture_pokemon_objetivo(char * pokemon_candidato){
+
+ 	t_list * lista_pokemones_globales_capturados = obtener_pokemones_de_lista_seleccionada(pokemones_globales_capturados);
+
+ 	if(esta_en_lista(pokemon_candidato,lista_pokemones_globales_capturados))
+ 	{
+ 		log_trace(logger,"Pokemon Capturado previamente");
+ 		bool atrape_repeticiones_necesarias = pokemon_fue_atrapado_cantidad_necesaria(pokemon_candidato);
+ 		log_trace(logger,"Pokemon fue atrapado veces necesarias %d \n",atrape_repeticiones_necesarias);
+ 		return atrape_repeticiones_necesarias;
+ 	}else
+ 	{
+ 	log_trace(logger,"Pokemon no esta en la lista, no fue capturado");
+ 	return false;
+ 	}
+ }
+
 t_list * obtener_pokemones_de_lista_seleccionada(t_list * lista_seleccionada){
 	t_list * lista_pokemones_objetivos_capturados = list_create();
 	void aniadir_pokemon_a_lista(void *elemento){
@@ -53,7 +85,6 @@ t_list * obtener_pokemones_de_lista_seleccionada(t_list * lista_seleccionada){
 		return lista_pokemones_objetivos_capturados;
 
 }
-
 
  int cantidad_pokemon_en_lista_objetivos(t_list * lista_seleccionada, char * pokemon){
 	 bool es_pokemon_requerido(void *elemento){
@@ -66,6 +97,17 @@ t_list * obtener_pokemones_de_lista_seleccionada(t_list * lista_seleccionada){
  }
 
 
+
+ bool pokemon_fue_atrapado_cantidad_necesaria(char *pokemon){
+ 	int cantidad_en_objetivo = cantidad_pokemon_en_lista_objetivos(objetivo_global,pokemon);
+ 	int cantidad_veces_atrapado = cantidad_pokemon_en_lista_objetivos(pokemones_globales_capturados,pokemon);
+ 	return cantidad_en_objetivo == cantidad_veces_atrapado;
+ }
+
+
+
+
+// Funciones de objetivo cumplido
 bool objetivo_cumplido(t_entrenador *entrenador){
 	t_list *pokemone_por_capturar= entrenador->pokemones_por_capturar;
 	t_list * pokemone_capturados = entrenador->pokemones_capturados;

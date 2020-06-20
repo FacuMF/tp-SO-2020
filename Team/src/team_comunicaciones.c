@@ -86,6 +86,7 @@ void suscribirse_a_colas_necesarias() {
 	enviar_suscripcion_broker(LOCALIZED_POKEMON);
 	enviar_suscripcion_broker(CAUGHT_POKEMON);
 }
+
 void enviar_suscripcion_broker(op_code tipo_mensaje) {
 
 	int socket_broker = iniciar_conexion_con_broker();
@@ -121,13 +122,23 @@ void enviar_requests_pokemones(t_list *objetivo_global) { // RECONTRA LIMPIAR
 }
 
 void enviar_mensaje_get(int socket_broker, void*element) {
-	t_objetivo *objetivo = element;
-	t_get_pokemon* mensaje_get = crear_get_pokemon(objetivo->pokemon, -10);
+	t_objetivo * objetivo = element;
+	t_get_pokemon * mensaje_get = crear_get_pokemon(objetivo->pokemon, -10);
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	mensaje_serializado = serializar_get_pokemon(mensaje_get);
 	enviar_mensaje(socket_broker, mensaje_serializado, GET_POKEMON);
 	log_trace(logger, "Enviado get para: %s", objetivo->pokemon);
+	free(mensaje_serializado);
 
+}
+void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar){
+	t_catch_pokemon * mensaje_catch = crear_catch_pokemon(mensaje_appeared_a_capturar->pokemon,mensaje_appeared_a_capturar->posx
+		,mensaje_appeared_a_capturar->posy,-20);
+	t_buffer*mensaje_catch_serializado = malloc(sizeof(t_buffer));
+	mensaje_catch_serializado= serializar_catch_pokemon(mensaje_catch);
+	//enviar_mensaje(socket_broker(pasar a variable global),mensaje_catch,CATCH_POKEMON);
+	log_trace(logger, "Enviado catch para: %s", mensaje_appeared_a_capturar->pokemon);
+	free(mensaje_catch_serializado);
 }
 // Funciones de recepcion de mensajes
 void recibir_mensaje_appeared(t_buffer * buffer){
