@@ -66,6 +66,8 @@ void inicializacion_ids(void) {
 }
 
 void inicializacion_cache(void){
+	// Leer config y parsear valores.
+
 	tamano_memoria = config_get_int_value(config, "TAMANO_MEMORIA");
 	tamano_minimo_particion = config_get_int_value(config, "TAMANO_MINIMO_PARTICION");
 
@@ -84,7 +86,20 @@ void inicializacion_cache(void){
 	log_trace(logger, "Se leyo de config: tamano_memoria: %i, tamano_minimo_particion: %i, alg_memoria: %i, alg_remplazo: %i, alg_part_libre: %i, frec_compact:  %i.",
 				tamano_memoria, tamano_minimo_particion, algoritmo_memoria, algoritmo_remplazo, algoritmo_particion_libre, frecuencia_compactacion);
 
+	// Inicializar memoria cache
+
 	memoria_cache = malloc(tamano_memoria);
+
+	t_mensaje_cache* primer_particion = malloc(sizeof(t_mensaje_cache));
+	primer_particion -> tipo_mensaje = VACIO;
+	primer_particion -> offset = 0;
+	primer_particion -> tamanio = tamano_memoria;
+
+	// Inizializar memoria administrativa
+
+	struct_admin_cache = list_create();
+	list_add(struct_admin_cache, primer_particion);
+
 }
 
 int de_string_a_alg_memoria(char* string){

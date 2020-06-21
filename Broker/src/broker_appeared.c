@@ -94,17 +94,16 @@ void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 
 
 void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
-/*
-	void* mensaje_a_cachear = serializar_cache_appeared_pokemon(mensaje);
+	int size_stream = sizeof(uint32_t)*3 + mensaje-> size_pokemon;//Size se calcula aca porque lo necesita la funcion cachear_mensaje (general)
+	void* mensaje_a_cachear = serializar_cache_appeared_pokemon(mensaje, size_stream);
 
 	//De aca en adelante se puede generalizar para todos los mensajes, no solo appeared.
-
-	int tamano_mensaje_a_cachear = size(mensaje_a_cachear);
+	//TODO: Pasar a cachear_mensaje() en broker_general
 
 	_Bool se_agrego_mensaje_a_cache = false;
 
 	while (se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
-
+	/*
 		// Buscar particion a llenar
 		list_sort(struct_admin_cache, ordenar_para_remplazo);
 			// Se ordenan las particiones, tanto ocupadas como desocupadas, dejando adelante las libres y con tamano suficiente
@@ -143,9 +142,24 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 			elegir_vitima_y_eliminarla() // Y consolido
 			compactar_cache_si_corresponde();
 			}
+	*/
 	}
-*/
 }
 
+void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size){
 
+	void* stream = malloc(size);
+	int offset = 0;
+
+	memcpy(&(mensaje->size_pokemon), stream, sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	memcpy((mensaje->pokemon), stream, (mensaje->size_pokemon));
+	offset += mensaje->size_pokemon;
+	memcpy(&(mensaje->posx), stream, sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+	memcpy(&(mensaje->posy), stream, sizeof(uint32_t));
+	offset += sizeof(uint32_t);
+
+	return stream;
+}
 
