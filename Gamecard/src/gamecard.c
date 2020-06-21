@@ -8,8 +8,9 @@ void main(){
 	set_base_path(config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"));
 	char* PUERTO_BROKER = config_get_int_value(config, "PUERTO_BROKER");
 	char* IP_BROKER = config_get_int_value(config, "IP_BROKER");
-	int REINTENTO_CONEXION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_CONEXION");
-	int REINTENTO_OPERACION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_OPERACION");
+	REINTENTO_CONEXION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_CONEXION");
+	REINTENTO_OPERACION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_OPERACION");
+	RETARDO_OPERACION = config_get_int_value(config,"TIEMPO_RETARDO_OPERACION");
 	// Conexion socket
 	int conexion = iniciar_conexion(IP_BROKER, PUERTO_BROKER);
 

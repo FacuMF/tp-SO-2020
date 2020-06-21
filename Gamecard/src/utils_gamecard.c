@@ -7,6 +7,11 @@
 #include "../../Base/Utils/src/utils.h"
 
 
+// CONSTANTES CONFIG
+int RETARDO_OPERACION;
+int REINTENTO_CONEXION;
+int REINTENTO_OPERACION;
+
 // CONSTANT
 char* PUNTO_MONTAJE;
 char* METADATA_BASE_PATH = "Metadata/";
@@ -196,8 +201,15 @@ void recibir_mensajes_gamecard(int *socket){
 }
 
 bool verificar_posciones_file(int x, int y, char** bloques){
-
+	//TODO
 	return true;
+}
+
+void crear_file_si_no_existe(char* file, t_new_pokemon pokemon){
+	if(!file_existing(file)){
+		create_pokemon_dir(pokemon->pokemon);
+		create_pokemon_metadata_file(pokemon->pokemon);
+	}
 }
 
 void handle_mensajes_gamecard(int cod_op, int socket){
@@ -214,9 +226,9 @@ void handle_mensajes_gamecard(int cod_op, int socket){
 
 		break;
 
-	case APPEARED_POKEMON:
-		log_trace(logger, "Se recibio un mensaje APPEARED_POKEMON");
-		pthread_create(&thread, NULL, (void*) gamecard_manejar_appeared_pokemon,info_mensaje_a_manejar);
+	case CATCH_POKEMON:
+		log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
+		pthread_create(&thread, NULL, (void*) gamecard_manejar_catch_pokemon,info_mensaje_a_manejar);
 
 		break;
 
@@ -234,15 +246,16 @@ void handle_mensajes_gamecard(int cod_op, int socket){
 
 }
 
+void
+
 void gamecard_manejar_new_pokemon(t_conexion_buffer * combo){
 	t_buffer * buffer = combo->buffer;
 	int socket = combo->conexion;
 	t_new_pokemon pokemon = deserializar_new_pokemon(buffer);
 	char* file = pokemon_metadata_path(pokemon->pokemon);
-	if(!file_existing(file)){
-		create_pokemon_dir(pokemon->pokemon);
-		create_pokemon_metadata_file(pokemon->pokemon);
-	}
+	// Verificar si existe pokemon en el Filesystem
+	crear_file_si_no_existe(file,pokemon);
+	// Verificar si se puede abrir el archivo
 	if (!file_open(pokemon->pokemon)){ // SEMAFORO MUTEX PARA MANEJAR LOS OPEN
 		//Buscar los bloques del pokemon
 		char** bloques = extraer_bloques(pokemon->pokemon);
@@ -250,14 +263,49 @@ void gamecard_manejar_new_pokemon(t_conexion_buffer * combo){
 
 		}
 	}
-				//  Reintentar la operación luego de REINTENTO_OPERACION
+		// Reintentar la operación luego de REINTENTO_OPERACION
+	// Verificar si las posiciones ya existen dentro del archivo
+	// Esperar la cantidad de segundos definidos en config
+	sleep(RETARDO_OPERACION);
+	// Cerrar el archivo
+	// Conectarse al broker y enviar a APPEARED_POKEMON un mensaje con ID del mensaje recibido, pokemon, posicion en el mapa
+	// En caso de no poder conectarse avisar por log
 }
 
-void gamecard_manejar_appeared_pokemon(t_conexion_buffer * combo){
-
+void gamecard_manejar_catch_pokemon(t_conexion_buffer * combo){
+	t_buffer * buffer = combo->buffer;
+	int socket = combo->conexion;
+	t_new_pokemon pokemon = deserializar_catch_pokemon(buffer);
+	char* file = pokemon_metadata_path(pokemon->pokemon);
+	// Verificar si existe pokemon en el Filesystem
+	crear_file_si_no_existe(file,pokemon);
+	// Verificar si se puede abrir el archivo
+	// Verificar si las posiciones existen dentro del archivo
+	// En caso de que la cantidad sea 1 -> eliminar la linea, en caso contrario se debe decrementar una unidad
+	// Esperar la cantidad de segundos definidos en config
+	sleep(RETARDO_OPERACION);
+	// Cerrar archivo
+	// Conectarse al broker y enviar el mensaje indicando ID del mensaje  y resultado a CAUGHT_POKEMON.
+	// Si no se puede conectar al broker informar por log y continuar
 }
 
 void gamecard_manejar_get_pokemon(t_conexion_buffer * combo){
-
+	t_buffer * buffer = combo->buffer;
+	int socket = combo->conexion;
+	t_new_pokemon pokemon = deserializar_get_pokemon(buffer);
+	char* file = pokemon_metadata_path(pokemon->pokemon);
+	// Verificar si existe pokemon en el Filesystem
+	crear_file_si_no_existe(file,pokemon);
+	// Verificar si se puede abrir el archivo
+	// Obtener todas las posiciones y cantidades del pokemon requerido
+	// Esperar la cantidad de segundos definidos en config
+	sleep(RETARDO_OPERACION);
+	// Cerrar archivo
+	// Conectarse al broker y enviar el mensaje con todas las posiciones y su cantidad
+	// En caso de que se encuentre por lo menos una posicion para el pokemon solicitado se debera enviar un mensaje al broker a LOCALIZED_POKEMON indicando
+	// 	ID del mensaje, el pokemon solicitado y la lista de posiciones y cantidad de posiciones X e Y de cada una de ellas
+	// Si no se puede conectar al broker informar por log y continuar
 }
+
+
 
