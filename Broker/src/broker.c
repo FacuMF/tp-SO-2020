@@ -81,7 +81,10 @@ void inicializacion_cache(void){
 
 	frecuencia_compactacion = config_get_int_value(config, "FRECUENCIA_COMPACTACION");
 
-	//memoria_cache = malloc(atoi(tamano_memoria));
+	log_trace(logger, "Se leyo de config: tamano_memoria: %i, tamano_minimo_particion: %i, alg_memoria: %i, alg_remplazo: %i, alg_part_libre: %i, frec_compact:  %i.",
+				tamano_memoria, tamano_minimo_particion, algoritmo_memoria, algoritmo_remplazo, algoritmo_particion_libre, frecuencia_compactacion);
+
+	memoria_cache = malloc(tamano_memoria);
 }
 
 int de_string_a_alg_memoria(char* string){

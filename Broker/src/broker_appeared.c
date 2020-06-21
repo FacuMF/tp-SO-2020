@@ -86,7 +86,7 @@ void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 
 
 
-void cachear_appeared_pokemon(t_appeared_pokemon mensaje){
+void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 /*
 	void* mensaje_a_cachear = serializar_cache_appeared_pokemon(mensaje);
 

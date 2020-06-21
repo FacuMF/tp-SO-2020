@@ -13,7 +13,7 @@ t_log_level log_nivel_minimo;
 pthread_t tid[2];
 
 //Memoria cache
-void memoria_cache;
+void* memoria_cache;
 t_list* struct_admin_cache;
 
 int tamano_memoria;
@@ -31,7 +31,7 @@ typedef struct{
 
 typedef struct{
 	int socket;
-	t_list* mensajes_enviados;	// Lista de IDs (int)
+	//t_list* mensajes_enviados;	// Lista de IDs (int)
 	t_list* mensajes_recibidos; // Lista de IDs (int)
 }t_suscriptor_queue;
 
@@ -133,7 +133,7 @@ void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje);
 void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appeared_pokemon* mensaje);
-//void cachear_appeared_pokemon(t_mensaje_appeared_pokemon mensaje);
+void cachear_appeared_pokemon(t_appeared_pokemon* mensaje);
 
 // NEW_POKEMON
 void manejar_mensaje_new(t_conexion_buffer *combo);
