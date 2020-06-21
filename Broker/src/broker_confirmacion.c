@@ -82,8 +82,28 @@ _Bool mensaje_recibido_por_todos_los_subs(t_confirmacion* confirmacion){
 }
 
 void borrar_mensaje_de_cola(t_confirmacion* confirmacion){
-	log_warning(logger, "Se borrara el mensaje %i de la cola %i.", confirmacion->mensaje, confirmacion->tipo_mensaje);
-	//TODO
+	log_trace(logger, "Se borrara el mensaje %i de la cola %i (Size: %i).",
+			confirmacion->mensaje, confirmacion->tipo_mensaje,
+			list_size( get_cola_segun_tipo(confirmacion->tipo_mensaje)->mensajes ));
+
+	switch(confirmacion->tipo_mensaje){
+		case APPEARED_POKEMON:
+		;
+		_Bool mensaje_distinto(void* mensaje){
+			return (  ((t_appeared_pokemon*) mensaje)->id_mensaje != confirmacion->mensaje );
+		}
+
+		appeared_pokemon->mensajes = list_filter( appeared_pokemon->mensajes, mensaje_distinto);
+
+		break;
+		//TODO Hacer el caset para todos los mensajes.
+	}
+
+	log_trace(logger, "Se borro el mensaje %i de la cola %i (Size: %i).",
+				confirmacion->mensaje, confirmacion->tipo_mensaje,
+				list_size( get_cola_segun_tipo(confirmacion->tipo_mensaje)->mensajes ));
+
+
 }
 
 _Bool fue_enviado_y_recibido(int id_mensaje, t_suscriptor_queue* suscriptor){
