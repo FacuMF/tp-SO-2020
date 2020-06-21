@@ -195,7 +195,11 @@ void manejar_mensaje_confirmacion(t_conexion_buffer *combo);
 
 void confirmar_cliente_recibio(t_confirmacion* mensaje_confirmacion, int socket_cliente);
 t_queue* get_cola_segun_tipo(int tipo_mensaje);
+
 void si_coincide_cliente_agregar_id_recibido(t_suscriptor_queue* suscriptor, int socket_suscriptor, int id_mensaje_recibido);
+_Bool mensaje_recibido_por_todos_los_subs(t_confirmacion* confirmacion);
+void borrar_mensaje_de_cola(t_confirmacion* confirmacion);
+_Bool fue_enviado_y_recibido(int id_mensaje, t_suscriptor_queue* suscriptor);
 
 
 #endif

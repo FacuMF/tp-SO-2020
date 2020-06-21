@@ -26,10 +26,10 @@ void confirmar_cliente_recibio(t_confirmacion* mensaje_confirmacion, int socket_
 	list_iterate( cola_de_mensajes->subscriptores, (void*)si_coincide_cliente_agregar_id_recibido_aux );
 
 	log_trace(logger, "Se confirmo la recepcion del mensaje");
-	// TODO
-	// Borrar los mensajes que todos sus subs confirmaron. (Chekear que onda los cacheados,
-	// se confirma tambien su envio? cada vez que confirmo el envio de un msj tengo que
-	// modificar tambien la info del cacheado? Etc.
+
+	if(mensaje_recibido_por_todos_los_subs(mensaje_confirmacion)){
+		borrar_mensaje_de_cola(mensaje_confirmacion);
+	}
 }
 
 t_queue* get_cola_segun_tipo(int tipo_mensaje){
@@ -68,4 +68,37 @@ void si_coincide_cliente_agregar_id_recibido(t_suscriptor_queue* suscriptor, int
 
 		log_info(logger, "Confirmacion de recepcion de suscriptor %i al envio del mensaje %i.", socket_suscriptor, id_mensaje_recibido);
 	}
+}
+
+_Bool mensaje_recibido_por_todos_los_subs(t_confirmacion* confirmacion){
+
+	_Bool fue_enviado_y_recibido_aux(void* suscriptor){
+		return fue_enviado_y_recibido(confirmacion -> mensaje,suscriptor);
+	}
+
+	//Si todos los subs, tienen el mensaje en enviado && tiene el mensaje en recibido
+	return list_all_satisfy( get_cola_segun_tipo( confirmacion->tipo_mensaje ) -> subscriptores ,
+							fue_enviado_y_recibido_aux                );
+}
+
+void borrar_mensaje_de_cola(t_confirmacion* confirmacion){
+	log_warning(logger, "Se borrara el mensaje %i de la cola %i.", confirmacion->mensaje, confirmacion->tipo_mensaje);
+	//TODO
+}
+
+_Bool fue_enviado_y_recibido(int id_mensaje, t_suscriptor_queue* suscriptor){
+
+
+	_Bool tiene_mensaje(void* un_id){
+		int* un_id_aux = un_id;
+		return ( (int) un_id_aux == id_mensaje );
+	}
+
+	if( list_any_satisfy( suscriptor->mensajes_enviados, tiene_mensaje) ){ //Si alguno de los enviados es el id_mensaje
+		return list_any_satisfy(suscriptor->mensajes_recibidos, tiene_mensaje); // Retorna true si alguno de los recibidos es el id_mensaje
+	}else{
+		return true; // Si directamente no fue enviado, para ese sub no importa, devuelvo true.
+	}
+
+	return NULL;
 }
