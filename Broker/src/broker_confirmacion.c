@@ -62,6 +62,10 @@ void si_coincide_cliente_agregar_id_recibido(t_suscriptor_queue* suscriptor, int
 		log_trace(logger, "Se encontro al suscriptor %i.", socket_suscriptor);
 		list_add(suscriptor->mensajes_recibidos, (void*) id_mensaje_recibido);
 
+		int tamano_lista = list_size(suscriptor->mensajes_recibidos);
+		log_trace(logger, "Se agrego el ID: %i a la lista de recibidos que tiene %i elementos.",
+		list_get(suscriptor->mensajes_recibidos, tamano_lista-1), tamano_lista);
+
 		log_info(logger, "Confirmacion de recepcion de suscriptor %i al envio del mensaje %i.", socket_suscriptor, id_mensaje_recibido);
 	}
 }

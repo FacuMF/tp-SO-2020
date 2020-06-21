@@ -31,8 +31,8 @@ typedef struct{
 
 typedef struct{
 	int socket;
-	//t_list* mensajes_enviados;	// Lista de IDs (int)
-	t_list* mensajes_recibidos; // Lista de IDs (int)
+	t_list* mensajes_enviados; // Lista de IDs (int)
+	t_list* mensajes_recibidos;	// Lista de IDs (int)
 }t_suscriptor_queue;
 
 //Cache

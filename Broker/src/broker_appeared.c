@@ -20,6 +20,8 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 	almacenar_en_cola_appeared_pokemon(mensaje_appeared_pokemon);
 	log_trace(logger, "Se almaceno el mensaje APPEARED_POKEMON en la cola.");
 
+	enviar_a_todos_los_subs_appeared_pokemon(mensaje_appeared_pokemon);
+
 	cachear_appeared_pokemon(mensaje_appeared_pokemon);
 
 	//free (liberar memoria)
@@ -48,7 +50,7 @@ void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje) {
 			"Se agrego a la cola APPEARED_POKEMON el mensaje con id: %i.",
 			elemento_agregado->id_mensaje);
 
-	enviar_a_todos_los_subs_appeared_pokemon(mensaje);
+
 
 }
 
@@ -71,17 +73,22 @@ void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje) {
 void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 		t_appeared_pokemon* mensaje) {
 
-	log_trace(logger,
-			"Se va a enviar mensaje APPEARED_POKEMON id: %i a sub: %i.",
-			mensaje->id_mensaje, suscriptor->socket);
+	//Envio del mensaje
+	log_trace(logger, "Se va a enviar mensaje APPEARED_POKEMON id: %i a sub: %i.",
+				mensaje->id_mensaje, suscriptor->socket);
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	mensaje_serializado = serializar_appeared_pokemon(mensaje);
+
 	enviar_mensaje(suscriptor->socket, mensaje_serializado, APPEARED_POKEMON);
+
+	//Confirmacion del mensaje
+	list_add(suscriptor->mensajes_enviados, (void*) (mensaje->id_mensaje) );
+	int tamano_lista = list_size(suscriptor->mensajes_enviados);
+	log_trace(logger, "Se agrego el ID: %i a la lista de enviados que tiene %i elementos.",
+			list_get(suscriptor->mensajes_enviados, tamano_lista-1), tamano_lista);
 
 	log_info(logger, "Envio de APPEARED_POKEMON %i a suscriptor %i",
 			mensaje->id_mensaje, suscriptor->socket);
-
-	log_trace(logger, "Se envio mensaje APPEARED_POKEMON");
 }
 
 
