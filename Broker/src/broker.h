@@ -40,8 +40,8 @@ typedef struct{
 typedef struct{
 	op_code tipo_mensaje;
 	int id;
-	t_list subscribers_enviados; // Subscriptores a la cola a los que fue enviado
-	t_list subscribers_recibidos; // Subscriptores que recibieron el mensaje
+	t_list* subscribers_enviados; // Subscriptores a la cola a los que fue enviado
+	t_list* subscribers_recibidos; // Subscriptores que recibieron el mensaje
 	int offset; //Bytes
 	int tamanio; //Bytes
 	int flags_lru;
@@ -109,6 +109,14 @@ int get_id_mensajes(void);
 int de_string_a_alg_memoria(char* string);
 int de_string_a_alg_remplazo(char* string);
 int de_string_a_alg_particion_libre(char* string);
+
+_Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje_2, int tamano_mensaje);
+_Bool particion_valida_para_llenar(t_mensaje_cache* particion, int tamano_mensaje);
+t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje, int tamanio_mensaje, t_mensaje_cache* particion_vacia);
+t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje);
+t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje);
+
+
 
 //Funciones especificas por mensaje
 
