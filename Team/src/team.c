@@ -42,6 +42,7 @@ int main(int argv, char*archivo_config[]) {
 	 	objetivo_test->pokemon = "Pikachu";
 	 	list_add(pokemones_globales_capturados,objetivo_test);
  }
+
 // Funciones Generales
 void iniciar_team(char*argumentos_iniciales[]) {
 	// Calcular archivo a abrir

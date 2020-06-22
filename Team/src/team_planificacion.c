@@ -58,10 +58,8 @@ int distancia(t_entrenador * entrenador, int posx, int posy){
 	int distancia_e= abs(distancia_en_eje(entrenador,posx,0)) + abs(distancia_en_eje(entrenador,posx,1));
 	return distancia_e;
 }
-/*double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy){
-	double suma = pow(distancia_en_eje(entrenador,posx,1),2) + pow(distancia_en_eje(entrenador,posy,2),2);
-	return suma;
-}*/
+
+
 int distancia_en_eje(t_entrenador *entrenador, int pose, int pos){
 	int resta= entrenador->posicion[pos] - pose;
 	return resta;
@@ -74,30 +72,39 @@ void desbloquear_entrenador(t_entrenador * entrenador){
 void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy ){
 	int distancia_en_x = abs(distancia_en_eje(entrenador,posx,0));
 	int distancia_en_y= abs(distancia_en_eje(entrenador,posy,1));
+
 	int retardo_ciclo = config_get_int_value(config,"RETARDO_CICLO_CPU"); // TODO pasar a variable global ya que probablemente se use en varias funciones
+
 	while(distancia_en_x !=0){
 		sleep(retardo_ciclo);
 		distancia_en_x --;
 	}
+
 	while(distancia_en_y !=0){
 		sleep(retardo_ciclo);
 		distancia_en_y --;
 	}
+
 	cambiar_posicion_entrenador(entrenador,posx,posy);
 	log_trace(logger,"Entrenador se movio de posicion: Nueva posicion en X: %d , En y: %d",entrenador->posicion[0],entrenador->posicion[1]);
 }
+
 void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy){
 	entrenador->posicion[0] = posx;
 	entrenador->posicion[1]=posy;
 }
+
 // Funcion de Planificacion de entrenadores
 void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido){
 	t_entrenador *entrenador_a_planificar= hallar_entrenador_mas_cercano_segun_appeared(appeared_recibido);
 	desbloquear_entrenador(entrenador_a_planificar);
 	mover_entrenador_a_posicion(entrenador_a_planificar,appeared_recibido->posx,appeared_recibido->posy); // Comento para poder testear sin modificar entrenadores
+
 	log_trace(logger,"Aca ejecutaria envio de catch pokemon");
-	atrapar_pokemon(entrenador_a_planificar,appeared_recibido); TODO lanzar mensaje catch_pokemon
+
+	atrapar_pokemon(entrenador_a_planificar,appeared_recibido); //TODO lanzar mensaje catch_pokemon
 }
+
 t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido){
 	t_entrenador * entrenador_a_planificar_cercano = hallar_entrenador_mas_cercano(appeared_recibido->posx,appeared_recibido->posy);
 	return entrenador_a_planificar_cercano;

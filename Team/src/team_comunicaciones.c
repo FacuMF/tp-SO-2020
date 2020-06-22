@@ -65,31 +65,50 @@ void manejar_recibo_mensajes(int conexion, op_code cod_op) {  //TODO: pending
 	t_buffer * buffer_recibido = recibir_mensaje(conexion);
 	switch (cod_op) {
 	case APPEARED_POKEMON:
-		pthread_create(&thread, NULL, (void*) recibir_mensaje_appeared,buffer_recibido);
+		pthread_create(&thread, NULL, (void*) recibir_mensaje_appeared,
+				buffer_recibido);
 		break;
 	case CAUGHT_POKEMON:
-		pthread_create(&thread, NULL, (void*) recibir_mensaje_caught,buffer_recibido);
+		pthread_create(&thread, NULL, (void*) recibir_mensaje_caught,
+				buffer_recibido);
+		// Esperar a que termine de recibir, no hace falta hilo
 		break;
 	case LOCALIZED_POKEMON:
-		pthread_create(&thread, NULL, (void*) recibir_mensaje_localized,buffer_recibido);
+		pthread_create(&thread, NULL, (void*) recibir_mensaje_localized,
+				buffer_recibido);
 		break;
 	default:
 		log_error(logger, "Opcode inválido.");
 		break;
 	}
 
+	// Responder que recibi el mensaje
+	// Si no lo descarté y agregue algo a la lista de pokemones a atrapar, lanzar el hilo planificador
+		// el hilo planificador va a chequear la lista y va a planificar los entrenadores depenendiendo del mensaje.
+
+
 	log_trace(logger, "Mensaje recibido manejado.");
 }
 // Funciones de comunicacion con Broker particularmente
 void suscribirse_a_colas_necesarias() {
-	enviar_suscripcion_broker(APPEARED_POKEMON);
-	enviar_suscripcion_broker(LOCALIZED_POKEMON);
-	enviar_suscripcion_broker(CAUGHT_POKEMON);
+	//while(reintentar){
+		// int conex = iniciar conex
+		//if conexion negativa sleep(x SEGUNDOS DE CONFIG) y siguiente iteracion.
+		enviar_suscripcion_broker(APPEARED_POKEMON); // mandar socket
+		// int conex = iniciar conex
+		//if conexion negativa sleep(x SEGUNDOS DE CONFIG) y siguiente iteracion
+		enviar_suscripcion_broker(LOCALIZED_POKEMON);
+		// int conex = iniciar conex
+		//if conexion negativa sleep(x SEGUNDOS DE CONFIG) y siguiente iteracion.
+		enviar_suscripcion_broker(CAUGHT_POKEMON);
+		//reintentar = false
+	//}
 }
 
 void enviar_suscripcion_broker(op_code tipo_mensaje) {
 
 	int socket_broker = iniciar_conexion_con_broker();
+
 	enviar_mensaje_suscripcion(tipo_mensaje, socket_broker);
 
 	log_trace(logger, "socket a esperar %d", socket_broker);
@@ -112,9 +131,9 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 	log_trace(logger, "Mensaje suscripcion enviado");
 }
 void enviar_requests_pokemones(t_list *objetivo_global) { // RECONTRA LIMPIAR
-	int socket_broker = iniciar_conexion_con_broker();
+	int socket_broker = iniciar_conexion_con_broker(); // mover a enviar mensaje
 
-	void enviar_mensaje_get_aux(void *elemento) { // USO INNER FUNCTIONS TODO: pasar a readme
+	void enviar_mensaje_get_aux(void *elemento) {
 		enviar_mensaje_get(socket_broker, elemento);
 	}
 
@@ -129,49 +148,63 @@ void enviar_mensaje_get(int socket_broker, void*element) {
 	enviar_mensaje(socket_broker, mensaje_serializado, GET_POKEMON);
 	log_trace(logger, "Enviado get para: %s", objetivo->pokemon);
 	free(mensaje_serializado);
+	// espera rta con id
+	//agrega id a lista de ids
+	// cierra socket
 
 }
-void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar){
-	t_catch_pokemon * mensaje_catch = crear_catch_pokemon(mensaje_appeared_a_capturar->pokemon,mensaje_appeared_a_capturar->posx
-		,mensaje_appeared_a_capturar->posy,-20);
+
+void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar) { //mismo que get
+	t_catch_pokemon * mensaje_catch = crear_catch_pokemon(
+			mensaje_appeared_a_capturar->pokemon,
+			mensaje_appeared_a_capturar->posx,
+			mensaje_appeared_a_capturar->posy, -20);
 	t_buffer*mensaje_catch_serializado = malloc(sizeof(t_buffer));
-	mensaje_catch_serializado= serializar_catch_pokemon(mensaje_catch);
+	mensaje_catch_serializado = serializar_catch_pokemon(mensaje_catch);
 	//enviar_mensaje(socket_broker(pasar a variable global),mensaje_catch,CATCH_POKEMON);
-	log_trace(logger, "Enviado catch para: %s", mensaje_appeared_a_capturar->pokemon);
+	log_trace(logger, "Enviado catch para: %s",
+			mensaje_appeared_a_capturar->pokemon);
 	free(mensaje_catch_serializado);
 }
+
 // Funciones de recepcion de mensajes
-void recibir_mensaje_appeared(t_buffer * buffer){
+void recibir_mensaje_appeared(t_buffer * buffer) {
 	char * message_data;
-	t_appeared_pokemon * mensaje_appeared = deserializar_appeared_pokemon(buffer);
-	handle_appeared_pokemon(mensaje_appeared);
+	t_appeared_pokemon * mensaje_appeared = deserializar_appeared_pokemon(
+			buffer);
 	message_data = mostrar_appeared_pokemon(mensaje_appeared);
-	log_info(logger, "Se recibio un mensaje APPEARED_POKEMON, %s", message_data);
+
+	log_info(logger, "Se recibio un mensaje APPEARED_POKEMON, %s",
+			message_data);
+
+	handle_appeared_pokemon(mensaje_appeared);
 }
-void recibir_mensaje_caught(t_buffer * buffer){
+
+void recibir_mensaje_caught(t_buffer * buffer) {
 	char * message_data;
-	t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(buffer);
+	t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(
+			buffer);
 	// handle_caught_pokemon(mensaje_caught_pokemon);
 	message_data = mostrar_caught_pokemon(mensaje_caught_pokemon);
 	log_info(logger, "Se recibio un mensaje CAUGHT_POKEMON, %s", message_data);
 
 }
-void recibir_mensaje_localized(t_buffer * buffer){
+
+void recibir_mensaje_localized(t_buffer * buffer) {
 	char * message_data;
-	t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(buffer);
+	t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(
+			buffer);
 	// handle_localized_pokemon(mensaje_localized_pokemon);
 	message_data = mostrar_localized(mensaje_localized_pokemon);
-	log_info(logger, "Se recibio un mensaje LOCALIZED_POKEMON, %s", message_data);
+	log_info(logger, "Se recibio un mensaje LOCALIZED_POKEMON, %s",
+			message_data);
 }
 
-void handle_appeared_pokemon(t_appeared_pokemon * mensaje_appeared){
-	if(requiero_pokemon(mensaje_appeared)){
+void handle_appeared_pokemon(t_appeared_pokemon * mensaje_appeared) {
+	if (requiero_pokemon(mensaje_appeared)) {
 		comenzar_planificacion_entrenadores(mensaje_appeared); // TODO Ejecutar hilo de planificacion?
-	}
-	else
-	{
-		log_trace(logger,"Mensaje appeared se desechara, no es requerido");
+	} else {
+		log_trace(logger, "Mensaje appeared se desechara, no es requerido");
 	}
 }
-
 
