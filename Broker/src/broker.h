@@ -112,10 +112,15 @@ int de_string_a_alg_particion_libre(char* string);
 
 _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje_2, int tamano_mensaje);
 _Bool particion_valida_para_llenar(t_mensaje_cache* particion, int tamano_mensaje);
-t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje, int tamanio_mensaje, t_mensaje_cache* particion_vacia);
+t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje, int tamano_a_cachear, t_mensaje_cache* particion_vacia);
 t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje);
 t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje);
 
+_Bool queda_espacio_libre(int tamano_mensaje_a_cachear, t_mensaje_cache* particion_vacia);
+t_mensaje_cache* crear_particion_sobrante(int tamanio_mensaje_cacheado, t_mensaje_cache* particion_vacia);
+
+void liverar_t_mensaje_cache(void* mensaje);
+void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaje_cache* particion_mensaje);
 
 
 //Funciones especificas por mensaje
