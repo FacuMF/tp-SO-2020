@@ -135,6 +135,9 @@ void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje);
 void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appeared_pokemon* mensaje);
 void cachear_appeared_pokemon(t_appeared_pokemon* mensaje);
 
+void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size);
+t_appeared_pokemon* deserializar_cache_appeared_pokemon(void* stream);
+
 // NEW_POKEMON
 void manejar_mensaje_new(t_conexion_buffer *combo);
 

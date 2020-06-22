@@ -90,12 +90,12 @@ void inicializacion_cache(void){
 
 	memoria_cache = malloc(tamano_memoria);
 
+	// Inizializar memoria administrativa
+
 	t_mensaje_cache* primer_particion = malloc(sizeof(t_mensaje_cache));
 	primer_particion -> tipo_mensaje = VACIO;
 	primer_particion -> offset = 0;
 	primer_particion -> tamanio = tamano_memoria;
-
-	// Inizializar memoria administrativa
 
 	struct_admin_cache = list_create();
 	list_add(struct_admin_cache, primer_particion);
