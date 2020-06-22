@@ -102,10 +102,10 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 
 	//De aca en adelante se puede generalizar para todos los mensajes, no solo appeared.
 	//TODO: Pasar a cachear_mensaje() en broker_general
+	int tamano_a_cachear = ((size_stream >= tamano_minimo_particion)? size_stream : tamano_minimo_particion);
+	_Bool no_se_agrego_mensaje_a_cache = true;
 
-	_Bool se_agrego_mensaje_a_cache = false;
-
-	while (se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
+	while (no_se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
 
 		_Bool ordenar_para_rellenar_aux(void* mensaje_1_aux, void* mensaje_2_aux) {
 			t_mensaje_cache* mensaje_1 = (t_mensaje_cache*) mensaje_1_aux;
@@ -118,39 +118,39 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 			// Se ordenan las particiones, tanto ocupadas como desocupadas, dejando adelante las libres y con tamano suficiente
 			// y dejando primera la que se debe remplazar.En FirstFit, se deja primero la de offset menor, y en BestFit la de tamano menor. (Switch)
 
-		if( particion_valida_para_llenar( list_get (struct_admin_cache, 0) , size_stream)){ // TODO: Ver si la t_list empiezan en o en 1
+		if( particion_valida_para_llenar( list_get (struct_admin_cache, 0) , tamano_a_cachear)){ // TODO: Ver si la t_list empiezan en 0 o en 1
 			// Este if va a dejar llenar la particion si la que quedo primera, que deberia ser la mas cercana a poder ser llenada, efectivamente lo es.
 			// Si esta no tiene tamano suficiente, significa que ninguna lo tiene, entonces habra que eliminar una particion (else)
 
-			t_mensaje_cache* particion_mensaje = crear_particion_mensaje(tipo_mensaje ,id_mensaje ,size_stream , list_get (struct_admin_cache, 0) );
+			t_mensaje_cache* particion_mensaje = crear_particion_mensaje(tipo_mensaje ,id_mensaje ,tamano_a_cachear , list_get (struct_admin_cache, 0) );
 					//Se crea la particion llena con el contenido del mensaje, en base a la info de la particion vacia elegida.
 			list_add(struct_admin_cache, particion_mensaje);
 				// Al final de la estructura administrativa agrego un elemento que referencia el mensaje por agregar.
-/*
 
-			if( queda espacio_libre( tamano_mensaje_a_cachear, list_get (struct_admin_cache, 1) ) ){
+			if( queda_espacio_libre( tamano_a_cachear, list_get (struct_admin_cache, 0) ) ){
 
-				t_mensaje_cache* particion_sobrante = cear_particion_sobrante(mensaje, list_get (struct_admin_cache, 1));
+				t_mensaje_cache* particion_sobrante = crear_particion_sobrante(tamano_a_cachear, list_get (struct_admin_cache, 1));
 				list_add(struct_admin_cache, particion_sobrante);
 				// Si el mensaje deja espacio suficiente como para generar una nueva particion libre, esta tambien se agrega al final
 				// de la estructura administrativa.
 
 			}
 
-			list_remove_and_destroy_element(struct_admin_cache, 1, free );
+			list_remove_and_destroy_element(struct_admin_cache, 0, liverar_t_mensaje_cache );
 			// Ahora borro el primer elemento de la estructura administrativa. Es la particion libre elegida, que se llenara total o parcialmente,
 			// pero en ambos casos su informacion ya esta contemplada por los elementos que acabo de agregar.
 
-			agregar_mensaje_a_cache(mensaje_a_cachear, particion_mensaje);
+			agregar_mensaje_a_cache(mensaje_a_cachear,size_stream , particion_mensaje);
 			// Se agrega el mensaje a cachear al malloc de la cache con el offset que indica en la estructura administrativa.
+/*
 
 			se_agrego_mensaje_a_cache = true; //Para que salga del while.
 
 			list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria); // Se reordena la estructura administrativa.
-
+*/
 
 		}else{
-
+/*
 			elegir_vitima_y_eliminarla() // Y consolido
 			compactar_cache_si_corresponde();
 */
@@ -158,6 +158,7 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 
 	}
 }
+
 
 _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje_2, int tamano_mensaje){
 	//El comparador devuelve si el primer parametro debe aparecer antes que el segundo en la lista
@@ -187,23 +188,23 @@ _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje
 	return NULL;
 }
 
-_Bool particion_valida_para_llenar(t_mensaje_cache* particion, int tamano_mensaje){
-	//Esta vacia y con tamanio suficiente.
-	return (particion->tamanio >= tamano_mensaje) && (particion->id == VACIO); //Esta vacia y con tamanio suficiente.
+_Bool particion_valida_para_llenar(t_mensaje_cache* particion, int tamano_a_ocupar){
+	_Bool esta_vacia = (particion->id == VACIO);
+
+	_Bool tamano_suficiente = (particion->tamanio == tamano_a_ocupar) || (particion->tamanio >= (tamano_minimo_particion+tamano_a_ocupar) );
+	//Si no entra justo, la particion sobrante tiene que ser mayor a la minima.
+
+	return tamano_suficiente && esta_vacia; //Esta vacia y con tamanio suficiente.
 }
 
-t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje, int tamanio_mensaje, t_mensaje_cache* particion_vacia){
+t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje, int tamano_a_cachear, t_mensaje_cache* particion_vacia){
 	t_mensaje_cache* particion_llena = malloc(sizeof(t_mensaje_cache));
 
 	particion_llena->tipo_mensaje = tipo_mensaje;
 	particion_llena->id = id_mensaje;
 	particion_llena->offset = particion_vacia->offset;
 
-	if (tamanio_mensaje >= tamano_minimo_particion){
-		particion_llena->tamanio = tamanio_mensaje;
-	} else{
-		particion_llena->tamanio = tamano_minimo_particion;
-	}
+	particion_llena->tamanio = tamano_a_cachear;
 
 	particion_llena->subscribers_enviados = filtrar_subs_enviados( tipo_mensaje, id_mensaje);
 	particion_llena->subscribers_recibidos = filtrar_subs_recibidos( tipo_mensaje, id_mensaje);
@@ -269,6 +270,31 @@ t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje){
 	lista_subs = list_map( list_filter(subs_queue, tiene_mensaje_recibido), (void*) get_socket_suscriptor);
 
 	return lista_subs;
+}
+
+_Bool queda_espacio_libre(int tamano_mensaje_a_cachear, t_mensaje_cache* particion_vacia) {
+	return particion_vacia->tamanio > tamano_mensaje_a_cachear;
+}
+
+t_mensaje_cache* crear_particion_sobrante(int tamanio_mensaje_cacheado, t_mensaje_cache* particion_vacia){
+	t_mensaje_cache* particion_sobrante = malloc(sizeof(t_mensaje_cache));
+
+		particion_sobrante->tipo_mensaje = 0;
+		particion_sobrante->id = -20;
+		particion_sobrante->offset = (particion_vacia->offset) + tamanio_mensaje_cacheado;
+		particion_sobrante->tamanio = (particion_vacia->tamanio) - tamanio_mensaje_cacheado;
+
+	return particion_sobrante;
+}
+
+void liverar_t_mensaje_cache(void* mensaje){
+	list_destroy_and_destroy_elements(((t_mensaje_cache*) mensaje)->subscribers_enviados, free);
+	list_destroy_and_destroy_elements(((t_mensaje_cache*) mensaje)->subscribers_recibidos, free);
+	free(mensaje);
+}
+
+void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaje_cache* particion_mensaje){
+	memcpy( mensaje_a_cachear+(particion_mensaje->offset) , mensaje_a_cachear, tamano_stream);
 }
 
 // Serializacion para cache
