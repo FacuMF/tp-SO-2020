@@ -24,6 +24,7 @@
 #include<pthread.h>
 #include<math.h>
 #include<stdint.h>
+#include<time.h>
 
 //Definiciones de modulos
 typedef enum
