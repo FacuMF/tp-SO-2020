@@ -2,6 +2,7 @@
 
 int main(void) {
 	inicializacion_broker();
+	test(); //TODO borrar
 	esperar_mensajes(NULL);
 	terminar_proceso();
 

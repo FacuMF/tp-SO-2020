@@ -107,6 +107,8 @@ void enviar_mensaje_de_cola(void* mensaje, int ciente);
 
 int get_id_mensajes(void);
 
+void test();
+
 //CACHE -----------------------------------------------------------------
 
 //Generales

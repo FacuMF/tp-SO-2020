@@ -396,11 +396,6 @@ _Bool es_victima(void* particion, t_mensaje_cache* victima){
 	return ((t_mensaje_cache*) particion)->offset == victima->offset;;
 }
 
-
-
-
-
-
 // Serializacion para cache
 
 /*void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size){
@@ -428,28 +423,34 @@ _Bool es_victima(void* particion, t_mensaje_cache* victima){
 
 void log_dump_de_cache(){
 
-	char* string = malloc(sizeof(char) * 100 * ( list_size(struct_admin_cache) + 1 ) );
+	char* string = malloc( sizeof(char) * 1000 );
 	int num_particion = 1;
 
+	strcpy(string, get_header_dump());
+
 	void agregar_linea_dump_cache(void* particion) {
-		strcpy(string, "Particion ");
-		strcpy(string, string_itoa(num_particion));
+		strcat(string, "Particion ");
+		strcat(string,  string_itoa(num_particion));
 		num_particion++;
-		strcpy(string, ": ");
+		strcat(string, ": ");
 
-		strcpy(string, get_string_info_particion((t_mensaje_cache*) particion));
+		strcat(string, get_string_info_particion(particion));
 
-		strcpy(string, "\n");
-
+		strcat(string, "\n");
 	}
 
+
 	list_iterate(struct_admin_cache, agregar_linea_dump_cache);
+
+
+	//log_info(logger, get_header_dump());
+
 	log_info(logger, string); //TODO que no lo loguee, que lo ponga en un archivo creo
-	free(string);
+	//free(string);
 }
 
 char* get_string_info_particion(t_mensaje_cache* particion){
-	char* string;
+	char* string = malloc(sizeof(char)*100);
 
 	char* direc_inicio = string_itoa((int)memoria_cache + particion->offset);
 	char* direc_final = string_itoa((int)memoria_cache + particion->offset + particion->tamanio);
@@ -457,51 +458,73 @@ char* get_string_info_particion(t_mensaje_cache* particion){
 	char* tamano = string_itoa(particion->tamanio);
 
 	strcpy(string, direc_inicio);
-	strcpy(string, " - ");
-	strcpy(string, direc_final);
-	strcpy(string, ".    ");
-	strcpy(string, libre_o_ocupado);
-	strcpy(string, "    ");
-	strcpy(string, "Size: ");
-	strcpy(string, tamano);
-	strcpy(string, "b");
+	strcat(string, " - ");
+	strcat(string, direc_final);
+	strcat(string, ".    ");
+	strcat(string, libre_o_ocupado);
+	strcat(string, "    ");
+	strcat(string, "Size: ");
+	strcat(string, tamano);
+	strcat(string, "b");
 
-	if(particion->tipo_mensaje == 0){
+	if(particion->tipo_mensaje != VACIO){
 		char* lru = string_itoa(particion->flags_lru);
 		char* cola = string_itoa(particion->tipo_mensaje);
 		char* id = string_itoa(particion->id);
 
-		strcpy(string, "    LRU: ");
-		strcpy(string, lru);
-		strcpy(string, "    COLA: ");
-		strcpy(string, cola);
-		strcpy(string, "    ID: ");
-		strcpy(string, tamano);
+		strcat(string, "    LRU: ");
+		strcat(string, lru);
+		strcat(string, "    COLA: ");
+		strcat(string, cola);
+		strcat(string, "    ID: ");
+		strcat(string, id);
 	}
 
 	return string;
 }
 
 char* get_header_dump() {
-	char* string = malloc(sizeof(char)*30);
+	char* string = malloc(sizeof(char)*10);
 	int hora, min, seg, dia, mes, anio;
 	time_t now;
 
 	time(&now);
 	struct tm *local = localtime(&now);
+
 	strcpy(string, "Dump: ");
-	strcpy(string, string_itoa(local->tm_mday));
-	strcpy(string, "/");
-	strcpy(string, string_itoa(local->tm_mon));
-	strcpy(string, "/");
-	strcpy(string, string_itoa(local->tm_year));
-	strcpy(string, " ");
-	strcpy(string, string_itoa(local->tm_hour));
-	strcpy(string, ":");
-	strcpy(string, string_itoa(local->tm_min));
-	strcpy(string, ":");
-	strcpy(string, string_itoa(local->tm_sec));
-	strcpy(string, "/n");
+	strcat(string, string_itoa(local->tm_mday) );
+	strcat(string, "/");
+	strcat(string, string_itoa(local->tm_mon));
+	strcat(string, "/");
+	strcat(string, string_itoa(local->tm_year));
+	strcat(string, " ");
+	strcat(string, string_itoa(local->tm_hour));
+	strcat(string, ":");
+	strcat(string, string_itoa(local->tm_min));
+	strcat(string, ":");
+	strcat(string, string_itoa(local->tm_sec));
+	strcat(string, "\n");
 
 	return string;
 }
+
+void test(){
+
+	//Creo un mensaje random para probar dump
+	t_mensaje_cache* particion_llena = malloc(sizeof(t_mensaje_cache));
+
+	particion_llena->tipo_mensaje = 2;
+	particion_llena->id = 1000;
+	particion_llena->offset = 40;
+	particion_llena->flags_lru= get_lru_flag();
+	particion_llena->tamanio = 30;
+
+	list_add(struct_admin_cache, particion_llena);
+
+	log_dump_de_cache();
+}
+
+
+
+
+
