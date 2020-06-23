@@ -158,4 +158,79 @@ void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaj
 
 
 	return stream;
+<<<<<<< HEAD
 }*/
+
+
+char* get_string_info_particion(t_mensaje_cache* particion){
+	char* string;
+
+	char* direc_inicio = string_itoa(memoria_cache + particion->offset);
+	char* direc_final = string_itoa(memoria_cache + particion->offset + particion->tamanio);
+	char* libre_o_ocupado = (particion->tipo_mensaje == VACIO) ? "[L]" : "[X]" ;
+	char* tamano = string_itoa(particion->tamanio);
+
+	strcpy(string, direc_inicio);
+	strcpy(string, " - ");
+	strcpy(string, direc_final);
+	strcpy(string, ".    ");
+	strcpy(string, libre_o_ocupado);
+	strcpy(string, "    ");
+	strcpy(string, "Size: ");
+	strcpy(string, tamano);
+	strcpy(string, "b");
+
+	if(particion->tipo_mensaje == 0){
+		char* lru = string_itoa(particion->flags_lru);
+		char* cola = string_itoa(particion->tipo_mensaje);
+		char* id = string_itoa(particion->id);
+
+		strcpy(string, "    LRU: ");
+		strcpy(string, lru);
+		strcpy(string, "    COLA: ");
+		strcpy(string, cola);
+		strcpy(string, "    ID: ");
+		strcpy(string, tamano);
+	}
+
+	return string;
+}
+
+void log_dump_de_cache(){
+	char* string;
+	int num_particion = 1;
+
+
+
+	void agregar_linea_dump_cache(void* particion) {
+		strcpy(string, "Particion ");
+		strcpy(string, string_itoa(num_particion));
+		num_particion++;
+		strcpy(string, ": ");
+
+		strcpy(string, (t_mensaje_cache*) particion);
+
+		strcpy(string, "\n");
+
+	}
+
+	list_iterate(struct_admin_cache, agregar_linea_dump_cache);
+
+}
+
+char* get_header_dump() {
+	//TODO
+	/*
+	char* string;
+	int hora, min, seg, dia, mes, anio;
+	time_t now;
+	time(&now);
+	struct tm *local = localtime(&now);
+	hora = local->tm_hour;
+	min = local->tm_min;
+	seg = local->tm_sec;
+	day
+
+	return string;
+	*/
+}
