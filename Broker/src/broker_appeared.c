@@ -144,16 +144,14 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 
 			agregar_mensaje_a_cache(mensaje_a_cachear,size_stream , particion_mensaje);
 			// Se agrega el mensaje a cachear al malloc de la cache con el offset que indica en la estructura administrativa.
-/*
 
-			se_agrego_mensaje_a_cache = true; //Para que salga del while.
+			no_se_agrego_mensaje_a_cache = false; //Para que salga del while.
 
 			list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria); // Se reordena la estructura administrativa.
-*/
 
 		}else{
-/*
 			elegir_vitima_y_eliminarla() // Y consolido
+/*
 			compactar_cache_si_corresponde();
 */
 		}

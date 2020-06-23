@@ -16,6 +16,8 @@ pthread_t tid[2];
 void* memoria_cache;
 t_list* struct_admin_cache;
 
+int actual_lru_flag;
+
 int tamano_memoria;
 int tamano_minimo_particion;
 int algoritmo_memoria;
@@ -121,6 +123,10 @@ t_mensaje_cache* crear_particion_sobrante(int tamanio_mensaje_cacheado, t_mensaj
 
 void liverar_t_mensaje_cache(void* mensaje);
 void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaje_cache* particion_mensaje);
+
+void log_dump_de_cache();
+char* get_string_info_particion(t_mensaje_cache* particion);
+char* get_header_dump();
 
 
 //Funciones especificas por mensaje
