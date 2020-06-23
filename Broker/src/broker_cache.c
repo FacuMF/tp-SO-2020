@@ -140,7 +140,7 @@ void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaj
 
 // Serializacion para cache
 
-void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size){
+/*void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size){
 
 	void* stream = malloc(size);
 	int offset = 0;
@@ -158,4 +158,4 @@ void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size){
 
 
 	return stream;
-}
+}*/

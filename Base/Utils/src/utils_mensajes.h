@@ -113,6 +113,10 @@ t_confirmacion* crear_confirmacion(int,int);
 t_buffer* serializar_confirmacion(t_confirmacion*);
 t_confirmacion* deserializar_confirmacion(t_buffer* buffer);
 
+void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size);
+t_appeared_pokemon* deserializar_cache_appeared_pokemon(void* stream);
+
+
 
 //Muestro de mensajes
 char* mostrar_new_pokemon(t_new_pokemon*);

@@ -127,6 +127,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		;
 		t_appeared_pokemon* mensaje_appeared_pokemon =
 				deserializar_appeared_pokemon(buffer);
+		log_trace(logger, mostrar_appeared_pokemon(mensaje_appeared_pokemon));
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_appeared_pokemon->id_mensaje);
 		break;
