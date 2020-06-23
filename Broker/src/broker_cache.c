@@ -423,10 +423,11 @@ _Bool es_victima(void* particion, t_mensaje_cache* victima){
 
 void log_dump_de_cache(){
 
-	char* string = malloc( sizeof(char) * 1000 );
+	char* string = malloc( sizeof(char) * 100 * (list_size(struct_admin_cache)+2) );
 	int num_particion = 1;
 
-	strcpy(string, get_header_dump());
+	strcpy(string, "\n--------------------------------------------------------------------------------------------------\n");
+	strcat(string, get_header_dump());
 
 	void agregar_linea_dump_cache(void* particion) {
 		strcat(string, "Particion ");
@@ -439,10 +440,9 @@ void log_dump_de_cache(){
 		strcat(string, "\n");
 	}
 
-
 	list_iterate(struct_admin_cache, agregar_linea_dump_cache);
 
-
+	strcat(string, "--------------------------------------------------------------------------------------------------");
 	//log_info(logger, get_header_dump());
 
 	log_info(logger, string); //TODO que no lo loguee, que lo ponga en un archivo creo
