@@ -13,6 +13,7 @@ t_log_level log_nivel_minimo;
 pthread_t tid[2];
 
 //Memoria cache
+
 void* memoria_cache;
 t_list* struct_admin_cache;
 
@@ -89,13 +90,13 @@ t_queue* localized_pokemon;
 //Declaracion id
 int id_mensajes;
 
-//Funciones Generales
+//Funciones Generales -----------------------------------------------------
+
 void inicializacion_broker(void);
 void terminar_proceso(void);
 
 void inicializacion_colas(void);
 void inicializacion_ids(void);
-void inicializacion_cache(void);
 
 void* esperar_mensajes(void *arg);
 void handle_cliente(int socket_servidor);
@@ -106,17 +107,21 @@ void enviar_mensaje_de_cola(void* mensaje, int ciente);
 
 int get_id_mensajes(void);
 
-//Cache
+//CACHE -----------------------------------------------------------------
 
+//Generales
+void inicializacion_cache(void);
 int de_string_a_alg_memoria(char* string);
 int de_string_a_alg_remplazo(char* string);
 int de_string_a_alg_particion_libre(char* string);
 
+//Main cache
 _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje_2, int tamano_mensaje);
 _Bool particion_valida_para_llenar(t_mensaje_cache* particion, int tamano_mensaje);
 t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje, int tamano_a_cachear, t_mensaje_cache* particion_vacia);
 t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje);
 t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje);
+int get_lru_flag();
 
 _Bool queda_espacio_libre(int tamano_mensaje_a_cachear, t_mensaje_cache* particion_vacia);
 t_mensaje_cache* crear_particion_sobrante(int tamanio_mensaje_cacheado, t_mensaje_cache* particion_vacia);
@@ -124,12 +129,39 @@ t_mensaje_cache* crear_particion_sobrante(int tamanio_mensaje_cacheado, t_mensaj
 void liverar_t_mensaje_cache(void* mensaje);
 void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaje_cache* particion_mensaje);
 
+_Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2);
+
+//Dump
 void log_dump_de_cache();
 char* get_string_info_particion(t_mensaje_cache* particion);
 char* get_header_dump();
 
+//Eleccion de victima
+void elegir_vitima_y_eliminarla();
 
-//Funciones especificas por mensaje
+_Bool ordenar_segun_lru_flag(void* mensaje_1, void* mensaje_2);
+void vaciar_particion(t_mensaje_cache* particion);
+
+void consolidar_cache();
+
+_Bool siguiente_es_vacio();
+_Bool anterior_es_vacio();
+
+void ordeno_dejando_victima_y_siguiente_adelante();
+void agregar_particion_segun_vicima_y_siguiente();
+void ordeno_dejando_anterior_y_victima_adelante();
+void agregar_particion_segun_anterior_y_victima();
+void ordeno_dejando_anterior_victima_y_siguiente_adelante();
+void agregar_particion_segun_anterior_victima_y_siguiente();
+
+_Bool es_siguiente(void* particion, t_mensaje_cache* victima);
+_Bool es_anterior(void* particion, t_mensaje_cache* victima);
+_Bool es_victima(void* particion, t_mensaje_cache* victima);
+
+void borrar_particiones_del_inicio(int cant_particiones_a_borrar);
+void agrego_part_vacia(int offset, int tamanio);
+
+//Funciones especificas por mensaje ---------------------------------------------
 
 //SUSCRIPTOR
 void manejar_mensaje_suscriptor(t_conexion_buffer *combo);

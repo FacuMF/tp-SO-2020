@@ -150,10 +150,9 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 			list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria); // Se reordena la estructura administrativa.
 
 		}else{
-			elegir_vitima_y_eliminarla() // Y consolido
-/*
-			compactar_cache_si_corresponde();
-*/
+			elegir_vitima_y_eliminarla(); // Y consolido
+			//compactar_cache_si_corresponde();
+
 		}
 
 	}

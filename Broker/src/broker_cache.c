@@ -214,11 +214,10 @@ void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaj
 	memcpy( mensaje_a_cachear+(particion_mensaje->offset) , mensaje_a_cachear, tamano_stream);
 }
 
-_Bool ordenar_segun_su_lugar_en_memoria(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje_2){
+_Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2){
 	//El comparador devuelve si el primer parametro debe aparecer antes que el segundo en la lista
-	return (mensaje_1->offset) < (mensaje_2->offset);
+	return ( ((t_mensaje_cache*)mensaje_1)->offset ) < ( ((t_mensaje_cache*)mensaje_2)->offset );
 }
-
 
 void elegir_vitima_y_eliminarla() {
 
@@ -239,7 +238,10 @@ void elegir_vitima_y_eliminarla() {
 
 }
 
-_Bool ordenar_segun_lru_flag(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje_2){
+_Bool ordenar_segun_lru_flag(void* mensaje_1_aux, void* mensaje_2_aux){
+	t_mensaje_cache* mensaje_1 = (t_mensaje_cache*) mensaje_1_aux;
+	t_mensaje_cache* mensaje_2 = (t_mensaje_cache*) mensaje_2_aux;
+
 	//El comparador devuelve si el primer parametro debe aparecer antes que el segundo en la lista
 	_Bool rtn = (mensaje_1->tipo_mensaje == 0)? false : ( (mensaje_1->flags_lru) < (mensaje_2->flags_lru) );
 	// Si la particion esta vacia, va al fondo, si esta llena se ordenan de menor a mayor valos de flag_lru
@@ -296,7 +298,7 @@ _Bool anterior_es_vacio() {
 		return es_anterior && es_vacio;
 	}
 
-	return list_any_satisfy(struct_admin_cache, es_siguiente_y_es_vacio);
+	return list_any_satisfy(struct_admin_cache, es_anterior_y_es_vacio);
 }
 
 void borrar_particiones_del_inicio(int cant_particiones_a_borrar){
@@ -390,7 +392,7 @@ _Bool es_siguiente(void* particion, t_mensaje_cache* victima){
 _Bool es_anterior(void* particion, t_mensaje_cache* victima){
 	return ( ((t_mensaje_cache*)particion)-> offset + ((t_mensaje_cache*)particion)->tamanio ) == victima->offset;
 }
-_Bool es_vicitima(void* particion, t_mensaje_cache* victima){
+_Bool es_victima(void* particion, t_mensaje_cache* victima){
 	return ((t_mensaje_cache*) particion)->offset == victima->offset;;
 }
 
@@ -435,7 +437,7 @@ void log_dump_de_cache(){
 		num_particion++;
 		strcpy(string, ": ");
 
-		strcpy(string, (t_mensaje_cache*) particion);
+		strcpy(string, get_string_info_particion((t_mensaje_cache*) particion));
 
 		strcpy(string, "\n");
 
@@ -449,8 +451,8 @@ void log_dump_de_cache(){
 char* get_string_info_particion(t_mensaje_cache* particion){
 	char* string;
 
-	char* direc_inicio = string_itoa(memoria_cache + particion->offset);
-	char* direc_final = string_itoa(memoria_cache + particion->offset + particion->tamanio);
+	char* direc_inicio = string_itoa((int)memoria_cache + particion->offset);
+	char* direc_final = string_itoa((int)memoria_cache + particion->offset + particion->tamanio);
 	char* libre_o_ocupado = (particion->tipo_mensaje == VACIO) ? "[L]" : "[X]" ;
 	char* tamano = string_itoa(particion->tamanio);
 
