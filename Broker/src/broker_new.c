@@ -5,6 +5,8 @@ void manejar_mensaje_new(t_conexion_buffer *combo) {
 	int socket_cliente = combo->conexion;
 	t_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(buffer);
 
+	printf("%s\n", mostrar_new_pokemon(mensaje_new_pokemon));
+
 	int id_mensaje_recibido = asignar_id_new_pokemon(mensaje_new_pokemon);
 
 	log_info(logger, "Llegada de mensaje nuevo %i a cola NEW_POKEON",

@@ -45,6 +45,95 @@ void inicializacion_cache(void){
 
 }
 
+void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* mensaje_a_cachear){
+	//De aca en adelante se puede generalizar para todos los mensajes, no solo appeared.
+		//TODO: Pasar a cachear_mensaje() en broker_general
+		int tamano_a_cachear = ((size_stream >= tamano_minimo_particion)? size_stream : tamano_minimo_particion);
+		_Bool no_se_agrego_mensaje_a_cache = true;
+
+
+		log_trace(logger, "Tamano de mensaje a cachear: %i (size stream: %i).", tamano_a_cachear, size_stream);
+		while (no_se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
+
+			_Bool ordenar_para_rellenar_aux(void* mensaje_1_aux, void* mensaje_2_aux) {
+				t_mensaje_cache* mensaje_1 = (t_mensaje_cache*) mensaje_1_aux;
+				t_mensaje_cache* mensaje_2 = (t_mensaje_cache*) mensaje_2_aux;
+
+
+				//return mensaje_1->tipo_mensaje==VACIO;
+
+				return ordenar_para_rellenar(mensaje_1,mensaje_2,size_stream);
+			}
+			// Buscar particion a llenar
+			list_sort(struct_admin_cache, ordenar_para_rellenar_aux);
+				// Se ordenan las particiones, tanto ocupadas como desocupadas, dejando adelante las libres y con tamano suficiente
+				// y dejando primera la que se debe remplazar.En FirstFit, se deja primero la de offset menor, y en BestFit la de tamano menor. (Switch)
+
+			log_warning(logger, "Va a hacer dump");
+			log_dump_de_cache();
+
+			//no_se_agrego_mensaje_a_cache = false;
+
+			if( particion_valida_para_llenar( list_get (struct_admin_cache, 0) , tamano_a_cachear)) {
+				log_trace(logger, "La particion elegida tiene tamano suficiente (%ib) para el mensaje(%ib).",
+						((t_mensaje_cache*)list_get (struct_admin_cache, 0))->tamanio, tamano_a_cachear);
+
+				// Este if va a dejar llenar la particion si la que quedo primera, que deberia ser la mas cercana a poder ser llenada, efectivamente lo es.
+				// Si esta no tiene tamano suficiente, significa que ninguna lo tiene, entonces habra que eliminar una particion (else)
+
+				t_mensaje_cache* particion_mensaje = crear_particion_mensaje(tipo_mensaje ,id_mensaje ,tamano_a_cachear , list_get (struct_admin_cache, 0) );
+						//Se crea la particion llena con el contenido del mensaje, en base a la info de la particion vacia elegida.
+				list_add(struct_admin_cache, particion_mensaje);
+
+				log_trace(logger, "Se creo particion.");
+				// Al final de la estructura administrativa agrego un elemento que referencia el mensaje por agregar.
+				log_trace(logger, "Se agrego la particion con el mensaje.");
+
+				log_dump_de_cache();
+
+
+				if( queda_espacio_libre( tamano_a_cachear, list_get (struct_admin_cache, 0) ) ){
+					log_trace(logger, "Se agregara la particion sobrante.");
+
+					t_mensaje_cache* particion_sobrante = crear_particion_sobrante(tamano_a_cachear, list_get (struct_admin_cache, 0));
+					list_add(struct_admin_cache, particion_sobrante);
+					// Si el mensaje deja espacio suficiente como para generar una nueva particion libre, esta tambien se agrega al final
+					// de la estructura administrativa.
+					log_trace(logger, "Se agrego la particion sobrante.");
+
+					log_dump_de_cache();
+				}
+
+
+				borrar_particiones_del_inicio(1);
+				log_trace(logger, "Se borro la particion vacia antigua, y fue replazada por la ocupada y su sobrante.");
+				// Ahora borro el primer elemento de la estructura administrativa. Es la particion libre elegida, que se llenara total o parcialmente,
+				// pero en ambos casos su informacion ya esta contemplada por los elementos que acabo de agregar.
+				log_dump_de_cache();
+
+				agregar_mensaje_a_cache(mensaje_a_cachear,size_stream , particion_mensaje);
+				log_trace(logger, "Se agrego mensaje a la cache.");
+				// TODO, sacar deserializar y loggear.
+				// Se agrega el mensaje a cachear al malloc de la cache con el offset que indica en la estructura administrativa.
+
+				list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria); // Se reordena la estructura administrativa.
+				log_trace(logger, "Se dejo la estructura ordenada apropiadamente.");
+
+				log_dump_de_cache();
+
+				no_se_agrego_mensaje_a_cache = false; //Para que salga del while.
+			}else{
+
+				log_trace(logger, "No hay lugar");
+
+				elegir_vitima_y_eliminarla(); // Y consolido
+				//compactar_cache_si_corresponde();
+
+				//no_se_agrego_mensaje_a_cache = false;
+			}
+		}
+}
+
 int de_string_a_alg_memoria(char* string){
 	if(string_equals_ignore_case(string , "PARTICIONES")) 	{
 		return PARTICIONES;
@@ -441,31 +530,6 @@ _Bool es_anterior(void* particion, t_mensaje_cache* victima){
 _Bool es_victima(void* particion, t_mensaje_cache* victima){
 	return ((t_mensaje_cache*) particion)->offset == victima->offset;;
 }
-
-// Serializacion para cache
-
-/*void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size){
-
-	void* stream = malloc(size);
-	int offset = 0;
-	memcpy(stream + offset, &(mensaje->size_pokemon), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy( stream + offset, (mensaje->pokemon), (mensaje->size_pokemon));
-	offset += mensaje->size_pokemon;
-
-	memcpy( stream + offset, &(mensaje->posx), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream + offset, &(mensaje->posy), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-
-	return stream;
-<<<<<<< HEAD
-}*/
-
-
 
 void log_dump_de_cache(){
 	int num_particion = 1;

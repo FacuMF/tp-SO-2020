@@ -135,6 +135,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		;
 		t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(
 				buffer);
+		log_trace(logger, mostrar_caught_pokemon(mensaje_caught_pokemon));
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_caught_pokemon->id_mensaje);
 		break;
@@ -142,18 +143,21 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		;
 		t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(
 				buffer);
+		log_trace(logger, mostrar_localized(mensaje_localized_pokemon));
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_localized_pokemon->id_mensaje);
 		break;
 	case NEW_POKEMON:
 		;
 		t_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(buffer);
+		log_trace(logger, mostrar_new_pokemon(mensaje_new_pokemon));
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_new_pokemon->id_mensaje);
 		break;
 	case GET_POKEMON:
 		;
 		t_get_pokemon* mensaje_get_pokemon = deserializar_get_pokemon(buffer);
+		log_trace(logger, mostrar_get_pokemon(mensaje_get_pokemon));
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_get_pokemon->id_mensaje);
 		break;
@@ -161,6 +165,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		;
 		t_catch_pokemon* mensaje_catch_pokemon = deserializar_catch_pokemon(
 				buffer);
+		log_trace(logger, mostrar_catch_pokemon(mensaje_catch_pokemon));
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_catch_pokemon->id_mensaje);
 		break;
