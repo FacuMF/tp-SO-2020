@@ -480,7 +480,6 @@ t_buffer* serializar_suscripcion(t_subscriptor* mensaje) {
 	buffer->stream = stream;
 	return buffer;
 }
-
 t_subscriptor* deserializar_suscripcion(t_buffer* buffer) {
 	t_subscriptor* mensaje = malloc(sizeof(t_subscriptor));
 	void* stream = buffer->stream;
