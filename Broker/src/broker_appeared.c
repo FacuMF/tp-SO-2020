@@ -24,7 +24,7 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 
 	enviar_a_todos_los_subs_appeared_pokemon(mensaje_appeared_pokemon);
 
-	//cachear_appeared_pokemon(mensaje_appeared_pokemon);
+	cachear_appeared_pokemon(mensaje_appeared_pokemon);
 
 	//free (liberar memoria)
 }
@@ -125,6 +125,7 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 			// Se ordenan las particiones, tanto ocupadas como desocupadas, dejando adelante las libres y con tamano suficiente
 			// y dejando primera la que se debe remplazar.En FirstFit, se deja primero la de offset menor, y en BestFit la de tamano menor. (Switch)
 
+		log_warning(logger, "Va a hacer dump");
 		log_dump_de_cache();
 
 		//no_se_agrego_mensaje_a_cache = false;
@@ -174,12 +175,17 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 			list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria); // Se reordena la estructura administrativa.
 			log_trace(logger, "Se dejo la estructura ordenada apropiadamente.");
 
+			log_dump_de_cache();
+
 			no_se_agrego_mensaje_a_cache = false; //Para que salga del while.
 		}else{
-			/*
+
+			log_trace(logger, "No hay lugar");
+
 			elegir_vitima_y_eliminarla(); // Y consolido
 			//compactar_cache_si_corresponde();
-			*/
+
+			//no_se_agrego_mensaje_a_cache = false;
 		}
 	}
 }

@@ -230,19 +230,33 @@ _Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2){
 void elegir_vitima_y_eliminarla() {
 
 	list_sort(struct_admin_cache, ordenar_segun_lru_flag); //Dejo primero al que quiero borrar
+	log_trace(logger, "Cache ordenada por LRU flag.");
+
+	log_dump_de_cache();
 
 	int id_victima = ( (t_mensaje_cache*)list_get(struct_admin_cache, 0) ) -> id;
+	log_trace(logger, "El id de la victima elegida es: %i.", id_victima);
+
+	log_dump_de_cache();
 
 	void vaciar_una_particion(void* particion){
 		if(((t_mensaje_cache*) particion)->id == id_victima) // Si es victima
 			vaciar_particion((t_mensaje_cache*) particion);
 	}
 	list_iterate(struct_admin_cache, vaciar_una_particion);
+	log_trace(logger, "Particion victima vacia.");
+
+	log_dump_de_cache();
 
 	consolidar_cache(); //La victima quedo primera
+	log_trace(logger, "Consolidacion terminada.");
+
+	log_dump_de_cache();
 
 	list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria);
+	log_trace(logger, "Cache ordenada por offset.");
 
+	log_dump_de_cache();
 
 }
 
@@ -257,6 +271,7 @@ _Bool ordenar_segun_lru_flag(void* mensaje_1_aux, void* mensaje_2_aux){
 }
 
 void vaciar_particion(t_mensaje_cache* particion){
+	particion->tipo_mensaje = VACIO;
 	particion->flags_lru=-20;
 	particion->id=-20;
 	list_clean_and_destroy_elements(particion->subscribers_enviados, free);
@@ -265,20 +280,28 @@ void vaciar_particion(t_mensaje_cache* particion){
 
 void consolidar_cache(){
 	//IMPORTANTE: la reciente victima quedo primera en la struct_admin_cache
-	if(siguiente_es_vacio && !anterior_es_vacio){
+	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
+	log_debug(logger, "Victima: offset %i, tamanio %i.", victima->offset, victima->tamanio);
+
+	if(siguiente_es_vacio() && (!anterior_es_vacio() || es_primera_part()) ){ //Se consolida con el siguiente
+		log_trace(logger, "Se consolida con el siguiente.");
 		ordeno_dejando_victima_y_siguiente_adelante();
 		agregar_particion_segun_vicima_y_siguiente();
 		borrar_particiones_del_inicio(2);// borrar victima y siguiente
-	}else if (!siguiente_es_vacio && anterior_es_vacio){
+	}else if ((!siguiente_es_vacio() || es_ultima_part()) && anterior_es_vacio()){ //Se consolida con el anterior
+		log_trace(logger, "Se consolida con el anterior.");
 		ordeno_dejando_anterior_y_victima_adelante();
 		agregar_particion_segun_anterior_y_victima();
 		borrar_particiones_del_inicio(2);// borrar victima y anterior
-	}else if (siguiente_es_vacio && anterior_es_vacio){
+	}else if (siguiente_es_vacio() && anterior_es_vacio() && !es_primera_part() && !es_ultima_part() ){
+		log_trace(logger, "Se consolida con el siguiente y con el anterior.");
 		ordeno_dejando_anterior_victima_y_siguiente_adelante();
 		agregar_particion_segun_anterior_victima_y_siguiente();
 		borrar_particiones_del_inicio(3);// borro victima, anterior y siguiente
+	}else{
+		log_trace(logger, "No se consolida");
 	}
-	//else -> no consolido
+
 }
 
 _Bool siguiente_es_vacio() {
@@ -307,6 +330,19 @@ _Bool anterior_es_vacio() {
 	}
 
 	return list_any_satisfy(struct_admin_cache, es_anterior_y_es_vacio);
+}
+
+_Bool es_primera_part() {
+	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
+
+	return victima->offset == 0;
+}
+
+_Bool es_ultima_part() {
+	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
+	log_warning(logger, "Victima: offset %i, tamanio %i. Tamanio memoria: tamano_memoria.", victima->offset, victima->tamanio);
+	//return (victima->offset + victima->tamanio) == tamano_memoria;
+	return false;
 }
 
 void borrar_particiones_del_inicio(int cant_particiones_a_borrar){
@@ -434,7 +470,8 @@ _Bool es_victima(void* particion, t_mensaje_cache* victima){
 void log_dump_de_cache(){
 	int num_particion = 1;
 	log_debug(logger, "--------------------------------------------------------------------------------------------------");
-	log_header_dump();
+	//log_header_dump(); //TODO Por alguna razon se rompe despues de usarlo un par de veces en ejecucion
+	log_debug(logger, "Dump: ");
 
 
 	void log_linea_dump_cache(void* particion) {
@@ -455,13 +492,14 @@ void log_info_particion(t_mensaje_cache* particion, int num_part){
 	int tamano = particion->tamanio;
 
 	if(particion->tipo_mensaje == VACIO){
-		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [L]    Size:%ib",
-				num_part, direc_inicio, direc_final, tamano);
+		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [L]    Size:%ib    Offset:%i",
+				num_part, direc_inicio, direc_final, tamano, particion->offset);
 	} else {
-		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [X]    Size:%ib    LRU:%i    Cola:%i    ID:%i",
+		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [X]    Size:%ib    LRU:%i    Cola:%i    ID:%i    Offset:%i ",
 				num_part, direc_inicio, direc_final, tamano,
-				particion->flags_lru, particion->tipo_mensaje, particion->id);
+				particion->flags_lru, particion->tipo_mensaje, particion->id, particion->offset);
 	}
+
 }
 
 void log_header_dump() {
@@ -472,6 +510,8 @@ void log_header_dump() {
 	log_debug(logger, "Dump: %i/%i/%i %i:%i:%i",
 			local->tm_mday, local->tm_mon, local->tm_year,
 			local->tm_hour, local->tm_min, local->tm_sec);
+
+
 }
 
 void test(){

@@ -152,6 +152,8 @@ void consolidar_cache();
 
 _Bool siguiente_es_vacio();
 _Bool anterior_es_vacio();
+_Bool es_primera_part();
+_Bool es_ultima_part();
 
 void ordeno_dejando_victima_y_siguiente_adelante();
 void agregar_particion_segun_vicima_y_siguiente();
