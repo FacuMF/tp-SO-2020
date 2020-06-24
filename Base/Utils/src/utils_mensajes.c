@@ -403,30 +403,44 @@ t_buffer* serializar_get_pokemon(t_get_pokemon*mensaje) {
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 
-	buffer->size = mensaje->size_pokemon + sizeof(mensaje->size_pokemon)
-			+ sizeof(mensaje->id_mensaje);
-
+	buffer->size = mensaje->size_pokemon + sizeof(uint32_t);
 	void* stream = malloc(buffer->size);
-	int offset = 0;
+	stream = serializar_cache_get_pokemon(mensaje, buffer->size);
 
-	memcpy(stream + offset, &(mensaje->size_pokemon),
-			sizeof(mensaje->size_pokemon));
-	offset += sizeof(mensaje->size_pokemon);
+	int offset = buffer->size;
+	buffer->size += sizeof(uint32_t);
+	stream = realloc(stream, buffer->size);
+	memcpy(stream + offset, &(mensaje->id_mensaje),
+			sizeof(mensaje->id_mensaje));
+
+	buffer->stream = stream;
+	return buffer;
+}
+void* serializar_cache_get_pokemon(t_get_pokemon* mensaje, int size) {
+	void* stream = malloc(size);
+	int offset = 0;
+	memcpy(stream, &(mensaje->size_pokemon), sizeof(mensaje->size_pokemon));
+	offset += sizeof(uint32_t);
 
 	memcpy(stream + offset, mensaje->pokemon, mensaje->size_pokemon);
 	offset += mensaje->size_pokemon;
 
-	memcpy(stream + offset, &(mensaje->id_mensaje),
-			sizeof(mensaje->id_mensaje));
-
-	// buffer->stream = malloc(buffer->size)
-	buffer->stream = stream;
-	return buffer;
+	return stream;
 }
 t_get_pokemon* deserializar_get_pokemon(t_buffer* buffer) {
 	t_get_pokemon* mensaje = malloc(sizeof(t_get_pokemon));
 
 	void* stream = buffer->stream; // si no funca probar reservando previamente con malloc
+
+	mensaje = deserializar_cache_get_pokemon(stream);
+
+	stream += sizeof(uint32_t) + mensaje->size_pokemon;
+	memcpy(&(mensaje->id_mensaje), stream, sizeof(mensaje->id_mensaje));
+
+	return mensaje;
+}
+t_get_pokemon* deserializar_cache_get_pokemon(void* stream) {
+	t_get_pokemon* mensaje = malloc(sizeof(t_get_pokemon));
 
 	//Deserializacion
 	memcpy(&(mensaje->size_pokemon), stream, sizeof(mensaje->size_pokemon));
@@ -436,16 +450,7 @@ t_get_pokemon* deserializar_get_pokemon(t_buffer* buffer) {
 	memcpy(mensaje->pokemon, stream, mensaje->size_pokemon);
 	stream += mensaje->size_pokemon;
 
-	memcpy(&(mensaje->id_mensaje), stream, sizeof(mensaje->id_mensaje));
-
 	return mensaje;
-
-	/*
-	 * t_msjTexto* mensaje = malloc(sizeof(t_msjTexto));
-	 mensaje->contenido = malloc(buffer->size);
-	 strcpy(mensaje->contenido, (char*) buffer->stream);
-	 */
-
 }
 
 //MENSAJE SUSCRIPTOR

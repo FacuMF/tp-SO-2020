@@ -103,7 +103,9 @@ t_caught_pokemon* deserializar_caught_pokemon(t_buffer* buffer);
 
 t_get_pokemon* crear_get_pokemon(char*,int);
 t_buffer* serializar_get_pokemon(t_get_pokemon*);
+void* serializar_cache_get_pokemon(t_get_pokemon*, int);
 t_get_pokemon* deserializar_get_pokemon(t_buffer* buffer);
+t_get_pokemon* deserializar_cache_get_pokemon(void*);
 
 t_subscriptor* crear_suscripcion(int,int);
 t_buffer* serializar_suscripcion(t_subscriptor*);
