@@ -95,6 +95,7 @@ void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy){
 }
 
 // Funcion de Planificacion de entrenadores
+/*
 void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido){
 	t_entrenador *entrenador_a_planificar= hallar_entrenador_mas_cercano_segun_appeared(appeared_recibido);
 	desbloquear_entrenador(entrenador_a_planificar);
@@ -103,7 +104,9 @@ void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido)
 	log_trace(logger,"Aca ejecutaria envio de catch pokemon");
 
 	atrapar_pokemon(entrenador_a_planificar,appeared_recibido); //TODO lanzar mensaje catch_pokemon
+
 }
+*/
 
 t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido){
 	t_entrenador * entrenador_a_planificar_cercano = hallar_entrenador_mas_cercano(appeared_recibido->posx,appeared_recibido->posy);

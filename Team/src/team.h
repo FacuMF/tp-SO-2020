@@ -12,7 +12,6 @@ t_config* config;
 t_list * objetivo_global;
 t_list * pokemones_con_repetidos;
 t_list * head_entrenadores;
-t_list * pokemones_globales_capturados;
 
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
@@ -37,6 +36,7 @@ typedef struct t_entrenador {
 
 // Funciones generales
 void iniciar_team(char*archivo_config[]);
+void inicializar_listas();
 void finalizar_team();
 char * obtener_path(char*string);
 
@@ -106,16 +106,18 @@ void ser_entrenador(void *element);
 int distancia(t_entrenador * entrenador, int posx, int posy);
 //double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy);
 int distancia_en_eje(t_entrenador *entrenador, int pos_eje, int pos);
-void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido);
+//void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido);
 t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido);
 t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy);
 void desbloquear_entrenador(t_entrenador * entrenador);
 void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy);
 void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy);
 // atrapar_pokemon(entrenador,appeared_pokemon);
+
+
 bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared);
 bool esta_pokemon_objetivo(char *pokemon_candidato);
-bool capture_pokemon_objetivo(char * pokemon_candidato);
+//bool capture_pokemon_objetivo(char * pokemon_candidato);
 bool pokemon_fue_atrapado_cantidad_necesaria(char *pokemon);
 
 

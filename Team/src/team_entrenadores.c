@@ -6,11 +6,11 @@ t_list* cargar_entrenadores() {
 	t_list* head_entrenadores = list_create();
 
 	char ** posiciones = config_get_array_value(config,
-				"POSICIONES_ENTRENADORES");
-		char ** pokemones_capturados = config_get_array_value(config,
-				"POKEMON_ENTRENADORES");
-		char ** objetivos = config_get_array_value(config,
-				"OBJETIVOS_ENTRENADORES");
+			"POSICIONES_ENTRENADORES");
+	char ** pokemones_capturados = config_get_array_value(config,
+			"POKEMON_ENTRENADORES");
+	char ** objetivos = config_get_array_value(config,
+			"OBJETIVOS_ENTRENADORES");
 
 	int i = 0;
 	while (posiciones[i] != NULL) {	// TODO: Cambiar a for
@@ -19,27 +19,28 @@ t_list* cargar_entrenadores() {
 		pthread_mutex_lock(&(entrenador->sem_est));	//TODO: Ver como inicializar hilo en 0 sin hacer lock inmediatamente
 
 		entrenador->posicion = de_string_a_posicion(posiciones[i]);
-		entrenador->pokemones_capturados = string_a_pokemon_list(pokemones_capturados[i]);
-		entrenador->pokemones_por_capturar = string_a_pokemon_list(objetivos[i]);
+		entrenador->pokemones_capturados = string_a_pokemon_list(
+				pokemones_capturados[i]);
+		entrenador->pokemones_por_capturar = string_a_pokemon_list(
+				objetivos[i]);
 		list_add(head_entrenadores, entrenador);
 		i++;
 	}
 
-	log_trace(logger, "--- Entrenadores cargados ---");
-	mostrar_entrenadores(head_entrenadores);
+	log_trace(logger, "Entrenadores cargados");
+	//mostrar_entrenadores(head_entrenadores);
 
 	return (head_entrenadores);
 }
 
 void mostrar_entrenadores(t_list * head_entrenadores) {
 	list_iterate(head_entrenadores, mostrar_data_entrenador);
-	log_trace(logger, "--- Entrenadores mostrados ---");
 }
 
 void mostrar_data_entrenador(void * element) {
 	t_entrenador * entrenador = element;
-	log_trace(logger, "Data Entrenador: Posicion %i %i", entrenador->posicion[0],
-			entrenador->posicion[1]);
+	log_trace(logger, "Data Entrenador: Posicion %i %i",
+			entrenador->posicion[0], entrenador->posicion[1]);
 	list_iterate(entrenador->pokemones_capturados, mostrar_kokemon);
 	list_iterate(entrenador->pokemones_por_capturar, mostrar_kokemon);
 }
@@ -71,9 +72,11 @@ t_list* string_a_pokemon_list(char* cadena_con_pokemones) {
 	return head_pokemones;
 
 }
+
 void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones) {
 	list_add(pokemones_repetidos, pokemones);
 }
+
 t_list* obtener_pokemones(t_list *head_entrenadores) {
 	t_list * pokemones_repetidos = list_create();
 	void aniadir_pokemon_aux(void *pokemones) {
@@ -86,10 +89,12 @@ t_list* obtener_pokemones(t_list *head_entrenadores) {
 
 	list_iterate(head_entrenadores, buscar_pokemon);
 
-	log_trace(logger, "--- Kokemones obtenidos ---");
-	list_iterate(pokemones_repetidos, mostrar_kokemon);
+	log_trace(logger, "Kokemones obtenidos");
+	//list_iterate(pokemones_repetidos, mostrar_kokemon);
+
 	return pokemones_repetidos;
 }
+
 void mostrar_kokemon(void*elemento) {
 	log_trace(logger, elemento);
 }

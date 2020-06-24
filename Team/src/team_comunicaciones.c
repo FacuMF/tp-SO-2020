@@ -21,7 +21,7 @@ void iniciar_conexion_con_gameboy() {
 
 	while (1) {
 		log_trace(logger, "Esperando Cliente");
-		esperar_cliente(socket_gameboy); //Queda esperando que un cliente se conecte
+		esperar_cliente(socket_gameboy);
 	}
 }
 
@@ -84,41 +84,33 @@ void manejar_recibo_mensajes(int conexion, op_code cod_op) {  //TODO: pending
 
 	// Responder que recibi el mensaje
 	// Si no lo descarté y agregue algo a la lista de pokemones a atrapar, lanzar el hilo planificador
-		// el hilo planificador va a chequear la lista y va a planificar los entrenadores depenendiendo del mensaje.
-
+	// el hilo planificador va a chequear la lista y va a planificar los entrenadores depenendiendo del mensaje.
 
 	log_trace(logger, "Mensaje recibido manejado.");
 }
-// Funciones de comunicacion con Broker particularmente
+// Comunicacion con broker
 void suscribirse_a_colas_necesarias() {
-	//while(reintentar){
-		// int conex = iniciar conex
-		//if conexion negativa sleep(x SEGUNDOS DE CONFIG) y siguiente iteracion.
-		enviar_suscripcion_broker(APPEARED_POKEMON); // mandar socket
-		// int conex = iniciar conex
-		//if conexion negativa sleep(x SEGUNDOS DE CONFIG) y siguiente iteracion
-		enviar_suscripcion_broker(LOCALIZED_POKEMON);
-		// int conex = iniciar conex
-		//if conexion negativa sleep(x SEGUNDOS DE CONFIG) y siguiente iteracion.
-		enviar_suscripcion_broker(CAUGHT_POKEMON);
-		//reintentar = false
-	//}
+	enviar_suscripcion_broker(APPEARED_POKEMON);
+	enviar_suscripcion_broker(LOCALIZED_POKEMON);
+	enviar_suscripcion_broker(CAUGHT_POKEMON);
 }
 
 void enviar_suscripcion_broker(op_code tipo_mensaje) {
-
 	int socket_broker = iniciar_conexion_con_broker();
 
-	enviar_mensaje_suscripcion(tipo_mensaje, socket_broker);
+	while (socket_broker < 0) {
+		log_trace(logger, "Broker dio %d, esperando para reintentar", socket_broker);
+		sleep(5); //TODO: Pasar a por config file
+		socket_broker = iniciar_conexion_con_broker();
+	}
 
-	log_trace(logger, "socket a esperar %d", socket_broker);
+	enviar_mensaje_suscripcion(tipo_mensaje, socket_broker);
 
 	int* argument = malloc(sizeof(int));
 	*argument = socket_broker;
 	pthread_create(&thread, NULL, (void*) esperar_mensajes_cola, argument);
 
 	log_trace(logger, "Suscripcion completada");
-
 }
 void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 	t_subscriptor* mensaje_suscripcion;
@@ -201,10 +193,12 @@ void recibir_mensaje_localized(t_buffer * buffer) {
 }
 
 void handle_appeared_pokemon(t_appeared_pokemon * mensaje_appeared) {
+	/*
 	if (requiero_pokemon(mensaje_appeared)) {
-		comenzar_planificacion_entrenadores(mensaje_appeared); // TODO Ejecutar hilo de planificacion?
+		//comenzar_planificacion_entrenadores(mensaje_appeared); // TODO Ejecutar hilo de planificacion?
 	} else {
 		log_trace(logger, "Mensaje appeared se desechara, no es requerido");
 	}
+	*/
 }
 

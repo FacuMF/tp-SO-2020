@@ -66,7 +66,7 @@ int iniciar_conexion(char *ip, char* puerto) {
 
 	// Conectarse
 	if (connect(socket_cliente, servinfo->ai_addr, servinfo->ai_addrlen) == -1)
-		printf("error");
+		return -1;
 
 	freeaddrinfo(servinfo);
 
