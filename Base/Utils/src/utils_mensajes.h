@@ -82,11 +82,15 @@ char* deserializar_tipo_mensaje(int, int);
 //CREACION, SERIALIZACION Y DESERIALIZACION DE DISTINTOS TIPOS DE MENSAJES
 t_new_pokemon* crear_new_pokemon(char*, int, int, int, int);
 t_buffer* serializar_new_pokemon(t_new_pokemon*);
+void* serializar_cache_new_pokemon(t_new_pokemon*, int);
 t_new_pokemon* deserializar_new_pokemon(t_buffer* buffer);
+t_new_pokemon* deserializar_cache_new_pokemon(void* stream);
 
 t_appeared_pokemon* crear_appeared_pokemon(char*, int, int, int);
 t_buffer* serializar_appeared_pokemon(t_appeared_pokemon*);
+void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size);
 t_appeared_pokemon* deserializar_appeared_pokemon(t_buffer* buffer);
+t_appeared_pokemon* deserializar_cache_appeared_pokemon(void* stream);
 
 
 t_catch_pokemon* crear_catch_pokemon(char*, int, int, int);
@@ -113,8 +117,6 @@ t_confirmacion* crear_confirmacion(int,int);
 t_buffer* serializar_confirmacion(t_confirmacion*);
 t_confirmacion* deserializar_confirmacion(t_buffer* buffer);
 
-void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size);
-t_appeared_pokemon* deserializar_cache_appeared_pokemon(void* stream);
 
 
 

@@ -396,30 +396,6 @@ _Bool es_victima(void* particion, t_mensaje_cache* victima){
 	return ((t_mensaje_cache*) particion)->offset == victima->offset;;
 }
 
-// Serializacion para cache
-
-/*void* serializar_cache_appeared_pokemon(t_appeared_pokemon* mensaje, int size){
-
-	void* stream = malloc(size);
-	int offset = 0;
-	memcpy(stream + offset, &(mensaje->size_pokemon), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy( stream + offset, (mensaje->pokemon), (mensaje->size_pokemon));
-	offset += mensaje->size_pokemon;
-
-	memcpy( stream + offset, &(mensaje->posx), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-	memcpy(stream + offset, &(mensaje->posy), sizeof(uint32_t));
-	offset += sizeof(uint32_t);
-
-
-	return stream;
-<<<<<<< HEAD
-}*/
-
-
 
 void log_dump_de_cache(){
 

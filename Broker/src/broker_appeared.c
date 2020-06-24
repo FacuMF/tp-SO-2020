@@ -158,23 +158,3 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 	}
 }
 
-/*t_appeared_pokemon* deserializar_cache_appeared_pokemon(void* stream){
-
-	t_appeared_pokemon* mensaje = malloc(sizeof(t_appeared_pokemon));
-
-	memcpy( &(mensaje->size_pokemon), stream, sizeof(uint32_t));
-	stream += sizeof(mensaje->size_pokemon);
-
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
-	memcpy((mensaje->pokemon), stream, mensaje->size_pokemon);
-	stream += mensaje->size_pokemon;
-
-	memcpy(&(mensaje->posx), stream, sizeof(uint32_t));
-	stream += sizeof(mensaje->posx);
-
-	memcpy(&(mensaje->posy), stream, sizeof(uint32_t));
-	stream += sizeof(mensaje->posy);
-
-	return mensaje;
-}*/
-

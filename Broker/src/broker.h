@@ -189,6 +189,9 @@ void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appe
 void cachear_appeared_pokemon(t_appeared_pokemon* mensaje);
 
 
+
+
+
 // NEW_POKEMON
 void manejar_mensaje_new(t_conexion_buffer *combo);
 
