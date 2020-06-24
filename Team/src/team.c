@@ -8,9 +8,9 @@ int main(int argv, char*archivo_config[]) {
 
 	inicializar_listas();
 
-	suscribirse_a_colas_necesarias();
+	list_iterate(head_entrenadores, lanzar_hilo_entrenador);
 
-	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
+	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
 	//enviar_requests_pokemones(objetivo_global);
 	//pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,
@@ -26,8 +26,6 @@ void inicializar_listas(){
 	head_entrenadores = cargar_entrenadores();
 	pokemones_con_repetidos = obtener_pokemones(head_entrenadores);
 	objetivo_global = formar_objetivo(pokemones_con_repetidos);
-
-	lanzar_hilos(head_entrenadores);
 }
 
 /// Funciones Generales
@@ -50,7 +48,7 @@ void iniciar_team(char*argumentos_iniciales[]) {
 	char * path_log = obtener_path(nombre_archivo_log);
 	logger = iniciar_logger(path_log, "Team", log_nivel_minimo);
 
-	log_trace(logger, "--- Log inicializado ---");
+	log_trace(logger, "Log inicializado");
 
 }
 

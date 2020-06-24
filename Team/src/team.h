@@ -98,7 +98,6 @@ bool es_repetido(char *pokemon, t_list *lista_pokemones);
 
 
 // Funciones de Manejo de Hilos - team_planificacion
-void lanzar_hilos(t_list *head_entrenadores);
 void lanzar_hilo_entrenador(void*element);
 void ser_entrenador(void *element);
 

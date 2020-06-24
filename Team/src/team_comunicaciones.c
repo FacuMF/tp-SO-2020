@@ -3,8 +3,7 @@
 int iniciar_conexion_con_broker() {
 	char * ip_broker = config_get_string_value(config, "IP_BROKER");
 	char * puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
-	log_trace(logger, "Ip BROKER Leida : %s Puerto BROKER Leido : %s\n",
-			ip_broker, puerto_broker);
+	//log_trace(logger, "Ip BROKER Leida : %s Puerto BROKER Leido : %s\n",ip_broker, puerto_broker);
 
 	int conexion = iniciar_conexion(ip_broker, puerto_broker);
 
@@ -14,8 +13,7 @@ int iniciar_conexion_con_broker() {
 void iniciar_conexion_con_gameboy() {
 	char * ip_gameboy = config_get_string_value(config, "IP_GAMEBOY");
 	char * puerto_gameboy = config_get_string_value(config, "PUERTO_GAMEBOY");
-	log_trace(logger, "Ip Gameboy Leida : %s Puerto Gameboy Leido : %s\n",
-			ip_gameboy, puerto_gameboy);
+	//log_trace(logger, "Ip Gameboy Leida : %s Puerto Gameboy Leido : %s\n", ip_gameboy, puerto_gameboy);
 
 	int socket_gameboy = iniciar_conexion_servidor(ip_gameboy, puerto_gameboy);
 
@@ -28,28 +26,17 @@ void iniciar_conexion_con_gameboy() {
 // Funciones comunicacion generales
 void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 
-	// --- USAR FUNCION int aceptar_cliente(int socket_servidor)
-
-	struct sockaddr_in dir_cliente;	//contiene address de la comunicacion
-
-	int tam_direccion = sizeof(struct sockaddr_in);
-
-	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente,
-			&tam_direccion);// Acepta el request del cliente y crea el socket
-
-	// --- HASTA ACA.
-
-	log_trace(logger, "Conexion de %i al Broker.", socket_cliente);
+	int socket_cliente = aceptar_cliente(socket_servidor);
+	log_trace(logger, "Cliente aceptado: %d.", socket_cliente);
 
 	int * argument = malloc(sizeof(int));
 	*argument = socket_cliente;
 	pthread_create(&thread, NULL, (void*) esperar_mensajes_cola, argument);
 }
+
 void esperar_mensajes_cola(void* input) {
 	int conexion = *((int *) input);
 	int cod_op = 1;
-
-	log_trace(logger, "Esperando que aparezcan mensajes en %d", conexion);
 
 	while (cod_op >= 0) {
 		cod_op = recibir_codigo_operacion(conexion);
@@ -61,6 +48,7 @@ void esperar_mensajes_cola(void* input) {
 			manejar_recibo_mensajes(conexion, cod_op);
 	}
 }
+
 void manejar_recibo_mensajes(int conexion, op_code cod_op) {  //TODO: pending
 	t_buffer * buffer_recibido = recibir_mensaje(conexion);
 	switch (cod_op) {
@@ -99,8 +87,9 @@ void enviar_suscripcion_broker(op_code tipo_mensaje) {
 	int socket_broker = iniciar_conexion_con_broker();
 
 	while (socket_broker < 0) {
-		log_trace(logger, "Broker dio %d, esperando para reintentar", socket_broker);
-		sleep(5); //TODO: Pasar a por config file
+		log_info(logger, "Broker dio %d, esperando para reintentar",
+				socket_broker);
+		sleep(config_get_int_value(config, "RETARDO_REINTENTO_BROKER")); //TODO: Pasar a por config file
 		socket_broker = iniciar_conexion_con_broker();
 	}
 
@@ -194,11 +183,11 @@ void recibir_mensaje_localized(t_buffer * buffer) {
 
 void handle_appeared_pokemon(t_appeared_pokemon * mensaje_appeared) {
 	/*
-	if (requiero_pokemon(mensaje_appeared)) {
-		//comenzar_planificacion_entrenadores(mensaje_appeared); // TODO Ejecutar hilo de planificacion?
-	} else {
-		log_trace(logger, "Mensaje appeared se desechara, no es requerido");
-	}
-	*/
+	 if (requiero_pokemon(mensaje_appeared)) {
+	 //comenzar_planificacion_entrenadores(mensaje_appeared); // TODO Ejecutar hilo de planificacion?
+	 } else {
+	 log_trace(logger, "Mensaje appeared se desechara, no es requerido");
+	 }
+	 */
 }
 
