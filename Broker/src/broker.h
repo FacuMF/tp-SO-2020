@@ -90,6 +90,10 @@ t_queue* localized_pokemon;
 //Declaracion id
 int id_mensajes;
 
+//Semaforos
+
+
+
 //Funciones Generales -----------------------------------------------------
 
 void inicializacion_broker(void);
@@ -135,8 +139,8 @@ _Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2);
 
 //Dump
 void log_dump_de_cache();
-char* get_string_info_particion(t_mensaje_cache* particion);
-char* get_header_dump();
+void log_header_dump();
+void log_info_particion(t_mensaje_cache* particion, int num_part);
 
 //Eleccion de victima
 void elegir_vitima_y_eliminarla();

@@ -25,7 +25,7 @@ void inicializacion_cache(void){
 
 	memoria_cache = malloc(tamano_memoria);
 
-	// Inizializar memoria administrativa
+	// Inicializar memoria administrativa
 
 	t_mensaje_cache* primer_particion = malloc(sizeof(t_mensaje_cache));
 	primer_particion -> tipo_mensaje = VACIO;
@@ -35,9 +35,13 @@ void inicializacion_cache(void){
 	struct_admin_cache = list_create();
 	list_add(struct_admin_cache, primer_particion);
 
-	// Inizializar LRU flag
+	// Inicializar LRU flag
 
 	actual_lru_flag = 0;
+
+	//Inicializar semaforos
+
+
 
 }
 
@@ -72,10 +76,10 @@ int de_string_a_alg_particion_libre(char* string){
 _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje_2, int tamano_mensaje){
 	//El comparador devuelve si el primer parametro debe aparecer antes que el segundo en la lista
 
-	if(mensaje_1->id == 0 && mensaje_2->id != 0) return true; // Si el 1 esta libre y el 2 no => el 1 va primero
-	if(mensaje_2->id == 0 && mensaje_1->id != 0) return false; // Si el 2 esta libre y el 1 no => el 2 va primero
-	if(mensaje_1->id != 0 && mensaje_1->id != 0) return true; // Si ambos estan ocupados => Me da lo mismo el orden, tiro true para que queden como estan
-	if(mensaje_1->id == 0 && mensaje_2->id == 0){ // Si ambos estan vacios => Sigo evaluando
+	if(mensaje_1->tipo_mensaje == 0 && mensaje_2->tipo_mensaje != 0) return true; // Si el 1 esta libre y el 2 no => el 1 va primero
+	if(mensaje_2->tipo_mensaje == 0 && mensaje_1->tipo_mensaje != 0) return false; // Si el 2 esta libre y el 1 no => el 2 va primero
+	if(mensaje_1->tipo_mensaje != 0 && mensaje_1->tipo_mensaje != 0) return true; // Si ambos estan ocupados => Me da lo mismo el orden, tiro true para que queden como estan
+	if(mensaje_1->tipo_mensaje == 0 && mensaje_2->tipo_mensaje == 0){ // Si ambos estan vacios => Sigo evaluando
 
 		if( mensaje_1->tamanio >= tamano_mensaje && mensaje_2->tamanio < tamano_mensaje) return true; // Si el 1 tiene tamano suficiente y el 2 no => el 1 va primero
 		if( mensaje_2->tamanio >= tamano_mensaje && mensaje_1->tamanio < tamano_mensaje) return false; // Si el 2 tiene tamano suficiente y el 1 no => el 2 va primero
@@ -98,9 +102,13 @@ _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje
 }
 
 _Bool particion_valida_para_llenar(t_mensaje_cache* particion, int tamano_a_ocupar){
-	_Bool esta_vacia = (particion->id == VACIO);
+	_Bool esta_vacia = (particion->tipo_mensaje == VACIO);
 
-	_Bool tamano_suficiente = (particion->tamanio == tamano_a_ocupar) || (particion->tamanio >= (tamano_minimo_particion+tamano_a_ocupar) );
+	int tamanio_minimo_sobrante =  (tamano_minimo_particion+tamano_a_ocupar);
+	_Bool tamanio_justo = (particion->tamanio == tamano_a_ocupar);
+	_Bool sobrante_suficiente = (particion->tamanio >=  tamanio_minimo_sobrante);
+
+	_Bool tamano_suficiente = tamanio_justo || sobrante_suficiente;
 	//Si no entra justo, la particion sobrante tiene que ser mayor a la minima.
 
 	return tamano_suficiente && esta_vacia; //Esta vacia y con tamanio suficiente.
@@ -303,7 +311,9 @@ _Bool anterior_es_vacio() {
 
 void borrar_particiones_del_inicio(int cant_particiones_a_borrar){
 	for (int var = 0; var < cant_particiones_a_borrar; ++var) {
-		list_remove_and_destroy_element(struct_admin_cache, 0, liverar_t_mensaje_cache ); //Victima
+		list_remove_and_destroy_element(struct_admin_cache, 0, free );
+		//list_remove_and_destroy_element(struct_admin_cache, 0, liverar_t_mensaje_cache ); //Da seg fault, revisar
+
 	}
 }
 
@@ -422,106 +432,77 @@ _Bool es_victima(void* particion, t_mensaje_cache* victima){
 
 
 void log_dump_de_cache(){
-
-	char* string = malloc( sizeof(char) * 100 * (list_size(struct_admin_cache)+2) );
 	int num_particion = 1;
+	log_debug(logger, "--------------------------------------------------------------------------------------------------");
+	log_header_dump();
 
-	strcpy(string, "\n--------------------------------------------------------------------------------------------------\n");
-	strcat(string, get_header_dump());
 
-	void agregar_linea_dump_cache(void* particion) {
-		strcat(string, "Particion ");
-		strcat(string,  string_itoa(num_particion));
+	void log_linea_dump_cache(void* particion) {
+		log_info_particion(particion, num_particion);
 		num_particion++;
-		strcat(string, ": ");
-
-		strcat(string, get_string_info_particion(particion));
-
-		strcat(string, "\n");
 	}
+	list_iterate(struct_admin_cache, log_linea_dump_cache);
 
-	list_iterate(struct_admin_cache, agregar_linea_dump_cache);
-
-	strcat(string, "--------------------------------------------------------------------------------------------------");
-	//log_info(logger, get_header_dump());
-
-	log_info(logger, string); //TODO que no lo loguee, que lo ponga en un archivo creo
-	//free(string);
+	log_debug(logger, "--------------------------------------------------------------------------------------------------");
 }
 
-char* get_string_info_particion(t_mensaje_cache* particion){
+void log_info_particion(t_mensaje_cache* particion, int num_part){
 	char* string = malloc(sizeof(char)*100);
 
-	char* direc_inicio = string_itoa((int)memoria_cache + particion->offset);
-	char* direc_final = string_itoa((int)memoria_cache + particion->offset + particion->tamanio);
+	int direc_inicio = ((int)memoria_cache) + particion->offset;
+	int direc_final = ((int)memoria_cache) + particion->offset + particion->tamanio;
 	char* libre_o_ocupado = (particion->tipo_mensaje == VACIO) ? "[L]" : "[X]" ;
-	char* tamano = string_itoa(particion->tamanio);
+	int tamano = particion->tamanio;
 
-	strcpy(string, direc_inicio);
-	strcat(string, " - ");
-	strcat(string, direc_final);
-	strcat(string, ".    ");
-	strcat(string, libre_o_ocupado);
-	strcat(string, "    ");
-	strcat(string, "Size: ");
-	strcat(string, tamano);
-	strcat(string, "b");
-
-	if(particion->tipo_mensaje != VACIO){
-		char* lru = string_itoa(particion->flags_lru);
-		char* cola = string_itoa(particion->tipo_mensaje);
-		char* id = string_itoa(particion->id);
-
-		strcat(string, "    LRU: ");
-		strcat(string, lru);
-		strcat(string, "    COLA: ");
-		strcat(string, cola);
-		strcat(string, "    ID: ");
-		strcat(string, id);
+	if(particion->tipo_mensaje == VACIO){
+		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [L]    Size:%ib",
+				num_part, direc_inicio, direc_final, tamano);
+	} else {
+		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [X]    Size:%ib    LRU:%i    Cola:%i    ID:%i",
+				num_part, direc_inicio, direc_final, tamano,
+				particion->flags_lru, particion->tipo_mensaje, particion->id);
 	}
-
-	return string;
 }
 
-char* get_header_dump() {
-	char* string = malloc(sizeof(char)*10);
-	int hora, min, seg, dia, mes, anio;
+void log_header_dump() {
 	time_t now;
-
 	time(&now);
 	struct tm *local = localtime(&now);
 
-	strcpy(string, "Dump: ");
-	strcat(string, string_itoa(local->tm_mday) );
-	strcat(string, "/");
-	strcat(string, string_itoa(local->tm_mon));
-	strcat(string, "/");
-	strcat(string, string_itoa(local->tm_year));
-	strcat(string, " ");
-	strcat(string, string_itoa(local->tm_hour));
-	strcat(string, ":");
-	strcat(string, string_itoa(local->tm_min));
-	strcat(string, ":");
-	strcat(string, string_itoa(local->tm_sec));
-	strcat(string, "\n");
-
-	return string;
+	log_debug(logger, "Dump: %i/%i/%i %i:%i:%i",
+			local->tm_mday, local->tm_mon, local->tm_year,
+			local->tm_hour, local->tm_min, local->tm_sec);
 }
 
 void test(){
 
 	//Creo un mensaje random para probar dump
-	t_mensaje_cache* particion_llena = malloc(sizeof(t_mensaje_cache));
 
+	/*
+	t_mensaje_cache* particion_llena = malloc(sizeof(t_mensaje_cache));
 	particion_llena->tipo_mensaje = 2;
 	particion_llena->id = 1000;
 	particion_llena->offset = 40;
 	particion_llena->flags_lru= get_lru_flag();
 	particion_llena->tamanio = 30;
-
 	list_add(struct_admin_cache, particion_llena);
 
+	particion_llena = malloc(sizeof(t_mensaje_cache));
+	*/
+	//t_mensaje_cache* particion_llena= crear_particion_mensaje(2 ,10 ,40 , list_get (struct_admin_cache, 0) );
+
+	//list_add(struct_admin_cache, particion_llena);
+
+
 	log_dump_de_cache();
+
+	t_appeared_pokemon* mensaje1 = crear_appeared_pokemon("Pikachuuuuuuuuuuuuuuuuuuuuu",3,5,8);
+
+	cachear_appeared_pokemon(mensaje1);
+
+	//log_dump_de_cache();
+
+	log_trace(logger, "Se termino el test");
 }
 
 

@@ -25,6 +25,7 @@
 #include<math.h>
 #include<stdint.h>
 #include<time.h>
+#include<semaphore.h>
 
 //Definiciones de modulos
 typedef enum

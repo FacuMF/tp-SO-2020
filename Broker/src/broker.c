@@ -33,6 +33,8 @@ void terminar_proceso(void) {
 	pthread_join(tid[0], NULL);
 	terminar_logger(logger);
 	config_destroy(config);
+
+
 }
 
 void inicializacion_colas(void) {
@@ -126,6 +128,7 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 	case APPEARED_POKEMON:
 
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_appeared,info_mensaje_a_manejar);
+		//pthread_detach(thread);
 		break;
 
 	case NEW_POKEMON:
