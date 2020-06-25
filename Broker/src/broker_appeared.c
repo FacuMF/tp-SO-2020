@@ -7,7 +7,6 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 	t_appeared_pokemon* mensaje_appeared_pokemon =
 			deserializar_appeared_pokemon(buffer);
 
-	printf("%s", mostrar_appeared_pokemon(mensaje_appeared_pokemon));
 
 	int id_mensaje_recibido = asignar_id_appeared_pokemon(
 			mensaje_appeared_pokemon);
@@ -24,7 +23,7 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 
 	enviar_a_todos_los_subs_appeared_pokemon(mensaje_appeared_pokemon);
 
-	//cachear_appeared_pokemon(mensaje_appeared_pokemon);
+	cachear_appeared_pokemon(mensaje_appeared_pokemon);
 
 	//free (liberar memoria)
 }
