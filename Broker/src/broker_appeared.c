@@ -7,7 +7,6 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 	t_appeared_pokemon* mensaje_appeared_pokemon =
 			deserializar_appeared_pokemon(buffer);
 
-	printf("%s", mostrar_appeared_pokemon(mensaje_appeared_pokemon));
 
 	int id_mensaje_recibido = asignar_id_appeared_pokemon(
 			mensaje_appeared_pokemon);

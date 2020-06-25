@@ -103,7 +103,6 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 					log_dump_de_cache();
 				}
 
-
 				borrar_particiones_del_inicio(1);
 				log_trace(logger, "Se borro la particion vacia antigua, y fue replazada por la ocupada y su sobrante.");
 				// Ahora borro el primer elemento de la estructura administrativa. Es la particion libre elegida, que se llenara total o parcialmente,
@@ -112,9 +111,8 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 
 				agregar_mensaje_a_cache(mensaje_a_cachear,size_stream , particion_mensaje);
 				log_trace(logger, "Se agrego mensaje a la cache.");
-				// TODO, sacar deserializar y loggear.
+				log_mensaje_de_cache(particion_mensaje); // Para ver si funca bien
 
-				log_mensaje_de_cache(particion_mensaje);
 
 				// Se agrega el mensaje a cachear al malloc de la cache con el offset que indica en la estructura administrativa.
 
@@ -129,9 +127,9 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 				log_trace(logger, "No hay lugar");
 
 				elegir_vitima_y_eliminarla(); // Y consolido
-				compactar_cache_si_corresponde();
+				//compactar_cache_si_corresponde();
 
-				//no_se_agrego_mensaje_a_cache = false;
+				no_se_agrego_mensaje_a_cache = false;
 			}
 		}
 }
@@ -310,7 +308,7 @@ void liverar_t_mensaje_cache(void* mensaje){
 }
 
 void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaje_cache* particion_mensaje){
-	memcpy( mensaje_a_cachear+(particion_mensaje->offset) , mensaje_a_cachear, tamano_stream);
+	memcpy( memoria_cache+(particion_mensaje->offset) , mensaje_a_cachear, tamano_stream);
 }
 
 _Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2){
@@ -686,9 +684,9 @@ void log_mensaje_de_cache(t_mensaje_cache* particion_mensaje){
 	switch (particion_mensaje->tipo_mensaje) {
 		case APPEARED_POKEMON:
 			;
-			t_appeared_pokemon* mensaje = deserializar_appeared_pokemon(stream);
+			t_appeared_pokemon* mensaje = deserializar_cache_appeared_pokemon(stream);
 
-			log_trace(logger, "El mensaje que se guardo en cache, deserializado es: %s",
+			log_trace(logger, "El mensaje que se guardo en cache, deserializado es %s. (Ignorar ID, es trash).",
 					mostrar_appeared_pokemon(mensaje));
 
 			break;

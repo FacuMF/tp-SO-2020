@@ -219,7 +219,7 @@ t_appeared_pokemon* crear_appeared_pokemon(char* pokemon, int posicion_x,
 		int posicion_y, int id_mensaje) {
 	t_appeared_pokemon* mensaje = malloc(sizeof(t_appeared_pokemon));
 	mensaje->size_pokemon = strlen(pokemon) + 1;
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	mensaje->pokemon = malloc(sizeof(char) * mensaje->size_pokemon);
 	mensaje->pokemon = pokemon;
 	mensaje->posx = posicion_x;
 	mensaje->posy = posicion_y;
@@ -230,7 +230,7 @@ t_appeared_pokemon* crear_appeared_pokemon(char* pokemon, int posicion_x,
 t_buffer* serializar_appeared_pokemon(t_appeared_pokemon* mensaje) {
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
-	buffer->size = sizeof(uint32_t) * 3 + mensaje->size_pokemon;
+	buffer->size = sizeof(uint32_t) * 3 + mensaje->size_pokemon * sizeof(char);
 
 	void* stream = malloc(buffer->size);
 	stream = serializar_cache_appeared_pokemon(mensaje, buffer->size);
@@ -296,7 +296,7 @@ t_catch_pokemon* crear_catch_pokemon(char* pokemon, int posicion_x,
 		int posicion_y, int id_mensaje) {
 	t_catch_pokemon* mensaje = malloc(sizeof(t_catch_pokemon));
 	mensaje->size_pokemon = strlen(pokemon) + 1;
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	mensaje->pokemon = malloc(sizeof(char) * mensaje->size_pokemon);
 	strcpy(mensaje->pokemon, pokemon);
 	mensaje->posx = posicion_x;
 	mensaje->posy = posicion_y;
@@ -393,7 +393,7 @@ t_get_pokemon* crear_get_pokemon(char* pokemon, int id_mensaje) {
 	t_get_pokemon* mensaje = malloc(sizeof(t_get_pokemon));
 
 	mensaje->size_pokemon = strlen(pokemon) + 1;
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	mensaje->pokemon = malloc(sizeof(char) * mensaje->size_pokemon);
 	strcpy(mensaje->pokemon, pokemon);
 	mensaje->id_mensaje = id_mensaje;
 
@@ -496,7 +496,7 @@ t_localized* crear_localized_pokemon(int id_mensaje, char* pokemon,
 
 	mensaje->id_mensaje = id_mensaje;
 	mensaje->size_pokemon = strlen(pokemon) + 1;
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	mensaje->pokemon = malloc(sizeof(char) * mensaje->size_pokemon);
 	strcpy(mensaje->pokemon, pokemon);
 	mensaje->cantidad_posiciones = cantidad_posiciones;
 	mensaje->posiciones = list_duplicate(posiciones);
