@@ -23,6 +23,7 @@ t_list* cargar_entrenadores() {
 				pokemones_capturados[i]);
 		entrenador->pokemones_por_capturar = string_a_pokemon_list(
 				objetivos[i]);
+		entrenador->estado = NEW;
 		list_add(head_entrenadores, entrenador);
 		i++;
 	}

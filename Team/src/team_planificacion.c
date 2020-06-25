@@ -1,18 +1,21 @@
 #include "team.h"
 
 // MANEJO DE HILOS
+void iniciar_planificador(){
+	list_iterate(head_entrenadores, lanzar_hilo_entrenador);
+
+}
+
 void lanzar_hilo_entrenador(void*element) {
 	t_entrenador * entrenador = element;
-
 	pthread_t hilo_entrenador;
+
 	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,
 			(void*) entrenador);
-	if (result != 0)
-		log_error(logger, "Error lanzando el hilo"); //TODO: revisar manejo de errores
 
-	log_trace(logger, "Entrenador lanzado: Pos %i %i", entrenador->posicion[0], entrenador->posicion[1]);
-
-	return;
+	(result != 0)?
+			log_error(logger, "Error lanzando el hilo"):
+			log_trace(logger, "Entrenador lanzado: Pos %i %i", entrenador->posicion[0], entrenador->posicion[1]);
 }
 
 void ser_entrenador(void *element) {

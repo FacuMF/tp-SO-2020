@@ -4,7 +4,6 @@
 #include "../../Base/Utils/src/utils.h"
 #include "../../Base/Utils/src/utils_mensajes.h"
 
-
 t_log* logger;
 t_config* config;
 
@@ -12,6 +11,7 @@ t_config* config;
 t_list * objetivo_global;
 t_list * pokemones_con_repetidos;
 t_list * head_entrenadores;
+t_list * ids_mensajes_utiles;
 
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
@@ -19,6 +19,10 @@ t_log_level log_nivel_minimo;
 typedef enum {
 	Pikachu, Squirtle, Pidgey, Charmander, Bulbasaur
 } t_pokemones;
+
+typedef enum {
+	NEW, READY, EXEC, BLOCKED_READY, BLOCKED_DEADLOCK, EXIT
+} t_estado;
 
 //TODO: chequear si va abajo o arriba o ambos
 typedef struct t_objetivo {
@@ -31,12 +35,14 @@ typedef struct t_entrenador {
 	int * posicion;
 	t_list* pokemones_capturados;
 	t_list* pokemones_por_capturar;
+	t_estado estado;
 } t_entrenador;
 
 
 // Funciones generales
 void iniciar_team(char*archivo_config[]);
 void inicializar_listas();
+void iniciar_planificador();
 void finalizar_team();
 char * obtener_path(char*string);
 
@@ -44,7 +50,7 @@ void agregar_atrapado_global();
 // Funciones de comunicacion general
 void esperar_cliente(int socket_servidor);
 void esperar_mensajes_cola(void* input);
-void manejar_recibo_mensajes(int conexion,op_code cod_op);
+void manejar_recibo_mensajes(int conexion,op_code cod_op,int es_respuesta);
 
 // Funciones de inicio de conexion
 int iniciar_conexion_con_broker();

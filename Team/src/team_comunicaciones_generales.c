@@ -52,7 +52,7 @@ void esperar_mensajes_cola(void* input) {
 				log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
 
 		if (cod_op >= 0)
-			manejar_recibo_mensajes(conexion, cod_op);
+			manejar_recibo_mensajes(conexion, cod_op,0);
 	}
 }
 
@@ -77,12 +77,12 @@ void enviar_mensaje_get(void*element) {
 
 	free(mensaje_serializado);
 
-	//TODO: espera rta con id
-	//agrega id a lista de ids
+	manejar_recibo_mensajes(socket_broker,recibir_codigo_operacion(socket_broker), 1);
 
 	close(socket_broker);
 
 }
+
 
 void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar) { //mismo que get
 	int socket_broker = iniciar_conexion_con_broker();
@@ -97,10 +97,10 @@ void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar) { //
 	enviar_mensaje(socket_broker,mensaje_catch_serializado,CATCH_POKEMON);
 
 	log_trace(logger, "Enviado catch para: %s",mensaje_appeared_a_capturar->pokemon);
+
 	free(mensaje_catch_serializado);
 
-	//TODO: espera rta con id
-	//agrega id a lista de ids
+	manejar_recibo_mensajes(socket_broker,recibir_codigo_operacion(socket_broker), 1);
 
 	close(socket_broker);
 }

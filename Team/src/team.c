@@ -8,22 +8,16 @@ int main(int argv, char*archivo_config[]) {
 
 	inicializar_listas();
 
-	list_iterate(head_entrenadores, lanzar_hilo_entrenador);
-
 	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
 	pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,NULL);
 
-	iniciar_conexion_con_gameboy();
+	pthread_create(&thread, NULL, (void*) iniciar_conexion_con_gameboy,NULL);
 
-	sleep(10000); //TT
+	iniciar_planificador();
+
+	sleep(1000); //TT
 	finalizar_team();
-}
-
-void inicializar_listas(){
-	head_entrenadores = cargar_entrenadores();
-	pokemones_con_repetidos = obtener_pokemones(head_entrenadores);
-	objetivo_global = formar_objetivo(pokemones_con_repetidos);
 }
 
 /// Funciones Generales
@@ -49,6 +43,15 @@ void iniciar_team(char*argumentos_iniciales[]) {
 	log_trace(logger, "Log inicializado");
 
 }
+
+
+void inicializar_listas(){
+	head_entrenadores = cargar_entrenadores();
+	pokemones_con_repetidos = obtener_pokemones(head_entrenadores);
+	objetivo_global = formar_objetivo(pokemones_con_repetidos);
+	ids_mensajes_utiles = list_create();
+}
+
 
 void finalizar_team() {
 	terminar_logger(logger);
