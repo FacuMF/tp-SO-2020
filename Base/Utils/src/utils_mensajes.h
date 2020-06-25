@@ -95,7 +95,9 @@ t_appeared_pokemon* deserializar_cache_appeared_pokemon(void* stream);
 
 t_catch_pokemon* crear_catch_pokemon(char*, int, int, int);
 t_buffer* serializar_catch_pokemon(t_catch_pokemon*);
+void* serializar_cache_catch_pokemon(t_catch_pokemon*, int);
 t_catch_pokemon* deserializar_catch_pokemon(t_buffer* buffer);
+t_catch_pokemon* deserializar_cache_catch_pokemon(void*);
 
 t_caught_pokemon* crear_caught_pokemon(int, int);
 t_buffer* serializar_caught_pokemon(t_caught_pokemon*);
