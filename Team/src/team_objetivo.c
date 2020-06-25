@@ -10,8 +10,8 @@ t_list* formar_objetivo(t_list * pokemones_repetidos) {
 
 	list_iterate(pokemones_repetidos, agrego_si_no_existe_aux);
 
-	log_trace(logger, " ---- Objetivos Formados ----");
-	list_iterate(objetivo_global, mostrar_objetivo);
+	log_trace(logger, "Objetivos Formados");
+	//list_iterate(objetivo_global, mostrar_objetivo);
 
 	return objetivo_global;
 }
@@ -36,20 +36,19 @@ void agrego_si_no_existe(t_list * objetivo_global, void *nombrePokemon) {
 }
 
 void mostrar_objetivo(void *elemento) {
-	log_trace(logger, "Data de objetivo!");
-
 	t_objetivo *objetivo = elemento;
-	log_trace(logger, "objetivo: %s", objetivo->pokemon);
-	log_trace(logger, "objetivo: %i", objetivo->cantidad);
-
+	log_trace(logger, "Data de objetivo: %s %i",objetivo->pokemon ,objetivo->cantidad);
 }
-
+/*
 // Funciones de fijarse si se requiere pokemon para objetivo global
 bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared){
 
 	bool pokemon_requerido = esta_pokemon_objetivo(mensaje_appeared->pokemon) && !capture_pokemon_objetivo(mensaje_appeared->pokemon);
 	return pokemon_requerido;
+
 }
+*/
+
  bool esta_pokemon_objetivo(char *pokemon_candidato){
  	t_list *lista_pokemones_objetivo_global = obtener_pokemones_de_lista_seleccionada(objetivo_global);
  	log_trace(logger,"Lista de pokemones objetivo");
@@ -57,6 +56,8 @@ bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared){
  	log_trace(logger,"Pokemon esta en objetivo %d \n",esta);
  	return esta;
  	}
+
+ /*
 
  bool capture_pokemon_objetivo(char * pokemon_candidato){
 
@@ -73,7 +74,9 @@ bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared){
  	log_trace(logger,"Pokemon no esta en la lista, no fue capturado");
  	return false;
  	}
+
  }
+ */
 
 t_list * obtener_pokemones_de_lista_seleccionada(t_list * lista_seleccionada){
 	t_list * lista_pokemones_objetivos_capturados = list_create();
@@ -97,13 +100,13 @@ t_list * obtener_pokemones_de_lista_seleccionada(t_list * lista_seleccionada){
  }
 
 
-
+/*
  bool pokemon_fue_atrapado_cantidad_necesaria(char *pokemon){
  	int cantidad_en_objetivo = cantidad_pokemon_en_lista_objetivos(objetivo_global,pokemon);
  	int cantidad_veces_atrapado = cantidad_pokemon_en_lista_objetivos(pokemones_globales_capturados,pokemon);
  	return cantidad_en_objetivo == cantidad_veces_atrapado;
  }
-
+*/
 
 
 

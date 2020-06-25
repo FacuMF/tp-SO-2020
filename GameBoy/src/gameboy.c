@@ -1,6 +1,7 @@
 #include "gameboy.h"
 
 int main(int argv, char* arg[]) {
+	printf("int: %d, uint32_t: %d \n", sizeof(int), sizeof(uint32_t));
 
 	inicializar_gameboy();
 

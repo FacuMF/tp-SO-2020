@@ -4,7 +4,6 @@
 #include "../../Base/Utils/src/utils.h"
 #include "../../Base/Utils/src/utils_mensajes.h"
 
-
 t_log* logger;
 t_config* config;
 
@@ -12,7 +11,7 @@ t_config* config;
 t_list * objetivo_global;
 t_list * pokemones_con_repetidos;
 t_list * head_entrenadores;
-t_list * pokemones_globales_capturados;
+t_list * ids_mensajes_utiles;
 
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
@@ -20,6 +19,10 @@ t_log_level log_nivel_minimo;
 typedef enum {
 	Pikachu, Squirtle, Pidgey, Charmander, Bulbasaur
 } t_pokemones;
+
+typedef enum {
+	NEW, READY, EXEC, BLOCKED_READY, BLOCKED_DEADLOCK, EXIT
+} t_estado;
 
 //TODO: chequear si va abajo o arriba o ambos
 typedef struct t_objetivo {
@@ -32,11 +35,14 @@ typedef struct t_entrenador {
 	int * posicion;
 	t_list* pokemones_capturados;
 	t_list* pokemones_por_capturar;
+	t_estado estado;
 } t_entrenador;
 
 
 // Funciones generales
 void iniciar_team(char*archivo_config[]);
+void inicializar_listas();
+void iniciar_planificador();
 void finalizar_team();
 char * obtener_path(char*string);
 
@@ -44,7 +50,7 @@ void agregar_atrapado_global();
 // Funciones de comunicacion general
 void esperar_cliente(int socket_servidor);
 void esperar_mensajes_cola(void* input);
-void manejar_recibo_mensajes(int conexion,op_code cod_op);
+void manejar_recibo_mensajes(int conexion,op_code cod_op,int es_respuesta);
 
 // Funciones de inicio de conexion
 int iniciar_conexion_con_broker();
@@ -56,8 +62,8 @@ void enviar_suscripcion_broker(op_code tipo_mensaje);
 void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
 
 
-void enviar_requests_pokemones(t_list *objetivo_global);
-void enviar_mensaje_get(int socket_broker, void*element);
+void enviar_requests_pokemones();
+void enviar_mensaje_get(void*element);
 
 // Funciones de recepcion de mensajes
 void recibir_mensaje_appeared(t_buffer * buffer);
@@ -98,7 +104,6 @@ bool es_repetido(char *pokemon, t_list *lista_pokemones);
 
 
 // Funciones de Manejo de Hilos - team_planificacion
-void lanzar_hilos(t_list *head_entrenadores);
 void lanzar_hilo_entrenador(void*element);
 void ser_entrenador(void *element);
 
@@ -106,16 +111,18 @@ void ser_entrenador(void *element);
 int distancia(t_entrenador * entrenador, int posx, int posy);
 //double suma_de_distancias_al_cuadrado(t_entrenador*entrenador, double posx, double posy);
 int distancia_en_eje(t_entrenador *entrenador, int pos_eje, int pos);
-void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido);
+//void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido);
 t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido);
 t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy);
 void desbloquear_entrenador(t_entrenador * entrenador);
 void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy);
 void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy);
 // atrapar_pokemon(entrenador,appeared_pokemon);
+
+
 bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared);
 bool esta_pokemon_objetivo(char *pokemon_candidato);
-bool capture_pokemon_objetivo(char * pokemon_candidato);
+//bool capture_pokemon_objetivo(char * pokemon_candidato);
 bool pokemon_fue_atrapado_cantidad_necesaria(char *pokemon);
 
 

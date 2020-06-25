@@ -23,7 +23,7 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 
 	enviar_a_todos_los_subs_appeared_pokemon(mensaje_appeared_pokemon);
 
-	cachear_appeared_pokemon(mensaje_appeared_pokemon);
+	//cachear_appeared_pokemon(mensaje_appeared_pokemon);
 
 	//free (liberar memoria)
 }
