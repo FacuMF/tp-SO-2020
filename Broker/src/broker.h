@@ -186,6 +186,15 @@ void log_mensaje_de_cache(t_mensaje_cache* particion_mensaje);
 //Compactar
 
 void compactar_cache_si_corresponde();
+void algoritmo_de_compactacion();
+_Bool intentar_compactar_elemento(int num_particion);
+
+void dejar_particion_adelante(int num_particion);
+void dejar_particion_adelante(int num_particion);
+
+void mover_a_particion_info_del_siguiente(int num_particion);
+void si_es_part_mover_struct_a(t_mensaje_cache* particion, int offset_destino);
+
 _Bool corresponde_compactar();
 _Bool esta_compactada();
 
