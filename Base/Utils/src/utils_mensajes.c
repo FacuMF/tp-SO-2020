@@ -307,11 +307,23 @@ t_catch_pokemon* crear_catch_pokemon(char* pokemon, int posicion_x,
 t_buffer* serializar_catch_pokemon(t_catch_pokemon* mensaje) {
 
 	t_buffer* buffer = malloc(sizeof(t_buffer));
-	buffer->size = sizeof(int) * 4 + mensaje->size_pokemon;
+	buffer->size = sizeof(uint32_t) * 3 + mensaje->size_pokemon;
 
 	void* stream = malloc(buffer->size);
-	int offset = 0;
+	stream = serializar_cache_catch_pokemon(mensaje, buffer->size);
+	int offset = buffer->size;
+	buffer->size += sizeof(uint32_t);
+	stream = realloc(stream, buffer->size);
+	memcpy(stream + offset, &(mensaje->id_mensaje),
+			sizeof(mensaje->id_mensaje));
 
+	buffer->stream = stream;
+	return buffer;
+}
+void* serializar_cache_catch_pokemon(t_catch_pokemon* mensaje, int size) {
+
+	int offset = 0;
+	void* stream = malloc(size);
 	memcpy(stream + offset, &(mensaje->size_pokemon),
 			sizeof(mensaje->size_pokemon));
 	offset += sizeof(mensaje->size_pokemon);
@@ -325,16 +337,21 @@ t_buffer* serializar_catch_pokemon(t_catch_pokemon* mensaje) {
 	memcpy(stream + offset, &(mensaje->posy), sizeof(mensaje->posy));
 	offset += sizeof(mensaje->posy);
 
-	memcpy(stream + offset, &(mensaje->id_mensaje),
-			sizeof(mensaje->id_mensaje));
-
-	buffer->stream = stream;
-	return buffer;
+	return stream;
 }
 t_catch_pokemon* deserializar_catch_pokemon(t_buffer* buffer) {
 	t_catch_pokemon* mensaje = malloc(sizeof(t_catch_pokemon));
 	void* stream = buffer->stream;
-	//Deserializacion
+
+	mensaje = deserializar_cache_catch_pokemon(stream);
+	stream += sizeof(uint32_t)*3 + mensaje->size_pokemon;
+
+	memcpy(&(mensaje->id_mensaje), stream, sizeof(mensaje->id_mensaje));
+	return mensaje;
+}
+t_catch_pokemon* deserializar_cache_catch_pokemon(void* stream) {
+	t_catch_pokemon* mensaje = malloc(sizeof(t_catch_pokemon));
+
 	memcpy(&(mensaje->size_pokemon), stream, sizeof(mensaje->size_pokemon));
 	stream += sizeof(mensaje->size_pokemon);
 
@@ -348,7 +365,6 @@ t_catch_pokemon* deserializar_catch_pokemon(t_buffer* buffer) {
 	memcpy(&(mensaje->posy), stream, sizeof(mensaje->posy));
 	stream += sizeof(mensaje->posy);
 
-	memcpy(&(mensaje->id_mensaje), stream, sizeof(mensaje->id_mensaje));
 	return mensaje;
 }
 
