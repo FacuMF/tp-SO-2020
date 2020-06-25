@@ -12,7 +12,7 @@ all:
 	mkdir -p $(BIN_PATH)
 	$(COMPILER) $(UTILS) $(CLIENTE) -o $(BIN_PATH)/Cliente 	$(LIBS)
 	$(COMPILER) $(UTILS) $(SERVIDOR) -o $(BIN_PATH)/Server $(LIBS)
-	$(COMPILER) $(UTILS) $(TEAM) -o $(BIN_PATH)/ProcesoTeam $(LIBS)
+	$(COMPILER) $(UTILS) $(TEAM) -o $(BIN_PATH)/Team $(LIBS)
 	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/GameBoy $(LIBS)
 	$(COMPILER) $(UTILS) $(BROKER) -o $(BIN_PATH)/Broker $(LIBS)
 	#$(COMPILER) $(UTILS) $(GAMECARD) -o $(BIN_PATH)/GameCard $(LIBS)

@@ -18,6 +18,7 @@ int iniciar_conexion_con_broker() {
 }
 
 void iniciar_conexion_con_gameboy() {
+	log_trace(logger,"Iniciar conexion con gameboy");
 	char * ip_gameboy = config_get_string_value(config, "IP_GAMEBOY");
 	char * puerto_gameboy = config_get_string_value(config, "PUERTO_GAMEBOY");
 
