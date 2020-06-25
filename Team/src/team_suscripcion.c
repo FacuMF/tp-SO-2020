@@ -31,8 +31,6 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 	log_trace(logger, "Mensaje suscripcion enviado");
 }
 
-
-
 // RECEPCION MENSAJES
 
 void manejar_recibo_mensajes(int conexion, op_code cod_op) {  //TODO: pending
@@ -72,7 +70,7 @@ void manejar_recibo_mensajes(int conexion, op_code cod_op) {  //TODO: pending
 
 	// Agregar a lista
 	// Avisar planificador
-	close(conexion);
+
 	log_trace(logger, "Mensaje recibido manejado.");
 }
 

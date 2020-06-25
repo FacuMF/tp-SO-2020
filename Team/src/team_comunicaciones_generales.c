@@ -45,7 +45,7 @@ void esperar_mensajes_cola(void* input) {
 	int conexion = *((int *) input);
 	int cod_op = 1;
 
-	while (cod_op >= 0) {
+	while (cod_op>0) {
 		cod_op = recibir_codigo_operacion(conexion);
 		(cod_op == -1) ?
 				log_error(logger, "Error en 'recibir_codigo_operacion'") :
@@ -79,7 +79,8 @@ void enviar_mensaje_get(void*element) {
 
 	//TODO: espera rta con id
 	//agrega id a lista de ids
-	// cierra socket
+
+	close(socket_broker);
 
 }
 
@@ -100,6 +101,7 @@ void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar) { //
 
 	//TODO: espera rta con id
 	//agrega id a lista de ids
-	// cierra socket
+
+	close(socket_broker);
 }
 
