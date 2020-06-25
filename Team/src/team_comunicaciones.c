@@ -168,7 +168,7 @@ void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar) { //
 
 	t_buffer*mensaje_catch_serializado = serializar_catch_pokemon(mensaje_catch);
 
-	enviar_mensaje(socket_broker,mensaje_catch,CATCH_POKEMON);
+	enviar_mensaje(socket_broker,mensaje_catch_serializado,CATCH_POKEMON);
 
 	log_trace(logger, "Enviado catch para: %s",mensaje_appeared_a_capturar->pokemon);
 	free(mensaje_catch_serializado);
