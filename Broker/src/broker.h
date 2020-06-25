@@ -26,6 +26,8 @@ int algoritmo_remplazo;
 int algoritmo_particion_libre;
 int frecuencia_compactacion;
 
+int contador_intentos_para_compactar;
+
 
 typedef struct{
 	t_list* subscriptores; // lista de suscriptor_queue
@@ -139,6 +141,8 @@ void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaj
 
 _Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2);
 
+void mover_info_cache(int desde_offset, int hasta_offset, int tamanio);
+
 //Dump
 void log_dump_de_cache();
 void log_header_dump();
@@ -170,6 +174,21 @@ _Bool es_victima(void* particion, t_mensaje_cache* victima);
 
 void borrar_particiones_del_inicio(int cant_particiones_a_borrar);
 void agrego_part_vacia(int offset, int tamanio);
+
+_Bool es_vacia_particion(t_mensaje_cache* particion);
+_Bool es_ultima_particion(t_mensaje_cache* particion);
+
+// Generales
+
+_Bool particiones_iguales (t_mensaje_cache* una_part, t_mensaje_cache* otra_part);
+void log_mensaje_de_cache(t_mensaje_cache* particion_mensaje);
+
+//Compactar
+
+void compactar_cache_si_corresponde();
+_Bool corresponde_compactar();
+_Bool esta_compactada();
+
 
 //Funciones especificas por mensaje ---------------------------------------------
 

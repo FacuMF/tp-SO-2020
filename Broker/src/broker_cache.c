@@ -46,8 +46,7 @@ void inicializacion_cache(void){
 }
 
 void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* mensaje_a_cachear){
-	//De aca en adelante se puede generalizar para todos los mensajes, no solo appeared.
-		//TODO: Pasar a cachear_mensaje() en broker_general
+
 		int tamano_a_cachear = ((size_stream >= tamano_minimo_particion)? size_stream : tamano_minimo_particion);
 		_Bool no_se_agrego_mensaje_a_cache = true;
 
@@ -114,6 +113,9 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 				agregar_mensaje_a_cache(mensaje_a_cachear,size_stream , particion_mensaje);
 				log_trace(logger, "Se agrego mensaje a la cache.");
 				// TODO, sacar deserializar y loggear.
+
+				log_mensaje_de_cache(particion_mensaje);
+
 				// Se agrega el mensaje a cachear al malloc de la cache con el offset que indica en la estructura administrativa.
 
 				list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria); // Se reordena la estructura administrativa.
@@ -127,7 +129,7 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 				log_trace(logger, "No hay lugar");
 
 				elegir_vitima_y_eliminarla(); // Y consolido
-				//compactar_cache_si_corresponde();
+				compactar_cache_si_corresponde();
 
 				//no_se_agrego_mensaje_a_cache = false;
 			}
@@ -429,9 +431,7 @@ _Bool es_primera_part() {
 
 _Bool es_ultima_part() {
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
-	log_warning(logger, "Victima: offset %i, tamanio %i. Tamanio memoria: tamano_memoria.", victima->offset, victima->tamanio);
-	//return (victima->offset + victima->tamanio) == tamano_memoria;
-	return false;
+	return es_ultima_particion(victima);
 }
 
 void borrar_particiones_del_inicio(int cant_particiones_a_borrar){
@@ -531,6 +531,106 @@ _Bool es_victima(void* particion, t_mensaje_cache* victima){
 	return ((t_mensaje_cache*) particion)->offset == victima->offset;;
 }
 
+void compactar_cache_si_corresponde(){
+	if(corresponde_compactar()){
+		//Si esta tod0 lleno no compactar
+		//Recorrer hasta que encuentres vacio con uno lleno a la derecha, y invertirlos y volves a correr el algoritmo.
+		//Si encuentro uno vacio con uno vacio a la derecha consolido y vuelvo a correr el algoritmo.
+		//Lo corro hasta que para toda particion, !es_vacio || (es_vacio && es_ultimo), osea lo corro hasta que este compactado
+
+		while(!esta_compactada()){
+
+			int num_particion;
+			int maximo_for = list_size(struct_admin_cache);
+
+			for (num_particion = 0; num_particion < list_size(struct_admin_cache); num_particion++) {
+
+				_Bool es_ultimo = es_ultima_particion(list_get(struct_admin_cache, num_particion));
+				_Bool es_vacio = es_vacia_particion(list_get(struct_admin_cache, num_particion));
+				// Si no es ultimo y no esta vacio, se chequea. Si no, se pasa de largo.
+				if( !es_ultimo &&  !es_vacio ){
+					_Bool siguiente_vacio = es_vacia_particion(list_get(struct_admin_cache, num_particion + 1));
+
+					if(siguiente_vacio){
+						consolidar_cache();
+
+						num_particion = maximo_for; //Salgo del for
+
+					}else {
+						// Remplazar lo que esta en a siguiente, por lo que esta en la actual, que es vacia.
+						t_mensaje_cache* particion = list_get(struct_admin_cache, num_particion);
+						t_mensaje_cache* siguiente = list_get(struct_admin_cache, num_particion - 1);
+						int desde_offset = siguiente->offset;
+						int hasta_offset = particion->offset;
+						int tamanio = siguiente ->tamanio;
+
+						mover_info_cache(desde_offset, hasta_offset, tamanio);
+
+						// Lo que esta en siguiente lo copio en particion.
+
+						void copiar_siguiente_en_particion_y_particion_en_siguiente(void* una_particion){
+							if(particiones_iguales(particion, (t_mensaje_cache*) una_particion)){
+								//Si es la particion => lo muevo al lugar de siguiente
+
+								((t_mensaje_cache*) una_particion)->offset += siguiente ->tamanio;
+							}
+							if(particiones_iguales(particion, (t_mensaje_cache*) una_particion)){
+								// Si es la siguiente => Le pongo la info de la particion
+								((t_mensaje_cache*) una_particion)->offset -= particion ->tamanio;
+							}
+						}
+
+
+						list_iterate(struct_admin_cache, copiar_siguiente_en_particion_y_particion_en_siguiente);
+
+
+						num_particion = maximo_for; //Salgo del for
+
+					}
+
+
+				} // Si no hizo nada en el if, es porque es ultimo o porque no es vacio
+
+			}
+
+		}
+	}
+}
+
+_Bool corresponde_compactar() {
+	if(contador_intentos_para_compactar == 0){
+		contador_intentos_para_compactar = frecuencia_compactacion;
+		return true;
+	}else{
+		return false;
+	}
+}
+
+_Bool esta_compactada() {
+
+	_Bool no_es_vacio_o_es_vacio_y_ultimo(void* particion) {
+		return !es_vacia_particion(particion) || (es_vacia_particion(particion) && es_ultima_particion(particion));
+	}
+
+	return list_all_satisfy(struct_admin_cache, no_es_vacio_o_es_vacio_y_ultimo);
+}
+
+_Bool es_vacia_particion(t_mensaje_cache* particion){
+	return  particion->tipo_mensaje == VACIO;
+}
+_Bool es_ultima_particion(t_mensaje_cache* particion){
+	return particion->offset + particion->tamanio == tamano_memoria;
+}
+
+void mover_info_cache(int desde_offset, int hasta_offset, int tamanio){
+	memcpy(memoria_cache+hasta_offset, memoria_cache+desde_offset, tamanio);
+}
+
+_Bool particiones_iguales (t_mensaje_cache* una_part, t_mensaje_cache* otra_part) {
+	return una_part->offset == otra_part->offset;
+}
+
+
 void log_dump_de_cache(){
 	int num_particion = 1;
 	log_debug(logger, "--------------------------------------------------------------------------------------------------");
@@ -574,6 +674,31 @@ void log_header_dump() {
 	log_debug(logger, "Dump: %i/%i/%i %i:%i:%i",
 			local->tm_mday, local->tm_mon, local->tm_year,
 			local->tm_hour, local->tm_min, local->tm_sec);
+
+
+}
+
+void log_mensaje_de_cache(t_mensaje_cache* particion_mensaje){
+
+	void* stream = malloc(particion_mensaje->tamanio);
+	memcpy(stream, memoria_cache + particion_mensaje->offset, particion_mensaje->tamanio);
+
+	switch (particion_mensaje->tipo_mensaje) {
+		case APPEARED_POKEMON:
+			;
+			t_appeared_pokemon* mensaje = deserializar_appeared_pokemon(stream);
+
+			log_trace(logger, "El mensaje que se guardo en cache, deserializado es: %s",
+					mostrar_appeared_pokemon(mensaje));
+
+			break;
+		default:
+
+			log_trace(logger, "No se puede imprimir un mensaje vacio.");
+
+			break;
+	}
+
 
 
 }
