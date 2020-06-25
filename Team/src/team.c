@@ -14,7 +14,7 @@ int main(int argv, char*archivo_config[]) {
 
 	pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,NULL);
 
-	//iniciar_conexion_con_gameboy();
+	iniciar_conexion_con_gameboy();
 
 	sleep(10000); //TT
 	finalizar_team();

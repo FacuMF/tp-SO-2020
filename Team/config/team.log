@@ -63208,3 +63208,29 @@
 [INFO] 22:13:21:106 Team/(2510:2526): Mensaje CAUGHT_POKEMON: ID mensaje: 19, ok/fail: 1
 [TRACE] 22:13:21:106 Team/(2510:2526): Recepcion confirmada: 12 4 19
 [TRACE] 22:13:21:106 Team/(2510:2526): Mensaje recibido manejado.
+[TRACE] 22:20:20:820 Team/(3324:3324): Log inicializado
+[TRACE] 22:20:20:820 Team/(3324:3324): Entrenadores cargados
+[TRACE] 22:20:20:820 Team/(3324:3324): Kokemones obtenidos
+[TRACE] 22:20:20:820 Team/(3324:3324): Objetivos Formados
+[TRACE] 22:20:20:820 Team/(3324:3324): Entrenador lanzado: Pos 1 2
+[TRACE] 22:20:20:820 Team/(3324:3324): Entrenador lanzado: Pos 3 7
+[TRACE] 22:20:20:820 Team/(3324:3324): Entrenador lanzado: Pos 5 5
+[INFO] 22:20:20:821 Team/(3324:3329): Broker dio -1, esperando para reintentar
+[INFO] 22:20:20:821 Team/(3324:3328): Broker dio -1, esperando para reintentar
+[INFO] 22:20:25:838 Team/(3324:3329): Broker dio -1, esperando para reintentar
+[INFO] 22:20:25:838 Team/(3324:3328): Broker dio -1, esperando para reintentar
+[TRACE] 22:20:30:848 Team/(3324:3328): Mensaje suscripcion enviado
+[TRACE] 22:20:30:848 Team/(3324:3329): Enviado get para: Pikachu
+[TRACE] 22:20:30:849 Team/(3324:3328): Suscripcion completada
+[TRACE] 22:20:30:850 Team/(3324:3329): Enviado get para: Squirtle
+[TRACE] 22:20:30:850 Team/(3324:3329): Enviado get para: Pidgey
+[TRACE] 22:20:30:850 Team/(3324:3329): Enviado get para: Charmander
+[TRACE] 22:20:30:850 Team/(3324:3329): Enviado get para: Bulbasaur
+[TRACE] 22:20:30:851 Team/(3324:3328): Mensaje suscripcion enviado
+[TRACE] 22:20:30:851 Team/(3324:3328): Suscripcion completada
+[TRACE] 22:20:30:851 Team/(3324:3328): Mensaje suscripcion enviado
+[TRACE] 22:20:30:851 Team/(3324:3328): Suscripcion completada
+[TRACE] 22:20:42:287 Team/(3324:3352): Mensaje recibido, cod_op: 4.
+[INFO] 22:20:42:287 Team/(3324:3352): Mensaje CAUGHT_POKEMON: ID mensaje: 5, ok/fail: 1
+[TRACE] 22:20:42:287 Team/(3324:3352): Recepcion confirmada: 16 4 5
+[TRACE] 22:20:42:287 Team/(3324:3352): Mensaje recibido manejado.
