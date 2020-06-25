@@ -4,7 +4,6 @@
 #include "../../Base/Utils/src/utils.h"
 #include "../../Base/Utils/src/utils_mensajes.h"
 
-
 t_log* logger;
 t_config* config;
 
@@ -12,6 +11,7 @@ t_config* config;
 t_list * objetivo_global;
 t_list * pokemones_con_repetidos;
 t_list * head_entrenadores;
+t_list * ids_mensajes_utiles;
 
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
@@ -37,6 +37,7 @@ typedef struct t_entrenador {
 // Funciones generales
 void iniciar_team(char*archivo_config[]);
 void inicializar_listas();
+void iniciar_planificador();
 void finalizar_team();
 char * obtener_path(char*string);
 
@@ -44,7 +45,7 @@ void agregar_atrapado_global();
 // Funciones de comunicacion general
 void esperar_cliente(int socket_servidor);
 void esperar_mensajes_cola(void* input);
-void manejar_recibo_mensajes(int conexion,op_code cod_op);
+void manejar_recibo_mensajes(int conexion,op_code cod_op,int es_respuesta);
 
 // Funciones de inicio de conexion
 int iniciar_conexion_con_broker();

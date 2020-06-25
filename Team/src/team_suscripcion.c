@@ -33,7 +33,7 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 
 // RECEPCION MENSAJES
 
-void manejar_recibo_mensajes(int conexion, op_code cod_op) {  //TODO: pending
+void manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	t_buffer * buffer = recibir_mensaje(conexion);
 	int id_mensaje;
 
@@ -59,17 +59,35 @@ void manejar_recibo_mensajes(int conexion, op_code cod_op) {  //TODO: pending
 		log_info(logger, "Mensaje LOCALIZED_POKEMON: %s",mostrar_localized(mensaje_localized));
 
 		break;
+	case GET_POKEMON:
+		;
+		t_get_pokemon* mensaje_get= deserializar_get_pokemon(buffer);
+		id_mensaje = mensaje_get->id_mensaje;
+
+		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
+
+		break;
+	case CATCH_POKEMON:
+		;
+		t_catch_pokemon* mensaje_catch= deserializar_catch_pokemon(buffer);
+		id_mensaje = mensaje_catch->id_mensaje;
+
+		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
+
+		break;
 	default:
 		log_error(logger, "Opcode inválido.");
 		break;
 	}
 
-	confirmar_recepcion(conexion, cod_op, id_mensaje);
-
-	log_trace(logger, "Recepcion confirmada: %d %d %d", conexion, cod_op, id_mensaje);
-
-	// Agregar a lista
-	// Avisar planificador
+	if (es_respuesta) {
+		list_add(ids_mensajes_utiles, &id_mensaje);
+	} else {
+		confirmar_recepcion(conexion, cod_op, id_mensaje);
+		//TODO: Agregar a lista tareas
+		//TODO: Avisar planificador
+		log_trace(logger, "Recepcion confirmada: %d %d %d", conexion, cod_op, id_mensaje);
+	}
 
 	log_trace(logger, "Mensaje recibido manejado.");
 }
