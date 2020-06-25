@@ -62958,3 +62958,54 @@
 [TRACE] 21:02:17:951 Team/(29350:29384): Mensaje recibido, cod_op: 4.
 [TRACE] 21:02:17:951 Team/(29350:29384): Mensaje recibido manejado.
 [INFO] 21:02:17:951 Team/(29350:29410): Se recibio un mensaje CAUGHT_POKEMON, ID mensaje: 7, ok/fail: 1
+[TRACE] 21:11:10:684 Team/(30193:30193): Log inicializado
+[TRACE] 21:11:10:685 Team/(30193:30193): Entrenadores cargados
+[TRACE] 21:11:10:685 Team/(30193:30193): Kokemones obtenidos
+[TRACE] 21:11:10:685 Team/(30193:30193): Objetivos Formados
+[TRACE] 21:11:10:685 Team/(30193:30193): Entrenador lanzado: Pos 1 2
+[TRACE] 21:11:10:685 Team/(30193:30193): Entrenador lanzado: Pos 3 7
+[TRACE] 21:11:10:685 Team/(30193:30193): Entrenador lanzado: Pos 5 5
+[TRACE] 21:11:10:686 Team/(30193:30198): Enviado get para: Pikachu
+[TRACE] 21:11:10:686 Team/(30193:30198): Enviado get para: Squirtle
+[TRACE] 21:11:10:686 Team/(30193:30198): Enviado get para: Pidgey
+[TRACE] 21:11:10:686 Team/(30193:30197): Mensaje suscripcion enviado
+[TRACE] 21:11:10:687 Team/(30193:30198): Enviado get para: Charmander
+[TRACE] 21:11:10:687 Team/(30193:30198): Enviado get para: Bulbasaur
+[TRACE] 21:11:10:687 Team/(30193:30197): Suscripcion completada
+[TRACE] 21:11:10:688 Team/(30193:30197): Mensaje suscripcion enviado
+[TRACE] 21:11:10:688 Team/(30193:30197): Suscripcion completada
+[TRACE] 21:11:10:688 Team/(30193:30197): Mensaje suscripcion enviado
+[TRACE] 21:11:10:689 Team/(30193:30197): Suscripcion completada
+[TRACE] 21:11:17:208 Team/(30193:30209): Mensaje recibido, cod_op: 4.
+[TRACE] 21:11:17:208 Team/(30193:30209): Mensaje recibido manejado.
+[INFO] 21:11:17:209 Team/(30193:30224): Se recibio un mensaje CAUGHT_POKEMON, ID mensaje: 5, ok/fail: 1
+[TRACE] 21:11:20:200 Team/(30193:30209): Mensaje recibido, cod_op: 4.
+[TRACE] 21:11:20:200 Team/(30193:30209): Mensaje recibido manejado.
+[INFO] 21:11:20:201 Team/(30193:30232): Se recibio un mensaje CAUGHT_POKEMON, ID mensaje: 6, ok/fail: 1
+[TRACE] 21:11:21:728 Team/(30193:30209): Mensaje recibido, cod_op: 4.
+[TRACE] 21:11:21:728 Team/(30193:30209): Mensaje recibido manejado.
+[INFO] 21:11:21:729 Team/(30193:30236): Se recibio un mensaje CAUGHT_POKEMON, ID mensaje: 7, ok/fail: 1
+[TRACE] 21:11:23:97 Team/(30193:30205): Mensaje recibido, cod_op: 2.
+[TRACE] 21:11:23:97 Team/(30193:30205): Mensaje recibido manejado.
+[INFO] 21:11:23:101 Team/(30193:30240): Se recibio un mensaje APPEARED_POKEMON, Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 8
+[TRACE] 21:40:01:492 Team/(32198:32198): Log inicializado
+[TRACE] 21:40:01:492 Team/(32198:32198): Entrenadores cargados
+[TRACE] 21:40:01:492 Team/(32198:32198): Kokemones obtenidos
+[TRACE] 21:40:01:493 Team/(32198:32198): Objetivos Formados
+[TRACE] 21:40:01:493 Team/(32198:32198): Entrenador lanzado: Pos 1 2
+[TRACE] 21:40:01:493 Team/(32198:32198): Entrenador lanzado: Pos 3 7
+[TRACE] 21:40:01:493 Team/(32198:32198): Entrenador lanzado: Pos 5 5
+[TRACE] 21:40:01:494 Team/(32198:32203): Enviado get para: Pikachu
+[TRACE] 21:40:01:494 Team/(32198:32202): Mensaje suscripcion enviado
+[TRACE] 21:40:01:494 Team/(32198:32203): Enviado get para: Squirtle
+[TRACE] 21:40:01:495 Team/(32198:32202): Suscripcion completada
+[TRACE] 21:40:01:495 Team/(32198:32202): Mensaje suscripcion enviado
+[TRACE] 21:40:01:495 Team/(32198:32202): Suscripcion completada
+[TRACE] 21:40:01:496 Team/(32198:32202): Mensaje suscripcion enviado
+[TRACE] 21:40:01:496 Team/(32198:32202): Suscripcion completada
+[TRACE] 21:40:01:496 Team/(32198:32203): Enviado get para: Pidgey
+[TRACE] 21:40:01:496 Team/(32198:32203): Enviado get para: Charmander
+[TRACE] 21:40:01:496 Team/(32198:32203): Enviado get para: Bulbasaur
+[TRACE] 21:40:11:632 Team/(32198:32207): Mensaje recibido, cod_op: 2.
+[TRACE] 21:40:11:632 Team/(32198:32207): Mensaje recibido manejado.
+[INFO] 21:40:11:636 Team/(32198:32231): Se recibio un mensaje APPEARED_POKEMON, Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 5

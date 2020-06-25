@@ -58,48 +58,44 @@ void esperar_mensajes_cola(void* input) {
 // RECEPCION MENSAJES
 
 void manejar_recibo_mensajes(int conexion, op_code cod_op) {  //TODO: pending
-	t_buffer * buffer_recibido = recibir_mensaje(conexion);
+	t_buffer * buffer = recibir_mensaje(conexion);
+	int id_mensaje;
+
 	switch (cod_op) {
 	case APPEARED_POKEMON:
-		pthread_create(&thread, NULL, (void*) recibir_mensaje_appeared,
-				buffer_recibido);
+		;
+		t_appeared_pokemon * mensaje_appeared = deserializar_appeared_pokemon(buffer);
+		id_mensaje = mensaje_appeared->id_mensaje;
+		log_info(logger, "Mensaje APPEARED_POKEMON: %s",mostrar_appeared_pokemon(mensaje_appeared));
+
 		break;
 	case CAUGHT_POKEMON:
-		pthread_create(&thread, NULL, (void*) recibir_mensaje_caught,
-				buffer_recibido);
-		// Esperar a que termine de recibir, no hace falta hilo
+		;
+		t_caught_pokemon* mensaje_caught= deserializar_caught_pokemon(buffer);
+		id_mensaje = mensaje_caught->id_mensaje;
+		log_info(logger, "Mensaje CAUGHT_POKEMON: %s", mostrar_caught_pokemon(mensaje_caught));
+
 		break;
 	case LOCALIZED_POKEMON:
-		pthread_create(&thread, NULL, (void*) recibir_mensaje_localized,
-				buffer_recibido);
+		;
+		t_localized* mensaje_localized= deserializar_localized_pokemon(buffer);
+		id_mensaje = mensaje_localized->id_mensaje;
+		log_info(logger, "Mensaje LOCALIZED_POKEMON: %s",mostrar_localized(mensaje_localized));
+
 		break;
 	default:
 		log_error(logger, "Opcode inválido.");
 		break;
 	}
 
-	// Responder que recibi el mensaje
-	// Agregar a lista planif
-	// Aviso de nuevo msj a planif para q planif
+	confirmar_recepcion(conexion, cod_op, id_mensaje);
+
+	// Agregar a lista
+	// Avisar planificador
 
 	log_trace(logger, "Mensaje recibido manejado.");
 }
 
-
-void recibir_mensaje_appeared(t_buffer * buffer) {
-	t_appeared_pokemon * mensaje_appeared = deserializar_appeared_pokemon(buffer);
-	log_info(logger, "Mensaje APPEARED_POKEMON: %s",mostrar_appeared_pokemon(mensaje_appeared));
-}
-
-void recibir_mensaje_caught(t_buffer * buffer) {
-	t_caught_pokemon* mensaje_caught_pokemon = deserializar_caught_pokemon(buffer);
-	log_info(logger, "Mensaje CAUGHT_POKEMON: %s", mostrar_caught_pokemon(mensaje_caught_pokemon));
-}
-
-void recibir_mensaje_localized(t_buffer * buffer) {
-	t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(buffer);
-	log_info(logger, "Mensaje LOCALIZED_POKEMON: %s",mostrar_localized(mensaje_localized_pokemon));
-}
 
 // SUSCRIPCION
 void suscribirse_a_colas_necesarias() {
