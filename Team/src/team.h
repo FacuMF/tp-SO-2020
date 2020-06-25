@@ -9,7 +9,7 @@ t_config* config;
 
 //Listas globales de pokemones y entrenadores
 t_list * objetivo_global;
-t_list * pokemones_con_repetidos;
+t_list * pokemones_por_capturar_global;
 t_list * head_entrenadores;
 t_list * ids_mensajes_utiles;
 
@@ -81,7 +81,8 @@ int* de_string_a_posicion(char* string);
 t_list* string_a_pokemon_list(char* string);
 
 //Funciones de obtencion de los pokemones
-t_list* obtener_pokemones(t_list *head_entrenadores);
+t_list* obtener_pokemones_a_capturar();
+t_list * obtener_pokemones_capturados();
 void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones);
 
 //Funciones de mostrado de entrenador y pokemon
@@ -91,11 +92,14 @@ void mostrar_kokemon(void*elemento);
 
 
 //Funciones de objetivo general - team_objetivos
-t_list* formar_objetivo(t_list * pokemones_repetidos);
-void agrego_si_no_existe(t_list * objetivo_global, void *elemento);
+t_list* formar_lista_de_objetivos(t_list * lista_de_pokemones);
+void agrego_si_no_existe(t_list * lista_objetivo, void *nombrePokemon);
 void mostrar_objetivo(void *elemento);
-t_list * obtener_pokemones_de_lista_seleccionada(t_list * lista_seleccionada);
-int cantidad_pokemon_en_lista_objetivos(t_list * lista_seleccionada, char * pokemon);
+
+bool requiero_pokemon(char * pokemon_a_chequear);
+t_objetivo * hallar_objetivo_segun_pokemon(t_list * lista_seleccionada,char*pokemon_a_buscar);
+bool objetivo_de_pokemon_cumplido(t_objetivo * objetivo_pokemon, t_list * pokemones_atrapados);
+
 bool objetivo_cumplido(t_entrenador *entrenador);
 bool pokemon_igual(char *un_pokemon, char * otro_pokemon);
 bool esta_en_lista(char * pokemon,t_list * lista_pokemones);
@@ -118,12 +122,6 @@ void desbloquear_entrenador(t_entrenador * entrenador);
 void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy);
 void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy);
 // atrapar_pokemon(entrenador,appeared_pokemon);
-
-
-bool requiero_pokemon(t_appeared_pokemon * mensaje_appeared);
-bool esta_pokemon_objetivo(char *pokemon_candidato);
-//bool capture_pokemon_objetivo(char * pokemon_candidato);
-bool pokemon_fue_atrapado_cantidad_necesaria(char *pokemon);
 
 
 

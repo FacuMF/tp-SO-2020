@@ -7,6 +7,13 @@ int main(int argv, char*archivo_config[]) {
 	iniciar_team(archivo_config);
 
 	inicializar_listas();
+	// TT
+		 bool prueba =requiero_pokemon("Cualquiera");
+		 if (prueba == 1){
+			 log_trace(logger, "Entre bien");
+		 }else{
+			 log_trace(logger,"No requiero");
+		 }
 
 	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
@@ -26,6 +33,7 @@ void iniciar_team(char*argumentos_iniciales[]) {
 	char * nombre_archivo_config = malloc(sizeof(argumentos_iniciales[1]));
 	strcpy(nombre_archivo_config, argumentos_iniciales[1]);
 	char *path_config = obtener_path(nombre_archivo_config);
+
 
 	// Obtener info de config
 	config = leer_config(path_config);
@@ -47,8 +55,8 @@ void iniciar_team(char*argumentos_iniciales[]) {
 
 void inicializar_listas(){
 	head_entrenadores = cargar_entrenadores();
-	pokemones_con_repetidos = obtener_pokemones(head_entrenadores);
-	objetivo_global = formar_objetivo(pokemones_con_repetidos);
+	pokemones_por_capturar_global = obtener_pokemones_a_capturar();
+	objetivo_global = formar_lista_de_objetivos(pokemones_por_capturar_global);
 	ids_mensajes_utiles = list_create();
 }
 
