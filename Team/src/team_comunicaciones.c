@@ -90,9 +90,11 @@ void manejar_recibo_mensajes(int conexion, op_code cod_op) {  //TODO: pending
 
 	confirmar_recepcion(conexion, cod_op, id_mensaje);
 
+	log_trace(logger, "Recepcion confirmada: %d %d %d", conexion, cod_op, id_mensaje);
+
 	// Agregar a lista
 	// Avisar planificador
-
+	close(conexion);
 	log_trace(logger, "Mensaje recibido manejado.");
 }
 
