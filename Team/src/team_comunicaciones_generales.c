@@ -97,9 +97,10 @@ void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar) { //
 	enviar_mensaje(socket_broker,mensaje_catch_serializado,CATCH_POKEMON);
 
 	log_trace(logger, "Enviado catch para: %s",mensaje_appeared_a_capturar->pokemon);
+
 	free(mensaje_catch_serializado);
 
-	manejar_recibo_mensajes(socket_broker,CATCH_POKEMON, 1);
+	manejar_recibo_mensajes(socket_broker,recibir_codigo_operacion(socket_broker), 1);
 
 	close(socket_broker);
 }
