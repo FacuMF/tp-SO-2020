@@ -39,6 +39,10 @@ void inicializacion_cache(void){
 
 	actual_lru_flag = 0;
 
+	//Compactacion
+
+	contador_intentos_para_compactar = frecuencia_compactacion;
+
 	//Inicializar semaforos
 
 
@@ -68,8 +72,6 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 				// Se ordenan las particiones, tanto ocupadas como desocupadas, dejando adelante las libres y con tamano suficiente
 				// y dejando primera la que se debe remplazar.En FirstFit, se deja primero la de offset menor, y en BestFit la de tamano menor. (Switch)
 
-			log_warning(logger, "Va a hacer dump");
-			log_dump_de_cache();
 
 			//no_se_agrego_mensaje_a_cache = false;
 
@@ -88,7 +90,6 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 				// Al final de la estructura administrativa agrego un elemento que referencia el mensaje por agregar.
 				log_trace(logger, "Se agrego la particion con el mensaje.");
 
-				log_dump_de_cache();
 
 
 				if( queda_espacio_libre( tamano_a_cachear, list_get (struct_admin_cache, 0) ) ){
@@ -100,14 +101,13 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 					// de la estructura administrativa.
 					log_trace(logger, "Se agrego la particion sobrante.");
 
-					log_dump_de_cache();
 				}
 
 				borrar_particiones_del_inicio(1);
 				log_trace(logger, "Se borro la particion vacia antigua, y fue replazada por la ocupada y su sobrante.");
 				// Ahora borro el primer elemento de la estructura administrativa. Es la particion libre elegida, que se llenara total o parcialmente,
 				// pero en ambos casos su informacion ya esta contemplada por los elementos que acabo de agregar.
-				log_dump_de_cache();
+				//log_dump_de_cache();
 
 				agregar_mensaje_a_cache(mensaje_a_cachear,size_stream , particion_mensaje);
 				log_trace(logger, "Se agrego mensaje a la cache.");
@@ -127,9 +127,7 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 				log_trace(logger, "No hay lugar");
 
 				elegir_vitima_y_eliminarla(); // Y consolido
-				//compactar_cache_si_corresponde();
-
-				no_se_agrego_mensaje_a_cache = false;
+				compactar_cache_si_corresponde();
 			}
 		}
 }
@@ -321,12 +319,12 @@ void elegir_vitima_y_eliminarla() {
 	list_sort(struct_admin_cache, ordenar_segun_lru_flag); //Dejo primero al que quiero borrar
 	log_trace(logger, "Cache ordenada por LRU flag.");
 
-	log_dump_de_cache();
+	//log_dump_de_cache();
 
 	int id_victima = ( (t_mensaje_cache*)list_get(struct_admin_cache, 0) ) -> id;
 	log_trace(logger, "El id de la victima elegida es: %i.", id_victima);
 
-	log_dump_de_cache();
+	//log_dump_de_cache();
 
 	void vaciar_una_particion(void* particion){
 		if(((t_mensaje_cache*) particion)->id == id_victima) // Si es victima
@@ -335,12 +333,12 @@ void elegir_vitima_y_eliminarla() {
 	list_iterate(struct_admin_cache, vaciar_una_particion);
 	log_trace(logger, "Particion victima vacia.");
 
-	log_dump_de_cache();
+	//log_dump_de_cache();
 
 	consolidar_cache(); //La victima quedo primera
 	log_trace(logger, "Consolidacion terminada.");
 
-	log_dump_de_cache();
+	//log_dump_de_cache();
 
 	list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria);
 	log_trace(logger, "Cache ordenada por offset.");
@@ -530,6 +528,8 @@ _Bool es_victima(void* particion, t_mensaje_cache* victima){
 }
 
 void compactar_cache_si_corresponde(){
+	log_warning(logger, "Corresponde compactar: %i.", corresponde_compactar() );
+
 	if(corresponde_compactar()){
 		//Si esta tod0 lleno no compactar
 		//Recorrer hasta que encuentres vacio con uno lleno a la derecha, y invertirlos y volves a correr el algoritmo.
@@ -537,65 +537,120 @@ void compactar_cache_si_corresponde(){
 		//Lo corro hasta que para toda particion, !es_vacio || (es_vacio && es_ultimo), osea lo corro hasta que este compactado
 
 		while(!esta_compactada()){
+			log_trace(logger, "No esta compactada, se va a compactar");
 
-			int num_particion;
-			int maximo_for = list_size(struct_admin_cache);
+			algoritmo_de_compactacion();
 
-			for (num_particion = 0; num_particion < list_size(struct_admin_cache); num_particion++) {
-
-				_Bool es_ultimo = es_ultima_particion(list_get(struct_admin_cache, num_particion));
-				_Bool es_vacio = es_vacia_particion(list_get(struct_admin_cache, num_particion));
-				// Si no es ultimo y no esta vacio, se chequea. Si no, se pasa de largo.
-				if( !es_ultimo &&  !es_vacio ){
-					_Bool siguiente_vacio = es_vacia_particion(list_get(struct_admin_cache, num_particion + 1));
-
-					if(siguiente_vacio){
-						consolidar_cache();
-
-						num_particion = maximo_for; //Salgo del for
-
-					}else {
-						// Remplazar lo que esta en a siguiente, por lo que esta en la actual, que es vacia.
-						t_mensaje_cache* particion = list_get(struct_admin_cache, num_particion);
-						t_mensaje_cache* siguiente = list_get(struct_admin_cache, num_particion - 1);
-						int desde_offset = siguiente->offset;
-						int hasta_offset = particion->offset;
-						int tamanio = siguiente ->tamanio;
-
-						mover_info_cache(desde_offset, hasta_offset, tamanio);
-
-						// Lo que esta en siguiente lo copio en particion.
-
-						void copiar_siguiente_en_particion_y_particion_en_siguiente(void* una_particion){
-							if(particiones_iguales(particion, (t_mensaje_cache*) una_particion)){
-								//Si es la particion => lo muevo al lugar de siguiente
-
-								((t_mensaje_cache*) una_particion)->offset += siguiente ->tamanio;
-							}
-							if(particiones_iguales(particion, (t_mensaje_cache*) una_particion)){
-								// Si es la siguiente => Le pongo la info de la particion
-								((t_mensaje_cache*) una_particion)->offset -= particion ->tamanio;
-							}
-						}
-
-
-						list_iterate(struct_admin_cache, copiar_siguiente_en_particion_y_particion_en_siguiente);
-
-
-						num_particion = maximo_for; //Salgo del for
-
-					}
-
-
-				} // Si no hizo nada en el if, es porque es ultimo o porque no es vacio
-
-			}
 
 		}
 	}
 }
 
+void algoritmo_de_compactacion() {
+
+	list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria); //La ordeno por las dudas.
+
+	int num_particion = 0;
+	_Bool compactar_en_el_siguiente_elemento = true;
+
+	while (compactar_en_el_siguiente_elemento) {
+		log_debug(logger, "Se intentara compactar elemento %i", num_particion +1);
+
+		compactar_en_el_siguiente_elemento = intentar_compactar_elemento(num_particion);
+		//Si hizo algun cambio devuelve false para salir del while, y volver a comprobar si esta compactada.
+		//Si num_part es el ultimo elemento tambien da false.
+		//Si ese elemento no necesitaba ningun cambio, devuelve true, vuelve a hacer el while.
+
+		num_particion++;
+	}
+
+	log_trace(logger, "Se realizo un cambio con el intento de compactar, el resultado quedo asi:");
+	list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria);
+	log_dump_de_cache();
+}
+
+_Bool intentar_compactar_elemento(int num_particion){
+
+	_Bool es_ultimo = es_ultima_particion(list_get(struct_admin_cache, num_particion));
+	_Bool es_vacio = es_vacia_particion(list_get(struct_admin_cache, num_particion));
+	// Si no es ultimo y esta vacio, se chequea. Si no, se pasa de largo.
+
+	if( !es_ultimo &&  es_vacio ){
+		log_warning(logger, "No es ni ultimo ni vacio: Se va a realizar un cambio.");
+
+		_Bool siguiente_vacio = es_vacia_particion(list_get(struct_admin_cache, num_particion + 1));
+
+		if(siguiente_vacio){
+			log_warning(logger, "Siguiente es vacio, se consolidara.");
+
+			dejar_particion_adelante(num_particion); //Para consolidar tengo que dejar el elemento vacio adelante.
+			consolidar_cache();
+
+			return false; //Que se fije si esta compactada o no
+
+		}else {
+			log_warning(logger, "Siguiente es lleno, se movera la informacion.");
+
+			mover_a_particion_info_del_siguiente(num_particion);
+
+			return false; //Que se fije si esta compactada o no
+
+		}
+
+
+
+	}
+	return !es_ultimo; // Si no ultimo, que se fije el siguiente elemento, sino no que se fije si esta compactada o no
+}
+
+void dejar_particion_adelante(int num_particion){
+	t_mensaje_cache* particion = list_get(struct_admin_cache, num_particion);
+
+	_Bool particion_adelante(void* una_particion, void* otra_particion) {
+		_Bool es_particion = particiones_iguales(particion, (t_mensaje_cache*) una_particion);
+
+		return es_particion;
+	}
+
+	list_sort(struct_admin_cache, particion_adelante);
+}
+
+void mover_a_particion_info_del_siguiente(int num_particion){
+	// Remplazar lo que esta en a siguiente, por lo que esta en la actual, que es vacia.
+	t_mensaje_cache* particion = list_get(struct_admin_cache, num_particion);
+	t_mensaje_cache* siguiente = list_get(struct_admin_cache, num_particion + 1);
+	int desde_offset = siguiente->offset;
+	int hasta_offset = particion->offset;
+	int tamanio_mensaje = siguiente ->tamanio;
+
+	int nuevo_offset_particion = hasta_offset + tamanio_mensaje;
+	int nuevo_offset_siguiente = hasta_offset;
+
+	mover_info_cache(desde_offset, hasta_offset, tamanio_mensaje);
+
+	// Lo que esta en siguiente lo copio en particion.
+
+	si_es_part_mover_struct_a(particion, nuevo_offset_particion);
+	si_es_part_mover_struct_a(siguiente, nuevo_offset_siguiente);
+
+}
+
+void si_es_part_mover_struct_a(t_mensaje_cache* particion, int offset_destino){
+
+	void mover(void* una_particion){
+		if(particiones_iguales(particion, (t_mensaje_cache*) una_particion)){
+			//Si es la particion => lo muevo al lugar de siguiente
+
+			((t_mensaje_cache*) una_particion)->offset = offset_destino;
+		}
+	}
+
+	list_iterate(struct_admin_cache, mover);
+
+}
+
 _Bool corresponde_compactar() {
+	contador_intentos_para_compactar --;
 	if(contador_intentos_para_compactar == 0){
 		contador_intentos_para_compactar = frecuencia_compactacion;
 		return true;
@@ -625,7 +680,11 @@ void mover_info_cache(int desde_offset, int hasta_offset, int tamanio){
 }
 
 _Bool particiones_iguales (t_mensaje_cache* una_part, t_mensaje_cache* otra_part) {
-	return una_part->offset == otra_part->offset;
+	_Bool mismo_offset = una_part->offset == otra_part->offset;
+	_Bool mismo_tipo = una_part->tipo_mensaje == otra_part->tipo_mensaje;
+	_Bool mismo_id_o_vacio = (una_part->id == otra_part->id) || (una_part->tipo_mensaje == VACIO);
+
+	return mismo_offset && mismo_tipo && mismo_id_o_vacio;
 }
 
 
