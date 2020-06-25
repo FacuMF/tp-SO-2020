@@ -1,8 +1,15 @@
 #include "team.h"
 
-// MANEJO DE HILOS
+
 void iniciar_planificador(){
 	list_iterate(head_entrenadores, lanzar_hilo_entrenador);
+
+	//TODO: cambiar a mientras no se haya cumplido el global y no haya terminado everything
+	while(1){
+		//TODO: lockearse, esperar a que le avisen de nueva tarea
+		// Si es appeared / localized revisar si lo necesito
+		//...
+	}
 
 }
 

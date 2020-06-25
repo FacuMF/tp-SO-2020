@@ -46,6 +46,7 @@ void iniciar_team(char*argumentos_iniciales[]) {
 
 
 void inicializar_listas(){
+	//TODO: en every lugar que se usen las globales usar mutex
 	head_entrenadores = cargar_entrenadores();
 	pokemones_con_repetidos = obtener_pokemones(head_entrenadores);
 	objetivo_global = formar_objetivo(pokemones_con_repetidos);
