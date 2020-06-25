@@ -62857,3 +62857,104 @@
 [TRACE] 20:34:38:288 Team/(26150:26150): Entrenador lanzado: Pos 3 7
 [TRACE] 20:34:38:288 Team/(26150:26150): Entrenador lanzado: Pos 5 5
 [INFO] 20:34:38:288 Team/(26150:26154): Broker dio -1, esperando para reintentar
+[TRACE] 20:45:28:894 Team/(27050:27050): Log inicializado
+[TRACE] 20:45:28:894 Team/(27050:27050): Entrenadores cargados
+[TRACE] 20:45:28:894 Team/(27050:27050): Kokemones obtenidos
+[TRACE] 20:45:28:894 Team/(27050:27050): Objetivos Formados
+[TRACE] 20:45:28:894 Team/(27050:27050): Entrenador lanzado: Pos 1 2
+[TRACE] 20:45:28:894 Team/(27050:27050): Entrenador lanzado: Pos 3 7
+[TRACE] 20:45:28:894 Team/(27050:27050): Entrenador lanzado: Pos 5 5
+[INFO] 20:45:28:895 Team/(27050:27054): Broker dio -1, esperando para reintentar
+[INFO] 20:45:33:898 Team/(27050:27054): Broker dio -1, esperando para reintentar
+[TRACE] 20:45:38:907 Team/(27050:27054): Mensaje suscripcion enviado
+[TRACE] 20:45:38:908 Team/(27050:27054): Suscripcion completada
+[TRACE] 20:45:38:909 Team/(27050:27054): Mensaje suscripcion enviado
+[TRACE] 20:45:38:909 Team/(27050:27054): Suscripcion completada
+[TRACE] 20:45:38:909 Team/(27050:27054): Mensaje suscripcion enviado
+[TRACE] 20:45:38:909 Team/(27050:27054): Suscripcion completada
+[TRACE] 20:45:53:722 Team/(27050:27069): Mensaje recibido, cod_op: 4.
+[TRACE] 20:45:53:722 Team/(27050:27069): Mensaje recibido manejado.
+[INFO] 20:45:53:722 Team/(27050:27085): Se recibio un mensaje CAUGHT_POKEMON, ID mensaje: 0, ok/fail: 1
+[TRACE] 20:46:05:433 Team/(27050:27065): Mensaje recibido, cod_op: 2.
+[TRACE] 20:46:05:433 Team/(27050:27065): Mensaje recibido manejado.
+[INFO] 20:46:05:436 Team/(27050:27102): Se recibio un mensaje APPEARED_POKEMON, Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 20:46:15:841 Team/(27050:27065): Mensaje recibido, cod_op: 2.
+[TRACE] 20:46:15:841 Team/(27050:27065): Mensaje recibido manejado.
+[INFO] 20:46:15:846 Team/(27050:27116): Se recibio un mensaje APPEARED_POKEMON, Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 20:46:21:12 Team/(27050:27069): Mensaje recibido, cod_op: -1274031288.
+[TRACE] 20:46:21:12 Team/(27050:27067): Mensaje recibido, cod_op: 0.
+[TRACE] 20:46:21:12 Team/(27050:27065): Mensaje recibido, cod_op: -1257245880.
+[ERROR] 20:46:21:13 Team/(27050:27067): Opcode inválido.
+[TRACE] 20:46:21:13 Team/(27050:27067): Mensaje recibido manejado.
+[TRACE] 20:46:21:13 Team/(27050:27067): Mensaje recibido, cod_op: -1265638584.
+[TRACE] 20:50:47:470 Team/(28111:28111): Log inicializado
+[TRACE] 20:50:47:470 Team/(28111:28111): Entrenadores cargados
+[TRACE] 20:50:47:470 Team/(28111:28111): Kokemones obtenidos
+[TRACE] 20:50:47:470 Team/(28111:28111): Objetivos Formados
+[TRACE] 20:50:47:470 Team/(28111:28111): Entrenador lanzado: Pos 1 2
+[TRACE] 20:50:47:470 Team/(28111:28111): Entrenador lanzado: Pos 3 7
+[TRACE] 20:50:47:471 Team/(28111:28111): Entrenador lanzado: Pos 5 5
+[INFO] 20:50:47:471 Team/(28111:28116): Broker dio -1, esperando para reintentar
+[INFO] 20:50:47:471 Team/(28111:28115): Broker dio -1, esperando para reintentar
+[INFO] 20:50:52:478 Team/(28111:28115): Broker dio -1, esperando para reintentar
+[INFO] 20:50:52:478 Team/(28111:28116): Broker dio -1, esperando para reintentar
+[INFO] 20:50:57:479 Team/(28111:28116): Broker dio -1, esperando para reintentar
+[INFO] 20:50:57:479 Team/(28111:28115): Broker dio -1, esperando para reintentar
+[INFO] 20:51:02:487 Team/(28111:28115): Broker dio 14, esperando para reintentar
+[INFO] 20:51:02:488 Team/(28111:28116): Broker dio 13, esperando para reintentar
+[TRACE] 20:51:07:497 Team/(28111:28115): Mensaje suscripcion enviado
+[TRACE] 20:51:07:497 Team/(28111:28116): Enviado get para: Pikachu
+[TRACE] 20:51:07:498 Team/(28111:28115): Suscripcion completada
+[TRACE] 20:51:07:498 Team/(28111:28116): Enviado get para: Squirtle
+[TRACE] 20:51:07:498 Team/(28111:28116): Enviado get para: Pidgey
+[TRACE] 20:51:07:498 Team/(28111:28116): Enviado get para: Charmander
+[TRACE] 20:51:07:498 Team/(28111:28116): Enviado get para: Bulbasaur
+[TRACE] 20:51:07:498 Team/(28111:28115): Mensaje suscripcion enviado
+[TRACE] 20:51:07:499 Team/(28111:28115): Suscripcion completada
+[TRACE] 20:51:07:499 Team/(28111:28115): Mensaje suscripcion enviado
+[TRACE] 20:51:07:499 Team/(28111:28115): Suscripcion completada
+[TRACE] 20:51:24:372 Team/(28111:28151): Mensaje recibido, cod_op: 0.
+[TRACE] 20:51:24:372 Team/(28111:28149): Mensaje recibido, cod_op: 0.
+[TRACE] 20:51:24:372 Team/(28111:28142): Mensaje recibido, cod_op: 0.
+[ERROR] 20:51:24:373 Team/(28111:28151): Opcode inválido.
+[TRACE] 20:51:24:373 Team/(28111:28151): Mensaje recibido manejado.
+[TRACE] 20:51:24:373 Team/(28111:28151): Mensaje recibido, cod_op: -1282419896.
+[ERROR] 20:51:24:373 Team/(28111:28142): Opcode inválido.
+[TRACE] 20:51:24:373 Team/(28111:28142): Mensaje recibido manejado.
+[TRACE] 20:51:24:373 Team/(28111:28142): Mensaje recibido, cod_op: -1265634488.
+[ERROR] 20:51:24:373 Team/(28111:28149): Opcode inválido.
+[TRACE] 20:51:24:373 Team/(28111:28149): Mensaje recibido manejado.
+[TRACE] 20:51:24:373 Team/(28111:28149): Mensaje recibido, cod_op: -1274027192.
+[TRACE] 21:01:46:651 Team/(29350:29350): Log inicializado
+[TRACE] 21:01:46:651 Team/(29350:29350): Entrenadores cargados
+[TRACE] 21:01:46:651 Team/(29350:29350): Kokemones obtenidos
+[TRACE] 21:01:46:652 Team/(29350:29350): Objetivos Formados
+[TRACE] 21:01:46:652 Team/(29350:29350): Entrenador lanzado: Pos 1 2
+[TRACE] 21:01:46:652 Team/(29350:29350): Entrenador lanzado: Pos 3 7
+[TRACE] 21:01:46:652 Team/(29350:29350): Entrenador lanzado: Pos 5 5
+[INFO] 21:01:46:652 Team/(29350:29355): Broker dio -1, esperando para reintentar
+[INFO] 21:01:46:652 Team/(29350:29354): Broker dio -1, esperando para reintentar
+[INFO] 21:01:51:653 Team/(29350:29354): Broker dio -1, esperando para reintentar
+[INFO] 21:01:51:653 Team/(29350:29355): Broker dio -1, esperando para reintentar
+[INFO] 21:01:56:666 Team/(29350:29355): Broker dio 12, esperando para reintentar
+[INFO] 21:01:56:666 Team/(29350:29354): Broker dio 11, esperando para reintentar
+[TRACE] 21:02:01:666 Team/(29350:29355): Enviado get para: Pikachu
+[TRACE] 21:02:01:667 Team/(29350:29355): Enviado get para: Squirtle
+[TRACE] 21:02:01:667 Team/(29350:29355): Enviado get para: Pidgey
+[TRACE] 21:02:01:667 Team/(29350:29355): Enviado get para: Charmander
+[TRACE] 21:02:01:667 Team/(29350:29355): Enviado get para: Bulbasaur
+[TRACE] 21:02:01:670 Team/(29350:29354): Mensaje suscripcion enviado
+[TRACE] 21:02:01:670 Team/(29350:29354): Suscripcion completada
+[TRACE] 21:02:01:671 Team/(29350:29354): Mensaje suscripcion enviado
+[TRACE] 21:02:01:671 Team/(29350:29354): Suscripcion completada
+[TRACE] 21:02:01:671 Team/(29350:29354): Mensaje suscripcion enviado
+[TRACE] 21:02:01:671 Team/(29350:29354): Suscripcion completada
+[TRACE] 21:02:13:174 Team/(29350:29380): Mensaje recibido, cod_op: 2.
+[TRACE] 21:02:13:174 Team/(29350:29380): Mensaje recibido manejado.
+[INFO] 21:02:13:179 Team/(29350:29396): Se recibio un mensaje APPEARED_POKEMON, Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 5
+[TRACE] 21:02:15:839 Team/(29350:29380): Mensaje recibido, cod_op: 2.
+[TRACE] 21:02:15:839 Team/(29350:29380): Mensaje recibido manejado.
+[INFO] 21:02:15:843 Team/(29350:29406): Se recibio un mensaje APPEARED_POKEMON, Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 6
+[TRACE] 21:02:17:951 Team/(29350:29384): Mensaje recibido, cod_op: 4.
+[TRACE] 21:02:17:951 Team/(29350:29384): Mensaje recibido manejado.
+[INFO] 21:02:17:951 Team/(29350:29410): Se recibio un mensaje CAUGHT_POKEMON, ID mensaje: 7, ok/fail: 1

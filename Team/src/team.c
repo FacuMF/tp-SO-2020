@@ -12,9 +12,7 @@ int main(int argv, char*archivo_config[]) {
 
 	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
-	//enviar_requests_pokemones(objetivo_global);
-	//pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,
-			//objetivo_global);
+	pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,NULL);
 
 	//iniciar_conexion_con_gameboy();
 

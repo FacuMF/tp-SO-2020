@@ -56,8 +56,8 @@ void enviar_suscripcion_broker(op_code tipo_mensaje);
 void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
 
 
-void enviar_requests_pokemones(t_list *objetivo_global);
-void enviar_mensaje_get(int socket_broker, void*element);
+void enviar_requests_pokemones();
+void enviar_mensaje_get(void*element);
 
 // Funciones de recepcion de mensajes
 void recibir_mensaje_appeared(t_buffer * buffer);
