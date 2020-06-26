@@ -42,7 +42,7 @@ void cargar_parametros_suscriptor(int*, int*, char**);
  * ./bin/GameBoy BROKER NEW_POKEMON BULBASAUR 3 1 5
  * ./bin/GameBoy BROKER APPEARED_POKEMON BULBASAUR 3 1 2
  * ./bin/GameBoy BROKER CATCH_POKEMON PIKACHU 3 1
- * ./bin/GameBoy BROKER CAUGHT_POKEMON 5 1
+ * ./bin/GameBoy BROKER CAUGHT_POKEMON 1 5
  * ./bin/GameBoy BROKER GET_POKEMON SQUIRTLE
  * ./bin/GameBoy BROKER LOCALIZED_POKEMON PIKACHU 2 1 3 4 5
  *

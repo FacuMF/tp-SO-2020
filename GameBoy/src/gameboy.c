@@ -1,7 +1,6 @@
 #include "gameboy.h"
 
 int main(int argv, char* arg[]) {
-	printf("int: %d, uint32_t: %d \n", sizeof(int), sizeof(uint32_t));
 
 	inicializar_gameboy();
 
@@ -182,6 +181,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 	char* pokemon;
 	int pos_x, pos_y, cantidad, id_mensaje, cola_de_mensajes,
 			tiempo_suscripcion, id_mensaje_correlativo, ok_fail;
+	printf("Se va a enviar un mensaje");
 	switch (tipo_mensaje) {
 	case APPEARED_POKEMON:
 		;
@@ -231,23 +231,41 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		break;
 	case LOCALIZED_POKEMON:
 		;
-		t_localized* mensaje_localized;
-		pokemon = malloc(strlen(arg[3]) * sizeof(char));
-		strcpy(pokemon, arg[3]);
-		int cantidad_de_pociciones = atoi(arg[4]);
-		t_list* lista_posiciones = list_create();
+		/*t_localized* mensaje_localized;
+		 pokemon = malloc(strlen(arg[3]) * sizeof(char));
+		 strcpy(pokemon, arg[3]);
+		 int cantidad_de_pociciones = atoi(arg[4]);
+		 t_list* lista_posiciones = list_create();
+		 printf("Pokemon: %s", pokemon);
+		 for (int i = cantidad_de_pociciones; i < 0; i--) {
+		 t_posicion* posicion_a_agregar = malloc(sizeof(t_posicion));
+		 posicion_a_agregar->x = atoi(arg[4 + (i * 2) - 1]);
+		 posicion_a_agregar->y = atoi(arg[4 + (i * 2)]);
 
-		for (int i = cantidad_de_pociciones; i < 0; i--) {
-			t_posicion* posicion_a_agregar = malloc(sizeof(t_posicion));
-			posicion_a_agregar->x = atoi(arg[4 + (i * 2) - 1]);
-			posicion_a_agregar->y = atoi(arg[4 + (i * 2)]);
+		 list_add(lista_posiciones, (void*) posicion_a_agregar);
 
-			list_add(lista_posiciones, (void*) posicion_a_agregar);
+		 }
 
-		}
+		 mensaje_localized = crear_localized_pokemon(0, pokemon,
+		 lista_posiciones);*/
+		t_list* posiciones = list_create();
+		t_posicion* posicion1 = malloc(sizeof(t_posicion));
+		posicion1->x = 1;
+		posicion1->y = 2;
+		t_posicion* posicion2 = malloc(sizeof(t_posicion));
+		posicion2->x = 5;
+		posicion2->y = 8;
 
-		mensaje_localized = crear_localized_pokemon(0, pokemon,
-				lista_posiciones);
+		t_posicion* posicion3 = malloc(sizeof(t_posicion));
+		posicion3->x = 8;
+		posicion3->y = 6;
+
+		list_add(posiciones, posicion1);
+		list_add(posiciones, posicion2);
+		list_add(posiciones, posicion3);
+
+		t_localized* mensaje_localized = crear_localized_pokemon(10,
+				"Bulbasaur", posiciones);
 
 		mensaje_serializado = serializar_localized_pokemon(mensaje_localized);
 		break;
