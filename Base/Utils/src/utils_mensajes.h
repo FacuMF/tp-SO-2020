@@ -117,7 +117,9 @@ t_subscriptor* deserializar_suscripcion(t_buffer* buffer);
 
 t_localized* crear_localized_pokemon(int,char*,t_list*);
 t_buffer* serializar_localized_pokemon(t_localized*);
+void* serializar_cache_localized_pokemon(t_localized*, int);
 t_localized* deserializar_localized_pokemon(t_buffer* buffer);
+t_localized* deserializar_cache_localized_pokemon(void*);
 
 t_confirmacion* crear_confirmacion(int,int);
 t_buffer* serializar_confirmacion(t_confirmacion*);
