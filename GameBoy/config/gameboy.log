@@ -21895,3 +21895,25 @@
 [TRACE] 17:30:00:215 GameBoy/(3280:3280): Se recibio un mensaje APPEARED_POKEMON
 [TRACE] 17:30:00:215 GameBoy/(3280:3280): Pokemon: BULBASAURRRRRRRRRRRRRR, Posicion X: 3, Posicion Y: 1, Id mensaje: 10
 [TRACE] 17:30:00:215 GameBoy/(3280:3280): Mensaje recibido manejado.
+[TRACE] 20:21:16:749 GameBoy/(13642:13642): Caracteristicas de mensaje obtenidas
+[TRACE] 20:21:16:749 GameBoy/(13642:13642): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 20:21:16:749 GameBoy/(13642:13642): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 20:21:16:750 GameBoy/(13642:13642): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 20:21:16:750 GameBoy/(13642:13642): El mensaje fue serializado. 
+[TRACE] 20:21:16:750 GameBoy/(13642:13642): OPERATION CODE: 2
+[TRACE] 20:21:16:750 GameBoy/(13642:13642): El mensaje fue enviado.
+[TRACE] 20:21:16:755 GameBoy/(13642:13642): Mensaje recibido, cod_op: 2.
+[TRACE] 20:21:16:755 GameBoy/(13642:13642): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 20:21:16:755 GameBoy/(13642:13642): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 5
+[TRACE] 20:21:16:755 GameBoy/(13642:13642): Mensaje recibido manejado.
+[TRACE] 20:21:20:608 GameBoy/(13645:13645): Caracteristicas de mensaje obtenidas
+[TRACE] 20:21:20:608 GameBoy/(13645:13645): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 20:21:20:609 GameBoy/(13645:13645): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 20:21:20:609 GameBoy/(13645:13645): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 20:21:20:609 GameBoy/(13645:13645): El mensaje fue serializado. 
+[TRACE] 20:21:20:609 GameBoy/(13645:13645): OPERATION CODE: 2
+[TRACE] 20:21:20:609 GameBoy/(13645:13645): El mensaje fue enviado.
+[TRACE] 20:21:20:610 GameBoy/(13645:13645): Mensaje recibido, cod_op: 2.
+[TRACE] 20:21:20:610 GameBoy/(13645:13645): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 20:21:20:610 GameBoy/(13645:13645): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 6
+[TRACE] 20:21:20:610 GameBoy/(13645:13645): Mensaje recibido manejado.

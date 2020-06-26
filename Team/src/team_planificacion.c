@@ -1,28 +1,16 @@
 #include "team.h"
 
+// PLANIFICACION GENERAL
 
 void iniciar_planificador(){
 	list_iterate(head_entrenadores, lanzar_hilo_entrenador);
 
-	//TODO: cambiar a mientras no se haya cumplido el global y no haya terminado everything
-	while(1){
-		//TODO: lockearse, esperar a que le avisen de nueva tarea
-		// Si es appeared / localized revisar si lo necesito
-		//...
+	while(1){//TODO: Mientras no haya terminado to do.
+		// TODO: lockearse, esperar a que le avisen de planificar nuevamente (exec>cualquier otro)
+		// TODO: lockearse, esperar a que haya alguien en ready
+		// TODO: En base a entrenadores en ready y algoritmo, desbloquear uno
 	}
 
-}
-
-void lanzar_hilo_entrenador(void*element) {
-	t_entrenador * entrenador = element;
-	pthread_t hilo_entrenador;
-
-	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,
-			(void*) entrenador);
-
-	(result != 0)?
-			log_error(logger, "Error lanzando el hilo"):
-			log_trace(logger, "Entrenador lanzado: Pos %i %i", entrenador->posicion[0], entrenador->posicion[1]);
 }
 
 void ser_entrenador(void *element) {
@@ -31,9 +19,49 @@ void ser_entrenador(void *element) {
 	while (!(objetivo_cumplido(entrenador))) {
 		pthread_mutex_lock(&(entrenador->sem_est));
 		log_trace(logger, "Entrenador despierto: Posicion %i %i", entrenador->posicion[0], entrenador->posicion[1]);
+
+		// TODO: en base a mensaje catch interno moverse a la posicion indicada
+		// TODO: Mandar catch
 	}
 
+	// TODO: Cambiar su propio estado a exit?
+
 }
+
+
+void manejar_appeared(t_appeared_pokemon * mensaje_appeared){
+	// TODO: Necesito mensaje? (agarrados < necesitados)
+	// TODO: Entrenador disponible + cercano (new/blocked_normal, no block deadlock ni esperando rta caught)
+	// TODO: Setear status = ready, calcular y llenar ciclos de cpu
+	// TODO: Guardarle el mensaje de caught.
+	// TODO: Avisar a planificador que está en ready
+}
+
+void manejar_caught(t_caught_pokemon* mensaje_caught){
+	// TODO: Revisar si es correlativo a algun catch por ID
+	// TODO: Buscar entrenador con ese catch adentro
+	// TODO: Si es YES, agregar a capturados, si NO skippear este paso
+	// TODO: Setear status entrenador = ready/blocked/exit
+	// TODO: Sacar appeared de la lista
+	// TODO: Si hay algun otro en la lista de recibidos lo planifico de nuevo y pasa a ready
+	// TODO: Si es NO voy a buscar si hay auxiliares en mi lista de localized sobrantes.
+	// TODO: Si hay, los muevo a la otra lista y los planifico como appeared de nuevo
+}
+
+void manejar_localized(t_localized* mensaje_localized){
+	// TODO: Verifico si se corresponde con un id de rta
+	// TODO: Verifico si ya tengo uno en mi lista para esta especie (app o localized)
+	// TODO: Si YES, lo descarto
+	// TODO: Si es NO, Verifico que tantos necesito
+	// TODO: Los que necesito los planifico como appeared
+	// TODO: los que me sobran los guardo en una lista de auxiliares por si los otros fallan.
+}
+
+
+
+
+
+// AUXILIARES A REVISAR
 
 int distancia(t_entrenador * entrenador, int posx, int posy) {
 	int distancia_e = abs(distancia_en_eje(entrenador, posx, 0))
@@ -121,5 +149,17 @@ t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy) {
 			entrenador_mas_cercano->posicion[0],
 			entrenador_mas_cercano->posicion[1]);
 	return entrenador_mas_cercano;
+}
+
+void lanzar_hilo_entrenador(void*element) {
+	t_entrenador * entrenador = element;
+	pthread_t hilo_entrenador;
+
+	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,
+			(void*) entrenador);
+
+	(result != 0)?
+			log_error(logger, "Error lanzando el hilo"):
+			log_trace(logger, "Entrenador lanzado: Pos %i %i", entrenador->posicion[0], entrenador->posicion[1]);
 }
 

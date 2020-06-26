@@ -65,6 +65,8 @@ void enviar_requests_pokemones() { // RECONTRA LIMPIAR
 void enviar_mensaje_get(void*element) {
 
 	int socket_broker = iniciar_conexion_con_broker();
+	// TODO: Si falla, comportamiento default, no reintentar
+
 
 	t_objetivo * objetivo = element;
 	t_get_pokemon * mensaje_get = crear_get_pokemon(objetivo->pokemon, -10);
@@ -86,6 +88,7 @@ void enviar_mensaje_get(void*element) {
 
 void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar) { //mismo que get
 	int socket_broker = iniciar_conexion_con_broker();
+	// TODO: Si falla, comportamiento default, no reintentar
 
 	t_catch_pokemon * mensaje_catch = crear_catch_pokemon(
 			mensaje_appeared_a_capturar->pokemon,

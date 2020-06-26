@@ -65,15 +65,17 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
 void enviar_requests_pokemones();
 void enviar_mensaje_get(void*element);
 
+
+
 // Funciones de recepcion de mensajes
 void recibir_mensaje_appeared(t_buffer * buffer);
 void recibir_mensaje_caught(t_buffer * buffer);
 void recibir_mensaje_localized(t_buffer * buffer);
 
 // Funciones de handle de mensajes
- void handle_appeared_pokemon(t_appeared_pokemon *mensaje_appeared);
-//void handle_caught_pokemon(t_caught_pokemon * mensaje_caguth);
-// void handle_localized_pokemon (t_localized_pokemon * mensaje_localized);
+void manejar_appeared(t_appeared_pokemon * mensaje_appeared);
+void manejar_caught(t_caught_pokemon* mensaje_caught);
+void manejar_localized(t_localized* mensaje_localized);
 
 // Funciones de carga de entrenador - team_entrenadores
 t_list* cargar_entrenadores();

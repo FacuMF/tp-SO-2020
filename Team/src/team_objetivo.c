@@ -4,7 +4,7 @@
 
 t_list* formar_lista_de_objetivos(t_list * lista_de_pokemones) {
 	t_list * lista_objetivo = list_create();
-	void agrego_si_no_existe_aux(void *elemento) { // USO INNER FUNCTIONS TODO: pasar a readme
+	void agrego_si_no_existe_aux(void *elemento) {
 		agrego_si_no_existe(lista_objetivo, elemento);
 	}
 

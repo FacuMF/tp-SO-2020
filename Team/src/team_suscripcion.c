@@ -84,8 +84,7 @@ void manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		list_add(ids_mensajes_utiles, &id_mensaje);
 	} else {
 		confirmar_recepcion(conexion, cod_op, id_mensaje);
-		//TODO: Agregar a lista tareas
-		//TODO: Avisar planificador
+
 		log_trace(logger, "Recepcion confirmada: %d %d %d", conexion, cod_op, id_mensaje);
 	}
 
