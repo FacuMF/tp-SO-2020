@@ -7,13 +7,6 @@ int main(int argv, char*archivo_config[]) {
 	iniciar_team(archivo_config);
 
 	inicializar_listas();
-	// TT
-		 bool prueba =requiero_pokemon("Cualquiera");
-		 if (prueba == 1){
-			 log_trace(logger, "Entre bien");
-		 }else{
-			 log_trace(logger,"No requiero");
-		 }
 
 	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
@@ -59,6 +52,7 @@ void inicializar_listas(){
 	pokemones_por_capturar_global = obtener_pokemones_a_capturar();
 	objetivo_global = formar_lista_de_objetivos(pokemones_por_capturar_global);
 	ids_mensajes_utiles = list_create();
+	lista_de_catch = list_create();
 }
 
 
