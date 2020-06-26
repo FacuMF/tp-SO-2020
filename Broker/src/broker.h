@@ -121,6 +121,11 @@ void test();
 void inicializacion_cache(void);
 void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* mensaje_a_cachear);
 
+void ordenar_cache_para_rellenar(int size_stream);
+t_mensaje_cache* crear_y_agregar_particion_mensaje_nuevo(int tipo_mensaje, int id_mensaje ,int tamano_a_cachear);
+void crear_y_agregar_particion_sobrante(int tamano_a_cachear);
+void ordenar_cache_segun_su_lugar_en_memoria();
+
 int de_string_a_alg_memoria(char* string);
 int de_string_a_alg_remplazo(char* string);
 int de_string_a_alg_particion_libre(char* string);
@@ -223,10 +228,6 @@ void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje);
 void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje);
 void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appeared_pokemon* mensaje);
 void cachear_appeared_pokemon(t_appeared_pokemon* mensaje);
-
-
-
-
 
 // NEW_POKEMON
 void manejar_mensaje_new(t_conexion_buffer *combo);
