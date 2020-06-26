@@ -752,6 +752,63 @@ void log_mensaje_de_cache(t_mensaje_cache* particion_mensaje){
 
 }
 
+void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion, int socket_cliente){
+
+	void enviar_mensaje_cacheados_a_sub(void* particion){
+		enviar_mensaje_cacheado_a_sub_si_es_de_cola(suscripcion->cola_de_mensaje, socket_cliente, (t_mensaje_cache*) particion);
+	}
+
+	list_iterate(struct_admin_cache, enviar_mensaje_cacheados_a_sub);
+
+}
+
+void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,int socket_cliente, t_mensaje_cache* particion){
+	if(particion->tipo_mensaje == tipo_mensaje){
+		void* mensaje_a_enviar = serializar_mensaje_de_cache(particion);
+		t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+
+		mensaje_serializado = serializar_mensaje_de_cache(particion);
+
+		enviar_mensaje(socket_cliente, mensaje_serializado, tipo_mensaje);
+
+		list_add(particion->subscribers_enviados, (void*) socket_cliente);
+	}
+}
+
+t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion){
+	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+
+	void* stream_mensaje = malloc(particion->tamanio);
+
+	memcpy(stream_mensaje, memoria_cache + (particion->offset), particion->tamanio);
+
+	switch(particion->tipo_mensaje){
+
+		case APPEARED_POKEMON:
+			;
+			t_appeared_pokemon* mensaje = deserializar_cache_appeared_pokemon(stream_mensaje);
+			mensaje->id_mensaje = particion->id;
+
+			mensaje_serializado = serializar_appeared_pokemon(mensaje);
+			break;
+
+		//TODO: completar switch con todos los mensajes.
+	}
+	return mensaje_serializado;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 void test(){
 
 	//Creo un mensaje random para probar dump

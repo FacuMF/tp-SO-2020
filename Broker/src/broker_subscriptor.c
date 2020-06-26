@@ -12,8 +12,7 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
 
 	subscribir(socket_cliente, suscripcion);
 
-	//enviar_mensajes_de_suscripcion_a_cliente(subscripcion, socket_cliente);
-	//TODO se necesita tener los mensajes cacheados.
+	enviar_mensajes_cacheados_a_cliente(suscripcion, socket_cliente);
 
 	desuscribir(socket_cliente, suscripcion);
 

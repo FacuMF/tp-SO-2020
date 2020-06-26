@@ -33,8 +33,6 @@ void terminar_proceso(void) {
 	pthread_join(tid[0], NULL);
 	terminar_logger(logger);
 	config_destroy(config);
-
-
 }
 
 void inicializacion_colas(void) {

@@ -203,6 +203,10 @@ void si_es_part_mover_struct_a(t_mensaje_cache* particion, int offset_destino);
 _Bool corresponde_compactar();
 _Bool esta_compactada();
 
+//Enviar mensajes cacheados
+void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion, int socket_cliente);
+void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,int socket_cliente, t_mensaje_cache* particion);
+t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion);
 
 //Funciones especificas por mensaje ---------------------------------------------
 
@@ -288,12 +292,14 @@ void enviar_localized_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_loc
 void manejar_mensaje_confirmacion(t_conexion_buffer *combo);
 
 void confirmar_cliente_recibio(t_confirmacion* mensaje_confirmacion, int socket_cliente);
+void confirmar_recepcion_en_cache(t_confirmacion* mensaje_confirmacion, int socket_cliente);
 t_queue* get_cola_segun_tipo(int tipo_mensaje);
 
 void si_coincide_cliente_agregar_id_recibido(t_suscriptor_queue* suscriptor, int socket_suscriptor, int id_mensaje_recibido);
 _Bool mensaje_recibido_por_todos_los_subs(t_confirmacion* confirmacion);
 void borrar_mensaje_de_cola(t_confirmacion* confirmacion);
 _Bool fue_enviado_y_recibido(int id_mensaje, t_suscriptor_queue* suscriptor);
+
 
 
 #endif
