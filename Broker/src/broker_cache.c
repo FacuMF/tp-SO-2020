@@ -772,6 +772,8 @@ void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,int socket_cli
 		enviar_mensaje(socket_cliente, mensaje_serializado, tipo_mensaje);
 
 		list_add(particion->subscribers_enviados, (void*) socket_cliente);
+
+		if(algoritmo_remplazo==LRU) particion->flags_lru = get_lru_flag();
 	}
 }
 
