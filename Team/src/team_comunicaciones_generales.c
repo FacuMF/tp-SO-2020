@@ -86,20 +86,16 @@ void enviar_mensaje_get(void*element) {
 }
 
 
-void enviar_mensaje_catch(t_appeared_pokemon * mensaje_appeared_a_capturar) { //mismo que get
+void enviar_mensaje_catch(t_catch_pokemon * mensaje_catch_a_enviar) { //mismo que get
 	int socket_broker = iniciar_conexion_con_broker();
 	// TODO: Si falla, comportamiento default, no reintentar
 
-	t_catch_pokemon * mensaje_catch = crear_catch_pokemon(
-			mensaje_appeared_a_capturar->pokemon,
-			mensaje_appeared_a_capturar->posx,
-			mensaje_appeared_a_capturar->posy, -20);
 
-	t_buffer*mensaje_catch_serializado = serializar_catch_pokemon(mensaje_catch);
+	t_buffer*mensaje_catch_serializado = serializar_catch_pokemon(mensaje_catch_a_enviar);
 
 	enviar_mensaje(socket_broker,mensaje_catch_serializado,CATCH_POKEMON);
 
-	log_trace(logger, "Enviado catch para: %s",mensaje_appeared_a_capturar->pokemon);
+	log_trace(logger, "Enviado catch para: %s",mensaje_catch_a_enviar->pokemon);
 
 	free(mensaje_catch_serializado);
 

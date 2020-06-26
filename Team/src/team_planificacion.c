@@ -30,8 +30,9 @@ void ser_entrenador(void *element) {
 
 
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared){
-	// TODO: Necesito mensaje? (agarrados < necesitados)
+	// TODO: Necesito mensaje? (agarrados < necesitados) Iria Funcion requiero(mensaje_appeared->pokemon)
 	// TODO: Entrenador disponible + cercano (new/blocked_normal, no block deadlock ni esperando rta caught)
+	//   Dos funciones, una que chequee condicion y hallar_entrenador_mas_cercano(mensaje_appeared->posx, mensaje_appeared->posy)
 	// TODO: Setear status = ready, calcular y llenar ciclos de cpu
 	// TODO: Guardarle el mensaje de caught.
 	// TODO: Avisar a planificador que está en ready
@@ -62,6 +63,42 @@ void manejar_localized(t_localized* mensaje_localized){
 
 
 // AUXILIARES A REVISAR
+
+
+bool es_id_necesario(int id_a_chequear){
+
+	bool esta_id_en_lista(void * elemento){
+		int * id_de_lista = elemento;
+		return *(id_de_lista) == id_a_chequear;
+	}
+
+	bool resultado_busqueda_id = list_any_satisfy(ids_mensajes_utiles,esta_id_en_lista);
+
+	return resultado_busqueda_id;
+}
+
+t_catch_pokemon * encontrar_en_lista_de_catch_pokemon (char * pokemon_a_encontrar){
+	bool buscar_pokemon(void * elemento){
+		t_catch_pokemon * catch_de_lista = elemento;
+		return !strcasecmp(catch_de_lista->pokemon,pokemon_a_encontrar);
+	}
+	t_catch_pokemon * catch_objetivo = list_find(lista_de_catch,buscar_pokemon);
+	if (catch_objetivo == NULL){
+		log_trace(logger, "El pokemon no se encontraba en la lista de catch");
+		return catch_objetivo;
+	}else{
+		return catch_objetivo;
+	}
+}
+
+t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared){
+	t_catch_pokemon * mensaje_catch = crear_catch_pokemon(
+				appeared->pokemon,
+				appeared->posx,
+				appeared->posy, -30);
+	return mensaje_catch;
+
+}
 
 int distancia(t_entrenador * entrenador, int posx, int posy) {
 	int distancia_e = abs(distancia_en_eje(entrenador, posx, 0))
