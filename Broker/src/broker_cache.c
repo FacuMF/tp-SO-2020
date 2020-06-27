@@ -43,7 +43,9 @@ void inicializacion_cache(void){
 
 	contador_intentos_para_compactar = frecuencia_compactacion;
 
-	//Inicializar semaforos
+	//Inicializar semaforos cache
+
+	//pthread_mutex_init(mutex_memoria_cache, NULL);
 
 
 
@@ -57,6 +59,8 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 
 		log_trace(logger, "Tamano de mensaje a cachear: %i (size stream: %i).", tamano_a_cachear, size_stream);
 		while (no_se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
+
+			//pthread_mutex_lock(mutex_memoria_cache);
 
 			ordenar_cache_para_rellenar(size_stream);
 
@@ -88,6 +92,8 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 
 				compactar_cache_si_corresponde();
 			}
+
+			//pthread_mutex_unlock(mutex_memoria_cache);
 		}
 }
 
@@ -315,7 +321,7 @@ void elegir_vitima_y_eliminarla() {
 	int id_victima = ( (t_mensaje_cache*)list_get(struct_admin_cache, 0) ) -> id;
 	log_trace(logger, "El id de la victima elegida es: %i.", id_victima);
 
-	//log_dump_de_cache();
+	log_dump_de_cache();
 
 	void vaciar_una_particion(void* particion){
 		if(((t_mensaje_cache*) particion)->id == id_victima) // Si es victima
@@ -352,8 +358,8 @@ void vaciar_particion(t_mensaje_cache* particion){
 	particion->tipo_mensaje = VACIO;
 	particion->flags_lru=-20;
 	particion->id=-20;
-	list_clean_and_destroy_elements(particion->subscribers_enviados, free);
-	list_clean_and_destroy_elements(particion->subscribers_recibidos, free);
+	list_clean(particion->subscribers_enviados);
+	list_clean(particion->subscribers_recibidos);
 }
 
 void consolidar_cache(){
@@ -754,11 +760,15 @@ void log_mensaje_de_cache(t_mensaje_cache* particion_mensaje){
 
 void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion, int socket_cliente){
 
+	//pthread_mutex_lock(mutex_memoria_cache);
+
 	void enviar_mensaje_cacheados_a_sub(void* particion){
 		enviar_mensaje_cacheado_a_sub_si_es_de_cola(suscripcion->cola_de_mensaje, socket_cliente, (t_mensaje_cache*) particion);
 	}
 
 	list_iterate(struct_admin_cache, enviar_mensaje_cacheados_a_sub);
+
+	//pthread_mutex_unlock(mutex_memoria_cache);
 
 }
 
@@ -774,6 +784,8 @@ void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,int socket_cli
 		list_add(particion->subscribers_enviados, (void*) socket_cliente);
 
 		if(algoritmo_remplazo==LRU) particion->flags_lru = get_lru_flag();
+		log_trace(logger, "Se envio mensaje %i a sub %i. Nuevo flag lru:%i.",
+				particion->id, socket_cliente, particion->flags_lru);
 	}
 }
 

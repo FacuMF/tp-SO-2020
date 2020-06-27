@@ -41,16 +41,21 @@ void confirmar_cliente_recibio(t_confirmacion* mensaje_confirmacion, int socket_
 
 void confirmar_recepcion_en_cache(t_confirmacion* mensaje_confirmacion, int socket_cliente){
 
+	//pthread_mutex_lock(mutex_memoria_cache);
+
 	void confirmar_recepcion_de_cliente(void* particion){
 		if(mensaje_confirmacion->mensaje == ((t_mensaje_cache*) particion)->id){
 
 			list_add( ((t_mensaje_cache*) particion)->subscribers_recibidos, (void*) socket_cliente);
+			log_trace(logger, "Se confirmo la recepcion del mensaje %i en cache, por el suscriptor %i.", (((t_mensaje_cache*) particion)->id), socket_cliente);
 
 		}
 	}
 
-
 	list_iterate(struct_admin_cache, confirmar_recepcion_de_cliente);
+
+	//pthread_mutex_unlock(mutex_memoria_cache);
+
 }
 
 t_queue* get_cola_segun_tipo(int tipo_mensaje) {

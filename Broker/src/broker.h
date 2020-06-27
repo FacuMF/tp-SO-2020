@@ -93,8 +93,7 @@ t_queue* localized_pokemon;
 int id_mensajes;
 
 //Semaforos
-
-
+//pthread_mutex_t* mutex_memoria_cache;
 
 //Funciones Generales -----------------------------------------------------
 

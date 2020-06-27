@@ -12,7 +12,7 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
 
 	subscribir(socket_cliente, suscripcion);
 
-	enviar_mensajes_cacheados_a_cliente(suscripcion, socket_cliente);
+	//enviar_mensajes_cacheados_a_cliente(suscripcion, socket_cliente);
 
 	desuscribir(socket_cliente, suscripcion);
 
