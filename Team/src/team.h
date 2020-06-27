@@ -36,6 +36,7 @@ typedef struct t_entrenador {
 	int * posicion;
 	t_list* pokemones_capturados;
 	t_list* pokemones_por_capturar;
+	t_catch_pokemon * catch_pendiente;
 	t_estado estado;
 } t_entrenador;
 
@@ -122,7 +123,7 @@ t_catch_pokemon * encontrar_en_lista_de_catch_pokemon (char * pokemon_a_encontra
 t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared);
 t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado);
 t_list * lista_de_catch_a_partir_localized(t_localized * localized_a_chequear);
-
+t_entrenador * buscar_entrenador_segun_catch(t_catch_pokemon * catch_buscado);
 
 int distancia(t_entrenador * entrenador, int posx, int posy);
 int distancia_en_eje(t_entrenador *entrenador, int pos_eje, int pos);

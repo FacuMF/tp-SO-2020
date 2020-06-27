@@ -33,6 +33,7 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared){
 	// TODO: Necesito mensaje? (agarrados < necesitados) Iria Funcion requiero(mensaje_appeared->pokemon)
 	// TODO: Entrenador disponible + cercano (new/blocked_normal, no block deadlock ni esperando rta caught)
 	//   Dos funciones, una que chequee condicion y hallar_entrenador_mas_cercano(mensaje_appeared->posx, mensaje_appeared->posy)
+
 	// TODO: Setear status = ready, calcular y llenar ciclos de cpu
 	// TODO: Guardarle el mensaje de caught.
 	// TODO: Avisar a planificador que está en ready
@@ -40,7 +41,7 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared){
 
 void manejar_caught(t_caught_pokemon* mensaje_caught){
 	// TODO: Revisar si es correlativo a algun catch por ID
-	// TODO: Buscar entrenador con ese catch adentro
+	// TODO: Buscar entrenador con ese catch adentro  // Funcion buscar_entrenador_segun_catch(catch_buscado)
 	// TODO: Si es YES, agregar a capturados, si NO skippear este paso
 	// TODO: Setear status entrenador = ready/blocked/exit
 	// TODO: Sacar appeared de la lista
@@ -50,7 +51,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught){
 }
 
 void manejar_localized(t_localized* mensaje_localized){
-	// TODO: Verifico si se corresponde con un id de rta
+	// TODO: Verifico si se corresponde con un id de rta // Funcion es_id_necesario
 	// TODO: Verifico si ya tengo uno en mi lista para esta especie (app o localized)
 	// TODO: Si YES, lo descarto
 	// TODO: Si es NO, Verifico que tantos necesito
@@ -64,7 +65,7 @@ void manejar_localized(t_localized* mensaje_localized){
 
 // AUXILIARES A REVISAR
 
-
+// TODO ver en que archivo poner cada funcion
 bool es_id_necesario(int id_a_chequear){
 
 	bool esta_id_en_lista(void * elemento){
@@ -147,6 +148,27 @@ t_list * lista_de_catch_a_partir_localized(t_localized * localized_a_chequear){
 	return lista_catchs_localized;
 }
 
+t_entrenador * buscar_entrenador_segun_catch(t_catch_pokemon * catch_buscado){
+
+	bool buscar_entrenador_con_catch(void * elemento){
+
+		t_entrenador * cada_entrenador = elemento;
+
+		int id_mensaje_entrenador = cada_entrenador->catch_pendiente->id_mensaje;
+
+		return id_mensaje_entrenador == catch_buscado->id_mensaje;
+	}
+
+	t_entrenador * entrenador_buscado =list_find(head_entrenadores,buscar_entrenador_con_catch);
+
+	if(entrenador_buscado==NULL){
+		log_trace(logger,"El catch no esta pendiente para ningun entrenador");
+		return entrenador_buscado;
+	}else
+	{
+		return entrenador_buscado;
+	}
+}
 
 
 int distancia(t_entrenador * entrenador, int posx, int posy) {
