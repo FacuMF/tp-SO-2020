@@ -134,7 +134,7 @@ char* deserializar_tipo_mensaje(int cod_op, int cliente_fd) {
 t_new_pokemon* crear_new_pokemon(char* pokemon, int posicion_x, int posicion_y,
 		int cantidad, int id_mensaje) {
 	t_new_pokemon* mensaje = malloc(sizeof(t_new_pokemon));
-	mensaje->size_pokemon = strlen(pokemon) + 1;
+	mensaje->size_pokemon = string_length(pokemon);
 	mensaje->pokemon = malloc(mensaje->size_pokemon);
 	strcpy(mensaje->pokemon, pokemon);
 	mensaje->posx = posicion_x;
@@ -200,6 +200,7 @@ t_new_pokemon* deserializar_cache_new_pokemon(void* stream) {
 
 	mensaje->pokemon = malloc(mensaje->size_pokemon);
 	memcpy(mensaje->pokemon, stream, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] = '\0';
 	stream += mensaje->size_pokemon;
 
 	memcpy(&(mensaje->posx), stream, sizeof(mensaje->posx));
@@ -218,7 +219,7 @@ t_new_pokemon* deserializar_cache_new_pokemon(void* stream) {
 t_appeared_pokemon* crear_appeared_pokemon(char* pokemon, int posicion_x,
 		int posicion_y, int id_mensaje) {
 	t_appeared_pokemon* mensaje = malloc(sizeof(t_appeared_pokemon));
-	mensaje->size_pokemon = strlen(pokemon) + 1;
+	mensaje->size_pokemon = strlen(pokemon);
 	mensaje->pokemon = malloc(sizeof(char) * mensaje->size_pokemon);
 	mensaje->pokemon = pokemon;
 	mensaje->posx = posicion_x;
@@ -280,6 +281,7 @@ t_appeared_pokemon* deserializar_cache_appeared_pokemon(void* stream) {
 
 	mensaje->pokemon = malloc(mensaje->size_pokemon);
 	memcpy((mensaje->pokemon), stream, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] = '\0';
 	stream += mensaje->size_pokemon;
 
 	memcpy(&(mensaje->posx), stream, sizeof(uint32_t));
@@ -295,7 +297,7 @@ t_appeared_pokemon* deserializar_cache_appeared_pokemon(void* stream) {
 t_catch_pokemon* crear_catch_pokemon(char* pokemon, int posicion_x,
 		int posicion_y, int id_mensaje) {
 	t_catch_pokemon* mensaje = malloc(sizeof(t_catch_pokemon));
-	mensaje->size_pokemon = strlen(pokemon) + 1;
+	mensaje->size_pokemon = strlen(pokemon);
 	mensaje->pokemon = malloc(sizeof(char) * mensaje->size_pokemon);
 	strcpy(mensaje->pokemon, pokemon);
 	mensaje->posx = posicion_x;
@@ -357,6 +359,7 @@ t_catch_pokemon* deserializar_cache_catch_pokemon(void* stream) {
 
 	mensaje->pokemon = malloc(mensaje->size_pokemon);
 	memcpy(mensaje->pokemon, stream, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] = '\0';
 	stream += mensaje->size_pokemon;
 
 	memcpy(&(mensaje->posx), stream, sizeof(mensaje->posx));
@@ -420,7 +423,7 @@ t_caught_pokemon* deserializar_cache_caught_pokemon(void* stream) {
 t_get_pokemon* crear_get_pokemon(char* pokemon, int id_mensaje) {
 	t_get_pokemon* mensaje = malloc(sizeof(t_get_pokemon));
 
-	mensaje->size_pokemon = strlen(pokemon) + 1;
+	mensaje->size_pokemon = strlen(pokemon);
 	mensaje->pokemon = malloc(sizeof(char) * mensaje->size_pokemon);
 	strcpy(mensaje->pokemon, pokemon);
 	mensaje->id_mensaje = id_mensaje;
@@ -476,6 +479,7 @@ t_get_pokemon* deserializar_cache_get_pokemon(void* stream) {
 
 	mensaje->pokemon = malloc(mensaje->size_pokemon);
 	memcpy(mensaje->pokemon, stream, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] = '\0';
 	stream += mensaje->size_pokemon;
 
 	return mensaje;
@@ -526,7 +530,7 @@ t_localized* crear_localized_pokemon(int id_mensaje, char* pokemon,
 	t_localized* mensaje = malloc(sizeof(t_localized));
 	int cantidad_posiciones = list_size(posiciones);
 
-	mensaje->size_pokemon = strlen(pokemon) + 1;
+	mensaje->size_pokemon = strlen(pokemon);
 	mensaje->pokemon = malloc(sizeof(char) * mensaje->size_pokemon);
 	strcpy(mensaje->pokemon, pokemon);
 	mensaje->cantidad_posiciones = cantidad_posiciones;
@@ -594,6 +598,7 @@ t_localized* deserializar_cache_localized_pokemon(void* stream) {
 
 	mensaje->pokemon = malloc(mensaje->size_pokemon);
 	memcpy(mensaje->pokemon, stream, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] = '\0';
 	stream += mensaje->size_pokemon;
 
 	memcpy(&(mensaje->cantidad_posiciones), stream,
