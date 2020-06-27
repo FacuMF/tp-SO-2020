@@ -161,7 +161,7 @@ _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje
 
 	if(mensaje_1->tipo_mensaje == 0 && mensaje_2->tipo_mensaje != 0) return true; // Si el 1 esta libre y el 2 no => el 1 va primero
 	if(mensaje_2->tipo_mensaje == 0 && mensaje_1->tipo_mensaje != 0) return false; // Si el 2 esta libre y el 1 no => el 2 va primero
-	if(mensaje_1->tipo_mensaje != 0 && mensaje_1->tipo_mensaje != 0) return true; // Si ambos estan ocupados => Me da lo mismo el orden, tiro true para que queden como estan
+	if(mensaje_1->tipo_mensaje != 0 && mensaje_2->tipo_mensaje != 0) return true; // Si ambos estan ocupados => Me da lo mismo el orden, tiro true para que queden como estan
 	if(mensaje_1->tipo_mensaje == 0 && mensaje_2->tipo_mensaje == 0){ // Si ambos estan vacios => Sigo evaluando
 
 		if( mensaje_1->tamanio >= tamano_mensaje && mensaje_2->tamanio < tamano_mensaje) return true; // Si el 1 tiene tamano suficiente y el 2 no => el 1 va primero
