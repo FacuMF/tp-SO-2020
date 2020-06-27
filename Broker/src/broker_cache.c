@@ -867,34 +867,10 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion){
 
 
 void test(){
+	char* string = "12345";
 
-	//Creo un mensaje random para probar dump
-
-	/*
-	t_mensaje_cache* particion_llena = malloc(sizeof(t_mensaje_cache));
-	particion_llena->tipo_mensaje = 2;
-	particion_llena->id = 1000;
-	particion_llena->offset = 40;
-	particion_llena->flags_lru= get_lru_flag();
-	particion_llena->tamanio = 30;
-	list_add(struct_admin_cache, particion_llena);
-
-	particion_llena = malloc(sizeof(t_mensaje_cache));
-	*/
-	//t_mensaje_cache* particion_llena= crear_particion_mensaje(2 ,10 ,40 , list_get (struct_admin_cache, 0) );
-
-	//list_add(struct_admin_cache, particion_llena);
-
-
-	log_dump_de_cache();
-
-	t_appeared_pokemon* mensaje1 = crear_appeared_pokemon("Pikachuuuuuuuuuuuuuuuuuuuuu",3,5,8);
-
-	cachear_appeared_pokemon(mensaje1);
-
-	//log_dump_de_cache();
-
-	log_trace(logger, "Se termino el test");
+	log_error(logger, "Para el string %s, strlen(pokemon): %i, strlen(pokemon) + 1: %i.",
+			string, strlen(string) ,strlen(string) + 1);
 }
 
 

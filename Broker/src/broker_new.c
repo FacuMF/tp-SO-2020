@@ -89,11 +89,13 @@ void enviar_new_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 
 
 void cachear_new_pokemon(t_new_pokemon* mensaje){
-	int size_stream = sizeof(uint32_t)*3 + mensaje-> size_pokemon;//Size se calcula aca porque lo necesita la funcion cachear_mensaje (general)
+	int size_stream = sizeof(uint32_t)*4 + mensaje-> size_pokemon;//Size se calcula aca porque lo necesita la funcion cachear_mensaje (general)
 
 	int tipo_mensaje = NEW_POKEMON;
 	int id_mensaje = mensaje->id_mensaje;
 	void* mensaje_a_cachear = serializar_cache_new_pokemon(mensaje, size_stream);
+
+	log_warning(logger, "HOLLAAAAAA");
 
 	cachear_mensaje(size_stream, id_mensaje, tipo_mensaje, mensaje_a_cachear);
 }
