@@ -33,6 +33,7 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared){
 	// TODO: Necesito mensaje? (agarrados < necesitados) Iria Funcion requiero(mensaje_appeared->pokemon)
 	// TODO: Entrenador disponible + cercano (new/blocked_normal, no block deadlock ni esperando rta caught)
 	//   Dos funciones, una que chequee condicion y hallar_entrenador_mas_cercano(mensaje_appeared->posx, mensaje_appeared->posy)
+
 	// TODO: Setear status = ready, calcular y llenar ciclos de cpu
 	// TODO: Guardarle el mensaje de caught.
 	// TODO: Avisar a planificador que está en ready
@@ -40,7 +41,7 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared){
 
 void manejar_caught(t_caught_pokemon* mensaje_caught){
 	// TODO: Revisar si es correlativo a algun catch por ID
-	// TODO: Buscar entrenador con ese catch adentro
+	// TODO: Buscar entrenador con ese catch adentro  // Funcion buscar_entrenador_segun_catch(catch_buscado)
 	// TODO: Si es YES, agregar a capturados, si NO skippear este paso
 	// TODO: Setear status entrenador = ready/blocked/exit
 	// TODO: Sacar appeared de la lista
@@ -50,7 +51,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught){
 }
 
 void manejar_localized(t_localized* mensaje_localized){
-	// TODO: Verifico si se corresponde con un id de rta
+	// TODO: Verifico si se corresponde con un id de rta // Funcion es_id_necesario
 	// TODO: Verifico si ya tengo uno en mi lista para esta especie (app o localized)
 	// TODO: Si YES, lo descarto
 	// TODO: Si es NO, Verifico que tantos necesito
@@ -64,7 +65,7 @@ void manejar_localized(t_localized* mensaje_localized){
 
 // AUXILIARES A REVISAR
 
-
+// TODO ver en que archivo poner cada funcion
 bool es_id_necesario(int id_a_chequear){
 
 	bool esta_id_en_lista(void * elemento){
@@ -78,33 +79,104 @@ bool es_id_necesario(int id_a_chequear){
 }
 
 t_catch_pokemon * encontrar_en_lista_de_catch_pokemon (char * pokemon_a_encontrar){
+
 	bool buscar_pokemon(void * elemento){
 		t_catch_pokemon * catch_de_lista = elemento;
 		return !strcasecmp(catch_de_lista->pokemon,pokemon_a_encontrar);
 	}
+
 	t_catch_pokemon * catch_objetivo = list_find(lista_de_catch,buscar_pokemon);
-	if (catch_objetivo == NULL){
+
+	if (catch_objetivo == NULL)
+	{
 		log_trace(logger, "El pokemon no se encontraba en la lista de catch");
+
 		return catch_objetivo;
-	}else{
+	}else
+	{
 		return catch_objetivo;
 	}
+
 }
 
 t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared){
+
 	t_catch_pokemon * mensaje_catch = crear_catch_pokemon(
 				appeared->pokemon,
 				appeared->posx,
 				appeared->posy, -30);
+
 	return mensaje_catch;
 
 }
+
+t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado){
+
+	bool esta_en_estado_correspondiente(void * elemento){
+		t_entrenador * entrenador_estado = elemento;
+		return entrenador_estado->estado == estado_buscado;
+	}
+
+	t_list * entrenadores_en_estado = list_filter(head_entrenadores,esta_en_estado_correspondiente);
+
+	return entrenadores_en_estado;
+}
+
+
+t_list * lista_de_catch_a_partir_localized(t_localized * localized_a_chequear){
+
+	t_list * lista_catchs_localized = list_create();
+
+	char * pokemon_de_catch = localized_a_chequear->pokemon;
+
+
+	void generar_catch_por_posicion(void * elemento){
+		t_posicion * posicion_de_lista = elemento;
+
+		t_catch_pokemon * catch_a_agregar = crear_catch_pokemon(
+		pokemon_de_catch,
+		posicion_de_lista->x,
+		posicion_de_lista->y,
+		-30);
+
+		list_add(lista_catchs_localized,catch_a_agregar);
+
+	}
+
+	list_iterate(localized_a_chequear->posiciones,generar_catch_por_posicion);
+
+	return lista_catchs_localized;
+}
+
+t_entrenador * buscar_entrenador_segun_catch(t_catch_pokemon * catch_buscado){
+
+	bool buscar_entrenador_con_catch(void * elemento){
+
+		t_entrenador * cada_entrenador = elemento;
+
+		int id_mensaje_entrenador = cada_entrenador->catch_pendiente->id_mensaje;
+
+		return id_mensaje_entrenador == catch_buscado->id_mensaje;
+	}
+
+	t_entrenador * entrenador_buscado =list_find(head_entrenadores,buscar_entrenador_con_catch);
+
+	if(entrenador_buscado==NULL){
+		log_trace(logger,"El catch no esta pendiente para ningun entrenador");
+		return entrenador_buscado;
+	}else
+	{
+		return entrenador_buscado;
+	}
+}
+
 
 int distancia(t_entrenador * entrenador, int posx, int posy) {
 	int distancia_e = abs(distancia_en_eje(entrenador, posx, 0))
 			+ abs(distancia_en_eje(entrenador, posx, 1));
 	return distancia_e;
 }
+
 
 int distancia_en_eje(t_entrenador *entrenador, int pose, int pos) {
 	int resta = entrenador->posicion[pos] - pose;
@@ -169,16 +241,20 @@ t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy) {
 		int size_por_capturar = list_size(entrenador->pokemones_por_capturar);
 		return size_capturados < size_por_capturar;
 	}
+
 	bool menor_distancia(void*elemento_1, void*elemento_2) {
 		t_entrenador *entrenador_1 = elemento_1;
 		t_entrenador *entrenador_2 = elemento_2;
 		return distancia(entrenador_1, posx, posy)
 				> distancia(entrenador_2, posx, posy);
 	}
+
 	t_list *entrenadores_disponibles = list_filter(head_entrenadores,
 			tiene_espacio_disponible);
+
 	t_list * entrenadores_mas_cercanos = list_sorted(entrenadores_disponibles,
 			menor_distancia);
+
 	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,
 			0);
 
