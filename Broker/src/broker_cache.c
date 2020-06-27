@@ -187,11 +187,7 @@ _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje
 _Bool particion_valida_para_llenar(t_mensaje_cache* particion, int tamano_a_ocupar){
 	_Bool esta_vacia = (particion->tipo_mensaje == VACIO);
 
-	int tamanio_minimo_sobrante =  (tamano_minimo_particion+tamano_a_ocupar);
-	_Bool tamanio_justo = (particion->tamanio == tamano_a_ocupar);
-	_Bool sobrante_suficiente = (particion->tamanio >=  tamanio_minimo_sobrante);
-
-	_Bool tamano_suficiente = tamanio_justo || sobrante_suficiente;
+	_Bool tamano_suficiente = (particion->tamanio >=  tamano_a_ocupar);
 	//Si no entra justo, la particion sobrante tiene que ser mayor a la minima.
 
 	return tamano_suficiente && esta_vacia; //Esta vacia y con tamanio suficiente.
@@ -855,22 +851,8 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 void test(){
-	char* string = "12345";
 
-	log_error(logger, "Para el string %s, strlen(pokemon): %i, strlen(pokemon) + 1: %i.",
-			string, strlen(string) ,strlen(string) + 1);
 }
 
 
