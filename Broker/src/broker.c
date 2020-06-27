@@ -34,7 +34,7 @@ void terminar_proceso(void) {
 	terminar_logger(logger);
 	config_destroy(config);
 
-	//pthread_mutex_destroy(mutex_memoria_cache);
+	pthread_mutex_destroy(&mutex_memoria_cache);
 }
 
 void inicializacion_colas(void) {
@@ -98,17 +98,15 @@ void recibir_mensaje_del_cliente(void* input) {
 	int socket_cliente = *((int *) input);
 	int cod_op = 0;
 
-	/*while (cod_op>=0) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
+	while (cod_op>=0) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
 
 		cod_op = recibir_codigo_operacion(socket_cliente);
 		if (cod_op == -1) log_error(logger, "Error en 'recibir_codigo_operacion'");
 
 		(cod_op>=0)? handle_mensaje(cod_op, socket_cliente):
 				     log_warning(logger, "El cliente %i cerro el socket.", socket_cliente);
-	}*/ //TODO: Ver si alguien lo necesita, si no se borra.
+	} //TODO: Ver si alguien lo necesita, si no se borra.
 
-	cod_op = recibir_codigo_operacion(socket_cliente);
-	handle_mensaje(cod_op, socket_cliente);
 }
 
 void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para manejar cada mensaje una vez deserializado?
@@ -129,8 +127,7 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 
 	case APPEARED_POKEMON:
 
-		//pthread_create(&thread, NULL, (void*) manejar_mensaje_appeared,info_mensaje_a_manejar);
-		manejar_mensaje_appeared(info_mensaje_a_manejar);
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_appeared,info_mensaje_a_manejar);
 		//pthread_detach(thread);
 		break;
 
@@ -167,10 +164,6 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 		break;
 
 	}
-
-}
-
-void enviar_mensaje_de_cola(void* mensaje, int ciente) {
 
 }
 

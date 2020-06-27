@@ -16,7 +16,7 @@ void manejar_mensaje_get(t_conexion_buffer *combo) {
 	almacenar_en_cola_get_pokemon(mensaje_get_pokemon);
 	log_trace(logger, "Se almaceno el mensaje GET_POKEMON en la cola.");
 
-	//cachear_get_pokemon(mensaje);
+	cachear_get_pokemon(mensaje_get_pokemon);
 
 	//free (liberar memoria)
 }
@@ -86,9 +86,12 @@ void enviar_get_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 	log_trace(logger, "Se envio mensaje GET_POKEMON");
 }
 
-/*
- void cachear_get_pokemon(t_mensaje_get_pokemon mensaje){
- //TODO
- return 0;
- }
- */
+void cachear_get_pokemon(t_get_pokemon* mensaje){
+	int size_stream = sizeof(uint32_t) + mensaje-> size_pokemon;//Size se calcula aca porque lo necesita la funcion cachear_mensaje (general)
+
+	int tipo_mensaje = GET_POKEMON;
+	int id_mensaje = mensaje->id_mensaje;
+	void* mensaje_a_cachear = serializar_cache_get_pokemon(mensaje, size_stream);
+
+	cachear_mensaje(size_stream, id_mensaje, tipo_mensaje, mensaje_a_cachear);
+}

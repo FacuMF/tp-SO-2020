@@ -23463,3 +23463,989 @@
 [TRACE] 10:27:17:747 GameBoy/(12136:12136): Se confirmara la recepcion.
 [TRACE] 10:27:17:747 GameBoy/(12136:12136): Recepcion confirmada.
 [TRACE] 10:27:17:747 GameBoy/(12136:12136): Mensaje recibido manejado.
+[TRACE] 10:28:26:192 GameBoy/(12232:12232): Caracteristicas de mensaje obtenidas
+[TRACE] 10:28:26:192 GameBoy/(12232:12232): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 10:28:26:192 GameBoy/(12232:12232): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:28:26:192 GameBoy/(12232:12232): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:28:26:192 GameBoy/(12232:12232): El mensaje fue serializado. 
+[TRACE] 10:28:26:192 GameBoy/(12232:12232): OPERATION CODE: 8
+[TRACE] 10:28:26:192 GameBoy/(12232:12232): El mensaje fue enviado.
+[TRACE] 10:28:28:306 GameBoy/(12234:12234): Caracteristicas de mensaje obtenidas
+[TRACE] 10:28:28:306 GameBoy/(12234:12234): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:28:28:307 GameBoy/(12234:12234): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:28:28:307 GameBoy/(12234:12234): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:28:28:307 GameBoy/(12234:12234): El mensaje fue serializado. 
+[TRACE] 10:28:28:307 GameBoy/(12234:12234): OPERATION CODE: 2
+[TRACE] 10:28:28:307 GameBoy/(12234:12234): El mensaje fue enviado.
+[TRACE] 10:28:28:308 GameBoy/(12234:12234): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:28:308 GameBoy/(12234:12234): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:28:308 GameBoy/(12234:12234): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:28:28:308 GameBoy/(12234:12234): Mensaje recibido manejado.
+[TRACE] 10:28:28:309 GameBoy/(12232:12232): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:28:309 GameBoy/(12232:12232): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:28:309 GameBoy/(12232:12232): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:28:28:309 GameBoy/(12232:12232): Se confirmara la recepcion.
+[TRACE] 10:28:28:309 GameBoy/(12232:12232): Recepcion confirmada.
+[TRACE] 10:28:28:309 GameBoy/(12232:12232): Mensaje recibido manejado.
+[TRACE] 10:28:29:117 GameBoy/(12236:12236): Caracteristicas de mensaje obtenidas
+[TRACE] 10:28:29:117 GameBoy/(12236:12236): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:28:29:117 GameBoy/(12236:12236): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:28:29:117 GameBoy/(12236:12236): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:28:29:118 GameBoy/(12236:12236): El mensaje fue serializado. 
+[TRACE] 10:28:29:118 GameBoy/(12236:12236): OPERATION CODE: 2
+[TRACE] 10:28:29:118 GameBoy/(12236:12236): El mensaje fue enviado.
+[TRACE] 10:28:29:118 GameBoy/(12236:12236): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:29:118 GameBoy/(12236:12236): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:29:118 GameBoy/(12236:12236): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:28:29:118 GameBoy/(12236:12236): Mensaje recibido manejado.
+[TRACE] 10:28:29:119 GameBoy/(12232:12232): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:29:119 GameBoy/(12232:12232): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:29:119 GameBoy/(12232:12232): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:28:29:119 GameBoy/(12232:12232): Se confirmara la recepcion.
+[TRACE] 10:28:29:119 GameBoy/(12232:12232): Recepcion confirmada.
+[TRACE] 10:28:29:119 GameBoy/(12232:12232): Mensaje recibido manejado.
+[TRACE] 10:28:29:971 GameBoy/(12238:12238): Caracteristicas de mensaje obtenidas
+[TRACE] 10:28:29:971 GameBoy/(12238:12238): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:28:29:971 GameBoy/(12238:12238): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:28:29:972 GameBoy/(12238:12238): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:28:29:972 GameBoy/(12238:12238): El mensaje fue serializado. 
+[TRACE] 10:28:29:972 GameBoy/(12238:12238): OPERATION CODE: 2
+[TRACE] 10:28:29:972 GameBoy/(12238:12238): El mensaje fue enviado.
+[TRACE] 10:28:29:972 GameBoy/(12238:12238): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:29:972 GameBoy/(12238:12238): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:29:972 GameBoy/(12238:12238): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 10:28:29:972 GameBoy/(12238:12238): Mensaje recibido manejado.
+[TRACE] 10:28:29:973 GameBoy/(12232:12232): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:29:973 GameBoy/(12232:12232): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:29:973 GameBoy/(12232:12232): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 10:28:29:973 GameBoy/(12232:12232): Se confirmara la recepcion.
+[TRACE] 10:28:29:973 GameBoy/(12232:12232): Recepcion confirmada.
+[TRACE] 10:28:29:973 GameBoy/(12232:12232): Mensaje recibido manejado.
+[TRACE] 10:28:30:725 GameBoy/(12241:12241): Caracteristicas de mensaje obtenidas
+[TRACE] 10:28:30:725 GameBoy/(12241:12241): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:28:30:725 GameBoy/(12241:12241): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:28:30:726 GameBoy/(12241:12241): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:28:30:726 GameBoy/(12241:12241): El mensaje fue serializado. 
+[TRACE] 10:28:30:726 GameBoy/(12241:12241): OPERATION CODE: 2
+[TRACE] 10:28:30:726 GameBoy/(12241:12241): El mensaje fue enviado.
+[TRACE] 10:28:30:726 GameBoy/(12241:12241): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:30:726 GameBoy/(12241:12241): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:30:726 GameBoy/(12241:12241): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 3
+[TRACE] 10:28:30:726 GameBoy/(12241:12241): Mensaje recibido manejado.
+[TRACE] 10:28:30:727 GameBoy/(12232:12232): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:30:727 GameBoy/(12232:12232): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:30:727 GameBoy/(12232:12232): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 3
+[TRACE] 10:28:30:727 GameBoy/(12232:12232): Se confirmara la recepcion.
+[TRACE] 10:28:30:727 GameBoy/(12232:12232): Recepcion confirmada.
+[TRACE] 10:28:30:727 GameBoy/(12232:12232): Mensaje recibido manejado.
+[TRACE] 10:28:31:685 GameBoy/(12243:12243): Caracteristicas de mensaje obtenidas
+[TRACE] 10:28:31:685 GameBoy/(12243:12243): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:28:31:686 GameBoy/(12243:12243): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:28:31:686 GameBoy/(12243:12243): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:28:31:686 GameBoy/(12243:12243): El mensaje fue serializado. 
+[TRACE] 10:28:31:686 GameBoy/(12243:12243): OPERATION CODE: 2
+[TRACE] 10:28:31:686 GameBoy/(12243:12243): El mensaje fue enviado.
+[TRACE] 10:28:31:686 GameBoy/(12243:12243): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:31:686 GameBoy/(12243:12243): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:31:686 GameBoy/(12243:12243): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 4
+[TRACE] 10:28:31:686 GameBoy/(12243:12243): Mensaje recibido manejado.
+[TRACE] 10:28:31:687 GameBoy/(12232:12232): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:31:687 GameBoy/(12232:12232): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:31:687 GameBoy/(12232:12232): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 4
+[TRACE] 10:28:31:687 GameBoy/(12232:12232): Se confirmara la recepcion.
+[TRACE] 10:28:31:687 GameBoy/(12232:12232): Recepcion confirmada.
+[TRACE] 10:28:31:687 GameBoy/(12232:12232): Mensaje recibido manejado.
+[TRACE] 10:28:40:10 GameBoy/(12245:12245): Caracteristicas de mensaje obtenidas
+[TRACE] 10:28:40:10 GameBoy/(12245:12245): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 10:28:40:10 GameBoy/(12245:12245): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:28:40:10 GameBoy/(12245:12245): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:28:40:10 GameBoy/(12245:12245): El mensaje fue serializado. 
+[TRACE] 10:28:40:10 GameBoy/(12245:12245): OPERATION CODE: 8
+[TRACE] 10:28:40:10 GameBoy/(12245:12245): El mensaje fue enviado.
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 4
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Se confirmara la recepcion.
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Recepcion confirmada.
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Mensaje recibido manejado.
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Se confirmara la recepcion.
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Recepcion confirmada.
+[TRACE] 10:28:40:11 GameBoy/(12245:12245): Mensaje recibido manejado.
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Se confirmara la recepcion.
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Recepcion confirmada.
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Mensaje recibido manejado.
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Mensaje recibido, cod_op: 2.
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 3
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Se confirmara la recepcion.
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Recepcion confirmada.
+[TRACE] 10:28:40:12 GameBoy/(12245:12245): Mensaje recibido manejado.
+[ERROR] 10:30:35:93 GameBoy/(12245:12245): Error en 'recibir_codigo_operacion'
+[ERROR] 10:30:35:93 GameBoy/(12232:12232): Error en 'recibir_codigo_operacion'
+[WARNING] 10:30:35:93 GameBoy/(12232:12232): El broker cerro el socket 4.
+[WARNING] 10:30:35:93 GameBoy/(12232:12232): Se salio del while del socket 4.
+[WARNING] 10:30:35:93 GameBoy/(12245:12245): El broker cerro el socket 4.
+[WARNING] 10:30:35:94 GameBoy/(12245:12245): Se salio del while del socket 4.
+[TRACE] 10:30:44:140 GameBoy/(12322:12322): Caracteristicas de mensaje obtenidas
+[TRACE] 10:30:44:140 GameBoy/(12322:12322): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:30:44:140 GameBoy/(12322:12322): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:30:44:140 GameBoy/(12322:12322): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:30:44:141 GameBoy/(12322:12322): El mensaje fue serializado. 
+[TRACE] 10:30:44:141 GameBoy/(12322:12322): OPERATION CODE: 2
+[TRACE] 10:30:44:141 GameBoy/(12322:12322): El mensaje fue enviado.
+[TRACE] 10:30:44:141 GameBoy/(12322:12322): Mensaje recibido, cod_op: 2.
+[TRACE] 10:30:44:141 GameBoy/(12322:12322): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:30:44:141 GameBoy/(12322:12322): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:30:44:141 GameBoy/(12322:12322): Mensaje recibido manejado.
+[TRACE] 10:30:47:987 GameBoy/(12324:12324): Caracteristicas de mensaje obtenidas
+[TRACE] 10:30:47:987 GameBoy/(12324:12324): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 10:30:47:987 GameBoy/(12324:12324): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:30:47:988 GameBoy/(12324:12324): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:30:47:988 GameBoy/(12324:12324): El mensaje fue serializado. 
+[TRACE] 10:30:47:988 GameBoy/(12324:12324): OPERATION CODE: 8
+[TRACE] 10:30:47:988 GameBoy/(12324:12324): El mensaje fue enviado.
+[TRACE] 10:30:47:989 GameBoy/(12324:12324): Mensaje recibido, cod_op: 2.
+[TRACE] 10:30:47:989 GameBoy/(12324:12324): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:30:47:989 GameBoy/(12324:12324): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:30:47:989 GameBoy/(12324:12324): Se confirmara la recepcion.
+[TRACE] 10:30:47:989 GameBoy/(12324:12324): Recepcion confirmada.
+[TRACE] 10:30:47:989 GameBoy/(12324:12324): Mensaje recibido manejado.
+[TRACE] 10:32:41:490 GameBoy/(12411:12411): Caracteristicas de mensaje obtenidas
+[TRACE] 10:32:41:490 GameBoy/(12411:12411): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 10:32:41:490 GameBoy/(12411:12411): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:32:41:491 GameBoy/(12411:12411): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:32:41:491 GameBoy/(12411:12411): El mensaje fue serializado. 
+[TRACE] 10:32:41:491 GameBoy/(12411:12411): OPERATION CODE: 8
+[TRACE] 10:32:41:491 GameBoy/(12411:12411): El mensaje fue enviado.
+[TRACE] 10:32:43:435 GameBoy/(12413:12413): Caracteristicas de mensaje obtenidas
+[TRACE] 10:32:43:435 GameBoy/(12413:12413): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:32:43:435 GameBoy/(12413:12413): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:32:43:436 GameBoy/(12413:12413): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:32:43:436 GameBoy/(12413:12413): El mensaje fue serializado. 
+[TRACE] 10:32:43:436 GameBoy/(12413:12413): OPERATION CODE: 2
+[TRACE] 10:32:43:436 GameBoy/(12413:12413): El mensaje fue enviado.
+[TRACE] 10:32:43:436 GameBoy/(12413:12413): Mensaje recibido, cod_op: 2.
+[TRACE] 10:32:43:437 GameBoy/(12413:12413): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:32:43:437 GameBoy/(12413:12413): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:32:43:437 GameBoy/(12413:12413): Mensaje recibido manejado.
+[TRACE] 10:32:43:437 GameBoy/(12411:12411): Mensaje recibido, cod_op: 2.
+[TRACE] 10:32:43:437 GameBoy/(12411:12411): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:32:43:437 GameBoy/(12411:12411): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:32:43:437 GameBoy/(12411:12411): Se confirmara la recepcion.
+[TRACE] 10:32:43:437 GameBoy/(12411:12411): Recepcion confirmada.
+[TRACE] 10:32:43:438 GameBoy/(12411:12411): Mensaje recibido manejado.
+[TRACE] 10:32:45:257 GameBoy/(12415:12415): Caracteristicas de mensaje obtenidas
+[TRACE] 10:32:45:257 GameBoy/(12415:12415): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:32:45:257 GameBoy/(12415:12415): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:32:45:258 GameBoy/(12415:12415): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:32:45:258 GameBoy/(12415:12415): El mensaje fue serializado. 
+[TRACE] 10:32:45:258 GameBoy/(12415:12415): OPERATION CODE: 2
+[TRACE] 10:32:45:258 GameBoy/(12415:12415): El mensaje fue enviado.
+[TRACE] 10:32:45:258 GameBoy/(12415:12415): Mensaje recibido, cod_op: 2.
+[TRACE] 10:32:45:259 GameBoy/(12415:12415): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:32:45:259 GameBoy/(12415:12415): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:32:45:259 GameBoy/(12415:12415): Mensaje recibido manejado.
+[TRACE] 10:32:45:259 GameBoy/(12411:12411): Mensaje recibido, cod_op: 2.
+[TRACE] 10:32:45:259 GameBoy/(12411:12411): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:32:45:259 GameBoy/(12411:12411): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:32:45:259 GameBoy/(12411:12411): Se confirmara la recepcion.
+[TRACE] 10:32:45:259 GameBoy/(12411:12411): Recepcion confirmada.
+[TRACE] 10:32:45:260 GameBoy/(12411:12411): Mensaje recibido manejado.
+[TRACE] 10:32:47:856 GameBoy/(12417:12417): Caracteristicas de mensaje obtenidas
+[TRACE] 10:32:47:857 GameBoy/(12417:12417): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 10:32:47:857 GameBoy/(12417:12417): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:32:47:857 GameBoy/(12417:12417): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:32:47:857 GameBoy/(12417:12417): El mensaje fue serializado. 
+[TRACE] 10:32:47:857 GameBoy/(12417:12417): OPERATION CODE: 8
+[TRACE] 10:32:47:857 GameBoy/(12417:12417): El mensaje fue enviado.
+[TRACE] 10:32:47:858 GameBoy/(12417:12417): Mensaje recibido, cod_op: 2.
+[TRACE] 10:32:47:858 GameBoy/(12417:12417): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:32:47:858 GameBoy/(12417:12417): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:32:47:858 GameBoy/(12417:12417): Se confirmara la recepcion.
+[TRACE] 10:32:47:858 GameBoy/(12417:12417): Recepcion confirmada.
+[TRACE] 10:32:47:858 GameBoy/(12417:12417): Mensaje recibido manejado.
+[TRACE] 10:32:47:859 GameBoy/(12417:12417): Mensaje recibido, cod_op: 2.
+[TRACE] 10:32:47:859 GameBoy/(12417:12417): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:32:47:859 GameBoy/(12417:12417): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:32:47:859 GameBoy/(12417:12417): Se confirmara la recepcion.
+[TRACE] 10:32:47:859 GameBoy/(12417:12417): Recepcion confirmada.
+[TRACE] 10:32:47:859 GameBoy/(12417:12417): Mensaje recibido manejado.
+[TRACE] 10:33:31:361 GameBoy/(12489:12489): Caracteristicas de mensaje obtenidas
+[TRACE] 10:33:31:361 GameBoy/(12489:12489): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 10:33:31:361 GameBoy/(12489:12489): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:33:31:361 GameBoy/(12489:12489): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:33:31:361 GameBoy/(12489:12489): El mensaje fue serializado. 
+[TRACE] 10:33:31:361 GameBoy/(12489:12489): OPERATION CODE: 8
+[TRACE] 10:33:31:361 GameBoy/(12489:12489): El mensaje fue enviado.
+[TRACE] 10:33:34:106 GameBoy/(12491:12491): Caracteristicas de mensaje obtenidas
+[TRACE] 10:33:34:106 GameBoy/(12491:12491): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:33:34:106 GameBoy/(12491:12491): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:33:34:107 GameBoy/(12491:12491): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:33:34:107 GameBoy/(12491:12491): El mensaje fue serializado. 
+[TRACE] 10:33:34:107 GameBoy/(12491:12491): OPERATION CODE: 2
+[TRACE] 10:33:34:107 GameBoy/(12491:12491): El mensaje fue enviado.
+[TRACE] 10:33:34:108 GameBoy/(12491:12491): Mensaje recibido, cod_op: 2.
+[TRACE] 10:33:34:108 GameBoy/(12491:12491): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:33:34:108 GameBoy/(12491:12491): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:33:34:108 GameBoy/(12491:12491): Mensaje recibido manejado.
+[TRACE] 10:33:34:109 GameBoy/(12489:12489): Mensaje recibido, cod_op: 2.
+[TRACE] 10:33:34:109 GameBoy/(12489:12489): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:33:34:109 GameBoy/(12489:12489): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:33:34:109 GameBoy/(12489:12489): Se confirmara la recepcion.
+[TRACE] 10:33:34:109 GameBoy/(12489:12489): Recepcion confirmada.
+[TRACE] 10:33:34:109 GameBoy/(12489:12489): Mensaje recibido manejado.
+[TRACE] 10:33:34:949 GameBoy/(12494:12494): Caracteristicas de mensaje obtenidas
+[TRACE] 10:33:34:949 GameBoy/(12494:12494): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:33:34:949 GameBoy/(12494:12494): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:33:34:950 GameBoy/(12494:12494): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:33:34:950 GameBoy/(12494:12494): El mensaje fue serializado. 
+[TRACE] 10:33:34:950 GameBoy/(12494:12494): OPERATION CODE: 2
+[TRACE] 10:33:34:950 GameBoy/(12494:12494): El mensaje fue enviado.
+[TRACE] 10:33:34:950 GameBoy/(12494:12494): Mensaje recibido, cod_op: 2.
+[TRACE] 10:33:34:950 GameBoy/(12494:12494): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:33:34:950 GameBoy/(12494:12494): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:33:34:951 GameBoy/(12494:12494): Mensaje recibido manejado.
+[TRACE] 10:33:34:951 GameBoy/(12489:12489): Mensaje recibido, cod_op: 2.
+[TRACE] 10:33:34:951 GameBoy/(12489:12489): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:33:34:951 GameBoy/(12489:12489): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:33:34:951 GameBoy/(12489:12489): Se confirmara la recepcion.
+[TRACE] 10:33:34:951 GameBoy/(12489:12489): Recepcion confirmada.
+[TRACE] 10:33:34:952 GameBoy/(12489:12489): Mensaje recibido manejado.
+[TRACE] 10:33:38:358 GameBoy/(12497:12497): Caracteristicas de mensaje obtenidas
+[TRACE] 10:33:38:358 GameBoy/(12497:12497): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 10:33:38:358 GameBoy/(12497:12497): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:33:38:359 GameBoy/(12497:12497): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:33:38:359 GameBoy/(12497:12497): El mensaje fue serializado. 
+[TRACE] 10:33:38:359 GameBoy/(12497:12497): OPERATION CODE: 8
+[TRACE] 10:33:38:359 GameBoy/(12497:12497): El mensaje fue enviado.
+[TRACE] 10:33:38:360 GameBoy/(12497:12497): Mensaje recibido, cod_op: 2.
+[TRACE] 10:33:38:360 GameBoy/(12497:12497): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:33:38:360 GameBoy/(12497:12497): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:33:38:360 GameBoy/(12497:12497): Se confirmara la recepcion.
+[TRACE] 10:33:38:360 GameBoy/(12497:12497): Recepcion confirmada.
+[TRACE] 10:33:38:360 GameBoy/(12497:12497): Mensaje recibido manejado.
+[TRACE] 10:33:38:360 GameBoy/(12497:12497): Mensaje recibido, cod_op: 2.
+[TRACE] 10:33:38:360 GameBoy/(12497:12497): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:33:38:360 GameBoy/(12497:12497): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:33:38:361 GameBoy/(12497:12497): Se confirmara la recepcion.
+[TRACE] 10:33:38:361 GameBoy/(12497:12497): Recepcion confirmada.
+[TRACE] 10:33:38:361 GameBoy/(12497:12497): Mensaje recibido manejado.
+[TRACE] 10:54:16:658 GameBoy/(12834:12834): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:16:658 GameBoy/(12834:12834): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 10:54:16:658 GameBoy/(12834:12834): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:16:658 GameBoy/(12834:12834): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:16:658 GameBoy/(12834:12834): El mensaje fue serializado. 
+[TRACE] 10:54:16:658 GameBoy/(12834:12834): OPERATION CODE: 8
+[TRACE] 10:54:16:658 GameBoy/(12834:12834): El mensaje fue enviado.
+[TRACE] 10:54:18:580 GameBoy/(12836:12836): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:18:580 GameBoy/(12836:12836): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:54:18:581 GameBoy/(12836:12836): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:18:581 GameBoy/(12836:12836): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:18:581 GameBoy/(12836:12836): El mensaje fue serializado. 
+[TRACE] 10:54:18:581 GameBoy/(12836:12836): OPERATION CODE: 2
+[TRACE] 10:54:18:581 GameBoy/(12836:12836): El mensaje fue enviado.
+[TRACE] 10:54:18:582 GameBoy/(12836:12836): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:18:582 GameBoy/(12836:12836): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:18:582 GameBoy/(12836:12836): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:54:18:582 GameBoy/(12836:12836): Mensaje recibido manejado.
+[TRACE] 10:54:18:583 GameBoy/(12834:12834): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:18:583 GameBoy/(12834:12834): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:18:583 GameBoy/(12834:12834): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 10:54:18:583 GameBoy/(12834:12834): Se confirmara la recepcion.
+[TRACE] 10:54:18:583 GameBoy/(12834:12834): Recepcion confirmada.
+[TRACE] 10:54:18:583 GameBoy/(12834:12834): Mensaje recibido manejado.
+[TRACE] 10:54:19:301 GameBoy/(12839:12839): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:19:301 GameBoy/(12839:12839): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:54:19:301 GameBoy/(12839:12839): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:19:302 GameBoy/(12839:12839): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:19:302 GameBoy/(12839:12839): El mensaje fue serializado. 
+[TRACE] 10:54:19:302 GameBoy/(12839:12839): OPERATION CODE: 2
+[TRACE] 10:54:19:302 GameBoy/(12839:12839): El mensaje fue enviado.
+[TRACE] 10:54:19:302 GameBoy/(12839:12839): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:19:302 GameBoy/(12839:12839): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:19:302 GameBoy/(12839:12839): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:54:19:302 GameBoy/(12839:12839): Mensaje recibido manejado.
+[TRACE] 10:54:19:303 GameBoy/(12834:12834): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:19:303 GameBoy/(12834:12834): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:19:303 GameBoy/(12834:12834): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 10:54:19:303 GameBoy/(12834:12834): Se confirmara la recepcion.
+[TRACE] 10:54:19:303 GameBoy/(12834:12834): Recepcion confirmada.
+[TRACE] 10:54:19:304 GameBoy/(12834:12834): Mensaje recibido manejado.
+[TRACE] 10:54:19:885 GameBoy/(12842:12842): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:19:886 GameBoy/(12842:12842): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:54:19:886 GameBoy/(12842:12842): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:19:886 GameBoy/(12842:12842): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:19:886 GameBoy/(12842:12842): El mensaje fue serializado. 
+[TRACE] 10:54:19:886 GameBoy/(12842:12842): OPERATION CODE: 2
+[TRACE] 10:54:19:886 GameBoy/(12842:12842): El mensaje fue enviado.
+[TRACE] 10:54:19:886 GameBoy/(12842:12842): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:19:886 GameBoy/(12842:12842): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:19:887 GameBoy/(12842:12842): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 10:54:19:887 GameBoy/(12842:12842): Mensaje recibido manejado.
+[TRACE] 10:54:19:887 GameBoy/(12834:12834): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:19:887 GameBoy/(12834:12834): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:19:887 GameBoy/(12834:12834): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 10:54:19:887 GameBoy/(12834:12834): Se confirmara la recepcion.
+[TRACE] 10:54:19:887 GameBoy/(12834:12834): Recepcion confirmada.
+[TRACE] 10:54:19:887 GameBoy/(12834:12834): Mensaje recibido manejado.
+[TRACE] 10:54:20:449 GameBoy/(12845:12845): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:20:449 GameBoy/(12845:12845): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:54:20:449 GameBoy/(12845:12845): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:20:449 GameBoy/(12845:12845): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:20:449 GameBoy/(12845:12845): El mensaje fue serializado. 
+[TRACE] 10:54:20:449 GameBoy/(12845:12845): OPERATION CODE: 2
+[TRACE] 10:54:20:449 GameBoy/(12845:12845): El mensaje fue enviado.
+[TRACE] 10:54:20:450 GameBoy/(12845:12845): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:20:450 GameBoy/(12845:12845): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:20:450 GameBoy/(12845:12845): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 3
+[TRACE] 10:54:20:450 GameBoy/(12845:12845): Mensaje recibido manejado.
+[TRACE] 10:54:20:451 GameBoy/(12834:12834): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:20:451 GameBoy/(12834:12834): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:20:451 GameBoy/(12834:12834): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 3
+[TRACE] 10:54:20:451 GameBoy/(12834:12834): Se confirmara la recepcion.
+[TRACE] 10:54:20:451 GameBoy/(12834:12834): Recepcion confirmada.
+[TRACE] 10:54:20:451 GameBoy/(12834:12834): Mensaje recibido manejado.
+[TRACE] 10:54:21:47 GameBoy/(12848:12848): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:21:47 GameBoy/(12848:12848): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:54:21:47 GameBoy/(12848:12848): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:21:48 GameBoy/(12848:12848): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:21:48 GameBoy/(12848:12848): El mensaje fue serializado. 
+[TRACE] 10:54:21:48 GameBoy/(12848:12848): OPERATION CODE: 2
+[TRACE] 10:54:21:48 GameBoy/(12848:12848): El mensaje fue enviado.
+[TRACE] 10:54:21:48 GameBoy/(12848:12848): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:21:48 GameBoy/(12848:12848): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:21:49 GameBoy/(12848:12848): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 4
+[TRACE] 10:54:21:49 GameBoy/(12848:12848): Mensaje recibido manejado.
+[TRACE] 10:54:21:50 GameBoy/(12834:12834): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:21:50 GameBoy/(12834:12834): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:21:50 GameBoy/(12834:12834): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 4
+[TRACE] 10:54:21:50 GameBoy/(12834:12834): Se confirmara la recepcion.
+[TRACE] 10:54:21:50 GameBoy/(12834:12834): Recepcion confirmada.
+[TRACE] 10:54:21:50 GameBoy/(12834:12834): Mensaje recibido manejado.
+[TRACE] 10:54:22:238 GameBoy/(12851:12851): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:22:238 GameBoy/(12851:12851): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:54:22:238 GameBoy/(12851:12851): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:22:239 GameBoy/(12851:12851): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:22:239 GameBoy/(12851:12851): El mensaje fue serializado. 
+[TRACE] 10:54:22:239 GameBoy/(12851:12851): OPERATION CODE: 2
+[TRACE] 10:54:22:239 GameBoy/(12851:12851): El mensaje fue enviado.
+[TRACE] 10:54:22:240 GameBoy/(12851:12851): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:22:240 GameBoy/(12851:12851): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:22:240 GameBoy/(12851:12851): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 5
+[TRACE] 10:54:22:240 GameBoy/(12851:12851): Mensaje recibido manejado.
+[TRACE] 10:54:22:242 GameBoy/(12834:12834): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:22:242 GameBoy/(12834:12834): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:22:242 GameBoy/(12834:12834): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 5
+[TRACE] 10:54:22:242 GameBoy/(12834:12834): Se confirmara la recepcion.
+[TRACE] 10:54:22:242 GameBoy/(12834:12834): Recepcion confirmada.
+[TRACE] 10:54:22:242 GameBoy/(12834:12834): Mensaje recibido manejado.
+[TRACE] 10:54:23:36 GameBoy/(12854:12854): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:23:36 GameBoy/(12854:12854): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:54:23:36 GameBoy/(12854:12854): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:23:36 GameBoy/(12854:12854): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:23:36 GameBoy/(12854:12854): El mensaje fue serializado. 
+[TRACE] 10:54:23:36 GameBoy/(12854:12854): OPERATION CODE: 2
+[TRACE] 10:54:23:36 GameBoy/(12854:12854): El mensaje fue enviado.
+[TRACE] 10:54:23:37 GameBoy/(12854:12854): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:23:37 GameBoy/(12854:12854): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:23:37 GameBoy/(12854:12854): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 6
+[TRACE] 10:54:23:37 GameBoy/(12854:12854): Mensaje recibido manejado.
+[TRACE] 10:54:23:38 GameBoy/(12834:12834): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:23:38 GameBoy/(12834:12834): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:23:38 GameBoy/(12834:12834): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 6
+[TRACE] 10:54:23:38 GameBoy/(12834:12834): Se confirmara la recepcion.
+[TRACE] 10:54:23:38 GameBoy/(12834:12834): Recepcion confirmada.
+[TRACE] 10:54:23:38 GameBoy/(12834:12834): Mensaje recibido manejado.
+[TRACE] 10:54:23:868 GameBoy/(12857:12857): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:23:869 GameBoy/(12857:12857): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:54:23:869 GameBoy/(12857:12857): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:23:869 GameBoy/(12857:12857): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:23:869 GameBoy/(12857:12857): El mensaje fue serializado. 
+[TRACE] 10:54:23:869 GameBoy/(12857:12857): OPERATION CODE: 2
+[TRACE] 10:54:23:869 GameBoy/(12857:12857): El mensaje fue enviado.
+[TRACE] 10:54:23:870 GameBoy/(12857:12857): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:23:870 GameBoy/(12857:12857): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:23:870 GameBoy/(12857:12857): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 7
+[TRACE] 10:54:23:870 GameBoy/(12857:12857): Mensaje recibido manejado.
+[TRACE] 10:54:23:871 GameBoy/(12834:12834): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:23:871 GameBoy/(12834:12834): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:23:871 GameBoy/(12834:12834): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 7
+[TRACE] 10:54:23:871 GameBoy/(12834:12834): Se confirmara la recepcion.
+[TRACE] 10:54:23:871 GameBoy/(12834:12834): Recepcion confirmada.
+[TRACE] 10:54:23:871 GameBoy/(12834:12834): Mensaje recibido manejado.
+[TRACE] 10:54:24:657 GameBoy/(12860:12860): Caracteristicas de mensaje obtenidas
+[TRACE] 10:54:24:657 GameBoy/(12860:12860): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 10:54:24:657 GameBoy/(12860:12860): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 10:54:24:657 GameBoy/(12860:12860): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 10:54:24:657 GameBoy/(12860:12860): El mensaje fue serializado. 
+[TRACE] 10:54:24:657 GameBoy/(12860:12860): OPERATION CODE: 2
+[TRACE] 10:54:24:657 GameBoy/(12860:12860): El mensaje fue enviado.
+[TRACE] 10:54:24:658 GameBoy/(12860:12860): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:24:658 GameBoy/(12860:12860): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:24:658 GameBoy/(12860:12860): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 8
+[TRACE] 10:54:24:658 GameBoy/(12860:12860): Mensaje recibido manejado.
+[TRACE] 10:54:24:659 GameBoy/(12834:12834): Mensaje recibido, cod_op: 2.
+[TRACE] 10:54:24:659 GameBoy/(12834:12834): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 10:54:24:659 GameBoy/(12834:12834): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 8
+[TRACE] 10:54:24:659 GameBoy/(12834:12834): Se confirmara la recepcion.
+[TRACE] 10:54:24:659 GameBoy/(12834:12834): Recepcion confirmada.
+[TRACE] 10:54:24:659 GameBoy/(12834:12834): Mensaje recibido manejado.
+[TRACE] 10:56:05:916 GameBoy/(12834:12834): Mensaje recibido, cod_op: -1080060776.
+[WARNING] 10:56:05:916 GameBoy/(12834:12834): El broker cerro el socket 4.
+[WARNING] 10:56:05:916 GameBoy/(12834:12834): Se salio del while del socket 4.
+[TRACE] 11:02:29:211 GameBoy/(13449:13449): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:29:211 GameBoy/(13449:13449): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 11:02:29:211 GameBoy/(13449:13449): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:29:212 GameBoy/(13449:13449): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:29:212 GameBoy/(13449:13449): El mensaje fue serializado. 
+[TRACE] 11:02:29:212 GameBoy/(13449:13449): OPERATION CODE: 8
+[TRACE] 11:02:29:212 GameBoy/(13449:13449): El mensaje fue enviado.
+[TRACE] 11:02:31:179 GameBoy/(13451:13451): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:31:180 GameBoy/(13451:13451): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:02:31:180 GameBoy/(13451:13451): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:31:180 GameBoy/(13451:13451): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:31:181 GameBoy/(13451:13451): El mensaje fue serializado. 
+[TRACE] 11:02:31:181 GameBoy/(13451:13451): OPERATION CODE: 2
+[TRACE] 11:02:31:181 GameBoy/(13451:13451): El mensaje fue enviado.
+[TRACE] 11:02:31:181 GameBoy/(13451:13451): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:31:182 GameBoy/(13451:13451): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:31:182 GameBoy/(13451:13451): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 11:02:31:182 GameBoy/(13451:13451): Mensaje recibido manejado.
+[TRACE] 11:02:31:183 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:31:183 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:31:183 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 11:02:31:183 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:02:31:183 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:02:31:183 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:02:31:921 GameBoy/(13454:13454): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:31:921 GameBoy/(13454:13454): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:02:31:921 GameBoy/(13454:13454): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:31:922 GameBoy/(13454:13454): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:31:922 GameBoy/(13454:13454): El mensaje fue serializado. 
+[TRACE] 11:02:31:922 GameBoy/(13454:13454): OPERATION CODE: 2
+[TRACE] 11:02:31:922 GameBoy/(13454:13454): El mensaje fue enviado.
+[TRACE] 11:02:31:923 GameBoy/(13454:13454): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:31:923 GameBoy/(13454:13454): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:31:923 GameBoy/(13454:13454): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 11:02:31:923 GameBoy/(13454:13454): Mensaje recibido manejado.
+[TRACE] 11:02:31:923 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:31:924 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:31:924 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 11:02:31:924 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:02:31:924 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:02:31:924 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:02:32:643 GameBoy/(13457:13457): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:32:643 GameBoy/(13457:13457): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:02:32:643 GameBoy/(13457:13457): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:32:644 GameBoy/(13457:13457): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:32:644 GameBoy/(13457:13457): El mensaje fue serializado. 
+[TRACE] 11:02:32:644 GameBoy/(13457:13457): OPERATION CODE: 2
+[TRACE] 11:02:32:644 GameBoy/(13457:13457): El mensaje fue enviado.
+[TRACE] 11:02:32:644 GameBoy/(13457:13457): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:32:644 GameBoy/(13457:13457): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:32:644 GameBoy/(13457:13457): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 11:02:32:644 GameBoy/(13457:13457): Mensaje recibido manejado.
+[TRACE] 11:02:32:645 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:32:645 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:32:645 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 11:02:32:645 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:02:32:645 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:02:32:646 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:02:33:315 GameBoy/(13460:13460): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:33:315 GameBoy/(13460:13460): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:02:33:315 GameBoy/(13460:13460): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:33:315 GameBoy/(13460:13460): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:33:315 GameBoy/(13460:13460): El mensaje fue serializado. 
+[TRACE] 11:02:33:315 GameBoy/(13460:13460): OPERATION CODE: 2
+[TRACE] 11:02:33:316 GameBoy/(13460:13460): El mensaje fue enviado.
+[TRACE] 11:02:33:316 GameBoy/(13460:13460): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:33:316 GameBoy/(13460:13460): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:33:316 GameBoy/(13460:13460): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 3
+[TRACE] 11:02:33:316 GameBoy/(13460:13460): Mensaje recibido manejado.
+[TRACE] 11:02:33:317 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:33:317 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:33:317 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 3
+[TRACE] 11:02:33:317 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:02:33:317 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:02:33:317 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:02:34:913 GameBoy/(13463:13463): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:34:914 GameBoy/(13463:13463): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:02:34:914 GameBoy/(13463:13463): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:34:915 GameBoy/(13463:13463): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:34:915 GameBoy/(13463:13463): El mensaje fue serializado. 
+[TRACE] 11:02:34:915 GameBoy/(13463:13463): OPERATION CODE: 2
+[TRACE] 11:02:34:915 GameBoy/(13463:13463): El mensaje fue enviado.
+[TRACE] 11:02:34:915 GameBoy/(13463:13463): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:34:915 GameBoy/(13463:13463): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:34:915 GameBoy/(13463:13463): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 4
+[TRACE] 11:02:34:915 GameBoy/(13463:13463): Mensaje recibido manejado.
+[TRACE] 11:02:34:916 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:34:916 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:34:916 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 4
+[TRACE] 11:02:34:916 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:02:34:916 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:02:34:916 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:02:35:768 GameBoy/(13466:13466): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:35:769 GameBoy/(13466:13466): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:02:35:769 GameBoy/(13466:13466): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:35:770 GameBoy/(13466:13466): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:35:770 GameBoy/(13466:13466): El mensaje fue serializado. 
+[TRACE] 11:02:35:770 GameBoy/(13466:13466): OPERATION CODE: 2
+[TRACE] 11:02:35:770 GameBoy/(13466:13466): El mensaje fue enviado.
+[TRACE] 11:02:35:770 GameBoy/(13466:13466): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:35:771 GameBoy/(13466:13466): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:35:771 GameBoy/(13466:13466): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 5
+[TRACE] 11:02:35:771 GameBoy/(13466:13466): Mensaje recibido manejado.
+[TRACE] 11:02:35:773 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:35:773 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:35:773 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 5
+[TRACE] 11:02:35:773 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:02:35:773 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:02:35:773 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:02:38:502 GameBoy/(13469:13469): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:38:502 GameBoy/(13469:13469): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 11:02:38:502 GameBoy/(13469:13469): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:38:502 GameBoy/(13469:13469): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:38:502 GameBoy/(13469:13469): El mensaje fue serializado. 
+[TRACE] 11:02:38:502 GameBoy/(13469:13469): OPERATION CODE: 8
+[TRACE] 11:02:38:503 GameBoy/(13469:13469): El mensaje fue enviado.
+[TRACE] 11:02:38:504 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:38:504 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:38:504 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 4
+[TRACE] 11:02:38:504 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:02:38:504 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:02:38:504 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:02:38:505 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:38:505 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:38:505 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 11:02:38:505 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:02:38:505 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:02:38:506 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:02:38:506 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:38:506 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:38:506 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 3
+[TRACE] 11:02:38:506 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:02:38:507 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:02:38:507 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:02:38:507 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:38:507 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:38:507 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 5
+[TRACE] 11:02:38:507 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:02:38:507 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:02:38:507 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:02:44:194 GameBoy/(13471:13471): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:44:194 GameBoy/(13471:13471): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:02:44:195 GameBoy/(13471:13471): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:44:195 GameBoy/(13471:13471): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:44:195 GameBoy/(13471:13471): El mensaje fue serializado. 
+[TRACE] 11:02:44:195 GameBoy/(13471:13471): OPERATION CODE: 2
+[TRACE] 11:02:44:195 GameBoy/(13471:13471): El mensaje fue enviado.
+[TRACE] 11:02:44:195 GameBoy/(13471:13471): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:44:195 GameBoy/(13471:13471): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:44:195 GameBoy/(13471:13471): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 6
+[TRACE] 11:02:44:195 GameBoy/(13471:13471): Mensaje recibido manejado.
+[TRACE] 11:02:44:196 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:44:196 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:44:196 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 6
+[TRACE] 11:02:44:196 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:02:44:197 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:02:44:197 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:02:44:197 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:44:197 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:44:197 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 6
+[TRACE] 11:02:44:197 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:02:44:197 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:02:44:197 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:02:46:278 GameBoy/(13474:13474): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:46:278 GameBoy/(13474:13474): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:02:46:278 GameBoy/(13474:13474): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:46:279 GameBoy/(13474:13474): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:46:279 GameBoy/(13474:13474): El mensaje fue serializado. 
+[TRACE] 11:02:46:279 GameBoy/(13474:13474): OPERATION CODE: 2
+[TRACE] 11:02:46:279 GameBoy/(13474:13474): El mensaje fue enviado.
+[TRACE] 11:02:46:279 GameBoy/(13474:13474): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:46:279 GameBoy/(13474:13474): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:46:279 GameBoy/(13474:13474): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 7
+[TRACE] 11:02:46:279 GameBoy/(13474:13474): Mensaje recibido manejado.
+[TRACE] 11:02:46:281 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:46:281 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:46:281 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 7
+[TRACE] 11:02:46:281 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:02:46:281 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:02:46:281 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:02:46:281 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:46:281 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:46:281 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 7
+[TRACE] 11:02:46:281 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:02:46:281 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:02:46:282 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:02:47:177 GameBoy/(13477:13477): Caracteristicas de mensaje obtenidas
+[TRACE] 11:02:47:177 GameBoy/(13477:13477): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:02:47:177 GameBoy/(13477:13477): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:02:47:178 GameBoy/(13477:13477): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:02:47:178 GameBoy/(13477:13477): El mensaje fue serializado. 
+[TRACE] 11:02:47:178 GameBoy/(13477:13477): OPERATION CODE: 2
+[TRACE] 11:02:47:178 GameBoy/(13477:13477): El mensaje fue enviado.
+[TRACE] 11:02:47:178 GameBoy/(13477:13477): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:47:178 GameBoy/(13477:13477): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:47:178 GameBoy/(13477:13477): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 8
+[TRACE] 11:02:47:178 GameBoy/(13477:13477): Mensaje recibido manejado.
+[TRACE] 11:02:47:179 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:47:179 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:47:179 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 8
+[TRACE] 11:02:47:179 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:02:47:179 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:02:47:179 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:02:47:180 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:02:47:180 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:02:47:180 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 8
+[TRACE] 11:02:47:180 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:02:47:180 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:02:47:180 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:03:10:453 GameBoy/(13482:13482): Caracteristicas de mensaje obtenidas
+[TRACE] 11:03:10:453 GameBoy/(13482:13482): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:03:10:453 GameBoy/(13482:13482): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:03:10:454 GameBoy/(13482:13482): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:03:10:454 GameBoy/(13482:13482): El mensaje fue serializado. 
+[TRACE] 11:03:10:454 GameBoy/(13482:13482): OPERATION CODE: 2
+[TRACE] 11:03:10:454 GameBoy/(13482:13482): El mensaje fue enviado.
+[TRACE] 11:03:10:455 GameBoy/(13482:13482): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:10:455 GameBoy/(13482:13482): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:10:455 GameBoy/(13482:13482): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 9
+[TRACE] 11:03:10:455 GameBoy/(13482:13482): Mensaje recibido manejado.
+[TRACE] 11:03:10:456 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:10:456 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:10:456 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 9
+[TRACE] 11:03:10:456 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:03:10:456 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:03:10:456 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:03:10:456 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:10:456 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:10:456 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 9
+[TRACE] 11:03:10:456 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:03:10:457 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:03:10:457 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:03:11:296 GameBoy/(13485:13485): Caracteristicas de mensaje obtenidas
+[TRACE] 11:03:11:297 GameBoy/(13485:13485): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:03:11:297 GameBoy/(13485:13485): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:03:11:297 GameBoy/(13485:13485): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:03:11:297 GameBoy/(13485:13485): El mensaje fue serializado. 
+[TRACE] 11:03:11:297 GameBoy/(13485:13485): OPERATION CODE: 2
+[TRACE] 11:03:11:297 GameBoy/(13485:13485): El mensaje fue enviado.
+[TRACE] 11:03:11:298 GameBoy/(13485:13485): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:11:298 GameBoy/(13485:13485): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:11:298 GameBoy/(13485:13485): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 10
+[TRACE] 11:03:11:298 GameBoy/(13485:13485): Mensaje recibido manejado.
+[TRACE] 11:03:11:299 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:11:299 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:11:299 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 10
+[TRACE] 11:03:11:299 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:03:11:300 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:03:11:300 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:03:11:300 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:11:300 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:11:300 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 10
+[TRACE] 11:03:11:300 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:03:11:300 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:03:11:300 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:03:11:939 GameBoy/(13488:13488): Caracteristicas de mensaje obtenidas
+[TRACE] 11:03:11:939 GameBoy/(13488:13488): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:03:11:939 GameBoy/(13488:13488): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:03:11:940 GameBoy/(13488:13488): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:03:11:940 GameBoy/(13488:13488): El mensaje fue serializado. 
+[TRACE] 11:03:11:940 GameBoy/(13488:13488): OPERATION CODE: 2
+[TRACE] 11:03:11:940 GameBoy/(13488:13488): El mensaje fue enviado.
+[TRACE] 11:03:11:941 GameBoy/(13488:13488): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:11:941 GameBoy/(13488:13488): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:11:941 GameBoy/(13488:13488): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 11
+[TRACE] 11:03:11:941 GameBoy/(13488:13488): Mensaje recibido manejado.
+[TRACE] 11:03:11:942 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:11:942 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:11:942 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 11
+[TRACE] 11:03:11:942 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:03:11:942 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:03:11:942 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:03:11:942 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:11:942 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:11:942 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 11
+[TRACE] 11:03:11:942 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:03:11:943 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:03:11:943 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:03:12:512 GameBoy/(13491:13491): Caracteristicas de mensaje obtenidas
+[TRACE] 11:03:12:512 GameBoy/(13491:13491): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:03:12:512 GameBoy/(13491:13491): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:03:12:513 GameBoy/(13491:13491): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:03:12:513 GameBoy/(13491:13491): El mensaje fue serializado. 
+[TRACE] 11:03:12:513 GameBoy/(13491:13491): OPERATION CODE: 2
+[TRACE] 11:03:12:513 GameBoy/(13491:13491): El mensaje fue enviado.
+[TRACE] 11:03:12:513 GameBoy/(13491:13491): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:12:513 GameBoy/(13491:13491): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:12:513 GameBoy/(13491:13491): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 12
+[TRACE] 11:03:12:513 GameBoy/(13491:13491): Mensaje recibido manejado.
+[TRACE] 11:03:12:515 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:12:515 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:12:515 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 12
+[TRACE] 11:03:12:515 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:03:12:515 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:03:12:515 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:03:12:515 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:12:515 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:12:516 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 12
+[TRACE] 11:03:12:516 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:03:12:516 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:03:12:516 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:03:13:312 GameBoy/(13494:13494): Caracteristicas de mensaje obtenidas
+[TRACE] 11:03:13:313 GameBoy/(13494:13494): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:03:13:313 GameBoy/(13494:13494): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:03:13:313 GameBoy/(13494:13494): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:03:13:313 GameBoy/(13494:13494): El mensaje fue serializado. 
+[TRACE] 11:03:13:313 GameBoy/(13494:13494): OPERATION CODE: 2
+[TRACE] 11:03:13:313 GameBoy/(13494:13494): El mensaje fue enviado.
+[TRACE] 11:03:13:314 GameBoy/(13494:13494): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:13:314 GameBoy/(13494:13494): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:13:314 GameBoy/(13494:13494): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 13
+[TRACE] 11:03:13:314 GameBoy/(13494:13494): Mensaje recibido manejado.
+[TRACE] 11:03:13:315 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:13:315 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:13:315 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 13
+[TRACE] 11:03:13:315 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:03:13:315 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:03:13:315 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:03:13:316 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:13:316 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:13:316 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 13
+[TRACE] 11:03:13:316 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:03:13:316 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:03:13:316 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:03:17:304 GameBoy/(13497:13497): Caracteristicas de mensaje obtenidas
+[TRACE] 11:03:17:304 GameBoy/(13497:13497): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:03:17:305 GameBoy/(13497:13497): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:03:17:305 GameBoy/(13497:13497): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:03:17:305 GameBoy/(13497:13497): El mensaje fue serializado. 
+[TRACE] 11:03:17:306 GameBoy/(13497:13497): OPERATION CODE: 2
+[TRACE] 11:03:17:306 GameBoy/(13497:13497): El mensaje fue enviado.
+[TRACE] 11:03:17:306 GameBoy/(13497:13497): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:17:306 GameBoy/(13497:13497): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:17:306 GameBoy/(13497:13497): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 14
+[TRACE] 11:03:17:306 GameBoy/(13497:13497): Mensaje recibido manejado.
+[TRACE] 11:03:17:307 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:17:308 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:17:308 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 14
+[TRACE] 11:03:17:308 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:03:17:308 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:03:17:308 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:03:17:308 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:17:308 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:17:308 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 14
+[TRACE] 11:03:17:308 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:03:17:308 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:03:17:308 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:03:18:442 GameBoy/(13500:13500): Caracteristicas de mensaje obtenidas
+[TRACE] 11:03:18:443 GameBoy/(13500:13500): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:03:18:443 GameBoy/(13500:13500): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:03:18:443 GameBoy/(13500:13500): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:03:18:443 GameBoy/(13500:13500): El mensaje fue serializado. 
+[TRACE] 11:03:18:443 GameBoy/(13500:13500): OPERATION CODE: 2
+[TRACE] 11:03:18:443 GameBoy/(13500:13500): El mensaje fue enviado.
+[TRACE] 11:03:18:444 GameBoy/(13500:13500): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:18:444 GameBoy/(13500:13500): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:18:444 GameBoy/(13500:13500): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 15
+[TRACE] 11:03:18:444 GameBoy/(13500:13500): Mensaje recibido manejado.
+[TRACE] 11:03:18:445 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:18:445 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:18:445 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 15
+[TRACE] 11:03:18:445 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:03:18:445 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:03:18:445 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:03:18:445 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:18:445 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:18:445 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 15
+[TRACE] 11:03:18:445 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:03:18:445 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:03:18:445 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:03:19:385 GameBoy/(13504:13504): Caracteristicas de mensaje obtenidas
+[TRACE] 11:03:19:385 GameBoy/(13504:13504): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:03:19:385 GameBoy/(13504:13504): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:03:19:385 GameBoy/(13504:13504): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:03:19:385 GameBoy/(13504:13504): El mensaje fue serializado. 
+[TRACE] 11:03:19:385 GameBoy/(13504:13504): OPERATION CODE: 2
+[TRACE] 11:03:19:385 GameBoy/(13504:13504): El mensaje fue enviado.
+[TRACE] 11:03:19:386 GameBoy/(13504:13504): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:19:386 GameBoy/(13504:13504): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:19:386 GameBoy/(13504:13504): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 16
+[TRACE] 11:03:19:386 GameBoy/(13504:13504): Mensaje recibido manejado.
+[TRACE] 11:03:19:387 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:19:387 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:19:388 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 16
+[TRACE] 11:03:19:388 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:03:19:388 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:03:19:389 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:03:19:390 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:19:390 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:19:390 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 16
+[TRACE] 11:03:19:390 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:03:19:390 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:03:19:390 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:03:20:513 GameBoy/(13507:13507): Caracteristicas de mensaje obtenidas
+[TRACE] 11:03:20:513 GameBoy/(13507:13507): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 11:03:20:513 GameBoy/(13507:13507): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:03:20:513 GameBoy/(13507:13507): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:03:20:513 GameBoy/(13507:13507): El mensaje fue serializado. 
+[TRACE] 11:03:20:513 GameBoy/(13507:13507): OPERATION CODE: 2
+[TRACE] 11:03:20:513 GameBoy/(13507:13507): El mensaje fue enviado.
+[TRACE] 11:03:20:514 GameBoy/(13507:13507): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:20:514 GameBoy/(13507:13507): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:20:514 GameBoy/(13507:13507): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 17
+[TRACE] 11:03:20:514 GameBoy/(13507:13507): Mensaje recibido manejado.
+[TRACE] 11:03:20:515 GameBoy/(13449:13449): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:20:515 GameBoy/(13449:13449): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:20:515 GameBoy/(13449:13449): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 17
+[TRACE] 11:03:20:515 GameBoy/(13449:13449): Se confirmara la recepcion.
+[TRACE] 11:03:20:515 GameBoy/(13449:13449): Recepcion confirmada.
+[TRACE] 11:03:20:515 GameBoy/(13449:13449): Mensaje recibido manejado.
+[TRACE] 11:03:20:515 GameBoy/(13469:13469): Mensaje recibido, cod_op: 2.
+[TRACE] 11:03:20:515 GameBoy/(13469:13469): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 11:03:20:515 GameBoy/(13469:13469): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 17
+[TRACE] 11:03:20:515 GameBoy/(13469:13469): Se confirmara la recepcion.
+[TRACE] 11:03:20:515 GameBoy/(13469:13469): Recepcion confirmada.
+[TRACE] 11:03:20:515 GameBoy/(13469:13469): Mensaje recibido manejado.
+[TRACE] 11:23:01:490 GameBoy/(13469:13469): Mensaje recibido, cod_op: -1082053944.
+[TRACE] 11:23:01:490 GameBoy/(13449:13449): Mensaje recibido, cod_op: -1078679720.
+[WARNING] 11:23:01:490 GameBoy/(13469:13469): El broker cerro el socket 4.
+[WARNING] 11:23:01:490 GameBoy/(13449:13449): El broker cerro el socket 4.
+[WARNING] 11:23:01:491 GameBoy/(13469:13469): Se salio del while del socket 4.
+[WARNING] 11:23:01:491 GameBoy/(13449:13449): Se salio del while del socket 4.
+[TRACE] 11:23:01:494 GameBoy/(13704:13704): Caracteristicas de mensaje obtenidas
+[TRACE] 11:23:01:494 GameBoy/(13704:13704): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 11:23:01:494 GameBoy/(13704:13704): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 11:23:01:494 GameBoy/(13704:13704): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 11:23:01:494 GameBoy/(13704:13704): El mensaje fue serializado. 
+[TRACE] 11:23:01:494 GameBoy/(13704:13704): OPERATION CODE: 8
+[TRACE] 11:23:01:495 GameBoy/(13704:13704): El mensaje fue enviado.
+[ERROR] 11:23:01:495 GameBoy/(13704:13704): Error en 'recibir_codigo_operacion'
+[WARNING] 11:23:01:495 GameBoy/(13704:13704): El broker cerro el socket -1.
+[WARNING] 11:23:01:495 GameBoy/(13704:13704): Se salio del while del socket -1.
+[TRACE] 12:23:53:550 GameBoy/(14604:14604): Caracteristicas de mensaje obtenidas
+[TRACE] 12:23:53:551 GameBoy/(14604:14604): Se quiere enviar un mensaje del tipo -3- al modulo -3-
+[TRACE] 12:23:53:551 GameBoy/(14604:14604): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:23:53:551 GameBoy/(14604:14604): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:23:53:551 GameBoy/(14604:14604): El mensaje fue serializado. 
+[TRACE] 12:23:53:551 GameBoy/(14604:14604): OPERATION CODE: 3
+[TRACE] 12:23:53:551 GameBoy/(14604:14604): El mensaje fue enviado.
+[TRACE] 12:23:53:552 GameBoy/(14604:14604): Mensaje recibido, cod_op: 3.
+[TRACE] 12:23:53:552 GameBoy/(14604:14604): Se recibio un mensaje NEW_POKEMON
+[TRACE] 12:23:53:552 GameBoy/(14604:14604): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Cantidad: 5, Id mensaje: 0
+[TRACE] 12:23:53:552 GameBoy/(14604:14604): Mensaje recibido manejado.
+[TRACE] 12:24:04:615 GameBoy/(14611:14611): Caracteristicas de mensaje obtenidas
+[TRACE] 12:24:04:615 GameBoy/(14611:14611): Se quiere enviar un mensaje del tipo -2- al modulo -3-
+[TRACE] 12:24:04:616 GameBoy/(14611:14611): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:24:04:616 GameBoy/(14611:14611): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:24:04:616 GameBoy/(14611:14611): El mensaje fue serializado. 
+[TRACE] 12:24:04:616 GameBoy/(14611:14611): OPERATION CODE: 2
+[TRACE] 12:24:04:617 GameBoy/(14611:14611): El mensaje fue enviado.
+[TRACE] 12:24:04:617 GameBoy/(14611:14611): Mensaje recibido, cod_op: 2.
+[TRACE] 12:24:04:617 GameBoy/(14611:14611): Se recibio un mensaje APPEARED_POKEMON
+[TRACE] 12:24:04:617 GameBoy/(14611:14611): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Id mensaje: 1
+[TRACE] 12:24:04:617 GameBoy/(14611:14611): Mensaje recibido manejado.
+[TRACE] 12:24:18:211 GameBoy/(14615:14615): Caracteristicas de mensaje obtenidas
+[TRACE] 12:24:18:211 GameBoy/(14615:14615): Se quiere enviar un mensaje del tipo -5- al modulo -3-
+[TRACE] 12:24:18:211 GameBoy/(14615:14615): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:24:18:211 GameBoy/(14615:14615): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:24:18:212 GameBoy/(14615:14615): El mensaje fue serializado. 
+[TRACE] 12:24:18:212 GameBoy/(14615:14615): OPERATION CODE: 5
+[TRACE] 12:24:18:212 GameBoy/(14615:14615): El mensaje fue enviado.
+[TRACE] 12:24:18:212 GameBoy/(14615:14615): Mensaje recibido, cod_op: 5.
+[TRACE] 12:24:18:212 GameBoy/(14615:14615): Se recibio un mensaje CATCH_POKEMON
+[TRACE] 12:24:18:212 GameBoy/(14615:14615): Pokemon: PIKACHU, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 12:24:18:212 GameBoy/(14615:14615): Mensaje recibido manejado.
+[TRACE] 12:24:27:428 GameBoy/(14621:14621): Caracteristicas de mensaje obtenidas
+[TRACE] 12:24:27:429 GameBoy/(14621:14621): Se quiere enviar un mensaje del tipo -4- al modulo -3-
+[TRACE] 12:24:27:429 GameBoy/(14621:14621): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:24:27:430 GameBoy/(14621:14621): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:24:27:430 GameBoy/(14621:14621): El mensaje fue serializado. 
+[TRACE] 12:24:27:430 GameBoy/(14621:14621): OPERATION CODE: 4
+[TRACE] 12:24:27:430 GameBoy/(14621:14621): El mensaje fue enviado.
+[TRACE] 12:24:27:438 GameBoy/(14621:14621): Mensaje recibido, cod_op: 4.
+[TRACE] 12:24:27:438 GameBoy/(14621:14621): Se recibio un mensaje CAUGHT_POKEMON
+[TRACE] 12:24:27:438 GameBoy/(14621:14621): ok/fail: 1 ID mensaje: 3
+[TRACE] 12:24:27:438 GameBoy/(14621:14621): Mensaje recibido manejado.
+[TRACE] 12:24:35:926 GameBoy/(14626:14626): Caracteristicas de mensaje obtenidas
+[TRACE] 12:24:35:926 GameBoy/(14626:14626): Se quiere enviar un mensaje del tipo -6- al modulo -3-
+[TRACE] 12:24:35:926 GameBoy/(14626:14626): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:24:35:926 GameBoy/(14626:14626): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:24:35:926 GameBoy/(14626:14626): El mensaje fue serializado. 
+[TRACE] 12:24:35:926 GameBoy/(14626:14626): OPERATION CODE: 6
+[TRACE] 12:24:35:926 GameBoy/(14626:14626): El mensaje fue enviado.
+[TRACE] 12:24:35:927 GameBoy/(14626:14626): Mensaje recibido, cod_op: 6.
+[TRACE] 12:24:35:927 GameBoy/(14626:14626): Se recibio un mensaje GET_POKEMON
+[TRACE] 12:24:35:927 GameBoy/(14626:14626): Pokemon: SQUIRTLE, Id mensaje: 4
+[TRACE] 12:24:35:927 GameBoy/(14626:14626): Mensaje recibido manejado.
+[TRACE] 12:24:46:265 GameBoy/(14631:14631): Caracteristicas de mensaje obtenidas
+[TRACE] 12:24:46:265 GameBoy/(14631:14631): Se quiere enviar un mensaje del tipo -7- al modulo -3-
+[TRACE] 12:24:46:266 GameBoy/(14631:14631): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:24:46:266 GameBoy/(14631:14631): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:24:46:266 GameBoy/(14631:14631): El mensaje fue serializado. 
+[TRACE] 12:24:46:266 GameBoy/(14631:14631): OPERATION CODE: 7
+[TRACE] 12:24:46:266 GameBoy/(14631:14631): El mensaje fue enviado.
+[TRACE] 12:24:46:266 GameBoy/(14631:14631): Mensaje recibido, cod_op: 7.
+[TRACE] 12:24:46:267 GameBoy/(14631:14631): Se recibio un mensaje LOCALIZED_POKEMON
+[TRACE] 12:24:46:267 GameBoy/(14631:14631): Id_mensaje: 1663066400, Pokemon: Bulbasaur, Cantidad: 3, Posiciones:1 2 5 8 8 6 
+[TRACE] 12:24:46:267 GameBoy/(14631:14631): Mensaje recibido manejado.
+[TRACE] 12:25:31:655 GameBoy/(14638:14638): Caracteristicas de mensaje obtenidas
+[TRACE] 12:25:31:657 GameBoy/(14638:14638): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 12:25:31:657 GameBoy/(14638:14638): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:25:31:657 GameBoy/(14638:14638): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:25:31:657 GameBoy/(14638:14638): El mensaje fue serializado. 
+[TRACE] 12:25:31:657 GameBoy/(14638:14638): OPERATION CODE: 8
+[TRACE] 12:25:31:657 GameBoy/(14638:14638): El mensaje fue enviado.
+[TRACE] 12:25:31:662 GameBoy/(14638:14638): Mensaje recibido, cod_op: 7.
+[TRACE] 12:25:31:662 GameBoy/(14638:14638): Se recibio un mensaje LOCALIZED_POKEMON
+[TRACE] 12:25:31:662 GameBoy/(14638:14638): Id_mensaje: 757935405, Pokemon: Bulbasaur, Cantidad: 3, Posiciones:1 2 5 8 8 6 
+[TRACE] 12:25:31:663 GameBoy/(14638:14638): Se confirmara la recepcion.
+[TRACE] 12:25:31:663 GameBoy/(14638:14638): Recepcion confirmada.
+[TRACE] 12:25:31:663 GameBoy/(14638:14638): Mensaje recibido manejado.
+[TRACE] 12:25:40:432 GameBoy/(14641:14641): Caracteristicas de mensaje obtenidas
+[TRACE] 12:25:40:434 GameBoy/(14641:14641): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 12:25:40:434 GameBoy/(14641:14641): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:25:40:434 GameBoy/(14641:14641): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:25:40:434 GameBoy/(14641:14641): El mensaje fue serializado. 
+[TRACE] 12:25:40:434 GameBoy/(14641:14641): OPERATION CODE: 8
+[TRACE] 12:25:40:435 GameBoy/(14641:14641): El mensaje fue enviado.
+[TRACE] 12:25:40:435 GameBoy/(14641:14641): Mensaje recibido, cod_op: 6.
+[TRACE] 12:25:40:435 GameBoy/(14641:14641): Se recibio un mensaje GET_POKEMON
+[TRACE] 12:25:40:435 GameBoy/(14641:14641): Pokemon: SQUIRTLE, Id mensaje: 4
+[TRACE] 12:25:40:435 GameBoy/(14641:14641): Se confirmara la recepcion.
+[TRACE] 12:25:40:437 GameBoy/(14641:14641): Recepcion confirmada.
+[TRACE] 12:25:40:438 GameBoy/(14641:14641): Mensaje recibido manejado.
+[TRACE] 12:26:03:182 GameBoy/(14647:14647): Caracteristicas de mensaje obtenidas
+[TRACE] 12:26:03:182 GameBoy/(14647:14647): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 12:26:03:182 GameBoy/(14647:14647): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:26:03:183 GameBoy/(14647:14647): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:26:03:183 GameBoy/(14647:14647): El mensaje fue serializado. 
+[TRACE] 12:26:03:183 GameBoy/(14647:14647): OPERATION CODE: 8
+[TRACE] 12:26:03:183 GameBoy/(14647:14647): El mensaje fue enviado.
+[TRACE] 12:26:03:184 GameBoy/(14647:14647): Mensaje recibido, cod_op: 4.
+[TRACE] 12:26:03:184 GameBoy/(14647:14647): Se recibio un mensaje CAUGHT_POKEMON
+[TRACE] 12:26:03:184 GameBoy/(14647:14647): ok/fail: 1 ID mensaje: 3
+[TRACE] 12:26:03:184 GameBoy/(14647:14647): Se confirmara la recepcion.
+[TRACE] 12:26:03:184 GameBoy/(14647:14647): Recepcion confirmada.
+[TRACE] 12:26:03:184 GameBoy/(14647:14647): Mensaje recibido manejado.
+[TRACE] 12:26:10:359 GameBoy/(14650:14650): Caracteristicas de mensaje obtenidas
+[TRACE] 12:26:10:359 GameBoy/(14650:14650): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 12:26:10:359 GameBoy/(14650:14650): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 12:26:10:359 GameBoy/(14650:14650): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 12:26:10:359 GameBoy/(14650:14650): El mensaje fue serializado. 
+[TRACE] 12:26:10:360 GameBoy/(14650:14650): OPERATION CODE: 8
+[TRACE] 12:26:10:362 GameBoy/(14650:14650): El mensaje fue enviado.
+[TRACE] 12:26:10:363 GameBoy/(14650:14650): Mensaje recibido, cod_op: 5.
+[TRACE] 12:26:10:363 GameBoy/(14650:14650): Se recibio un mensaje CATCH_POKEMON
+[TRACE] 12:26:10:364 GameBoy/(14650:14650): Pokemon: PIKACHU, Posicion X: 3, Posicion Y: 1, Id mensaje: 2
+[TRACE] 12:26:10:364 GameBoy/(14650:14650): Se confirmara la recepcion.
+[TRACE] 12:26:10:364 GameBoy/(14650:14650): Recepcion confirmada.
+[TRACE] 12:26:10:364 GameBoy/(14650:14650): Mensaje recibido manejado.

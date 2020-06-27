@@ -41,7 +41,7 @@ void confirmar_cliente_recibio(t_confirmacion* mensaje_confirmacion, int socket_
 
 void confirmar_recepcion_en_cache(t_confirmacion* mensaje_confirmacion, int socket_cliente){
 
-	//pthread_mutex_lock(mutex_memoria_cache);
+	pthread_mutex_lock(&mutex_memoria_cache);
 
 	void confirmar_recepcion_de_cliente(void* particion){
 		if(mensaje_confirmacion->mensaje == ((t_mensaje_cache*) particion)->id){
@@ -54,7 +54,7 @@ void confirmar_recepcion_en_cache(t_confirmacion* mensaje_confirmacion, int sock
 
 	list_iterate(struct_admin_cache, confirmar_recepcion_de_cliente);
 
-	//pthread_mutex_unlock(mutex_memoria_cache);
+	pthread_mutex_unlock(&mutex_memoria_cache);
 
 }
 

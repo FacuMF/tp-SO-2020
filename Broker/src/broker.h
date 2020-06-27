@@ -93,7 +93,7 @@ t_queue* localized_pokemon;
 int id_mensajes;
 
 //Semaforos
-//pthread_mutex_t* mutex_memoria_cache;
+pthread_mutex_t mutex_memoria_cache;
 
 //Funciones Generales -----------------------------------------------------
 
@@ -241,7 +241,7 @@ void almacenar_en_cola_new_pokemon(t_new_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_new_pokemon(t_new_pokemon* mensaje);
 void enviar_new_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_new_pokemon* mensaje);
-//void cachear_new_pokemon(t_mensaje_new_pokemon mensaje);
+void cachear_new_pokemon(t_new_pokemon* mensaje);
 
 // CATCH_POKEMON
 void manejar_mensaje_catch(t_conexion_buffer *combo);
@@ -252,7 +252,7 @@ void almacenar_en_cola_catch_pokemon(t_catch_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_catch_pokemon(t_catch_pokemon* mensaje);
 void enviar_catch_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_catch_pokemon* mensaje);
-//void cachear_catch_pokemon(t_mensaje_catch_pokemon mensaje);
+void cachear_catch_pokemon(t_catch_pokemon* mensaje);
 
 // CAUGHT_POKEMON
 void manejar_mensaje_caught(t_conexion_buffer *combo);
@@ -263,7 +263,7 @@ void almacenar_en_cola_caught_pokemon(t_caught_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_caught_pokemon(t_caught_pokemon* mensaje);
 void enviar_caught_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_caught_pokemon* mensaje);
-//void cachear_caugth_pokemon(t_mensaje_caugth_pokemon mensaje);
+void cachear_caught_pokemon(t_caught_pokemon* mensaje);
 
 // GET_POKEMON
 void manejar_mensaje_get(t_conexion_buffer *combo);
@@ -274,7 +274,7 @@ void almacenar_en_cola_get_pokemon(t_get_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_get_pokemon(t_get_pokemon* mensaje);
 void enviar_get_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_get_pokemon* mensaje);
-//void cachear_get_pokemon(t_mensaje_get_pokemon mensaje);
+void cachear_get_pokemon(t_get_pokemon* mensaje);
 
 // LOCALIZED_POKEMON
 void manejar_mensaje_localized(t_conexion_buffer *combo);
@@ -285,7 +285,7 @@ void almacenar_en_cola_localized_pokemon(t_localized* mensaje);
 
 void enviar_a_todos_los_subs_localized_pokemon(t_localized* mensaje);
 void enviar_localized_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_localized* mensaje);
-//void cachear_localized_pokemon(t_mensaje_localized_pokemon mensaje);
+void cachear_localized_pokemon(t_localized* mensaje);
 
 //CONFIRMACION
 void manejar_mensaje_confirmacion(t_conexion_buffer *combo);

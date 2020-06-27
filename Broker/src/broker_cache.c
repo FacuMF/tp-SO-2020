@@ -45,7 +45,7 @@ void inicializacion_cache(void){
 
 	//Inicializar semaforos cache
 
-	//pthread_mutex_init(mutex_memoria_cache, NULL);
+	pthread_mutex_init(&mutex_memoria_cache, NULL);
 
 
 
@@ -60,7 +60,7 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 		log_trace(logger, "Tamano de mensaje a cachear: %i (size stream: %i).", tamano_a_cachear, size_stream);
 		while (no_se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
 
-			//pthread_mutex_lock(mutex_memoria_cache);
+			pthread_mutex_lock(&mutex_memoria_cache);
 
 			ordenar_cache_para_rellenar(size_stream);
 
@@ -93,7 +93,7 @@ void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* men
 				compactar_cache_si_corresponde();
 			}
 
-			//pthread_mutex_unlock(mutex_memoria_cache);
+			pthread_mutex_unlock(&mutex_memoria_cache);
 		}
 }
 
@@ -760,7 +760,7 @@ void log_mensaje_de_cache(t_mensaje_cache* particion_mensaje){
 
 void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion, int socket_cliente){
 
-	//pthread_mutex_lock(mutex_memoria_cache);
+	pthread_mutex_lock(&mutex_memoria_cache);
 
 	void enviar_mensaje_cacheados_a_sub(void* particion){
 		enviar_mensaje_cacheado_a_sub_si_es_de_cola(suscripcion->cola_de_mensaje, socket_cliente, (t_mensaje_cache*) particion);
@@ -768,7 +768,7 @@ void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion, int socket_
 
 	list_iterate(struct_admin_cache, enviar_mensaje_cacheados_a_sub);
 
-	//pthread_mutex_unlock(mutex_memoria_cache);
+	pthread_mutex_unlock(&mutex_memoria_cache);
 
 }
 
@@ -784,7 +784,7 @@ void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,int socket_cli
 		list_add(particion->subscribers_enviados, (void*) socket_cliente);
 
 		if(algoritmo_remplazo==LRU) particion->flags_lru = get_lru_flag();
-		log_trace(logger, "Se envio mensaje %i a sub %i. Nuevo flag lru:%i.",
+		log_trace(logger, "Se envio mensaje %i a sub %i. Flag lru/fifo:%i.",
 				particion->id, socket_cliente, particion->flags_lru);
 	}
 }
@@ -800,13 +800,56 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion){
 
 		case APPEARED_POKEMON:
 			;
-			t_appeared_pokemon* mensaje = deserializar_cache_appeared_pokemon(stream_mensaje);
-			mensaje->id_mensaje = particion->id;
+			t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_cache_appeared_pokemon(stream_mensaje);
+			mensaje_appeared_pokemon->id_mensaje = particion->id;
 
-			mensaje_serializado = serializar_appeared_pokemon(mensaje);
+			mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared_pokemon);
 			break;
 
-		//TODO: completar switch con todos los mensajes.
+		case CATCH_POKEMON:
+			;
+			t_catch_pokemon* mensaje_catch_pokemon = deserializar_cache_catch_pokemon(stream_mensaje);
+			mensaje_catch_pokemon->id_mensaje = particion->id;
+
+			mensaje_serializado = serializar_catch_pokemon(mensaje_catch_pokemon);
+			break;
+
+		case CAUGHT_POKEMON:
+			;
+			t_caught_pokemon* mensaje_caught_pokemon = deserializar_cache_caught_pokemon(stream_mensaje);
+			mensaje_caught_pokemon->id_mensaje = particion->id;
+
+			mensaje_serializado = serializar_caught_pokemon(mensaje_caught_pokemon);
+			break;
+
+		case GET_POKEMON:
+			;
+			t_get_pokemon* mensaje_get_pokemon = deserializar_cache_get_pokemon(stream_mensaje);
+			mensaje_get_pokemon->id_mensaje = particion->id;
+
+			mensaje_serializado = serializar_get_pokemon(mensaje_get_pokemon);
+			break;
+
+		case LOCALIZED_POKEMON:
+			;
+			t_localized* mensaje_localized_pokemon = deserializar_cache_localized_pokemon(stream_mensaje);
+			mensaje_localized_pokemon->id_mensaje = particion->id;
+
+			mensaje_serializado = serializar_localized_pokemon(mensaje_localized_pokemon);
+			break;
+
+		case NEW_POKEMON:
+			;
+			t_new_pokemon* mensaje_new_pokemon = deserializar_cache_new_pokemon(stream_mensaje);
+			mensaje_new_pokemon->id_mensaje = particion->id;
+
+			mensaje_serializado = serializar_new_pokemon(mensaje_new_pokemon);
+			break;
+
+		default:
+
+			log_warning(logger, "No deberia estar aca, trata de deserializar un mensaje vacio o no reconocido de cache.");
+			break;
 	}
 	return mensaje_serializado;
 }

@@ -19,7 +19,7 @@ void manejar_mensaje_localized(t_conexion_buffer *combo) {
 	almacenar_en_cola_localized_pokemon(mensaje_localized_pokemon);
 	log_trace(logger, "Se almaceno el mensaje LOCALIZED_POKEMON en la cola.");
 
-	//cachear_localized_pokemon(mensaje);
+	cachear_localized_pokemon(mensaje_localized_pokemon);
 
 	//free (liberar memoria)
 }
@@ -91,3 +91,16 @@ void enviar_localized_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 
 	log_trace(logger, "Se envio mensaje LOCALIZED_POKEMON");
 }
+
+void cachear_localized_pokemon(t_localized* mensaje){
+	int size_stream = sizeof(uint32_t) * (2 + 2 * (mensaje->cantidad_posiciones))
+				+ mensaje-> size_pokemon;//Size se calcula aca porque lo necesita la funcion cachear_mensaje (general)
+
+	int tipo_mensaje = LOCALIZED_POKEMON;
+	int id_mensaje = mensaje->id_mensaje;
+	void* mensaje_a_cachear = serializar_cache_localized_pokemon(mensaje, size_stream);
+
+	cachear_mensaje(size_stream, id_mensaje, tipo_mensaje, mensaje_a_cachear);
+}
+
+

@@ -50,8 +50,6 @@ void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje) {
 			"Se agrego a la cola APPEARED_POKEMON el mensaje con id: %i.",
 			elemento_agregado->id_mensaje);
 
-
-
 }
 
 void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje) {

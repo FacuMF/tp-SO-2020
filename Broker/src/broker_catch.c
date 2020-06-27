@@ -16,7 +16,7 @@ void manejar_mensaje_catch(t_conexion_buffer *combo) {
 	almacenar_en_cola_catch_pokemon(mensaje_catch_pokemon);
 	log_trace(logger, "Se almaceno el mensaje CATCH_POKEMON en la cola.");
 
-	//cachear_catch_pokemon(mensaje);
+	cachear_catch_pokemon(mensaje_catch_pokemon);
 
 	//free (liberar memoria)
 }
@@ -87,9 +87,13 @@ void enviar_catch_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor,
 	log_trace(logger, "Se envio mensaje CATCH_POKEMON");
 }
 
-/*
- void cachear_catch_pokemon(t_mensaje_catch_pokemon mensaje){
- //TODO
- return 0;
- }
- */
+void cachear_catch_pokemon(t_catch_pokemon* mensaje){
+	int size_stream = sizeof(uint32_t)*3 + mensaje-> size_pokemon;//Size se calcula aca porque lo necesita la funcion cachear_mensaje (general)
+
+	int tipo_mensaje = CATCH_POKEMON;
+	int id_mensaje = mensaje->id_mensaje;
+	void* mensaje_a_cachear = serializar_cache_catch_pokemon(mensaje, size_stream);
+
+	cachear_mensaje(size_stream, id_mensaje, tipo_mensaje, mensaje_a_cachear);
+}
+

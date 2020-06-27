@@ -12,7 +12,7 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
 
 	subscribir(socket_cliente, suscripcion);
 
-	//enviar_mensajes_cacheados_a_cliente(suscripcion, socket_cliente);
+	enviar_mensajes_cacheados_a_cliente(suscripcion, socket_cliente);
 
 	desuscribir(socket_cliente, suscripcion);
 
@@ -101,16 +101,6 @@ void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor* subscripcion,  int 
 		break;
 	}
 }
-
-/*
-void enviar_mensajes_de_cola_a_cliente(t_queue* cola,  int cliente){
-
-	void enviar_mensaje_de_cola_aux(void* mensaje) {
-		//enviar_mensaje_de_cola(mensaje, ciente);
-	}
-
-}
-*/
 
 void desuscribir(int cliente, t_subscriptor* suscripcion){
 
