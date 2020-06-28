@@ -28,19 +28,6 @@ int frecuencia_compactacion;
 
 int contador_intentos_para_compactar;
 
-/*
-typedef struct{
-	t_list* subscriptores; // lista de suscriptor_queue
-	t_list* mensajes; // lista de mensajes ej:t_new_pokemon
-}t_queue;
-
-typedef struct{
-	int socket;
-	t_list* mensajes_enviados; // Lista de IDs (int)
-	t_list* mensajes_recibidos;	// Lista de IDs (int)
-}t_suscriptor_queue;
-*/
-
 //Cache
 
 typedef struct{
