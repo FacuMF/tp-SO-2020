@@ -1,25 +1,27 @@
 #include "broker.h"
 
-void inicializacion_cache(void){
+void inicializacion_cache(void) {
 	// Leer config y parsear valores.
 
 	tamano_memoria = config_get_int_value(config, "TAMANO_MEMORIA");
-	tamano_minimo_particion = config_get_int_value(config, "TAMANO_MINIMO_PARTICION");
+	tamano_minimo_particion = config_get_int_value(config,
+			"TAMANO_MINIMO_PARTICION");
 
 	algoritmo_memoria = de_string_a_alg_memoria(
-			config_get_string_value(config, "ALGORITMO_MEMORIA")
-	);
+			config_get_string_value(config, "ALGORITMO_MEMORIA"));
 	algoritmo_remplazo = de_string_a_alg_remplazo(
-		config_get_string_value(config, "ALGORITMO_REEMPLAZO")
-	);
+			config_get_string_value(config, "ALGORITMO_REEMPLAZO"));
 	algoritmo_particion_libre = de_string_a_alg_particion_libre(
-		config_get_string_value(config, "ALGORITMO_PARTICION_LIBRE")
-	);
+			config_get_string_value(config, "ALGORITMO_PARTICION_LIBRE"));
 
-	frecuencia_compactacion = config_get_int_value(config, "FRECUENCIA_COMPACTACION");
+	frecuencia_compactacion = config_get_int_value(config,
+			"FRECUENCIA_COMPACTACION");
 
-	log_trace(logger, "Se leyo de config: tamano_memoria: %i, tamano_minimo_particion: %i, alg_memoria: %i, alg_remplazo: %i, alg_part_libre: %i, frec_compact:  %i.",
-				tamano_memoria, tamano_minimo_particion, algoritmo_memoria, algoritmo_remplazo, algoritmo_particion_libre, frecuencia_compactacion);
+	log_trace(logger,
+			"Se leyo de config: tamano_memoria: %i, tamano_minimo_particion: %i, alg_memoria: %i, alg_remplazo: %i, alg_part_libre: %i, frec_compact:  %i.",
+			tamano_memoria, tamano_minimo_particion, algoritmo_memoria,
+			algoritmo_remplazo, algoritmo_particion_libre,
+			frecuencia_compactacion);
 
 	// Inicializar memoria cache
 
@@ -28,9 +30,9 @@ void inicializacion_cache(void){
 	// Inicializar memoria administrativa
 
 	t_mensaje_cache* primer_particion = malloc(sizeof(t_mensaje_cache));
-	primer_particion -> tipo_mensaje = VACIO;
-	primer_particion -> offset = 0;
-	primer_particion -> tamanio = tamano_memoria;
+	primer_particion->tipo_mensaje = VACIO;
+	primer_particion->offset = 0;
+	primer_particion->tamanio = tamano_memoria;
 
 	struct_admin_cache = list_create();
 	list_add(struct_admin_cache, primer_particion);
@@ -47,62 +49,70 @@ void inicializacion_cache(void){
 
 	pthread_mutex_init(&mutex_memoria_cache, NULL);
 
-
-
 }
 
-void cachear_mensaje(int size_stream, int id_mensaje,int tipo_mensaje, void* mensaje_a_cachear){
+void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
+		void* mensaje_a_cachear) {
 
-		int tamano_a_cachear = ((size_stream >= tamano_minimo_particion)? size_stream : tamano_minimo_particion);
-		_Bool no_se_agrego_mensaje_a_cache = true;
+	int tamano_a_cachear = (
+			(size_stream >= tamano_minimo_particion) ?
+					size_stream : tamano_minimo_particion);
+	_Bool no_se_agrego_mensaje_a_cache = true;
 
+	log_trace(logger, "Tamano de mensaje a cachear: %i (size stream: %i).",
+			tamano_a_cachear, size_stream);
+	while (no_se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
 
-		log_trace(logger, "Tamano de mensaje a cachear: %i (size stream: %i).", tamano_a_cachear, size_stream);
-		while (no_se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
+		pthread_mutex_lock(&mutex_memoria_cache);
 
-			pthread_mutex_lock(&mutex_memoria_cache);
+		ordenar_cache_para_rellenar(size_stream);
 
-			ordenar_cache_para_rellenar(size_stream);
+		if (particion_valida_para_llenar(list_get(struct_admin_cache, 0),
+				tamano_a_cachear)) {
 
-			if( particion_valida_para_llenar( list_get (struct_admin_cache, 0) , tamano_a_cachear)) {
+			log_trace(logger,
+					"La particion elegida tiene tamano suficiente (%ib) para el mensaje(%ib).",
+					((t_mensaje_cache*) list_get(struct_admin_cache, 0))->tamanio,
+					tamano_a_cachear);
 
-				log_trace(logger, "La particion elegida tiene tamano suficiente (%ib) para el mensaje(%ib).",
-						((t_mensaje_cache*)list_get (struct_admin_cache, 0))->tamanio, tamano_a_cachear);
+			t_mensaje_cache* particion_mensaje =
+					crear_y_agregar_particion_mensaje_nuevo(tipo_mensaje,
+							id_mensaje, tamano_a_cachear);
 
-				t_mensaje_cache* particion_mensaje = crear_y_agregar_particion_mensaje_nuevo(tipo_mensaje, id_mensaje , tamano_a_cachear);
+			if (queda_espacio_libre(tamano_a_cachear,
+					list_get(struct_admin_cache, 0)))
+				crear_y_agregar_particion_sobrante(tamano_a_cachear);
 
-				if( queda_espacio_libre( tamano_a_cachear, list_get (struct_admin_cache, 0) ) )
-					crear_y_agregar_particion_sobrante(tamano_a_cachear);
+			borrar_particiones_del_inicio(1);
 
-				borrar_particiones_del_inicio(1);
+			agregar_mensaje_a_cache(mensaje_a_cachear, size_stream,
+					particion_mensaje);
 
-				agregar_mensaje_a_cache(mensaje_a_cachear,size_stream , particion_mensaje);
+			ordenar_cache_segun_su_lugar_en_memoria();
 
-				ordenar_cache_segun_su_lugar_en_memoria();
+			//log_dump_de_cache();
 
-				log_dump_de_cache();
+			no_se_agrego_mensaje_a_cache = false; //Para que salga del while.
 
-				no_se_agrego_mensaje_a_cache = false; //Para que salga del while.
+		} else {
 
-			}else{
+			log_trace(logger, "No hay lugar");
 
-				log_trace(logger, "No hay lugar");
+			elegir_vitima_y_eliminarla(); // Y consolido
 
-				elegir_vitima_y_eliminarla(); // Y consolido
-
-				compactar_cache_si_corresponde();
-			}
-
-			pthread_mutex_unlock(&mutex_memoria_cache);
+			compactar_cache_si_corresponde();
 		}
+
+		pthread_mutex_unlock(&mutex_memoria_cache);
+	}
 }
 
-void ordenar_cache_para_rellenar(int size_stream){
+void ordenar_cache_para_rellenar(int size_stream) {
 	_Bool ordenar_para_rellenar_aux(void* mensaje_1_aux, void* mensaje_2_aux) {
 		t_mensaje_cache* mensaje_1 = (t_mensaje_cache*) mensaje_1_aux;
 		t_mensaje_cache* mensaje_2 = (t_mensaje_cache*) mensaje_2_aux;
 
-		return ordenar_para_rellenar(mensaje_1,mensaje_2,size_stream);
+		return ordenar_para_rellenar(mensaje_1, mensaje_2, size_stream);
 	}
 	// Buscar particion a llenar
 	list_sort(struct_admin_cache, ordenar_para_rellenar_aux);
@@ -110,73 +120,89 @@ void ordenar_cache_para_rellenar(int size_stream){
 	// y dejando primera la que se debe remplazar.En FirstFit, se deja primero la de offset menor, y en BestFit la de tamano menor. (Switch)
 }
 
-t_mensaje_cache* crear_y_agregar_particion_mensaje_nuevo(int tipo_mensaje, int id_mensaje ,int tamano_a_cachear){
-	t_mensaje_cache* particion_mensaje = crear_particion_mensaje(tipo_mensaje ,id_mensaje ,tamano_a_cachear , list_get (struct_admin_cache, 0) );
+t_mensaje_cache* crear_y_agregar_particion_mensaje_nuevo(int tipo_mensaje,
+		int id_mensaje, int tamano_a_cachear) {
+	t_mensaje_cache* particion_mensaje = crear_particion_mensaje(tipo_mensaje,
+			id_mensaje, tamano_a_cachear, list_get(struct_admin_cache, 0));
 	list_add(struct_admin_cache, particion_mensaje);
 	log_trace(logger, "Se agrego la particion con el mensaje.");
 	return particion_mensaje;
 }
 
-void crear_y_agregar_particion_sobrante(int tamano_a_cachear){
-	t_mensaje_cache* particion_sobrante = crear_particion_sobrante(tamano_a_cachear, list_get (struct_admin_cache, 0));
+void crear_y_agregar_particion_sobrante(int tamano_a_cachear) {
+	t_mensaje_cache* particion_sobrante = crear_particion_sobrante(
+			tamano_a_cachear, list_get(struct_admin_cache, 0));
 	list_add(struct_admin_cache, particion_sobrante);
 	log_trace(logger, "Se agrego la particion sobrante.");
 }
 
-void ordenar_cache_segun_su_lugar_en_memoria(){
+void ordenar_cache_segun_su_lugar_en_memoria() {
 	list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria);
-	log_trace(logger, "Se dejo la estructura ordenada por su lugar en memoria.");
+	log_trace(logger,
+			"Se dejo la estructura ordenada por su lugar en memoria.");
 }
 
-int de_string_a_alg_memoria(char* string){
-	if(string_equals_ignore_case(string , "PARTICIONES")) 	{
+int de_string_a_alg_memoria(char* string) {
+	if (string_equals_ignore_case(string, "PARTICIONES")) {
 		return PARTICIONES;
-	} else if(string_equals_ignore_case(string , "BS")) 	{
+	} else if (string_equals_ignore_case(string, "BS")) {
 		return BS;
-	} else 													{
+	} else {
 		return -1;
 	}
 }
-int de_string_a_alg_remplazo(char* string){
-	if(string_equals_ignore_case(string , "FIFO")) 			{
+int de_string_a_alg_remplazo(char* string) {
+	if (string_equals_ignore_case(string, "FIFO")) {
 		return FIFO;
-	} else if(string_equals_ignore_case(string , "LRU")) 	{
+	} else if (string_equals_ignore_case(string, "LRU")) {
 		return LRU;
-	} else 													{
+	} else {
 		return -1;
 	}
 }
-int de_string_a_alg_particion_libre(char* string){
-	if(string_equals_ignore_case(string , "FF")) 			{
+int de_string_a_alg_particion_libre(char* string) {
+	if (string_equals_ignore_case(string, "FF")) {
 		return FF;
-	} else if(string_equals_ignore_case(string , "BF")) 	{
+	} else if (string_equals_ignore_case(string, "BF")) {
 		return BF;
-	} else 													{
+	} else {
 		return -1;
 	}
 }
 
-_Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje_2, int tamano_mensaje){
+_Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1,
+		t_mensaje_cache* mensaje_2, int tamano_mensaje) {
 	//El comparador devuelve si el primer parametro debe aparecer antes que el segundo en la lista
 
-	if(mensaje_1->tipo_mensaje == 0 && mensaje_2->tipo_mensaje != 0) return true; // Si el 1 esta libre y el 2 no => el 1 va primero
-	if(mensaje_2->tipo_mensaje == 0 && mensaje_1->tipo_mensaje != 0) return false; // Si el 2 esta libre y el 1 no => el 2 va primero
-	if(mensaje_1->tipo_mensaje != 0 && mensaje_2->tipo_mensaje != 0) return true; // Si ambos estan ocupados => Me da lo mismo el orden, tiro true para que queden como estan
-	if(mensaje_1->tipo_mensaje == 0 && mensaje_2->tipo_mensaje == 0){ // Si ambos estan vacios => Sigo evaluando
+	if (mensaje_1->tipo_mensaje == 0 && mensaje_2->tipo_mensaje != 0)
+		return true; // Si el 1 esta libre y el 2 no => el 1 va primero
+	if (mensaje_2->tipo_mensaje == 0 && mensaje_1->tipo_mensaje != 0)
+		return false; // Si el 2 esta libre y el 1 no => el 2 va primero
+	if (mensaje_1->tipo_mensaje != 0 && mensaje_2->tipo_mensaje != 0)
+		return true; // Si ambos estan ocupados => Me da lo mismo el orden, tiro true para que queden como estan
+	if (mensaje_1->tipo_mensaje == 0 && mensaje_2->tipo_mensaje == 0) { // Si ambos estan vacios => Sigo evaluando
 
-		if( mensaje_1->tamanio >= tamano_mensaje && mensaje_2->tamanio < tamano_mensaje) return true; // Si el 1 tiene tamano suficiente y el 2 no => el 1 va primero
-		if( mensaje_2->tamanio >= tamano_mensaje && mensaje_1->tamanio < tamano_mensaje) return false; // Si el 2 tiene tamano suficiente y el 1 no => el 2 va primero
-		if( mensaje_1->tamanio < tamano_mensaje && mensaje_2->tamanio < tamano_mensaje) return true; // Si ambos no tienen tamano suficiente => Me da lo mismo el orden
-		if( mensaje_1->tamanio >= tamano_mensaje && mensaje_2->tamanio >= tamano_mensaje ) {
+		if (mensaje_1->tamanio >= tamano_mensaje
+				&& mensaje_2->tamanio < tamano_mensaje)
+			return true; // Si el 1 tiene tamano suficiente y el 2 no => el 1 va primero
+		if (mensaje_2->tamanio >= tamano_mensaje
+				&& mensaje_1->tamanio < tamano_mensaje)
+			return false; // Si el 2 tiene tamano suficiente y el 1 no => el 2 va primero
+		if (mensaje_1->tamanio < tamano_mensaje
+				&& mensaje_2->tamanio < tamano_mensaje)
+			return true; // Si ambos no tienen tamano suficiente => Me da lo mismo el orden
+		if (mensaje_1->tamanio >= tamano_mensaje
+				&& mensaje_2->tamanio >= tamano_mensaje) {
 
-			switch(algoritmo_particion_libre){
-				case FF:
-					return (mensaje_1->offset <= mensaje_2->offset); //Si el mensaje 1 esta antes en memoria => El 1 va primero
-					break;
+			switch (algoritmo_particion_libre) {
+			case FF:
+				return (mensaje_1->offset <= mensaje_2->offset); //Si el mensaje 1 esta antes en memoria => El 1 va primero
+				break;
 
-				case BF:
-					return (mensaje_1->tamanio - tamano_mensaje) <= (mensaje_2->tamanio - tamano_mensaje); // Si el espacio sobrante de 1 es menor que el de 2 => el 1 va primero.
-					break;
+			case BF:
+				return (mensaje_1->tamanio - tamano_mensaje)
+						<= (mensaje_2->tamanio - tamano_mensaje); // Si el espacio sobrante de 1 es menor que el de 2 => el 1 va primero.
+				break;
 
 			}
 		}
@@ -184,41 +210,45 @@ _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje
 	return NULL;
 }
 
-_Bool particion_valida_para_llenar(t_mensaje_cache* particion, int tamano_a_ocupar){
+_Bool particion_valida_para_llenar(t_mensaje_cache* particion,
+		int tamano_a_ocupar) {
 	_Bool esta_vacia = (particion->tipo_mensaje == VACIO);
 
-	_Bool tamano_suficiente = (particion->tamanio >=  tamano_a_ocupar);
+	_Bool tamano_suficiente = (particion->tamanio >= tamano_a_ocupar);
 	//Si no entra justo, la particion sobrante tiene que ser mayor a la minima.
 
 	return tamano_suficiente && esta_vacia; //Esta vacia y con tamanio suficiente.
 }
 
-t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje, int tamano_a_cachear, t_mensaje_cache* particion_vacia){
+t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje,
+		int tamano_a_cachear, t_mensaje_cache* particion_vacia) {
 	t_mensaje_cache* particion_llena = malloc(sizeof(t_mensaje_cache));
 
 	particion_llena->tipo_mensaje = tipo_mensaje;
 	particion_llena->id = id_mensaje;
 	particion_llena->offset = particion_vacia->offset;
-	particion_llena->flags_lru=get_lru_flag();
+	particion_llena->flags_lru = get_lru_flag();
 
 	particion_llena->tamanio = tamano_a_cachear;
 
-	particion_llena->subscribers_enviados = filtrar_subs_enviados( tipo_mensaje, id_mensaje);
-	particion_llena->subscribers_recibidos = filtrar_subs_recibidos( tipo_mensaje, id_mensaje);
+	particion_llena->subscribers_enviados = filtrar_subs_enviados(tipo_mensaje,
+			id_mensaje);
+	particion_llena->subscribers_recibidos = filtrar_subs_recibidos(
+			tipo_mensaje, id_mensaje);
 
 	return particion_llena;
 }
 
 int get_lru_flag() {
 	int flag = actual_lru_flag;
-	actual_lru_flag ++;
+	actual_lru_flag++;
 	return flag;
 }
 
-t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje){
+t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje) {
 	t_list* lista_subs = list_create();
 
-	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje)-> subscriptores;
+	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje)->subscriptores;
 
 	// Inner function para filter
 	_Bool tiene_mensaje_enviado(void* suscriptor_aux) {
@@ -226,8 +256,8 @@ t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje){
 
 		// Meta-inner function para any_satisfy
 		_Bool tiene_mensaje(void* un_id) {
-				return ((int) un_id == id_mensaje);
-			}
+			return ((int) un_id == id_mensaje);
+		}
 
 		return list_any_satisfy(suscriptor->mensajes_enviados, tiene_mensaje);
 	}
@@ -239,16 +269,16 @@ t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje){
 		return suscriptor->socket;
 	}
 
-
-	lista_subs = list_map( list_filter(subs_queue, tiene_mensaje_enviado), (void*) get_socket_suscriptor);
+	lista_subs = list_map(list_filter(subs_queue, tiene_mensaje_enviado),
+			(void*) get_socket_suscriptor);
 
 	return lista_subs;
 }
 
-t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje){
+t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje) {
 	t_list* lista_subs = list_create();
 
-	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje)-> subscriptores;
+	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje)->subscriptores;
 
 	// Inner function para filter
 	_Bool tiene_mensaje_recibido(void* suscriptor_aux) {
@@ -256,8 +286,8 @@ t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje){
 
 		// Meta-inner function para any_satisfy
 		_Bool tiene_mensaje(void* un_id) {
-				return ((int) un_id == id_mensaje);
-			}
+			return ((int) un_id == id_mensaje);
+		}
 
 		return list_any_satisfy(suscriptor->mensajes_recibidos, tiene_mensaje);
 	}
@@ -269,42 +299,51 @@ t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje){
 		return suscriptor->socket;
 	}
 
-
-	lista_subs = list_map( list_filter(subs_queue, tiene_mensaje_recibido), (void*) get_socket_suscriptor);
+	lista_subs = list_map(list_filter(subs_queue, tiene_mensaje_recibido),
+			(void*) get_socket_suscriptor);
 
 	return lista_subs;
 }
 
-_Bool queda_espacio_libre(int tamano_mensaje_a_cachear, t_mensaje_cache* particion_vacia) {
+_Bool queda_espacio_libre(int tamano_mensaje_a_cachear,
+		t_mensaje_cache* particion_vacia) {
 	return particion_vacia->tamanio > tamano_mensaje_a_cachear;
 }
 
-t_mensaje_cache* crear_particion_sobrante(int tamanio_mensaje_cacheado, t_mensaje_cache* particion_vacia){
+t_mensaje_cache* crear_particion_sobrante(int tamanio_mensaje_cacheado,
+		t_mensaje_cache* particion_vacia) {
 	t_mensaje_cache* particion_sobrante = malloc(sizeof(t_mensaje_cache));
 
-		particion_sobrante->tipo_mensaje = 0;
-		particion_sobrante->id = -20;
-		particion_sobrante->offset = (particion_vacia->offset) + tamanio_mensaje_cacheado;
-		particion_sobrante->tamanio = (particion_vacia->tamanio) - tamanio_mensaje_cacheado;
-		particion_sobrante->flags_lru = -20;
+	particion_sobrante->tipo_mensaje = 0;
+	particion_sobrante->id = -20;
+	particion_sobrante->offset = (particion_vacia->offset)
+			+ tamanio_mensaje_cacheado;
+	particion_sobrante->tamanio = (particion_vacia->tamanio)
+			- tamanio_mensaje_cacheado;
+	particion_sobrante->flags_lru = -20;
 
 	return particion_sobrante;
 }
 
-void liverar_t_mensaje_cache(void* mensaje){
-	list_destroy_and_destroy_elements(((t_mensaje_cache*) mensaje)->subscribers_enviados, free);
-	list_destroy_and_destroy_elements(((t_mensaje_cache*) mensaje)->subscribers_recibidos, free);
+void liverar_t_mensaje_cache(void* mensaje) {
+	list_destroy_and_destroy_elements(
+			((t_mensaje_cache*) mensaje)->subscribers_enviados, free);
+	list_destroy_and_destroy_elements(
+			((t_mensaje_cache*) mensaje)->subscribers_recibidos, free);
 	free(mensaje);
 }
 
-void agregar_mensaje_a_cache(void* mensaje_a_cachear,int tamano_stream, t_mensaje_cache* particion_mensaje){
-	memcpy( memoria_cache+(particion_mensaje->offset) , mensaje_a_cachear, tamano_stream);
+void agregar_mensaje_a_cache(void* mensaje_a_cachear, int tamano_stream,
+		t_mensaje_cache* particion_mensaje) {
+	memcpy(memoria_cache + (particion_mensaje->offset), mensaje_a_cachear,
+			tamano_stream);
 	log_trace(logger, "Se agrego mensaje a la cache.");
 }
 
-_Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2){
+_Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2) {
 	//El comparador devuelve si el primer parametro debe aparecer antes que el segundo en la lista
-	return ( ((t_mensaje_cache*)mensaje_1)->offset ) < ( ((t_mensaje_cache*)mensaje_2)->offset );
+	return (((t_mensaje_cache*) mensaje_1)->offset)
+			< (((t_mensaje_cache*) mensaje_2)->offset);
 }
 
 void elegir_vitima_y_eliminarla() {
@@ -314,13 +353,13 @@ void elegir_vitima_y_eliminarla() {
 
 	//log_dump_de_cache();
 
-	int id_victima = ( (t_mensaje_cache*)list_get(struct_admin_cache, 0) ) -> id;
+	int id_victima = ((t_mensaje_cache*) list_get(struct_admin_cache, 0))->id;
 	log_trace(logger, "El id de la victima elegida es: %i.", id_victima);
 
-	log_dump_de_cache();
+	//log_dump_de_cache();
 
-	void vaciar_una_particion(void* particion){
-		if(((t_mensaje_cache*) particion)->id == id_victima) // Si es victima
+	void vaciar_una_particion(void* particion) {
+		if (((t_mensaje_cache*) particion)->id == id_victima) // Si es victima
 			vaciar_particion((t_mensaje_cache*) particion);
 	}
 	list_iterate(struct_admin_cache, vaciar_una_particion);
@@ -336,49 +375,54 @@ void elegir_vitima_y_eliminarla() {
 	list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria);
 	log_trace(logger, "Cache ordenada por offset.");
 
-	log_dump_de_cache();
+	//log_dump_de_cache();
 
 }
 
-_Bool ordenar_segun_lru_flag(void* mensaje_1_aux, void* mensaje_2_aux){
+_Bool ordenar_segun_lru_flag(void* mensaje_1_aux, void* mensaje_2_aux) {
 	t_mensaje_cache* mensaje_1 = (t_mensaje_cache*) mensaje_1_aux;
 	t_mensaje_cache* mensaje_2 = (t_mensaje_cache*) mensaje_2_aux;
 
 	//El comparador devuelve si el primer parametro debe aparecer antes que el segundo en la lista
-	_Bool rtn = (mensaje_1->tipo_mensaje == 0)? false : ( (mensaje_1->flags_lru) < (mensaje_2->flags_lru) );
+	_Bool rtn =
+			(mensaje_1->tipo_mensaje == 0) ?
+					false : ((mensaje_1->flags_lru) < (mensaje_2->flags_lru));
 	// Si la particion esta vacia, va al fondo, si esta llena se ordenan de menor a mayor valos de flag_lru
 	return rtn;
 }
 
-void vaciar_particion(t_mensaje_cache* particion){
+void vaciar_particion(t_mensaje_cache* particion) {
 	particion->tipo_mensaje = VACIO;
-	particion->flags_lru=-20;
-	particion->id=-20;
+	particion->flags_lru = -20;
+	particion->id = -20;
 	list_clean(particion->subscribers_enviados);
 	list_clean(particion->subscribers_recibidos);
 }
 
-void consolidar_cache(){
+void consolidar_cache() {
 	//IMPORTANTE: la reciente victima quedo primera en la struct_admin_cache
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
-	log_debug(logger, "Victima: offset %i, tamanio %i.", victima->offset, victima->tamanio);
+	log_debug(logger, "Victima: offset %i, tamanio %i.", victima->offset,
+			victima->tamanio);
 
-	if(siguiente_es_vacio() && (!anterior_es_vacio() || es_primera_part()) ){ //Se consolida con el siguiente
+	if (siguiente_es_vacio() && (!anterior_es_vacio() || es_primera_part())) { //Se consolida con el siguiente
 		log_trace(logger, "Se consolida con el siguiente.");
 		ordeno_dejando_victima_y_siguiente_adelante();
 		agregar_particion_segun_vicima_y_siguiente();
-		borrar_particiones_del_inicio(2);// borrar victima y siguiente
-	}else if ((!siguiente_es_vacio() || es_ultima_part()) && anterior_es_vacio()){ //Se consolida con el anterior
+		borrar_particiones_del_inicio(2); // borrar victima y siguiente
+	} else if ((!siguiente_es_vacio() || es_ultima_part())
+			&& anterior_es_vacio()) { //Se consolida con el anterior
 		log_trace(logger, "Se consolida con el anterior.");
 		ordeno_dejando_anterior_y_victima_adelante();
 		agregar_particion_segun_anterior_y_victima();
-		borrar_particiones_del_inicio(2);// borrar victima y anterior
-	}else if (siguiente_es_vacio() && anterior_es_vacio() && !es_primera_part() && !es_ultima_part() ){
+		borrar_particiones_del_inicio(2); // borrar victima y anterior
+	} else if (siguiente_es_vacio() && anterior_es_vacio() && !es_primera_part()
+			&& !es_ultima_part()) {
 		log_trace(logger, "Se consolida con el siguiente y con el anterior.");
 		ordeno_dejando_anterior_victima_y_siguiente_adelante();
 		agregar_particion_segun_anterior_victima_y_siguiente();
-		borrar_particiones_del_inicio(3);// borro victima, anterior y siguiente
-	}else{
+		borrar_particiones_del_inicio(3); // borro victima, anterior y siguiente
+	} else {
 		log_trace(logger, "No se consolida");
 	}
 
@@ -387,10 +431,12 @@ void consolidar_cache(){
 _Bool siguiente_es_vacio() {
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
 
-	_Bool es_siguiente_y_es_vacio(void* posible_siguinte){
+	_Bool es_siguiente_y_es_vacio(void* posible_siguinte) {
 
-		_Bool es_siguiente = ((t_mensaje_cache*)posible_siguinte)-> offset == ( victima->offset + victima->tamanio );
-		_Bool es_vacio =((t_mensaje_cache*)posible_siguinte)-> tipo_mensaje == VACIO;
+		_Bool es_siguiente = ((t_mensaje_cache*) posible_siguinte)->offset
+				== (victima->offset + victima->tamanio);
+		_Bool es_vacio = ((t_mensaje_cache*) posible_siguinte)->tipo_mensaje
+				== VACIO;
 
 		return es_siguiente && es_vacio;
 	}
@@ -401,10 +447,13 @@ _Bool siguiente_es_vacio() {
 _Bool anterior_es_vacio() {
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
 
-	_Bool es_anterior_y_es_vacio(void* posible_anterior){
+	_Bool es_anterior_y_es_vacio(void* posible_anterior) {
 
-		_Bool es_anterior = victima->offset == ( ((t_mensaje_cache*)posible_anterior)->offset + ((t_mensaje_cache*)posible_anterior)->tamanio );
-		_Bool es_vacio =((t_mensaje_cache*)posible_anterior)-> tipo_mensaje == VACIO;
+		_Bool es_anterior = victima->offset
+				== (((t_mensaje_cache*) posible_anterior)->offset
+						+ ((t_mensaje_cache*) posible_anterior)->tamanio);
+		_Bool es_vacio = ((t_mensaje_cache*) posible_anterior)->tipo_mensaje
+				== VACIO;
 
 		return es_anterior && es_vacio;
 	}
@@ -423,29 +472,31 @@ _Bool es_ultima_part() {
 	return es_ultima_particion(victima);
 }
 
-void borrar_particiones_del_inicio(int cant_particiones_a_borrar){
+void borrar_particiones_del_inicio(int cant_particiones_a_borrar) {
 	for (int var = 0; var < cant_particiones_a_borrar; ++var) {
-		list_remove_and_destroy_element(struct_admin_cache, 0, free );
+		list_remove_and_destroy_element(struct_admin_cache, 0, free);
 		//list_remove_and_destroy_element(struct_admin_cache, 0, liverar_t_mensaje_cache ); //Da seg fault, revisar
 
 	}
-	log_trace(logger, "Se borraron %i particiones del inicio de la estructura administrativa de la cache.", cant_particiones_a_borrar);
+	log_trace(logger,
+			"Se borraron %i particiones del inicio de la estructura administrativa de la cache.",
+			cant_particiones_a_borrar);
 }
 
 void agrego_part_vacia(int offset, int tamanio) {
 	t_mensaje_cache* nueva_particion_vacia = malloc(sizeof(t_mensaje_cache));
 
-		nueva_particion_vacia->flags_lru=-20;
-		nueva_particion_vacia->id=-20;
-		nueva_particion_vacia->tipo_mensaje = VACIO;
+	nueva_particion_vacia->flags_lru = -20;
+	nueva_particion_vacia->id = -20;
+	nueva_particion_vacia->tipo_mensaje = VACIO;
 
-		nueva_particion_vacia->offset = offset;
-		nueva_particion_vacia->tamanio = tamanio;
+	nueva_particion_vacia->offset = offset;
+	nueva_particion_vacia->tamanio = tamanio;
 
-		list_add(struct_admin_cache, (void*) nueva_particion_vacia);
+	list_add(struct_admin_cache, (void*) nueva_particion_vacia);
 }
 
-void ordeno_dejando_victima_y_siguiente_adelante(){
+void ordeno_dejando_victima_y_siguiente_adelante() {
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
 
 	_Bool victima_y_siguiente_adelante(void* particion_1, void* particion_2) {
@@ -459,14 +510,14 @@ void ordeno_dejando_victima_y_siguiente_adelante(){
 	list_sort(struct_admin_cache, victima_y_siguiente_adelante);
 }
 
-void agregar_particion_segun_vicima_y_siguiente(){
+void agregar_particion_segun_vicima_y_siguiente() {
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
 	t_mensaje_cache* siguiente = list_get(struct_admin_cache, 1);
 
 	agrego_part_vacia(victima->offset, victima->tamanio + siguiente->tamanio);
 }
 
-void ordeno_dejando_anterior_y_victima_adelante(){
+void ordeno_dejando_anterior_y_victima_adelante() {
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
 
 	_Bool anterior_y_victima_adelante(void* particion_1, void* particion_2) {
@@ -474,7 +525,7 @@ void ordeno_dejando_anterior_y_victima_adelante(){
 		_Bool es_anterior_1 = es_anterior(particion_1, victima);
 		_Bool es_anterior_2 = es_anterior(particion_2, victima);
 
-		return  (es_anterior_1) || (es_victima_1 && !es_anterior_2);
+		return (es_anterior_1) || (es_victima_1 && !es_anterior_2);
 	}
 
 	list_sort(struct_admin_cache, anterior_y_victima_adelante);
@@ -487,54 +538,58 @@ void agregar_particion_segun_anterior_y_victima() {
 	agrego_part_vacia(anterior->offset, anterior->tamanio + victima->tamanio);
 }
 
-void ordeno_dejando_anterior_victima_y_siguiente_adelante(){
+void ordeno_dejando_anterior_victima_y_siguiente_adelante() {
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
 
-	_Bool anterior_victima_y_siguiente_adelante(void* particion_1, void* particion_2) {
+	_Bool anterior_victima_y_siguiente_adelante(void* particion_1,
+			void* particion_2) {
 		_Bool es_victima_1 = es_victima(particion_1, victima);
 		_Bool es_anterior_1 = es_anterior(particion_1, victima);
 		_Bool es_siguiente_1 = es_siguiente(particion_1, victima);
 		_Bool es_anterior_2 = es_anterior(particion_2, victima);
 		_Bool es_victima_2 = es_victima(particion_2, victima);
 
-		return  (es_anterior_1) || (es_victima_1 && !es_anterior_2) || (es_siguiente_1 && !es_anterior_2 && !es_victima_2);
+		return (es_anterior_1) || (es_victima_1 && !es_anterior_2)
+				|| (es_siguiente_1 && !es_anterior_2 && !es_victima_2);
 	}
 
 	list_sort(struct_admin_cache, anterior_victima_y_siguiente_adelante);
 }
 
-void agregar_particion_segun_anterior_victima_y_siguiente(){
+void agregar_particion_segun_anterior_victima_y_siguiente() {
 	t_mensaje_cache* anterior = list_get(struct_admin_cache, 0);
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 1);
 	t_mensaje_cache* siguiente = list_get(struct_admin_cache, 2);
 
-	agrego_part_vacia(anterior->offset, anterior->tamanio + victima->tamanio + siguiente->tamanio);
+	agrego_part_vacia(anterior->offset,
+			anterior->tamanio + victima->tamanio + siguiente->tamanio);
 }
 
-_Bool es_siguiente(void* particion, t_mensaje_cache* victima){
-	return ((t_mensaje_cache*)particion)-> offset == ( victima->offset + victima->tamanio );
+_Bool es_siguiente(void* particion, t_mensaje_cache* victima) {
+	return ((t_mensaje_cache*) particion)->offset
+			== (victima->offset + victima->tamanio);
 }
-_Bool es_anterior(void* particion, t_mensaje_cache* victima){
-	return ( ((t_mensaje_cache*)particion)-> offset + ((t_mensaje_cache*)particion)->tamanio ) == victima->offset;
+_Bool es_anterior(void* particion, t_mensaje_cache* victima) {
+	return (((t_mensaje_cache*) particion)->offset
+			+ ((t_mensaje_cache*) particion)->tamanio) == victima->offset;
 }
-_Bool es_victima(void* particion, t_mensaje_cache* victima){
+_Bool es_victima(void* particion, t_mensaje_cache* victima) {
 	return ((t_mensaje_cache*) particion)->offset == victima->offset;;
 }
 
-void compactar_cache_si_corresponde(){
-	log_warning(logger, "Corresponde compactar: %i.", corresponde_compactar() );
+void compactar_cache_si_corresponde() {
+	log_warning(logger, "Corresponde compactar: %i.", corresponde_compactar());
 
-	if(corresponde_compactar()){
+	if (corresponde_compactar()) {
 		//Si esta tod0 lleno no compactar
 		//Recorrer hasta que encuentres vacio con uno lleno a la derecha, y invertirlos y volves a correr el algoritmo.
 		//Si encuentro uno vacio con uno vacio a la derecha consolido y vuelvo a correr el algoritmo.
 		//Lo corro hasta que para toda particion, !es_vacio || (es_vacio && es_ultimo), osea lo corro hasta que este compactado
 
-		while(!esta_compactada()){
+		while (!esta_compactada()) {
 			log_trace(logger, "No esta compactada, se va a compactar");
 
 			algoritmo_de_compactacion();
-
 
 		}
 	}
@@ -548,9 +603,11 @@ void algoritmo_de_compactacion() {
 	_Bool compactar_en_el_siguiente_elemento = true;
 
 	while (compactar_en_el_siguiente_elemento) {
-		log_debug(logger, "Se intentara compactar elemento %i", num_particion +1);
+		log_debug(logger, "Se intentara compactar elemento %i",
+				num_particion + 1);
 
-		compactar_en_el_siguiente_elemento = intentar_compactar_elemento(num_particion);
+		compactar_en_el_siguiente_elemento = intentar_compactar_elemento(
+				num_particion);
 		//Si hizo algun cambio devuelve false para salir del while, y volver a comprobar si esta compactada.
 		//Si num_part es el ultimo elemento tambien da false.
 		//Si ese elemento no necesitaba ningun cambio, devuelve true, vuelve a hacer el while.
@@ -558,23 +615,28 @@ void algoritmo_de_compactacion() {
 		num_particion++;
 	}
 
-	log_trace(logger, "Se realizo un cambio con el intento de compactar, el resultado quedo asi:");
+	log_trace(logger,
+			"Se realizo un cambio con el intento de compactar, el resultado quedo asi:");
 	list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria);
-	log_dump_de_cache();
+	//log_dump_de_cache();
 }
 
-_Bool intentar_compactar_elemento(int num_particion){
+_Bool intentar_compactar_elemento(int num_particion) {
 
-	_Bool es_ultimo = es_ultima_particion(list_get(struct_admin_cache, num_particion));
-	_Bool es_vacio = es_vacia_particion(list_get(struct_admin_cache, num_particion));
+	_Bool es_ultimo = es_ultima_particion(
+			list_get(struct_admin_cache, num_particion));
+	_Bool es_vacio = es_vacia_particion(
+			list_get(struct_admin_cache, num_particion));
 	// Si no es ultimo y esta vacio, se chequea. Si no, se pasa de largo.
 
-	if( !es_ultimo &&  es_vacio ){
-		log_warning(logger, "No es ni ultimo ni vacio: Se va a realizar un cambio.");
+	if (!es_ultimo && es_vacio) {
+		log_warning(logger,
+				"No es ni ultimo ni vacio: Se va a realizar un cambio.");
 
-		_Bool siguiente_vacio = es_vacia_particion(list_get(struct_admin_cache, num_particion + 1));
+		_Bool siguiente_vacio = es_vacia_particion(
+				list_get(struct_admin_cache, num_particion + 1));
 
-		if(siguiente_vacio){
+		if (siguiente_vacio) {
 			log_warning(logger, "Siguiente es vacio, se consolidara.");
 
 			dejar_particion_adelante(num_particion); //Para consolidar tengo que dejar el elemento vacio adelante.
@@ -582,8 +644,9 @@ _Bool intentar_compactar_elemento(int num_particion){
 
 			return false; //Que se fije si esta compactada o no
 
-		}else {
-			log_warning(logger, "Siguiente es lleno, se movera la informacion.");
+		} else {
+			log_warning(logger,
+					"Siguiente es lleno, se movera la informacion.");
 
 			mover_a_particion_info_del_siguiente(num_particion);
 
@@ -591,17 +654,16 @@ _Bool intentar_compactar_elemento(int num_particion){
 
 		}
 
-
-
 	}
 	return !es_ultimo; // Si no ultimo, que se fije el siguiente elemento, sino no que se fije si esta compactada o no
 }
 
-void dejar_particion_adelante(int num_particion){
+void dejar_particion_adelante(int num_particion) {
 	t_mensaje_cache* particion = list_get(struct_admin_cache, num_particion);
 
 	_Bool particion_adelante(void* una_particion, void* otra_particion) {
-		_Bool es_particion = particiones_iguales(particion, (t_mensaje_cache*) una_particion);
+		_Bool es_particion = particiones_iguales(particion,
+				(t_mensaje_cache*) una_particion);
 
 		return es_particion;
 	}
@@ -609,13 +671,14 @@ void dejar_particion_adelante(int num_particion){
 	list_sort(struct_admin_cache, particion_adelante);
 }
 
-void mover_a_particion_info_del_siguiente(int num_particion){
+void mover_a_particion_info_del_siguiente(int num_particion) {
 	// Remplazar lo que esta en a siguiente, por lo que esta en la actual, que es vacia.
 	t_mensaje_cache* particion = list_get(struct_admin_cache, num_particion);
-	t_mensaje_cache* siguiente = list_get(struct_admin_cache, num_particion + 1);
+	t_mensaje_cache* siguiente = list_get(struct_admin_cache,
+			num_particion + 1);
 	int desde_offset = siguiente->offset;
 	int hasta_offset = particion->offset;
-	int tamanio_mensaje = siguiente ->tamanio;
+	int tamanio_mensaje = siguiente->tamanio;
 
 	int nuevo_offset_particion = hasta_offset + tamanio_mensaje;
 	int nuevo_offset_siguiente = hasta_offset;
@@ -629,10 +692,10 @@ void mover_a_particion_info_del_siguiente(int num_particion){
 
 }
 
-void si_es_part_mover_struct_a(t_mensaje_cache* particion, int offset_destino){
+void si_es_part_mover_struct_a(t_mensaje_cache* particion, int offset_destino) {
 
-	void mover(void* una_particion){
-		if(particiones_iguales(particion, (t_mensaje_cache*) una_particion)){
+	void mover(void* una_particion) {
+		if (particiones_iguales(particion, (t_mensaje_cache*) una_particion)) {
 			//Si es la particion => lo muevo al lugar de siguiente
 
 			((t_mensaje_cache*) una_particion)->offset = offset_destino;
@@ -644,11 +707,11 @@ void si_es_part_mover_struct_a(t_mensaje_cache* particion, int offset_destino){
 }
 
 _Bool corresponde_compactar() {
-	contador_intentos_para_compactar --;
-	if(contador_intentos_para_compactar == 0){
+	contador_intentos_para_compactar--;
+	if (contador_intentos_para_compactar == 0) {
 		contador_intentos_para_compactar = frecuencia_compactacion;
 		return true;
-	}else{
+	} else {
 		return false;
 	}
 }
@@ -656,110 +719,129 @@ _Bool corresponde_compactar() {
 _Bool esta_compactada() {
 
 	_Bool no_es_vacio_o_es_vacio_y_ultimo(void* particion) {
-		return !es_vacia_particion(particion) || (es_vacia_particion(particion) && es_ultima_particion(particion));
+		return !es_vacia_particion(particion)
+				|| (es_vacia_particion(particion)
+						&& es_ultima_particion(particion));
 	}
 
 	return list_all_satisfy(struct_admin_cache, no_es_vacio_o_es_vacio_y_ultimo);
 }
 
-_Bool es_vacia_particion(t_mensaje_cache* particion){
-	return  particion->tipo_mensaje == VACIO;
+_Bool es_vacia_particion(t_mensaje_cache* particion) {
+	return particion->tipo_mensaje == VACIO;
 }
-_Bool es_ultima_particion(t_mensaje_cache* particion){
+_Bool es_ultima_particion(t_mensaje_cache* particion) {
 	return particion->offset + particion->tamanio == tamano_memoria;
 }
 
-void mover_info_cache(int desde_offset, int hasta_offset, int tamanio){
-	memcpy(memoria_cache+hasta_offset, memoria_cache+desde_offset, tamanio);
+void mover_info_cache(int desde_offset, int hasta_offset, int tamanio) {
+	memcpy(memoria_cache + hasta_offset, memoria_cache + desde_offset, tamanio);
 }
 
-_Bool particiones_iguales (t_mensaje_cache* una_part, t_mensaje_cache* otra_part) {
+_Bool particiones_iguales(t_mensaje_cache* una_part, t_mensaje_cache* otra_part) {
 	_Bool mismo_offset = una_part->offset == otra_part->offset;
 	_Bool mismo_tipo = una_part->tipo_mensaje == otra_part->tipo_mensaje;
-	_Bool mismo_id_o_vacio = (una_part->id == otra_part->id) || (una_part->tipo_mensaje == VACIO);
+	_Bool mismo_id_o_vacio = (una_part->id == otra_part->id)
+			|| (una_part->tipo_mensaje == VACIO);
 
 	return mismo_offset && mismo_tipo && mismo_id_o_vacio;
 }
 
-
-void log_dump_de_cache(){
+void estado_actual_de_cache() {
+	FILE* dump_file = fopen("Dump Broker", "a");
 	int num_particion = 1;
-	log_debug(logger, "--------------------------------------------------------------------------------------------------");
-	//log_header_dump(); //TODO Por alguna razon se rompe despues de usarlo un par de veces en ejecucion
-	log_debug(logger, "Dump: ");
+	char* header = string_new();
+	string_append(&header, "Dump: ");
+	string_append(&header, obtener_fecha());
+	char* borde =
+			"--------------------------------------------------------------------------------------------------\n";
 
-
-	void log_linea_dump_cache(void* particion) {
-		log_info_particion(particion, num_particion);
+	void escribir_linea_de_particion(void* particion) {
+		char* estado_particion = string_new();
+		string_append(&estado_particion, obtener_estado_de_particion(particion, num_particion));
+		fwrite(estado_particion, 1, strlen(estado_particion), dump_file);
 		num_particion++;
 	}
-	list_iterate(struct_admin_cache, log_linea_dump_cache);
 
-	log_debug(logger, "--------------------------------------------------------------------------------------------------");
+	fwrite(borde, 1, strlen(borde), dump_file);
+	fwrite(header, 1, strlen(header), dump_file);
+
+	list_iterate(struct_admin_cache, escribir_linea_de_particion);
+	fwrite(borde, 1, strlen(borde), dump_file);
+
+	fclose(dump_file);
 }
 
-void log_info_particion(t_mensaje_cache* particion, int num_part){
-	char* string = malloc(sizeof(char)*100);
+char* obtener_estado_de_particion(t_mensaje_cache* particion, int num_part) {
+	char* string = malloc(sizeof(char) * 100);
 
-	int direc_inicio = ((int)memoria_cache) + particion->offset;
-	int direc_final = ((int)memoria_cache) + particion->offset + particion->tamanio;
-	char* libre_o_ocupado = (particion->tipo_mensaje == VACIO) ? "[L]" : "[X]" ;
+	int direc_inicio = ((int) memoria_cache) + particion->offset;
+	int direc_final = ((int) memoria_cache) + particion->offset
+			+ particion->tamanio;
+	char* libre_o_ocupado = (particion->tipo_mensaje == VACIO) ? "[L]" : "[X]";
 	int tamano = particion->tamanio;
+	char* estado_particion = malloc(255);
 
-	if(particion->tipo_mensaje == VACIO){
-		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [L]    Size:%ib    Offset:%i",
+
+	if (particion->tipo_mensaje == VACIO) {
+		snprintf(estado_particion,255,"Particion %i: 0x%X - 0x%X.    [L]    Size:%ib    Offset:%i\n",
 				num_part, direc_inicio, direc_final, tamano, particion->offset);
 	} else {
-		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [X]    Size:%ib    LRU:%i    Cola:%i    ID:%i    Offset:%i ",
+		snprintf(estado_particion,255,"Particion %i: 0x%X - 0x%X.    [X]    Size:%ib    LRU:%i    Cola:%i    ID:%i    Offset:%i \n",
 				num_part, direc_inicio, direc_final, tamano,
-				particion->flags_lru, particion->tipo_mensaje, particion->id, particion->offset);
+				particion->flags_lru, particion->tipo_mensaje, particion->id,
+				particion->offset);
 	}
+	return estado_particion;
 
 }
 
-void log_header_dump() {
-	time_t now;
-	time(&now);
-	struct tm *local = localtime(&now);
-
-	log_debug(logger, "Dump: %i/%i/%i %i:%i:%i",
-			local->tm_mday, local->tm_mon, local->tm_year,
-			local->tm_hour, local->tm_min, local->tm_sec);
-
+char* obtener_fecha() {
+	time_t rawtime;
+	struct tm * timeinfo;
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	char* fecha = string_new();
+	string_append(&fecha, asctime(timeinfo));
+	return fecha;
 
 }
 
-void log_mensaje_de_cache(t_mensaje_cache* particion_mensaje){
+void log_mensaje_de_cache(t_mensaje_cache* particion_mensaje) {
 
 	void* stream = malloc(particion_mensaje->tamanio);
-	memcpy(stream, memoria_cache + particion_mensaje->offset, particion_mensaje->tamanio);
+	memcpy(stream, memoria_cache + particion_mensaje->offset,
+			particion_mensaje->tamanio);
 
 	switch (particion_mensaje->tipo_mensaje) {
-		case APPEARED_POKEMON:
-			;
-			t_appeared_pokemon* mensaje = deserializar_cache_appeared_pokemon(stream);
+	case APPEARED_POKEMON:
+		;
+		t_appeared_pokemon* mensaje = deserializar_cache_appeared_pokemon(
+				stream);
 
-			log_trace(logger, "El mensaje que se guardo en cache, deserializado es %s. (Ignorar ID, es trash).",
-					mostrar_appeared_pokemon(mensaje));
+		log_trace(logger,
+				"El mensaje que se guardo en cache, deserializado es %s. (Ignorar ID, es trash).",
+				mostrar_appeared_pokemon(mensaje));
 
-			break;
-		default:
+		break;
+	default:
 
-			log_trace(logger, "No se puede imprimir un mensaje vacio.");
+		log_trace(logger, "No se puede imprimir un mensaje vacio.");
 
-			break;
+		break;
 	}
-
-
 
 }
 
-void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion, int socket_cliente){
+void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion,
+		int socket_cliente) {
 
 	pthread_mutex_lock(&mutex_memoria_cache);
 
-	void enviar_mensaje_cacheados_a_sub(void* particion){
-		enviar_mensaje_cacheado_a_sub_si_es_de_cola(suscripcion->cola_de_mensaje, socket_cliente, (t_mensaje_cache*) particion);
+	void enviar_mensaje_cacheados_a_sub(void* particion) {
+		enviar_mensaje_cacheado_a_sub_si_es_de_cola(
+				suscripcion->cola_de_mensaje, socket_cliente,
+				(t_mensaje_cache*) particion);
 	}
 
 	list_iterate(struct_admin_cache, enviar_mensaje_cacheados_a_sub);
@@ -768,8 +850,9 @@ void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion, int socket_
 
 }
 
-void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,int socket_cliente, t_mensaje_cache* particion){
-	if(particion->tipo_mensaje == tipo_mensaje){
+void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,
+		int socket_cliente, t_mensaje_cache* particion) {
+	if (particion->tipo_mensaje == tipo_mensaje) {
 		void* mensaje_a_enviar = serializar_mensaje_de_cache(particion);
 		t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 
@@ -779,83 +862,89 @@ void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,int socket_cli
 
 		list_add(particion->subscribers_enviados, (void*) socket_cliente);
 
-		if(algoritmo_remplazo==LRU) particion->flags_lru = get_lru_flag();
+		if (algoritmo_remplazo == LRU)
+			particion->flags_lru = get_lru_flag();
 		log_trace(logger, "Se envio mensaje %i a sub %i. Flag lru/fifo:%i.",
 				particion->id, socket_cliente, particion->flags_lru);
 	}
 }
 
-t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion){
+t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 
 	void* stream_mensaje = malloc(particion->tamanio);
 
-	memcpy(stream_mensaje, memoria_cache + (particion->offset), particion->tamanio);
+	memcpy(stream_mensaje, memoria_cache + (particion->offset),
+			particion->tamanio);
 
-	switch(particion->tipo_mensaje){
+	switch (particion->tipo_mensaje) {
 
-		case APPEARED_POKEMON:
-			;
-			t_appeared_pokemon* mensaje_appeared_pokemon = deserializar_cache_appeared_pokemon(stream_mensaje);
-			mensaje_appeared_pokemon->id_mensaje = particion->id;
+	case APPEARED_POKEMON:
+		;
+		t_appeared_pokemon* mensaje_appeared_pokemon =
+				deserializar_cache_appeared_pokemon(stream_mensaje);
+		mensaje_appeared_pokemon->id_mensaje = particion->id;
 
-			mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared_pokemon);
-			break;
+		mensaje_serializado = serializar_appeared_pokemon(
+				mensaje_appeared_pokemon);
+		break;
 
-		case CATCH_POKEMON:
-			;
-			t_catch_pokemon* mensaje_catch_pokemon = deserializar_cache_catch_pokemon(stream_mensaje);
-			mensaje_catch_pokemon->id_mensaje = particion->id;
+	case CATCH_POKEMON:
+		;
+		t_catch_pokemon* mensaje_catch_pokemon =
+				deserializar_cache_catch_pokemon(stream_mensaje);
+		mensaje_catch_pokemon->id_mensaje = particion->id;
 
-			mensaje_serializado = serializar_catch_pokemon(mensaje_catch_pokemon);
-			break;
+		mensaje_serializado = serializar_catch_pokemon(mensaje_catch_pokemon);
+		break;
 
-		case CAUGHT_POKEMON:
-			;
-			t_caught_pokemon* mensaje_caught_pokemon = deserializar_cache_caught_pokemon(stream_mensaje);
-			mensaje_caught_pokemon->id_mensaje = particion->id;
+	case CAUGHT_POKEMON:
+		;
+		t_caught_pokemon* mensaje_caught_pokemon =
+				deserializar_cache_caught_pokemon(stream_mensaje);
+		mensaje_caught_pokemon->id_mensaje = particion->id;
 
-			mensaje_serializado = serializar_caught_pokemon(mensaje_caught_pokemon);
-			break;
+		mensaje_serializado = serializar_caught_pokemon(mensaje_caught_pokemon);
+		break;
 
-		case GET_POKEMON:
-			;
-			t_get_pokemon* mensaje_get_pokemon = deserializar_cache_get_pokemon(stream_mensaje);
-			mensaje_get_pokemon->id_mensaje = particion->id;
+	case GET_POKEMON:
+		;
+		t_get_pokemon* mensaje_get_pokemon = deserializar_cache_get_pokemon(
+				stream_mensaje);
+		mensaje_get_pokemon->id_mensaje = particion->id;
 
-			mensaje_serializado = serializar_get_pokemon(mensaje_get_pokemon);
-			break;
+		mensaje_serializado = serializar_get_pokemon(mensaje_get_pokemon);
+		break;
 
-		case LOCALIZED_POKEMON:
-			;
-			t_localized* mensaje_localized_pokemon = deserializar_cache_localized_pokemon(stream_mensaje);
-			mensaje_localized_pokemon->id_mensaje = particion->id;
+	case LOCALIZED_POKEMON:
+		;
+		t_localized* mensaje_localized_pokemon =
+				deserializar_cache_localized_pokemon(stream_mensaje);
+		mensaje_localized_pokemon->id_mensaje = particion->id;
 
-			mensaje_serializado = serializar_localized_pokemon(mensaje_localized_pokemon);
-			break;
+		mensaje_serializado = serializar_localized_pokemon(
+				mensaje_localized_pokemon);
+		break;
 
-		case NEW_POKEMON:
-			;
-			t_new_pokemon* mensaje_new_pokemon = deserializar_cache_new_pokemon(stream_mensaje);
-			mensaje_new_pokemon->id_mensaje = particion->id;
+	case NEW_POKEMON:
+		;
+		t_new_pokemon* mensaje_new_pokemon = deserializar_cache_new_pokemon(
+				stream_mensaje);
+		mensaje_new_pokemon->id_mensaje = particion->id;
 
-			mensaje_serializado = serializar_new_pokemon(mensaje_new_pokemon);
-			break;
+		mensaje_serializado = serializar_new_pokemon(mensaje_new_pokemon);
+		break;
 
-		default:
+	default:
 
-			log_warning(logger, "No deberia estar aca, trata de deserializar un mensaje vacio o no reconocido de cache.");
-			break;
+		log_warning(logger,
+				"No deberia estar aca, trata de deserializar un mensaje vacio o no reconocido de cache.");
+		break;
 	}
 	return mensaje_serializado;
 }
 
-
-void test(){
+void test() {
 
 }
-
-
-
-
 
