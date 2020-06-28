@@ -299,6 +299,8 @@ _Bool mensaje_recibido_por_todos_los_subs(t_confirmacion* confirmacion);
 void borrar_mensaje_de_cola(t_confirmacion* confirmacion);
 _Bool fue_enviado_y_recibido(int id_mensaje, t_suscriptor_queue* suscriptor);
 
+void handler_senial(int);
+
 
 
 #endif

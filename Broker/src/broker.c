@@ -1,12 +1,20 @@
 #include "broker.h"
 
 int main(void) {
+	signal(SIGUSR1, handler_senial);
 	inicializacion_broker();
 	//test(); //TODO borrar
 	esperar_mensajes(NULL);
 	terminar_proceso();
 
 	return 0;
+}
+
+void handler_senial(int signum){
+	log_trace(logger, "Se realizara el dump de la cache");
+	log_dump_de_cache();
+	exit(1);
+
 }
 
 void inicializacion_broker(void) {
