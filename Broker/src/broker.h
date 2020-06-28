@@ -28,7 +28,7 @@ int frecuencia_compactacion;
 
 int contador_intentos_para_compactar;
 
-
+/*
 typedef struct{
 	t_list* subscriptores; // lista de suscriptor_queue
 	t_list* mensajes; // lista de mensajes ej:t_new_pokemon
@@ -39,6 +39,7 @@ typedef struct{
 	t_list* mensajes_enviados; // Lista de IDs (int)
 	t_list* mensajes_recibidos;	// Lista de IDs (int)
 }t_suscriptor_queue;
+*/
 
 //Cache
 
@@ -82,12 +83,12 @@ typedef enum {
 }t_algoritmo_particion_libre;
 
 //Declaracion de queues
-t_queue* new_pokemon;
-t_queue* appeared_pokemon;
-t_queue* catch_pokemon;
-t_queue* caught_pokemon;
-t_queue* get_pokemon;
-t_queue* localized_pokemon;
+t_list* new_pokemon;
+t_list* appeared_pokemon;
+t_list* catch_pokemon;
+t_list* caught_pokemon;
+t_list* get_pokemon;
+t_list* localized_pokemon;
 
 //Declaracion id
 int id_mensajes;
@@ -133,8 +134,7 @@ int de_string_a_alg_particion_libre(char* string);
 _Bool ordenar_para_rellenar(t_mensaje_cache* mensaje_1, t_mensaje_cache* mensaje_2, int tamano_mensaje);
 _Bool particion_valida_para_llenar(t_mensaje_cache* particion, int tamano_mensaje);
 t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje, int tamano_a_cachear, t_mensaje_cache* particion_vacia);
-t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje);
-t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje);
+t_list* lista_subs_eviados(int tipo_mensaje);
 int get_lru_flag();
 
 _Bool queda_espacio_libre(int tamano_mensaje_a_cachear, t_mensaje_cache* particion_vacia);
@@ -213,13 +213,13 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion);
 void manejar_mensaje_suscriptor(t_conexion_buffer *combo);
 
 void subscribir(int cliente, t_subscriptor* subscripcion);
-void agregar_cliente_a_cola(t_queue* cola, int cliente);
+void agregar_cliente_a_cola(t_list* cola, int cliente);
 
 //void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor* subscripcion,  int cliente);
 //void enviar_mensajes_de_cola_a_cliente(t_queue* cola,  int cliente);
 
 void desuscribir(int cliente, t_subscriptor* suscripcion);
-void sacar_cliente_a_cola(t_queue* cola, int cliente);
+void sacar_cliente_a_cola(t_list* cola, int cliente);
 
 // APPEARED_POKEMON
 void manejar_mensaje_appeared(t_conexion_buffer *combo);
@@ -229,7 +229,7 @@ void devolver_appeared_pokemon(int socket_cliente ,t_appeared_pokemon* mensaje_a
 void almacenar_en_cola_appeared_pokemon(t_appeared_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje);
-void enviar_appeared_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_appeared_pokemon* mensaje);
+void enviar_appeared_pokemon_a_suscriptor(int suscriptor, t_appeared_pokemon* mensaje);
 void cachear_appeared_pokemon(t_appeared_pokemon* mensaje);
 
 // NEW_POKEMON
@@ -240,7 +240,7 @@ void devolver_new_pokemon(int socket_cliente ,t_new_pokemon* mensaje_new_pokemon
 void almacenar_en_cola_new_pokemon(t_new_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_new_pokemon(t_new_pokemon* mensaje);
-void enviar_new_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_new_pokemon* mensaje);
+void enviar_new_pokemon_a_suscriptor(int suscriptor, t_new_pokemon* mensaje);
 void cachear_new_pokemon(t_new_pokemon* mensaje);
 
 // CATCH_POKEMON
@@ -251,7 +251,7 @@ void devolver_catch_pokemon(int socket_cliente ,t_catch_pokemon* mensaje_catch_p
 void almacenar_en_cola_catch_pokemon(t_catch_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_catch_pokemon(t_catch_pokemon* mensaje);
-void enviar_catch_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_catch_pokemon* mensaje);
+void enviar_catch_pokemon_a_suscriptor(int suscriptor, t_catch_pokemon* mensaje);
 void cachear_catch_pokemon(t_catch_pokemon* mensaje);
 
 // CAUGHT_POKEMON
@@ -262,7 +262,7 @@ void devolver_caught_pokemon(int socket_cliente ,t_caught_pokemon* mensaje_caugh
 void almacenar_en_cola_caught_pokemon(t_caught_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_caught_pokemon(t_caught_pokemon* mensaje);
-void enviar_caught_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_caught_pokemon* mensaje);
+void enviar_caught_pokemon_a_suscriptor(int suscriptor, t_caught_pokemon* mensaje);
 void cachear_caught_pokemon(t_caught_pokemon* mensaje);
 
 // GET_POKEMON
@@ -273,31 +273,31 @@ void devolver_get_pokemon(int socket_cliente ,t_get_pokemon* mensaje_get_pokemon
 void almacenar_en_cola_get_pokemon(t_get_pokemon* mensaje);
 
 void enviar_a_todos_los_subs_get_pokemon(t_get_pokemon* mensaje);
-void enviar_get_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_get_pokemon* mensaje);
+void enviar_get_pokemon_a_suscriptor(int suscriptor, t_get_pokemon* mensaje);
 void cachear_get_pokemon(t_get_pokemon* mensaje);
 
 // LOCALIZED_POKEMON
 void manejar_mensaje_localized(t_conexion_buffer *combo);
 
-int asignar_id_localized_pokemon(t_localized* mensaje);
-void devolver_localized_pokemon(int socket_cliente ,t_localized* mensaje_localized_pokemon);
-void almacenar_en_cola_localized_pokemon(t_localized* mensaje);
+int asignar_id_localized_pokemon(t_localized_pokemon* mensaje);
+void devolver_localized_pokemon(int socket_cliente ,t_localized_pokemon* mensaje_localized_pokemon);
+void almacenar_en_cola_localized_pokemon(t_localized_pokemon* mensaje);
 
-void enviar_a_todos_los_subs_localized_pokemon(t_localized* mensaje);
-void enviar_localized_pokemon_a_suscriptor(t_suscriptor_queue* suscriptor, t_localized* mensaje);
-void cachear_localized_pokemon(t_localized* mensaje);
+void enviar_a_todos_los_subs_localized_pokemon(t_localized_pokemon* mensaje);
+void enviar_localized_pokemon_a_suscriptor(int suscriptor, t_localized_pokemon* mensaje);
+void cachear_localized_pokemon(t_localized_pokemon* mensaje);
 
 //CONFIRMACION
 void manejar_mensaje_confirmacion(t_conexion_buffer *combo);
 
 void confirmar_cliente_recibio(t_confirmacion* mensaje_confirmacion, int socket_cliente);
 void confirmar_recepcion_en_cache(t_confirmacion* mensaje_confirmacion, int socket_cliente);
-t_queue* get_cola_segun_tipo(int tipo_mensaje);
+t_list* get_cola_segun_tipo(int tipo_mensaje);
 
-void si_coincide_cliente_agregar_id_recibido(t_suscriptor_queue* suscriptor, int socket_suscriptor, int id_mensaje_recibido);
+//void si_coincide_cliente_agregar_id_recibido(t_suscriptor_queue* suscriptor, int socket_suscriptor, int id_mensaje_recibido);
 _Bool mensaje_recibido_por_todos_los_subs(t_confirmacion* confirmacion);
 void borrar_mensaje_de_cola(t_confirmacion* confirmacion);
-_Bool fue_enviado_y_recibido(int id_mensaje, t_suscriptor_queue* suscriptor);
+//_Bool fue_enviado_y_recibido(int id_mensaje, t_suscriptor_queue* suscriptor);
 
 
 

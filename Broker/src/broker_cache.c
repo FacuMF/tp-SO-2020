@@ -203,8 +203,8 @@ t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje, int t
 
 	particion_llena->tamanio = tamano_a_cachear;
 
-	particion_llena->subscribers_enviados = filtrar_subs_enviados( tipo_mensaje, id_mensaje);
-	particion_llena->subscribers_recibidos = filtrar_subs_recibidos( tipo_mensaje, id_mensaje);
+	particion_llena->subscribers_enviados = lista_subs_eviados(tipo_mensaje);
+	particion_llena->subscribers_recibidos = list_create();
 
 	return particion_llena;
 }
@@ -215,62 +215,12 @@ int get_lru_flag() {
 	return flag;
 }
 
-t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje){
+t_list* lista_subs_eviados(int tipo_mensaje){
 	t_list* lista_subs = list_create();
 
-	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje)-> subscriptores;
+	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje);
 
-	// Inner function para filter
-	_Bool tiene_mensaje_enviado(void* suscriptor_aux) {
-		t_suscriptor_queue* suscriptor = (t_suscriptor_queue*) suscriptor_aux;
-
-		// Meta-inner function para any_satisfy
-		_Bool tiene_mensaje(void* un_id) {
-				return ((int) un_id == id_mensaje);
-			}
-
-		return list_any_satisfy(suscriptor->mensajes_enviados, tiene_mensaje);
-	}
-
-	// Inner function para map
-	int get_socket_suscriptor(void* suscriptor_aux) {
-		t_suscriptor_queue* suscriptor = (t_suscriptor_queue*) suscriptor_aux;
-
-		return suscriptor->socket;
-	}
-
-
-	lista_subs = list_map( list_filter(subs_queue, tiene_mensaje_enviado), (void*) get_socket_suscriptor);
-
-	return lista_subs;
-}
-
-t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje){
-	t_list* lista_subs = list_create();
-
-	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje)-> subscriptores;
-
-	// Inner function para filter
-	_Bool tiene_mensaje_recibido(void* suscriptor_aux) {
-		t_suscriptor_queue* suscriptor = (t_suscriptor_queue*) suscriptor_aux;
-
-		// Meta-inner function para any_satisfy
-		_Bool tiene_mensaje(void* un_id) {
-				return ((int) un_id == id_mensaje);
-			}
-
-		return list_any_satisfy(suscriptor->mensajes_recibidos, tiene_mensaje);
-	}
-
-	// Inner function para map
-	int get_socket_suscriptor(void* suscriptor_aux) {
-		t_suscriptor_queue* suscriptor = (t_suscriptor_queue*) suscriptor_aux;
-
-		return suscriptor->socket;
-	}
-
-
-	lista_subs = list_map( list_filter(subs_queue, tiene_mensaje_recibido), (void*) get_socket_suscriptor);
+	list_add_all(lista_subs, subs_queue);
 
 	return lista_subs;
 }
@@ -828,7 +778,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion){
 
 		case LOCALIZED_POKEMON:
 			;
-			t_localized* mensaje_localized_pokemon = deserializar_cache_localized_pokemon(stream_mensaje);
+			t_localized_pokemon* mensaje_localized_pokemon = deserializar_cache_localized_pokemon(stream_mensaje);
 			mensaje_localized_pokemon->id_mensaje = particion->id;
 
 			mensaje_serializado = serializar_localized_pokemon(mensaje_localized_pokemon);

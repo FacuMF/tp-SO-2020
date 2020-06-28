@@ -141,7 +141,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		break;
 	case LOCALIZED_POKEMON:
 		;
-		t_localized* mensaje_localized_pokemon = deserializar_localized_pokemon(
+		t_localized_pokemon* mensaje_localized_pokemon = deserializar_localized_pokemon(
 				buffer);
 		log_trace(logger, mostrar_localized(mensaje_localized_pokemon));
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
@@ -264,7 +264,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		list_add(posiciones, posicion2);
 		list_add(posiciones, posicion3);
 
-		t_localized* mensaje_localized = crear_localized_pokemon(10,
+		t_localized_pokemon* mensaje_localized = crear_localized_pokemon(10,
 				"Bulbasaur", posiciones);
 
 		mensaje_serializado = serializar_localized_pokemon(mensaje_localized);

@@ -51,7 +51,7 @@ typedef struct{
 	char* pokemon;
 	int cantidad_posiciones;
 	t_list* posiciones;
-}t_localized;
+}t_localized_pokemon;
 
 typedef struct{
 	int x;
@@ -115,11 +115,11 @@ t_subscriptor* crear_suscripcion(int,int);
 t_buffer* serializar_suscripcion(t_subscriptor*);
 t_subscriptor* deserializar_suscripcion(t_buffer* buffer);
 
-t_localized* crear_localized_pokemon(int,char*,t_list*);
-t_buffer* serializar_localized_pokemon(t_localized*);
-void* serializar_cache_localized_pokemon(t_localized*, int);
-t_localized* deserializar_localized_pokemon(t_buffer* buffer);
-t_localized* deserializar_cache_localized_pokemon(void*);
+t_localized_pokemon* crear_localized_pokemon(int,char*,t_list*);
+t_buffer* serializar_localized_pokemon(t_localized_pokemon*);
+void* serializar_cache_localized_pokemon(t_localized_pokemon*, int);
+t_localized_pokemon* deserializar_localized_pokemon(t_buffer* buffer);
+t_localized_pokemon* deserializar_cache_localized_pokemon(void*);
 
 t_confirmacion* crear_confirmacion(int,int);
 t_buffer* serializar_confirmacion(t_confirmacion*);
@@ -135,7 +135,7 @@ char* mostrar_catch_pokemon(t_catch_pokemon*);
 char* mostrar_caught_pokemon(t_caught_pokemon*);
 char* mostrar_get_pokemon(t_get_pokemon*);
 char* mostrar_suscriptor(t_subscriptor*);
-char* mostrar_localized(t_localized*);
+char* mostrar_localized(t_localized_pokemon*);
 char* mostrar_posiciones(t_posicion*);
 char* mostrar_confirmacion(t_confirmacion*);
 

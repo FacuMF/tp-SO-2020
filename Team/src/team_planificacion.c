@@ -50,7 +50,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught){
 	// TODO: Si hay, los muevo a la otra lista y los planifico como appeared de nuevo
 }
 
-void manejar_localized(t_localized* mensaje_localized){
+void manejar_localized(t_localized_pokemon* mensaje_localized){
 	// TODO: Verifico si se corresponde con un id de rta // Funcion es_id_necesario
 	// TODO: Verifico si ya tengo uno en mi lista para esta especie (app o localized)
 	// TODO: Si YES, lo descarto
@@ -123,7 +123,7 @@ t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado){
 }
 
 
-t_list * lista_de_catch_a_partir_localized(t_localized * localized_a_chequear){
+t_list * lista_de_catch_a_partir_localized(t_localized_pokemon * localized_a_chequear){
 
 	t_list * lista_catchs_localized = list_create();
 

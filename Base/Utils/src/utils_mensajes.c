@@ -112,7 +112,7 @@ char* deserializar_tipo_mensaje(int cod_op, int cliente_fd) {
 	case LOCALIZED_POKEMON:
 		;
 		buffer = recibir_mensaje(cliente_fd);
-		t_localized* mensaje_localized = deserializar_localized_pokemon(buffer);
+		t_localized_pokemon* mensaje_localized = deserializar_localized_pokemon(buffer);
 		puts("pase la deserializacion");
 		parametros_recibidos = mostrar_localized(mensaje_localized);
 		free(mensaje_localized);
@@ -525,9 +525,9 @@ t_subscriptor* deserializar_suscripcion(t_buffer* buffer) {
 }
 
 //MENSAJE LOCALIZED
-t_localized* crear_localized_pokemon(int id_mensaje, char* pokemon,
+t_localized_pokemon* crear_localized_pokemon(int id_mensaje, char* pokemon,
 		t_list* posiciones) {
-	t_localized* mensaje = malloc(sizeof(t_localized));
+	t_localized_pokemon* mensaje = malloc(sizeof(t_localized_pokemon));
 	int cantidad_posiciones = list_size(posiciones);
 
 	mensaje->size_pokemon = strlen(pokemon);
@@ -539,7 +539,7 @@ t_localized* crear_localized_pokemon(int id_mensaje, char* pokemon,
 
 	return mensaje;
 }
-t_buffer* serializar_localized_pokemon(t_localized* mensaje) {
+t_buffer* serializar_localized_pokemon(t_localized_pokemon* mensaje) {
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 	buffer->size = sizeof(uint32_t) * 3 + mensaje->size_pokemon
 			+ mensaje->cantidad_posiciones * sizeof(t_posicion);
@@ -557,7 +557,7 @@ t_buffer* serializar_localized_pokemon(t_localized* mensaje) {
 	buffer->stream = stream;
 	return buffer;
 }
-void* serializar_cache_localized_pokemon(t_localized* mensaje, int size) {
+void* serializar_cache_localized_pokemon(t_localized_pokemon* mensaje, int size) {
 	void* stream = malloc(size);
 	int offset = 0;
 	memcpy(stream + offset, &(mensaje->size_pokemon),
@@ -579,8 +579,8 @@ void* serializar_cache_localized_pokemon(t_localized* mensaje, int size) {
 
 	return stream;
 }
-t_localized* deserializar_localized_pokemon(t_buffer* buffer) {
-	t_localized* mensaje = malloc(sizeof(t_localized));
+t_localized_pokemon* deserializar_localized_pokemon(t_buffer* buffer) {
+	t_localized_pokemon* mensaje = malloc(sizeof(t_localized_pokemon));
 	void* stream = buffer->stream;
 
 	mensaje = deserializar_cache_localized_pokemon(stream);
@@ -590,8 +590,8 @@ t_localized* deserializar_localized_pokemon(t_buffer* buffer) {
 
 	return mensaje;
 }
-t_localized* deserializar_cache_localized_pokemon(void* stream) {
-	t_localized* mensaje = malloc(sizeof(t_localized));
+t_localized_pokemon* deserializar_cache_localized_pokemon(void* stream) {
+	t_localized_pokemon* mensaje = malloc(sizeof(t_localized_pokemon));
 
 	memcpy(&(mensaje->size_pokemon), stream, sizeof(mensaje->size_pokemon));
 	stream += sizeof(mensaje->size_pokemon);
@@ -712,7 +712,7 @@ char* mostrar_confirmacion(t_confirmacion* mensaje) {
 			mensaje->tipo_mensaje, mensaje->mensaje);
 	return parametros;
 }
-char* mostrar_localized(t_localized* mensaje) {
+char* mostrar_localized(t_localized_pokemon* mensaje) {
 	int max_size = 200;
 	char* parametros = malloc(sizeof(char) * max_size);
 

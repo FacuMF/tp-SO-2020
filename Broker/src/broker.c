@@ -39,29 +39,17 @@ void terminar_proceso(void) {
 
 void inicializacion_colas(void) {
 	//  NEW_POKEMON
-	new_pokemon = malloc(sizeof(t_queue));
-	new_pokemon->subscriptores = list_create();
-	new_pokemon->mensajes = list_create();
+	new_pokemon =  list_create();
 	//  APPEARED_POKEMON
-	appeared_pokemon = malloc(sizeof(t_queue));
-	appeared_pokemon->subscriptores = list_create();
-	appeared_pokemon->mensajes = list_create();
+	appeared_pokemon = list_create();
 	//  CATCH_POKEMON
-	catch_pokemon = malloc(sizeof(t_queue));
-	catch_pokemon->subscriptores = list_create();
-	catch_pokemon->mensajes = list_create();
+	catch_pokemon = list_create();
 	//  CAUGHT_POKEMON
-	caught_pokemon = malloc(sizeof(t_queue));
-	caught_pokemon->subscriptores = list_create();
-	caught_pokemon->mensajes = list_create();
+	caught_pokemon = list_create();
 	//  GET_POKEMON
-	get_pokemon = malloc(sizeof(t_queue));
-	get_pokemon->subscriptores = list_create();
-	get_pokemon->mensajes = list_create();
+	get_pokemon = list_create();
 	//  LOCALIZED_POKEMON
-	localized_pokemon = malloc(sizeof(t_queue));
-	localized_pokemon->subscriptores = list_create();
-	localized_pokemon->mensajes = list_create();
+	localized_pokemon = list_create();
 }
 
 void inicializacion_ids(void) {

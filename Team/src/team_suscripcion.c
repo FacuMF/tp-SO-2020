@@ -54,7 +54,7 @@ void manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		break;
 	case LOCALIZED_POKEMON:
 		;
-		t_localized* mensaje_localized= deserializar_localized_pokemon(buffer);
+		t_localized_pokemon* mensaje_localized= deserializar_localized_pokemon(buffer);
 		id_mensaje = mensaje_localized->id_mensaje;
 		log_info(logger, "Mensaje LOCALIZED_POKEMON: %s",mostrar_localized(mensaje_localized));
 

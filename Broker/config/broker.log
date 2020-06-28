@@ -54375,3 +54375,255 @@
 [DEBUG] 19:48:22:267 Broker/(21084:21108): Particion 4: 0x9C2D6B4 - 0x9C2D6C4.    [X]    Size:16b    LRU:4    Cola:5    ID:4    Offset:28 
 [DEBUG] 19:48:22:267 Broker/(21084:21108): Particion 5: 0x9C2D6C4 - 0x9C2D6D8.    [X]    Size:20b    LRU:7    Cola:5    ID:5    Offset:44 
 [DEBUG] 19:48:22:267 Broker/(21084:21108): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:03:811 Broker/(23633:23633): Se leyo de config: tamano_memoria: 64, tamano_minimo_particion: 4, alg_memoria: 0, alg_remplazo: 1, alg_part_libre: 0, frec_compact:  1.
+[TRACE] 07:44:03:812 Broker/(23633:23633): Inicialiazacion terminada.
+[TRACE] 07:44:03:813 Broker/(23633:23633): Va a ejecutar 'handle_cliente'.
+[TRACE] 07:44:03:813 Broker/(23633:23633): Aceptando cliente...
+[TRACE] 07:44:19:945 Broker/(23633:23633): Conexion de 5 al Broker.
+[TRACE] 07:44:19:948 Broker/(23633:23633): Va a ejecutar 'handle_cliente'.
+[TRACE] 07:44:19:948 Broker/(23633:23633): Aceptando cliente...
+[TRACE] 07:44:19:952 Broker/(23633:23635): Se recibio un mensaje CAUGHT_POKEMON
+[INFO] 07:44:19:952 Broker/(23633:23636): Llegada de mensaje nuevo 0 a cola CAUGHT_POKEON
+[WARNING] 07:44:19:955 Broker/(23633:23635): El cliente 5 cerro el socket.
+[TRACE] 07:44:19:956 Broker/(23633:23636): Se devolvio el mensaje CAUGHT_POKEMON con id asignado.
+[TRACE] 07:44:19:956 Broker/(23633:23636): Se van a enviar a todos los subs, el nuevo CAUGHT_POKEMON.
+[TRACE] 07:44:19:956 Broker/(23633:23636): Se va a enviar a todos los subs, el nuevo CAUGHT_POKEMON.
+[TRACE] 07:44:19:956 Broker/(23633:23636): Tamano de mensaje a cachear: 4 (size stream: 4).
+[TRACE] 07:44:19:956 Broker/(23633:23636): La particion elegida tiene tamano suficiente (64b) para el mensaje(4b).
+[TRACE] 07:44:19:956 Broker/(23633:23636): Se agrego la particion con el mensaje.
+[TRACE] 07:44:19:956 Broker/(23633:23636): Se agrego la particion sobrante.
+[TRACE] 07:44:19:956 Broker/(23633:23636): Se borraron 1 particiones del inicio de la estructura administrativa de la cache.
+[TRACE] 07:44:19:956 Broker/(23633:23636): Se agrego mensaje a la cache.
+[TRACE] 07:44:19:957 Broker/(23633:23636): Se dejo la estructura ordenada por su lugar en memoria.
+[DEBUG] 07:44:19:957 Broker/(23633:23636): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:19:957 Broker/(23633:23636): Dump: 
+[DEBUG] 07:44:19:957 Broker/(23633:23636): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:0    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:19:957 Broker/(23633:23636): Particion 2: 0x990D69C - 0x990D6D8.    [L]    Size:60b    Offset:4
+[DEBUG] 07:44:19:957 Broker/(23633:23636): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:19:983 Broker/(23633:23633): Conexion de 7 al Broker.
+[TRACE] 07:44:19:984 Broker/(23633:23633): Va a ejecutar 'handle_cliente'.
+[TRACE] 07:44:19:984 Broker/(23633:23633): Aceptando cliente...
+[TRACE] 07:44:19:984 Broker/(23633:23638): Se recibio un mensaje CAUGHT_POKEMON
+[INFO] 07:44:19:984 Broker/(23633:23639): Llegada de mensaje nuevo 1 a cola CAUGHT_POKEON
+[WARNING] 07:44:19:993 Broker/(23633:23638): El cliente 7 cerro el socket.
+[TRACE] 07:44:19:993 Broker/(23633:23639): Se devolvio el mensaje CAUGHT_POKEMON con id asignado.
+[TRACE] 07:44:19:994 Broker/(23633:23639): Se van a enviar a todos los subs, el nuevo CAUGHT_POKEMON.
+[TRACE] 07:44:19:994 Broker/(23633:23639): Se va a enviar a todos los subs, el nuevo CAUGHT_POKEMON.
+[TRACE] 07:44:19:994 Broker/(23633:23639): Tamano de mensaje a cachear: 4 (size stream: 4).
+[TRACE] 07:44:19:997 Broker/(23633:23639): La particion elegida tiene tamano suficiente (60b) para el mensaje(4b).
+[TRACE] 07:44:19:997 Broker/(23633:23639): Se agrego la particion con el mensaje.
+[TRACE] 07:44:19:997 Broker/(23633:23639): Se agrego la particion sobrante.
+[TRACE] 07:44:19:997 Broker/(23633:23639): Se borraron 1 particiones del inicio de la estructura administrativa de la cache.
+[TRACE] 07:44:19:997 Broker/(23633:23639): Se agrego mensaje a la cache.
+[TRACE] 07:44:20:6 Broker/(23633:23639): Se dejo la estructura ordenada por su lugar en memoria.
+[DEBUG] 07:44:20:6 Broker/(23633:23639): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:20:6 Broker/(23633:23639): Dump: 
+[DEBUG] 07:44:20:6 Broker/(23633:23639): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:0    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:20:6 Broker/(23633:23639): Particion 2: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:1    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:20:6 Broker/(23633:23639): Particion 3: 0x990D6A0 - 0x990D6D8.    [L]    Size:56b    Offset:8
+[DEBUG] 07:44:20:6 Broker/(23633:23639): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:20:7 Broker/(23633:23633): Conexion de 8 al Broker.
+[TRACE] 07:44:20:7 Broker/(23633:23633): Va a ejecutar 'handle_cliente'.
+[TRACE] 07:44:20:7 Broker/(23633:23633): Aceptando cliente...
+[TRACE] 07:44:20:7 Broker/(23633:23641): Se recibio un mensaje CATCH_POKEMON
+[INFO] 07:44:20:7 Broker/(23633:23642): Llegada de mensaje nuevo 2 a cola CATCH_POKEON
+[WARNING] 07:44:20:21 Broker/(23633:23641): El cliente 8 cerro el socket.
+[TRACE] 07:44:20:21 Broker/(23633:23642): Se devolvio el mensaje CATCH_POKEMON con id asignado.
+[TRACE] 07:44:20:21 Broker/(23633:23642): Se van a enviar a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 07:44:20:21 Broker/(23633:23642): Se va a enviar a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 07:44:20:21 Broker/(23633:23642): Tamano de mensaje a cachear: 19 (size stream: 19).
+[TRACE] 07:44:20:21 Broker/(23633:23642): La particion elegida tiene tamano suficiente (56b) para el mensaje(19b).
+[TRACE] 07:44:20:21 Broker/(23633:23642): Se agrego la particion con el mensaje.
+[TRACE] 07:44:20:21 Broker/(23633:23642): Se agrego la particion sobrante.
+[TRACE] 07:44:20:21 Broker/(23633:23642): Se borraron 1 particiones del inicio de la estructura administrativa de la cache.
+[TRACE] 07:44:20:21 Broker/(23633:23642): Se agrego mensaje a la cache.
+[TRACE] 07:44:20:21 Broker/(23633:23642): Se dejo la estructura ordenada por su lugar en memoria.
+[DEBUG] 07:44:20:21 Broker/(23633:23642): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:20:21 Broker/(23633:23642): Dump: 
+[DEBUG] 07:44:20:22 Broker/(23633:23642): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:0    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:20:22 Broker/(23633:23642): Particion 2: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:1    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:20:22 Broker/(23633:23642): Particion 3: 0x990D6A0 - 0x990D6B3.    [X]    Size:19b    LRU:2    Cola:5    ID:2    Offset:8 
+[DEBUG] 07:44:20:22 Broker/(23633:23642): Particion 4: 0x990D6B3 - 0x990D6D8.    [L]    Size:37b    Offset:27
+[DEBUG] 07:44:20:22 Broker/(23633:23642): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:20:25 Broker/(23633:23633): Conexion de 9 al Broker.
+[TRACE] 07:44:20:25 Broker/(23633:23633): Va a ejecutar 'handle_cliente'.
+[TRACE] 07:44:20:25 Broker/(23633:23633): Aceptando cliente...
+[TRACE] 07:44:20:25 Broker/(23633:23644): Se recibio un mensaje CATCH_POKEMON
+[INFO] 07:44:20:25 Broker/(23633:23645): Llegada de mensaje nuevo 3 a cola CATCH_POKEON
+[WARNING] 07:44:20:29 Broker/(23633:23644): El cliente 9 cerro el socket.
+[TRACE] 07:44:20:29 Broker/(23633:23645): Se devolvio el mensaje CATCH_POKEMON con id asignado.
+[TRACE] 07:44:20:29 Broker/(23633:23645): Se van a enviar a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 07:44:20:29 Broker/(23633:23645): Se va a enviar a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 07:44:20:29 Broker/(23633:23645): Tamano de mensaje a cachear: 20 (size stream: 20).
+[TRACE] 07:44:20:29 Broker/(23633:23645): La particion elegida tiene tamano suficiente (37b) para el mensaje(20b).
+[TRACE] 07:44:20:29 Broker/(23633:23645): Se agrego la particion con el mensaje.
+[TRACE] 07:44:20:29 Broker/(23633:23645): Se agrego la particion sobrante.
+[TRACE] 07:44:20:29 Broker/(23633:23645): Se borraron 1 particiones del inicio de la estructura administrativa de la cache.
+[TRACE] 07:44:20:32 Broker/(23633:23645): Se agrego mensaje a la cache.
+[TRACE] 07:44:20:32 Broker/(23633:23645): Se dejo la estructura ordenada por su lugar en memoria.
+[DEBUG] 07:44:20:32 Broker/(23633:23645): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:20:32 Broker/(23633:23645): Dump: 
+[DEBUG] 07:44:20:32 Broker/(23633:23645): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:0    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:20:32 Broker/(23633:23645): Particion 2: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:1    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:20:32 Broker/(23633:23645): Particion 3: 0x990D6A0 - 0x990D6B3.    [X]    Size:19b    LRU:2    Cola:5    ID:2    Offset:8 
+[DEBUG] 07:44:20:32 Broker/(23633:23645): Particion 4: 0x990D6B3 - 0x990D6C7.    [X]    Size:20b    LRU:3    Cola:5    ID:3    Offset:27 
+[DEBUG] 07:44:20:32 Broker/(23633:23645): Particion 5: 0x990D6C7 - 0x990D6D8.    [L]    Size:17b    Offset:47
+[DEBUG] 07:44:20:32 Broker/(23633:23645): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:20:204 Broker/(23633:23633): Conexion de 10 al Broker.
+[TRACE] 07:44:20:204 Broker/(23633:23633): Va a ejecutar 'handle_cliente'.
+[TRACE] 07:44:20:204 Broker/(23633:23633): Aceptando cliente...
+[TRACE] 07:44:20:205 Broker/(23633:23647): Se recibio un mensaje CATCH_POKEMON
+[INFO] 07:44:20:205 Broker/(23633:23648): Llegada de mensaje nuevo 4 a cola CATCH_POKEON
+[WARNING] 07:44:20:208 Broker/(23633:23647): El cliente 10 cerro el socket.
+[TRACE] 07:44:20:208 Broker/(23633:23648): Se devolvio el mensaje CATCH_POKEMON con id asignado.
+[TRACE] 07:44:20:209 Broker/(23633:23648): Se van a enviar a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 07:44:20:209 Broker/(23633:23648): Se va a enviar a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 07:44:20:209 Broker/(23633:23648): Tamano de mensaje a cachear: 16 (size stream: 16).
+[TRACE] 07:44:20:209 Broker/(23633:23648): La particion elegida tiene tamano suficiente (17b) para el mensaje(16b).
+[TRACE] 07:44:20:209 Broker/(23633:23648): Se agrego la particion con el mensaje.
+[TRACE] 07:44:20:209 Broker/(23633:23648): Se agrego la particion sobrante.
+[TRACE] 07:44:20:209 Broker/(23633:23648): Se borraron 1 particiones del inicio de la estructura administrativa de la cache.
+[TRACE] 07:44:20:209 Broker/(23633:23648): Se agrego mensaje a la cache.
+[TRACE] 07:44:20:209 Broker/(23633:23648): Se dejo la estructura ordenada por su lugar en memoria.
+[DEBUG] 07:44:20:209 Broker/(23633:23648): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:20:209 Broker/(23633:23648): Dump: 
+[DEBUG] 07:44:20:209 Broker/(23633:23648): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:0    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:20:210 Broker/(23633:23648): Particion 2: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:1    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:20:210 Broker/(23633:23648): Particion 3: 0x990D6A0 - 0x990D6B3.    [X]    Size:19b    LRU:2    Cola:5    ID:2    Offset:8 
+[DEBUG] 07:44:20:210 Broker/(23633:23648): Particion 4: 0x990D6B3 - 0x990D6C7.    [X]    Size:20b    LRU:3    Cola:5    ID:3    Offset:27 
+[DEBUG] 07:44:20:210 Broker/(23633:23648): Particion 5: 0x990D6C7 - 0x990D6D7.    [X]    Size:16b    LRU:4    Cola:5    ID:4    Offset:47 
+[DEBUG] 07:44:20:210 Broker/(23633:23648): Particion 6: 0x990D6D7 - 0x990D6D8.    [L]    Size:1b    Offset:63
+[DEBUG] 07:44:20:210 Broker/(23633:23648): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:28:816 Broker/(23633:23633): Conexion de 11 al Broker.
+[TRACE] 07:44:28:816 Broker/(23633:23633): Va a ejecutar 'handle_cliente'.
+[TRACE] 07:44:28:817 Broker/(23633:23633): Aceptando cliente...
+[TRACE] 07:44:28:825 Broker/(23633:23650): Se recibio un mensaje SUSCRIPTOR
+[TRACE] 07:44:28:825 Broker/(23633:23650): Suscripcion Cola: 4 , Tiempo: 10.
+[INFO] 07:44:28:825 Broker/(23633:23650): Suscripcion de 11 a la cola 4.
+[TRACE] 07:44:28:825 Broker/(23633:23650): Suscribir a 11 a cola CAUGHT_POKEMON
+[TRACE] 07:44:28:826 Broker/(23633:23650): Se agrego 11 a la cola en la posicion 1.
+[TRACE] 07:44:28:826 Broker/(23633:23650): Cliente 11 suscripto.
+[TRACE] 07:44:28:830 Broker/(23633:23650): Se envio mensaje 0 a sub 11. Flag lru/fifo:5.
+[TRACE] 07:44:28:831 Broker/(23633:23650): Se envio mensaje 1 a sub 11. Flag lru/fifo:6.
+[TRACE] 07:44:28:832 Broker/(23633:23650): Adentro de desuscribir
+[TRACE] 07:44:28:833 Broker/(23633:23650): Desuscribir en 10...
+[TRACE] 07:44:29:834 Broker/(23633:23650): Desuscribir en 9...
+[TRACE] 07:44:30:835 Broker/(23633:23650): Desuscribir en 8...
+[TRACE] 07:44:31:836 Broker/(23633:23650): Desuscribir en 7...
+[TRACE] 07:44:32:836 Broker/(23633:23650): Desuscribir en 6...
+[TRACE] 07:44:33:837 Broker/(23633:23650): Desuscribir en 5...
+[TRACE] 07:44:34:839 Broker/(23633:23650): Desuscribir en 4...
+[TRACE] 07:44:35:840 Broker/(23633:23650): Desuscribir en 3...
+[TRACE] 07:44:36:841 Broker/(23633:23650): Desuscribir en 2...
+[TRACE] 07:44:37:842 Broker/(23633:23650): Desuscribir en 1...
+[TRACE] 07:44:38:842 Broker/(23633:23650): Suscribir a 11 a cola CAUGHT_POKEMON
+[TRACE] 07:44:38:843 Broker/(23633:23650): Cliente encontrado.
+[TRACE] 07:44:38:843 Broker/(23633:23650): Se desuscribio.
+[TRACE] 07:44:38:843 Broker/(23633:23650): Ya esta desuscripto.
+[TRACE] 07:44:38:843 Broker/(23633:23650): Se recibio un mensaje CONFIRMACION
+[TRACE] 07:44:38:843 Broker/(23633:23650): Se confirmo la recepcion del mensaje 0 en cache, por el suscriptor 11.
+[TRACE] 07:44:38:843 Broker/(23633:23650): Se recibio un mensaje CONFIRMACION
+[TRACE] 07:44:38:843 Broker/(23633:23650): Se confirmo la recepcion del mensaje 1 en cache, por el suscriptor 11.
+[TRACE] 07:44:44:589 Broker/(23633:23633): Conexion de 12 al Broker.
+[TRACE] 07:44:44:589 Broker/(23633:23633): Va a ejecutar 'handle_cliente'.
+[TRACE] 07:44:44:589 Broker/(23633:23633): Aceptando cliente...
+[TRACE] 07:44:44:596 Broker/(23633:23655): Se recibio un mensaje CATCH_POKEMON
+[INFO] 07:44:44:603 Broker/(23633:23656): Llegada de mensaje nuevo 5 a cola CATCH_POKEON
+[WARNING] 07:44:44:608 Broker/(23633:23655): El cliente 12 cerro el socket.
+[TRACE] 07:44:44:608 Broker/(23633:23656): Se devolvio el mensaje CATCH_POKEMON con id asignado.
+[TRACE] 07:44:44:608 Broker/(23633:23656): Se van a enviar a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 07:44:44:608 Broker/(23633:23656): Se va a enviar a todos los subs, el nuevo CATCH_POKEMON.
+[TRACE] 07:44:44:609 Broker/(23633:23656): Tamano de mensaje a cachear: 20 (size stream: 20).
+[TRACE] 07:44:44:609 Broker/(23633:23656): No hay lugar
+[TRACE] 07:44:44:609 Broker/(23633:23656): Cache ordenada por LRU flag.
+[TRACE] 07:44:44:609 Broker/(23633:23656): El id de la victima elegida es: 2.
+[DEBUG] 07:44:44:609 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:44:609 Broker/(23633:23656): Dump: 
+[DEBUG] 07:44:44:609 Broker/(23633:23656): Particion 1: 0x990D6A0 - 0x990D6B3.    [X]    Size:19b    LRU:2    Cola:5    ID:2    Offset:8 
+[DEBUG] 07:44:44:609 Broker/(23633:23656): Particion 2: 0x990D6B3 - 0x990D6C7.    [X]    Size:20b    LRU:3    Cola:5    ID:3    Offset:27 
+[DEBUG] 07:44:44:609 Broker/(23633:23656): Particion 3: 0x990D6C7 - 0x990D6D7.    [X]    Size:16b    LRU:4    Cola:5    ID:4    Offset:47 
+[DEBUG] 07:44:44:609 Broker/(23633:23656): Particion 4: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:5    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:44:609 Broker/(23633:23656): Particion 5: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:6    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:44:609 Broker/(23633:23656): Particion 6: 0x990D6D7 - 0x990D6D8.    [L]    Size:1b    Offset:63
+[DEBUG] 07:44:44:610 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:44:610 Broker/(23633:23656): Particion victima vacia.
+[DEBUG] 07:44:44:610 Broker/(23633:23656): Victima: offset 8, tamanio 19.
+[TRACE] 07:44:44:610 Broker/(23633:23656): No se consolida
+[TRACE] 07:44:44:610 Broker/(23633:23656): Consolidacion terminada.
+[TRACE] 07:44:44:610 Broker/(23633:23656): Cache ordenada por offset.
+[DEBUG] 07:44:44:610 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:44:610 Broker/(23633:23656): Dump: 
+[DEBUG] 07:44:44:610 Broker/(23633:23656): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:5    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:44:610 Broker/(23633:23656): Particion 2: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:6    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:44:610 Broker/(23633:23656): Particion 3: 0x990D6A0 - 0x990D6B3.    [L]    Size:19b    Offset:8
+[DEBUG] 07:44:44:610 Broker/(23633:23656): Particion 4: 0x990D6B3 - 0x990D6C7.    [X]    Size:20b    LRU:3    Cola:5    ID:3    Offset:27 
+[DEBUG] 07:44:44:610 Broker/(23633:23656): Particion 5: 0x990D6C7 - 0x990D6D7.    [X]    Size:16b    LRU:4    Cola:5    ID:4    Offset:47 
+[DEBUG] 07:44:44:610 Broker/(23633:23656): Particion 6: 0x990D6D7 - 0x990D6D8.    [L]    Size:1b    Offset:63
+[DEBUG] 07:44:44:610 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[WARNING] 07:44:44:611 Broker/(23633:23656): Corresponde compactar: 1.
+[TRACE] 07:44:44:611 Broker/(23633:23656): No esta compactada, se va a compactar
+[DEBUG] 07:44:44:611 Broker/(23633:23656): Se intentara compactar elemento 1
+[DEBUG] 07:44:44:611 Broker/(23633:23656): Se intentara compactar elemento 2
+[DEBUG] 07:44:44:611 Broker/(23633:23656): Se intentara compactar elemento 3
+[WARNING] 07:44:44:611 Broker/(23633:23656): No es ni ultimo ni vacio: Se va a realizar un cambio.
+[WARNING] 07:44:44:611 Broker/(23633:23656): Siguiente es lleno, se movera la informacion.
+[TRACE] 07:44:44:611 Broker/(23633:23656): Se realizo un cambio con el intento de compactar, el resultado quedo asi:
+[DEBUG] 07:44:44:611 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:44:611 Broker/(23633:23656): Dump: 
+[DEBUG] 07:44:44:611 Broker/(23633:23656): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:5    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:44:612 Broker/(23633:23656): Particion 2: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:6    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:44:612 Broker/(23633:23656): Particion 3: 0x990D6A0 - 0x990D6B4.    [X]    Size:20b    LRU:3    Cola:5    ID:3    Offset:8 
+[DEBUG] 07:44:44:612 Broker/(23633:23656): Particion 4: 0x990D6B4 - 0x990D6C7.    [L]    Size:19b    Offset:28
+[DEBUG] 07:44:44:612 Broker/(23633:23656): Particion 5: 0x990D6C7 - 0x990D6D7.    [X]    Size:16b    LRU:4    Cola:5    ID:4    Offset:47 
+[DEBUG] 07:44:44:612 Broker/(23633:23656): Particion 6: 0x990D6D7 - 0x990D6D8.    [L]    Size:1b    Offset:63
+[DEBUG] 07:44:44:620 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:44:620 Broker/(23633:23656): No esta compactada, se va a compactar
+[DEBUG] 07:44:44:620 Broker/(23633:23656): Se intentara compactar elemento 1
+[DEBUG] 07:44:44:621 Broker/(23633:23656): Se intentara compactar elemento 2
+[DEBUG] 07:44:44:621 Broker/(23633:23656): Se intentara compactar elemento 3
+[DEBUG] 07:44:44:621 Broker/(23633:23656): Se intentara compactar elemento 4
+[WARNING] 07:44:44:621 Broker/(23633:23656): No es ni ultimo ni vacio: Se va a realizar un cambio.
+[WARNING] 07:44:44:624 Broker/(23633:23656): Siguiente es lleno, se movera la informacion.
+[TRACE] 07:44:44:624 Broker/(23633:23656): Se realizo un cambio con el intento de compactar, el resultado quedo asi:
+[DEBUG] 07:44:44:624 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:44:624 Broker/(23633:23656): Dump: 
+[DEBUG] 07:44:44:624 Broker/(23633:23656): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:5    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:44:624 Broker/(23633:23656): Particion 2: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:6    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:44:624 Broker/(23633:23656): Particion 3: 0x990D6A0 - 0x990D6B4.    [X]    Size:20b    LRU:3    Cola:5    ID:3    Offset:8 
+[DEBUG] 07:44:44:624 Broker/(23633:23656): Particion 4: 0x990D6B4 - 0x990D6C4.    [X]    Size:16b    LRU:4    Cola:5    ID:4    Offset:28 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 5: 0x990D6C4 - 0x990D6D7.    [L]    Size:19b    Offset:44
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 6: 0x990D6D7 - 0x990D6D8.    [L]    Size:1b    Offset:63
+[DEBUG] 07:44:44:632 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:44:632 Broker/(23633:23656): No esta compactada, se va a compactar
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Se intentara compactar elemento 1
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Se intentara compactar elemento 2
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Se intentara compactar elemento 3
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Se intentara compactar elemento 4
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Se intentara compactar elemento 5
+[WARNING] 07:44:44:632 Broker/(23633:23656): No es ni ultimo ni vacio: Se va a realizar un cambio.
+[WARNING] 07:44:44:632 Broker/(23633:23656): Siguiente es vacio, se consolidara.
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Victima: offset 44, tamanio 19.
+[TRACE] 07:44:44:632 Broker/(23633:23656): Se consolida con el siguiente.
+[TRACE] 07:44:44:632 Broker/(23633:23656): Se borraron 2 particiones del inicio de la estructura administrativa de la cache.
+[TRACE] 07:44:44:632 Broker/(23633:23656): Se realizo un cambio con el intento de compactar, el resultado quedo asi:
+[DEBUG] 07:44:44:632 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Dump: 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:5    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 2: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:6    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 3: 0x990D6A0 - 0x990D6B4.    [X]    Size:20b    LRU:3    Cola:5    ID:3    Offset:8 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 4: 0x990D6B4 - 0x990D6C4.    [X]    Size:16b    LRU:4    Cola:5    ID:4    Offset:28 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 5: 0x990D6C4 - 0x990D6D8.    [L]    Size:20b    Offset:44
+[DEBUG] 07:44:44:632 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[TRACE] 07:44:44:632 Broker/(23633:23656): La particion elegida tiene tamano suficiente (20b) para el mensaje(20b).
+[TRACE] 07:44:44:632 Broker/(23633:23656): Se agrego la particion con el mensaje.
+[TRACE] 07:44:44:632 Broker/(23633:23656): Se borraron 1 particiones del inicio de la estructura administrativa de la cache.
+[TRACE] 07:44:44:632 Broker/(23633:23656): Se agrego mensaje a la cache.
+[TRACE] 07:44:44:632 Broker/(23633:23656): Se dejo la estructura ordenada por su lugar en memoria.
+[DEBUG] 07:44:44:632 Broker/(23633:23656): --------------------------------------------------------------------------------------------------
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Dump: 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 1: 0x990D698 - 0x990D69C.    [X]    Size:4b    LRU:5    Cola:4    ID:0    Offset:0 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 2: 0x990D69C - 0x990D6A0.    [X]    Size:4b    LRU:6    Cola:4    ID:1    Offset:4 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 3: 0x990D6A0 - 0x990D6B4.    [X]    Size:20b    LRU:3    Cola:5    ID:3    Offset:8 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 4: 0x990D6B4 - 0x990D6C4.    [X]    Size:16b    LRU:4    Cola:5    ID:4    Offset:28 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): Particion 5: 0x990D6C4 - 0x990D6D8.    [X]    Size:20b    LRU:7    Cola:5    ID:5    Offset:44 
+[DEBUG] 07:44:44:632 Broker/(23633:23656): --------------------------------------------------------------------------------------------------

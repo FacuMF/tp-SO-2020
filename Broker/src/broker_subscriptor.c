@@ -61,16 +61,13 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
 	 log_trace(logger, "Cliente %i suscripto.", cliente);
  }
 
-void agregar_cliente_a_cola(t_queue* cola, int cliente){
-	t_suscriptor_queue* sub_a_agregar = malloc(sizeof(t_suscriptor_queue));
-	sub_a_agregar->socket = cliente;
-	sub_a_agregar->mensajes_enviados = list_create();
-	sub_a_agregar->mensajes_recibidos = list_create();
-	list_add(cola->subscriptores, sub_a_agregar);
-	int size = list_size(cola->subscriptores);
-	t_suscriptor_queue* elemento_agregado = list_get(cola->subscriptores, size-1);
+void agregar_cliente_a_cola(t_list* cola, int cliente){
+	int sub_a_agregar= cliente;
 
-	log_trace(logger, "Se agrego %i a la cola en la posicion %i.", elemento_agregado->socket, size);
+	list_add(cola, (void*)sub_a_agregar);
+	int size = list_size(cola);
+	int elemento_agregado = (int) list_get(cola, size-1);
+	log_trace(logger, "Se agrego %i a la cola en la posicion %i.", elemento_agregado, size);
  }
 
 
@@ -156,17 +153,16 @@ void desuscribir(int cliente, t_subscriptor* suscripcion){
 	}
 }
 
-void sacar_cliente_a_cola(t_queue* cola, int cliente){
+void sacar_cliente_a_cola(t_list* cola, int cliente){
 
-	_Bool es_el_mismo_cliente(void* argumento){
-		t_suscriptor_queue* cliente_en_cola = argumento;
+	_Bool es_el_mismo_cliente(void* cliente_en_cola){
 
-		int rtn = (cliente == (cliente_en_cola->socket));
+		int rtn = (cliente == ((int)cliente_en_cola));
 		if(rtn) log_trace(logger, "Cliente encontrado.");
 		return rtn;
 	}
 
-	list_remove_by_condition( (cola->subscriptores), es_el_mismo_cliente);
+	list_remove_by_condition( (cola), es_el_mismo_cliente);
 	log_trace(logger, "Se desuscribio.");
  }
 
