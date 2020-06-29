@@ -135,9 +135,10 @@ _Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2);
 void mover_info_cache(int desde_offset, int hasta_offset, int tamanio);
 
 //Dump
-void log_dump_de_cache();
-void log_header_dump();
-void log_info_particion(t_mensaje_cache* particion, int num_part);
+void estado_actual_de_cache();
+void handler_senial(int);
+char* obtener_fecha(void);
+char* obtener_estado_de_particion(t_mensaje_cache* particion, int num_part);
 
 //Eleccion de victima
 void elegir_vitima_y_eliminarla();
@@ -285,6 +286,8 @@ t_list* get_cola_segun_tipo(int tipo_mensaje);
 _Bool mensaje_recibido_por_todos_los_subs(t_confirmacion* confirmacion);
 void borrar_mensaje_de_cola(t_confirmacion* confirmacion);
 //_Bool fue_enviado_y_recibido(int id_mensaje, t_suscriptor_queue* suscriptor);
+
+
 
 
 

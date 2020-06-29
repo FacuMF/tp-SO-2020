@@ -1,12 +1,20 @@
 #include "broker.h"
 
 int main(void) {
+	signal(SIGUSR1, handler_senial);
 	inicializacion_broker();
 	//test(); //TODO borrar
 	esperar_mensajes(NULL);
 	terminar_proceso();
 
 	return 0;
+}
+
+void handler_senial(int signum) {
+
+	estado_actual_de_cache();
+	exit(1);
+
 }
 
 void inicializacion_broker(void) {
@@ -78,7 +86,8 @@ void handle_cliente(int socket_servidor) {
 
 	int* argument = malloc(sizeof(int));
 	*argument = socket_cliente;
-	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente,argument);
+	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente,
+			argument);
 	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 }
 
@@ -86,22 +95,26 @@ void recibir_mensaje_del_cliente(void* input) {
 	int socket_cliente = *((int *) input);
 	int cod_op = 0;
 
-	while (cod_op>=0) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
+	while (cod_op >= 0) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
 
 		cod_op = recibir_codigo_operacion(socket_cliente);
-		if (cod_op == -1) log_error(logger, "Error en 'recibir_codigo_operacion'");
+		if (cod_op == -1)
+			log_error(logger, "Error en 'recibir_codigo_operacion'");
 
-		(cod_op>=0)? handle_mensaje(cod_op, socket_cliente):
-				     log_warning(logger, "El cliente %i cerro el socket.", socket_cliente);
+		(cod_op >= 0) ?
+				handle_mensaje(cod_op, socket_cliente) :
+				log_warning(logger, "El cliente %i cerro el socket.",
+						socket_cliente);
 	} //TODO: Ver si alguien lo necesita, si no se borra.
 
 }
 
 void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para manejar cada mensaje una vez deserializado?
 
-	t_buffer * buffer= recibir_mensaje(socket_cliente);
+	t_buffer * buffer = recibir_mensaje(socket_cliente);
 
-	t_conexion_buffer * info_mensaje_a_manejar = malloc (sizeof(t_conexion_buffer));
+	t_conexion_buffer * info_mensaje_a_manejar = malloc(
+			sizeof(t_conexion_buffer));
 	info_mensaje_a_manejar->conexion = socket_cliente;
 	info_mensaje_a_manejar->buffer = buffer;
 
@@ -115,32 +128,38 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 
 	case APPEARED_POKEMON:
 
-		pthread_create(&thread, NULL, (void*) manejar_mensaje_appeared,info_mensaje_a_manejar);
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_appeared,
+				info_mensaje_a_manejar);
 		//pthread_detach(thread);
 		break;
 
 	case NEW_POKEMON:
 
-		pthread_create(&thread, NULL, (void*) manejar_mensaje_new,info_mensaje_a_manejar);
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_new,
+				info_mensaje_a_manejar);
 		break;
 
 	case CATCH_POKEMON:
 
-		pthread_create(&thread, NULL, (void*) manejar_mensaje_catch,info_mensaje_a_manejar);
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_catch,
+				info_mensaje_a_manejar);
 		break;
 
 	case CAUGHT_POKEMON:
 
-		pthread_create(&thread, NULL, (void*) manejar_mensaje_caught,info_mensaje_a_manejar);
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_caught,
+				info_mensaje_a_manejar);
 		break;
 
 	case GET_POKEMON:
 
-		pthread_create(&thread, NULL, (void*) manejar_mensaje_get,info_mensaje_a_manejar);
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_get,
+				info_mensaje_a_manejar);
 		break;
 	case LOCALIZED_POKEMON:
 
-		pthread_create(&thread, NULL, (void*) manejar_mensaje_localized,info_mensaje_a_manejar);
+		pthread_create(&thread, NULL, (void*) manejar_mensaje_localized,
+				info_mensaje_a_manejar);
 		break;
 	case CONFIRMACION:
 
