@@ -54,16 +54,17 @@ void inicializacion_cache(void) {
 void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 		void* mensaje_a_cachear) {
 
-	int tamano_a_cachear = (
-			(size_stream >= tamano_minimo_particion) ?
-					size_stream : tamano_minimo_particion);
+	int tamano_a_cachear = ((size_stream >= tamano_minimo_particion) ?size_stream : tamano_minimo_particion);
+
 	_Bool no_se_agrego_mensaje_a_cache = true;
 
 	log_trace(logger, "Tamano de mensaje a cachear: %i (size stream: %i).",
 			tamano_a_cachear, size_stream);
+
+	pthread_mutex_lock(&mutex_memoria_cache);
+
 	while (no_se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
 
-		pthread_mutex_lock(&mutex_memoria_cache);
 
 		ordenar_cache_para_rellenar(size_stream);
 
@@ -103,8 +104,107 @@ void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 			compactar_cache_si_corresponde();
 		}
 
-		pthread_mutex_unlock(&mutex_memoria_cache);
 	}
+
+	pthread_mutex_unlock(&mutex_memoria_cache);
+
+}
+
+
+//Buddy System
+
+void cachear_mensaje_bs(int size_stream, int id_mensaje, int tipo_mensaje, void* mensaje_a_cachear){
+	int tamano_a_cachear = calcular_tamanio_a_cachear_bs(size_stream);
+
+	log_trace(logger, "Tamano de mensaje a cachear: %i (size stream: %i).",
+				tamano_a_cachear, size_stream);
+
+	pthread_mutex_lock(&mutex_memoria_cache);
+
+	if(hay_particion_tamanio_suficiente(size_stream)){
+		//Dejo primera la particion a llenar
+		ordenar_cache_para_rellenar(size_stream);
+
+/*
+
+		//Lleno la primer particion
+		...
+
+	} else {
+		//elimino_una_victima
+		elijo por algoritmo que victima eliminar => la dejo primera
+		le remplazo los datos por vacio => sigue primera para consolidar en base a esa
+
+		//consolidar
+		while(buddy_de_la_primera_vacio){
+			//Para saber si el buddy es el anterior o el siguiente de una particion se hace lo siguiente=>
+
+				// if( es_par( offset / tam_particion ) ) => buddy es el siguiente.
+				// if( is_impar( ofset / tam_particion ) ) => buddy es el anterior
+
+
+			consolidar_con_buddy
+		}
+	*/
+	}
+
+
+
+
+	pthread_mutex_unlock(&mutex_memoria_cache);
+
+
+}
+
+int calcular_tamanio_a_cachear(size_stream){
+	int tamanio;
+
+	switch (algoritmo_memoria) {
+		case PARTICIONES:
+			tamanio = size_stream;
+
+			break;
+		case BS:
+			tamanio = 2;
+			while(tamanio<size_stream){
+				tamanio *= 2;
+			}
+
+			break;
+		default:
+			log_warning(logger, "Algoritmo de memoria incorrecto.");
+			break;
+	}
+
+	return ((tamanio >= tamano_minimo_particion) ?
+				tamanio : tamano_minimo_particion);
+}
+
+_Bool hay_particion_tamanio_suficiente(size_stream){
+
+	_Bool tamanio_mayor_a_size(void* particion) {
+		return ((t_mensaje_cache*) particion)->tamanio >= size_stream;
+	}
+
+	return list_any_satisfy(struct_admin_cache, tamanio_mayor_a_size);
+}
+
+void preparo_para_llenar_bs() {
+	switch (algoritmo_particion_libre) {
+		case FF:
+			preparo_para_llenar_bs_ff();
+			break;
+		case BF:
+			preparo_para_llenar_bs_bf();
+			break;
+		default:
+			log_earning(logger, "Algoritmo de eleccion de particion libre");
+			break;
+	}
+}
+
+void preparo_para_llenar_bs_ff(){
+
 }
 
 void ordenar_cache_para_rellenar(int size_stream) {
@@ -231,15 +331,8 @@ t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje,
 
 	particion_llena->tamanio = tamano_a_cachear;
 
-<<<<<<< HEAD
 	particion_llena->subscribers_enviados = lista_subs_eviados(tipo_mensaje);
 	particion_llena->subscribers_recibidos = list_create();
-=======
-	particion_llena->subscribers_enviados = filtrar_subs_enviados(tipo_mensaje,
-			id_mensaje);
-	particion_llena->subscribers_recibidos = filtrar_subs_recibidos(
-			tipo_mensaje, id_mensaje);
->>>>>>> b4df06e8482525d565ddd75e98bd223010d606b8
 
 	return particion_llena;
 }
@@ -250,71 +343,12 @@ int get_lru_flag() {
 	return flag;
 }
 
-<<<<<<< HEAD
 t_list* lista_subs_eviados(int tipo_mensaje){
 	t_list* lista_subs = list_create();
 
 	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje);
 
 	list_add_all(lista_subs, subs_queue);
-=======
-t_list* filtrar_subs_enviados(int tipo_mensaje, int id_mensaje) {
-	t_list* lista_subs = list_create();
-
-	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje)->subscriptores;
-
-	// Inner function para filter
-	_Bool tiene_mensaje_enviado(void* suscriptor_aux) {
-		t_suscriptor_queue* suscriptor = (t_suscriptor_queue*) suscriptor_aux;
-
-		// Meta-inner function para any_satisfy
-		_Bool tiene_mensaje(void* un_id) {
-			return ((int) un_id == id_mensaje);
-		}
-
-		return list_any_satisfy(suscriptor->mensajes_enviados, tiene_mensaje);
-	}
-
-	// Inner function para map
-	int get_socket_suscriptor(void* suscriptor_aux) {
-		t_suscriptor_queue* suscriptor = (t_suscriptor_queue*) suscriptor_aux;
-
-		return suscriptor->socket;
-	}
-
-	lista_subs = list_map(list_filter(subs_queue, tiene_mensaje_enviado),
-			(void*) get_socket_suscriptor);
-
-	return lista_subs;
-}
-
-t_list* filtrar_subs_recibidos(int tipo_mensaje, int id_mensaje) {
-	t_list* lista_subs = list_create();
-
-	t_list* subs_queue = get_cola_segun_tipo(tipo_mensaje)->subscriptores;
-
-	// Inner function para filter
-	_Bool tiene_mensaje_recibido(void* suscriptor_aux) {
-		t_suscriptor_queue* suscriptor = (t_suscriptor_queue*) suscriptor_aux;
-
-		// Meta-inner function para any_satisfy
-		_Bool tiene_mensaje(void* un_id) {
-			return ((int) un_id == id_mensaje);
-		}
-
-		return list_any_satisfy(suscriptor->mensajes_recibidos, tiene_mensaje);
-	}
-
-	// Inner function para map
-	int get_socket_suscriptor(void* suscriptor_aux) {
-		t_suscriptor_queue* suscriptor = (t_suscriptor_queue*) suscriptor_aux;
-
-		return suscriptor->socket;
-	}
-
-	lista_subs = list_map(list_filter(subs_queue, tiene_mensaje_recibido),
-			(void*) get_socket_suscriptor);
->>>>>>> b4df06e8482525d565ddd75e98bd223010d606b8
 
 	return lista_subs;
 }
@@ -930,19 +964,10 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 		mensaje_serializado = serializar_get_pokemon(mensaje_get_pokemon);
 		break;
 
-<<<<<<< HEAD
 		case LOCALIZED_POKEMON:
 			;
 			t_localized_pokemon* mensaje_localized_pokemon = deserializar_cache_localized_pokemon(stream_mensaje);
 			mensaje_localized_pokemon->id_mensaje = particion->id;
-=======
-	case LOCALIZED_POKEMON:
-		;
-		t_localized* mensaje_localized_pokemon =
-				deserializar_cache_localized_pokemon(stream_mensaje);
-		mensaje_localized_pokemon->id_mensaje = particion->id;
->>>>>>> b4df06e8482525d565ddd75e98bd223010d606b8
-
 		mensaje_serializado = serializar_localized_pokemon(
 				mensaje_localized_pokemon);
 		break;

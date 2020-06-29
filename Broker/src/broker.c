@@ -3,7 +3,6 @@
 int main(void) {
 	signal(SIGUSR1, handler_senial);
 	inicializacion_broker();
-	//test(); //TODO borrar
 	esperar_mensajes(NULL);
 	terminar_proceso();
 
