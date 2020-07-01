@@ -54,7 +54,7 @@ void inicializacion_cache(void) {
 void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 		void* mensaje_a_cachear) {
 
-	int tamano_a_cachear = ((size_stream >= tamano_minimo_particion) ?size_stream : tamano_minimo_particion);
+	int tamano_a_cachear = calcular_tamanio_a_cachear(size_stream);
 
 	_Bool no_se_agrego_mensaje_a_cache = true;
 
@@ -76,12 +76,9 @@ void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 					((t_mensaje_cache*) list_get(struct_admin_cache, 0))->tamanio,
 					tamano_a_cachear);
 
-			t_mensaje_cache* particion_mensaje =
-					crear_y_agregar_particion_mensaje_nuevo(tipo_mensaje,
-							id_mensaje, tamano_a_cachear);
+			t_mensaje_cache* particion_mensaje = crear_y_agregar_particion_mensaje_nuevo(tipo_mensaje, id_mensaje, tamano_a_cachear);
 
-			if (queda_espacio_libre(tamano_a_cachear,
-					list_get(struct_admin_cache, 0)))
+			if (queda_espacio_libre(tamano_a_cachear, list_get(struct_admin_cache, 0)))
 				crear_y_agregar_particion_sobrante(tamano_a_cachear);
 
 			borrar_particiones_del_inicio(1);
@@ -110,53 +107,7 @@ void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 
 }
 
-
-//Buddy System
-
-void cachear_mensaje_bs(int size_stream, int id_mensaje, int tipo_mensaje, void* mensaje_a_cachear){
-	int tamano_a_cachear = calcular_tamanio_a_cachear_bs(size_stream);
-
-	log_trace(logger, "Tamano de mensaje a cachear: %i (size stream: %i).",
-				tamano_a_cachear, size_stream);
-
-	pthread_mutex_lock(&mutex_memoria_cache);
-
-	if(hay_particion_tamanio_suficiente(size_stream)){
-		//Dejo primera la particion a llenar
-		ordenar_cache_para_rellenar(size_stream);
-
-/*
-
-		//Lleno la primer particion
-		...
-
-	} else {
-		//elimino_una_victima
-		elijo por algoritmo que victima eliminar => la dejo primera
-		le remplazo los datos por vacio => sigue primera para consolidar en base a esa
-
-		//consolidar
-		while(buddy_de_la_primera_vacio){
-			//Para saber si el buddy es el anterior o el siguiente de una particion se hace lo siguiente=>
-
-				// if( es_par( offset / tam_particion ) ) => buddy es el siguiente.
-				// if( is_impar( ofset / tam_particion ) ) => buddy es el anterior
-
-
-			consolidar_con_buddy
-		}
-	*/
-	}
-
-
-
-
-	pthread_mutex_unlock(&mutex_memoria_cache);
-
-
-}
-
-int calcular_tamanio_a_cachear(size_stream){
+int calcular_tamanio_a_cachear(int size_stream){
 	int tamanio;
 
 	switch (algoritmo_memoria) {
@@ -180,31 +131,13 @@ int calcular_tamanio_a_cachear(size_stream){
 				tamanio : tamano_minimo_particion);
 }
 
-_Bool hay_particion_tamanio_suficiente(size_stream){
+_Bool hay_particion_tamanio_suficiente(int size_stream){
 
 	_Bool tamanio_mayor_a_size(void* particion) {
 		return ((t_mensaje_cache*) particion)->tamanio >= size_stream;
 	}
 
 	return list_any_satisfy(struct_admin_cache, tamanio_mayor_a_size);
-}
-
-void preparo_para_llenar_bs() {
-	switch (algoritmo_particion_libre) {
-		case FF:
-			preparo_para_llenar_bs_ff();
-			break;
-		case BF:
-			preparo_para_llenar_bs_bf();
-			break;
-		default:
-			log_earning(logger, "Algoritmo de eleccion de particion libre");
-			break;
-	}
-}
-
-void preparo_para_llenar_bs_ff(){
-
 }
 
 void ordenar_cache_para_rellenar(int size_stream) {
@@ -229,11 +162,43 @@ t_mensaje_cache* crear_y_agregar_particion_mensaje_nuevo(int tipo_mensaje,
 	return particion_mensaje;
 }
 
-void crear_y_agregar_particion_sobrante(int tamano_a_cachear) {
-	t_mensaje_cache* particion_sobrante = crear_particion_sobrante(
-			tamano_a_cachear, list_get(struct_admin_cache, 0));
-	list_add(struct_admin_cache, particion_sobrante);
-	log_trace(logger, "Se agrego la particion sobrante.");
+void crear_y_agregar_particion_sobrante(int tamanio_cacheado) {
+
+	t_mensaje_cache* particion_a_llenar = list_get(struct_admin_cache, 0);
+
+	switch (algoritmo_memoria) {
+
+		case PARTICIONES:
+			;
+			t_mensaje_cache* particion_sobrante = crear_particion_sobrante(
+					tamanio_cacheado, particion_a_llenar );
+			list_add(struct_admin_cache, particion_sobrante);
+			log_trace(logger, "Se agrego la particion sobrante.");
+
+
+			break;
+		case BS:
+			;
+
+			int tamano_a_rellenar = ( particion_a_llenar->tamanio ) - tamanio_cacheado;
+			int tamanio_proxima_particion_vacia = tamanio_cacheado;
+			int offset_proxima_particion_vacia = ( particion_a_llenar->offset ) + tamanio_cacheado;
+
+			while(tamano_a_rellenar > 0){
+				agrego_part_vacia(offset_proxima_particion_vacia, tamanio_proxima_particion_vacia);
+
+				tamano_a_rellenar -= tamanio_proxima_particion_vacia;
+				offset_proxima_particion_vacia += tamanio_proxima_particion_vacia;
+				tamanio_proxima_particion_vacia *= 2;
+
+			}
+
+			break;
+		default:
+			log_warning(logger, "Algoritmo de memoria incorrecto.");
+			break;
+	}
+
 }
 
 void ordenar_cache_segun_su_lugar_en_memoria() {
@@ -450,30 +415,106 @@ void vaciar_particion(t_mensaje_cache* particion) {
 void consolidar_cache() {
 	//IMPORTANTE: la reciente victima quedo primera en la struct_admin_cache
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
-	log_debug(logger, "Victima: offset %i, tamanio %i.", victima->offset,
-			victima->tamanio);
+	log_debug(logger, "Victima: offset %i, tamanio %i.", victima->offset, victima->tamanio);
+	switch (algoritmo_memoria) {
 
-	if (siguiente_es_vacio() && (!anterior_es_vacio() || es_primera_part())) { //Se consolida con el siguiente
-		log_trace(logger, "Se consolida con el siguiente.");
-		ordeno_dejando_victima_y_siguiente_adelante();
-		agregar_particion_segun_vicima_y_siguiente();
-		borrar_particiones_del_inicio(2); // borrar victima y siguiente
-	} else if ((!siguiente_es_vacio() || es_ultima_part())
-			&& anterior_es_vacio()) { //Se consolida con el anterior
-		log_trace(logger, "Se consolida con el anterior.");
-		ordeno_dejando_anterior_y_victima_adelante();
-		agregar_particion_segun_anterior_y_victima();
-		borrar_particiones_del_inicio(2); // borrar victima y anterior
-	} else if (siguiente_es_vacio() && anterior_es_vacio() && !es_primera_part()
-			&& !es_ultima_part()) {
-		log_trace(logger, "Se consolida con el siguiente y con el anterior.");
-		ordeno_dejando_anterior_victima_y_siguiente_adelante();
-		agregar_particion_segun_anterior_victima_y_siguiente();
-		borrar_particiones_del_inicio(3); // borro victima, anterior y siguiente
-	} else {
-		log_trace(logger, "No se consolida");
+		case PARTICIONES:
+				;
+
+				if (siguiente_es_vacio() && (!anterior_es_vacio() || es_primera_part())) { //Se consolida con el siguiente
+
+					consolidar_con_siguiente();
+
+				} else if ((!siguiente_es_vacio() || es_ultima_part()) && anterior_es_vacio()) { //Se consolida con el anterior
+
+					consolidar_con_anterior();
+
+				} else if (siguiente_es_vacio() && anterior_es_vacio() && !es_primera_part()
+						&& !es_ultima_part()) {
+
+					consolidar_con_anterior_y_siguiente();
+
+				} else {
+					log_trace(logger, "No se consolida");
+				}
+
+
+				break;
+
+		case BS:
+				;
+
+
+				while(!buddy_es_vacio(victima)){
+				// Se fija si la buddy de la particion es vacia
+
+					if (el_buddy_es_el_siguiente(victima)){
+
+						consolidar_con_siguiente();
+
+					} else { // El buddy es el anterior
+
+						consolidar_con_anterior();
+
+					}
+
+					particion_consolidada_adelante();
+					victima = list_get(struct_admin_cache, 0); // Actializo la victima, que ahora es la consolidada
+				}
+
+				break;
+
+			default:
+				break;
 	}
 
+}
+
+void particion_consolidada_adelante(){
+	// La consolidada quedo ultima, la dejo primera.
+	int posicion_particion_consolidada = list_size(struct_admin_cache) - 1;
+	dejar_particion_adelante(posicion_particion_consolidada);
+
+}
+
+void consolidar_con_siguiente(){
+	log_trace(logger, "Se consolida con el siguiente.");
+	ordeno_dejando_victima_y_siguiente_adelante();
+	agregar_particion_segun_vicima_y_siguiente();
+	borrar_particiones_del_inicio(2); // borrar victima y siguiente
+}
+
+void consolidar_con_anterior() {
+	log_trace(logger, "Se consolida con el anterior.");
+	ordeno_dejando_anterior_y_victima_adelante();
+	agregar_particion_segun_anterior_y_victima();
+	borrar_particiones_del_inicio(2); // borrar victima y anterior
+}
+
+void consolidar_con_anterior_y_siguiente() {
+	log_trace(logger, "Se consolida con el siguiente y con el anterior.");
+	ordeno_dejando_anterior_victima_y_siguiente_adelante();
+	agregar_particion_segun_anterior_victima_y_siguiente();
+	borrar_particiones_del_inicio(3); // borro victima, anterior y siguiente
+}
+
+_Bool buddy_es_vacio(t_mensaje_cache* particion) {
+	if (el_buddy_es_el_siguiente(particion)){
+		return siguiente_es_vacio();
+	} else { // El buddy es el anterior
+		return anterior_es_vacio();
+	}
+}
+
+_Bool el_buddy_es_el_siguiente(t_mensaje_cache* particion){
+	//Para saber si el buddy es el anterior o el siguiente de una particion se hace lo siguiente=>
+		// if( es_par( offset / tam_particion ) ) => buddy es el siguiente.
+		// if( is_impar( ofset / tam_particion ) ) => buddy es el anterior
+	return es_par( (particion->offset) / (particion->tamanio) );
+}
+
+_Bool es_par (int numero){
+	return numero % 2 == 0;
 }
 
 _Bool siguiente_es_vacio() {

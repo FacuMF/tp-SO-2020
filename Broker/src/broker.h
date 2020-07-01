@@ -134,6 +134,12 @@ _Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2);
 
 void mover_info_cache(int desde_offset, int hasta_offset, int tamanio);
 
+_Bool hay_particion_tamanio_suficiente(int size_stream);
+
+int calcular_tamanio_a_cachear(int size_stream);
+void crear_y_agregar_particion_sobrante(int tamanio_cacheado);
+_Bool es_par (int numero);
+
 //Dump
 void estado_actual_de_cache();
 void handler_senial(int);
@@ -170,6 +176,14 @@ void agrego_part_vacia(int offset, int tamanio);
 _Bool es_vacia_particion(t_mensaje_cache* particion);
 _Bool es_ultima_particion(t_mensaje_cache* particion);
 
+_Bool el_buddy_es_el_siguiente(t_mensaje_cache* particion);
+_Bool buddy_es_vacio(t_mensaje_cache* particion);
+
+void particion_consolidada_adelante();
+void consolidar_con_siguiente();
+void consolidar_con_anterior();
+void consolidar_con_anterior_y_siguiente();
+
 // Generales
 
 _Bool particiones_iguales (t_mensaje_cache* una_part, t_mensaje_cache* otra_part);
@@ -181,7 +195,6 @@ void compactar_cache_si_corresponde();
 void algoritmo_de_compactacion();
 _Bool intentar_compactar_elemento(int num_particion);
 
-void dejar_particion_adelante(int num_particion);
 void dejar_particion_adelante(int num_particion);
 
 void mover_a_particion_info_del_siguiente(int num_particion);
