@@ -6,6 +6,7 @@
 
 t_log* logger;
 t_config* config;
+pthread_mutex_t planificar;		//TODO: No deberia ser mutex
 
 //Listas globales de pokemones y entrenadores
 t_list * objetivo_global;
@@ -22,7 +23,7 @@ typedef enum {
 } t_pokemones;
 
 typedef enum {
-	NEW, READY, EXEC, BLOCKED_READY, BLOCKED_DEADLOCK, EXIT
+	NEW, READY, EXEC, BLOCKED_NORMAL, BLOCKED_DEADLOCK, EXIT
 } t_estado;
 
 //TODO: chequear si va abajo o arriba o ambos
@@ -32,12 +33,13 @@ typedef struct t_objetivo {
 } t_objetivo;
 
 typedef struct t_entrenador {
-	pthread_mutex_t sem_est;
+	pthread_mutex_t sem_est;	//TODO: No deberia ser mutex
 	int * posicion;
 	t_list* pokemones_capturados;
 	t_list* pokemones_por_capturar;
 	t_catch_pokemon * catch_pendiente;
 	t_estado estado;
+	int ciclos_cpu_restantes;
 } t_entrenador;
 
 

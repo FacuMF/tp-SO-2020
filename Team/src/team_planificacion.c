@@ -4,11 +4,18 @@
 
 void iniciar_planificador(){
 	list_iterate(head_entrenadores, lanzar_hilo_entrenador);
+	pthread_mutex_init(&planificar, NULL);
 
-	while(1){//TODO: Mientras no haya terminado to do.
-		// TODO: lockearse, esperar a que le avisen de planificar nuevamente (exec>cualquier otro)
-		// TODO: lockearse, esperar a que haya alguien en ready
-		// TODO: En base a entrenadores en ready y algoritmo, desbloquear uno
+	while(1){//TODO: Mientras no haya terminado tod.o
+
+		while(!entrenadores_en_ready()){
+			pthread_mutex_lock(&planificar);
+		}
+
+		// TODO: En base al algoritmo, obtener el entrenador siguiente
+		t_entrenador * entrenador = obtener_entrenador_a_planificar();
+		ejecutar_entrenador(entrenador);
+
 	}
 
 }
@@ -28,15 +35,54 @@ void ser_entrenador(void *element) {
 
 }
 
+bool entrenadores_en_ready(){
+	t_list * entrenadores_en_ready = encontrar_entrenadores_en_estado(READY, head_entrenadores);
+	return !list_is_empty(entrenadores_en_ready);
+}
+
+// PLANIFICACION DE ENTRENADORES
+t_entrenador * obtener_entrenador_a_planificar(){
+	t_entrenador * entrenador;
+
+	t_list * entrenadores_en_ready = encontrar_entrenadores_en_estado(READY, head_entrenadores);
+
+	// TODO: Dependiendo del algoritmo, llamar al metodo correcto (con un switch)
+
+	//
+
+	return entrenador;
+}
+
+t_entrenador * obtener_entrenador_sjf(t_list * entrenadores){
+	// TODO: Sort por ciclos de cpu menores
+	// TODO: obtener el primero
+
+}
+
+void preparar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared){
+	// Setear status = ready, calcular y llenar ciclos de cpu
+	// Guardarle el mensaje de caught.
+	entrenador->catch_pendiente = de_appeared_a_catch(mensaje_appeared);
+	entrenador->ciclos_cpu_restantes = distancia(entrenador,mensaje_appeared->posx,mensaje_appeared->posy);
+	entrenador->estado = READY;
+}
+
+void ejecutar_entrenador(t_entrenador * entrenador){
+	entrenador->estado = READY;
+	pthread_mutex_unlock(&(entrenador->sem_est));
+}
+
+// MANEJO DE MENSAJES
 
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared){
-	// TODO: Necesito mensaje? (agarrados < necesitados) Iria Funcion requiero(mensaje_appeared->pokemon)
-	// TODO: Entrenador disponible + cercano (new/blocked_normal, no block deadlock ni esperando rta caught)
-	//   Dos funciones, una que chequee condicion y hallar_entrenador_mas_cercano(mensaje_appeared->posx, mensaje_appeared->posy)
+	if (!requiero_pokemon(mensaje_appeared->pokemon))
+		return;
 
-	// TODO: Setear status = ready, calcular y llenar ciclos de cpu
-	// TODO: Guardarle el mensaje de caught.
-	// TODO: Avisar a planificador que está en ready
+	t_entrenador * entrenador_elegido = obtener_entrenador_buscado(mensaje_appeared->posx,mensaje_appeared->posy);
+
+	preparar_entrenador(entrenador_elegido);
+
+	pthread_mutex_unlock(&planificar);
 }
 
 void manejar_caught(t_caught_pokemon* mensaje_caught){
@@ -60,7 +106,68 @@ void manejar_localized(t_localized_pokemon* mensaje_localized){
 }
 
 
+// FILTRADO DE ENTRENADORES
 
+t_entrenador * obtener_entrenador_buscado(int posx, int posy){
+	// Obtener el entrendor con el status correcto, lugar disponible y mas cercano.
+
+	t_list * entrenadores_disponibles = obtener_entrenadores_disponibles(head_entrenadores);
+	entrenadores_disponibles = obtener_entrenadores_con_espacio(entrenadores_disponibles);
+	return hallar_entrenador_mas_cercano(posx,posy,entrenadores_disponibles);
+}
+
+t_list * obtener_entrenadores_disponibles(t_list * entrenadores){
+	t_list * entrenadores_disponibles = encontrar_entrenadores_en_estado(NEW,entrenadores);
+	t_list * entrenadores_blocked_normal = encontrar_entrenadores_en_estado(BLOCKED_NORMAL,entrenadores);
+
+	list_add_all(entrenadores_disponibles, entrenadores_blocked_normal);
+
+	return entrenadores_disponibles;
+}
+
+t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado,t_list * entrenadores){
+
+	bool esta_en_estado_correspondiente_aux(void * elemento){
+		t_entrenador * entrenador_estado = elemento;
+		return entrenador_estado->estado == estado_buscado;
+	}
+
+	t_list * entrenadores_en_estado = list_filter(entrenadores,esta_en_estado_correspondiente_aux);
+
+	return entrenadores_en_estado;
+}
+
+t_list * obtener_entrenadores_con_espacio(t_list * entrenadores){
+	bool tiene_espacio_disponible(void * elemento) {
+		t_entrenador * entrenador = elemento;
+		int size_capturados = list_size(entrenador->pokemones_capturados);
+		int size_por_capturar = list_size(entrenador->pokemones_por_capturar);
+		return size_capturados < size_por_capturar;
+	}
+	return list_filter(entrenadores,tiene_espacio_disponible);
+
+}
+
+t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy, t_list *entrenadores) {
+
+	bool menor_distancia(void*elemento_1, void*elemento_2) {
+		t_entrenador *entrenador_1 = elemento_1;
+		t_entrenador *entrenador_2 = elemento_2;
+		return distancia(entrenador_1, posx, posy)
+				> distancia(entrenador_2, posx, posy);
+	}
+
+	t_list * entrenadores_mas_cercanos = list_sorted(entrenadores,
+			menor_distancia);
+
+	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,
+			0);
+
+	log_trace(logger, "Posicion entrenador cercano: Posicion %i %i",
+			entrenador_mas_cercano->posicion[0],
+			entrenador_mas_cercano->posicion[1]);
+	return entrenador_mas_cercano;
+}
 
 
 // AUXILIARES A REVISAR
@@ -108,18 +215,6 @@ t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared){
 
 	return mensaje_catch;
 
-}
-
-t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado){
-
-	bool esta_en_estado_correspondiente(void * elemento){
-		t_entrenador * entrenador_estado = elemento;
-		return entrenador_estado->estado == estado_buscado;
-	}
-
-	t_list * entrenadores_en_estado = list_filter(head_entrenadores,esta_en_estado_correspondiente);
-
-	return entrenadores_en_estado;
 }
 
 
@@ -183,7 +278,8 @@ int distancia_en_eje(t_entrenador *entrenador, int pose, int pos) {
 	return resta;
 }
 
-
+// Funcion de Planificacion de entrenadores
+/*
 void mover_entrenador_a_posicion(t_entrenador*entrenador, int posx, int posy) {
 	int distancia_en_x = abs(distancia_en_eje(entrenador, posx, 0));
 	int distancia_en_y = abs(distancia_en_eje(entrenador, posy, 1));
@@ -211,8 +307,7 @@ void cambiar_posicion_entrenador(t_entrenador*entrenador, int posx, int posy) {
 	entrenador->posicion[1] = posy;
 }
 
-// Funcion de Planificacion de entrenadores
-/*
+
  void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido){
  t_entrenador *entrenador_a_planificar= hallar_entrenador_mas_cercano_segun_appeared(appeared_recibido);
  desbloquear_entrenador(entrenador_a_planificar);
@@ -225,44 +320,6 @@ void cambiar_posicion_entrenador(t_entrenador*entrenador, int posx, int posy) {
  }
  */
 
-t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(
-		t_appeared_pokemon * appeared_recibido) {
-	t_entrenador * entrenador_a_planificar_cercano =
-			hallar_entrenador_mas_cercano(appeared_recibido->posx,
-					appeared_recibido->posy);
-	return entrenador_a_planificar_cercano;
-}
-
-t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy) {
-
-	bool tiene_espacio_disponible(void * elemento) {
-		t_entrenador * entrenador = elemento;
-		int size_capturados = list_size(entrenador->pokemones_capturados);
-		int size_por_capturar = list_size(entrenador->pokemones_por_capturar);
-		return size_capturados < size_por_capturar;
-	}
-
-	bool menor_distancia(void*elemento_1, void*elemento_2) {
-		t_entrenador *entrenador_1 = elemento_1;
-		t_entrenador *entrenador_2 = elemento_2;
-		return distancia(entrenador_1, posx, posy)
-				> distancia(entrenador_2, posx, posy);
-	}
-
-	t_list *entrenadores_disponibles = list_filter(head_entrenadores,
-			tiene_espacio_disponible);
-
-	t_list * entrenadores_mas_cercanos = list_sorted(entrenadores_disponibles,
-			menor_distancia);
-
-	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,
-			0);
-
-	log_trace(logger, "Posicion entrenador cercano: Posicion %i %i",
-			entrenador_mas_cercano->posicion[0],
-			entrenador_mas_cercano->posicion[1]);
-	return entrenador_mas_cercano;
-}
 
 void lanzar_hilo_entrenador(void*element) {
 	t_entrenador * entrenador = element;
