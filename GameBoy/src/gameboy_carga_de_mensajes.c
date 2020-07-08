@@ -24,7 +24,16 @@ void cargar_parametros_new_pokemon(char* pokemon, int* pos_x, int* pos_y,
 
 void cargar_parametros_caught_pokemon(int* id_mensaje_correlativo, int* ok_fail, char** arg) {
 	*id_mensaje_correlativo = atoi(arg[3]);
-	*ok_fail = atoi(arg[4]);
+	*ok_fail = ok_fail_to_int(arg[4]);
+}
+
+int ok_fail_to_int(char* str){
+	if(string_equals_ignore_case(str,"OK"))
+		return 1;
+	if(string_equals_ignore_case(str,"FAIL"))
+		return 0;
+	return -1;
+
 }
 
 void cargar_parametros_catch_pokemon(char* pokemon, int* pos_x, int* pos_y,

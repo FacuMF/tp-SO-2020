@@ -10,7 +10,7 @@ int main(void) {
 }
 
 void handler_senial(int signum) {
-
+	log_trace(logger,"Guardardo datos de cache..");
 	estado_actual_de_cache();
 	exit(1);
 

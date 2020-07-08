@@ -19,3 +19,18 @@ Particion 2: 0x861F6AD - 0x861F6B9.    [X]    Size:12b    LRU:4    Cola:6    ID:
 Particion 3: 0x861F6B9 - 0x861F6D2.    [X]    Size:25b    LRU:5    Cola:3    ID:5    Offset:33 
 Particion 4: 0x861F6D2 - 0x861F6D8.    [L]    Size:6b    Offset:58
 --------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+Dump: Wed Jul  8 15:54:18 2020
+Particion 1: 0x9953680 - 0x9953684.    [X]    Size:4b    LRU:0    Cola:4    ID:0    Offset:0 
+Particion 2: 0x9953684 - 0x9953688.    [X]    Size:4b    LRU:1    Cola:4    ID:1    Offset:4 
+Particion 3: 0x9953688 - 0x9953690.    [L]    Size:8b    Offset:8
+Particion 4: 0x9953690 - 0x99536A0.    [X]    Size:16b    LRU:3    Cola:5    ID:3    Offset:16 
+Particion 5: 0x99536A0 - 0x99536C0.    [X]    Size:32b    LRU:2    Cola:3    ID:2    Offset:32 
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+Dump: Wed Jul  8 16:52:43 2020
+Particion 1: 0x80C0680 - 0x80C0688.    [L]    Size:8b    Offset:0
+Particion 2: 0x80C0688 - 0x80C0690.    [L]    Size:8b    Offset:8
+Particion 3: 0x80C0690 - 0x80C06A0.    [X]    Size:16b    LRU:3    Cola:5    ID:3    Offset:16 
+Particion 4: 0x80C06A0 - 0x80C06C0.    [X]    Size:32b    LRU:2    Cola:3    ID:2    Offset:32 
+--------------------------------------------------------------------------------------------------

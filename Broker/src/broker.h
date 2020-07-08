@@ -146,6 +146,9 @@ void handler_senial(int);
 char* obtener_fecha(void);
 char* obtener_estado_de_particion(t_mensaje_cache* particion, int num_part);
 
+void log_dump_de_cache(void);
+void log_info_particion(t_mensaje_cache* , int );
+
 //Eleccion de victima
 void elegir_vitima_y_eliminarla();
 

@@ -33,6 +33,7 @@ void confirmar_si_es_suscriptor(int, int, int);
 void cargar_parametros_appeared_pokemon(char*, int*, int*, int*, char**, int);
 void cargar_parametros_new_pokemon(char*, int*, int*, int*, int*, char**, int);
 void cargar_parametros_caught_pokemon(int*, int*, char**);
+int ok_fail_to_int(char*);
 void cargar_parametros_catch_pokemon(char*, int*, int*, int*, char**, int);
 void cargar_parametros_get_pokemon(char*, int*, char**, int);
 void cargar_parametros_suscriptor(int*, int*, char**);
