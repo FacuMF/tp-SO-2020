@@ -29,6 +29,7 @@ void ser_entrenador(void *element) {
 
 		// TODO: en base a mensaje catch interno moverse a la posicion indicada
 		// TODO: Mandar catch
+		// TODO: Actualizar timestamp
 	}
 
 	// TODO: Cambiar su propio estado a exit?
@@ -48,22 +49,67 @@ t_entrenador * obtener_entrenador_a_planificar(){
 
 	// TODO: Dependiendo del algoritmo, llamar al metodo correcto (con un switch)
 
-	//
+	t_entrenador * entrenador = obtener_entrenador_fifo(entrenadores_en_ready);
 
 	return entrenador;
 }
 
-t_entrenador * obtener_entrenador_sjf(t_list * entrenadores){
-	// TODO: Sort por ciclos de cpu menores
-	// TODO: obtener el primero
 
+
+t_entrenador * obtener_entrenador_fifo(t_list * entrenadores){
+	// TODO: Sort por time menor y obtener el primero
+
+	bool menor_tiempo(void*elemento_1, void*elemento_2) {
+		t_entrenador *entrenador_1 = elemento_1;
+		t_entrenador *entrenador_2 = elemento_2;
+		return !timeval_subtract(NULL,entrenador_1->ultima_modificacion, entrenador_2->ultima_modificacion);
+	} // TODO: testear y confirmar que funcione (va a haber problemas con punteros)
+
+	t_list * entrenador_antes_modif= list_sorted(entrenadores,
+			menor_tiempo);
+
+	t_entrenador * entrenador_mas_cercano = list_get(entrenador_antes_modif,
+			0);
+
+	return entrenador_mas_cercano;
 }
+
+int
+ timeval_subtract (result, x, y)
+      struct timeval *result, *x, *y;
+ {
+   /* Perform the carry for the later subtraction by updating y. */
+   if (x->tv_usec < y->tv_usec) {
+     int nsec = (y->tv_usec - x->tv_usec) / 1000000 + 1;
+     y->tv_usec -= 1000000 * nsec;
+     y->tv_sec += nsec;
+   }
+   if (x->tv_usec - y->tv_usec > 1000000) {
+     int nsec = (x->tv_usec - y->tv_usec) / 1000000;
+     y->tv_usec += 1000000 * nsec;
+     y->tv_sec -= nsec;
+   }
+
+   /* Compute the time remaining to wait.
+      tv_usec is certainly positive. */
+   result->tv_sec = x->tv_sec - y->tv_sec;
+   result->tv_usec = x->tv_usec - y->tv_usec;
+
+   /* Return 1 if result is negative. */
+   return x->tv_sec < y->tv_sec;
+ }
 
 void preparar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared){
 	// Setear status = ready, calcular y llenar ciclos de cpu
 	// Guardarle el mensaje de caught.
 	entrenador->catch_pendiente = de_appeared_a_catch(mensaje_appeared);
 	entrenador->ciclos_cpu_restantes = distancia(entrenador,mensaje_appeared->posx,mensaje_appeared->posy);
+
+	//TODO: testear con logtrace
+	struct timeval tval;
+	gettimeofday(&tval,NULL);
+	entrenador->ultima_modificacion = tval;
+
 	entrenador->estado = READY;
 }
 

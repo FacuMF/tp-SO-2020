@@ -39,6 +39,7 @@ typedef struct t_entrenador {
 	t_list* pokemones_por_capturar;
 	t_catch_pokemon * catch_pendiente;
 	t_estado estado;
+	struct timeval ultima_modificacion;
 	int ciclos_cpu_restantes;
 } t_entrenador;
 
