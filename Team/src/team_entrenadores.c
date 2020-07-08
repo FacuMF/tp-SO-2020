@@ -109,8 +109,8 @@ t_list * obtener_pokemones_capturados(){
 
 		list_iterate(head_entrenadores, buscar_pokemon);
 
-		log_trace(logger, "Kokemones  capturados  obtenidos");
-		list_iterate(pokemones_capturados, mostrar_kokemon);
+		//log_trace(logger, "Kokemones  capturados  obtenidos");
+		//list_iterate(pokemones_capturados, mostrar_kokemon);
 		return pokemones_capturados;
 }
 

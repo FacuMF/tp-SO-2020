@@ -4,18 +4,19 @@
 
 void iniciar_planificador(){
 	list_iterate(head_entrenadores, lanzar_hilo_entrenador);
-	pthread_mutex_init(&planificar, NULL);
+	pthread_mutex_init(&cpu_disponible, NULL);
+	pthread_mutex_init(&entrenadores_ready, NULL);
 
 	while(1){//TODO: Mientras no haya terminado tod.o
+		pthread_mutex_lock(&cpu_disponible);
 
 		while(!entrenadores_en_ready()){
-			pthread_mutex_lock(&planificar);
+			pthread_mutex_lock(&entrenadores_ready);
 		}
 
 		// TODO: En base al algoritmo, obtener el entrenador siguiente
 		t_entrenador * entrenador = obtener_entrenador_a_planificar();
 		ejecutar_entrenador(entrenador);
-
 	}
 
 }
@@ -25,18 +26,20 @@ void ser_entrenador(void *element) {
 
 	while (!(objetivo_cumplido(entrenador))) {
 		pthread_mutex_lock(&(entrenador->sem_est));
-		log_trace(logger, "Entrenador despierto: Posicion %i %i", entrenador->posicion[0], entrenador->posicion[1]);
+		log_debug(logger, "Entrenador despierto: Posicion %i %i", entrenador->posicion[0], entrenador->posicion[1]);
 
 		// TODO: en base a mensaje catch interno moverse a la posicion indicada
 		// TODO: Mandar catch
 		// TODO: Actualizar timestamp
+		sleep(8);
+		pthread_mutex_unlock(&cpu_disponible);
 	}
 
 	// TODO: Cambiar su propio estado a exit?
 
 }
 
-bool entrenadores_en_ready(){
+int entrenadores_en_ready(){
 	t_list * entrenadores_en_ready = encontrar_entrenadores_en_estado(READY, head_entrenadores);
 	return !list_is_empty(entrenadores_en_ready);
 }
@@ -49,11 +52,10 @@ t_entrenador * obtener_entrenador_a_planificar(){
 
 	// TODO: Dependiendo del algoritmo, llamar al metodo correcto (con un switch)
 
-	t_entrenador * entrenador = obtener_entrenador_fifo(entrenadores_en_ready);
+	entrenador = obtener_entrenador_fifo(entrenadores_en_ready);
 
 	return entrenador;
 }
-
 
 
 t_entrenador * obtener_entrenador_fifo(t_list * entrenadores){
@@ -62,22 +64,24 @@ t_entrenador * obtener_entrenador_fifo(t_list * entrenadores){
 	bool menor_tiempo(void*elemento_1, void*elemento_2) {
 		t_entrenador *entrenador_1 = elemento_1;
 		t_entrenador *entrenador_2 = elemento_2;
-		return !timeval_subtract(NULL,entrenador_1->ultima_modificacion, entrenador_2->ultima_modificacion);
-	} // TODO: testear y confirmar que funcione (va a haber problemas con punteros)
+		return timeval_subtract(&entrenador_1->ultima_modificacion, &entrenador_2->ultima_modificacion);
+	}
 
 	t_list * entrenador_antes_modif= list_sorted(entrenadores,
 			menor_tiempo);
 
-	t_entrenador * entrenador_mas_cercano = list_get(entrenador_antes_modif,
+
+	t_entrenador * entrenador_menor_tiempo = list_get(entrenador_antes_modif,
 			0);
 
-	return entrenador_mas_cercano;
+	return entrenador_menor_tiempo;
 }
 
 int
- timeval_subtract (result, x, y)
-      struct timeval *result, *x, *y;
+ timeval_subtract (x, y)
+      struct timeval *x, *y;
  {
+	log_debug(logger,"entramos");
    /* Perform the carry for the later subtraction by updating y. */
    if (x->tv_usec < y->tv_usec) {
      int nsec = (y->tv_usec - x->tv_usec) / 1000000 + 1;
@@ -89,11 +93,14 @@ int
      y->tv_usec += 1000000 * nsec;
      y->tv_sec -= nsec;
    }
+   log_debug(logger,"todavia no usamos result");
 
    /* Compute the time remaining to wait.
-      tv_usec is certainly positive. */
-   result->tv_sec = x->tv_sec - y->tv_sec;
-   result->tv_usec = x->tv_usec - y->tv_usec;
+      tv_usec is certainly positive.
+      NOTA: DESCOMENTAR SI USAMOS HRRN
+   	   result->tv_sec = x->tv_sec - y->tv_sec;
+   	   result->tv_usec = x->tv_usec - y->tv_usec;
+   */
 
    /* Return 1 if result is negative. */
    return x->tv_sec < y->tv_sec;
@@ -111,10 +118,13 @@ void preparar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje
 	entrenador->ultima_modificacion = tval;
 
 	entrenador->estado = READY;
+
+	log_debug(logger, "Nuevo ent en ready: Posicion %i %i",entrenador->posicion[0],entrenador->posicion[1]);
+
 }
 
 void ejecutar_entrenador(t_entrenador * entrenador){
-	entrenador->estado = READY;
+	entrenador->estado = EXEC;
 	pthread_mutex_unlock(&(entrenador->sem_est));
 }
 
@@ -126,9 +136,9 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared){
 
 	t_entrenador * entrenador_elegido = obtener_entrenador_buscado(mensaje_appeared->posx,mensaje_appeared->posy);
 
-	preparar_entrenador(entrenador_elegido);
+	preparar_entrenador(entrenador_elegido,mensaje_appeared);
 
-	pthread_mutex_unlock(&planificar);
+	pthread_mutex_unlock(&entrenadores_ready);
 }
 
 void manejar_caught(t_caught_pokemon* mensaje_caught){
@@ -179,6 +189,7 @@ t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado,t_list * entre
 	}
 
 	t_list * entrenadores_en_estado = list_filter(entrenadores,esta_en_estado_correspondiente_aux);
+	// TODO: Ver que hacer cuando el entrenador mas cercano es NULL.
 
 	return entrenadores_en_estado;
 }
@@ -200,7 +211,7 @@ t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy, t_list *entrena
 		t_entrenador *entrenador_1 = elemento_1;
 		t_entrenador *entrenador_2 = elemento_2;
 		return distancia(entrenador_1, posx, posy)
-				> distancia(entrenador_2, posx, posy);
+				< distancia(entrenador_2, posx, posy);
 	}
 
 	t_list * entrenadores_mas_cercanos = list_sorted(entrenadores,
@@ -313,15 +324,13 @@ t_entrenador * buscar_entrenador_segun_catch(t_catch_pokemon * catch_buscado){
 
 
 int distancia(t_entrenador * entrenador, int posx, int posy) {
-	int distancia_e = abs(distancia_en_eje(entrenador, posx, 0))
-			+ abs(distancia_en_eje(entrenador, posx, 1));
+	int distancia_x = entrenador->posicion[0]-posx;
+	int distancia_y =entrenador->posicion[1]-posy;
+
+	int distancia_e = abs(distancia_x) + abs(distancia_y);
+	//log_debug(logger, "distancia entre %d %d y %d %d : %d",entrenador->posicion[0],entrenador->posicion[1],posx,posy,distancia_e);
+
 	return distancia_e;
-}
-
-
-int distancia_en_eje(t_entrenador *entrenador, int pose, int pos) {
-	int resta = entrenador->posicion[pos] - pose;
-	return resta;
 }
 
 // Funcion de Planificacion de entrenadores

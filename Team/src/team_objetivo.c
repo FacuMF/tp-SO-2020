@@ -10,8 +10,8 @@ t_list* formar_lista_de_objetivos(t_list * lista_de_pokemones) {
 
 	list_iterate(lista_de_pokemones, agrego_si_no_existe_aux);
 
-	log_trace(logger, "Objetivos Formados");
-	list_iterate(lista_objetivo, mostrar_objetivo);
+	//log_trace(logger, "Objetivos Formados");
+	//list_iterate(lista_objetivo, mostrar_objetivo);
 
 	return lista_objetivo;
 }

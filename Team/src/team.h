@@ -3,10 +3,12 @@
 
 #include "../../Base/Utils/src/utils.h"
 #include "../../Base/Utils/src/utils_mensajes.h"
+#include <sys/time.h>
 
 t_log* logger;
 t_config* config;
-pthread_mutex_t planificar;		//TODO: No deberia ser mutex
+pthread_mutex_t entrenadores_ready;		//TODO: No deberia ser mutex
+pthread_mutex_t cpu_disponible;		//TODO: No deberia ser mutex
 
 //Listas globales de pokemones y entrenadores
 t_list * objetivo_global;
@@ -44,14 +46,33 @@ typedef struct t_entrenador {
 } t_entrenador;
 
 
+
+
+// PLANIFICACION GENERAL
+int entrenadores_en_ready();
+void iniciar_planificador();
+
+// PLANIFICACION DE ENTRENADORES
+t_entrenador * obtener_entrenador_a_planificar();
+t_entrenador * obtener_entrenador_fifo(t_list * entrenadores);
+int timeval_subtract (struct timeval *x, struct timeval *y);
+void preparar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared);
+void ejecutar_entrenador(t_entrenador * entrenador);
+
+// FILTRADO DE ENTRENADORES
+t_entrenador * obtener_entrenador_buscado(int posx, int posy);
+t_list * obtener_entrenadores_disponibles(t_list * entrenadores);
+t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado,t_list * entrenadores);
+t_list * obtener_entrenadores_con_espacio(t_list * entrenadores);
+
+
 // Funciones generales
 void iniciar_team(char*archivo_config[]);
 void inicializar_listas();
-void iniciar_planificador();
+
 void finalizar_team();
 char * obtener_path(char*string);
 
-void agregar_atrapado_global();
 // Funciones de comunicacion general
 void esperar_cliente(int socket_servidor);
 void esperar_mensajes_cola(void* input);
@@ -69,7 +90,6 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
 
 void enviar_requests_pokemones();
 void enviar_mensaje_get(void*element);
-
 
 
 // Funciones de recepcion de mensajes
@@ -97,7 +117,6 @@ void mostrar_entrenadores(t_list * head_entrenadores);
 void mostrar_data_entrenador(void * element);
 void mostrar_kokemon(void*elemento);
 
-
 //Funciones de objetivo general - team_objetivos
 t_list* formar_lista_de_objetivos(t_list * lista_de_pokemones);
 void agrego_si_no_existe(t_list * lista_objetivo, void *nombrePokemon);
@@ -124,15 +143,12 @@ void ser_entrenador(void *element);
 bool es_id_necesario(int id_a_chequear);
 t_catch_pokemon * encontrar_en_lista_de_catch_pokemon (char * pokemon_a_encontrar);
 t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared);
-t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado);
 t_list * lista_de_catch_a_partir_localized(t_localized_pokemon * localized_a_chequear);
 t_entrenador * buscar_entrenador_segun_catch(t_catch_pokemon * catch_buscado);
 
 int distancia(t_entrenador * entrenador, int posx, int posy);
 int distancia_en_eje(t_entrenador *entrenador, int pos_eje, int pos);
-//void comenzar_planificacion_entrenadores(t_appeared_pokemon * appeared_recibido);
-t_entrenador * hallar_entrenador_mas_cercano_segun_appeared(t_appeared_pokemon * appeared_recibido);
-t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy);
+t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy, t_list *entrenadores);
 void desbloquear_entrenador(t_entrenador * entrenador);
 void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy);
 void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy);
