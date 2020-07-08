@@ -25,6 +25,10 @@ typedef enum {
 } t_pokemones;
 
 typedef enum {
+	A_FIFO, A_RR, A_SJFCD, A_SJFSD
+} t_algoritmo;
+
+typedef enum {
 	NEW, READY, EXEC, BLOCKED_NORMAL, BLOCKED_DEADLOCK, EXIT
 } t_estado;
 
@@ -45,12 +49,16 @@ typedef struct t_entrenador {
 	int ciclos_cpu_restantes;
 } t_entrenador;
 
-
+t_algoritmo algoritmo_elegido;
+int quantum;
+int estimacion_inicial;
+int retardo_ciclo_cpu;
 
 
 // PLANIFICACION GENERAL
 int entrenadores_en_ready();
 void iniciar_planificador();
+void elegir_algoritmo();
 
 // PLANIFICACION DE ENTRENADORES
 t_entrenador * obtener_entrenador_a_planificar();
@@ -58,6 +66,10 @@ t_entrenador * obtener_entrenador_fifo(t_list * entrenadores);
 int timeval_subtract (struct timeval *x, struct timeval *y);
 void preparar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared);
 void ejecutar_entrenador(t_entrenador * entrenador);
+void actualizar_timestamp(t_entrenador * entrenador);
+
+void moverse_a_posicion(t_entrenador * entrenador);
+void mover_entrenador(t_entrenador * entrenador);
 
 // FILTRADO DE ENTRENADORES
 t_entrenador * obtener_entrenador_buscado(int posx, int posy);
@@ -90,7 +102,7 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
 
 void enviar_requests_pokemones();
 void enviar_mensaje_get(void*element);
-
+void enviar_mensaje_catch(t_catch_pokemon * mensaje_catch_a_enviar);
 
 // Funciones de recepcion de mensajes
 void recibir_mensaje_appeared(t_buffer * buffer);
