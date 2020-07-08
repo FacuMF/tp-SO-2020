@@ -29,7 +29,7 @@ typedef enum {
 } t_algoritmo;
 
 typedef enum {
-	NEW, READY, EXEC, BLOCKED_NORMAL, BLOCKED_DEADLOCK, EXIT
+	NEW, READY, EXEC, BLOCKED_NORMAL, BLOCKED_ESPERANDO, BLOCKED_DEADLOCK, EXIT
 } t_estado;
 
 //TODO: chequear si va abajo o arriba o ambos
@@ -49,11 +49,12 @@ typedef struct t_entrenador {
 	int ciclos_cpu_restantes;
 } t_entrenador;
 
+// Variables para planificacion
 t_algoritmo algoritmo_elegido;
 int quantum;
 int estimacion_inicial;
 int retardo_ciclo_cpu;
-
+int desalojar;
 
 // PLANIFICACION GENERAL
 int entrenadores_en_ready();
@@ -70,6 +71,7 @@ void actualizar_timestamp(t_entrenador * entrenador);
 
 void moverse_a_posicion(t_entrenador * entrenador);
 void mover_entrenador(t_entrenador * entrenador);
+void bloquear_entrenador(t_entrenador * entrenador);
 
 // FILTRADO DE ENTRENADORES
 t_entrenador * obtener_entrenador_buscado(int posx, int posy);

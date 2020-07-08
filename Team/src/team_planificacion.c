@@ -18,6 +18,7 @@ void iniciar_planificador() {
 
 		t_entrenador * entrenador = obtener_entrenador_a_planificar();
 
+		// TODO: Si es SJFCD y entrenador != de uno que se esté ejecutando, desalojar. Si no,:
 		ejecutar_entrenador(entrenador);
 	}
 
@@ -42,6 +43,7 @@ void elegir_algoritmo() {
 	quantum = config_get_int_value(config, "QUANTUM");
 	estimacion_inicial = config_get_int_value(config, "ESTIMACION_INICIAL");
 	retardo_ciclo_cpu = config_get_int_value(config, "RETARDO_CICLO_CPU");
+	desalojar = 0;
 
 }
 
@@ -59,8 +61,7 @@ void ser_entrenador(void *element) {
 
 		actualizar_timestamp(entrenador);
 
-
-		entrenador->estado = BLOCKED_NORMAL;
+		entrenador->estado = BLOCKED_ESPERANDO;
 		pthread_mutex_unlock(&cpu_disponible);
 	}
 
@@ -72,25 +73,42 @@ void moverse_a_posicion(t_entrenador * entrenador) {
 	int ciclos_esta_corrida = 0;
 
 	while (entrenador->ciclos_cpu_restantes > 0) {
-		if (algoritmo_elegido == A_RR && ciclos_esta_corrida >= quantum) {
-			ciclos_esta_corrida = 0;
-
-			pthread_mutex_unlock(&cpu_disponible);
-
-			actualizar_timestamp(entrenador);
-			entrenador->estado = READY;
-			pthread_mutex_lock(&(entrenador->sem_est));
-			log_debug(logger, "Entrenador despierto: Posicion %i %i",
-							entrenador->posicion[0], entrenador->posicion[1]);
+		// Chequeo si es necesario bloquearse
+		switch (algoritmo_elegido) {
+		case A_RR:
+			if (ciclos_esta_corrida >= quantum) {
+				ciclos_esta_corrida = 0;
+				bloquear_entrenador(entrenador);
+			}
+			break;
+		case A_SJFCD:
+			if (desalojar) {
+				bloquear_entrenador(entrenador);
+				desalojar = 0;
+			}
+			break;
+		default:
+			break;
 		}
+
 		mover_entrenador(entrenador);
 
 		ciclos_esta_corrida++;
 		entrenador->ciclos_cpu_restantes--;
+
 		log_debug(logger, "Entrenador en posicon %d %d, ciclos restantes: %d",
 				entrenador->posicion[0], entrenador->posicion[1],
 				entrenador->ciclos_cpu_restantes);
 	}
+}
+
+void bloquear_entrenador(t_entrenador * entrenador) {
+	pthread_mutex_unlock(&cpu_disponible);
+	actualizar_timestamp(entrenador);
+	entrenador->estado = READY;
+	pthread_mutex_lock(&(entrenador->sem_est));
+	log_debug(logger, "Entrenador despierto: Posicion %i %i",
+			entrenador->posicion[0], entrenador->posicion[1]);
 }
 
 void mover_entrenador(t_entrenador * entrenador) {
@@ -126,8 +144,8 @@ t_entrenador * obtener_entrenador_a_planificar() {
 		entrenador = obtener_entrenador_fifo(entrenadores_en_ready);
 		break;
 	case A_SJFSD:
-		break;
 	case A_SJFCD:
+		//TODO: obtener entrenador con menores ciclos de cpu faltantes
 		break;
 	}
 	return entrenador;
@@ -216,13 +234,17 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 	preparar_entrenador(entrenador_elegido, mensaje_appeared);
 
 	pthread_mutex_unlock(&entrenadores_ready);
+
+	if (algoritmo_elegido == A_SJFCD)
+		pthread_mutex_unlock(&cpu_disponible);
+
 }
 
 void manejar_caught(t_caught_pokemon* mensaje_caught) {
 	// TODO: Revisar si es correlativo a algun catch por ID
 	// TODO: Buscar entrenador con ese catch adentro  // Funcion buscar_entrenador_segun_catch(catch_buscado)
 	// TODO: Si es YES, agregar a capturados, si NO skippear este paso
-	// TODO: Setear status entrenador = ready/blocked/exit
+	// TODO: Setear status entrenador = blocked_normal/exit
 	// TODO: Sacar appeared de la lista
 	// TODO: Si hay algun otro en la lista de recibidos lo planifico de nuevo y pasa a ready
 	// TODO: Si es NO voy a buscar si hay auxiliares en mi lista de localized sobrantes.
