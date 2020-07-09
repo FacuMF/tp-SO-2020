@@ -60,8 +60,8 @@ void esperar_mensajes_cola(void* input) {
 
 // ENVIO DE MENSAJES
 
-void enviar_requests_pokemones() { // RECONTRA LIMPIAR
-	list_iterate(objetivo_global, enviar_mensaje_get);
+void enviar_requests_pokemones() {
+	list_iterate(obtener_pokemones_necesitados_sin_repetidos(), enviar_mensaje_get);
 }
 
 void enviar_mensaje_get(void*element) {
@@ -69,14 +69,14 @@ void enviar_mensaje_get(void*element) {
 	int socket_broker = iniciar_conexion_con_broker();
 	// TODO: Si falla, comportamiento default, no reintentar
 
-	t_objetivo * objetivo = element;
-	t_get_pokemon * mensaje_get = crear_get_pokemon(objetivo->pokemon, -10);
+	char* pokemon = element;
+	t_get_pokemon * mensaje_get = crear_get_pokemon(pokemon, -10);
 
 	t_buffer* mensaje_serializado = serializar_get_pokemon(mensaje_get);
 
 	enviar_mensaje(socket_broker, mensaje_serializado, GET_POKEMON);
 
-	log_trace(logger, "Enviado get para: %s", objetivo->pokemon);
+	log_trace(logger, "Enviado get para: %s", pokemon);
 
 	free(mensaje_serializado);
 

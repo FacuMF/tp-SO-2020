@@ -8,7 +8,6 @@ int main(int argv, char*archivo_config[]) {
 
 	inicializar_listas();
 
-
 	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
 	//pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,NULL);
@@ -48,7 +47,8 @@ void iniciar_team(char*argumentos_iniciales[]) {
 	quantum = config_get_int_value(config, "QUANTUM");
 	estimacion_inicial = config_get_int_value(config, "ESTIMACION_INICIAL");
 	retardo_ciclo_cpu = config_get_int_value(config, "RETARDO_CICLO_CPU");
-	constante_estimacion = config_get_int_value(config, "CONSTANTE_ESTIMACION");
+	//TODO: Puede ser con coma, testear
+	constante_estimacion = config_get_double_value(config, "CONSTANTE_ESTIMACION");
 	desalojar = 0;
 
 }
@@ -57,10 +57,9 @@ void iniciar_team(char*argumentos_iniciales[]) {
 void inicializar_listas(){
 	//TODO: en every lugar que se usen las globales usar mutex
 	head_entrenadores = cargar_entrenadores();
-	pokemones_por_capturar_global = obtener_pokemones_a_capturar();
-	objetivo_global = formar_lista_de_objetivos(pokemones_por_capturar_global);
 	ids_mensajes_utiles = list_create();
-	lista_de_catch = list_create();
+	appeared_a_asignar = list_create();
+	appeared_auxiliares = list_create();
 }
 
 
