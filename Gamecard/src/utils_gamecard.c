@@ -118,7 +118,7 @@ void write_file(char* path, char* data) {
 
 
 bool verificar_posiciones_file(){
-
+	// TODO
 	return true;
 }
 // Base de crear archivos
@@ -165,7 +165,7 @@ void create_new_file_pokemon(char* pokemon) {
 void suscribirse_a(int* conexion, int cola){
 	t_subscriptor* mensaje = crear_suscripcion(cola,100); // tiempo? y cola ints?
 	t_buffer* buffer = serializar_suscripcion(mensaje);
-	enviar_mensaje(*conexion, buffer, 8); // 8 = op_code suscriptor
+	enviar_mensaje(*conexion, buffer, SUSCRIPTOR); // 8 = op_code suscriptor
 
 }
 
@@ -212,6 +212,30 @@ void crear_file_si_no_existe(char* file, t_new_pokemon pokemon){
 	}
 }
 
+
+t_appeared_pokemon convertir_a_appeared_pokemon(t_new_pokemon pokemon){ // ver utilidad de esta funcion
+	// Conectarse al broker
+	t_appeared_pokemon appeared_pokemon = malloc(sizeof(t_appeared_pokemon));
+	appeared_pokemon -> id_mensaje = pokemon->id_mensaje;
+	appeared_pokemon -> pokemon = pokemon->pokemon;
+	appeared_pokemon -> posx = pokemon->posx;
+	appeared_pokemon -> posy = pokemon->posy;
+	appeared_pokemon -> size_pokemon = pokemon -> size_pokemon;
+	return appeared_pokemon;
+}
+
+void enviar_appeared_pokemon_a_broker(int broker, t_new_pokemon pokemon) {
+	// Convertir new_pokemon a appeared_pokemon
+	t_appeared_pokemon appeared_pokemon = convertir_a_appeared_pokemon(pokemon);
+
+	log_trace(logger, "Se va a enviar mensaje APPEARED_POKEMON id: %i.", appeared_pokemon->id_mensaje, broker);
+	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+	mensaje_serializado = serializar_appeared_pokemon(appeared_pokemon);
+	enviar_mensaje(broker, mensaje_serializado, APPEARED_POKEMON);
+	log_info(logger, "Envio de APPEARED_POKEMON %i  al broker", appeared_pokemon->id_mensaje, broker);
+}
+
+
 void handle_mensajes_gamecard(int cod_op, int socket){
 	t_buffer * buffer = recibir_mensaje(socket);
 	t_conexion_buffer * info_mensaje_a_manejar = malloc (sizeof(t_conexion_buffer));
@@ -246,7 +270,7 @@ void handle_mensajes_gamecard(int cod_op, int socket){
 
 }
 
-void
+
 
 void gamecard_manejar_new_pokemon(t_conexion_buffer * combo){
 	t_buffer * buffer = combo->buffer;
@@ -269,6 +293,7 @@ void gamecard_manejar_new_pokemon(t_conexion_buffer * combo){
 	sleep(RETARDO_OPERACION);
 	// Cerrar el archivo
 	// Conectarse al broker y enviar a APPEARED_POKEMON un mensaje con ID del mensaje recibido, pokemon, posicion en el mapa
+	//enviar_appeared_pokemon_a_broker(BROKER,pokemon);
 	// En caso de no poder conectarse avisar por log
 }
 
