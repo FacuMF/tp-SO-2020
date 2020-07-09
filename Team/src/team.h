@@ -55,6 +55,7 @@ int quantum;
 int estimacion_inicial;
 int retardo_ciclo_cpu;
 int desalojar;
+int constante_estimacion;
 
 // PLANIFICACION GENERAL
 int entrenadores_en_ready();
