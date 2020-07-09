@@ -25,6 +25,7 @@ t_list* cargar_entrenadores() {
 				objetivos[i]);
 		entrenador->catch_pendiente = NULL;
 		entrenador->estado = NEW;
+		entrenador->estimacion_rafaga = estimacion_inicial;
 		list_add(head_entrenadores, entrenador);
 		i++;
 	}

@@ -47,6 +47,7 @@ typedef struct t_entrenador {
 	t_estado estado;
 	struct timeval ultima_modificacion;
 	int ciclos_cpu_restantes;
+	int estimacion_rafaga;
 } t_entrenador;
 
 // Variables para planificacion
@@ -65,6 +66,7 @@ void elegir_algoritmo();
 // PLANIFICACION DE ENTRENADORES
 t_entrenador * obtener_entrenador_a_planificar();
 t_entrenador * obtener_entrenador_fifo(t_list * entrenadores);
+t_entrenador * obtener_entrenador_sjf(t_list * entrenadores);
 int timeval_subtract (struct timeval *x, struct timeval *y);
 void preparar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared);
 void ejecutar_entrenador(t_entrenador * entrenador);

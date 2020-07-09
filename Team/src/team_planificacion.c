@@ -9,6 +9,8 @@ void iniciar_planificador() {
 	pthread_mutex_init(&cpu_disponible, NULL);
 	pthread_mutex_init(&entrenadores_ready, NULL);
 
+	t_entrenador * entrenador_en_exec = NULL;
+
 	while (1) { //TODO: Mientras no haya terminado tod.o
 		pthread_mutex_lock(&cpu_disponible);
 
@@ -18,8 +20,17 @@ void iniciar_planificador() {
 
 		t_entrenador * entrenador = obtener_entrenador_a_planificar();
 
-		// TODO: Si es SJFCD y entrenador != de uno que se esté ejecutando, desalojar. Si no,:
-		ejecutar_entrenador(entrenador);
+		// TODO: Revisar y testear
+		if(algoritmo_elegido == A_SJFCD && entrenador_en_exec != NULL){
+			if(entrenador->estimacion_rafaga != entrenador->estimacion_rafaga){
+				desalojar = 1;
+				entrenador_en_exec = entrenador;
+				ejecutar_entrenador(entrenador);
+			}
+		}else{
+			entrenador_en_exec = entrenador;
+			ejecutar_entrenador(entrenador);
+		}
 	}
 
 }
@@ -39,13 +50,6 @@ void elegir_algoritmo() {
 	} else {
 		log_error(logger, "Algoritmo invalido");
 	}
-
-	quantum = config_get_int_value(config, "QUANTUM");
-	estimacion_inicial = config_get_int_value(config, "ESTIMACION_INICIAL");
-	retardo_ciclo_cpu = config_get_int_value(config, "RETARDO_CICLO_CPU");
-	constante_estimacion = config_get_int_value(config, "CONSTANTE_ESTIMACION");
-	desalojar = 0;
-
 }
 
 void ser_entrenador(void *element) {
@@ -85,6 +89,7 @@ void moverse_a_posicion(t_entrenador * entrenador) {
 		case A_SJFCD:
 			if (desalojar) {
 				bloquear_entrenador(entrenador);
+				//TODO: Actualizar est de rafaga siguiente calculando
 				desalojar = 0;
 			}
 			break;
@@ -94,8 +99,10 @@ void moverse_a_posicion(t_entrenador * entrenador) {
 
 		mover_entrenador(entrenador); // TODO: Usar semaforo para uso de CPU.
 
+
 		ciclos_esta_corrida++;
 		entrenador->ciclos_cpu_restantes--;
+		entrenador->estimacion_rafaga--;
 
 		log_debug(logger, "Entrenador en posicon %d %d, ciclos restantes: %d",
 				entrenador->posicion[0], entrenador->posicion[1],
@@ -146,7 +153,7 @@ t_entrenador * obtener_entrenador_a_planificar() {
 		break;
 	case A_SJFSD:
 	case A_SJFCD:
-		//TODO: obtener entrenador con menores ciclos de cpu faltantes
+		entrenador = obtener_entrenador_sjf(entrenadores_en_ready);
 		break;
 	}
 	return entrenador;
@@ -169,6 +176,24 @@ t_entrenador * obtener_entrenador_fifo(t_list * entrenadores) {
 
 	return entrenador_menor_tiempo;
 }
+
+t_entrenador * obtener_entrenador_sjf(t_list * entrenadores) {
+	//Sort por estimacion menor y obtener el primero
+
+	bool menor_estimacion(void*elemento_1, void*elemento_2) {
+		t_entrenador *entrenador_1 = elemento_1;
+		t_entrenador *entrenador_2 = elemento_2;
+		return entrenador_1->estimacion_rafaga < entrenador_1->estimacion_rafaga;
+	}
+
+	t_list * entrenadores_menor_est = list_sorted(entrenadores, menor_estimacion);
+
+	t_entrenador * entrenador_menor_est = list_get(entrenadores_menor_est,
+			0);
+
+	return entrenador_menor_est;
+}
+
 
 int timeval_subtract(x, y)
 	struct timeval *x, *y; {

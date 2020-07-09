@@ -33,7 +33,7 @@ void iniciar_team(char*argumentos_iniciales[]) {
 	config = leer_config(path_config);
 	free(nombre_archivo_config);
 
-	// Leer data sobre looger del config
+	// Leer data sobre logger del config
 	string_nivel_log_minimo = config_get_string_value(config,
 			"LOG_NIVEL_MINIMO");
 	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
@@ -43,6 +43,13 @@ void iniciar_team(char*argumentos_iniciales[]) {
 	logger = iniciar_logger(path_log, "Team", log_nivel_minimo);
 
 	log_trace(logger, "Log inicializado");
+
+	// Obtener variables sobr planificacion
+	quantum = config_get_int_value(config, "QUANTUM");
+	estimacion_inicial = config_get_int_value(config, "ESTIMACION_INICIAL");
+	retardo_ciclo_cpu = config_get_int_value(config, "RETARDO_CICLO_CPU");
+	constante_estimacion = config_get_int_value(config, "CONSTANTE_ESTIMACION");
+	desalojar = 0;
 
 }
 
