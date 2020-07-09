@@ -156,6 +156,7 @@ _Bool ordenar_segun_lru_flag(void* mensaje_1, void* mensaje_2);
 void vaciar_particion(t_mensaje_cache* particion);
 
 void consolidar_cache();
+_Bool corresponde_consolidar(void);
 
 _Bool siguiente_es_vacio();
 _Bool anterior_es_vacio();

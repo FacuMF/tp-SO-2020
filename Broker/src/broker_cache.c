@@ -102,6 +102,7 @@ void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 
 			compactar_cache_si_corresponde();
 		}
+		log_dump_de_cache();
 
 	}
 
@@ -450,8 +451,8 @@ void consolidar_cache() {
 	case BS:
 		;
 
-		while (!buddy_es_vacio(victima)) {
-			log_dump_de_cache();
+		while (buddy_es_vacio(victima)) {
+
 			// Se fija si la buddy de la particion es vacia
 
 			if (el_buddy_es_el_siguiente(victima)) {
@@ -476,11 +477,11 @@ void consolidar_cache() {
 
 }
 
-void log_dump_de_cache(){
+void log_dump_de_cache() {
 	int num_particion = 1;
-	log_debug(logger, "--------------------------------------------------------------------------------------------------");
+	log_debug(logger,
+			"--------------------------------------------------------------------------------------------------");
 	log_debug(logger, "Dump: ");
-
 
 	void log_linea_dump_cache(void* particion) {
 		log_info_particion(particion, num_particion);
@@ -488,24 +489,29 @@ void log_dump_de_cache(){
 	}
 	list_iterate(struct_admin_cache, log_linea_dump_cache);
 
-	log_debug(logger, "--------------------------------------------------------------------------------------------------");
+	log_debug(logger,
+			"--------------------------------------------------------------------------------------------------");
 }
 
-void log_info_particion(t_mensaje_cache* particion, int num_part){
-	char* string = malloc(sizeof(char)*100);
+void log_info_particion(t_mensaje_cache* particion, int num_part) {
+	char* string = malloc(sizeof(char) * 100);
 
-	int direc_inicio = ((int)memoria_cache) + particion->offset;
-	int direc_final = ((int)memoria_cache) + particion->offset + particion->tamanio;
-	char* libre_o_ocupado = (particion->tipo_mensaje == VACIO) ? "[L]" : "[X]" ;
+	int direc_inicio = ((int) memoria_cache) + particion->offset;
+	int direc_final = ((int) memoria_cache) + particion->offset
+			+ particion->tamanio;
+	char* libre_o_ocupado = (particion->tipo_mensaje == VACIO) ? "[L]" : "[X]";
 	int tamano = particion->tamanio;
 
-	if(particion->tipo_mensaje == VACIO){
-		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [L]    Size:%ib    Offset:%i",
+	if (particion->tipo_mensaje == VACIO) {
+		log_debug(logger,
+				"Particion %i: 0x%X - 0x%X.    [L]    Size:%ib    Offset:%i",
 				num_part, direc_inicio, direc_final, tamano, particion->offset);
 	} else {
-		log_debug(logger, "Particion %i: 0x%X - 0x%X.    [X]    Size:%ib    LRU:%i    Cola:%i    ID:%i    Offset:%i ",
+		log_debug(logger,
+				"Particion %i: 0x%X - 0x%X.    [X]    Size:%ib    LRU:%i    Cola:%i    ID:%i    Offset:%i ",
 				num_part, direc_inicio, direc_final, tamano,
-				particion->flags_lru, particion->tipo_mensaje, particion->id, particion->offset);
+				particion->flags_lru, particion->tipo_mensaje, particion->id,
+				particion->offset);
 	}
 
 }
@@ -846,7 +852,7 @@ _Bool corresponde_compactar() {
 		} else {
 			return false;
 		}
-	}else
+	} else
 		return false;
 }
 

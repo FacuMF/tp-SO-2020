@@ -34,3 +34,10 @@ Particion 2: 0x80C0688 - 0x80C0690.    [L]    Size:8b    Offset:8
 Particion 3: 0x80C0690 - 0x80C06A0.    [X]    Size:16b    LRU:3    Cola:5    ID:3    Offset:16 
 Particion 4: 0x80C06A0 - 0x80C06C0.    [X]    Size:32b    LRU:2    Cola:3    ID:2    Offset:32 
 --------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+Dump: Thu Jul  9 14:25:01 2020
+Particion 1: 0x9DF3680 - 0x9DF3688.    [L]    Size:8b    Offset:0
+Particion 2: 0x9DF3688 - 0x9DF3690.    [L]    Size:8b    Offset:8
+Particion 3: 0x9DF3690 - 0x9DF36A0.    [L]    Size:16b    Offset:16
+Particion 4: 0x9DF36A0 - 0x9DF36C0.    [X]    Size:32b    LRU:3    Cola:5    ID:3    Offset:32 
+--------------------------------------------------------------------------------------------------
