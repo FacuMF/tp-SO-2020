@@ -108,8 +108,9 @@ void cazar_pokemon(t_entrenador * entrenador) {
 		sleep(retardo_ciclo_cpu);
 		if(entrenador->ciclos_cpu_restantes > 1)
 			mover_entrenador(entrenador); // TODO: Usar mutex para uso de CPU.
-		else
-			enviar_mensaje_catch(entrenador->catch_pendiente);
+		else{
+			pthread_create(&thread, NULL, (void*) enviar_mensaje_catch,entrenador);
+		}
 
 		ciclos_esta_corrida++;
 		entrenador->ciclos_cpu_restantes--;
@@ -302,8 +303,9 @@ void planificar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensa
 		pthread_mutex_unlock(&cpu_disponible);
 }
 
-void manejar_caught(t_caught_pokemon* mensaje_caught) {
-	t_entrenador * entrenador = buscar_entrenador_segun_id_mensaje(mensaje_caught->id_mensaje);
+void manejar_caught(t_caught_pokemon* mensaje_caught,t_entrenador * entrenador) {
+	if(entrenador==NULL)
+		entrenador = buscar_entrenador_segun_id_mensaje(mensaje_caught->id_mensaje);
 	if(entrenador==NULL)
 		return; // Mensaje descartado
 

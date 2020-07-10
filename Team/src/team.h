@@ -101,11 +101,12 @@ char * obtener_path(char*string);
 // Funciones de comunicacion general
 void esperar_cliente(int socket_servidor);
 void esperar_mensajes_cola(void* input);
-void manejar_recibo_mensajes(int conexion,op_code cod_op,int es_respuesta);
+int manejar_recibo_mensajes(int conexion,op_code cod_op,int es_respuesta);
 int necesito_mensaje(int id_mensaje);
 
 // Funciones de inicio de conexion
 int iniciar_conexion_con_broker();
+int iniciar_conexion_con_broker_reintento();
 void iniciar_conexion_con_gameboy();
 
 // Funciones de envio de mensajes y suscripciones
@@ -115,7 +116,7 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
 
 void enviar_requests_pokemones();
 void enviar_mensaje_get(void*element);
-void enviar_mensaje_catch(t_catch_pokemon * mensaje_catch_a_enviar);
+void enviar_mensaje_catch(void * element);
 
 // Funciones de recepcion de mensajes
 void recibir_mensaje_appeared(t_buffer * buffer);
@@ -125,7 +126,7 @@ void recibir_mensaje_localized(t_buffer * buffer);
 // Funciones de handle de mensajes
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared);
 void manejar_appeared_aux(void * element);
-void manejar_caught(t_caught_pokemon* mensaje_caught);
+void manejar_caught(t_caught_pokemon* mensaje_caught,t_entrenador * entrenador);
 void manejar_localized(t_localized_pokemon* mensaje_localized);
 
 // Funciones de carga de entrenador - team_entrenadores

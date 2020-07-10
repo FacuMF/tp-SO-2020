@@ -9,7 +9,7 @@ void suscribirse_a_colas_necesarias() {
 }
 
 void enviar_suscripcion_broker(op_code tipo_mensaje) {
-	int socket_broker = iniciar_conexion_con_broker();
+	int socket_broker = iniciar_conexion_con_broker_reintento();
 
 	enviar_mensaje_suscripcion(tipo_mensaje, socket_broker);
 
@@ -33,7 +33,7 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 
 // RECEPCION MENSAJES
 
-void manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
+int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	t_buffer * buffer = recibir_mensaje(conexion);
 	int id_mensaje;
 
@@ -53,7 +53,7 @@ void manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		id_mensaje = mensaje_caught->id_mensaje;
 		log_info(logger, "Mensaje CAUGHT_POKEMON: %s", mostrar_caught_pokemon(mensaje_caught));
 
-		manejar_caught(mensaje_caught);
+		manejar_caught(mensaje_caught,NULL);
 
 		break;
 	case LOCALIZED_POKEMON:
@@ -95,5 +95,6 @@ void manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	}
 
 	log_trace(logger, "Mensaje recibido manejado.");
+	return id_mensaje;
 }
 

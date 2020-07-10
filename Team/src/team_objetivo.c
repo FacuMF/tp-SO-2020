@@ -11,7 +11,7 @@ t_list* obtener_pokemones_por_capturar() {
 
 	list_iterate(head_entrenadores, llenar_lista_con_sus_pokemones);
 
-	log_debug(logger, "Kokemones a capturar  obtenidos");
+	//log_debug(logger, "Kokemones a capturar  obtenidos");
 	//list_iterate(pokemones_por_capturar, mostrar_kokemon);
 
 	return pokemones_por_capturar;
@@ -28,7 +28,7 @@ t_list * obtener_pokemones_capturados(){
 
 	list_iterate(head_entrenadores, llenar_lista_con_sus_pokemones);
 
-	log_debug(logger, "Kokemones capturados obtenidos");
+	//log_debug(logger, "Kokemones capturados obtenidos");
 	//list_iterate(pokemones_capturados, mostrar_kokemon);
 
 	return pokemones_capturados;
@@ -57,8 +57,8 @@ t_list * obtener_pokemones_necesitados(){
 
 	list_iterate(pokemones_por_capturar,borrar_si_fue_capturado);
 
-	log_debug(logger, "Kokemones necesitados obtenidos");
-	list_iterate(pokemones_necesitados, mostrar_kokemon);
+	//log_debug(logger, "Kokemones necesitados obtenidos");
+	//list_iterate(pokemones_necesitados, mostrar_kokemon);
 
 	return pokemones_necesitados;
 }
