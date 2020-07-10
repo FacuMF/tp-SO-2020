@@ -35,7 +35,7 @@ int asignar_id_get_pokemon(t_get_pokemon* mensaje) {
 void devolver_get_pokemon(int socket_cliente, t_get_pokemon* mensaje_get_pokemon) {
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	mensaje_serializado = serializar_get_pokemon(mensaje_get_pokemon);
-	enviar_mensaje(socket_cliente, mensaje_serializado, APPEARED_POKEMON);
+	enviar_mensaje(socket_cliente, mensaje_serializado, GET_POKEMON);
 }
 
 void enviar_a_todos_los_subs_get_pokemon(t_get_pokemon* mensaje) {

@@ -8,10 +8,9 @@ int main(int argv, char*archivo_config[]) {
 
 	inicializar_listas();
 
-
 	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
-	//pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,NULL);
+	pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,NULL);
 
 	pthread_create(&thread, NULL, (void*) iniciar_conexion_con_gameboy,NULL);
 
@@ -33,7 +32,7 @@ void iniciar_team(char*argumentos_iniciales[]) {
 	config = leer_config(path_config);
 	free(nombre_archivo_config);
 
-	// Leer data sobre looger del config
+	// Leer data sobre logger del config
 	string_nivel_log_minimo = config_get_string_value(config,
 			"LOG_NIVEL_MINIMO");
 	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
@@ -44,16 +43,23 @@ void iniciar_team(char*argumentos_iniciales[]) {
 
 	log_trace(logger, "Log inicializado");
 
+	// Obtener variables sobr planificacion
+	quantum = config_get_int_value(config, "QUANTUM");
+	estimacion_inicial = config_get_int_value(config, "ESTIMACION_INICIAL");
+	retardo_ciclo_cpu = config_get_int_value(config, "RETARDO_CICLO_CPU");
+	//TODO: Puede ser con coma, testear
+	constante_estimacion = config_get_double_value(config, "CONSTANTE_ESTIMACION");
+	desalojar = 0;
+
 }
 
 
 void inicializar_listas(){
 	//TODO: en every lugar que se usen las globales usar mutex
 	head_entrenadores = cargar_entrenadores();
-	pokemones_por_capturar_global = obtener_pokemones_a_capturar();
-	objetivo_global = formar_lista_de_objetivos(pokemones_por_capturar_global);
 	ids_mensajes_utiles = list_create();
-	lista_de_catch = list_create();
+	appeared_a_asignar = list_create();
+	appeared_auxiliares = list_create();
 }
 
 

@@ -25,6 +25,7 @@ t_list* cargar_entrenadores() {
 				objetivos[i]);
 		entrenador->catch_pendiente = NULL;
 		entrenador->estado = NEW;
+		entrenador->estimacion_rafaga = estimacion_inicial;
 		list_add(head_entrenadores, entrenador);
 		i++;
 	}
@@ -73,45 +74,6 @@ t_list* string_a_pokemon_list(char* cadena_con_pokemones) {
 
 	return head_pokemones;
 
-}
-
-void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones) {
-	list_add(pokemones_repetidos, pokemones);
-}
-
-// TODO VER COMO RESOLVER REPETICION DE LOGICA.
-t_list* obtener_pokemones_a_capturar() {
-	t_list * pokemones_por_capturar = list_create();
-	void aniadir_pokemon_aux(void *pokemones) {
-		aniadir_pokemon(pokemones_por_capturar, pokemones);
-	}
-	void buscar_pokemon(void * head) {
-		t_entrenador *entrenador = head;
-		list_iterate(entrenador->pokemones_por_capturar, aniadir_pokemon_aux);
-	}
-
-	list_iterate(head_entrenadores, buscar_pokemon);
-
-	log_trace(logger, "Kokemones a capturar  obtenidos");
-	//list_iterate(pokemones_repetidos, mostrar_kokemon);
-	return pokemones_por_capturar;
-}
-
-t_list * obtener_pokemones_capturados(){
-	t_list * pokemones_capturados = list_create();
-		void aniadir_pokemon_aux(void *pokemones) {
-			aniadir_pokemon(pokemones_capturados, pokemones);
-		}
-		void buscar_pokemon(void * head) {
-			t_entrenador *entrenador = head;
-			list_iterate(entrenador->pokemones_capturados, aniadir_pokemon_aux);
-		}
-
-		list_iterate(head_entrenadores, buscar_pokemon);
-
-		//log_trace(logger, "Kokemones  capturados  obtenidos");
-		//list_iterate(pokemones_capturados, mostrar_kokemon);
-		return pokemones_capturados;
 }
 
 void mostrar_kokemon(void*elemento) {
