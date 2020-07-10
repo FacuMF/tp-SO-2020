@@ -5,13 +5,14 @@ t_list* obtener_pokemones_por_capturar() {
 
 	void llenar_lista_con_sus_pokemones(void * element) {
 		t_entrenador *entrenador = element;
-		list_add_all(pokemones_por_capturar,entrenador->pokemones_por_capturar);
+		t_list * lista_a_agregar = list_duplicate(entrenador->pokemones_por_capturar);
+		list_add_all(pokemones_por_capturar,lista_a_agregar);
 	}
 
 	list_iterate(head_entrenadores, llenar_lista_con_sus_pokemones);
 
-	log_trace(logger, "Kokemones a capturar  obtenidos");
-	//list_iterate(pokemones_repetidos, mostrar_kokemon);
+	log_debug(logger, "Kokemones a capturar  obtenidos");
+	//list_iterate(pokemones_por_capturar, mostrar_kokemon);
 
 	return pokemones_por_capturar;
 }
@@ -21,13 +22,14 @@ t_list * obtener_pokemones_capturados(){
 
 	void llenar_lista_con_sus_pokemones(void * element) {
 		t_entrenador *entrenador = element;
-		list_add_all(pokemones_capturados,entrenador->pokemones_capturados);
+		t_list * lista_a_agregar = list_duplicate(entrenador->pokemones_capturados);
+		list_add_all(pokemones_capturados,lista_a_agregar);
 	}
 
 	list_iterate(head_entrenadores, llenar_lista_con_sus_pokemones);
 
-	log_trace(logger, "Kokemones a capturar  obtenidos");
-	//list_iterate(pokemones_repetidos, mostrar_kokemon);
+	log_debug(logger, "Kokemones capturados obtenidos");
+	//list_iterate(pokemones_capturados, mostrar_kokemon);
 
 	return pokemones_capturados;
 }
@@ -35,7 +37,7 @@ t_list * obtener_pokemones_capturados(){
 t_list * obtener_pokemones_necesitados(){
 	t_list * pokemones_capturados = obtener_pokemones_capturados();
 	t_list * pokemones_por_capturar = obtener_pokemones_por_capturar();
-	t_list * pokemones_necesitados = pokemones_por_capturar;
+	t_list * pokemones_necesitados = list_duplicate(pokemones_por_capturar);
 
 	char * pokemon_analizado;
 
@@ -45,7 +47,7 @@ t_list * obtener_pokemones_necesitados(){
 	}
 
 	void borrar_si_fue_capturado(void * element){
-		char * pokemon;
+		char * pokemon=element;
 		if(esta_en_lista(pokemones_capturados,pokemon)){
 			pokemon_analizado = pokemon;
 			list_remove_by_condition(pokemones_necesitados,es_igual_a_analizado);
@@ -54,6 +56,9 @@ t_list * obtener_pokemones_necesitados(){
 	}
 
 	list_iterate(pokemones_por_capturar,borrar_si_fue_capturado);
+
+	log_debug(logger, "Kokemones necesitados obtenidos");
+	list_iterate(pokemones_necesitados, mostrar_kokemon);
 
 	return pokemones_necesitados;
 }

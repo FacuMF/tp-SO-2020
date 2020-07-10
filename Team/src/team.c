@@ -10,7 +10,7 @@ int main(int argv, char*archivo_config[]) {
 
 	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
-	//pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,NULL);
+	pthread_create(&thread, NULL, (void*) enviar_requests_pokemones,NULL);
 
 	pthread_create(&thread, NULL, (void*) iniciar_conexion_con_gameboy,NULL);
 

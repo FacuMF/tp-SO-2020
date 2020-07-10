@@ -276,8 +276,11 @@ void ejecutar_entrenador(t_entrenador * entrenador) {
 // MANEJO DE MENSAJES
 
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
+	log_debug(logger,"Manejo mensaje appeared");
 	if (!requiero_pokemon(mensaje_appeared->pokemon))
 		return;
+
+	log_trace(logger,"Necesito pokemon");
 
 	t_entrenador * entrenador_elegido = obtener_entrenador_buscado(
 			mensaje_appeared->posx, mensaje_appeared->posy);
