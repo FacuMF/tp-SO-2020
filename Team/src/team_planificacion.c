@@ -43,6 +43,7 @@ void elegir_algoritmo() {
 	quantum = config_get_int_value(config, "QUANTUM");
 	estimacion_inicial = config_get_int_value(config, "ESTIMACION_INICIAL");
 	retardo_ciclo_cpu = config_get_int_value(config, "RETARDO_CICLO_CPU");
+	constante_estimacion = config_get_int_value(config, "CONSTANTE_ESTIMACION");
 	desalojar = 0;
 
 }
@@ -91,7 +92,7 @@ void moverse_a_posicion(t_entrenador * entrenador) {
 			break;
 		}
 
-		mover_entrenador(entrenador);
+		mover_entrenador(entrenador); // TODO: Usar semaforo para uso de CPU.
 
 		ciclos_esta_corrida++;
 		entrenador->ciclos_cpu_restantes--;
