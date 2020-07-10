@@ -156,8 +156,8 @@ void enviar_mensaje(int socket, t_buffer* buffer, op_code codigo_operacion){
 	free(paquete->buffer->stream);
 	free(paquete->buffer);
 	*/
-	//free(paquete);
-	//free(serializado);
+	free(paquete);
+	free(serializado);
 
 }
 
