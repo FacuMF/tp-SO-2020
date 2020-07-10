@@ -11,12 +11,12 @@ void manejar_mensaje_get(t_conexion_buffer *combo) {
 	int id_mensaje_recibido = asignar_id_get_pokemon(
 			mensaje_get_pokemon);
 
-	log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEON",
+	log_info(logger, "Llegada de mensaje nuevo %i a cola GET_POKEMON",
 			id_mensaje_recibido);
 
 	devolver_get_pokemon(socket_cliente, mensaje_get_pokemon);
 	log_trace(logger,
-			"Se devolvio el mensaje APPEARED_POKEMON con id asignado.");
+			"Se devolvio el mensaje GET_POKEMON con id asignado.");
 
 	enviar_a_todos_los_subs_get_pokemon(mensaje_get_pokemon);
 
@@ -40,7 +40,7 @@ void devolver_get_pokemon(int socket_cliente, t_get_pokemon* mensaje_get_pokemon
 
 void enviar_a_todos_los_subs_get_pokemon(t_get_pokemon* mensaje) {
 	log_trace(logger,
-			"Se van a enviar a todos los subs, el nuevo APPEARED_POKEMON.");
+			"Se van a enviar a todos los subs, el nuevo GET_POKEMON.");
 
 	void enviar_get_pokemon_a_suscriptor_aux(void* suscriptor) {
 		enviar_get_pokemon_a_suscriptor((int)suscriptor, mensaje);
@@ -50,14 +50,14 @@ void enviar_a_todos_los_subs_get_pokemon(t_get_pokemon* mensaje) {
 			enviar_get_pokemon_a_suscriptor_aux);
 
 	log_trace(logger,
-			"Se va a enviar a todos los subs, el nuevo APPEARED_POKEMON.");
+			"Se va a enviar a todos los subs, el nuevo GET_POKEMON.");
 }
 
 void enviar_get_pokemon_a_suscriptor(int suscriptor,
 		t_get_pokemon* mensaje) {
 
 	//Envio del mensaje
-	log_trace(logger, "Se va a enviar mensaje APPEARED_POKEMON id: %i a sub: %i.",
+	log_trace(logger, "Se va a enviar mensaje GET_POKEMON id: %i a sub: %i.",
 				mensaje->id_mensaje, suscriptor);
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	mensaje_serializado = serializar_get_pokemon(mensaje);
