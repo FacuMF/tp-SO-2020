@@ -70,6 +70,8 @@ void cazar_pokemon(t_entrenador * entrenador);
 void mover_entrenador(t_entrenador * entrenador);
 void bloquear_entrenador(t_entrenador * entrenador);
 
+void si_esta_sacar_de_lista(t_list * appeared_auxiliares, char * pokemon);
+
 // FILTRADO DE ENTRENADORES
 t_entrenador * obtener_entrenador_buscado(int posx, int posy);
 t_list * obtener_entrenadores_disponibles(t_list * entrenadores);
@@ -82,6 +84,8 @@ t_list* obtener_pokemones_por_capturar();
 t_list * obtener_pokemones_capturados();
 t_list * obtener_pokemones_necesitados();
 t_list * obtener_pokemones_necesitados_sin_repetidos();
+t_appeared_pokemon * obtener_auxiliar_de_lista(char * pokemon);
+void planificar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared);
 int requiero_pokemon(char * pokemon);
 int cantidad_veces_requerido(char * pokemon);
 int esta_en_lista(t_list * lista_pokemones,char * pokemon);
@@ -143,6 +147,7 @@ void mostrar_kokemon(void*elemento);
 // Filtro Mensajes
 int pokemon_asignado_a_entrenador(char * pokemon);
 int pokemon_en_pendientes(char * pokemon);
+int pokemon_en_auxiliares(char * pokemon);
 int mensaje_repetido(t_localized_pokemon * mensaje_localized);
 int necesito_mensaje(int id_mensaje);
 
