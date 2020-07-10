@@ -2,9 +2,9 @@
 
 void main(){
 	// Logger
-	logger = iniciar_logger("./Gamecard/config/gamecard.log", "Gamecard", LOG_LEVEL_TRACE);
+	t_log* logger = iniciar_logger("./Gamecard/config/gamecard.log", "Gamecard", LOG_LEVEL_TRACE);
 	// Leer config
-	config = leer_config("./Gamecard/config/gamecard.config");
+	t_config* config = leer_config("./Gamecard/config/gamecard.config");
 	set_base_path(config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"));
 	char* PUERTO_BROKER = config_get_int_value(config, "PUERTO_BROKER");
 	char* IP_BROKER = config_get_int_value(config, "IP_BROKER");
@@ -27,7 +27,7 @@ void main(){
 	//				Volver al estado escucha de la MQ
 
 	// Al recibir mensajes
-	recibir_mensajes_gamecard();
+	//recibir_mensajes_gamecard();
 
 }
 

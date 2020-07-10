@@ -47,13 +47,13 @@ void create_new_file_pokemon(char* pokemon);
 void suscribirse_a(int* conexion, int cola);
 bool file_existing(char* path);
 bool file_open(char* pokemon);
-char* extraer_bloques(char* pokemon);
+char** extraer_bloques(char* pokemon);
 void recibir_mensajes_gamecard(int *socket);
 bool verificar_posciones_file(int x, int y, char** bloques);
-void crear_file_si_no_existe(char* file, t_new_pokemon pokemon);
-t_appeared_pokemon convertir_a_appeared_pokemon(t_new_pokemon pokemon);
-void enviar_appeared_pokemon_a_broker(int broker, t_new_pokemon pokemon);
-void handle_mensajes_gamecard(int cod_op, int socket);
+void crear_file_si_no_existe(char* file, char* pokemon);
+t_appeared_pokemon* convertir_a_appeared_pokemon(t_new_pokemon* pokemon);
+void enviar_appeared_pokemon_a_broker(int broker, t_new_pokemon* pokemon);
+void handle_mensajes_gamecard(int cod_op, int* socket);
 
 
 // Manejo de mensajes
