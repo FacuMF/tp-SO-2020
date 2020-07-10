@@ -141,11 +141,16 @@ void* serializar_paquete(t_paquete* paquete, int *bytes) {
 }
 
 void enviar_mensaje(int socket, t_buffer* buffer, op_code codigo_operacion){
+	printf("0\n");
 	t_paquete* paquete = generar_paquete(buffer, codigo_operacion);
+	printf("1\n");
 	int size_serializado;
+	printf("2\n");
 	void* serializado= serializar_paquete(paquete, &size_serializado);
+	printf("3\n");
 
-	send(socket, serializado, size_serializado, 0);
+	int b = send(socket, serializado, size_serializado, 0);
+	printf("bytes transmitidos: %d", b);
 
 	/* Tira segmentation fault
 	free(paquete->buffer->stream);
