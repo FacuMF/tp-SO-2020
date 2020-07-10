@@ -265,7 +265,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		list_add(posiciones, posicion3);
 
 		t_localized_pokemon* mensaje_localized = crear_localized_pokemon(10,
-				"Bulbasaur", posiciones);
+				"Pikachu", posiciones);
 
 		mensaje_serializado = serializar_localized_pokemon(mensaje_localized);
 		break;

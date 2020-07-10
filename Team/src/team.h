@@ -120,6 +120,7 @@ void recibir_mensaje_localized(t_buffer * buffer);
 
 // Funciones de handle de mensajes
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared);
+void manejar_appeared_aux(void * element);
 void manejar_caught(t_caught_pokemon* mensaje_caught);
 void manejar_localized(t_localized_pokemon* mensaje_localized);
 
@@ -156,7 +157,7 @@ void ser_entrenador(void *element);
 bool es_id_necesario(int id_a_chequear);
 t_catch_pokemon * encontrar_en_lista_de_catch_pokemon (char * pokemon_a_encontrar);
 t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared);
-t_list * lista_de_catch_a_partir_localized(t_localized_pokemon * localized_a_chequear);
+t_list * lista_de_appeared_a_partir_localized(t_localized_pokemon * localized_a_chequear);
 t_entrenador * buscar_entrenador_segun_id_mensaje(int id_mensaje);
 
 int distancia(t_entrenador * entrenador, int posx, int posy);
