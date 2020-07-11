@@ -31,7 +31,7 @@ team:
 
 gameboy:
 	mkdir -p $(BIN_PATH)
-	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/GameBoy $(LIBS)
+	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/gameboy $(LIBS)
 
 clienteservidor:
 	mkdir -p $(BIN_PATH)
@@ -41,7 +41,7 @@ clienteservidor:
 gbb: #gameboy y broker
 	mkdir -p $(BIN_PATH)
 	$(COMPILER) $(UTILS) $(BROKER) -o $(BIN_PATH)/Broker $(LIBS)
-	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/GameBoy $(LIBS)
+	$(COMPILER) $(UTILS) $(GAMEBOY) -o $(BIN_PATH)/gameboy $(LIBS)
 	
 	
 
