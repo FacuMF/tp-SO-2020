@@ -57,14 +57,16 @@ void ser_entrenador(void *element) {
 
 	while (1) {
 		pthread_mutex_lock(&(entrenador->sem_est));
-		log_debug(logger, "Entrenador despierto: Posicion %i %i",
-				entrenador->posicion[0], entrenador->posicion[1]);
 
 		if(entrenador->catch_pendiente!=NULL){
+			log_debug(logger, "Entrenador despierto: Posicion %i %i",
+				entrenador->posicion[0], entrenador->posicion[1]);
 			cazar_pokemon(entrenador);
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_ESPERANDO;
 			pthread_mutex_unlock(&cpu_disponible);
+			log_debug(logger, "Entrenador dormido: Posicion %i %i",
+									entrenador->posicion[0], entrenador->posicion[1]);
 		}else if(objetivo_propio_cumplido(entrenador)){
 			actualizar_timestamp(entrenador);
 			pthread_mutex_unlock(&cpu_disponible);
@@ -73,13 +75,20 @@ void ser_entrenador(void *element) {
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_NORMAL;
 			pthread_mutex_unlock(&cpu_disponible);
+			log_debug(logger, "Entrenador blockeado normal: Posicion %i %i",
+										entrenador->posicion[0], entrenador->posicion[1]);
 		}else if(!tiene_espacio_disponible(entrenador)){
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_DEADLOCK;
 			pthread_mutex_unlock(&cpu_disponible);
+			log_debug(logger, "Entrenador esperando deadlock: Posicion %i %i",
+										entrenador->posicion[0], entrenador->posicion[1]);
 		}
 		//TODO: Agregar else if para cuando tenga que hacer el deadlock
+
 	}
+	log_debug(logger, "Entrenador en exit: Posicion %i %i",
+							entrenador->posicion[0], entrenador->posicion[1]);
 	entrenador->estado = EXIT;
 }
 
@@ -116,7 +125,7 @@ void cazar_pokemon(t_entrenador * entrenador) {
 		entrenador->ciclos_cpu_restantes--;
 		entrenador->estimacion_rafaga--;
 
-		log_debug(logger, "Entrenador en posicon %d %d, ciclos restantes: %d",
+		log_trace(logger, "Entrenador en posicon %d %d, ciclos restantes: %d",
 				entrenador->posicion[0], entrenador->posicion[1],
 				entrenador->ciclos_cpu_restantes);
 	}
@@ -154,10 +163,10 @@ int objetivo_propio_cumplido(t_entrenador *entrenador){
 	t_list *pokemones_por_capturar= entrenador->pokemones_por_capturar;
 	t_list * pokemones_capturados = entrenador->pokemones_capturados;
 
-	bool fue_capturado(void *pokemon){
-		char * pokemon_a_chequear = pokemon;
-		int repeticiones_en_capturados = cantidad_repeticiones_en_lista(pokemones_capturados,pokemon_a_chequear);
-		int repeticiones_en_por_capturar= cantidad_repeticiones_en_lista(pokemones_capturados,pokemon_a_chequear);
+	bool fue_capturado(void *element){
+		char * pokemon = element;
+		int repeticiones_en_capturados = cantidad_repeticiones_en_lista(pokemones_capturados,pokemon);
+		int repeticiones_en_por_capturar= cantidad_repeticiones_en_lista(pokemones_por_capturar,pokemon);
 
 		return repeticiones_en_capturados == repeticiones_en_por_capturar ;
 	}
@@ -258,7 +267,7 @@ void preparar_entrenador(t_entrenador * entrenador,
 
 	entrenador->estado = READY;
 
-	log_debug(logger, "Nuevo ent en ready: Posicion %i %i",
+	log_trace(logger, "Nuevo ent en ready: Posicion %i %i",
 			entrenador->posicion[0], entrenador->posicion[1]);
 
 }
@@ -277,12 +286,11 @@ void ejecutar_entrenador(t_entrenador * entrenador) {
 // MANEJO DE MENSAJES
 
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
-	log_debug(logger,"Manejo mensaje appeared");
+
 	if (!requiero_pokemon(mensaje_appeared->pokemon))
 		return;
 
-	log_debug(logger,"Necesito appeared");
-	mostrar_appeared_pokemon(mensaje_appeared);
+	log_trace(logger,"Manejo mensaje appeared");
 
 	t_entrenador * entrenador_elegido = obtener_entrenador_buscado(
 			mensaje_appeared->posx, mensaje_appeared->posy);
@@ -308,6 +316,8 @@ void manejar_caught(t_caught_pokemon* mensaje_caught,t_entrenador * entrenador) 
 		entrenador = buscar_entrenador_segun_id_mensaje(mensaje_caught->id_mensaje);
 	if(entrenador==NULL)
 		return; // Mensaje descartado
+
+	log_trace(logger,"Manejo mensaje caught");
 
 	char * pokemon = entrenador->catch_pendiente->pokemon;
 	if(mensaje_caught->ok_or_fail){ // SI LO ATRAPO
@@ -377,6 +387,8 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 
 	if(mensaje_repetido(mensaje_localized))
 		return; // Mensaje descartado
+
+	log_trace(logger,"Manejo mensaje caught");
 
 	int necesitados = cantidad_repeticiones_en_lista(obtener_pokemones_necesitados(),mensaje_localized->pokemon);
 
