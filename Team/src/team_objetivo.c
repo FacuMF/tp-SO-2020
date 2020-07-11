@@ -48,7 +48,7 @@ t_list * obtener_pokemones_necesitados(){
 
 	void borrar_si_fue_capturado(void * element){
 		char * pokemon=element;
-		if(esta_en_lista(pokemones_capturados,pokemon)){
+		if(pokemon_en_lista(pokemones_capturados,pokemon)){
 			pokemon_analizado = pokemon;
 			list_remove_by_condition(pokemones_necesitados,es_igual_a_analizado);
 			list_remove_by_condition(pokemones_capturados,es_igual_a_analizado);
@@ -70,7 +70,7 @@ t_list * obtener_pokemones_necesitados_sin_repetidos(){
 	void agrego_si_no_existe(void * element){
 		char*pokemon = element;
 
-		if(!esta_en_lista(pokemones_sin_repetidos,pokemon)){
+		if(!pokemon_en_lista(pokemones_sin_repetidos,pokemon)){
 			list_add(pokemones_sin_repetidos,pokemon);
 		}
 	}
@@ -83,17 +83,10 @@ t_list * obtener_pokemones_necesitados_sin_repetidos(){
 int requiero_pokemon(char * pokemon){
 	t_list * pokemones_necesitados = obtener_pokemones_necesitados();
 
-	return esta_en_lista(pokemones_necesitados,pokemon);
+	return pokemon_en_lista(pokemones_necesitados,pokemon);
 }
 
-int cantidad_veces_requerido(char * pokemon){
-	t_list * pokemones_necesitados = obtener_pokemones_necesitados();
-
-	return cantidad_repeticiones_en_lista(pokemones_necesitados,pokemon);
-}
-
-
-int esta_en_lista(t_list * lista_pokemones,char * pokemon){
+int pokemon_en_lista(t_list * lista_pokemones,char * pokemon){
 	bool pokemon_igual_aux(void*elemento){
 		char * pokemon_a_comparar =elemento;
 		return !strcasecmp(pokemon_a_comparar,pokemon);

@@ -20,10 +20,6 @@ char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
 typedef enum {
-	Pikachu, Squirtle, Pidgey, Charmander, Bulbasaur
-} t_pokemones;
-
-typedef enum {
 	A_FIFO, A_RR, A_SJFCD, A_SJFSD
 } t_algoritmo;
 
@@ -43,7 +39,7 @@ typedef struct t_entrenador {
 	double estimacion_rafaga;
 } t_entrenador;
 
-// Variables para planificacion
+// VARIABLES PLANIFICACION
 t_algoritmo algoritmo_elegido;
 int quantum;
 double estimacion_inicial;
@@ -56,60 +52,92 @@ int entrenadores_en_ready();
 void iniciar_planificador();
 void elegir_algoritmo();
 
-// PLANIFICACION DE ENTRENADORES
+// PLANIFICACION - ALGORITMOS
 t_entrenador * obtener_entrenador_a_planificar();
 t_entrenador * obtener_entrenador_fifo(t_list * entrenadores);
 t_entrenador * obtener_entrenador_sjf(t_list * entrenadores);
+
+// PLANIFICACION - AUXILIARES
 int timeval_subtract (struct timeval *x, struct timeval *y);
-void preparar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared);
-void ejecutar_entrenador(t_entrenador * entrenador);
-void actualizar_timestamp(t_entrenador * entrenador);
+int distancia(t_entrenador * entrenador, int posx, int posy);
 
-int objetivo_propio_cumplido(t_entrenador *entrenador);
-void cazar_pokemon(t_entrenador * entrenador);
-void mover_entrenador(t_entrenador * entrenador);
-void bloquear_entrenador(t_entrenador * entrenador);
-
-void si_esta_sacar_de_lista(t_list * appeared_auxiliares, char * pokemon);
-
-// FILTRADO DE ENTRENADORES
+// PLANIFICACION - FILTRADO DE ENTRENADORES
 t_entrenador * obtener_entrenador_buscado(int posx, int posy);
 t_list * obtener_entrenadores_disponibles(t_list * entrenadores);
-t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado,t_list * entrenadores);
+t_list * obtener_entrenadores_en_estado(t_estado estado_buscado,t_list * entrenadores);
 t_list * obtener_entrenadores_con_espacio(t_list * entrenadores);
-int tiene_espacio_disponible(t_entrenador * entrenador);
+t_entrenador * obtener_entrenador_segun_id_mensaje(int id_mensaje);
+t_entrenador * obtener_entrenador_mas_cercano(int posx, int posy, t_list *entrenadores);
 
-// OBJETIVOS
+void planificar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared);
+void preparar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared);
+
+// OBJETIVO
 t_list* obtener_pokemones_por_capturar();
 t_list * obtener_pokemones_capturados();
 t_list * obtener_pokemones_necesitados();
 t_list * obtener_pokemones_necesitados_sin_repetidos();
-t_appeared_pokemon * obtener_auxiliar_de_lista(char * pokemon);
-void planificar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared);
+
+// OBJETIVO - AUXILIARES
 int requiero_pokemon(char * pokemon);
-int cantidad_veces_requerido(char * pokemon);
-int esta_en_lista(t_list * lista_pokemones,char * pokemon);
+int pokemon_asignado_a_entrenador(char * pokemon);
+int pokemon_en_pendientes(char * pokemon);
+int pokemon_en_auxiliares(char * pokemon);
+int pokemon_en_lista(t_list * lista_pokemones,char * pokemon);
 int cantidad_repeticiones_en_lista(t_list * lista_pokemones, char *pokemon );
 
-// Funciones generales
+// HANDLE MENSAJES
+void manejar_appeared(t_appeared_pokemon * mensaje_appeared);
+void manejar_appeared_aux(void * element);
+void manejar_caught(t_caught_pokemon* mensaje_caught,t_entrenador * entrenador);
+void manejar_localized(t_localized_pokemon* mensaje_localized);
+
+// HANDLE MENSAJES - AUXILIARES
+int necesito_mensaje(int id_mensaje);
+int mensaje_repetido(t_localized_pokemon * mensaje_localized);
+t_appeared_pokemon * obtener_auxiliar_de_lista(char * pokemon);
+void eliminar_de_lista_appeared(t_list * appeared_auxiliares, char * pokemon);
+t_list * de_localized_a_lista_appeared(t_localized_pokemon * localized_a_chequear);
+t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared);
+
+// ENTRENADOR
+void ser_entrenador(void *element);
+
+int objetivo_propio_cumplido(t_entrenador *entrenador);
+void cazar_pokemon(t_entrenador * entrenador);
+void mover_entrenador(t_entrenador * entrenador);
+
+// ENTRENADOR - MANEJO INFO
+void bloquear_entrenador(t_entrenador * entrenador);
+void ejecutar_entrenador(t_entrenador * entrenador);
+
+int tiene_espacio_disponible(t_entrenador * entrenador);
+void actualizar_timestamp(t_entrenador * entrenador);
+
+// GENERALES
 void iniciar_team(char*archivo_config[]);
 void inicializar_listas();
 
+t_list* cargar_entrenadores();
+void lanzar_hilo_entrenador(void*element);
+
 void finalizar_team();
+
+// GENERALES - AUXILIARES
 char * obtener_path(char*string);
+int* de_string_a_posicion(char* string);
+t_list* string_a_pokemon_list(char* string);
 
-// Funciones de comunicacion general
-void esperar_cliente(int socket_servidor);
-void esperar_mensajes_cola(void* input);
-int manejar_recibo_mensajes(int conexion,op_code cod_op,int es_respuesta);
-int necesito_mensaje(int id_mensaje);
-
-// Funciones de inicio de conexion
+// COMUNICACION GENERAL
 int iniciar_conexion_con_broker();
 int iniciar_conexion_con_broker_reintento();
 void iniciar_conexion_con_gameboy();
 
-// Funciones de envio de mensajes y suscripciones
+void esperar_cliente(int socket_servidor);
+void esperar_mensajes_cola(void* input);
+int manejar_recibo_mensajes(int conexion,op_code cod_op,int es_respuesta);
+
+// ENVIO MENSAJES
 void suscribirse_a_colas_necesarias();
 void enviar_suscripcion_broker(op_code tipo_mensaje);
 void enviar_mensaje_suscripcion(op_code mensaje, int conexion);
@@ -118,61 +146,10 @@ void enviar_requests_pokemones();
 void enviar_mensaje_get(void*element);
 void enviar_mensaje_catch(void * element);
 
-// Funciones de recepcion de mensajes
-void recibir_mensaje_appeared(t_buffer * buffer);
-void recibir_mensaje_caught(t_buffer * buffer);
-void recibir_mensaje_localized(t_buffer * buffer);
-
-// Funciones de handle de mensajes
-void manejar_appeared(t_appeared_pokemon * mensaje_appeared);
-void manejar_appeared_aux(void * element);
-void manejar_caught(t_caught_pokemon* mensaje_caught,t_entrenador * entrenador);
-void manejar_localized(t_localized_pokemon* mensaje_localized);
-
-// Funciones de carga de entrenador - team_entrenadores
-t_list* cargar_entrenadores();
-int* de_string_a_posicion(char* string);
-t_list* string_a_pokemon_list(char* string);
-
-//Funciones de obtencion de los pokemones
-t_list* obtener_pokemones_a_capturar();
-t_list * obtener_pokemones_capturados();
-void aniadir_pokemon(t_list *pokemones_repetidos, void * pokemones);
-
-//Funciones de mostrado de entrenador y pokemon
+// DEBUG
 void mostrar_entrenadores(t_list * head_entrenadores);
 void mostrar_data_entrenador(void * element);
 void mostrar_kokemon(void*elemento);
-
-
-// Filtro Mensajes
-int pokemon_asignado_a_entrenador(char * pokemon);
-int pokemon_en_pendientes(char * pokemon);
-int pokemon_en_auxiliares(char * pokemon);
-int mensaje_repetido(t_localized_pokemon * mensaje_localized);
-int necesito_mensaje(int id_mensaje);
-
-
-// Funciones de Manejo de Hilos - team_planificacion
-void lanzar_hilo_entrenador(void*element);
-void ser_entrenador(void *element);
-
-//Funciones de Planificacion
-
-// Funciones de auxiliares para handles
-bool es_id_necesario(int id_a_chequear);
-t_catch_pokemon * encontrar_en_lista_de_catch_pokemon (char * pokemon_a_encontrar);
-t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared);
-t_list * lista_de_appeared_a_partir_localized(t_localized_pokemon * localized_a_chequear);
-t_entrenador * buscar_entrenador_segun_id_mensaje(int id_mensaje);
-
-int distancia(t_entrenador * entrenador, int posx, int posy);
-int distancia_en_eje(t_entrenador *entrenador, int pos_eje, int pos);
-t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy, t_list *entrenadores);
-void desbloquear_entrenador(t_entrenador * entrenador);
-void mover_entrenador_a_posicion(t_entrenador*entrenador,int posx, int posy);
-void cambiar_posicion_entrenador(t_entrenador*entrenador,int posx, int posy);
-
 
 #endif /* TEAM_H_ */
 

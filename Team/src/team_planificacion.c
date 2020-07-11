@@ -154,7 +154,7 @@ void mover_entrenador(t_entrenador * entrenador) {
 }
 
 int entrenadores_en_ready() {
-	t_list * entrenadores_en_ready = encontrar_entrenadores_en_estado(READY,
+	t_list * entrenadores_en_ready = obtener_entrenadores_en_estado(READY,
 			head_entrenadores);
 	return !list_is_empty(entrenadores_en_ready);
 }
@@ -178,7 +178,7 @@ int objetivo_propio_cumplido(t_entrenador *entrenador){
 t_entrenador * obtener_entrenador_a_planificar() {
 	t_entrenador * entrenador;
 
-	t_list * entrenadores_en_ready = encontrar_entrenadores_en_estado(READY,
+	t_list * entrenadores_en_ready = obtener_entrenadores_en_estado(READY,
 			head_entrenadores);
 
 	switch (algoritmo_elegido) {
@@ -244,13 +244,6 @@ int timeval_subtract(x, y)
 		y->tv_sec -= nsec;
 	}
 
-	/* Compute the time remaining to wait.
-	 tv_usec is certainly positive.
-	 NOTA: DESCOMENTAR SI USAMOS HRRN
-	 result->tv_sec = x->tv_sec - y->tv_sec;
-	 result->tv_usec = x->tv_usec - y->tv_usec;
-	 */
-
 	/* Return 1 if result is negative. */
 	return x->tv_sec < y->tv_sec;
 }
@@ -290,6 +283,8 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 	if (!requiero_pokemon(mensaje_appeared->pokemon))
 		return;
 
+	// TODO: Agregar pokemon a lista de pokemones p/los que llego mensaje
+
 	log_trace(logger,"Manejo mensaje appeared");
 
 	t_entrenador * entrenador_elegido = obtener_entrenador_buscado(
@@ -313,7 +308,7 @@ void planificar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensa
 
 void manejar_caught(t_caught_pokemon* mensaje_caught,t_entrenador * entrenador) {
 	if(entrenador==NULL)
-		entrenador = buscar_entrenador_segun_id_mensaje(mensaje_caught->id_mensaje);
+		entrenador = obtener_entrenador_segun_id_mensaje(mensaje_caught->id_mensaje);
 	if(entrenador==NULL)
 		return; // Mensaje descartado
 
@@ -328,7 +323,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught,t_entrenador * entrenador) 
 
 		// Si guarde auxiliares y no los necesito, borrarlos
 		if(pokemon_en_auxiliares(pokemon)&& !pokemon_asignado_a_entrenador(pokemon))
-			si_esta_sacar_de_lista(appeared_auxiliares,pokemon);
+			eliminar_de_lista_appeared(appeared_auxiliares,pokemon);
 
 		// Si hay pendientes, replanificarlo
 		t_list * lista_com_mensaje = list_take_and_remove(appeared_a_asignar,1);
@@ -367,7 +362,7 @@ t_appeared_pokemon * obtener_auxiliar_de_lista(char * pokemon){
 	return mensaje;
 }
 
-void si_esta_sacar_de_lista(t_list * appeared_auxiliares, char * pokemon){
+void eliminar_de_lista_appeared(t_list * appeared_auxiliares, char * pokemon){
 	bool corresponde_con_pokemon(void * element){
 		t_appeared_pokemon * appeared = element;
 		return !strcasecmp(appeared->pokemon,pokemon);
@@ -378,21 +373,23 @@ void si_esta_sacar_de_lista(t_list * appeared_auxiliares, char * pokemon){
 }
 
 void manejar_localized(t_localized_pokemon* mensaje_localized) {
-	/* TODO: Descomentar y probar con gameboy
+	//TODO: Testear con necesito_mensaje
 	if(!necesito_mensaje(mensaje_localized->id_mensaje))
 		return; // Mensaje descartado
-	*/
+
 	if (!requiero_pokemon(mensaje_localized->pokemon))
 			return; // Mensaje descartado
 
 	if(mensaje_repetido(mensaje_localized))
 		return; // Mensaje descartado
 
-	log_trace(logger,"Manejo mensaje caught");
+	log_trace(logger,"Manejo mensaje localized");
+
+	// TODO: Agregar pokemon a lista de pokemones p/los que llego mensaje
 
 	int necesitados = cantidad_repeticiones_en_lista(obtener_pokemones_necesitados(),mensaje_localized->pokemon);
 
-	t_list * mensajes_appeared_equivalentes = lista_de_appeared_a_partir_localized(mensaje_localized);
+	t_list * mensajes_appeared_equivalentes = de_localized_a_lista_appeared(mensaje_localized);
 	t_list * mensajes_appeared_necesitados = list_take_and_remove(mensajes_appeared_equivalentes,necesitados);
 
 	list_iterate(mensajes_appeared_necesitados,manejar_appeared_aux);
@@ -415,6 +412,7 @@ int necesito_mensaje(int id_mensaje){
 }
 
 int mensaje_repetido(t_localized_pokemon * mensaje_localized){
+	//TODO: Cambiar a que verifique si el pokemon esta en una lista de pokemones para los que llego mensaje appeared o localized.
 	return pokemon_asignado_a_entrenador(mensaje_localized->pokemon) || pokemon_en_pendientes(mensaje_localized->pokemon);
 }
 
@@ -456,13 +454,13 @@ t_entrenador * obtener_entrenador_buscado(int posx, int posy) {
 			head_entrenadores);
 	entrenadores_disponibles = obtener_entrenadores_con_espacio(
 			entrenadores_disponibles);
-	return hallar_entrenador_mas_cercano(posx, posy, entrenadores_disponibles);
+	return obtener_entrenador_mas_cercano(posx, posy, entrenadores_disponibles);
 }
 
 t_list * obtener_entrenadores_disponibles(t_list * entrenadores) {
-	t_list * entrenadores_disponibles = encontrar_entrenadores_en_estado(NEW,
+	t_list * entrenadores_disponibles = obtener_entrenadores_en_estado(NEW,
 			entrenadores);
-	t_list * entrenadores_blocked_normal = encontrar_entrenadores_en_estado(
+	t_list * entrenadores_blocked_normal = obtener_entrenadores_en_estado(
 			BLOCKED_NORMAL, entrenadores);
 
 	list_add_all(entrenadores_disponibles, entrenadores_blocked_normal);
@@ -470,7 +468,7 @@ t_list * obtener_entrenadores_disponibles(t_list * entrenadores) {
 	return entrenadores_disponibles;
 }
 
-t_list * encontrar_entrenadores_en_estado(t_estado estado_buscado,
+t_list * obtener_entrenadores_en_estado(t_estado estado_buscado,
 		t_list * entrenadores) {
 
 	bool esta_en_estado_correspondiente_aux(void * elemento) {
@@ -499,7 +497,7 @@ int tiene_espacio_disponible(t_entrenador * entrenador){
 	return size_capturados < size_por_capturar;
 }
 
-t_entrenador * hallar_entrenador_mas_cercano(int posx, int posy,
+t_entrenador * obtener_entrenador_mas_cercano(int posx, int posy,
 		t_list *entrenadores) {
 
 	bool menor_distancia(void*elemento_1, void*elemento_2) {
@@ -532,7 +530,7 @@ t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared) {
 
 }
 
-t_list * lista_de_appeared_a_partir_localized(t_localized_pokemon * localized) {
+t_list * de_localized_a_lista_appeared(t_localized_pokemon * localized) {
 
 	t_list * lista_appeared = list_create();
 
@@ -553,7 +551,7 @@ t_list * lista_de_appeared_a_partir_localized(t_localized_pokemon * localized) {
 	return lista_appeared;
 }
 
-t_entrenador * buscar_entrenador_segun_id_mensaje(int id_mensaje) {
+t_entrenador * obtener_entrenador_segun_id_mensaje(int id_mensaje) {
 
 	bool buscar_entrenador_con_catch(void * elemento) {
 
