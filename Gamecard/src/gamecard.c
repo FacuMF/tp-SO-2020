@@ -6,8 +6,8 @@ void main(){
 	// Leer config
 	t_config* config = leer_config("./Gamecard/config/gamecard.config");
 	set_base_path(config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"));
-	char* PUERTO_BROKER = config_get_int_value(config, "PUERTO_BROKER");
-	char* IP_BROKER = config_get_int_value(config, "IP_BROKER");
+	char* PUERTO_BROKER = config_get_string_value(config, "PUERTO_BROKER");
+	char* IP_BROKER = config_get_string_value(config, "IP_BROKER");
 	REINTENTO_CONEXION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_CONEXION");
 	REINTENTO_OPERACION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_OPERACION");
 	RETARDO_OPERACION = config_get_int_value(config,"TIEMPO_RETARDO_OPERACION");
@@ -20,7 +20,7 @@ void main(){
 	suscribirse_a(&conexion,"GET_POKEMON" ); // GET_POKEMON
 	// "NEW_POKEMON" "CAUGHT_POKEMON" "GET_POKEMON" deben ser int
 	// Esperar a recibir mensajes. Reintentar cada REINTENTO_CONEXION si no se logra conectar
-	lanzar_hilo_receptor_mensajes(); // Chequear función
+	//lanzar_hilo_receptor_mensajes(); // Chequear función
 
 	// Al recibir: 	Informar la recepción del mismo (ACK)
 	//				Crear hilo que atienda solicitud

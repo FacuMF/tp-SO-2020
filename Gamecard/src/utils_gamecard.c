@@ -86,6 +86,17 @@ char* pokemon_metadata_path(char* fileName) {
     return concat(files_base_path(fileName), METADATA_FILE_NAME);
 }
 
+// Manejo de tamaño
+
+int array_length(void** array) {
+    int n = 0;
+    while (array[n])
+    {
+        n++;
+    }
+    return n;
+}
+
 // Manejo de archivos
 
 void create_file(char* path) {
@@ -210,10 +221,6 @@ char** extraer_bloques(char* pokemon){
 	return config_get_array_value(config,"BLOCKS");
 }
 
-void recibir_mensajes_gamecard(int *socket){
-	 int cod_op = recibir_codigo_operacion(*socket);
-	 handle_mensajes_gamecard(cod_op, *socket);
-}
 
 bool verificar_posciones_file(int x, int y, char** bloques){
 	//TODO
@@ -313,7 +320,7 @@ void gamecard_manejar_get_pokemon(t_conexion_buffer * combo){
 }
 
 
-void handle_mensajes_gamecard(int cod_op, int* socket){
+void handle_mensajes_gamecard(op_code cod_op, int* socket){
 	t_buffer * buffer = recibir_mensaje(*socket);
 	t_conexion_buffer * info_mensaje_a_manejar = malloc (sizeof(t_conexion_buffer));
 	info_mensaje_a_manejar->conexion = *socket;
@@ -347,6 +354,7 @@ void handle_mensajes_gamecard(int cod_op, int* socket){
 
 }
 
-
-
-
+void recibir_mensajes_gamecard(int *socket){
+	 op_code cod_op = recibir_codigo_operacion(*socket);
+	 handle_mensajes_gamecard(cod_op, socket);
+}
