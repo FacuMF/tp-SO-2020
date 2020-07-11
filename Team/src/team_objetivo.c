@@ -80,6 +80,8 @@ t_list * obtener_pokemones_necesitados_sin_repetidos(){
 	return pokemones_sin_repetidos;
 }
 
+// AUXILIARES
+
 int requiero_pokemon(char * pokemon){
 	t_list * pokemones_necesitados = obtener_pokemones_necesitados();
 

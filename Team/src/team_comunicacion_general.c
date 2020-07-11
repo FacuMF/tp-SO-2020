@@ -66,59 +66,68 @@ void esperar_mensajes_cola(void* input) {
 	}
 }
 
-// ENVIO DE MENSAJES
 
-void enviar_requests_pokemones() {
-	list_iterate(obtener_pokemones_necesitados_sin_repetidos(), enviar_mensaje_get);
-}
+int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
+	t_buffer * buffer = recibir_mensaje(conexion);
+	int id_mensaje;
 
-void enviar_mensaje_get(void*element) {
+	switch (cod_op) {
+	case APPEARED_POKEMON:
+		;
+		t_appeared_pokemon * mensaje_appeared = deserializar_appeared_pokemon(buffer);
+		id_mensaje = mensaje_appeared->id_mensaje;
+		log_info(logger, "Mensaje APPEARED_POKEMON: %s",mostrar_appeared_pokemon(mensaje_appeared));
 
-	int socket_broker = iniciar_conexion_con_broker();
+		manejar_appeared(mensaje_appeared);
 
-	if(socket_broker >0){
-		char* pokemon = element;
-		t_get_pokemon * mensaje_get = crear_get_pokemon(pokemon, -10);
+		break;
+	case CAUGHT_POKEMON:
+		;
+		t_caught_pokemon* mensaje_caught= deserializar_caught_pokemon(buffer);
+		id_mensaje = mensaje_caught->id_mensaje;
+		log_info(logger, "Mensaje CAUGHT_POKEMON: %s", mostrar_caught_pokemon(mensaje_caught));
 
-		t_buffer* mensaje_serializado = serializar_get_pokemon(mensaje_get);
+		manejar_caught(mensaje_caught,NULL);
 
-		enviar_mensaje(socket_broker, mensaje_serializado, GET_POKEMON);
+		break;
+	case LOCALIZED_POKEMON:
+		;
+		t_localized_pokemon* mensaje_localized= deserializar_localized_pokemon(buffer);
+		id_mensaje = mensaje_localized->id_mensaje;
+		log_info(logger, "Mensaje LOCALIZED_POKEMON: %s",mostrar_localized(mensaje_localized));
 
-		log_trace(logger, "Enviado get para: %s", pokemon);
+		manejar_localized(mensaje_localized);
 
-		free(mensaje_serializado);
+		break;
+	case GET_POKEMON:
+		;
+		t_get_pokemon* mensaje_get= deserializar_get_pokemon(buffer);
+		id_mensaje = mensaje_get->id_mensaje;
 
-		manejar_recibo_mensajes(socket_broker,
-				recibir_codigo_operacion(socket_broker), 1);
+		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
 
-		close(socket_broker);
+		break;
+	case CATCH_POKEMON:
+		;
+		t_catch_pokemon* mensaje_catch= deserializar_catch_pokemon(buffer);
+		id_mensaje = mensaje_catch->id_mensaje;
+
+		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
+
+		break;
+	default:
+		log_error(logger, "Opcode inválido.");
+		break;
 	}
-}
 
-void enviar_mensaje_catch(void * element) { //mismo que get
-	t_entrenador * entrenador = element;
+	if (es_respuesta) {
+		list_add(ids_mensajes_utiles, &id_mensaje);
+	} else {
+		confirmar_recepcion(conexion, cod_op, id_mensaje);
 
-	int socket_broker = iniciar_conexion_con_broker();
-	t_catch_pokemon * mensaje_catch_a_enviar = entrenador->catch_pendiente;
-	if(socket_broker >0){
-		t_buffer*mensaje_catch_serializado = serializar_catch_pokemon(
-				mensaje_catch_a_enviar);
-
-		enviar_mensaje(socket_broker, mensaje_catch_serializado, CATCH_POKEMON);
-
-		log_trace(logger, "Enviado catch para: %s",
-				mensaje_catch_a_enviar->pokemon);
-
-		free(mensaje_catch_serializado);
-
-		mensaje_catch_a_enviar->id_mensaje = manejar_recibo_mensajes(socket_broker,
-				recibir_codigo_operacion(socket_broker), 1);
-
-		close(socket_broker);
-	}else{
-		t_caught_pokemon * mensaje_caught = crear_caught_pokemon(99,1);
-		manejar_caught(mensaje_caught,entrenador);
+		log_trace(logger, "Recepcion confirmada: %d %d %d", conexion, cod_op, id_mensaje);
 	}
 
+	log_trace(logger, "Mensaje recibido manejado.");
+	return id_mensaje;
 }
-
