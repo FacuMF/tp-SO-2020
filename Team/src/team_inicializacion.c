@@ -55,6 +55,16 @@ void inicializar_listas(){
 	ids_mensajes_utiles = list_create();
 	appeared_a_asignar = list_create();
 	appeared_auxiliares = list_create();
+	pokemones_recibidos = list_create();
+}
+
+void reintento_suscripcion_si_aplica(){
+	pthread_mutex_lock(&chequeo_sem_suscrip);
+	int val_semaforo;
+	sem_getvalue(&suscripcion, &val_semaforo);
+	if(val_semaforo < 1)
+		sem_post(&suscripcion);
+	pthread_mutex_unlock(&chequeo_sem_suscrip);
 }
 
 // CONFIG

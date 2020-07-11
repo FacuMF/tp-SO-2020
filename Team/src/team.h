@@ -5,20 +5,6 @@
 #include "../../Base/Utils/src/utils_mensajes.h"
 #include <sys/time.h>
 
-t_log* logger;
-t_config* config;
-pthread_mutex_t entrenadores_ready;		//TODO: No deberia ser mutex
-pthread_mutex_t cpu_disponible;		//TODO: No deberia ser mutex
-
-// Listas globales de pokemones y entrenadores
-t_list * head_entrenadores;
-t_list * ids_mensajes_utiles;
-t_list * appeared_a_asignar;
-t_list * appeared_auxiliares;
-
-char* string_nivel_log_minimo;
-t_log_level log_nivel_minimo;
-
 typedef enum {
 	A_FIFO, A_RR, A_SJFCD, A_SJFSD
 } t_algoritmo;
@@ -39,7 +25,28 @@ typedef struct t_entrenador {
 	double estimacion_rafaga;
 } t_entrenador;
 
-// VARIABLES PLANIFICACION
+// VARIABLES COMPARTIDAS
+// Generales
+t_log* logger;
+t_config* config;
+char* string_nivel_log_minimo;
+t_log_level log_nivel_minimo;
+
+// Semaforos
+pthread_mutex_t entrenadores_ready;		//TODO: No deberia ser mutex
+pthread_mutex_t cpu_disponible;		//TODO: No deberia ser mutex
+
+pthread_mutex_t chequeo_sem_suscrip;
+sem_t suscripcion;
+
+// Listas globales de pokemones y entrenadores
+t_list * head_entrenadores;
+t_list * ids_mensajes_utiles;
+t_list * appeared_a_asignar;
+t_list * appeared_auxiliares;
+t_list * pokemones_recibidos;
+
+// Planificacion
 t_algoritmo algoritmo_elegido;
 int quantum;
 double estimacion_inicial;
@@ -93,7 +100,6 @@ int pokemon_asignado_a_entrenador(char * pokemon);
 
 // Auxiliares - Mensajes
 int necesito_mensaje(int id_mensaje);
-int mensaje_repetido(t_localized_pokemon * mensaje_localized);
 t_appeared_pokemon * obtener_auxiliar_de_lista(char * pokemon);
 void eliminar_de_lista_appeared(t_list * appeared_auxiliares, char * pokemon);
 t_list * de_localized_a_lista_appeared(t_localized_pokemon * localized_a_chequear);
@@ -121,6 +127,7 @@ void iniciar_conexion_con_gameboy();
 
 void esperar_cliente(int socket_servidor);
 void esperar_mensajes_cola(void* input);
+void esperar_mensaje_gameboy(void* input);
 int manejar_recibo_mensajes(int conexion,op_code cod_op,int es_respuesta);
 
 // COMUNICACION ENVIO
@@ -138,6 +145,7 @@ void finalizar_team();
 
 // GENERALES - INICIALIZACION
 void inicializar_listas();
+void reintento_suscripcion_si_aplica();
 t_list* cargar_entrenadores();
 void lanzar_hilo_entrenador(void*element);
 

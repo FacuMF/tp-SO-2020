@@ -1,30 +1,6 @@
 #include "team.h"
 
-// INICIO COMUNICACION
-
-int iniciar_conexion_con_broker() {
-	char * ip_broker = config_get_string_value(config, "IP_BROKER");
-	char * puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
-
-	return iniciar_conexion(ip_broker, puerto_broker);
-}
-
-int iniciar_conexion_con_broker_reintento() {
-	// TODO: recontra rancio, arreglar
-	char * ip_broker = config_get_string_value(config, "IP_BROKER");
-	char * puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
-
-	// Reintento
-	int socket_broker = iniciar_conexion(ip_broker, puerto_broker);
-	while (socket_broker < 0) {
-		log_info(logger, "Broker dio %d, esperando para reintentar",
-				socket_broker);
-		socket_broker = iniciar_conexion(ip_broker, puerto_broker);
-		sleep(config_get_int_value(config, "RETARDO_REINTENTO_BROKER"));
-	}
-
-	return socket_broker;
-}
+// GAMEBOY
 
 void iniciar_conexion_con_gameboy() {
 	log_trace(logger, "Iniciar conexion con gameboy");
@@ -39,7 +15,6 @@ void iniciar_conexion_con_gameboy() {
 	}
 }
 
-// ESPERAS COMUNICACION
 void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 
 	int socket_cliente = aceptar_cliente(socket_servidor);
@@ -47,25 +22,46 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 
 	int * argument = malloc(sizeof(int));
 	*argument = socket_cliente;
-	pthread_create(&thread, NULL, (void*) esperar_mensajes_cola, argument);
+	pthread_create(&thread, NULL, (void*) esperar_mensaje_gameboy, argument);
+}
+
+void esperar_mensaje_gameboy(void* input){
+	int conexion = *((int *) input);
+	int cod_op = recibir_codigo_operacion(conexion);
+	if (cod_op > 0)
+		manejar_recibo_mensajes(conexion, cod_op, 0);
+	else
+		log_error(logger, "Error en 'recibir_codigo_operacion'");
+}
+
+// BROKER
+
+int iniciar_conexion_con_broker() {
+	char * ip_broker = config_get_string_value(config, "IP_BROKER");
+	char * puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
+
+	return iniciar_conexion(ip_broker, puerto_broker);
 }
 
 void esperar_mensajes_cola(void* input) {
 	int conexion = *((int *) input);
 	int cod_op = 1;
 
-	while (cod_op > 0) {
+	while (cod_op > 0) { // No es espera activa porque queda en recv
 		cod_op = recibir_codigo_operacion(conexion);
-		if (cod_op == -1) {
-			log_error(logger, "Error en 'recibir_codigo_operacion'");
-		} else if (cod_op >= 0)
+		if (cod_op > 0){
 			log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
-
-		if (cod_op >= 0)
 			manejar_recibo_mensajes(conexion, cod_op, 0);
+		}else{
+			log_error(logger, "Error en 'recibir_codigo_operacion'");
+			reintento_suscripcion_si_aplica();
+			return;
+		}
 	}
 }
 
+
+// MANEJO MENSAJES
 
 int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	t_buffer * buffer = recibir_mensaje(conexion);

@@ -93,8 +93,7 @@ int pokemon_en_lista(t_list * lista_pokemones,char * pokemon){
 		char * pokemon_a_comparar =elemento;
 		return !strcasecmp(pokemon_a_comparar,pokemon);
 	}
-	int pokemon_encontrado = list_any_satisfy(lista_pokemones,pokemon_igual_aux);
-	return pokemon_encontrado;
+	return list_any_satisfy(lista_pokemones,pokemon_igual_aux);
 }
 
 int cantidad_repeticiones_en_lista(t_list * lista_pokemones, char *pokemon ){
