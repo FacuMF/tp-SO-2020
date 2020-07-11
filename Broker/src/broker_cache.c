@@ -981,7 +981,6 @@ void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion,
 	pthread_mutex_lock(&mutex_memoria_cache);
 
 	void enviar_mensaje_cacheados_a_sub(void* particion) {
-		log_trace(logger, "Iterando mensajes a enviar de lista tamanio %d", list_size(struct_admin_cache));
 		enviar_mensaje_cacheado_a_sub_si_es_de_cola(
 				suscripcion->cola_de_mensaje, socket_cliente,
 				(t_mensaje_cache*) particion);
@@ -995,28 +994,20 @@ void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion,
 
 void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,
 		int socket_cliente, t_mensaje_cache* particion) {
-	log_trace(logger,"estoy por entrar al if");
 	if (particion->tipo_mensaje == tipo_mensaje) {
-		log_trace(logger,"1");
 		t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
-		log_trace(logger,"2");
 
 		mensaje_serializado = serializar_mensaje_de_cache(particion);
-		log_trace(logger,"3");
 
 		enviar_mensaje(socket_cliente, mensaje_serializado, tipo_mensaje);
-		log_trace(logger,"4");
 
 		list_add(particion->subscribers_enviados, (void*) socket_cliente);
-		log_trace(logger,"5");
 
 		if (algoritmo_remplazo == LRU)
 			particion->flags_lru = get_lru_flag();
 		log_trace(logger, "Se envio mensaje %i a sub %i. Flag lru/fifo:%i.",
 				particion->id, socket_cliente, particion->flags_lru);
 	}
-	else
-		log_trace(logger,"No entre al if");
 }
 
 t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {

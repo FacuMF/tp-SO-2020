@@ -9,7 +9,7 @@ int main(int argv, char* arg[]) {
 	enviar_mensaje_gameboy(arg);
 
 	cod_op_respuesta = 0;
-	esperar_respuesta();
+	//esperar_respuesta();
 }
 
 void obtener_argumentos(char** arg) {
