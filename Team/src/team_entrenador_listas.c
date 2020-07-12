@@ -61,6 +61,20 @@ t_entrenador * obtener_entrenador_segun_id_mensaje(int id_mensaje) {
 	return entrenador_buscado;
 }
 
+int cantidad_entrenadores_buscando_pokemon(char * pokemon) {
+
+	bool entrenador_busca_pokemon(void * elemento) {
+
+		t_entrenador * entrenador = elemento;
+		if(entrenador->catch_pendiente == NULL)
+			return 0;
+		else
+			return !strcasecmp(entrenador->catch_pendiente->pokemon,pokemon);
+	}
+
+	return list_count_satisfying(head_entrenadores,entrenador_busca_pokemon);
+}
+
 t_entrenador * obtener_entrenador_mas_cercano(int posx, int posy,
 		t_list *entrenadores) {
 

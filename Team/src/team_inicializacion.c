@@ -13,10 +13,9 @@ t_list* cargar_entrenadores() {
 			"OBJETIVOS_ENTRENADORES");
 
 	int i = 0;
-	while (posiciones[i] != NULL) {	// TODO: Cambiar a for
+	while (posiciones[i] != NULL) {
 		t_entrenador * entrenador = malloc(sizeof(t_entrenador));
-		pthread_mutex_init(&entrenador->sem_est, NULL);
-		pthread_mutex_lock(&(entrenador->sem_est));	//TODO: Ver como inicializar hilo en 0 sin hacer lock inmediatamente
+		sem_init(&entrenador->sem_est,1,0);
 
 		entrenador->posicion = de_string_a_posicion(posiciones[i]);
 		entrenador->pokemones_capturados = string_a_pokemon_list(

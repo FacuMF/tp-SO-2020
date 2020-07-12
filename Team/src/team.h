@@ -14,7 +14,7 @@ typedef enum {
 } t_estado;
 
 typedef struct t_entrenador {
-	pthread_mutex_t sem_est;	//TODO: No deberia ser mutex
+	sem_t sem_est;
 	int * posicion;
 	t_list* pokemones_capturados;
 	t_list* pokemones_por_capturar;
@@ -33,8 +33,8 @@ char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
 
 // Semaforos
-pthread_mutex_t entrenadores_ready;		//TODO: No deberia ser mutex
-pthread_mutex_t cpu_disponible;		//TODO: No deberia ser mutex
+sem_t entrenadores_ready;
+sem_t cpu_disponible;
 
 pthread_mutex_t chequeo_sem_suscrip;
 sem_t suscripcion;
@@ -71,6 +71,7 @@ t_list * obtener_entrenadores_en_estado(t_estado estado_buscado,t_list * entrena
 t_list * obtener_entrenadores_con_espacio(t_list * entrenadores);
 t_entrenador * obtener_entrenador_segun_id_mensaje(int id_mensaje);
 t_entrenador * obtener_entrenador_mas_cercano(int posx, int posy, t_list *entrenadores);
+int cantidad_entrenadores_buscando_pokemon(char * pokemon);
 
 // Auxiliares
 int distancia(t_entrenador * entrenador, int posx, int posy);

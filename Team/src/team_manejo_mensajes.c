@@ -26,8 +26,8 @@ void manejar_appeared_aux(void * element) {
 
 void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	//TODO: Testear con gamecard el necesito mensaje
-	if ((!necesito_mensaje(mensaje_localized->id_mensaje))
-			|| (!requiero_pokemon(mensaje_localized->pokemon))
+	if (/*(!necesito_mensaje(mensaje_localized->id_mensaje))
+			|| */(!requiero_pokemon(mensaje_localized->pokemon))
 			|| (pokemon_en_lista(pokemones_recibidos, mensaje_localized->pokemon)))
 		return; // Mensaje descartado
 
@@ -37,6 +37,8 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 
 	int necesitados = cantidad_repeticiones_en_lista(
 			obtener_pokemones_necesitados(), mensaje_localized->pokemon);
+
+	necesitados-=cantidad_entrenadores_buscando_pokemon(mensaje_localized->pokemon);
 
 	t_list * mensajes_appeared_equivalentes = de_localized_a_lista_appeared(
 			mensaje_localized);
@@ -62,7 +64,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 
 		list_add(entrenador->pokemones_capturados, pokemon);
 		entrenador->catch_pendiente = NULL;
-		pthread_mutex_unlock(&(entrenador->sem_est)); // Se autosetea status entrenador = blocked_normal/blocked_deadlock/exit
+		sem_post(&(entrenador->sem_est)); // Se autosetea status entrenador = blocked_normal/blocked_deadlock/exit
 
 		// Si guarde auxiliares y no los necesito, borrarlos
 		if (pokemon_en_auxiliares(pokemon)

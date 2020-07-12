@@ -6,22 +6,44 @@ void iniciar_planificador() {
 	t_entrenador * entrenador_en_exec = NULL;
 
 	while (1) { //TODO: Mientras no haya terminado tod.o
-		pthread_mutex_lock(&cpu_disponible);
+		sem_wait(&cpu_disponible);
 
 		while (!entrenadores_en_ready()) {
-			pthread_mutex_lock(&entrenadores_ready);
+			sem_wait(&entrenadores_ready);
 		}
 
 		t_entrenador * entrenador = obtener_entrenador_a_planificar();
 
-		// TODO: Revisar y testear
-		if(algoritmo_elegido == A_SJFCD && entrenador_en_exec != NULL){
-			if(entrenador->estimacion_rafaga != entrenador->estimacion_rafaga){
+		// TODO: Revisar y testear SJFCD
+		if (algoritmo_elegido == A_SJFCD && entrenador_en_exec != NULL) {
+			if (entrenador->estimacion_rafaga
+					!= entrenador->estimacion_rafaga) {
 				desalojar = 1;
 				entrenador_en_exec = entrenador;
+				log_info(logger,
+						"Cambio de entrenador con desalojo por menor rafaga.");
+
 				ejecutar_entrenador(entrenador);
 			}
-		}else{
+		} else {
+			if (entrenador_en_exec != NULL) {
+				switch (algoritmo_elegido) {
+				case A_FIFO:
+					log_info(logger,
+							"Cambio de entrenador por finalizacion de sus ciclos de cpu");
+					break;
+				case A_RR:
+					//TODO: loguear si es por finalizacion de ciclos pendientes
+					log_info(logger,
+							"Cambio de entrenador por finalizacion de quantum");
+					break;
+				case A_SJFSD:
+					//TODO: loguear si es por finalizacion de ciclos pendientes
+					log_info(logger,
+							"Cambio de entrenador por finalizacion de sus ciclos de CPU");
+					break;
+				}
+			}
 			entrenador_en_exec = entrenador;
 			ejecutar_entrenador(entrenador);
 		}
@@ -74,10 +96,10 @@ t_entrenador * obtener_entrenador_sjf(t_list * entrenadores) {
 		return entrenador_1->estimacion_rafaga < entrenador_1->estimacion_rafaga;
 	}
 
-	t_list * entrenadores_menor_est = list_sorted(entrenadores, menor_estimacion);
+	t_list * entrenadores_menor_est = list_sorted(entrenadores,
+			menor_estimacion);
 
-	t_entrenador * entrenador_menor_est = list_get(entrenadores_menor_est,
-			0);
+	t_entrenador * entrenador_menor_est = list_get(entrenadores_menor_est, 0);
 
 	return entrenador_menor_est;
 }

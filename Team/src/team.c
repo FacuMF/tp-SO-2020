@@ -31,8 +31,8 @@ void iniciar_team(char*argumentos_iniciales[]){
 	obtener_variables_planificacion();
 	elegir_algoritmo();
 
-	pthread_mutex_init(&cpu_disponible, NULL);
-	pthread_mutex_init(&entrenadores_ready, NULL);
+	sem_init(&cpu_disponible,1,1);
+	sem_init(&entrenadores_ready,1,1);
 
 	pthread_mutex_init(&chequeo_sem_suscrip, NULL);
 	sem_init(&suscripcion,1,0);

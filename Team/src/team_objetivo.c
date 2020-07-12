@@ -85,7 +85,10 @@ t_list * obtener_pokemones_necesitados_sin_repetidos(){
 int requiero_pokemon(char * pokemon){
 	t_list * pokemones_necesitados = obtener_pokemones_necesitados();
 
-	return pokemon_en_lista(pokemones_necesitados,pokemon);
+	int necesitados = cantidad_repeticiones_en_lista(obtener_pokemones_necesitados(), pokemon);
+	necesitados -= cantidad_entrenadores_buscando_pokemon(pokemon);
+
+	return necesitados>0;
 }
 
 int pokemon_en_lista(t_list * lista_pokemones,char * pokemon){

@@ -4,39 +4,39 @@ void ser_entrenador(void *element) {
 	t_entrenador * entrenador = element;
 
 	while (1) {
-		pthread_mutex_lock(&(entrenador->sem_est));
+		sem_wait(&(entrenador->sem_est));
 
-		if(entrenador->catch_pendiente!=NULL){
+		if (entrenador->catch_pendiente != NULL) {
 			log_debug(logger, "Entrenador despierto: Posicion %i %i",
-				entrenador->posicion[0], entrenador->posicion[1]);
+					entrenador->posicion[0], entrenador->posicion[1]);
 			cazar_pokemon(entrenador);
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_ESPERANDO;
-			pthread_mutex_unlock(&cpu_disponible);
+			sem_post(&cpu_disponible);
 			log_debug(logger, "Entrenador dormido: Posicion %i %i",
-									entrenador->posicion[0], entrenador->posicion[1]);
-		}else if(objetivo_propio_cumplido(entrenador)){
+					entrenador->posicion[0], entrenador->posicion[1]);
+		} else if (objetivo_propio_cumplido(entrenador)) {
 			actualizar_timestamp(entrenador);
-			pthread_mutex_unlock(&cpu_disponible);
+			sem_post(&cpu_disponible);
 			break; // Pasa a exit
-		}else if(tiene_espacio_disponible(entrenador)){
+		} else if (tiene_espacio_disponible(entrenador)) {
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_NORMAL;
-			pthread_mutex_unlock(&cpu_disponible);
+			sem_post(&cpu_disponible);
 			log_debug(logger, "Entrenador blockeado normal: Posicion %i %i",
-										entrenador->posicion[0], entrenador->posicion[1]);
-		}else if(!tiene_espacio_disponible(entrenador)){
+					entrenador->posicion[0], entrenador->posicion[1]);
+		} else if (!tiene_espacio_disponible(entrenador)) {
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_DEADLOCK;
-			pthread_mutex_unlock(&cpu_disponible);
+			sem_post(&cpu_disponible);
 			log_debug(logger, "Entrenador esperando deadlock: Posicion %i %i",
-										entrenador->posicion[0], entrenador->posicion[1]);
+					entrenador->posicion[0], entrenador->posicion[1]);
 		}
 		//TODO: Agregar else if para cuando tenga que hacer el deadlock
 
 	}
 	log_debug(logger, "Entrenador en exit: Posicion %i %i",
-							entrenador->posicion[0], entrenador->posicion[1]);
+			entrenador->posicion[0], entrenador->posicion[1]);
 	entrenador->estado = EXIT;
 }
 
@@ -54,7 +54,10 @@ void cazar_pokemon(t_entrenador * entrenador) {
 			break;
 		case A_SJFCD:
 			if (desalojar) {
-				entrenador->estimacion_rafaga = constante_estimacion * ciclos_esta_corrida + (1-constante_estimacion)*entrenador->estimacion_rafaga;
+				entrenador->estimacion_rafaga = constante_estimacion
+						* ciclos_esta_corrida
+						+ (1 - constante_estimacion)
+								* entrenador->estimacion_rafaga;
 				desalojar = 0;
 				bloquear_entrenador(entrenador);
 			}
@@ -63,21 +66,28 @@ void cazar_pokemon(t_entrenador * entrenador) {
 			break;
 		}
 		sleep(retardo_ciclo_cpu);
-		if(entrenador->ciclos_cpu_restantes > 1)
-			mover_entrenador(entrenador); // TODO: Usar mutex para uso de CPU.
-		else{
-			pthread_create(&thread, NULL, (void*) enviar_mensaje_catch,entrenador);
+		if (entrenador->ciclos_cpu_restantes > 1) {
+			mover_entrenador(entrenador);
+			log_info(logger,
+					"Entrenador movido a posicon %d %d",
+					entrenador->posicion[0], entrenador->posicion[1]);
+		} else {
+			log_info(logger,
+					"Catch efectuado en posicon %d %d para %s",
+					entrenador->posicion[0], entrenador->posicion[1],
+					entrenador->catch_pendiente->pokemon);
+			pthread_create(&thread, NULL, (void*) enviar_mensaje_catch,
+					entrenador);
 		}
 
 		ciclos_esta_corrida++;
 		entrenador->ciclos_cpu_restantes--;
 		entrenador->estimacion_rafaga--;
+		log_debug(logger,"Ciclos restantes: %d",entrenador->ciclos_cpu_restantes);
 
-		log_trace(logger, "Entrenador en posicon %d %d, ciclos restantes: %d",
-				entrenador->posicion[0], entrenador->posicion[1],
-				entrenador->ciclos_cpu_restantes);
 	}
-	entrenador->estimacion_rafaga = constante_estimacion * ciclos_esta_corrida + (1-constante_estimacion)*entrenador->estimacion_rafaga;
+	entrenador->estimacion_rafaga = constante_estimacion * ciclos_esta_corrida
+			+ (1 - constante_estimacion) * entrenador->estimacion_rafaga;
 }
 
 void mover_entrenador(t_entrenador * entrenador) {
@@ -96,14 +106,14 @@ void mover_entrenador(t_entrenador * entrenador) {
 
 void ejecutar_entrenador(t_entrenador * entrenador) {
 	entrenador->estado = EXEC;
-	pthread_mutex_unlock(&(entrenador->sem_est));
+	sem_post(&(entrenador->sem_est));
 }
 
 void bloquear_entrenador(t_entrenador * entrenador) {
-	pthread_mutex_unlock(&cpu_disponible);
 	actualizar_timestamp(entrenador);
 	entrenador->estado = READY;
-	pthread_mutex_lock(&(entrenador->sem_est));
+	sem_post(&cpu_disponible);
+	sem_wait(&(entrenador->sem_est));
 	log_debug(logger, "Entrenador despierto: Posicion %i %i",
 			entrenador->posicion[0], entrenador->posicion[1]);
 }
@@ -131,29 +141,30 @@ void preparar_entrenador(t_entrenador * entrenador,
 
 }
 
-void planificar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared){
+void planificar_entrenador(t_entrenador * entrenador,
+		t_appeared_pokemon * mensaje_appeared) {
 	preparar_entrenador(entrenador, mensaje_appeared);
 
-	pthread_mutex_unlock(&entrenadores_ready);
+	sem_post(&entrenadores_ready);
 
 	if (algoritmo_elegido == A_SJFCD)
-		pthread_mutex_unlock(&cpu_disponible);
+		sem_post(&cpu_disponible);
 }
 
 // Auxiliares
-int objetivo_propio_cumplido(t_entrenador *entrenador){
-	t_list *pokemones_por_capturar= entrenador->pokemones_por_capturar;
+int objetivo_propio_cumplido(t_entrenador *entrenador) {
+	t_list *pokemones_por_capturar = entrenador->pokemones_por_capturar;
 	t_list * pokemones_capturados = entrenador->pokemones_capturados;
 
-	bool fue_capturado(void *element){
+	bool fue_capturado(void *element) {
 		char * pokemon = element;
-		int repeticiones_en_capturados = cantidad_repeticiones_en_lista(pokemones_capturados,pokemon);
-		int repeticiones_en_por_capturar= cantidad_repeticiones_en_lista(pokemones_por_capturar,pokemon);
+		int repeticiones_en_capturados = cantidad_repeticiones_en_lista(
+				pokemones_capturados, pokemon);
+		int repeticiones_en_por_capturar = cantidad_repeticiones_en_lista(
+				pokemones_por_capturar, pokemon);
 
-		return repeticiones_en_capturados == repeticiones_en_por_capturar ;
+		return repeticiones_en_capturados == repeticiones_en_por_capturar;
 	}
-	return list_all_satisfy(pokemones_por_capturar,fue_capturado);
+	return list_all_satisfy(pokemones_por_capturar, fue_capturado);
 }
-
-
 
