@@ -6,13 +6,19 @@ int main(int argv, char*archivo_config[]) {
 
 	iniciar_team(archivo_config);
 
-	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
+	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 
 	pthread_create(&thread, NULL, (void*) enviar_requests_pokemones, NULL);
 
 	pthread_create(&thread, NULL, (void*) iniciar_conexion_con_gameboy, NULL);
 
-	iniciar_planificador();
+	pthread_create(&thread, NULL, (void*) iniciar_planificador, NULL);
+
+	while (!objetivo_global_completo()) {
+		sem_wait(&verificar_objetivo_global);
+	}
+	//TODO: Matar al planificador? Usarlo para deadlock? Lo veremos en el proximo capitulo
+	log_info(logger,"Inicio algoritmo de deteccion de deadlock");
 
 	sleep(1000); //TT
 	finalizar_team();
@@ -33,6 +39,7 @@ void iniciar_team(char*argumentos_iniciales[]){
 
 	sem_init(&cpu_disponible,1,1);
 	sem_init(&entrenadores_ready,1,1);
+	sem_init(&verificar_objetivo_global,1,0);
 
 	pthread_mutex_init(&chequeo_sem_suscrip, NULL);
 	sem_init(&suscripcion,1,0);

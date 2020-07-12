@@ -5,9 +5,8 @@ void iniciar_planificador() {
 
 	t_entrenador * entrenador_en_exec = NULL;
 
-	while (1) { //TODO: Mientras no haya terminado tod.o
-		sem_wait(&cpu_disponible);
-
+	sem_wait(&cpu_disponible);
+	while (!objetivo_global_completo()) {
 		while (!entrenadores_en_ready()) {
 			sem_wait(&entrenadores_ready);
 		}
@@ -47,8 +46,10 @@ void iniciar_planificador() {
 			entrenador_en_exec = entrenador;
 			ejecutar_entrenador(entrenador);
 		}
+		sem_wait(&cpu_disponible);
 	}
 }
+
 
 t_entrenador * obtener_entrenador_a_planificar() {
 	t_entrenador * entrenador;
@@ -105,6 +106,10 @@ t_entrenador * obtener_entrenador_sjf(t_list * entrenadores) {
 }
 
 // AUXILIARES
+int objetivo_global_completo(){
+	return list_get(obtener_pokemones_necesitados(),0) == NULL;
+}
+
 int entrenadores_en_ready() {
 	t_list * entrenadores_en_ready = obtener_entrenadores_en_estado(READY,
 			head_entrenadores);

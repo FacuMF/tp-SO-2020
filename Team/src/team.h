@@ -35,6 +35,7 @@ t_log_level log_nivel_minimo;
 // Semaforos
 sem_t entrenadores_ready;
 sem_t cpu_disponible;
+sem_t verificar_objetivo_global;
 
 pthread_mutex_t chequeo_sem_suscrip;
 sem_t suscripcion;
@@ -61,6 +62,7 @@ t_entrenador * obtener_entrenador_fifo(t_list * entrenadores);
 t_entrenador * obtener_entrenador_sjf(t_list * entrenadores);
 
 // Auxiliares
+int objetivo_global_completo();
 int timeval_subtract (struct timeval *x, struct timeval *y);
 int entrenadores_en_ready();
 

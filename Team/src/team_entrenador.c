@@ -113,6 +113,9 @@ void bloquear_entrenador(t_entrenador * entrenador) {
 	actualizar_timestamp(entrenador);
 	entrenador->estado = READY;
 	sem_post(&cpu_disponible);
+	sem_post(&entrenadores_ready);
+	log_debug(logger, "Entrenador dormido: Posicion %i %i",
+						entrenador->posicion[0], entrenador->posicion[1]);
 	sem_wait(&(entrenador->sem_est));
 	log_debug(logger, "Entrenador despierto: Posicion %i %i",
 			entrenador->posicion[0], entrenador->posicion[1]);

@@ -78,6 +78,8 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 
 		if (mensaje != NULL)
 			planificar_entrenador(entrenador, mensaje);
+		else
+			sem_post(&verificar_objetivo_global);
 
 	} else { // SI NO LO ATRAPÓ
 		t_appeared_pokemon * mensaje_app = obtener_auxiliar_de_lista(pokemon);
