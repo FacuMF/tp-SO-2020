@@ -3,6 +3,24 @@
 
 
 #include "utils_gamecard.c"
+// CONSTANTES CONFIG
+int RETARDO_OPERACION;
+int REINTENTO_CONEXION;
+int REINTENTO_OPERACION;
+t_log* logger;
+t_config* config;
+
+// CONSTANT
+char* PUNTO_MONTAJE;
+char* METADATA_BASE_PATH = "Metadata/";
+char* FILES_BASE_PATH = "Files/";
+char* BLOCKS_BASE_PATH = "Blocks/";
+
+char* METADATA_FILE_NAME = "Metadata.bin";
+char* BITMAP_FILE_NAME = "Bitmap.bin";
+
+// EXTENSIONES
+char* EXTENSION = ".bin";
 
 char* concat_dirs(char* start, char* end);
 void set_base_path(char* base);
@@ -49,6 +67,9 @@ void create_new_file_pokemon(char* pokemon);
 // Funciones generales
 
 void suscribirse_a(int* conexion, int cola);
+void* esperar_broker(void *arg);
+void handle_broker(int socket_servidor);
+void recibir_mensaje_del_broker(void* input);
 bool file_existing(char* path);
 bool file_open(char* pokemon);
 char** extraer_bloques(char* pokemon);

@@ -17,23 +17,6 @@
 #include <math.h>
 
 
-// CONSTANTES CONFIG
-int RETARDO_OPERACION;
-int REINTENTO_CONEXION;
-int REINTENTO_OPERACION;
-
-// CONSTANT
-char* PUNTO_MONTAJE;
-char* METADATA_BASE_PATH = "Metadata/";
-char* FILES_BASE_PATH = "Files/";
-char* BLOCKS_BASE_PATH = "Blocks/";
-
-char* METADATA_FILE_NAME = "Metadata.bin";
-char* BITMAP_FILE_NAME = "Bitmap.bin";
-
-// EXTENSIONES
-char* EXTENSION = ".bin";
-
 char *concat(char *start, char *end)
 {
     return string_from_format("%s%s", start, end);
@@ -189,11 +172,59 @@ void create_new_file_pokemon(char* pokemon) {
 // Funciones generales
 
 void suscribirse_a(int* conexion, int cola){
-	t_subscriptor* mensaje = crear_suscripcion(cola,100); // tiempo? y cola ints?
+	t_subscriptor* mensaje = crear_suscripcion(cola,100); // tiempo?
 	t_buffer* buffer = serializar_suscripcion(mensaje);
-	enviar_mensaje(*conexion, buffer, SUSCRIPTOR); // 8 = op_code suscriptor
+	enviar_mensaje(*conexion, buffer, SUSCRIPTOR);
 
 }
+
+
+void* esperar_broker(void *arg) {
+	char* PUERTO_BROKER = config_get_string_value(config, "PUERTO_BROKER");
+	char* IP_BROKER = config_get_string_value(config, "IP_BROKER");
+	int socket_servidor = iniciar_conexion_servidor(ip, puerto);
+
+	while (1) {
+		log_trace(logger, "Va a ejecutar 'handle_broker'.");
+		handle_broker(socket_servidor);
+	}
+
+	return 0;
+}
+
+void handle_broker(int socket_servidor) {
+
+	log_trace(logger, "Aceptando broker...");
+	int socket_broker = aceptar_cliente(socket_servidor);
+
+	log_trace(logger, "Conexion de %i al Broker.", socket_broker);
+
+	int* argument = malloc(sizeof(int));
+	*argument = socket_broker;
+	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_broker, //El mismo thread?
+			argument);
+	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+}
+
+void recibir_mensaje_del_broker(void* input) {
+	int socket_cliente = *((int *) input);
+	op_code cod_op = 0;
+
+	while (cod_op >= 0) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
+
+		cod_op = recibir_codigo_operacion(socket_cliente);
+		if (cod_op == -1)
+			log_error(logger, "Error en 'recibir_codigo_operacion'");
+
+		(cod_op >= 0) ?
+				handle_mensaje(cod_op, socket_cliente) :
+				log_warning(logger, "El cliente %i cerro el socket.",
+						socket_cliente);
+	} //TODO: Ver si alguien lo necesita, si no se borra.
+
+}
+
+
 
 bool file_existing(char* path){
 	FILE * file = fopen(path, "rb");
@@ -358,3 +389,6 @@ void recibir_mensajes_gamecard(int *socket){
 	 op_code cod_op = recibir_codigo_operacion(*socket);
 	 handle_mensajes_gamecard(cod_op, socket);
 }
+
+
+
