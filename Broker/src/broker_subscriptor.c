@@ -20,42 +20,26 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
 }
 
  void subscribir(int cliente, t_subscriptor* subscripcion){
+	log_trace(logger, "Suscribir a %i a cola %s.", cliente, op_code_a_string(subscripcion->cola_de_mensaje));
      switch (subscripcion->cola_de_mensaje) {
      	 	case APPEARED_POKEMON:
-     		log_trace(logger, "Suscribir a %i a cola APPEARED_POKEMON.", cliente);
-     		agregar_cliente_a_cola(appeared_pokemon, cliente);
-
-     		break;
-
+     	 		agregar_cliente_a_cola(appeared_pokemon, cliente);
+     	 		break;
      		case NEW_POKEMON:
-     		log_trace(logger, "Suscribir a %i a cola NEW_POKEMON", cliente);
-     		agregar_cliente_a_cola(new_pokemon, cliente);
-
-     		break;
-
-     		case CATCH_POKEMON:
-     		log_trace(logger, "Suscribir a %i a cola CATCH_POKEMON", cliente);
-     		agregar_cliente_a_cola(catch_pokemon, cliente);
-
-     		break;
-
+     			agregar_cliente_a_cola(new_pokemon, cliente);
+     			break;
+			case CATCH_POKEMON:
+				agregar_cliente_a_cola(catch_pokemon, cliente);
+				break;
      		case CAUGHT_POKEMON:
-     		log_trace(logger, "Suscribir a %i a cola CAUGHT_POKEMON", cliente);
-     		agregar_cliente_a_cola(caught_pokemon, cliente);
-
-     		break;
-
+     			agregar_cliente_a_cola(caught_pokemon, cliente);
+     			break;
      		case GET_POKEMON:
-     		log_trace(logger, "Suscribir a %i a cola GET_POKEMON", cliente);
-     		agregar_cliente_a_cola(get_pokemon, cliente);
-
-     		break;
-
+     			agregar_cliente_a_cola(get_pokemon, cliente);
+     			break;
      		case LOCALIZED_POKEMON:
-     		log_trace(logger, "Suscribir a %i a cola LOCALIZED_POKEMON", cliente);
-     		agregar_cliente_a_cola(localized_pokemon, cliente);
-
-     		break;
+     			agregar_cliente_a_cola(localized_pokemon, cliente);
+     			break;
      }
 
 	 log_trace(logger, "Cliente %i suscripto.", cliente);

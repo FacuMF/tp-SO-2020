@@ -6,7 +6,7 @@
  */
 
 #ifndef SERVIDOR_H_		// Si el header del servidor no fue definido previamente...
-#define SERVIDOR_H_		// hacer todo lo que sigue
+#define SERVIDOR_H_		// hacer \todo lo que sigue
 
 #include "../../Utils/src/utils.h"
 #include "../../Utils/src/utils_mensajes.h"
