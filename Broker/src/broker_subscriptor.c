@@ -86,54 +86,32 @@ void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor* subscripcion,  int 
 void desuscribir(int cliente, t_subscriptor* suscripcion){
 
 	if((suscripcion->tiempo) >= 0){ //Desuscribir si el parametro 'tiempo' es > a 0, si es menor, dejar suscripto para siempre
-
-		log_trace(logger, "Adentro de desuscribir");
-
 		for(int i = (suscripcion->tiempo); i>0 ; i--){
 			log_trace(logger, "Desuscribir en %i...", i);
 			sleep(1);
 		}
-
+		log_trace(logger, "Desuscribir a %i de cola %s.", cliente, op_code_a_string(suscripcion->cola_de_mensaje));
 		switch (suscripcion->cola_de_mensaje) {
 			case APPEARED_POKEMON:
-				log_trace(logger, "Suscribir a %i a cola APPEARED_POKEMON.", cliente);
 				sacar_cliente_a_cola(appeared_pokemon, cliente);
-
 				break;
-
 			case NEW_POKEMON:
-				log_trace(logger, "Suscribir a %i a cola NEW_POKEMON", cliente);
 				sacar_cliente_a_cola(new_pokemon, cliente);
-
 				break;
-
 			case CATCH_POKEMON:
-				log_trace(logger, "Suscribir a %i a cola CATCH_POKEMON", cliente);
 				sacar_cliente_a_cola(catch_pokemon, cliente);
-
 				break;
-
 			case CAUGHT_POKEMON:
-				log_trace(logger, "Suscribir a %i a cola CAUGHT_POKEMON", cliente);
 				sacar_cliente_a_cola(caught_pokemon, cliente);
-
 				break;
-
 			case GET_POKEMON:
-				log_trace(logger, "Suscribir a %i a cola GET_POKEMON", cliente);
 				sacar_cliente_a_cola(get_pokemon, cliente);
-
 				break;
-
 			case LOCALIZED_POKEMON:
-				log_trace(logger, "Suscribir a %i a cola LOCALIZED_POKEMON", cliente);
 				sacar_cliente_a_cola(localized_pokemon, cliente);
-
 				break;
 		}
-
 		log_trace(logger, "Ya esta desuscripto.");
-
 	}
 }
 

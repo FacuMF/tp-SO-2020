@@ -11,7 +11,7 @@ void manejar_mensaje_catch(t_conexion_buffer *combo) {
 	int id_mensaje_recibido = asignar_id_catch_pokemon(
 			mensaje_catch_pokemon);
 
-	log_info(logger, "Llegada de mensaje nuevo %i a cola CATCH_POKEON",
+	log_info(logger, "Llegada de mensaje nuevo %i a cola CATCH_POKEMON",
 			id_mensaje_recibido);
 
 	devolver_catch_pokemon(socket_cliente, mensaje_catch_pokemon);
@@ -49,8 +49,6 @@ void enviar_a_todos_los_subs_catch_pokemon(t_catch_pokemon* mensaje) {
 	list_iterate(catch_pokemon,
 			enviar_catch_pokemon_a_suscriptor_aux);
 
-	log_trace(logger,
-			"Se va a enviar a todos los subs, el nuevo CATCH_POKEMON.");
 }
 
 void enviar_catch_pokemon_a_suscriptor(int suscriptor,

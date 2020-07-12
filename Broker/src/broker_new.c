@@ -11,7 +11,7 @@ void manejar_mensaje_new(t_conexion_buffer *combo) {
 	int id_mensaje_recibido = asignar_id_new_pokemon(
 			mensaje_new_pokemon);
 
-	log_info(logger, "Llegada de mensaje nuevo %i a cola NEW_POKEON",
+	log_info(logger, "Llegada de mensaje nuevo %i a cola NEW_POKEMON",
 			id_mensaje_recibido);
 
 	devolver_new_pokemon(socket_cliente, mensaje_new_pokemon);
@@ -48,9 +48,6 @@ void enviar_a_todos_los_subs_new_pokemon(t_new_pokemon* mensaje) {
 
 	list_iterate(new_pokemon,
 			enviar_new_pokemon_a_suscriptor_aux);
-
-	log_trace(logger,
-			"Se va a enviar a todos los subs, el nuevo NEW_POKEMON.");
 }
 
 void enviar_new_pokemon_a_suscriptor(int suscriptor,
@@ -75,8 +72,6 @@ void cachear_new_pokemon(t_new_pokemon* mensaje){
 	int tipo_mensaje = NEW_POKEMON;
 	int id_mensaje = mensaje->id_mensaje;
 	void* mensaje_a_cachear = serializar_cache_new_pokemon(mensaje, size_stream);
-
-	log_warning(logger, "HOLLAAAAAA");
 
 	cachear_mensaje(size_stream, id_mensaje, tipo_mensaje, mensaje_a_cachear);
 }

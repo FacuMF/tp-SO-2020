@@ -10,27 +10,22 @@ int main(void) {
 }
 
 void handler_senial(int signum) {
-	log_trace(logger,"Guardardo datos de cache..");
+	log_trace(logger,"Guardardo datos de cache...");
 	estado_actual_de_cache();
 	exit(1);
 
 }
 
 void inicializacion_broker(void) {
-	// Inicio logger
 	logger = iniciar_logger("./Broker/config/broker.log", "Broker",
 			LOG_LEVEL_TRACE);
 
-	// Leer configuracion
 	config = leer_config("./Broker/config/broker.config");
 
-	// Inicializacion de las distintas colas de mensajes
 	inicializacion_colas();
 
-	//Inicializacion IDs
 	inicializacion_ids();
 
-	//Inicializacion cache;
 	inicializacion_cache();
 
 	log_trace(logger, "Inicialiazacion terminada.");
@@ -45,17 +40,11 @@ void terminar_proceso(void) {
 }
 
 void inicializacion_colas(void) {
-	//  NEW_POKEMON
 	new_pokemon =  list_create();
-	//  APPEARED_POKEMON
 	appeared_pokemon = list_create();
-	//  CATCH_POKEMON
 	catch_pokemon = list_create();
-	//  CAUGHT_POKEMON
 	caught_pokemon = list_create();
-	//  GET_POKEMON
 	get_pokemon = list_create();
-	//  LOCALIZED_POKEMON
 	localized_pokemon = list_create();
 }
 
@@ -81,7 +70,7 @@ void handle_cliente(int socket_servidor) {
 	log_trace(logger, "Aceptando cliente...");
 	int socket_cliente = aceptar_cliente(socket_servidor);
 
-	log_trace(logger, "Conexion de %i al Broker.", socket_cliente);
+	log_trace(logger, "Conexion del socket %i al Broker.", socket_cliente);
 
 	int* argument = malloc(sizeof(int));
 	*argument = socket_cliente;
@@ -121,51 +110,37 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 
 	switch (cod_op) {
 	case SUSCRIPTOR:
-
 		manejar_mensaje_suscriptor(info_mensaje_a_manejar);
 		break;
-
 	case APPEARED_POKEMON:
-
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_appeared,
 				info_mensaje_a_manejar);
 		//pthread_detach(thread);
 		break;
-
 	case NEW_POKEMON:
-
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_new,
 				info_mensaje_a_manejar);
 		break;
-
 	case CATCH_POKEMON:
-
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_catch,
 				info_mensaje_a_manejar);
 		break;
-
 	case CAUGHT_POKEMON:
-
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_caught,
 				info_mensaje_a_manejar);
 		break;
-
 	case GET_POKEMON:
-
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_get,
 				info_mensaje_a_manejar);
 		break;
 	case LOCALIZED_POKEMON:
-
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_localized,
 				info_mensaje_a_manejar);
 		break;
 	case CONFIRMACION:
-
 		manejar_mensaje_confirmacion(info_mensaje_a_manejar);
 		break;
 	default:
-
 		log_trace(logger, "El cliente %i cerro el socket.", socket_cliente);
 		break;
 

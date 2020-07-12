@@ -11,7 +11,7 @@ void manejar_mensaje_localized(t_conexion_buffer *combo) {
 	int id_mensaje_recibido = asignar_id_localized_pokemon(
 			mensaje_localized_pokemon);
 
-	log_info(logger, "Llegada de mensaje nuevo %i a cola LOCALIZED_POKEON",
+	log_info(logger, "Llegada de mensaje nuevo %i a cola LOCALIZED_POKEMON",
 			id_mensaje_recibido);
 
 	devolver_localized_pokemon(socket_cliente, mensaje_localized_pokemon);
@@ -48,9 +48,6 @@ void enviar_a_todos_los_subs_localized_pokemon(t_localized_pokemon* mensaje) {
 
 	list_iterate(localized_pokemon,
 			enviar_localized_pokemon_a_suscriptor_aux);
-
-	log_trace(logger,
-			"Se va a enviar a todos los subs, el nuevo LOCALIZED_POKEMON.");
 }
 
 void enviar_localized_pokemon_a_suscriptor(int suscriptor,

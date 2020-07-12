@@ -11,7 +11,7 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 	int id_mensaje_recibido = asignar_id_appeared_pokemon(
 			mensaje_appeared_pokemon);
 
-	log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEON",
+	log_info(logger, "Llegada de mensaje nuevo %i a cola APPEARED_POKEMON",
 			id_mensaje_recibido);
 
 	devolver_appeared_pokemon(socket_cliente, mensaje_appeared_pokemon);
@@ -48,9 +48,6 @@ void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje) {
 
 	list_iterate(appeared_pokemon,
 			enviar_appeared_pokemon_a_suscriptor_aux);
-
-	log_trace(logger,
-			"Se va a enviar a todos los subs, el nuevo APPEARED_POKEMON.");
 }
 
 void enviar_appeared_pokemon_a_suscriptor(int suscriptor,
@@ -67,8 +64,6 @@ void enviar_appeared_pokemon_a_suscriptor(int suscriptor,
 	log_info(logger, "Envio de APPEARED_POKEMON %i a suscriptor %i",
 			mensaje->id_mensaje, suscriptor);
 }
-
-
 
 void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 	int size_stream = sizeof(uint32_t)*3 + mensaje-> size_pokemon;//Size se calcula aca porque lo necesita la funcion cachear_mensaje (general)

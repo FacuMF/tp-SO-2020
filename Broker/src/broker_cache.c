@@ -90,8 +90,6 @@ void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 
 			ordenar_cache_segun_su_lugar_en_memoria();
 
-			//log_dump_de_cache();
-
 			no_se_agrego_mensaje_a_cache = false; //Para que salga del while.
 
 		} else {
@@ -369,12 +367,8 @@ void elegir_vitima_y_eliminarla() {
 	list_sort(struct_admin_cache, ordenar_segun_lru_flag); //Dejo primero al que quiero borrar
 	log_trace(logger, "Cache ordenada por LRU flag.");
 
-	//log_dump_de_cache();
-
 	int id_victima = ((t_mensaje_cache*) list_get(struct_admin_cache, 0))->id;
 	log_trace(logger, "El id de la victima elegida es: %i.", id_victima);
-
-	//log_dump_de_cache();
 
 	void vaciar_una_particion(void* particion) {
 		if (((t_mensaje_cache*) particion)->id == id_victima) // Si es victima
@@ -383,17 +377,11 @@ void elegir_vitima_y_eliminarla() {
 	list_iterate(struct_admin_cache, vaciar_una_particion);
 	log_trace(logger, "Particion victima vacia.");
 
-	//log_dump_de_cache();
-
 	consolidar_cache(); //La victima quedo primera
 	log_trace(logger, "Consolidacion terminada.");
 
-	//log_dump_de_cache();
-
 	list_sort(struct_admin_cache, ordenar_segun_su_lugar_en_memoria);
 	log_trace(logger, "Cache ordenada por offset.");
-
-	//log_dump_de_cache();
 
 }
 
