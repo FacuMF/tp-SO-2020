@@ -9,8 +9,7 @@ void main(){
 	REINTENTO_CONEXION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_CONEXION");
 	REINTENTO_OPERACION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_OPERACION");
 	RETARDO_OPERACION = config_get_int_value(config,"TIEMPO_RETARDO_OPERACION");
-	// Conexion socket
-	int conexion = iniciar_conexion(IP_BROKER, PUERTO_BROKER);
+
 
 	// Suscribirse al broker: NEW_POKEMON, CATCH_POKEMON, GET_POKEMON
 	suscribirse_a(&conexion, NEW_POKEMON ); // NEW_POKEMON

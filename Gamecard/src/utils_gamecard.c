@@ -298,6 +298,7 @@ void gamecard_manejar_new_pokemon(t_conexion_buffer * combo){
 	// Verificar si existe pokemon en el Filesystem
 	crear_file_si_no_existe(file,pokemon->pokemon);
 	// Verificar si se puede abrir el archivo
+	// mutex lock
 	if (!file_open(pokemon->pokemon)){ // SEMAFORO MUTEX PARA MANEJAR LOS OPEN
 		//Buscar los bloques del pokemon
 		char** bloques = extraer_bloques(pokemon->pokemon);
@@ -305,6 +306,7 @@ void gamecard_manejar_new_pokemon(t_conexion_buffer * combo){
 
 		}
 	}
+	// mutex unlock
 		// Reintentar la operación luego de REINTENTO_OPERACION
 	// Verificar si las posiciones ya existen dentro del archivo
 	// Esperar la cantidad de segundos definidos en config
