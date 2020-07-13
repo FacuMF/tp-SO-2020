@@ -23,8 +23,6 @@ void main(){
 	//				Crear hilo que atienda solicitud
 	//				Volver al estado escucha de la MQ
 
-	// Al recibir mensajes
-	//recibir_mensajes_gamecard();
 
 }
 

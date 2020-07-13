@@ -201,8 +201,7 @@ void esperar_broker(void *arg) {
 }
 
 void lanzar_hilo_espera_broker() {
-	int* argument = malloc(sizeof(int));
-	*argument = socket_broker;
+	int* argument = malloc(sizeof(int)); // chequear
 	pthread_create(&thread, NULL, (void*) esperar_broker, argument);
 	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 }
@@ -343,22 +342,22 @@ void handle_mensajes_gamecard(op_code cod_op, int* socket){
 	info_mensaje_a_manejar->buffer = buffer;
 
 	switch(cod_op){
-	case NEW_POKEMON:
-		log_trace(logger, "Se recibio un mensaje NEW_POKEMON");
-		pthread_create(&thread, NULL, (void*) gamecard_manejar_new_pokemon,info_mensaje_a_manejar);
+	case NEW_POKEMON: // deserializarlo aca y que gamecard_manejar_..._pokemon reciba su tipo de pokemon (ej t_new_pokemon)?
+		log_trace(logger, "Se recibio un mensaje NEW_POKEMON"); // capaz se repite
+		gamecard_manejar_new_pokemon(info_mensaje_a_manejar);
 
 
 		break;
 
 	case CATCH_POKEMON:
-		log_trace(logger, "Se recibio un mensaje CATCH_POKEMON");
-		pthread_create(&thread, NULL, (void*) gamecard_manejar_catch_pokemon,info_mensaje_a_manejar);
+		log_trace(logger, "Se recibio un mensaje CATCH_POKEMON"); // capaz se repite
+		gamecard_manejar_catch_pokemon(info_mensaje_a_manejar);
 
 		break;
 
 	case GET_POKEMON:
-		log_trace(logger, "Se recibio un mensaje GET_POKEMON");
-		pthread_create(&thread, NULL, (void*) gamecard_manejar_get_pokemon,info_mensaje_a_manejar);
+		log_trace(logger, "Se recibio un mensaje GET_POKEMON"); // capaz se repite
+		gamecard_manejar_get_pokemon(info_mensaje_a_manejar);
 
 		break;
 
@@ -370,10 +369,6 @@ void handle_mensajes_gamecard(op_code cod_op, int* socket){
 
 }
 
-void recibir_mensajes_gamecard(int *socket){
-	 op_code cod_op = recibir_codigo_operacion(*socket);
-	 handle_mensajes_gamecard(cod_op, socket);
-}
 
 
 
