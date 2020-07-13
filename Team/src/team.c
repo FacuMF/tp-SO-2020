@@ -19,6 +19,7 @@ int main(int argv, char*archivo_config[]) {
 	}
 	//TODO: Matar al planificador? Usarlo para deadlock? Lo veremos en el proximo capitulo
 	log_info(logger,"Inicio algoritmo de deteccion de deadlock");
+	iniciar_deteccion_deadlock();
 
 	sleep(1000); //TT
 	finalizar_team();
@@ -43,6 +44,8 @@ void iniciar_team(char*argumentos_iniciales[]){
 
 	pthread_mutex_init(&chequeo_sem_suscrip, NULL);
 	sem_init(&suscripcion,1,0);
+
+	sem_init(&resolver_deadlock,1,1);
 
 	// Data Compartida
 	inicializar_listas();

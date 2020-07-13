@@ -40,6 +40,9 @@ sem_t verificar_objetivo_global;
 pthread_mutex_t chequeo_sem_suscrip;
 sem_t suscripcion;
 
+sem_t resolver_deadlock;
+
+
 // Listas globales de pokemones y entrenadores
 t_list * head_entrenadores;
 t_list * ids_mensajes_utiles;
@@ -54,6 +57,13 @@ double estimacion_inicial;
 int retardo_ciclo_cpu;
 int desalojar;
 double constante_estimacion;
+
+// Metricas
+int deadlocks_totales;
+int deadlocks_pendientes();
+
+// DEADLOCK
+void iniciar_deteccion_deadlock();
 
 // PLANIFICACION GENERAL
 void iniciar_planificador();

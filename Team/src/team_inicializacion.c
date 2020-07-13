@@ -49,12 +49,15 @@ void lanzar_hilo_entrenador(void*element) {
 }
 
 void inicializar_listas(){
-	//TODO: en every lugar que se usen las globales usar mutex
+	//TODO: en lugares que haga falta, mutex
 	head_entrenadores = cargar_entrenadores();
 	ids_mensajes_utiles = list_create();
 	appeared_a_asignar = list_create();
 	appeared_auxiliares = list_create();
 	pokemones_recibidos = list_create();
+
+	// Metricas
+	deadlocks_totales = 0;
 }
 
 void reintento_suscripcion_si_aplica(){
