@@ -16,6 +16,8 @@
 #include <dirent.h>
 #include <math.h>
 
+pthread_mutex_t chequeo_sem_suscrip;
+sem_t suscribir;
 
 char *concat(char *start, char *end)
 {
@@ -171,13 +173,47 @@ void create_new_file_pokemon(char* pokemon) {
 
 // Funciones generales
 
-void suscribirse_a(int* conexion, int cola){
-	t_subscriptor* mensaje = crear_suscripcion(cola,100); // tiempo?
-	t_buffer* buffer = serializar_suscripcion(mensaje);
-	enviar_mensaje(*conexion, buffer, SUSCRIPTOR);
-
+int iniciar_conexion_broker() {
+	char * ip_broker = config_get_string_value(config, "IP_BROKER");
+	char * puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
+	return iniciar_conexion(ip_broker, puerto_broker);
 }
 
+void suscribirse_a_colas_gamecard() {
+	suscribirse_a(NEW_POKEMON);
+	suscribirse_a(CATCH_POKEMON);
+	suscribirse_a(GET_POKEMON);
+	while (1) {
+		sleep(config_get_int_value(config, "TIEMPO_DE_REINTENTO_CONEXION"));
+		sem_wait(&suscribir);
+		log_info(logger, "Inicio reintento de comunicacion con Broker");
+		suscribirse_a(NEW_POKEMON);
+		suscribirse_a(CATCH_POKEMON);
+		suscribirse_a(GET_POKEMON);
+
+		int val_semaforo;
+		sem_getvalue(&suscripcion, &val_semaforo);
+		if(val_semaforo > 0)
+			log_info(logger, "Reintento de comunicación con broker fallido");
+		else
+			log_info(logger, "Reintento de comunicación con broker logrado");
+	}
+}
+
+void suscribirse_a(op_code tipo_mensaje) {
+	int socket_broker = iniciar_conexion_broker();
+	if (socket_broker == -1){
+		//reintento_suscripcion_si_aplica();         VER CON NACHO
+	}else {
+		enviar_mensaje_suscripcion(tipo_mensaje, socket_broker);
+		/*											Ya lo tengo en lanzar_hilo_espera_broker?
+		int* argument = malloc(sizeof(int));
+		*argument = socket_broker;
+		pthread_create(&thread, NULL, (void*) esperar_mensajes_cola, argument);
+		 */
+		log_trace(logger, "Suscripcion completada");
+	}
+}
 
 void esperar_broker(void *arg) {
 	char* PUERTO_BROKER = config_get_string_value(config, "PUERTO_BROKER");
@@ -201,7 +237,7 @@ void esperar_broker(void *arg) {
 }
 
 void lanzar_hilo_espera_broker() {
-	int* argument = malloc(sizeof(int)); // chequear
+	int* argument = malloc(sizeof(int)); // chequear, socket?
 	pthread_create(&thread, NULL, (void*) esperar_broker, argument);
 	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
 }

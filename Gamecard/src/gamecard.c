@@ -6,16 +6,9 @@ void main(){
 	// Leer config
 	config = leer_config("./Gamecard/config/gamecard.config");
 	set_base_path(config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"));
-	REINTENTO_CONEXION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_CONEXION");
-	REINTENTO_OPERACION = config_get_int_value(config, "TIEMPO_DE_REINTENTO_OPERACION");
-	RETARDO_OPERACION = config_get_int_value(config,"TIEMPO_RETARDO_OPERACION");
-
 
 	// Suscribirse al broker: NEW_POKEMON, CATCH_POKEMON, GET_POKEMON
-	suscribirse_a(&conexion, NEW_POKEMON ); // NEW_POKEMON
-	suscribirse_a(&conexion, CATCH_POKEMON ); // CATCH_POKEMON
-	suscribirse_a(&conexion, GET_POKEMON ); // GET_POKEMON
-	// "NEW_POKEMON" "CAUGHT_POKEMON" "GET_POKEMON" deben ser int
+	suscribirse_a_colas_gamecard();
 	// Esperar a recibir mensajes. Reintentar cada REINTENTO_CONEXION si no se logra conectar
 	lanzar_hilo_espera_broker();
 

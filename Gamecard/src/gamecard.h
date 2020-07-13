@@ -3,11 +3,12 @@
 
 
 #include "utils_gamecard.c"
-// CONSTANTES CONFIG
+// CONSTANTES CONFIG ---> NO VAN
 int RETARDO_OPERACION;
 int REINTENTO_CONEXION;
 int REINTENTO_OPERACION;
-t_log* logger;
+
+t_log* logger; // Mismo nombre entre archivos?
 t_config* config;
 
 // CONSTANT
