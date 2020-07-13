@@ -17,7 +17,7 @@ void main(){
 	suscribirse_a(&conexion, GET_POKEMON ); // GET_POKEMON
 	// "NEW_POKEMON" "CAUGHT_POKEMON" "GET_POKEMON" deben ser int
 	// Esperar a recibir mensajes. Reintentar cada REINTENTO_CONEXION si no se logra conectar
-	esperar_broker(NULL);
+	lanzar_hilo_espera_broker();
 
 	// Al recibir: 	Informar la recepción del mismo (ACK)
 	//				Crear hilo que atienda solicitud

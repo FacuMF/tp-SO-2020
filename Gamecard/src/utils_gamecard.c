@@ -179,49 +179,32 @@ void suscribirse_a(int* conexion, int cola){
 }
 
 
-void* esperar_broker(void *arg) {
+void esperar_broker(void *arg) {
 	char* PUERTO_BROKER = config_get_string_value(config, "PUERTO_BROKER");
 	char* IP_BROKER = config_get_string_value(config, "IP_BROKER");
-	int socket_servidor = iniciar_conexion_servidor(ip, puerto);
+	int conexion = iniciar_conexion_servidor(ip, puerto); // Diferencia entre iniciar_conexion?
+	log_trace(logger, "Aceptando broker...");
+	int cod_op = 1;
 
-	while (1) {
-		log_trace(logger, "Va a ejecutar 'handle_broker'.");
-		handle_broker(socket_servidor);
-	}
+	while (cod_op > 0) { // No es espera activa porque queda en recv
+			cod_op = recibir_codigo_operacion(conexion);
+			if (cod_op > 0){
+				log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
+				handle_mensajes_gamecard(cod_op,&conexion);
+			}else{
+				log_error(logger, "Error en 'recibir_codigo_operacion'");
+				//reintento_conexion_broker(); TODO
+				return;
+			}
+		}
 
-	return 0;
 }
 
-void handle_broker(int socket_servidor) {
-
-	log_trace(logger, "Aceptando broker...");
-	int socket_broker = aceptar_cliente(socket_servidor);
-
-	log_trace(logger, "Conexion de %i al Broker.", socket_broker);
-
+void lanzar_hilo_espera_broker() {
 	int* argument = malloc(sizeof(int));
 	*argument = socket_broker;
-	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_broker, //El mismo thread?
-			argument);
+	pthread_create(&thread, NULL, (void*) esperar_broker, argument);
 	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
-}
-
-void recibir_mensaje_del_broker(void* input) {
-	int socket_cliente = *((int *) input);
-	op_code cod_op = 0;
-
-	while (cod_op >= 0) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
-
-		cod_op = recibir_codigo_operacion(socket_cliente);
-		if (cod_op == -1)
-			log_error(logger, "Error en 'recibir_codigo_operacion'");
-
-		(cod_op >= 0) ?
-				handle_mensaje(cod_op, socket_cliente) :
-				log_warning(logger, "El cliente %i cerro el socket.",
-						socket_cliente);
-	} //TODO: Ver si alguien lo necesita, si no se borra.
-
 }
 
 
