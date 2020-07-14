@@ -8,30 +8,46 @@ void iniciar_deteccion_deadlock(){
 
 		// TODO: sortear dependiendo del algoritmo?
 		t_entrenador * entrenador_activo = list_get(entrenadores_en_deadlock,0);
+		t_entrenador * entrenador_pasivo = NULL;
 
 		while(deadlock_en_curso){// Ciclo de un deadlock
 			sem_wait(&resolver_deadlock);
 
 			t_list * pok_faltantes = obtener_pokemones_faltantes(entrenador_activo);
 			t_list * pok_sobrantes = obtener_pokemones_sobrantes(entrenador_activo);
+			char * pokemon_a_intercambiar = list_get(pok_faltantes,0);
+			t_list * posibles_pasivos = entrenadores_con_pokemon_sobrante(pokemon_a_intercambiar);
 
-			t_list * posibles_pasivos = entrenadores_con_pokemon_sobrante(list_get(pok_faltantes,0));
-
-			// TODO: obtener de esos al entrenador que necesita el que no necesito
+			t_entrenador * entrenador_ideal = obtener_entrenador_ideal(posibles_pasivos,pokemon_a_intercambiar);
+			if(entrenador_ideal != NULL){
+				entrenador_pasivo = entrenador_ideal;
 				deadlocks_totales++;
 				deadlock_en_curso = 0;
-			//else
-				//TODO: entrenador_pasivo = primero que tenga el que necesito
+			}else
+				entrenador_pasivo = list_get(posibles_pasivos,0);
 
 			// TODO: planificar entrenador con estructura
 				// ent2 | pokemon_a_obtener | pokemon_a_dar
 			// TODO: Revisar si hay algun otro que puedan cambiar?
 		}// -- Fin ciclo --
-
+		sem_post(&resolver_deadlock);
 	}
 
 }
-t_list entrenadores_con_pokemon_sobrante(char * pokemon){
+
+t_entrenador * obtener_entrenador_ideal(t_list * posibles_pasivos, char*pokemon){
+	bool le_falta_pokemon(void*element){
+		t_entrenador * entrenador = element;
+		t_list * faltantes = obtener_pokemones_faltantes(entrenador);
+		return pokemon_en_lista(faltantes,pokemon);
+	}
+	// nota: para optimizar se podria buscar todos los ideales y buscar el mas cercano en vez del primero.
+	// nota2: tambien aquel que sea mayor (sus sobrantes que necesito+ mis sobrantes q necesita)
+	return list_find(posibles_pasivos, le_falta_pokemon);
+}
+
+
+t_list * entrenadores_con_pokemon_sobrante(char * pokemon){
 	bool le_sobra_pokemon(void*element){
 		t_entrenador * entrenador = element;
 		t_list * sobrantes = obtener_pokemones_sobrantes(entrenador);
