@@ -18,8 +18,9 @@ void ser_entrenador(void *element) {
 		}else if (entrenador->deadlock != NULL) {
 			log_debug(logger, "Entrenador despierto: Posicion %i %i",
 					entrenador->posicion[0], entrenador->posicion[1]);
-			// TODO: realizar intercambio
+			realizar_intercambio(entrenador);
 
+			entrenador->estado = BLOCKED_ESPERANDO;
 			actualizar_timestamp(entrenador);
 			sem_post(&resolver_deadlock);
 			sem_post(&cpu_disponible);
@@ -90,7 +91,6 @@ void realizar_intercambio(t_entrenador * entrenador){
 					"Intercambio efectuado en posicon %d %d para %s por %s",
 					entrenador->posicion[0], entrenador->posicion[1],
 					entrenador->deadlock->pokemon_dar,entrenador->deadlock->pokemon_recibir);
-			free(entrenador->deadlock);
 			entrenador->deadlock = NULL;
 		}
 		ciclos_esta_corrida++;

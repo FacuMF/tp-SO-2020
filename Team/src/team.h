@@ -69,13 +69,12 @@ double constante_estimacion;
 
 // Metricas
 int deadlocks_totales;
-int deadlocks_pendientes();
 
 // DEADLOCK
 void iniciar_deteccion_deadlock();
 void planificar_entrenador_deadlock(t_entrenador * entrenador,t_deadlock * deadlock);
 char * obtener_pokemon_a_dar(t_list * pok_sobrantes,t_entrenador * entrenador_ideal);
-t_entrenador * obtener_entrenador_ideal(t_list * posibles_pasivos, char*pokemon);
+t_entrenador * obtener_entrenador_ideal(t_list * posibles_pasivos, t_entrenador * entrenador);
 t_list * entrenadores_con_pokemon_sobrante(char * pokemon);
 int deadlocks_pendientes();
 t_list * obtener_pokemones_faltantes(t_entrenador * entrenador);
@@ -138,6 +137,7 @@ t_catch_pokemon * de_appeared_a_catch(t_appeared_pokemon * appeared);
 // ENTRENADOR
 void ser_entrenador(void *element);
 void cazar_pokemon(t_entrenador * entrenador);
+void realizar_intercambio(t_entrenador * entrenador);
 void mover_entrenador(t_entrenador * entrenador);
 
 // Cambio Estado

@@ -6,11 +6,11 @@ void iniciar_planificador() {
 	t_entrenador * entrenador_en_exec = NULL;
 
 	sem_wait(&cpu_disponible);
-	while (!objetivo_global_completo()) {
+	while (1) {
 		while (!entrenadores_en_ready()) {
 			sem_wait(&entrenadores_ready);
 		}
-
+		log_debug(logger,"Planificador corto plazo en curso");
 		t_entrenador * entrenador = obtener_entrenador_a_planificar();
 
 		// TODO: Revisar y testear SJFCD
