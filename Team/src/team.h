@@ -14,7 +14,9 @@ typedef enum {
 } t_estado;
 
 typedef struct t_deadlock{
-	t_entrenador * entrenador_p;
+	t_list * capturados_ep;
+	int posx;
+	int posy;
 	char* pokemon_dar;
 	char * pokemon_recibir;
 } t_deadlock;
@@ -71,6 +73,13 @@ int deadlocks_pendientes();
 
 // DEADLOCK
 void iniciar_deteccion_deadlock();
+void planificar_entrenador_deadlock(t_entrenador * entrenador,t_deadlock * deadlock);
+char * obtener_pokemon_a_dar(t_list * pok_sobrantes,t_entrenador * entrenador_ideal);
+t_entrenador * obtener_entrenador_ideal(t_list * posibles_pasivos, char*pokemon);
+t_list * entrenadores_con_pokemon_sobrante(char * pokemon);
+int deadlocks_pendientes();
+t_list * obtener_pokemones_faltantes(t_entrenador * entrenador);
+t_list * obtener_pokemones_sobrantes(t_entrenador * entrenador);
 
 // PLANIFICACION GENERAL
 void iniciar_planificador();
@@ -103,6 +112,7 @@ t_list * obtener_pokemones_necesitados();
 t_list * obtener_pokemones_necesitados_sin_repetidos();
 
 // Auxiliares
+void eliminar_si_esta(t_list * lista, char * pokemon);
 int requiero_pokemon(char * pokemon);
 int pokemon_en_lista(t_list * lista_pokemones,char * pokemon);
 int cantidad_repeticiones_en_lista(t_list * lista_pokemones, char *pokemon );

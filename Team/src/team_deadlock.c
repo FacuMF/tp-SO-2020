@@ -28,14 +28,16 @@ void iniciar_deteccion_deadlock(){
 				entrenador_pasivo = list_get(posibles_pasivos,0);
 
 			t_deadlock * deadlock = malloc(sizeof(t_deadlock));
-			deadlock->entrenador_p = entrenador_pasivo;
+			deadlock->capturados_ep = entrenador_pasivo->pokemones_capturados;
+			deadlock->posx = entrenador_pasivo->posicion[0];
+			deadlock->posy = entrenador_pasivo->posicion[1];
 			deadlock->pokemon_dar = pokemon_a_dar;
 			deadlock->pokemon_recibir= pokemon_a_recibir;
 
 			planificar_entrenador_deadlock(entrenador_activo,deadlock);
 			sem_wait(&resolver_deadlock);
-			sem_post(&entrenador_activo);
-			sem_post(&entrenador_pasivo);
+			sem_post(&entrenador_activo->sem_est);
+			sem_post(&entrenador_pasivo->sem_est);
 
 		}// -- Fin ciclo --
 
@@ -45,7 +47,7 @@ void iniciar_deteccion_deadlock(){
 void planificar_entrenador_deadlock(t_entrenador * entrenador,t_deadlock * deadlock){
 	entrenador->deadlock = deadlock;
 	entrenador->ciclos_cpu_restantes = distancia(entrenador,
-				deadlock->entrenador_p->posicion[0], deadlock->entrenador_p->posicion[1]) + 5;
+				deadlock->posx, deadlock->posy) + 5;
 	actualizar_timestamp(entrenador);
 
 	entrenador->estado = READY;

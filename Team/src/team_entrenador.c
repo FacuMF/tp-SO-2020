@@ -82,9 +82,9 @@ void realizar_intercambio(t_entrenador * entrenador){
 			log_debug(logger,"Intercambio en proceso");
 		}else {
 			list_add(entrenador->pokemones_capturados,entrenador->deadlock->pokemon_recibir);
-			list_add(entrenador->deadlock->entrenador_p->pokemones_capturados,entrenador->deadlock->pokemon_dar);
+			list_add(entrenador->deadlock->capturados_ep,entrenador->deadlock->pokemon_dar);
 			eliminar_si_esta(entrenador->pokemones_capturados, entrenador->deadlock->pokemon_dar);
-			eliminar_si_esta(entrenador->deadlock->entrenador_p->pokemones_capturados,entrenador->deadlock->pokemon_recibir);
+			eliminar_si_esta(entrenador->deadlock->capturados_ep,entrenador->deadlock->pokemon_recibir);
 
 			log_info(logger,
 					"Intercambio efectuado en posicon %d %d para %s por %s",
@@ -101,14 +101,6 @@ void realizar_intercambio(t_entrenador * entrenador){
 	}
 	entrenador->estimacion_rafaga = constante_estimacion * ciclos_esta_corrida
 			+ (1 - constante_estimacion) * entrenador->estimacion_rafaga;
-}
-
-void eliminar_si_esta(t_list * lista, char * pokemon){
-	bool es_un_repetido_aux(void*elemento){
-		char *pokemon_a_comparar = elemento;
-		return !strcasecmp(pokemon_a_comparar,pokemon);
-	}
-	list_remove_by_condition(lista,es_un_repetido_aux);
 }
 
 void cazar_pokemon(t_entrenador * entrenador) {
@@ -162,13 +154,22 @@ void cazar_pokemon(t_entrenador * entrenador) {
 }
 
 void mover_entrenador(t_entrenador * entrenador) {
-	if (entrenador->catch_pendiente->posx > entrenador->posicion[0]) {
+	int objX,objY;
+	if(entrenador->catch_pendiente != NULL){
+		objX = entrenador->catch_pendiente->posx;
+		objY = entrenador->catch_pendiente->posy;
+	}else{
+		objX = entrenador->deadlock->posx;
+		objY = entrenador->deadlock->posy;
+	}
+
+	if ( objX> entrenador->posicion[0]) {
 		entrenador->posicion[0]++;
-	} else if (entrenador->catch_pendiente->posx < entrenador->posicion[0]) {
+	} else if (objX < entrenador->posicion[0]) {
 		entrenador->posicion[0]--;
-	} else if (entrenador->catch_pendiente->posy > entrenador->posicion[1]) {
+	} else if (objY > entrenador->posicion[1]) {
 		entrenador->posicion[1]++;
-	} else if (entrenador->catch_pendiente->posy < entrenador->posicion[1]) {
+	} else if (objY < entrenador->posicion[1]) {
 		entrenador->posicion[1]--;
 	}
 }

@@ -81,6 +81,13 @@ t_list * obtener_pokemones_necesitados_sin_repetidos(){
 }
 
 // AUXILIARES
+void eliminar_si_esta(t_list * lista, char * pokemon){
+	bool es_un_repetido_aux(void*elemento){
+		char *pokemon_a_comparar = elemento;
+		return !strcasecmp(pokemon_a_comparar,pokemon);
+	}
+	list_remove_by_condition(lista,es_un_repetido_aux);
+}
 
 int requiero_pokemon(char * pokemon){
 	t_list * pokemones_necesitados = obtener_pokemones_necesitados();
