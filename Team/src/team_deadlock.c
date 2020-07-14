@@ -6,7 +6,6 @@ void iniciar_deteccion_deadlock(){
 		t_list * entrenadores_en_deadlock = obtener_entrenadores_en_estado(BLOCKED_DEADLOCK,
 					head_entrenadores);
 
-		// TODO: sortear dependiendo del algoritmo?
 		t_entrenador * entrenador_activo = list_get(entrenadores_en_deadlock,0);
 		t_entrenador * entrenador_pasivo = NULL;
 
@@ -101,19 +100,17 @@ int deadlocks_pendientes(){
 }
 
 t_list * obtener_pokemones_faltantes(t_entrenador * entrenador){
-	//TODO: Tener en cuenta aquellos que estan repetidos
 	bool falta_en_capturados(void * element){
 		char*pokemon = element;
-		return !pokemon_en_lista(entrenador->pokemones_capturados,pokemon);
+		return cantidad_repeticiones_en_lista(entrenador->pokemones_capturados,pokemon)<cantidad_repeticiones_en_lista(entrenador->pokemones_por_capturar,pokemon);
 	}
 	return list_filter(entrenador->pokemones_por_capturar, falta_en_capturados);
 }
 
 t_list * obtener_pokemones_sobrantes(t_entrenador * entrenador){
-	//TODO: Tener en cuenta aquellos que estan repetidos
-	bool falta_en_capturados(void * element){
+	bool sobrante_en_capturados(void * element){
 			char*pokemon = element;
-			return !pokemon_en_lista(entrenador->pokemones_por_capturar,pokemon);
-		}
-		return list_filter(entrenador->pokemones_capturados, falta_en_capturados);
+			return cantidad_repeticiones_en_lista(entrenador->pokemones_capturados,pokemon)>cantidad_repeticiones_en_lista(entrenador->pokemones_por_capturar,pokemon);
+	}
+	return list_filter(entrenador->pokemones_capturados, sobrante_en_capturados);
 }
