@@ -13,6 +13,12 @@ typedef enum {
 	NEW, READY, EXEC, BLOCKED_NORMAL, BLOCKED_ESPERANDO, BLOCKED_DEADLOCK, EXIT
 } t_estado;
 
+typedef struct t_deadlock{
+	t_entrenador * entrenador_p;
+	char* pokemon_dar;
+	char * pokemon_recibir;
+} t_deadlock;
+
 typedef struct t_entrenador {
 	sem_t sem_est;
 	int * posicion;
@@ -23,6 +29,7 @@ typedef struct t_entrenador {
 	struct timeval ultima_modificacion;
 	int ciclos_cpu_restantes;
 	double estimacion_rafaga;
+	t_deadlock * deadlock;
 } t_entrenador;
 
 // VARIABLES COMPARTIDAS

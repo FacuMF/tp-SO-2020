@@ -23,6 +23,7 @@ t_list* cargar_entrenadores() {
 		entrenador->pokemones_por_capturar = string_a_pokemon_list(
 				objetivos[i]);
 		entrenador->catch_pendiente = NULL;
+		entrenador->deadlock = NULL;
 		entrenador->estado = NEW;
 		entrenador->estimacion_rafaga = estimacion_inicial;
 		list_add(head_entrenadores, entrenador);

@@ -15,6 +15,16 @@ void ser_entrenador(void *element) {
 			sem_post(&cpu_disponible);
 			log_debug(logger, "Entrenador dormido: Posicion %i %i",
 					entrenador->posicion[0], entrenador->posicion[1]);
+		}else if (entrenador->deadlock != NULL) {
+			log_debug(logger, "Entrenador despierto: Posicion %i %i",
+					entrenador->posicion[0], entrenador->posicion[1]);
+			// TODO: realizar intercambio
+
+			actualizar_timestamp(entrenador);
+			sem_post(&resolver_deadlock);
+			sem_post(&cpu_disponible);
+			log_debug(logger, "Entrenador dormido: Posicion %i %i",
+					entrenador->posicion[0], entrenador->posicion[1]);
 		} else if (objetivo_propio_cumplido(entrenador)) {
 			actualizar_timestamp(entrenador);
 			sem_post(&cpu_disponible);
@@ -22,22 +32,83 @@ void ser_entrenador(void *element) {
 		} else if (tiene_espacio_disponible(entrenador)) {
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_NORMAL;
-			sem_post(&cpu_disponible);
 			log_debug(logger, "Entrenador blockeado normal: Posicion %i %i",
 					entrenador->posicion[0], entrenador->posicion[1]);
 		} else if (!tiene_espacio_disponible(entrenador)) {
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_DEADLOCK;
-			sem_post(&cpu_disponible);
 			log_debug(logger, "Entrenador esperando deadlock: Posicion %i %i",
 					entrenador->posicion[0], entrenador->posicion[1]);
 		}
-		//TODO: Agregar else if para cuando tenga que hacer el deadlock
 
 	}
 	log_debug(logger, "Entrenador en exit: Posicion %i %i",
 			entrenador->posicion[0], entrenador->posicion[1]);
 	entrenador->estado = EXIT;
+}
+
+void realizar_intercambio(t_entrenador * entrenador){
+	int ciclos_esta_corrida = 0;
+
+	while (entrenador->ciclos_cpu_restantes > 0) {
+		// Chequeo si es necesario bloquearse
+		switch (algoritmo_elegido) {
+		case A_RR:
+			if (ciclos_esta_corrida >= quantum) {
+				ciclos_esta_corrida = 0;
+				bloquear_entrenador(entrenador);
+			}
+			break;
+		case A_SJFCD:
+			if (desalojar) {
+				entrenador->estimacion_rafaga = constante_estimacion
+						* ciclos_esta_corrida
+						+ (1 - constante_estimacion)
+								* entrenador->estimacion_rafaga;
+				desalojar = 0;
+				bloquear_entrenador(entrenador);
+			}
+			break;
+		default:
+			break;
+		}
+		sleep(retardo_ciclo_cpu);
+		if (entrenador->ciclos_cpu_restantes > 5) {
+			mover_entrenador(entrenador);
+			log_info(logger,
+					"Entrenador movido a posicon %d %d",
+					entrenador->posicion[0], entrenador->posicion[1]);
+		}else if (entrenador->ciclos_cpu_restantes > 1) {
+			log_debug(logger,"Intercambio en proceso");
+		}else {
+			list_add(entrenador->pokemones_capturados,entrenador->deadlock->pokemon_recibir);
+			list_add(entrenador->deadlock->entrenador_p->pokemones_capturados,entrenador->deadlock->pokemon_dar);
+			eliminar_si_esta(entrenador->pokemones_capturados, entrenador->deadlock->pokemon_dar);
+			eliminar_si_esta(entrenador->deadlock->entrenador_p->pokemones_capturados,entrenador->deadlock->pokemon_recibir);
+
+			log_info(logger,
+					"Intercambio efectuado en posicon %d %d para %s por %s",
+					entrenador->posicion[0], entrenador->posicion[1],
+					entrenador->deadlock->pokemon_dar,entrenador->deadlock->pokemon_recibir);
+			free(entrenador->deadlock);
+			entrenador->deadlock = NULL;
+		}
+		ciclos_esta_corrida++;
+		entrenador->ciclos_cpu_restantes--;
+		entrenador->estimacion_rafaga--;
+		log_debug(logger,"Ciclos restantes: %d",entrenador->ciclos_cpu_restantes);
+
+	}
+	entrenador->estimacion_rafaga = constante_estimacion * ciclos_esta_corrida
+			+ (1 - constante_estimacion) * entrenador->estimacion_rafaga;
+}
+
+void eliminar_si_esta(t_list * lista, char * pokemon){
+	bool es_un_repetido_aux(void*elemento){
+		char *pokemon_a_comparar = elemento;
+		return !strcasecmp(pokemon_a_comparar,pokemon);
+	}
+	list_remove_by_condition(lista,es_un_repetido_aux);
 }
 
 void cazar_pokemon(t_entrenador * entrenador) {
