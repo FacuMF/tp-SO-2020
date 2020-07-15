@@ -96,11 +96,6 @@ char** extraer_bloques(char* pokemon){
 }
 
 
-bool verificar_posciones_file(int x, int y, char** bloques){
-	//TODO
-	return true;
-}
-
 void crear_file_si_no_existe(char* file, char* pokemon){
 	if(!file_existing(file)){
 		create_pokemon_dir(pokemon);

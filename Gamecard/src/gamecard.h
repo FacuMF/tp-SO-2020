@@ -66,7 +66,7 @@ void clean_dir(char* path);
 char* read_file(char* path, int size);
 void write_file(char* path, char* data);
 
-bool verificar_posiciones_file();
+bool verificar_posiciones_file(int x, int y, char** bloques);
 
 
 
