@@ -103,9 +103,9 @@ void elegir_algoritmo() {
 		algoritmo_elegido = A_FIFO;
 	} else if (strcmp(algoritmo, "RR") == 0) {
 		algoritmo_elegido = A_RR;
-	} else if (strcmp(algoritmo, "SJF-SD") == 0) {
-		algoritmo_elegido = A_SJFCD;
 	} else if (strcmp(algoritmo, "SJF-CD") == 0) {
+		algoritmo_elegido = A_SJFCD;
+	} else if (strcmp(algoritmo, "SJF-SD") == 0) {
 		algoritmo_elegido = A_SJFSD;
 	} else {
 		log_error(logger, "Algoritmo invalido");
