@@ -35,7 +35,7 @@ t_list* cargar_entrenadores() {
 
 	agregar_capturados(head_entrenadores,pokemones_capturados);
 	log_trace(logger, "Entrenadores cargados");
-	mostrar_entrenadores(head_entrenadores);
+	//mostrar_entrenadores(head_entrenadores);
 
 	return (head_entrenadores);
 }
