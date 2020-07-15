@@ -3,7 +3,7 @@
 void main(){
 
 	iniciar_gamecard();
-	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_gamecard, NULL);
+	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_gamecard, NULL); // Doble pthread?
 	//Terminar gamecard
 }
 

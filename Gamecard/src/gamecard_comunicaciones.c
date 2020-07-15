@@ -44,10 +44,9 @@ void reintento_suscripcion_si_aplica_gamecard(){
 	pthread_mutex_lock(&mutex_suscripcion);
 		int val_semaforo;
 		sem_getvalue(&sem_suscripcion, &val_semaforo);
-
 		if(val_semaforo < 1)
 			sem_post(&sem_suscripcion);
-			pthread_mutex_unlock(&mutex_suscripcion);
+	pthread_mutex_unlock(&mutex_suscripcion);
 }
 
 void enviar_mensaje_suscripcion_gamecard(op_code mensaje, int conexion){
@@ -147,6 +146,50 @@ void enviar_appeared_pokemon_a_broker( void *element) {
 			close(socket_broker);
 		} else {
 			log_info(logger, "Error en comunicacion al intentar enviar appeared. Se efectuara operacion default");
+			//TODO: CHEQUEAR FUNCION DEFAULT
+		}
+}
+
+
+void enviar_caught_pokemon_a_broker( void *element) {
+	t_caught_pokemon * caught_a_enviar = element;
+	int socket_broker = iniciar_conexion_broker_gamecard();
+		if (socket_broker > 0) {
+			t_buffer*mensaje_caught_serializado = serializar_caught_pokemon(caught_a_enviar);
+
+			enviar_mensaje(socket_broker, mensaje_caught_serializado, CAUGHT_POKEMON);
+
+			log_trace(logger, "Enviado resultado de caught: %B",
+					caught_a_enviar->ok_or_fail);
+
+			free(mensaje_caught_serializado);
+
+			caught_a_enviar->id_mensaje = handle_mensajes_gamecard(
+					socket_broker,recibir_codigo_operacion(socket_broker),1);
+			close(socket_broker);
+		} else {
+			log_info(logger, "Error en comunicacion al intentar enviar caught. Se efectuara operacion default");
+			//TODO: CHEQUEAR FUNCION DEFAULT
+		}
+}
+
+void enviar_localized_pokemon_a_broker( void *element) {
+	t_localized_pokemon * localized_a_enviar = element;
+	int socket_broker = iniciar_conexion_broker_gamecard();
+		if (socket_broker > 0) {
+			t_buffer*mensaje_localized_serializado = serializar_localized_pokemon(localized_a_enviar);
+
+			enviar_mensaje(socket_broker, mensaje_localized_serializado, LOCALIZED_POKEMON);
+
+			log_trace(logger, "Enviado localized para: %s. Cantidad: %d", // posiciones?
+					localized_a_enviar->pokemon, localized_a_enviar->cantidad_posiciones);
+			free(mensaje_localized_serializado);
+
+			localized_a_enviar->id_mensaje = handle_mensajes_gamecard(
+					socket_broker,recibir_codigo_operacion(socket_broker),1);
+			close(socket_broker);
+		} else {
+			log_info(logger, "Error en comunicacion al intentar enviar localized. Se efectuara operacion default");
 			//TODO: CHEQUEAR FUNCION DEFAULT
 		}
 }

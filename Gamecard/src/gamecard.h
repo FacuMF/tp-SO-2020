@@ -1,5 +1,5 @@
-#ifndef UTILS_GAMECARD_
-#define UTILS_GAMECARD_
+#ifndef GAMECARD_H
+#define GAMECARD_H
 
 #include "../../Base/Utils/src/utils.h"
 #include "../../Base/Utils/src/utils_mensajes.h"
@@ -101,4 +101,4 @@ char** extraer_bloques(char* pokemon);
 bool verificar_posciones_file(int x, int y, char** bloques);
 void crear_file_si_no_existe(char* file, char* pokemon);
 
-#endif /* UTILS_GAMECARD */
+#endif /* GAMECARD_H */

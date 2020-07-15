@@ -150,11 +150,6 @@ void create_new_file_pokemon(char* pokemon) {
     create_pokemon_metadata_file(pokemon);
 }
 
-
-
-
-
-
 bool file_existing(char* path){
 	FILE * file = fopen(path, "rb");
 	if(file == NULL){
@@ -182,7 +177,7 @@ char** extraer_bloques(char* pokemon){
 }
 
 
-bool verificar_posciones_file(int x, int y, char** bloques){
+bool verificar_posiciones_file(int x, int y, char** bloques){
 	//TODO
 	return true;
 }
