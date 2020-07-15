@@ -12,14 +12,17 @@ t_list* cargar_entrenadores() {
 	char ** objetivos = config_get_array_value(config,
 			"OBJETIVOS_ENTRENADORES");
 
+
 	int i = 0;
+
 	while (posiciones[i] != NULL) {
 		t_entrenador * entrenador = malloc(sizeof(t_entrenador));
 		sem_init(&entrenador->sem_est,1,0);
 
 		entrenador->posicion = de_string_a_posicion(posiciones[i]);
-		entrenador->pokemones_capturados = string_a_pokemon_list(
-				pokemones_capturados[i]);
+
+		entrenador->pokemones_capturados = list_create();
+
 		entrenador->pokemones_por_capturar = string_a_pokemon_list(
 				objetivos[i]);
 		entrenador->catch_pendiente = NULL;
@@ -30,11 +33,30 @@ t_list* cargar_entrenadores() {
 		i++;
 	}
 
+	agregar_capturados(head_entrenadores,pokemones_capturados);
 	log_trace(logger, "Entrenadores cargados");
-	//mostrar_entrenadores(head_entrenadores);
+	mostrar_entrenadores(head_entrenadores);
 
 	return (head_entrenadores);
 }
+
+void agregar_capturados(t_list * lista_head,char ** pokemones_capturados){
+
+	// [pikachu,NULL]
+	// [pikachu|sqirtle,pidgey|etc,NULL]
+	// entrenador->pokemones_capturados = string_a_pokemon_list(
+	//pokemones_capturados[i]);
+
+	int j = 0;
+
+	while(pokemones_capturados[j]!=NULL){
+		t_entrenador * entrenador = list_get(lista_head,j);
+		t_list * pokemones_a_agregar = string_a_pokemon_list(pokemones_capturados[j]);
+		list_add_all(entrenador->pokemones_capturados,pokemones_a_agregar);
+		j++;
+	}
+}
+
 
 void lanzar_hilo_entrenador(void*element) {
 	t_entrenador * entrenador = element;
@@ -71,13 +93,9 @@ void reintento_suscripcion_si_aplica(){
 }
 
 // CONFIG
-void iniciar_config_team(char* args) {
-	char * nombre_archivo_config = malloc(sizeof(args));
-	strcpy(nombre_archivo_config, args);
-	char *path_config = obtener_path(nombre_archivo_config);
-
+void iniciar_config_team(char* nombre_config) {
+	char *path_config = obtener_path(nombre_config);
 	config = leer_config(path_config);
-	free(nombre_archivo_config);
 }
 
 char *obtener_path(char *path_leido) {
@@ -163,7 +181,7 @@ void mostrar_data_entrenador(void * element) {
 }
 
 void mostrar_kokemon(void*elemento) {
-	log_trace(logger, elemento);
+	log_trace(logger,elemento);
 }
 
 

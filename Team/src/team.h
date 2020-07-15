@@ -177,6 +177,7 @@ void finalizar_team();
 void inicializar_listas();
 void reintento_suscripcion_si_aplica();
 t_list* cargar_entrenadores();
+void agregar_capturados(t_list * lista_head,char ** pokemones_capturados);
 void lanzar_hilo_entrenador(void*element);
 
 // Config
