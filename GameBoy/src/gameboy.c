@@ -95,6 +95,8 @@ void inicializar_gameboy() {
 int recibir_respuesta(int* socket_broker) {
 
 	int cod_op = recibir_codigo_operacion(*socket_broker);
+	if (cod_op == -2)
+				log_trace(logger, "Fin de recepcion de mensajes cacheados");
 	(cod_op == -1) ?
 			log_error(logger, "Error en 'recibir_codigo_operacion'") :
 			log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);

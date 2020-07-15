@@ -82,6 +82,13 @@ void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor* subscripcion,  int 
 		break;
 	}
 }
+void enviar_fin_de_mensajes(int socket_cliente){
+	int fin = -2;
+	void* fin_serializado = malloc(sizeof(int));
+	memcpy(fin_serializado, &fin, sizeof(int));
+	int b = send(socket_cliente, fin_serializado, sizeof(int),0);
+	log_trace(logger, "Los bytes transmitidos fueron %d", b);
+}
 
 void desuscribir(int cliente, t_subscriptor* suscripcion){
 
@@ -90,6 +97,7 @@ void desuscribir(int cliente, t_subscriptor* suscripcion){
 			log_trace(logger, "Desuscribir en %i...", i);
 			sleep(1);
 		}
+		enviar_fin_de_mensajes(cliente);
 		log_trace(logger, "Desuscribir a %i de cola %s.", cliente, op_code_a_string(suscripcion->cola_de_mensaje));
 		switch (suscripcion->cola_de_mensaje) {
 			case APPEARED_POKEMON:

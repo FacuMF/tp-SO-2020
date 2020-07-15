@@ -216,6 +216,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion);
 
 //SUSCRIPTOR
 void manejar_mensaje_suscriptor(t_conexion_buffer *combo);
+void enviar_fin_de_mensajes(int);
 
 void subscribir(int cliente, t_subscriptor* subscripcion);
 void agregar_cliente_a_cola(t_list* cola, int cliente);

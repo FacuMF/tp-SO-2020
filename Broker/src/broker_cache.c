@@ -980,6 +980,8 @@ void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion,
 
 }
 
+
+
 void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,
 		int socket_cliente, t_mensaje_cache* particion) {
 	if (particion->tipo_mensaje == tipo_mensaje) {
