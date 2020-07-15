@@ -20,6 +20,7 @@
 #include<commons/config.h>
 #include<commons/collections/list.h>
 #include<commons/string.h>
+#include <commons/bitarray.h>
 #include<readline/readline.h>
 #include<pthread.h>
 #include<math.h>

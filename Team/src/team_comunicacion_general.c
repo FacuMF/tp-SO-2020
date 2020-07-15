@@ -43,6 +43,8 @@ int iniciar_conexion_con_broker() {
 	return iniciar_conexion(ip_broker, puerto_broker);
 }
 
+
+// MANEJO MENSAJES
 void esperar_mensajes_cola(void* input) {
 	int conexion = *((int *) input);
 	int cod_op = 1;
@@ -59,9 +61,6 @@ void esperar_mensajes_cola(void* input) {
 		}
 	}
 }
-
-
-// MANEJO MENSAJES
 
 int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	t_buffer * buffer = recibir_mensaje(conexion);
