@@ -1,8 +1,24 @@
 #ifndef UTILS_GAMECARD_
 #define UTILS_GAMECARD_
+#include <commons/string.h>
+#include <commons/config.h>
+#include <pthread.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include "../../Base/Utils/src/utils.h"
+#include "../../Base/Utils/src/utils_mensajes.h"
+#include "../../Broker/src/broker.h"
+
+#include <commons/collections/list.h>
+#include <commons/bitarray.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <dirent.h>
+#include <math.h>
 
 
-#include "utils_gamecard.c"
 // CONSTANTES CONFIG ---> NO VAN
 int RETARDO_OPERACION;
 int REINTENTO_CONEXION;
@@ -11,6 +27,10 @@ int REINTENTO_OPERACION;
 t_log* logger; // Mismo nombre entre archivos?
 t_config* config;
 
+
+//SEMAFOROS
+pthread_mutex_t chequeo_sem_suscrip;
+sem_t suscribir;
 // CONSTANT
 char* PUNTO_MONTAJE;
 char* METADATA_BASE_PATH = "Metadata/";
@@ -65,10 +85,12 @@ void create_new_file_pokemon(char* pokemon);
 
 
 
-// Funciones generales
+// Funciones suscripcion
+void suscribirse_a_colas_gamecard();
+void suscribirse_a_cola(op_code tipo_mensaje);
 
-void suscribirse_a(int* conexion, int cola);
-void* esperar_broker(void *arg);
+
+void* manejar_recibo_mensajes_broker(void *arg);
 void handle_broker(int socket_servidor);
 void recibir_mensaje_del_broker(void* input);
 bool file_existing(char* path);
