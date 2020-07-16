@@ -830,9 +830,7 @@ void si_es_part_mover_struct_a(t_mensaje_cache* particion, int offset_destino) {
 }
 
 _Bool corresponde_compactar() {
-	int algoritmo_de_memoria = de_string_a_alg_memoria(
-			config_get_string_value(config, "ALGORITMO_MEMORIA"));
-	if (algoritmo_de_memoria == PARTICIONES) {
+	if (algoritmo_memoria == PARTICIONES) {
 		contador_intentos_para_compactar--;
 		if (contador_intentos_para_compactar == 0) {
 			contador_intentos_para_compactar = frecuencia_compactacion;
