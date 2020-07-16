@@ -88,6 +88,7 @@ void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 			agregar_mensaje_a_cache(mensaje_a_cachear, size_stream,
 					particion_mensaje);
 
+
 			ordenar_cache_segun_su_lugar_en_memoria();
 
 			no_se_agrego_mensaje_a_cache = false; //Para que salga del while.
@@ -353,7 +354,10 @@ void agregar_mensaje_a_cache(void* mensaje_a_cachear, int tamano_stream,
 		t_mensaje_cache* particion_mensaje) {
 	memcpy(memoria_cache + (particion_mensaje->offset), mensaje_a_cachear,
 			tamano_stream);
-	log_trace(logger, "Se agrego mensaje a la cache.");
+
+	log_info(logger, "Se almaceno un mensaje %s en la posicion %i.",
+				op_code_a_string(particion_mensaje->tipo_mensaje),
+				(particion_mensaje->offset));
 }
 
 _Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2) {
@@ -367,8 +371,13 @@ void elegir_vitima_y_eliminarla() {
 	list_sort(struct_admin_cache, ordenar_segun_lru_flag); //Dejo primero al que quiero borrar
 	log_trace(logger, "Cache ordenada por LRU flag.");
 
-	int id_victima = ((t_mensaje_cache*) list_get(struct_admin_cache, 0))->id;
+	t_mensaje_cache* victima = list_get(struct_admin_cache, 0);
+	int id_victima = victima->id;
 	log_trace(logger, "El id de la victima elegida es: %i.", id_victima);
+
+	log_info(logger, "Se elimino una particion %s en la posicion %i.",
+						op_code_a_string(victima->tipo_mensaje),
+						victima->offset );
 
 	void vaciar_una_particion(void* particion) {
 		if (((t_mensaje_cache*) particion)->id == id_victima) // Si es victima
@@ -638,6 +647,15 @@ void agregar_particion_segun_vicima_y_siguiente() {
 	t_mensaje_cache* siguiente = list_get(struct_admin_cache, 1);
 
 	agrego_part_vacia(victima->offset, victima->tamanio + siguiente->tamanio);
+
+	log_asociacion_de_particiones_bs(victima,siguiente);
+}
+
+void log_asociacion_de_particiones_bs(t_mensaje_cache* part_1,t_mensaje_cache* part_2){
+	if(algoritmo_memoria==BS){
+		log_info(logger, "Se asociaron los bolques vacios que iniciaban en %i y %i.",
+				part_1->offset, part_2->offset);
+	}
 }
 
 void ordeno_dejando_anterior_y_victima_adelante() {
@@ -659,6 +677,8 @@ void agregar_particion_segun_anterior_y_victima() {
 	t_mensaje_cache* victima = list_get(struct_admin_cache, 1);
 
 	agrego_part_vacia(anterior->offset, anterior->tamanio + victima->tamanio);
+
+	log_asociacion_de_particiones_bs(anterior,victima);
 }
 
 void ordeno_dejando_anterior_victima_y_siguiente_adelante() {
@@ -715,6 +735,7 @@ void compactar_cache_si_corresponde() {
 			algoritmo_de_compactacion();
 
 		}
+		log_info(logger, "Se ejecuto la compactacion.");
 	}
 }
 
@@ -830,9 +851,7 @@ void si_es_part_mover_struct_a(t_mensaje_cache* particion, int offset_destino) {
 }
 
 _Bool corresponde_compactar() {
-	int algoritmo_de_memoria = de_string_a_alg_memoria(
-			config_get_string_value(config, "ALGORITMO_MEMORIA"));
-	if (algoritmo_de_memoria == PARTICIONES) {
+	if (algoritmo_memoria == PARTICIONES) {
 		contador_intentos_para_compactar--;
 		if (contador_intentos_para_compactar == 0) {
 			contador_intentos_para_compactar = frecuencia_compactacion;
