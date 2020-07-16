@@ -35265,3 +35265,25 @@
 [TRACE] 13:43:28:207 GameBoy/(5730:5730): Se recibio un mensaje NEW_POKEMON
 [TRACE] 13:43:28:207 GameBoy/(5730:5730): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Cantidad: 5, Id mensaje: 4
 [TRACE] 13:43:28:207 GameBoy/(5730:5730): Mensaje recibido manejado.
+[TRACE] 13:48:38:966 GameBoy/(6075:6075): Caracteristicas de mensaje obtenidas
+[TRACE] 13:48:38:967 GameBoy/(6075:6075): Se quiere enviar un mensaje del tipo -3- al modulo -3-
+[TRACE] 13:48:38:967 GameBoy/(6075:6075): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 13:48:38:968 GameBoy/(6075:6075): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 13:48:38:968 GameBoy/(6075:6075): El mensaje fue serializado. 
+[TRACE] 13:48:38:968 GameBoy/(6075:6075): OPERATION CODE: 3
+[TRACE] 13:48:38:968 GameBoy/(6075:6075): El mensaje fue enviado.
+[TRACE] 13:48:38:971 GameBoy/(6075:6075): Mensaje recibido, cod_op: 3.
+[TRACE] 13:48:38:971 GameBoy/(6075:6075): Se recibio un mensaje NEW_POKEMON
+[TRACE] 13:48:38:971 GameBoy/(6075:6075): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Cantidad: 5, Id mensaje: 0
+[TRACE] 13:48:38:971 GameBoy/(6075:6075): Mensaje recibido manejado.
+[TRACE] 13:48:44:743 GameBoy/(6079:6079): Caracteristicas de mensaje obtenidas
+[TRACE] 13:48:44:743 GameBoy/(6079:6079): Se quiere enviar un mensaje del tipo -3- al modulo -3-
+[TRACE] 13:48:44:743 GameBoy/(6079:6079): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 13:48:44:744 GameBoy/(6079:6079): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 13:48:44:745 GameBoy/(6079:6079): El mensaje fue serializado. 
+[TRACE] 13:48:44:745 GameBoy/(6079:6079): OPERATION CODE: 3
+[TRACE] 13:48:44:745 GameBoy/(6079:6079): El mensaje fue enviado.
+[TRACE] 13:48:44:746 GameBoy/(6079:6079): Mensaje recibido, cod_op: 3.
+[TRACE] 13:48:44:746 GameBoy/(6079:6079): Se recibio un mensaje NEW_POKEMON
+[TRACE] 13:48:44:746 GameBoy/(6079:6079): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Cantidad: 5, Id mensaje: 1
+[TRACE] 13:48:44:746 GameBoy/(6079:6079): Mensaje recibido manejado.
