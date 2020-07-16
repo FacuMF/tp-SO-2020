@@ -90,10 +90,6 @@ bool file_open(char* pokemon){
 	}
 }
 
-char** extraer_bloques(char* pokemon){
-	t_config* config = read_pokemon_metadata(pokemon);
-	return config_get_array_value(config,"BLOCKS");
-}
 
 
 void crear_file_si_no_existe(char* file, char* pokemon){
