@@ -58,6 +58,7 @@ sem_t cpu_disponible_sjf;
 pthread_mutex_t manejar_mensaje;
 
 pthread_mutex_t mutex_pokemones_necesitados;
+pthread_mutex_t mutex_ids_mensajes;
 
 // Listas globales de pokemones y entrenadores
 t_list * head_entrenadores;
@@ -129,7 +130,6 @@ void manejar_caught(t_caught_pokemon* mensaje_caught,t_entrenador * entrenador);
 void manejar_localized(t_localized_pokemon* mensaje_localized);
 
 // Auxiliares - Pokemon
-int pokemon_en_pendientes(char * pokemon);
 int pokemon_en_auxiliares(char * pokemon);
 int pokemon_asignado_a_entrenador(char * pokemon);
 

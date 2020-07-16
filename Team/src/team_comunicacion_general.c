@@ -98,7 +98,7 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		;
 		t_get_pokemon* mensaje_get= deserializar_get_pokemon(buffer);
 		id_mensaje = mensaje_get->id_mensaje;
-
+		//TODO: liberar mensaje
 		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
 
 		break;
@@ -106,7 +106,7 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		;
 		t_catch_pokemon* mensaje_catch= deserializar_catch_pokemon(buffer);
 		id_mensaje = mensaje_catch->id_mensaje;
-
+		//TODO: liberar mensaje
 		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
 
 		break;
@@ -116,7 +116,9 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	}
 
 	if (es_respuesta) {
+		pthread_mutex_lock(&mutex_ids_mensajes);
 		list_add(ids_mensajes_utiles, &id_mensaje);
+		pthread_mutex_unlock(&mutex_ids_mensajes);
 	} else {
 		confirmar_recepcion(conexion, cod_op, id_mensaje);
 
@@ -124,5 +126,6 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	}
 
 	log_trace(logger, "Mensaje recibido manejado.");
+	//TODO: free buffer?
 	return id_mensaje;
 }

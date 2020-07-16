@@ -3,7 +3,7 @@
 
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 	pthread_mutex_lock(&manejar_mensaje);
-	if (!requiero_pokemon(mensaje_appeared->pokemon))
+	if (!requiero_pokemon(mensaje_appeared->pokemon))//TODO: liberar mensaje
 		return;
 
 	list_add(pokemones_recibidos, mensaje_appeared->pokemon);
@@ -13,9 +13,10 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 	t_entrenador * entrenador_elegido = obtener_entrenador_buscado(
 			mensaje_appeared->posx, mensaje_appeared->posy);
 
-	if (entrenador_elegido != NULL)
+	if (entrenador_elegido != NULL){
 		planificar_entrenador(entrenador_elegido, mensaje_appeared);
-	else
+		//TODO: liberar mensaje
+	}else
 		list_add(appeared_a_asignar, mensaje_appeared);
 	pthread_mutex_unlock(&manejar_mensaje);
 }
@@ -29,7 +30,7 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	pthread_mutex_lock(&manejar_mensaje);
 
 	//TODO: Testear con gamecard el necesito mensaje
-	if ((!necesito_mensaje(mensaje_localized->id_mensaje))
+	if ((!necesito_mensaje(mensaje_localized->id_mensaje))//TODO: liberar mensaje
 			|| (!requiero_pokemon(mensaje_localized->pokemon))
 			|| (pokemon_en_lista(pokemones_recibidos, mensaje_localized->pokemon)))
 		return; // Mensaje descartado
@@ -53,6 +54,7 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	list_iterate(mensajes_appeared_necesitados, manejar_appeared_aux);
 
 	list_add_all(appeared_auxiliares, mensajes_appeared_equivalentes);
+	//TODO: liberar mensaje
 	pthread_mutex_unlock(&manejar_mensaje);
 }
 
@@ -60,9 +62,11 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 	if (entrenador == NULL)
 		entrenador = obtener_entrenador_segun_id_mensaje(
 				mensaje_caught->id_mensaje);
-	if (entrenador == NULL)
+	if (entrenador == NULL){
+		//TODO: liberar mensaje
 		return; // Mensaje descartado
-
+	}
+	pthread_mutex_lock(&manejar_mensaje);
 	log_trace(logger, "Manejo mensaje caught");
 
 	char * pokemon = entrenador->catch_pendiente->pokemon;
@@ -70,6 +74,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 
 		// Zona critica ampliada para evitar inconsistencias por pokemon siendo buscado y en lista de necesitados.
 		list_add(entrenador->pokemones_capturados, pokemon);
+
 		pthread_mutex_lock(&mutex_pokemones_necesitados);
 		eliminar_si_esta(pokemones_necesitados,pokemon);
 		free(entrenador->catch_pendiente);
@@ -85,8 +90,11 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 				&& !pokemon_asignado_a_entrenador(pokemon))
 			eliminar_de_lista_appeared(appeared_auxiliares, pokemon);
 
+
 		if(entrenador->estado!=BLOCKED_NORMAL){
 			sem_post(&verificar_objetivo_global);
+			pthread_mutex_unlock(&manejar_mensaje);
+			//TODO: liberar mensaje
 			return;
 		}
 
@@ -99,6 +107,8 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 			planificar_entrenador(entrenador, mensaje);
 		else
 			sem_post(&verificar_objetivo_global);
+
+
 
 	} else { // SI NO LO ATRAPÓ
 		t_appeared_pokemon * mensaje_app = obtener_auxiliar_de_lista(pokemon);
@@ -116,17 +126,11 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 
 		}
 	}
+	//TODO: liberar mensaje
+	pthread_mutex_unlock(&manejar_mensaje);
 }
 
 // AUXILIARES - POKEMON
-int pokemon_en_pendientes(char * pokemon) {
-	bool pokemon_pendiente(void * elemento) {
-		t_appeared_pokemon * appeared = elemento;
-		return !strcasecmp(appeared->pokemon, pokemon);
-	}
-
-	return list_any_satisfy(appeared_a_asignar, pokemon_pendiente);
-}
 
 int pokemon_en_auxiliares(char * pokemon) {
 	bool pokemon_auxiliar(void * elemento) {
@@ -154,8 +158,11 @@ int necesito_mensaje(int id_mensaje) {
 		int id = (int) element;
 		return id == id_mensaje;
 	}
+	pthread_mutex_lock(&mutex_ids_mensajes);
+	int result = list_find(ids_mensajes_utiles, corresponde_con_id_buscado) != NULL;
+	pthread_mutex_unlock(&mutex_ids_mensajes);
 
-	return list_find(ids_mensajes_utiles, corresponde_con_id_buscado) != NULL;
+	return result;
 }
 
 t_appeared_pokemon * obtener_auxiliar_de_lista(char * pokemon) {

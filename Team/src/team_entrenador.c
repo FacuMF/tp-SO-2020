@@ -134,6 +134,7 @@ void cazar_pokemon(t_entrenador * entrenador) {
 			}
 			break;
 		case A_SJFCD:
+
 			if (desalojar) {
 				log_entrenador_ser(entrenador, "DESALOJADO");
 				entrenador->estimacion_rafaga = constante_estimacion
@@ -144,6 +145,7 @@ void cazar_pokemon(t_entrenador * entrenador) {
 				ciclos_esta_corrida = 0;
 				bloquear_entrenador(entrenador);
 			}
+
 			break;
 		default:
 			break;
