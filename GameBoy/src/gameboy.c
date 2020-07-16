@@ -183,7 +183,6 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 	char* pokemon;
 	int pos_x, pos_y, cantidad, id_mensaje, cola_de_mensajes,
 			tiempo_suscripcion, id_mensaje_correlativo, ok_fail;
-	printf("Se va a enviar un mensaje");
 	switch (tipo_mensaje) {
 	case APPEARED_POKEMON:
 		;
