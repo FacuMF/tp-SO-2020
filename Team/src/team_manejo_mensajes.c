@@ -1,7 +1,7 @@
 #include "team.h"
 
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
-
+	pthread_mutex_lock(&manejar_mensaje); // TODO: revisar si poner en manejar catch y revisar de acotar area critica
 	if (!requiero_pokemon(mensaje_appeared->pokemon))
 		return;
 
@@ -16,7 +16,7 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 		planificar_entrenador(entrenador_elegido, mensaje_appeared);
 	else
 		list_add(appeared_a_asignar, mensaje_appeared);
-
+	pthread_mutex_unlock(&manejar_mensaje);
 }
 
 void manejar_appeared_aux(void * element) {
@@ -26,8 +26,8 @@ void manejar_appeared_aux(void * element) {
 
 void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	//TODO: Testear con gamecard el necesito mensaje
-	if (/*(!necesito_mensaje(mensaje_localized->id_mensaje))
-			|| */(!requiero_pokemon(mensaje_localized->pokemon))
+	if ((!necesito_mensaje(mensaje_localized->id_mensaje))
+			|| (!requiero_pokemon(mensaje_localized->pokemon))
 			|| (pokemon_en_lista(pokemones_recibidos, mensaje_localized->pokemon)))
 		return; // Mensaje descartado
 

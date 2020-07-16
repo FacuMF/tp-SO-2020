@@ -47,6 +47,8 @@ void iniciar_team(char*argumentos_iniciales[]){
 
 	sem_init(&resolver_deadlock,1,0);
 
+	pthread_mutex_init(&manejar_mensaje, NULL);
+
 	// Data Compartida
 	inicializar_listas();
 }

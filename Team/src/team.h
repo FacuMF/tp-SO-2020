@@ -55,6 +55,8 @@ sem_t resolver_deadlock;
 
 sem_t cpu_disponible_sjf;
 
+pthread_mutex_t manejar_mensaje;
+
 
 // Listas globales de pokemones y entrenadores
 t_list * head_entrenadores;
