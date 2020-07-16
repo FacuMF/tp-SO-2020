@@ -170,6 +170,8 @@ void agregar_particion_segun_anterior_y_victima();
 void ordeno_dejando_anterior_victima_y_siguiente_adelante();
 void agregar_particion_segun_anterior_victima_y_siguiente();
 
+void log_asociacion_de_particiones_bs(t_mensaje_cache* part_1,t_mensaje_cache* part_2);
+
 _Bool es_siguiente(void* particion, t_mensaje_cache* victima);
 _Bool es_anterior(void* particion, t_mensaje_cache* victima);
 _Bool es_victima(void* particion, t_mensaje_cache* victima);
