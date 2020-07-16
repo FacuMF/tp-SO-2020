@@ -103,6 +103,7 @@ void realizar_intercambio(t_entrenador * entrenador){
 			entrenador->posicion[0], entrenador->posicion[1],
 			entrenador->id,entrenador->deadlock->id);
 
+			// TODO: Free deadlock entrenador
 			entrenador->deadlock = NULL;
 		}
 

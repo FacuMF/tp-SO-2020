@@ -1,7 +1,8 @@
 #include "team.h"
 
+
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
-	pthread_mutex_lock(&manejar_mensaje); // TODO: revisar si poner en manejar catch y revisar de acotar area critica
+	pthread_mutex_lock(&manejar_mensaje);
 	if (!requiero_pokemon(mensaje_appeared->pokemon))
 		return;
 
@@ -25,6 +26,8 @@ void manejar_appeared_aux(void * element) {
 }
 
 void manejar_localized(t_localized_pokemon* mensaje_localized) {
+	pthread_mutex_lock(&manejar_mensaje);
+
 	//TODO: Testear con gamecard el necesito mensaje
 	if ((!necesito_mensaje(mensaje_localized->id_mensaje))
 			|| (!requiero_pokemon(mensaje_localized->pokemon))
@@ -48,6 +51,7 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	list_iterate(mensajes_appeared_necesitados, manejar_appeared_aux);
 
 	list_add_all(appeared_auxiliares, mensajes_appeared_equivalentes);
+	pthread_mutex_unlock(&manejar_mensaje);
 }
 
 void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador) {
@@ -63,7 +67,11 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 	if (mensaje_caught->ok_or_fail) { // SI LO ATRAPO
 
 		list_add(entrenador->pokemones_capturados, pokemon);
+		// TODO: Free catch entrenador
 		entrenador->catch_pendiente = NULL;
+
+		//hasta aca esta en bloqueado, nadie lo va a tocar.
+
 		sem_post(&(entrenador->sem_est)); // Se autosetea status entrenador = blocked_normal/blocked_deadlock/exit
 
 		// Si guarde auxiliares y no los necesito, borrarlos
