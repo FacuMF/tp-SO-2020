@@ -15,12 +15,12 @@ t_entrenador * obtener_entrenador_buscado(int posx, int posy) {
 t_list * obtener_entrenadores_disponibles(t_list * entrenadores) {
 	t_list * entrenadores_disponibles = obtener_entrenadores_en_estado(NEW,
 			entrenadores);
-	log_trace(logger,"obtuvo en new");
+
 	t_list * entrenadores_blocked_normal = obtener_entrenadores_en_estado(
 			BLOCKED_NORMAL, entrenadores);
-	log_trace(logger,"obtuvo en blocked");
+
 	list_add_all(entrenadores_disponibles, entrenadores_blocked_normal);
-	log_trace(logger,"mergeo");
+
 
 	return entrenadores_disponibles;
 }
@@ -94,10 +94,6 @@ t_entrenador * obtener_entrenador_mas_cercano(int posx, int posy,
 
 	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,
 			0);
-
-	log_trace(logger, "Posicion entrenador cercano: Posicion %i %i",
-			entrenador_mas_cercano->posicion[0],
-			entrenador_mas_cercano->posicion[1]);
 
 	return entrenador_mas_cercano;
 }

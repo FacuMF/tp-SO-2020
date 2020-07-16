@@ -38,6 +38,7 @@ void iniciar_team(char*argumentos_iniciales[]){
 	elegir_algoritmo();
 
 	sem_init(&cpu_disponible,1,1);
+	sem_init(&cpu_disponible_sjf,1,1);
 	sem_init(&entrenadores_ready,1,1);
 	sem_init(&verificar_objetivo_global,1,0);
 

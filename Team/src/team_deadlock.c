@@ -18,7 +18,6 @@ void iniciar_deteccion_deadlock(){
 			char * pokemon_a_dar= list_get(pok_sobrantes,0);
 			t_list * posibles_pasivos = entrenadores_con_pokemon_sobrante(pokemon_a_recibir);
 
-			log_trace(logger,"Posibles pasivos obtenidos");
 			t_entrenador * entrenador_ideal = obtener_entrenador_ideal(posibles_pasivos,entrenador_activo);
 			if(entrenador_ideal != NULL){
 				log_trace(logger,"es intercambio ideal");
@@ -29,7 +28,6 @@ void iniciar_deteccion_deadlock(){
 			}else
 				entrenador_pasivo = list_get(posibles_pasivos,0);
 
-			log_trace(logger,"Pasivo elegido");
 			t_deadlock * deadlock = malloc(sizeof(t_deadlock));
 			deadlock->capturados_ep = entrenador_pasivo->pokemones_capturados;
 			deadlock->posx = entrenador_pasivo->posicion[0];
@@ -38,10 +36,9 @@ void iniciar_deteccion_deadlock(){
 			deadlock->pokemon_recibir= pokemon_a_recibir;
 			deadlock->id = entrenador_pasivo->id;
 
-			log_trace(logger,"Estructura deadlock llena");
+
 
 			planificar_entrenador_deadlock(entrenador_activo,deadlock);
-			log_trace(logger,"Entrenador planificado");
 			sem_wait(&resolver_deadlock);
 			sem_post(&(entrenador_activo->sem_est));
 			sem_post(&(entrenador_pasivo->sem_est));
@@ -65,8 +62,6 @@ void planificar_entrenador_deadlock(t_entrenador * entrenador,t_deadlock * deadl
 
 	sem_post(&entrenadores_ready);
 
-	if (algoritmo_elegido == A_SJFCD)
-		sem_post(&cpu_disponible);
 }
 
 char * obtener_pokemon_a_dar(t_list * pok_sobrantes,t_entrenador * entrenador_ideal){

@@ -53,6 +53,8 @@ sem_t suscripcion;
 
 sem_t resolver_deadlock;
 
+sem_t cpu_disponible_sjf;
+
 
 // Listas globales de pokemones y entrenadores
 t_list * head_entrenadores;
@@ -143,6 +145,7 @@ void realizar_intercambio(t_entrenador * entrenador);
 void mover_entrenador(t_entrenador * entrenador);
 
 // Cambio Estado
+void log_entrenador_ser(t_entrenador * entrenador, char * estado);
 void bloquear_entrenador(t_entrenador * entrenador);
 void ejecutar_entrenador(t_entrenador * entrenador);
 void planificar_entrenador(t_entrenador * entrenador, t_appeared_pokemon * mensaje_appeared);

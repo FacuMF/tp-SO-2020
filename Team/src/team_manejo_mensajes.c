@@ -12,7 +12,6 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 	t_entrenador * entrenador_elegido = obtener_entrenador_buscado(
 			mensaje_appeared->posx, mensaje_appeared->posy);
 
-	log_trace(logger, "obtuvo elegido");
 	if (entrenador_elegido != NULL)
 		planificar_entrenador(entrenador_elegido, mensaje_appeared);
 	else

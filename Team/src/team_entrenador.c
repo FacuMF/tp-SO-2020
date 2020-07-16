@@ -5,52 +5,50 @@ void ser_entrenador(void *element) {
 
 	while (1) {
 		sem_wait(&(entrenador->sem_est));
-
+		log_entrenador_ser(entrenador, "activo");
 		if (entrenador->catch_pendiente != NULL) {
-			log_debug(logger, "Entrenador despierto: Posicion %i %i",
-					entrenador->posicion[0], entrenador->posicion[1]);
+			log_entrenador_ser(entrenador, "despierto");
 			cazar_pokemon(entrenador);
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_ESPERANDO;
 			sem_post(&cpu_disponible);
-			log_debug(logger, "Entrenador dormido: Posicion %i %i",
-					entrenador->posicion[0], entrenador->posicion[1]);
+			log_entrenador_ser(entrenador, "dormido");
 		}else if (entrenador->deadlock != NULL) {
-			log_debug(logger, "Entrenador despierto: Posicion %i %i",
-					entrenador->posicion[0], entrenador->posicion[1]);
+			log_entrenador_ser(entrenador, "despierto");
 			realizar_intercambio(entrenador);
 
 			entrenador->estado = BLOCKED_ESPERANDO;
 			actualizar_timestamp(entrenador);
 			sem_post(&resolver_deadlock);
 			sem_post(&cpu_disponible);
-			log_debug(logger, "Entrenador dormido: Posicion %i %i",
-					entrenador->posicion[0], entrenador->posicion[1]);
+			log_entrenador_ser(entrenador, "dormido");
 		} else if (objetivo_propio_cumplido(entrenador)) {
 			actualizar_timestamp(entrenador);
-			sem_post(&cpu_disponible);
 			break; // Pasa a exit
 		} else if (tiene_espacio_disponible(entrenador)) {
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_NORMAL;
-			log_debug(logger, "Entrenador blockeado normal: Posicion %i %i",
-					entrenador->posicion[0], entrenador->posicion[1]);
+			log_entrenador_ser(entrenador, "bloqueado normal");
 		} else if (!tiene_espacio_disponible(entrenador)) {
 			actualizar_timestamp(entrenador);
 			entrenador->estado = BLOCKED_DEADLOCK;
-			log_debug(logger, "Entrenador esperando deadlock: Posicion %i %i",
-					entrenador->posicion[0], entrenador->posicion[1]);
+			log_entrenador_ser(entrenador, "blockeado deadlock");
 		}
 
 	}
-	log_debug(logger, "Entrenador en exit: Posicion %i %i",
-			entrenador->posicion[0], entrenador->posicion[1]);
+	log_entrenador_ser(entrenador, "pasa a exit");
 	entrenador->estado = EXIT;
+}
+
+void log_entrenador_ser(t_entrenador * entrenador, char * estado){
+
+	log_debug(logger,"E%c %s. Posicion %i %i",entrenador->id,estado,
+			entrenador->posicion[0], entrenador->posicion[1]);
 }
 
 void realizar_intercambio(t_entrenador * entrenador){
 	int ciclos_esta_corrida = 0;
-
+	sem_wait(&cpu_disponible_sjf);
 	while (entrenador->ciclos_cpu_restantes > 0) {
 		// Chequeo si es necesario bloquearse
 		switch (algoritmo_elegido) {
@@ -62,10 +60,12 @@ void realizar_intercambio(t_entrenador * entrenador){
 			break;
 		case A_SJFCD:
 			if (desalojar) {
+				log_entrenador_ser(entrenador, "DESALOJADO");
 				entrenador->estimacion_rafaga = constante_estimacion
 						* ciclos_esta_corrida
 						+ (1 - constante_estimacion)
 								* entrenador->estimacion_rafaga;
+				ciclos_esta_corrida = 0;
 				desalojar = 0;
 				bloquear_entrenador(entrenador);
 			}
@@ -73,14 +73,20 @@ void realizar_intercambio(t_entrenador * entrenador){
 		default:
 			break;
 		}
+
+		// Ejecuta
+		ciclos_esta_corrida++;
+
+		entrenador->estimacion_rafaga--;
 		sleep(retardo_ciclo_cpu);
+
 		if (entrenador->ciclos_cpu_restantes > 5) {
 			mover_entrenador(entrenador);
 			log_info(logger,
 					"Entrenador movido a posicon %d %d",
 					entrenador->posicion[0], entrenador->posicion[1]);
 		}else if (entrenador->ciclos_cpu_restantes > 1) {
-			log_debug(logger,"Intercambio en proceso");
+			log_trace(logger,"Intercambio en proceso");
 		}else {
 			list_add(entrenador->pokemones_capturados,entrenador->deadlock->pokemon_recibir);
 			list_add(entrenador->deadlock->capturados_ep,entrenador->deadlock->pokemon_dar);
@@ -99,20 +105,25 @@ void realizar_intercambio(t_entrenador * entrenador){
 
 			entrenador->deadlock = NULL;
 		}
-		ciclos_esta_corrida++;
+
 		entrenador->ciclos_cpu_restantes--;
-		entrenador->estimacion_rafaga--;
-		log_debug(logger,"Ciclos restantes: %d",entrenador->ciclos_cpu_restantes);
+
+		log_trace(logger,"Ciclos restantes: %d",entrenador->ciclos_cpu_restantes);
 
 	}
 	entrenador->estimacion_rafaga = constante_estimacion * ciclos_esta_corrida
 			+ (1 - constante_estimacion) * entrenador->estimacion_rafaga;
+	sem_post(&cpu_disponible_sjf);
 }
+
 
 void cazar_pokemon(t_entrenador * entrenador) {
 	int ciclos_esta_corrida = 0;
-
+	log_entrenador_ser(entrenador, "espera para cazar");
+	sem_wait(&cpu_disponible_sjf);
+	log_entrenador_ser(entrenador, "cazando");
 	while (entrenador->ciclos_cpu_restantes > 0) {
+
 		// Chequeo si es necesario bloquearse
 		switch (algoritmo_elegido) {
 		case A_RR:
@@ -123,17 +134,25 @@ void cazar_pokemon(t_entrenador * entrenador) {
 			break;
 		case A_SJFCD:
 			if (desalojar) {
+				log_entrenador_ser(entrenador, "DESALOJADO");
 				entrenador->estimacion_rafaga = constante_estimacion
 						* ciclos_esta_corrida
 						+ (1 - constante_estimacion)
 								* entrenador->estimacion_rafaga;
 				desalojar = 0;
+				ciclos_esta_corrida = 0;
 				bloquear_entrenador(entrenador);
 			}
 			break;
 		default:
 			break;
 		}
+
+		// Ejecuta
+		ciclos_esta_corrida++;
+
+		entrenador->estimacion_rafaga--;
+
 		sleep(retardo_ciclo_cpu);
 		if (entrenador->ciclos_cpu_restantes > 1) {
 			mover_entrenador(entrenador);
@@ -149,14 +168,14 @@ void cazar_pokemon(t_entrenador * entrenador) {
 					entrenador);
 		}
 
-		ciclos_esta_corrida++;
 		entrenador->ciclos_cpu_restantes--;
-		entrenador->estimacion_rafaga--;
-		log_debug(logger,"Ciclos restantes: %d",entrenador->ciclos_cpu_restantes);
+		log_trace(logger,"Ciclos restantes: %d",entrenador->ciclos_cpu_restantes);
 
 	}
+
 	entrenador->estimacion_rafaga = constante_estimacion * ciclos_esta_corrida
 			+ (1 - constante_estimacion) * entrenador->estimacion_rafaga;
+	sem_post(&cpu_disponible_sjf);
 }
 
 void mover_entrenador(t_entrenador * entrenador) {
@@ -192,11 +211,12 @@ void bloquear_entrenador(t_entrenador * entrenador) {
 	entrenador->estado = READY;
 	sem_post(&cpu_disponible);
 	sem_post(&entrenadores_ready);
-	log_debug(logger, "Entrenador dormido: Posicion %i %i",
-						entrenador->posicion[0], entrenador->posicion[1]);
+	log_entrenador_ser(entrenador, "dormido");
+	sem_post(&cpu_disponible_sjf);
+
 	sem_wait(&(entrenador->sem_est));
-	log_debug(logger, "Entrenador despierto: Posicion %i %i",
-			entrenador->posicion[0], entrenador->posicion[1]);
+	sem_wait(&cpu_disponible_sjf);
+	log_entrenador_ser(entrenador, "despierto");
 }
 
 void actualizar_timestamp(t_entrenador * entrenador) {
