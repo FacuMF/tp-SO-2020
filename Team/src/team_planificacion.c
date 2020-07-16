@@ -10,13 +10,18 @@ void iniciar_planificador() {
 		while (!entrenadores_en_ready()) {
 			sem_wait(&entrenadores_ready);
 		}
-		log_debug(logger,"Planificador corto plazo en curso");
+		log_debug(logger, "Planificador corto plazo en curso");
 		t_entrenador * entrenador = obtener_entrenador_a_planificar();
-
+		log_trace(logger, "Entrenador %c elegido, %lf",entrenador->id, entrenador->estimacion_rafaga);
 		// TODO: Revisar y testear SJFCD
 		if (algoritmo_elegido == A_SJFCD && entrenador_en_exec != NULL) {
-			if (entrenador->estimacion_rafaga
-					!= entrenador->estimacion_rafaga) {
+			if (entrenador_en_exec->ciclos_cpu_restantes == 0) {
+				entrenador_en_exec = entrenador;
+				log_info(logger,
+						"Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU");
+				ejecutar_entrenador(entrenador);
+			} else if (round(entrenador->estimacion_rafaga)
+					< round(entrenador_en_exec->estimacion_rafaga)) {
 				desalojar = 1;
 				entrenador_en_exec = entrenador;
 				log_info(logger,
@@ -24,6 +29,10 @@ void iniciar_planificador() {
 
 				ejecutar_entrenador(entrenador);
 			}
+			int valor_sem_entrenador;
+			sem_getvalue(&(entrenador->sem_est),&valor_sem_entrenador);
+			if(valor_sem_entrenador<0 && entrenador->estimacion_rafaga == entrenador_en_exec->estimacion_rafaga)
+				ejecutar_entrenador(entrenador);
 		} else {
 			if (entrenador_en_exec != NULL) {
 				switch (algoritmo_elegido) {
@@ -32,12 +41,14 @@ void iniciar_planificador() {
 							"Cambio de entrenador por finalizacion de sus ciclos de cpu");
 					break;
 				case A_RR:
-					//TODO: loguear si es por finalizacion de ciclos pendientes
-					log_info(logger,
-							"Cambio de entrenador por finalizacion de quantum");
+					if (entrenador_en_exec->ciclos_cpu_restantes == 0)
+						log_info(logger,
+								"Cambio de entrenador por finalizacion de sus ciclos de cpu");
+					else
+						log_info(logger,
+								"Cambio de entrenador por finalizacion de quantum");
 					break;
 				case A_SJFSD:
-					//TODO: loguear si es por finalizacion de ciclos pendientes
 					log_info(logger,
 							"Cambio de entrenador por finalizacion de sus ciclos de CPU");
 					break;
@@ -49,7 +60,6 @@ void iniciar_planificador() {
 		sem_wait(&cpu_disponible);
 	}
 }
-
 
 t_entrenador * obtener_entrenador_a_planificar() {
 	t_entrenador * entrenador;
@@ -106,8 +116,8 @@ t_entrenador * obtener_entrenador_sjf(t_list * entrenadores) {
 }
 
 // AUXILIARES
-int objetivo_global_completo(){
-	return list_get(obtener_pokemones_necesitados(),0) == NULL;
+int objetivo_global_completo() {
+	return list_get(obtener_pokemones_necesitados(), 0) == NULL;
 }
 
 int entrenadores_en_ready() {

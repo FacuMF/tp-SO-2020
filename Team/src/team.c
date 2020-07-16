@@ -17,11 +17,10 @@ int main(int argv, char*archivo_config[]) {
 	while (!objetivo_global_completo()) {
 		sem_wait(&verificar_objetivo_global);
 	}
-	//TODO: Matar al planificador? Usarlo para deadlock? Lo veremos en el proximo capitulo
+
 	log_info(logger,"Inicio algoritmo de deteccion de deadlock");
 	iniciar_deteccion_deadlock();
 
-	log_warning(logger,"Oficialmente termino el proceso team y arturito arranco y termino deadlock completito en 5 hs clavado :D");
 	finalizar_team();
 }
 

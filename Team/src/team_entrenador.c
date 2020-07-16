@@ -87,10 +87,16 @@ void realizar_intercambio(t_entrenador * entrenador){
 			eliminar_si_esta(entrenador->pokemones_capturados, entrenador->deadlock->pokemon_dar);
 			eliminar_si_esta(entrenador->deadlock->capturados_ep,entrenador->deadlock->pokemon_recibir);
 
-			log_info(logger,
+			/*log_info(logger,
 					"Intercambio efectuado en posicon %d %d para %s por %s",
 					entrenador->posicion[0], entrenador->posicion[1],
 					entrenador->deadlock->pokemon_dar,entrenador->deadlock->pokemon_recibir);
+			*/
+			log_info(logger,
+			"Intercambio efectuado en posicon %d %d entre E%c y E%c",
+			entrenador->posicion[0], entrenador->posicion[1],
+			entrenador->id,entrenador->deadlock->id);
+
 			entrenador->deadlock = NULL;
 		}
 		ciclos_esta_corrida++;

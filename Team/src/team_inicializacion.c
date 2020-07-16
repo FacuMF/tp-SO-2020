@@ -18,7 +18,7 @@ t_list* cargar_entrenadores() {
 	while (posiciones[i] != NULL) {
 		t_entrenador * entrenador = malloc(sizeof(t_entrenador));
 		sem_init(&entrenador->sem_est,1,0);
-
+		entrenador -> id = i + 65;
 		entrenador->posicion = de_string_a_posicion(posiciones[i]);
 
 		entrenador->pokemones_capturados = list_create();
@@ -107,7 +107,7 @@ char *obtener_path(char *path_leido) {
 
 void obtener_variables_planificacion(){
 	quantum = config_get_int_value(config, "QUANTUM");
-	estimacion_inicial = config_get_int_value(config, "ESTIMACION_INICIAL");
+	estimacion_inicial = config_get_double_value(config, "ESTIMACION_INICIAL");
 	retardo_ciclo_cpu = config_get_int_value(config, "RETARDO_CICLO_CPU");
 	constante_estimacion = config_get_double_value(config, "CONSTANTE_ESTIMACION");//TODO: Puede ser con coma, testear
 	desalojar = 0;
@@ -174,8 +174,9 @@ void mostrar_entrenadores(t_list * head_entrenadores) {
 
 void mostrar_data_entrenador(void * element) {
 	t_entrenador * entrenador = element;
-	log_trace(logger, "Data Entrenador: Posicion %i %i",
+	log_trace(logger, "Data Entrenador %c: Posicion %i %i",entrenador->id,
 			entrenador->posicion[0], entrenador->posicion[1]);
+	log_trace(logger, "Estado: %d",entrenador->estado);
 	list_iterate(entrenador->pokemones_capturados, mostrar_kokemon);
 	list_iterate(entrenador->pokemones_por_capturar, mostrar_kokemon);
 }

@@ -12,6 +12,7 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 	t_entrenador * entrenador_elegido = obtener_entrenador_buscado(
 			mensaje_appeared->posx, mensaje_appeared->posy);
 
+	log_trace(logger, "obtuvo elegido");
 	if (entrenador_elegido != NULL)
 		planificar_entrenador(entrenador_elegido, mensaje_appeared);
 	else
@@ -71,6 +72,11 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 				&& !pokemon_asignado_a_entrenador(pokemon))
 			eliminar_de_lista_appeared(appeared_auxiliares, pokemon);
 
+		if(entrenador->estado!=BLOCKED_NORMAL){
+			sem_post(&verificar_objetivo_global);
+			return;
+		}
+
 		// Si hay pendientes, replanificarlo
 		t_list * lista_com_mensaje = list_take_and_remove(appeared_a_asignar,
 				1);
@@ -84,8 +90,18 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 	} else { // SI NO LO ATRAPÓ
 		t_appeared_pokemon * mensaje_app = obtener_auxiliar_de_lista(pokemon);
 
-		if (mensaje_app != NULL)
+		if (mensaje_app != NULL){
 			planificar_entrenador(entrenador, mensaje_app);
+		}else{
+			// Si hay pendientes, replanificarlo
+			t_list * lista_com_mensaje = list_take_and_remove(appeared_a_asignar,
+					1);
+			t_appeared_pokemon * mensaje = list_get(lista_com_mensaje, 0);
+
+			if (mensaje != NULL)
+				planificar_entrenador(entrenador, mensaje);
+
+		}
 	}
 }
 

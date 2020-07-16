@@ -36,6 +36,7 @@ void iniciar_deteccion_deadlock(){
 			deadlock->posy = entrenador_pasivo->posicion[1];
 			deadlock->pokemon_dar = pokemon_a_dar;
 			deadlock->pokemon_recibir= pokemon_a_recibir;
+			deadlock->id = entrenador_pasivo->id;
 
 			log_trace(logger,"Estructura deadlock llena");
 
@@ -101,6 +102,7 @@ t_list * entrenadores_con_pokemon_sobrante(char * pokemon){
 }
 
 int deadlocks_pendientes(){
+	mostrar_entrenadores(head_entrenadores); //TODO: TBR
 	t_list * entrenadores_en_deadlock = obtener_entrenadores_en_estado(BLOCKED_DEADLOCK,
 						head_entrenadores);
 

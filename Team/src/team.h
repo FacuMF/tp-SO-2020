@@ -19,9 +19,11 @@ typedef struct t_deadlock{
 	int posy;
 	char* pokemon_dar;
 	char * pokemon_recibir;
+	char id;
 } t_deadlock;
 
 typedef struct t_entrenador {
+	char id;
 	sem_t sem_est;
 	int * posicion;
 	t_list* pokemones_capturados;
