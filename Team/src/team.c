@@ -49,6 +49,8 @@ void iniciar_team(char*argumentos_iniciales[]){
 
 	pthread_mutex_init(&manejar_mensaje, NULL);
 
+	pthread_mutex_init(&mutex_pokemones_necesitados, NULL);
+
 	// Data Compartida
 	inicializar_listas();
 }

@@ -51,8 +51,10 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 // OTROS
 
 void enviar_requests_pokemones() {
-	list_iterate(obtener_pokemones_necesitados_sin_repetidos(),
+	t_list * pokemones_necesitados_sin_repes = obtener_pokemones_necesitados_sin_repetidos();
+	list_iterate(pokemones_necesitados_sin_repes,
 			enviar_mensaje_get);
+	list_destroy(pokemones_necesitados_sin_repes);
 }
 
 void enviar_mensaje_get(void*element) {

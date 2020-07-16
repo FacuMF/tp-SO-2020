@@ -37,16 +37,12 @@ t_list* cargar_entrenadores() {
 	log_trace(logger, "Entrenadores cargados");
 	//mostrar_entrenadores(head_entrenadores);
 
+	//TODO: free char** ?
+
 	return (head_entrenadores);
 }
 
 void agregar_capturados(t_list * lista_head,char ** pokemones_capturados){
-
-	// [pikachu,NULL]
-	// [pikachu|sqirtle,pidgey|etc,NULL]
-	// entrenador->pokemones_capturados = string_a_pokemon_list(
-	//pokemones_capturados[i]);
-
 	int j = 0;
 
 	while(pokemones_capturados[j]!=NULL){
@@ -72,15 +68,34 @@ void lanzar_hilo_entrenador(void*element) {
 }
 
 void inicializar_listas(){
-	//TODO: en lugares que haga falta, mutex
 	head_entrenadores = cargar_entrenadores();
 	ids_mensajes_utiles = list_create();
 	appeared_a_asignar = list_create();
 	appeared_auxiliares = list_create();
 	pokemones_recibidos = list_create();
 
+	cargar_pokemones_necesitados();
+
 	// Metricas
 	deadlocks_totales = 0;
+}
+
+void cargar_pokemones_necesitados(){
+	pokemones_necesitados = list_create();
+
+	void borrar_si_esta_aux(void * element){
+		char * pokemon = element;
+		eliminar_si_esta(pokemones_necesitados,pokemon);
+	}
+
+	void cargar_data(void * element){
+		t_entrenador * entrenador = element;
+		list_add_all(pokemones_necesitados, entrenador->pokemones_por_capturar);
+		list_iterate(entrenador->pokemones_capturados, borrar_si_esta_aux);
+	}
+
+	list_iterate(head_entrenadores,cargar_data);
+
 }
 
 void reintento_suscripcion_si_aplica(){

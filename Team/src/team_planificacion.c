@@ -122,7 +122,11 @@ t_entrenador * obtener_entrenador_sjf(t_list * entrenadores) {
 
 // AUXILIARES
 int objetivo_global_completo() {
-	return list_get(obtener_pokemones_necesitados(), 0) == NULL;
+	pthread_mutex_lock(&mutex_pokemones_necesitados);
+	int result = list_get(pokemones_necesitados, 0) == NULL;
+	pthread_mutex_unlock(&mutex_pokemones_necesitados);
+
+	return result;
 }
 
 int entrenadores_en_ready() {

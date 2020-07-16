@@ -38,8 +38,10 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 
 	list_add(pokemones_recibidos, mensaje_localized->pokemon);
 
+	pthread_mutex_lock(&mutex_pokemones_necesitados);
 	int necesitados = cantidad_repeticiones_en_lista(
-			obtener_pokemones_necesitados(), mensaje_localized->pokemon);
+			pokemones_necesitados, mensaje_localized->pokemon);
+	pthread_mutex_unlock(&mutex_pokemones_necesitados);
 
 	necesitados-=cantidad_entrenadores_buscando_pokemon(mensaje_localized->pokemon);
 
@@ -66,9 +68,13 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 	char * pokemon = entrenador->catch_pendiente->pokemon;
 	if (mensaje_caught->ok_or_fail) { // SI LO ATRAPO
 
+		// Zona critica ampliada para evitar inconsistencias por pokemon siendo buscado y en lista de necesitados.
 		list_add(entrenador->pokemones_capturados, pokemon);
-		// TODO: Free catch entrenador
+		pthread_mutex_lock(&mutex_pokemones_necesitados);
+		eliminar_si_esta(pokemones_necesitados,pokemon);
+		free(entrenador->catch_pendiente);
 		entrenador->catch_pendiente = NULL;
+		pthread_mutex_unlock(&mutex_pokemones_necesitados);
 
 		//hasta aca esta en bloqueado, nadie lo va a tocar.
 

@@ -57,6 +57,7 @@ sem_t cpu_disponible_sjf;
 
 pthread_mutex_t manejar_mensaje;
 
+pthread_mutex_t mutex_pokemones_necesitados;
 
 // Listas globales de pokemones y entrenadores
 t_list * head_entrenadores;
@@ -64,6 +65,8 @@ t_list * ids_mensajes_utiles;
 t_list * appeared_a_asignar;
 t_list * appeared_auxiliares;
 t_list * pokemones_recibidos;
+t_list * pokemones_necesitados;
+
 
 // Planificacion
 t_algoritmo algoritmo_elegido;
@@ -111,9 +114,6 @@ int distancia(t_entrenador * entrenador, int posx, int posy);
 int tiene_espacio_disponible(t_entrenador * entrenador);
 
 // OBJETIVO
-t_list* obtener_pokemones_por_capturar();
-t_list * obtener_pokemones_capturados();
-t_list * obtener_pokemones_necesitados();
 t_list * obtener_pokemones_necesitados_sin_repetidos();
 
 // Auxiliares
@@ -182,6 +182,7 @@ void finalizar_team();
 
 // GENERALES - INICIALIZACION
 void inicializar_listas();
+void cargar_pokemones_necesitados();
 void reintento_suscripcion_si_aplica();
 t_list* cargar_entrenadores();
 void agregar_capturados(t_list * lista_head,char ** pokemones_capturados);
