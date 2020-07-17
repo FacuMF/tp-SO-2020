@@ -2,7 +2,6 @@
 
 void iniciar_deteccion_deadlock(){
 	while(deadlocks_pendientes()){
-		deadlocks_totales++;
 		int deadlock_en_curso = 1;
 		t_list * entrenadores_en_deadlock = obtener_entrenadores_en_estado(BLOCKED_DEADLOCK,
 					head_entrenadores);
@@ -39,9 +38,11 @@ void iniciar_deteccion_deadlock(){
 			sem_wait(&resolver_deadlock);
 			sem_post(&(entrenador_activo->sem_est));
 			sem_post(&(entrenador_pasivo->sem_est));
-			sleep(2);// TODO: TBR
+
 			entrenador_activo = entrenador_pasivo;
 
+			sem_wait(&sincro_deadlock);
+			sem_wait(&sincro_deadlock);
 		}
 		deadlocks_resueltos++;
 	}

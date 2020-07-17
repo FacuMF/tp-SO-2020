@@ -17,7 +17,7 @@ void ser_entrenador(void *element) {
 			log_entrenador_ser(entrenador, "despierto");
 			realizar_intercambio(entrenador);
 
-			entrenador->estado = BLOCKED_ESPERANDO;
+			entrenador->estado = BLOCKED_DEADLOCK;
 			actualizar_timestamp(entrenador);
 			sem_post(&resolver_deadlock);
 			sem_post(&cpu_disponible);
@@ -31,13 +31,18 @@ void ser_entrenador(void *element) {
 			log_entrenador_ser(entrenador, "bloqueado normal");
 		} else if (!tiene_espacio_disponible(entrenador)) {
 			actualizar_timestamp(entrenador);
+			if(entrenador->estado == BLOCKED_DEADLOCK)
+				sem_post(&sincro_deadlock);
 			entrenador->estado = BLOCKED_DEADLOCK;
 			log_entrenador_ser(entrenador, "blockeado deadlock");
 		}
 
 	}
 	log_entrenador_ser(entrenador, "pasa a exit");
+	int postear = entrenador->estado== BLOCKED_DEADLOCK;
 	entrenador->estado = EXIT;
+	if(postear)
+		sem_post(&sincro_deadlock);
 }
 
 void log_entrenador_ser(t_entrenador * entrenador, char * estado) {
@@ -104,7 +109,7 @@ void realizar_intercambio(t_entrenador * entrenador) {
 			log_info(logger, "Intercambio efectuado entre E%c y E%c",
 					entrenador->id, entrenador->deadlock->id);
 
-			// TODO: Free deadlock entrenador
+			free(entrenador->deadlock);
 			entrenador->deadlock = NULL;
 		}
 
