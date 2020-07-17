@@ -136,7 +136,7 @@ t_new_pokemon* crear_new_pokemon(char* pokemon, int posicion_x, int posicion_y,
 	t_new_pokemon* mensaje = malloc(sizeof(t_new_pokemon));
 	mensaje->size_pokemon = string_length(pokemon);
 	mensaje->pokemon = malloc(mensaje->size_pokemon);
-	strcpy(mensaje->pokemon, pokemon);
+	memcpy(mensaje->pokemon, pokemon, mensaje->size_pokemon);
 	mensaje->posx = posicion_x;
 	mensaje->posy = posicion_y;
 	mensaje->cantidad = cantidad;

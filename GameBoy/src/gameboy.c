@@ -2,6 +2,7 @@
 
 int main(int argv, char* arg[]) {
 
+	printf("%s", arg[3]);
 	inicializar_gameboy();
 
 	obtener_argumentos(arg);
@@ -189,8 +190,8 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 	switch (tipo_mensaje) {
 	case APPEARED_POKEMON:
 		;
+		pokemon = string_new();
 		t_appeared_pokemon* mensaje_appeared;
-		pokemon = malloc(strlen(arg[3]) * sizeof(char));
 		cargar_parametros_appeared_pokemon(pokemon, &pos_x, &pos_y, &id_mensaje,
 				arg, modulo);
 		mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
@@ -200,8 +201,8 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		break;
 	case NEW_POKEMON:
 		;
+		pokemon = malloc(strlen(arg[3]));
 		t_new_pokemon* mensaje_new;
-		pokemon = malloc(strlen(arg[3]) * sizeof(char));
 		cargar_parametros_new_pokemon(pokemon, &pos_x, &pos_y, &cantidad,
 				&id_mensaje, arg, modulo);
 		mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,
@@ -219,8 +220,8 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		break;
 	case CATCH_POKEMON:
 		;
+		pokemon = string_new();
 		t_catch_pokemon* mensaje_catch;
-		pokemon = malloc(strlen(arg[3]) * sizeof(char));
 		cargar_parametros_catch_pokemon(pokemon, &pos_x, &pos_y, &id_mensaje,
 				arg, modulo);
 		mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y, id_mensaje);
@@ -229,8 +230,8 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		break;
 	case GET_POKEMON:
 		;
+		pokemon = string_new();
 		t_get_pokemon* mensaje_get;
-		pokemon = malloc(strlen(arg[3]) * sizeof(char));
 		cargar_parametros_get_pokemon(pokemon, &id_mensaje, arg, modulo);
 		mensaje_get = crear_get_pokemon(pokemon, id_mensaje);
 		mensaje_serializado = serializar_get_pokemon(mensaje_get);
