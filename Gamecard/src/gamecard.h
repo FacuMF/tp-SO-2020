@@ -3,7 +3,6 @@
 
 #include "../../Base/Utils/src/utils.h"
 #include "../../Base/Utils/src/utils_mensajes.h"
-#include "../../Broker/src/broker.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -16,8 +15,13 @@ int RETARDO_OPERACION;
 int REINTENTO_CONEXION;
 int REINTENTO_OPERACION;
 
+
+
+
 t_log* logger; // Mismo nombre entre archivos?
 t_config* config;
+char* string_nivel_log_minimo;
+t_log_level log_nivel_minimo;
 
 // CONSTANT
 char* PUNTO_MONTAJE;
@@ -55,7 +59,7 @@ sem_t sem_suscripcion;
 // FUNCIONES GENERALES
 void iniciar_gamecard(char*archivo_config[]);
 void reintento_suscripcion_si_aplica_gamecard();
-
+void finalizar_gamecard();
 // FUNCIONES DE INICIALIZACION DE GAMECARD
 char *obtener_path_gamecard(char *path_leido);
 void iniciar_config_gamecard(char* nombre_config);
