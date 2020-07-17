@@ -30,7 +30,7 @@ gameboy:
 	$(COMPILER) $(UTILS) $(GAMEBOY) -o gameboy $(LIBS)
 	
 gbb: #gameboy y broker
-	mkdir -p $(BIN_PATH)
+
 	$(COMPILER) $(UTILS) $(BROKER) -o broker $(LIBS)
 	$(COMPILER) $(UTILS) $(GAMEBOY) -o gameboy $(LIBS)
 	
