@@ -125,9 +125,6 @@ t_confirmacion* crear_confirmacion(int,int);
 t_buffer* serializar_confirmacion(t_confirmacion*);
 t_confirmacion* deserializar_confirmacion(t_buffer* buffer);
 
-
-
-
 //Muestro de mensajes
 char* mostrar_new_pokemon(t_new_pokemon*);
 char* mostrar_appeared_pokemon(t_appeared_pokemon*);
@@ -146,5 +143,16 @@ char* op_code_a_string(int);
 
 //Confirmar recepcion
 void confirmar_recepcion(int socket_broker, int cod_op, int id_mensaje);
+
+void liberar_mensaje_new_pokemon(t_new_pokemon*);
+void liberar_mensaje_appeared_pokemon(t_appeared_pokemon*);
+void liberar_mensaje_catch_pokemon(t_catch_pokemon*);
+void liberar_mensaje_caught_pokemon(t_caught_pokemon*);
+void liberar_mensaje_localized_pokemon(t_localized_pokemon*);
+
+
+void liberar_buffer(t_buffer*);
+void liberar_stream(void*);
+
 
 #endif /* UTILS_UTILS_MENSAJES_H_ */

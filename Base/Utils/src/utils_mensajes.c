@@ -819,3 +819,37 @@ char* op_code_a_string(int op) {
 	return tipo_mensaje;
 
 }
+
+void liberar_mensaje_new_pokemon(t_new_pokemon* mensaje){
+	free(mensaje->pokemon);
+	free(mensaje);
+}
+
+void liberar_mensaje_appeared_pokemon(t_appeared_pokemon* mensaje){
+	free(mensaje->pokemon);
+	free(mensaje);
+}
+
+void liberar_mensaje_catch_pokemon(t_catch_pokemon* mensaje){
+	free(mensaje->pokemon);
+	free(mensaje);
+}
+
+void liberar_mensaje_caught_pokemon(t_caught_pokemon* mensaje){
+	free(mensaje);
+}
+
+void liberar_mensaje_localized_pokemon(t_localized_pokemon* mensaje){
+	list_destroy_and_destroy_elements(mensaje->posiciones,free);
+	free(mensaje->pokemon);
+	free(mensaje);
+}
+
+void liberar_buffer(t_buffer* buffer){
+	free(buffer->stream);
+	free(buffer);
+}
+
+void liberar_stream(void* stream){
+	free(stream);
+}
