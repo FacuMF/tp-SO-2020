@@ -21,15 +21,15 @@ t_config* config;
 
 // CONSTANT
 char* PUNTO_MONTAJE;
-char* METADATA_BASE_PATH = "Metadata/";
-char* FILES_BASE_PATH = "Files/";
-char* BLOCKS_BASE_PATH = "Blocks/";
+char* METADATA_BASE_PATH;
+char* FILES_BASE_PATH ;
+char* BLOCKS_BASE_PATH;
 
-char* METADATA_FILE_NAME = "Metadata.bin";
-char* BITMAP_FILE_NAME = "Bitmap.bin";
+char* METADATA_FILE_NAME ;
+char* BITMAP_FILE_NAME;
 
 // EXTENSIONES
-char* EXTENSION = ".bin";
+char* EXTENSION;
 
 char* concat_dirs(char* start, char* end);
 void set_base_path(char* base);
@@ -54,6 +54,7 @@ sem_t sem_suscripcion;
 
 // FUNCIONES GENERALES
 void iniciar_gamecard();
+void iniciar_chars_necesarios();
 void reintento_suscripcion_si_aplica_gamecard();
 // Files functions
 
@@ -66,7 +67,7 @@ void clean_dir(char* path);
 char* read_file(char* path, int size);
 void write_file(char* path, char* data);
 
-bool verificar_posiciones_file(int x, int y, char** bloques);
+//bool verificar_posiciones_file(int x, int y, char** bloques);
 
 
 
@@ -77,7 +78,7 @@ t_config* read_file_metadata(char* table);
 void create_pokemon_dir(char* tableName);
 void create_pokemon_metadata_file(char* tableName);
 void create_new_file_pokemon(char* pokemon);
-
+//
 
 
 // Funciones COMUNICACION

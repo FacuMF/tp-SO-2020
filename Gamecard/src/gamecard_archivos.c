@@ -98,10 +98,11 @@ void write_file(char* path, char* data) {
 }
 
 
-bool verificar_posiciones_file(){
+/*bool verificar_posiciones_file(){
 	// TODO
 	return true;
-}
+}*/
+
 // Base de crear archivos
 
 t_config* read_pokemon_metadata(char* table) {
@@ -192,7 +193,7 @@ float tamanio_archivo(char* path){
 	FILE * file = fopen(path,"r");
 	fseek(file, 0L, SEEK_END);
 	int tamanio = ftell(file);
-	log_trace("El archivo actualmente ocupa: %d \n",tamanio);
+	log_trace(logger,"El archivo actualmente ocupa: %d \n",tamanio);
 	fclose(file);
 	return tamanio;
 }
@@ -202,14 +203,16 @@ char** extraer_bloques(char* pokemon){
 	return config_get_array_value(config,"BLOCKS");
 }
 
+// TODO: REVISAR ESTA FUNCION, QUE HACE????
 int buscar_siguiente_bloque(t_config config){
-	int numero_bloque = 0; // inicializo numero_bloque?
+	//int numero_bloque = config_get_int_value(config,); TODO : VER CON QUE KEY EN ARCHIVO DE CONFIG CORRESPONDE
+	int numero_bloque = 1;
 	while(1){
-		if(config_get_int_value(config,numero_bloque)){ // config del bitmap
+		if(numero_bloque){
 			if (numero_bloque < cantidad_bloques()){
 				numero_bloque +=1;
 			} else {
-				log_error("No hay bloques disponibles para almacenar mas informacion");
+				log_error(logger,"No hay bloques disponibles para almacenar mas informacion");
 			}
 		} else {
 			return numero_bloque;
