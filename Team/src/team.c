@@ -31,8 +31,7 @@ void log_metricas(){
 	log_info(logger,"Ciclos CPU Entrenadores:");
 	list_iterate(head_entrenadores,log_cpu_entrenador);
 	log_info(logger,"Cantidad de cambios de contexto: %d",cambios_contexto_totales);
-	log_info(logger, "Deadlocks Producidos: %d",deadlocks_totales);
-	log_info(logger, "Deadlocks Resueltos: %d",deadlocks_resueltos);
+	log_info(logger, "Deadlocks Encontrados y Resueltos: %d",deadlocks_resueltos);
 
 }
 
@@ -74,6 +73,7 @@ void iniciar_team(char*argumentos_iniciales[]){
 	sem_init(&suscripcion,1,0);
 
 	sem_init(&resolver_deadlock,1,0);
+	sem_init(&sincro_deadlock,1,0);
 
 	pthread_mutex_init(&manejar_mensaje, NULL);
 

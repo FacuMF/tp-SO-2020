@@ -78,7 +78,6 @@ void inicializar_listas(){
 	cargar_pokemones_necesitados();
 
 	// Metricas
-	deadlocks_totales = 0;
 	deadlocks_resueltos = 0;
 	cambios_contexto_totales = 0;
 }

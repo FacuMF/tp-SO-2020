@@ -56,6 +56,8 @@ sem_t resolver_deadlock;
 
 sem_t cpu_disponible_sjf;
 
+sem_t sincro_deadlock;
+
 pthread_mutex_t manejar_mensaje;
 
 pthread_mutex_t mutex_pokemones_necesitados;
@@ -79,7 +81,6 @@ int desalojar;
 double constante_estimacion;
 
 // Metricas
-int deadlocks_totales;
 int deadlocks_resueltos;
 int cambios_contexto_totales;
 
