@@ -66,3 +66,5 @@ void cargar_parametros_suscriptor(int*, int*, char**);
  * ./gameboy BROKER LOCALIZED_POKEMON BULBASAUR 2 1 3 4 5
  * ./gameboy BROKER LOCALIZED_POKEMON PIKACHU 3 1 3 4 5 3 4
  */
+
+

@@ -41,6 +41,8 @@ void enviar_mensaje_gameboy(char** arg) {
 	enviar_mensaje(conexion, mensaje_serializado, tipo_mensaje);
 	log_trace(logger, "El mensaje fue enviado.");
 
+	liberar_buffer(mensaje_serializado);
+
 	//free(mensaje_serializado->stream); //Esto tira seg fault con localized_pokemon
 	//free(mensaje_serializado);
 }
@@ -123,6 +125,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 	char* tipo_mensaje = malloc(sizeof(char) * 20);
 	tipo_mensaje = op_code_a_string(cod_op);
 	log_trace(logger, "Se recibio un mensaje %s", tipo_mensaje);
+	free(tipo_mensaje);
 
 	switch (cod_op) {
 	case APPEARED_POKEMON:
@@ -193,6 +196,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		mensaje_appeared = crear_appeared_pokemon(pokemon, pos_x, pos_y,
 				id_mensaje);
 		mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared);
+		free(pokemon);
 		break;
 	case NEW_POKEMON:
 		;
@@ -203,6 +207,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		mensaje_new = crear_new_pokemon(pokemon, pos_x, pos_y, cantidad,
 				id_mensaje);
 		mensaje_serializado = serializar_new_pokemon(mensaje_new);
+		free(pokemon);
 		break;
 	case CAUGHT_POKEMON:
 		;
@@ -220,7 +225,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 				arg, modulo);
 		mensaje_catch = crear_catch_pokemon(pokemon, pos_x, pos_y, id_mensaje);
 		mensaje_serializado = serializar_catch_pokemon(mensaje_catch);
-
+		free(pokemon);
 		break;
 	case GET_POKEMON:
 		;
@@ -229,6 +234,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		cargar_parametros_get_pokemon(pokemon, &id_mensaje, arg, modulo);
 		mensaje_get = crear_get_pokemon(pokemon, id_mensaje);
 		mensaje_serializado = serializar_get_pokemon(mensaje_get);
+		free(pokemon);
 		break;
 	case LOCALIZED_POKEMON:
 		;
