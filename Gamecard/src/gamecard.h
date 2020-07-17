@@ -53,9 +53,15 @@ pthread_mutex_t mutex_suscripcion;
 sem_t sem_suscripcion;
 
 // FUNCIONES GENERALES
-void iniciar_gamecard();
-void iniciar_chars_necesarios();
+void iniciar_gamecard(char*archivo_config[]);
 void reintento_suscripcion_si_aplica_gamecard();
+
+// FUNCIONES DE INICIALIZACION DE GAMECARD
+char *obtener_path_gamecard(char *path_leido);
+void iniciar_config_gamecard(char* nombre_config);
+void iniciar_logger_gamecard();
+void iniciar_semaforos_gamecard();
+void iniciar_chars_necesarios();
 // Files functions
 
 void create_file(char* path);

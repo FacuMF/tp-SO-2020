@@ -8,6 +8,7 @@ int iniciar_conexion_broker_gamecard() {
 }
 
 void suscribirse_a_colas_gamecard() {
+	log_trace(logger,"Hilo Lanzado");
 	enviar_suscripcion_al_broker(NEW_POKEMON);
 	enviar_suscripcion_al_broker(CATCH_POKEMON);
 	enviar_suscripcion_al_broker(GET_POKEMON);
