@@ -98,6 +98,7 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		;
 		t_get_pokemon* mensaje_get= deserializar_get_pokemon(buffer);
 		id_mensaje = mensaje_get->id_mensaje;
+		log_info(logger, "Mensaje GET_POKEMON: %s",mostrar_get_pokemon(mensaje_get));
 		//TODO: liberar mensaje
 		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
 
@@ -106,6 +107,7 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		;
 		t_catch_pokemon* mensaje_catch= deserializar_catch_pokemon(buffer);
 		id_mensaje = mensaje_catch->id_mensaje;
+		log_info(logger, "Mensaje CATCH_POKEMON: %s",mostrar_catch_pokemon(mensaje_catch));
 		//TODO: liberar mensaje
 		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
 

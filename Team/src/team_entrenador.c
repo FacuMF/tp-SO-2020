@@ -13,7 +13,7 @@ void ser_entrenador(void *element) {
 			entrenador->estado = BLOCKED_ESPERANDO;
 			sem_post(&cpu_disponible);
 			log_entrenador_ser(entrenador, "dormido");
-		}else if (entrenador->deadlock != NULL) {
+		} else if (entrenador->deadlock != NULL) {
 			log_entrenador_ser(entrenador, "despierto");
 			realizar_intercambio(entrenador);
 
@@ -40,13 +40,13 @@ void ser_entrenador(void *element) {
 	entrenador->estado = EXIT;
 }
 
-void log_entrenador_ser(t_entrenador * entrenador, char * estado){
+void log_entrenador_ser(t_entrenador * entrenador, char * estado) {
 
-	log_debug(logger,"E%c %s. Posicion %i %i",entrenador->id,estado,
+	log_debug(logger, "E%c %s. Posicion %i %i", entrenador->id, estado,
 			entrenador->posicion[0], entrenador->posicion[1]);
 }
 
-void realizar_intercambio(t_entrenador * entrenador){
+void realizar_intercambio(t_entrenador * entrenador) {
 	int ciclos_esta_corrida = 0;
 	sem_wait(&cpu_disponible_sjf);
 	while (entrenador->ciclos_cpu_restantes > 0) {
@@ -82,26 +82,26 @@ void realizar_intercambio(t_entrenador * entrenador){
 
 		if (entrenador->ciclos_cpu_restantes > 5) {
 			mover_entrenador(entrenador);
-			log_info(logger,
-					"Entrenador movido a posicon %d %d",
-					entrenador->posicion[0], entrenador->posicion[1]);
-		}else if (entrenador->ciclos_cpu_restantes > 1) {
-			log_trace(logger,"Intercambio en proceso");
-		}else {
-			list_add(entrenador->pokemones_capturados,entrenador->deadlock->pokemon_recibir);
-			list_add(entrenador->deadlock->capturados_ep,entrenador->deadlock->pokemon_dar);
-			eliminar_si_esta(entrenador->pokemones_capturados, entrenador->deadlock->pokemon_dar);
-			eliminar_si_esta(entrenador->deadlock->capturados_ep,entrenador->deadlock->pokemon_recibir);
+		} else if (entrenador->ciclos_cpu_restantes > 1) {
+			log_trace(logger, "Intercambio en proceso");
+		} else {
+			list_add(entrenador->pokemones_capturados,
+					entrenador->deadlock->pokemon_recibir);
+			list_add(entrenador->deadlock->capturados_ep,
+					entrenador->deadlock->pokemon_dar);
+			eliminar_si_esta(entrenador->pokemones_capturados,
+					entrenador->deadlock->pokemon_dar);
+			eliminar_si_esta(entrenador->deadlock->capturados_ep,
+					entrenador->deadlock->pokemon_recibir);
 
 			/*log_info(logger,
-					"Intercambio efectuado en posicon %d %d para %s por %s",
-					entrenador->posicion[0], entrenador->posicion[1],
-					entrenador->deadlock->pokemon_dar,entrenador->deadlock->pokemon_recibir);
-			*/
-			log_info(logger,
-			"Intercambio efectuado en posicon %d %d entre E%c y E%c",
-			entrenador->posicion[0], entrenador->posicion[1],
-			entrenador->id,entrenador->deadlock->id);
+			 "Intercambio efectuado entre E%c y E%c en posicon %d %d para %s por %s",
+					entrenador->id, entrenador->deadlock->id,
+			 entrenador->posicion[0], entrenador->posicion[1],
+			 entrenador->deadlock->pokemon_dar,entrenador->deadlock->pokemon_recibir);
+			 */
+			log_info(logger, "Intercambio efectuado entre E%c y E%c",
+					entrenador->id, entrenador->deadlock->id);
 
 			// TODO: Free deadlock entrenador
 			entrenador->deadlock = NULL;
@@ -109,14 +109,14 @@ void realizar_intercambio(t_entrenador * entrenador){
 
 		entrenador->ciclos_cpu_restantes--;
 
-		log_trace(logger,"Ciclos restantes: %d",entrenador->ciclos_cpu_restantes);
+		log_trace(logger, "Ciclos restantes: %d",
+				entrenador->ciclos_cpu_restantes);
 
 	}
 	entrenador->estimacion_rafaga = constante_estimacion * ciclos_esta_corrida
 			+ (1 - constante_estimacion) * entrenador->estimacion_rafaga;
 	sem_post(&cpu_disponible_sjf);
 }
-
 
 void cazar_pokemon(t_entrenador * entrenador) {
 	int ciclos_esta_corrida = 0;
@@ -159,12 +159,8 @@ void cazar_pokemon(t_entrenador * entrenador) {
 		sleep(retardo_ciclo_cpu);
 		if (entrenador->ciclos_cpu_restantes > 1) {
 			mover_entrenador(entrenador);
-			log_info(logger,
-					"Entrenador movido a posicon %d %d",
-					entrenador->posicion[0], entrenador->posicion[1]);
 		} else {
-			log_info(logger,
-					"Catch efectuado en posicon %d %d para %s",
+			log_info(logger, "Catch efectuado en posicon %d %d para %s",
 					entrenador->posicion[0], entrenador->posicion[1],
 					entrenador->catch_pendiente->pokemon);
 			pthread_create(&thread, NULL, (void*) enviar_mensaje_catch,
@@ -172,7 +168,8 @@ void cazar_pokemon(t_entrenador * entrenador) {
 		}
 
 		entrenador->ciclos_cpu_restantes--;
-		log_trace(logger,"Ciclos restantes: %d",entrenador->ciclos_cpu_restantes);
+		log_trace(logger, "Ciclos restantes: %d",
+				entrenador->ciclos_cpu_restantes);
 
 	}
 
@@ -182,16 +179,16 @@ void cazar_pokemon(t_entrenador * entrenador) {
 }
 
 void mover_entrenador(t_entrenador * entrenador) {
-	int objX,objY;
-	if(entrenador->catch_pendiente != NULL){
+	int objX, objY;
+	if (entrenador->catch_pendiente != NULL) {
 		objX = entrenador->catch_pendiente->posx;
 		objY = entrenador->catch_pendiente->posy;
-	}else{
+	} else {
 		objX = entrenador->deadlock->posx;
 		objY = entrenador->deadlock->posy;
 	}
 
-	if ( objX> entrenador->posicion[0]) {
+	if (objX > entrenador->posicion[0]) {
 		entrenador->posicion[0]++;
 	} else if (objX < entrenador->posicion[0]) {
 		entrenador->posicion[0]--;
@@ -200,6 +197,8 @@ void mover_entrenador(t_entrenador * entrenador) {
 	} else if (objY < entrenador->posicion[1]) {
 		entrenador->posicion[1]--;
 	}
+	log_info(logger, "Entrenador %c movido a posicon %d %d", entrenador->id,
+			entrenador->posicion[0], entrenador->posicion[1]);
 }
 
 // Cambio de estado

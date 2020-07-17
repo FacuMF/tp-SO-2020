@@ -2,7 +2,6 @@
 
 void iniciar_deteccion_deadlock(){
 	while(deadlocks_pendientes()){
-		log_warning(logger,"Entra en DETECCION DEADLOCK");
 		int deadlock_en_curso = 1;
 		t_list * entrenadores_en_deadlock = obtener_entrenadores_en_estado(BLOCKED_DEADLOCK,
 					head_entrenadores);
@@ -11,7 +10,7 @@ void iniciar_deteccion_deadlock(){
 		t_entrenador * entrenador_pasivo = NULL;
 
 		while(deadlock_en_curso){// Ciclo de un deadlock
-			log_warning(logger,"deadlock en curso");
+			log_debug(logger,"deadlock en curso");
 			t_list * pok_faltantes = obtener_pokemones_faltantes(entrenador_activo);
 			t_list * pok_sobrantes = obtener_pokemones_sobrantes(entrenador_activo);
 			char * pokemon_a_recibir = list_get(pok_faltantes,0);
@@ -97,12 +96,20 @@ t_list * entrenadores_con_pokemon_sobrante(char * pokemon){
 }
 
 int deadlocks_pendientes(){
-	mostrar_entrenadores(head_entrenadores); //TODO: TBR
+	log_info(logger,"Inicio de algoritmo de deteccion de deadlock");
+	mostrar_entrenadores(head_entrenadores); //TODO: TT
 	t_list * entrenadores_en_deadlock = obtener_entrenadores_en_estado(BLOCKED_DEADLOCK,
 						head_entrenadores);
 
 	void * entrenador = list_get(entrenadores_en_deadlock,0);
-	return entrenador != NULL;
+	int result = entrenador!=NULL;
+
+	if(result)
+		log_info(logger, "Resultado deteccion deadlock: Detectado");
+	else
+		log_info(logger, "Resultado deteccion deadlock: NO Detectado");
+
+	return result;
 }
 
 t_list * obtener_pokemones_faltantes(t_entrenador * entrenador){

@@ -21,6 +21,8 @@ int main(int argv, char*archivo_config[]) {
 	log_info(logger,"Inicio algoritmo de deteccion de deadlock");
 	iniciar_deteccion_deadlock();
 
+	// TODO: Loguear metricas.
+
 	finalizar_team();
 }
 
