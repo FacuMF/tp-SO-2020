@@ -68,6 +68,7 @@ void iniciar_planificador() {
 
 t_entrenador * obtener_entrenador_a_planificar() {
 	t_entrenador * entrenador;
+	cambios_contexto_totales++;
 
 	t_list * entrenadores_en_ready = obtener_entrenadores_en_estado(READY,
 			head_entrenadores);

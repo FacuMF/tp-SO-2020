@@ -25,6 +25,7 @@ typedef struct t_deadlock{
 typedef struct t_entrenador {
 	char id;
 	sem_t sem_est;
+	int ciclos_cpu_totales;
 	int * posicion;
 	t_list* pokemones_capturados;
 	t_list* pokemones_por_capturar;
@@ -79,6 +80,13 @@ double constante_estimacion;
 
 // Metricas
 int deadlocks_totales;
+int deadlocks_resueltos;
+int cambios_contexto_totales;
+
+// METRICAS
+void log_metricas();
+void log_cpu_entrenador(void * element);
+int obtener_ciclos_cpu_totales();
 
 // DEADLOCK
 void iniciar_deteccion_deadlock();

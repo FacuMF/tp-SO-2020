@@ -21,9 +21,35 @@ int main(int argv, char*archivo_config[]) {
 	log_info(logger,"Inicio algoritmo de deteccion de deadlock");
 	iniciar_deteccion_deadlock();
 
-	// TODO: Loguear metricas.
+	log_metricas();
 
 	finalizar_team();
+}
+
+void log_metricas(){
+	log_info(logger,"Ciclos CPU totales: %d", obtener_ciclos_cpu_totales());
+	log_info(logger,"Ciclos CPU Entrenadores:");
+	list_iterate(head_entrenadores,log_cpu_entrenador);
+	log_info(logger,"Cantidad de cambios de contexto: %d",cambios_contexto_totales);
+	log_info(logger, "Deadlocks Producidos: %d",deadlocks_totales);
+	log_info(logger, "Deadlocks Resueltos: %d",deadlocks_resueltos);
+
+}
+
+void log_cpu_entrenador(void * element){
+	t_entrenador * entrenador = element;
+	log_info(logger,"Ciclos Totales E%c = %d",entrenador->id,entrenador->ciclos_cpu_totales);
+}
+
+int obtener_ciclos_cpu_totales(){
+	int total = 0;
+	void sumar_ciclos(void * element){
+		t_entrenador * entrenador = element;
+		total += entrenador->ciclos_cpu_totales;
+	}
+
+	list_iterate(head_entrenadores,sumar_ciclos);
+	return total;
 }
 
 void iniciar_team(char*argumentos_iniciales[]){

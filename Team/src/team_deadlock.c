@@ -2,6 +2,7 @@
 
 void iniciar_deteccion_deadlock(){
 	while(deadlocks_pendientes()){
+		deadlocks_totales++;
 		int deadlock_en_curso = 1;
 		t_list * entrenadores_en_deadlock = obtener_entrenadores_en_estado(BLOCKED_DEADLOCK,
 					head_entrenadores);
@@ -22,7 +23,6 @@ void iniciar_deteccion_deadlock(){
 				log_trace(logger,"es intercambio ideal");
 				pokemon_a_dar = obtener_pokemon_a_dar(pok_sobrantes,entrenador_ideal);
 				entrenador_pasivo = entrenador_ideal;
-				deadlocks_totales++;
 				deadlock_en_curso = 0;
 			}else
 				entrenador_pasivo = list_get(posibles_pasivos,0);
@@ -35,8 +35,6 @@ void iniciar_deteccion_deadlock(){
 			deadlock->pokemon_recibir= pokemon_a_recibir;
 			deadlock->id = entrenador_pasivo->id;
 
-
-
 			planificar_entrenador_deadlock(entrenador_activo,deadlock);
 			sem_wait(&resolver_deadlock);
 			sem_post(&(entrenador_activo->sem_est));
@@ -44,7 +42,8 @@ void iniciar_deteccion_deadlock(){
 			sleep(2);// TODO: TBR
 			entrenador_activo = entrenador_pasivo;
 
-		}// -- Fin ciclo --
+		}
+		deadlocks_resueltos++;
 	}
 }
 

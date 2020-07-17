@@ -76,8 +76,9 @@ void realizar_intercambio(t_entrenador * entrenador) {
 
 		// Ejecuta
 		ciclos_esta_corrida++;
-
+		entrenador->ciclos_cpu_totales++;
 		entrenador->estimacion_rafaga--;
+
 		sleep(retardo_ciclo_cpu);
 
 		if (entrenador->ciclos_cpu_restantes > 5) {
@@ -153,7 +154,7 @@ void cazar_pokemon(t_entrenador * entrenador) {
 
 		// Ejecuta
 		ciclos_esta_corrida++;
-
+		entrenador->ciclos_cpu_totales++;
 		entrenador->estimacion_rafaga--;
 
 		sleep(retardo_ciclo_cpu);
@@ -204,6 +205,7 @@ void mover_entrenador(t_entrenador * entrenador) {
 // Cambio de estado
 
 void ejecutar_entrenador(t_entrenador * entrenador) {
+	cambios_contexto_totales++;
 	entrenador->estado = EXEC;
 	sem_post(&(entrenador->sem_est));
 }
