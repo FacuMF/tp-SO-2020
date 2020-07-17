@@ -3,7 +3,6 @@
 
 #include "../../Base/Utils/src/utils.h"
 #include "../../Base/Utils/src/utils_mensajes.h"
-#include "../../Broker/src/broker.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -16,20 +15,25 @@ int RETARDO_OPERACION;
 int REINTENTO_CONEXION;
 int REINTENTO_OPERACION;
 
+
+
+
 t_log* logger; // Mismo nombre entre archivos?
 t_config* config;
+char* string_nivel_log_minimo;
+t_log_level log_nivel_minimo;
 
 // CONSTANT
 char* PUNTO_MONTAJE;
-char* METADATA_BASE_PATH = "Metadata/";
-char* FILES_BASE_PATH = "Files/";
-char* BLOCKS_BASE_PATH = "Blocks/";
+char* METADATA_BASE_PATH;
+char* FILES_BASE_PATH ;
+char* BLOCKS_BASE_PATH;
 
-char* METADATA_FILE_NAME = "Metadata.bin";
-char* BITMAP_FILE_NAME = "Bitmap.bin";
+char* METADATA_FILE_NAME ;
+char* BITMAP_FILE_NAME;
 
 // EXTENSIONES
-char* EXTENSION = ".bin";
+char* EXTENSION;
 
 char* concat_dirs(char* start, char* end);
 void set_base_path(char* base);
@@ -53,8 +57,15 @@ pthread_mutex_t mutex_suscripcion;
 sem_t sem_suscripcion;
 
 // FUNCIONES GENERALES
-void iniciar_gamecard();
+void iniciar_gamecard(char*archivo_config[]);
 void reintento_suscripcion_si_aplica_gamecard();
+void finalizar_gamecard();
+// FUNCIONES DE INICIALIZACION DE GAMECARD
+char *obtener_path_gamecard(char *path_leido);
+void iniciar_config_gamecard(char* nombre_config);
+void iniciar_logger_gamecard();
+void iniciar_semaforos_gamecard();
+void iniciar_chars_necesarios();
 // Files functions
 
 void create_file(char* path);
@@ -66,7 +77,7 @@ void clean_dir(char* path);
 char* read_file(char* path, int size);
 void write_file(char* path, char* data);
 
-bool verificar_posiciones_file(int x, int y, char** bloques);
+//bool verificar_posiciones_file(int x, int y, char** bloques);
 
 
 
@@ -77,7 +88,7 @@ t_config* read_file_metadata(char* table);
 void create_pokemon_dir(char* tableName);
 void create_pokemon_metadata_file(char* tableName);
 void create_new_file_pokemon(char* pokemon);
-
+//
 
 
 // Funciones COMUNICACION

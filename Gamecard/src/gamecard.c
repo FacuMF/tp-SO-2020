@@ -1,17 +1,30 @@
 #include "gamecard.h"
 
-void main(){
+int main(int argv, char*archivo_config[]){
+	iniciar_gamecard(archivo_config);
 
-	iniciar_gamecard();
-	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_gamecard, NULL); // Doble pthread?
-	//Terminar gamecard
+	pthread_create(&thread,NULL,(void*) suscribirse_a_colas_gamecard,NULL);
+
+
+	sleep(100);// TBR
+	finalizar_gamecard();
 }
 
 
-void iniciar_gamecard(){
-		config = leer_config("./Gamecard/config/gamecard.config");
-		logger = iniciar_logger("./Gamecard/config/gamecard.log", "Gamecard", LOG_LEVEL_TRACE);
+void iniciar_gamecard(char*argumentos_iniciales[]){
+		//Config
+		iniciar_config_gamecard(argumentos_iniciales[1]);
+		//logger
+		iniciar_logger_gamecard();
+
+		iniciar_chars_necesarios();
 		set_base_path(config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"));
-		pthread_mutex_init(&mutex_suscripcion, NULL);
-		sem_init(&sem_suscripcion,1,0);
+		iniciar_semaforos_gamecard();
+}
+
+void finalizar_gamecard(){
+	// TODO : Destroy todos los semaforos
+	// TODO : Ver si todos los hilos estan cerrados.
+	terminar_logger(logger);
+	config_destroy(config);
 }

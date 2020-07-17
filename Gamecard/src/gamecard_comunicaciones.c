@@ -8,11 +8,13 @@ int iniciar_conexion_broker_gamecard() {
 }
 
 void suscribirse_a_colas_gamecard() {
+	log_trace(logger,"Hilos de suscripcion lanzados");
+
 	enviar_suscripcion_al_broker(NEW_POKEMON);
 	enviar_suscripcion_al_broker(CATCH_POKEMON);
 	enviar_suscripcion_al_broker(GET_POKEMON);
 	while (1) {
-		sleep(config_get_int_value(config, "TIEMPO_DE_REINTENTO_CONEXION"));
+		sleep(config_get_int_value(config, "TIEMPO_DE_REINTENTO_BROKER"));
 		sem_wait(&sem_suscripcion);
 		log_info(logger, "Inicio reintento de comunicacion con Broker");
 		enviar_suscripcion_al_broker(NEW_POKEMON);
