@@ -11,11 +11,11 @@ all:
 	$(COMPILER) $(UTILS) $(TEAM) -o team $(LIBS)
 	$(COMPILER) $(UTILS) $(GAMEBOY) -o gameboy $(LIBS)
 	$(COMPILER) $(UTILS) $(BROKER) -o broker $(LIBS)
-	$(COMPILER) $(UTILS) $(GAMECARD) -o GameCard $(LIBS)
+	$(COMPILER) $(UTILS) $(GAMECARD) -o gamecard $(LIBS)
 
 gamecard:
 	mkdir -p $(BIN_PATH)
-	$(COMPILER) $(UTILS) $(GAMECARD) -o GameCard $(LIBS)
+	$(COMPILER) $(UTILS) $(GAMECARD) -o gamecard $(LIBS)
 
 broker:
 	mkdir -p $(BIN_PATH)

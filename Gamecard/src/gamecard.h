@@ -59,13 +59,17 @@ sem_t sem_suscripcion;
 // FUNCIONES GENERALES
 void iniciar_gamecard(char*archivo_config[]);
 void reintento_suscripcion_si_aplica_gamecard();
+
 void finalizar_gamecard();
+
 // FUNCIONES DE INICIALIZACION DE GAMECARD
 char *obtener_path_gamecard(char *path_leido);
 void iniciar_config_gamecard(char* nombre_config);
 void iniciar_logger_gamecard();
 void iniciar_semaforos_gamecard();
 void iniciar_chars_necesarios();
+
+
 // Files functions
 
 void create_file(char* path);
@@ -91,12 +95,17 @@ void create_new_file_pokemon(char* pokemon);
 //
 
 
-// Funciones COMUNICACION
+// Funciones COMUNICACION con broker
 void suscribirse_a_colas_gamecard();
 int iniciar_conexion_broker_gamecard();
 void enviar_suscripcion_al_broker(op_code tipo_mensaje);
 void enviar_mensaje_suscripcion_gamecard(op_code mensaje, int conexion);
 void esperar_mensajes_gamecard(void* input);
+
+//Funciones de comunicacion con gameboy
+void iniciar_conexion_con_gameboy_gamecard();
+void esperar_cliente_gamecard(int socket_servidor);
+void esperar_mensaje_gameboy_gamecard(void* input);
 
 
 // Manejo de mensajes

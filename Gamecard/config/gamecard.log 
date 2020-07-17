@@ -116,3 +116,35 @@
 [INFO] 18:58:17:546 Gamecard/(24915:24916): Reintento de comunicación con broker fallido
 [INFO] 18:58:20:547 Gamecard/(24915:24916): Inicio reintento de comunicacion con Broker
 [INFO] 18:58:20:548 Gamecard/(24915:24916): Reintento de comunicación con broker fallido
+[TRACE] 19:24:51:67 Gamecard/(27571:27571): Log inicializado
+[TRACE] 19:24:51:67 Gamecard/(27571:27572): Hilos de suscripcion lanzados
+[TRACE] 19:24:51:67 Gamecard/(27571:27572): Mensaje suscripcion enviado
+[TRACE] 19:24:51:68 Gamecard/(27571:27572): Suscripcion completada
+[TRACE] 19:24:51:68 Gamecard/(27571:27572): Mensaje suscripcion enviado
+[TRACE] 19:24:51:69 Gamecard/(27571:27572): Suscripcion completada
+[TRACE] 19:24:51:69 Gamecard/(27571:27572): Mensaje suscripcion enviado
+[TRACE] 19:24:51:69 Gamecard/(27571:27572): Suscripcion completada
+[ERROR] 19:25:33:549 Gamecard/(27571:27574): Error en 'recibir_codigo_operacion'
+[ERROR] 19:25:33:549 Gamecard/(27571:27576): Error en 'recibir_codigo_operacion'
+[ERROR] 19:25:33:549 Gamecard/(27571:27577): Error en 'recibir_codigo_operacion'
+[INFO] 19:25:33:550 Gamecard/(27571:27572): Inicio reintento de comunicacion con Broker
+[INFO] 19:25:33:551 Gamecard/(27571:27572): Reintento de comunicación con broker fallido
+[INFO] 19:25:36:552 Gamecard/(27571:27572): Inicio reintento de comunicacion con Broker
+[INFO] 19:25:36:552 Gamecard/(27571:27572): Reintento de comunicación con broker fallido
+[INFO] 19:25:39:553 Gamecard/(27571:27572): Inicio reintento de comunicacion con Broker
+[INFO] 19:25:39:554 Gamecard/(27571:27572): Reintento de comunicación con broker fallido
+[INFO] 19:25:42:554 Gamecard/(27571:27572): Inicio reintento de comunicacion con Broker
+[INFO] 19:25:42:556 Gamecard/(27571:27572): Reintento de comunicación con broker fallido
+[INFO] 19:25:45:556 Gamecard/(27571:27572): Inicio reintento de comunicacion con Broker
+[INFO] 19:25:45:557 Gamecard/(27571:27572): Reintento de comunicación con broker fallido
+[INFO] 19:25:48:557 Gamecard/(27571:27572): Inicio reintento de comunicacion con Broker
+[INFO] 19:25:48:558 Gamecard/(27571:27572): Reintento de comunicación con broker fallido
+[TRACE] 19:55:00:739 Gamecard/(32004:32004): Log inicializado
+[TRACE] 19:55:00:739 Gamecard/(32004:32005): Iniciando conexion con gameboy
+[TRACE] 19:55:00:739 Gamecard/(32004:32005): Esperando Cliente
+[TRACE] 19:55:03:597 Gamecard/(32004:32005): Cliente aceptado: 5.
+[TRACE] 19:55:03:597 Gamecard/(32004:32005): Esperando Cliente
+[INFO] 19:55:03:597 Gamecard/(32004:32011): Se recibio un mensaje CATCH_POKEMON Pokemon: squirtle, Posicion X: 4, Posicion Y: 5, Id mensaje: 3
+[DEBUG] 19:55:03:597 Gamecard/(32004:32011): Aca se maneja el catch
+[TRACE] 19:55:03:597 Gamecard/(32004:32011): Recepcion confirmada: 5 5 390868224
+[TRACE] 19:55:03:598 Gamecard/(32004:32011): Mensaje recibido manejado

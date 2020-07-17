@@ -25,7 +25,7 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 	pthread_create(&thread, NULL, (void*) esperar_mensaje_gameboy, argument);
 }
 
-void esperar_mensaje_gameboy(void* input){
+void esperar_mensaje_gameboy(void* input){ // TODO : VER REPITICION DE LOGICA CON ESPERAR MENSAJE COLA
 	int conexion = *((int *) input);
 	int cod_op = recibir_codigo_operacion(conexion);
 	if (cod_op > 0)

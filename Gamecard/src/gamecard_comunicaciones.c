@@ -1,6 +1,43 @@
 #include "gamecard.h"
-// Funciones generales
 
+
+// Funciones generales para comunicacion con broker
+
+void iniciar_conexion_con_gameboy_gamecard(){
+	log_trace(logger, "Iniciando conexion con gameboy");
+	char * ip_gameboy = config_get_string_value(config, "IP_GAMEBOY");
+	char * puerto_gameboy = config_get_string_value(config, "PUERTO_GAMEBOY");
+
+	int socket_gameboy = iniciar_conexion_servidor(ip_gameboy, puerto_gameboy);
+
+	while (1) {
+		log_trace(logger, "Esperando Cliente");
+		esperar_cliente_gamecard(socket_gameboy);
+	}
+}
+void esperar_cliente_gamecard(int socket_servidor) {
+
+	int socket_cliente = aceptar_cliente(socket_servidor);
+	log_trace(logger, "Cliente aceptado: %d.", socket_cliente);
+
+	int * argument = malloc(sizeof(int));
+	*argument = socket_cliente;
+	pthread_create(&thread, NULL, (void*) esperar_mensaje_gameboy_gamecard, argument);
+}
+
+void esperar_mensaje_gameboy_gamecard(void* input){
+	int conexion = *((int *) input);
+	int cod_op = recibir_codigo_operacion(conexion);
+	if (cod_op > 0)
+		handle_mensajes_gamecard(conexion, cod_op, 0);
+	else
+		log_error(logger, "Error en 'recibir_codigo_operacion'");
+}
+
+
+
+
+// FUNCIONES DE COMUNICACION CON BROKER
 int iniciar_conexion_broker_gamecard() {
 	char * ip_broker = config_get_string_value(config, "IP_BROKER");
 	char * puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
