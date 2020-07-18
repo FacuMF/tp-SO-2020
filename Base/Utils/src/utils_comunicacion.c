@@ -131,9 +131,7 @@ void* serializar_paquete(t_paquete* paquete, int *bytes) {
 	desplazamiento += sizeof(int);
 	memcpy(stream_serializado + desplazamiento, paquete->buffer->stream,
 			paquete->buffer->size);
-	desplazamiento += paquete->buffer->size;
 
-	// Guardar tamaño serializacion en memoria
 	(*bytes) = size_serializado;
 
 	return stream_serializado;
@@ -143,11 +141,9 @@ void* serializar_paquete(t_paquete* paquete, int *bytes) {
 void enviar_mensaje(int socket, t_buffer* buffer, op_code codigo_operacion){
 	t_paquete* paquete = generar_paquete(buffer, codigo_operacion);
 	int size_serializado;
-	void* serializado= serializar_paquete(paquete, &size_serializado);
+	void* serializado = serializar_paquete(paquete, &size_serializado);
 
 	send(socket, serializado, size_serializado, 0);
-
-	 //Tira segmentation fault
 
 	liberar_buffer(buffer);
 	free(paquete->buffer);
