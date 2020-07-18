@@ -37457,3 +37457,32 @@
 [TRACE] 19:06:09:608 GameBoy/(10857:10857): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Cantidad: 5, Id mensaje: 0
 [TRACE] 19:06:09:614 GameBoy/(10857:10857): Mensaje recibido manejado.
 >>>>>>> 0d0b1df8cbb8df9910ac0c43cd45452b127e4814
+[TRACE] 18:23:11:240 GameBoy/(6562:6562): Caracteristicas de mensaje obtenidas
+[TRACE] 18:23:11:275 GameBoy/(6562:6562): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:23:11:275 GameBoy/(6562:6562): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:23:11:278 GameBoy/(6562:6562): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:23:11:279 GameBoy/(6562:6562): El mensaje fue serializado. 
+[TRACE] 18:23:11:279 GameBoy/(6562:6562): OPERATION CODE: 3
+[TRACE] 18:23:11:279 GameBoy/(6562:6562): El mensaje fue enviado.
+[TRACE] 18:23:11:281 GameBoy/(6562:6562): Mensaje recibido, cod_op: 9.
+[TRACE] 18:23:11:282 GameBoy/(6562:6562): Se recibio un mensaje CONFIRMACION
+[ERROR] 18:23:11:282 GameBoy/(6562:6562): Op_code inválido.
+[TRACE] 18:23:11:282 GameBoy/(6562:6562): Mensaje recibido manejado.
+[TRACE] 18:23:33:436 GameBoy/(6605:6605): Caracteristicas de mensaje obtenidas
+[TRACE] 18:23:33:436 GameBoy/(6605:6605): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:23:33:436 GameBoy/(6605:6605): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:23:33:436 GameBoy/(6605:6605): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:23:33:436 GameBoy/(6605:6605): El mensaje fue serializado. 
+[TRACE] 18:23:33:436 GameBoy/(6605:6605): OPERATION CODE: 3
+[TRACE] 18:23:33:436 GameBoy/(6605:6605): El mensaje fue enviado.
+[TRACE] 18:23:33:437 GameBoy/(6605:6605): Mensaje recibido, cod_op: 9.
+[TRACE] 18:23:33:437 GameBoy/(6605:6605): Se recibio un mensaje CONFIRMACION
+[ERROR] 18:23:33:437 GameBoy/(6605:6605): Op_code inválido.
+[TRACE] 18:23:33:437 GameBoy/(6605:6605): Mensaje recibido manejado.
+[TRACE] 18:25:39:862 GameBoy/(6829:6829): Caracteristicas de mensaje obtenidas
+[TRACE] 18:25:39:863 GameBoy/(6829:6829): Se quiere enviar un mensaje del tipo -2- al modulo -1-
+[TRACE] 18:25:39:864 GameBoy/(6829:6829): Leido de config por parametro TEAM. Ip: 127.0.0.2 y Puerto: 5002
+[TRACE] 18:25:39:865 GameBoy/(6829:6829): Conexion Creada. Ip: 127.0.0.2 y Puerto: 5002 
+[TRACE] 18:25:39:865 GameBoy/(6829:6829): El mensaje fue serializado. 
+[TRACE] 18:25:39:865 GameBoy/(6829:6829): OPERATION CODE: 2
+[TRACE] 18:25:39:865 GameBoy/(6829:6829): El mensaje fue enviado.

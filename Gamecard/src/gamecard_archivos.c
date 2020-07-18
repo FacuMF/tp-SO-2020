@@ -115,21 +115,21 @@ t_config* read_file_metadata(char* table){
 
 void create_pokemon_dir(char* tableName) {
     create_dir(files_base_path(tableName));
-    t_config* config = read_file_metadata(tableName);
-    config_set_value(config, "DIRECTORY", "Y");
-    config_save(config);
-    config_destroy(config);
+    t_config* config_directorio = read_file_metadata(tableName);
+    config_set_value(config_directorio, "DIRECTORY", "Y");
+    config_save(config_directorio);
+    config_destroy(config_directorio);
 }
 
 void create_pokemon_metadata_file(char* tableName){
     create_file(pokemon_metadata_path(tableName));
-    t_config* config = read_pokemon_metadata(tableName);
-    config_set_value(config, "DIRECTORY", "N");
-    config_set_value(config, "SIZE", "0"); // A DEFINIR
-    config_set_value(config, "BLOCKS", "[]"); // A DEFINIR
-    config_set_value(config, "OPEN", "Y"); // A DEFINIR
-    config_save(config);
-    config_destroy(config);
+    t_config* config_file = read_pokemon_metadata(tableName);
+    config_set_value(config_file, "DIRECTORY", "N");
+    config_set_value(config_file, "SIZE", "0"); // A DEFINIR
+    config_set_value(config_file, "BLOCKS", "[]"); // A DEFINIR
+    config_set_value(config_file, "OPEN", "Y"); // A DEFINIR
+    config_save(config_file);
+    config_destroy(config_file);
 }
 
 
@@ -143,7 +143,6 @@ void create_new_file_pokemon(char* pokemon) {
 bool file_existing(char* path){
 	FILE * file = fopen(path, "rb");
 	if(file == NULL){
-		fclose(file);
 		return false;
 	} else {
 	fclose(file);

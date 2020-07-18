@@ -148,3 +148,18 @@
 [DEBUG] 19:55:03:597 Gamecard/(32004:32011): Aca se maneja el catch
 [TRACE] 19:55:03:597 Gamecard/(32004:32011): Recepcion confirmada: 5 5 390868224
 [TRACE] 19:55:03:598 Gamecard/(32004:32011): Mensaje recibido manejado
+[TRACE] 18:23:02:770 Gamecard/(6535:6535): Log inicializado
+[TRACE] 18:23:02:770 Gamecard/(6535:6536): Iniciando conexion con gameboy
+[TRACE] 18:23:02:770 Gamecard/(6535:6536): Esperando Cliente
+[TRACE] 18:23:11:276 Gamecard/(6535:6536): Cliente aceptado: 5.
+[TRACE] 18:23:11:276 Gamecard/(6535:6536): Esperando Cliente
+[INFO] 18:23:11:280 Gamecard/(6535:6563): Se recibio un mensaje NEW_POKEMON Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Cantidad: 5, Id mensaje: 8
+[DEBUG] 18:23:11:280 Gamecard/(6535:6563): Aca se maneja el new
+[TRACE] 18:23:11:281 Gamecard/(6535:6563): Recepcion confirmada: 5 3 577446144
+[TRACE] 18:23:11:285 Gamecard/(6535:6563): Mensaje recibido manejado
+[TRACE] 18:23:33:436 Gamecard/(6535:6536): Cliente aceptado: 7.
+[TRACE] 18:23:33:436 Gamecard/(6535:6536): Esperando Cliente
+[INFO] 18:23:33:437 Gamecard/(6535:6606): Se recibio un mensaje NEW_POKEMON Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Cantidad: 5, Id mensaje: 8
+[DEBUG] 18:23:33:437 Gamecard/(6535:6606): Aca se maneja el new
+[TRACE] 18:23:33:437 Gamecard/(6535:6606): Recepcion confirmada: 7 3 577446144
+[TRACE] 18:23:33:437 Gamecard/(6535:6606): Mensaje recibido manejado

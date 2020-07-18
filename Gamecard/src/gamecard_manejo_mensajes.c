@@ -2,19 +2,17 @@
 
 // TODO FUNCIONES DE MANEJAR MENSAJE
 
-/*void manejar_new_pokemon(t_new_pokemon *mensaje_new){
-	// TODO: CHEQUEAR COSAS QUE HAY QUE HACER
-	char* file = pokemon_metadata_path(mensaje_new->pokemon);
+void manejar_new_pokemon(t_new_pokemon *mensaje_new){
+	// TODO: CHEQUEAR COSAS QUE HAY QUE HACER, fijarse mutex
+
+
 	// Verificar si existe pokemon en el Filesystem
-	crear_file_si_no_existe(file,mensaje_new->pokemon);
-	// Verificar si se puede abrir el archivo
-	// mutex lock
-	if (!file_open(mensaje_new->pokemon)){ // SEMAFORO MUTEX PARA MANEJAR LOS OPEN
-		//Buscar los bloques del pokemon
-		char** bloques = extraer_bloques(mensaje_new->pokemon);
-		if(verificar_posiciones_file(mensaje_new->posx,mensaje_new->posy,bloques)){
-		}
-	}
+	crear_file_si_no_existe(mensaje_new);
+
+	chequear_archivo_abierto(mensaje_new);
+
+	manejar_bloques_pokemon(mensaje_new);
+
 	// mutex unlock
 		// Reintentar la operación luego de REINTENTO_OPERACION
 	// Verificar si las posiciones ya existen dentro del archivo
@@ -67,35 +65,48 @@ t_appeared_pokemon* convertir_a_appeared_pokemon(t_new_pokemon* pokemon){ // ver
 	appeared_pokemon -> size_pokemon = pokemon -> size_pokemon;
 	return appeared_pokemon;
 }
-*/
-// FUNCIONES AUXILIARES DE MANEJO DE MENSAJES
-bool file_existing(char* path){
-	FILE * file = fopen(path, "rb");
-	if(file == NULL){
-		fclose(file);
-		return false;
-	} else {
-	fclose(file);
-	return true;
+
+
+chequear_archivo_abierto(t_new_pokemon *mensaje_new){
+
+	if (file_open(mensaje_new->pokemon)){
+			int reintento =config_get_int_value(config,"TIEMPO_REINTENTO_OPERACION");
+			log_trace(logger,"Archivo se encuentra abierto");
+			sleep(reintento);
+			log_trace(logger,"Reintentando operacion");
+			manejar_new_pokemon(mensaje_new); // TODO: Ver si esta bien implementado
 	}
 }
 
+void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
+	char ** bloques = extraer_bloques(mensaje_new->pokemon);
+	if(verificar_posiciones_file(mensaje_new->posx,mensaje_new->posy,bloques)){
+		//sumar_unidad_posicion(posicion);
+	}else{
+		agregar_posicion(mensaje_new);
+	}
+}
+
+void agregar_posicion(t_new_pokemon * mensaje_new){
+
+	int tamanio = tamanio_archivo(pokemon_metadata_path(mensaje_new->pokemon));
+
+}
+
+// Auxiliares.
 bool file_open(char* pokemon){
 	t_config* config = read_pokemon_metadata(pokemon);
 	char* estado = config_get_string_value(config,"OPEN");
-	if (estado == "Y"){
-		return true;
-	} else {
-		return false;
-	}
+	return !strcasecmp(estado,"Y");
 }
 
 
 
-void crear_file_si_no_existe(char* file, char* pokemon){
+void crear_file_si_no_existe(t_new_pokemon * mensaje_new){
+	char* file = pokemon_metadata_path(mensaje_new->pokemon);
 	if(!file_existing(file)){
-		create_pokemon_dir(pokemon);
-		create_pokemon_metadata_file(pokemon);
+		create_pokemon_dir(mensaje_new->pokemon);
+		create_pokemon_metadata_file(mensaje_new->pokemon);
 	}
 }
 
