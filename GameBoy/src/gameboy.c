@@ -41,10 +41,6 @@ void enviar_mensaje_gameboy(char** arg) {
 	enviar_mensaje(conexion, mensaje_serializado, tipo_mensaje);
 	log_trace(logger, "El mensaje fue enviado.");
 
-	liberar_buffer(mensaje_serializado);
-
-	//free(mensaje_serializado->stream); //Esto tira seg fault con localized_pokemon
-	//free(mensaje_serializado);
 }
 
 void esperar_respuesta(void) {
@@ -122,8 +118,10 @@ void handle_respuesta(int cod_op, int socket_broker) {
 
 	t_buffer * buffer = recibir_mensaje(socket_broker);
 
-	char* tipo_mensaje = malloc(sizeof(char) * 20);
-	strcpy(tipo_mensaje,op_code_a_string(cod_op));
+	char* tipo_mensaje;
+	char* parametros;
+
+	tipo_mensaje = op_code_a_string(cod_op);
 	log_trace(logger, "Se recibio un mensaje %s", tipo_mensaje);
 	free(tipo_mensaje);
 
@@ -155,10 +153,12 @@ void handle_respuesta(int cod_op, int socket_broker) {
 	case NEW_POKEMON:
 		;
 		t_new_pokemon* mensaje_new_pokemon = deserializar_new_pokemon(buffer);
-		log_trace(logger, mostrar_new_pokemon(mensaje_new_pokemon));
+		parametros = mostrar_new_pokemon(mensaje_new_pokemon);
+		log_trace(logger, parametros);
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_new_pokemon->id_mensaje);
 		liberar_mensaje_new_pokemon(mensaje_new_pokemon);
+		free(parametros);
 		break;
 	case GET_POKEMON:
 		;
@@ -183,7 +183,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 }
 
 t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
-	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+	t_buffer* mensaje_serializado;
 	char* pokemon;
 	int pos_x, pos_y, cantidad, id_mensaje, cola_de_mensajes,
 			tiempo_suscripcion, id_mensaje_correlativo, ok_fail;

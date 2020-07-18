@@ -149,7 +149,7 @@ t_buffer* serializar_new_pokemon(t_new_pokemon* mensaje) {
 	t_buffer* buffer = malloc(sizeof(t_buffer));
 	buffer->size = sizeof(uint32_t) * 4 + mensaje->size_pokemon;
 
-	void* stream = malloc(buffer->size);
+	void* stream;
 	stream = serializar_cache_new_pokemon(mensaje, buffer->size);
 	int offset = buffer->size;
 	buffer->size += sizeof(uint32_t);

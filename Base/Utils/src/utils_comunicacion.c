@@ -147,11 +147,11 @@ void enviar_mensaje(int socket, t_buffer* buffer, op_code codigo_operacion){
 
 	send(socket, serializado, size_serializado, 0);
 
-	/* Tira segmentation fault
-	free(paquete->buffer->stream);
+	 //Tira segmentation fault
+
+	liberar_buffer(buffer);
 	free(paquete->buffer);
-	*/
-	liberar_paquete(paquete);
+	free(paquete);
 	free(serializado);
 
 }
