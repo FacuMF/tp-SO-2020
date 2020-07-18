@@ -83,6 +83,9 @@ int id_mensajes;
 //Semaforos
 pthread_mutex_t mutex_memoria_cache;
 
+pthread_mutex_t mutex_id_mensaje;
+pthread_mutex_t mutex_lru_flag;
+
 //Funciones Generales -----------------------------------------------------
 
 void inicializacion_broker(void);
@@ -91,7 +94,7 @@ void terminar_proceso(void);
 void inicializacion_colas(void);
 void inicializacion_ids(void);
 
-void* esperar_mensajes(void *arg);
+void* esperar_mensajes();
 void handle_cliente(int socket_servidor);
 void recibir_mensaje_del_cliente(void* );
 void handle_mensaje(int cod_op, int socket_cliente);
@@ -222,9 +225,6 @@ void enviar_fin_de_mensajes(int);
 
 void subscribir(int cliente, t_subscriptor* subscripcion);
 void agregar_cliente_a_cola(t_list* cola, int cliente);
-
-//void enviar_mensajes_de_suscripcion_a_cliente(t_subscriptor* subscripcion,  int cliente);
-//void enviar_mensajes_de_cola_a_cliente(t_queue* cola,  int cliente);
 
 void desuscribir(int cliente, t_subscriptor* suscripcion);
 void sacar_cliente_a_cola(t_list* cola, int cliente);

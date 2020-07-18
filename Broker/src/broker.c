@@ -3,7 +3,7 @@
 int main(void) {
 	signal(SIGUSR1, handler_senial);
 	inicializacion_broker();
-	esperar_mensajes(NULL);
+	esperar_mensajes();
 	terminar_proceso();
 
 	return 0;
@@ -37,6 +37,9 @@ void terminar_proceso(void) {
 	config_destroy(config);
 
 	pthread_mutex_destroy(&mutex_memoria_cache);
+	pthread_mutex_destroy(&mutex_id_mensaje);
+	pthread_mutex_destroy(&mutex_lru_flag);
+
 }
 
 void inicializacion_colas(void) {
@@ -49,10 +52,11 @@ void inicializacion_colas(void) {
 }
 
 void inicializacion_ids(void) {
+	pthread_mutex_init(&mutex_id_mensaje, NULL);
 	id_mensajes = 0;
 }
 
-void* esperar_mensajes(void *arg) {
+void* esperar_mensajes() {
 	char* ip = config_get_string_value(config, "IP_BROKER");
 	char* puerto = config_get_string_value(config, "PUERTO_BROKER");
 	int socket_servidor = iniciar_conexion_servidor(ip, puerto);
@@ -93,7 +97,7 @@ void recibir_mensaje_del_cliente(void* input) {
 				handle_mensaje(cod_op, socket_cliente) :
 				log_warning(logger, "El cliente %i cerro el socket.",
 						socket_cliente);
-	} //TODO: Ver si alguien lo necesita, si no se borra.
+	}
 
 }
 
@@ -149,8 +153,12 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 }
 
 int get_id_mensajes(void) {
-	//TODO MUTEX
+	pthread_mutex_lock(&mutex_id_mensaje);
+
 	int id = id_mensajes;
 	id_mensajes++;
+
+	pthread_mutex_unlock(&mutex_id_mensaje);
+
 	return id;
 }
