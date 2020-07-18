@@ -1,4 +1,4 @@
-COMPILER=gcc
+COMPILER=gcc -g
 LIBS = -lreadline -lcommons -lpthread -lm
 UTILS = Base/Utils/src/utils_comunicacion.c Base/Utils/src/utils_config.c Base/Utils/src/utils_logger.c Base/Utils/src/utils.h Base/Utils/src/utils_mensajes.c Base/Utils/src/utils_mensajes.h
 CLIENTE = Base/Cliente/src/cliente.h Base/Cliente/src/cliente.c

@@ -153,6 +153,7 @@ void liberar_mensaje_localized_pokemon(t_localized_pokemon*);
 
 void liberar_buffer(t_buffer*);
 void liberar_stream(void*);
+void liberar_paquete(t_paquete*);
 
 
 #endif /* UTILS_UTILS_MENSAJES_H_ */

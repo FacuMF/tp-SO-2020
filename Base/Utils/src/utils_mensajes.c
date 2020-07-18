@@ -159,6 +159,7 @@ t_buffer* serializar_new_pokemon(t_new_pokemon* mensaje) {
 
 	buffer->stream = malloc(buffer->size);
 	memcpy(buffer->stream,stream,buffer->size);
+
 	liberar_stream(stream);
 
 	return buffer;
@@ -203,7 +204,7 @@ t_new_pokemon* deserializar_cache_new_pokemon(void* stream) {
 	memcpy(&(mensaje->size_pokemon), stream, sizeof(mensaje->size_pokemon));
 	stream += sizeof(uint32_t);
 
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	mensaje->pokemon = malloc(mensaje->size_pokemon + 1);
 	memcpy(mensaje->pokemon, stream, mensaje->size_pokemon);
 	(mensaje->pokemon)[mensaje->size_pokemon] = '\0';
 	stream += mensaje->size_pokemon;
@@ -823,34 +824,26 @@ op_code string_a_tipo_mensaje(char* nombre_mensaje) {
 }
 
 char* op_code_a_string(int op) {
-	char* tipo_mensaje = malloc(sizeof(char) * 20);
 	switch (op) {
 	case APPEARED_POKEMON:
-		strcpy(tipo_mensaje, "APPEARED_POKEMON");
-		break;
+		return strdup("APPEARED_POKEMON");
 	case NEW_POKEMON:
-		strcpy(tipo_mensaje, "NEW_POKEMON");
-		break;
+		return strdup("NEW_POKEMON");
 	case CAUGHT_POKEMON:
-		strcpy(tipo_mensaje, "CAUGHT_POKEMON");
-		break;
+		return strdup("CAUGHT_POKEMON");
 	case CATCH_POKEMON:
-		strcpy(tipo_mensaje, "CATCH_POKEMON");
-		break;
+		return strdup("CATCH_POKEMON");
 	case GET_POKEMON:
-		strcpy(tipo_mensaje, "GET_POKEMON");
-		break;
+		return strdup("GET_POKEMON");
 	case LOCALIZED_POKEMON:
-		strcpy(tipo_mensaje, "LOCALIZED_POKEMON");
-		break;
+		return strdup("LOCALIZED_POKEMON");
 	case SUSCRIPTOR:
-		strcpy(tipo_mensaje, "SUSCRIPTOR");
-		break;
+		return strdup("SUSCRIPTOR");
 	case CONFIRMACION:
-		strcpy(tipo_mensaje, "CONFIRMACION");
-		break;
+		return strdup("CONFIRMACION");
+	default:
+		return strdup("NO RECONOCIDO");
 	}
-	return tipo_mensaje;
 
 }
 
@@ -880,4 +873,8 @@ void liberar_buffer(t_buffer* buffer){
 }
 void liberar_stream(void* stream){
 	free(stream);
+}
+void liberar_paquete(t_paquete* paquete){
+	liberar_buffer(paquete->buffer);
+	free(paquete);
 }

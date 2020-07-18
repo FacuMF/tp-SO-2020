@@ -2,7 +2,6 @@
 
 int main(int argv, char* arg[]) {
 
-	printf("%s", arg[3]);
 	inicializar_gameboy();
 
 	obtener_argumentos(arg);
@@ -124,7 +123,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 	t_buffer * buffer = recibir_mensaje(socket_broker);
 
 	char* tipo_mensaje = malloc(sizeof(char) * 20);
-	tipo_mensaje = op_code_a_string(cod_op);
+	strcpy(tipo_mensaje,op_code_a_string(cod_op));
 	log_trace(logger, "Se recibio un mensaje %s", tipo_mensaje);
 	free(tipo_mensaje);
 
@@ -159,6 +158,7 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		log_trace(logger, mostrar_new_pokemon(mensaje_new_pokemon));
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_new_pokemon->id_mensaje);
+		liberar_mensaje_new_pokemon(mensaje_new_pokemon);
 		break;
 	case GET_POKEMON:
 		;
@@ -201,7 +201,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		break;
 	case NEW_POKEMON:
 		;
-		pokemon = malloc(strlen(arg[3]));
+		pokemon = malloc(strlen(arg[3]) + 1);
 		t_new_pokemon* mensaje_new;
 		cargar_parametros_new_pokemon(pokemon, &pos_x, &pos_y, &cantidad,
 				&id_mensaje, arg, modulo);
@@ -209,6 +209,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 				id_mensaje);
 		mensaje_serializado = serializar_new_pokemon(mensaje_new);
 		free(pokemon);
+		liberar_mensaje_new_pokemon(mensaje_new);
 		break;
 	case CAUGHT_POKEMON:
 		;

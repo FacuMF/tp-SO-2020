@@ -13,6 +13,7 @@ void cargar_parametros_appeared_pokemon(char* pokemon, int* pos_x, int* pos_y,
 void cargar_parametros_new_pokemon(char* pokemon, int* pos_x, int* pos_y,
 		int* cantidad, int* id_mensaje, char** arg, int modulo) {
 	memcpy(pokemon,arg[3], strlen(arg[3]));
+	pokemon[strlen(arg[3])] = '\0';
 	*pos_x = atoi(arg[4]);
 	*pos_y = atoi(arg[5]);
 	*cantidad = atoi(arg[6]);

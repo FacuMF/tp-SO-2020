@@ -110,7 +110,7 @@ t_paquete* generar_paquete(t_buffer* buffer, op_code codigo_operacion) {
 	t_paquete* paquete = malloc(sizeof(t_paquete));
 	paquete->codigo_operacion = codigo_operacion;
 	paquete->buffer = malloc(sizeof(t_buffer));
-	paquete->buffer = buffer;
+	memcpy(paquete->buffer,buffer,sizeof(t_buffer));
 
 	return paquete;
 }
@@ -151,7 +151,7 @@ void enviar_mensaje(int socket, t_buffer* buffer, op_code codigo_operacion){
 	free(paquete->buffer->stream);
 	free(paquete->buffer);
 	*/
-	free(paquete);
+	liberar_paquete(paquete);
 	free(serializado);
 
 }
