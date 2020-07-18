@@ -2,7 +2,8 @@
 
 void cargar_parametros_appeared_pokemon(char* pokemon, int* pos_x, int* pos_y,
 		int* id_mensaje, char** arg, int modulo) {
-	string_append(&pokemon, arg[3]);
+	memcpy(pokemon,arg[3], strlen(arg[3]));
+	pokemon[strlen(arg[3])] = '\0';
 	*pos_x = atoi(arg[4]);
 	*pos_y = atoi(arg[5]);
 	if (modulo == broker)
@@ -39,7 +40,8 @@ int ok_fail_to_int(char* str){
 
 void cargar_parametros_catch_pokemon(char* pokemon, int* pos_x, int* pos_y,
 		int* id_mensaje, char** arg, int modulo) {
-	string_append(&pokemon, arg[3]);
+	memcpy(pokemon,arg[3], strlen(arg[3]));
+	pokemon[strlen(arg[3])] = '\0';
 	*pos_x = atoi(arg[4]);
 	*pos_y = atoi(arg[5]);
 	if (modulo == gamecard)
