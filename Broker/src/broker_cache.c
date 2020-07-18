@@ -48,6 +48,7 @@ void inicializacion_cache(void) {
 	//Inicializar semaforos cache
 
 	pthread_mutex_init(&mutex_memoria_cache, NULL);
+	pthread_mutex_init(&mutex_lru_flag, NULL);
 
 }
 
@@ -307,8 +308,13 @@ t_mensaje_cache* crear_particion_mensaje(int tipo_mensaje, int id_mensaje,
 }
 
 int get_lru_flag() {
+	pthread_mutex_lock(&mutex_lru_flag);
+
 	int flag = actual_lru_flag;
 	actual_lru_flag++;
+
+	pthread_mutex_unlock(&mutex_lru_flag);
+
 	return flag;
 }
 
