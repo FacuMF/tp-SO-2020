@@ -148,7 +148,7 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 		manejar_mensaje_confirmacion(info_mensaje_a_manejar);
 		break;
 	default:
-		log_trace(logger, "El cliente %i cerro el socket.", socket_cliente);
+		log_trace(logger, "No se reconoce el codigo de operacion %d", cod_op);
 		break;
 
 	}
