@@ -91,17 +91,29 @@ void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){
 	int tamanio_pokemon = string_length(string_itoa(mensaje_new->posx)) + string_length(string_itoa(mensaje_new->posy)) + string_length(string_itoa(mensaje_new->cantidad)) + 2; // CHEQUEAR
 	int i =0;
 	while(bloques[i]!=NULL){
-		int tamanio = tamanio_archivo(block_path()) + tamanio_pokemon;
+		int tamanio = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_pokemon; // bloques[i] es char, cambiar a int
 		if(tamanio <= tamanio_bloque()){
 			t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
 			t_config* config_bloque = block_path(bloques[i]);
 			char* posicion = concatenar_posicion(mensaje_new);
 			config_save_in_file(config_bloque, posicion, mensaje_new->cantidad);
-			config_set_value(config_metadata, "SIZE", tamanio);
+			int tamanio_definitivo =tamanio_todos_los_bloques(bloques);
+			config_set_value(config_metadata, "SIZE", tamanio_definitivo); // TODO: SUMA DE TODOS LOS BLOQUES
+			return;
 		}else{
-			//asignar_bloques();
+			i++;
 		}
 	}
+	asignar_bloque(mensaje_new, bloques);
+}
+
+int tamanio_todos_los_bloques(char** bloques){
+	int tamanio=0;
+	int i=0;
+	while(bloques[i]!=NULL){
+		tamanio += tamanio_archivo(block_path(atoi(bloques[i])))
+	}
+	return tamanio;
 }
 
 char* concatenar_posicion(t_new_pokemon* mensaje_new){

@@ -219,8 +219,23 @@ int buscar_siguiente_bloque(){
 	}
 }
 
-void asignar_bloques(){
+void asignar_bloque(t_new_pokemon* mensaje_new, char** bloques){
 	int contador = 0;
+	while(bitarray_test_bit(bitmap_bloques,contador)){
+		contador++;
+	}
+	// asignar bloque al metadata pokemon, escribir la posicion y la cantidad al bloque.bin
+	t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
+	t_config* config_bloque = block_path(contador);
+	char** bloques_nuevos = agregar_bloque_metadata(bloques,contador);
+	char* posicion = concatenar_posicion(mensaje_new);
+	config_save_in_file(config_bloque, posicion, mensaje_new->cantidad);
+	config_set_value(config_metadata, "BLOQUES", bloques_nuevos);
+	bitarray_set_bit(bitmap_bloques,contador); // Esperemos que lo setee en 1
+}
+
+char** agregar_bloque_metadata(char**bloques, int bloque_nuevo){
+	 // TODO, CAPAZ CON CONCAT FUNCIONA
 }
 
 /*
