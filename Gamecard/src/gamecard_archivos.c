@@ -202,7 +202,7 @@ char** extraer_bloques(char* pokemon){
 	return config_get_array_value(config,"BLOCKS");
 }
 
-// MAL, BORRAR
+// MAL, NO SIRVE, BORRAR
 int buscar_siguiente_bloque(){
 	//int numero_bloque = config_get_int_value(config,); TODO : VER CON QUE KEY EN ARCHIVO DE CONFIG CORRESPONDE
 	int numero_bloque = 0;
@@ -243,6 +243,54 @@ char* read_block(int blockNumber) {
     return read_file(block_path(blockNumber), read_block_size());
 }
 */
+
+
+
+char* crear_sentencia(int posx, int posy, int cantidad){
+	char* aux1 = concat(posx,"-");
+	char* aux2 = concat(aux1,posy);
+	char* aux3 = concat(aux2,"=");
+	char* aux4 = concat(aux3,cantidad);
+	char* definitivo = concat(aux4,"\n"); // TODO: Ver bien si se pone el renglon
+	return definitivo;
+}
+
+void escribir_sentencia(char* file, char* sentencia){
+	FILE *fp = fopen(file, "w+");
+	fwrite(sentencia, strlen(sentencia) + 1, 1, fp);
+	fclose(fp);
+}
+
+char* leer_sentencia(char* fileName){
+  	FILE *file = fopen(fileName, "r");
+    char *code = malloc(ftell(file));
+    size_t n = 0;
+    int c;
+    if (file == NULL) return NULL;
+    while ((c = fgetc(file)) != '\n') // La sentencia entera. Ej "1-2=5"
+    {
+        code[n++] = (char) c;
+    }
+    code[n] = '\0';
+    return code; //Falta fclose
+}
+
+bool buscar_posicion(char* fileName, char* pos){
+	FILE *file = fopen(fileName, "r");
+    char *code = malloc(ftell(file));
+    size_t n = 0;
+    int c;
+	while ((c = fgetc(file)) != '\n'){  // Sentencia entera
+		code[n++] = (char) c;
+	}
+	code[n] = '\0';
+	char* posicion_posible = separarPosicion(code); // Falta fclose
+	return pos == posicion_posible; // No funciona no se por qué
+}
+
+char* separar_posicion(char* palabra){ // Separa Ej "1-2=13" a "1-2"
+	return strtok(palabra,"=");
+}
 
 
 
