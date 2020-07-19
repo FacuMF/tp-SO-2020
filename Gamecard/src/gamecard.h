@@ -36,7 +36,6 @@ char* BITMAP_FILE_NAME;
 char* EXTENSION;
 
 char* concat_dirs(char* start, char* end);
-void set_base_path(char* base);
 char* to_block_file(int blockNumber);
 
 // BASE PATH
@@ -89,8 +88,8 @@ void write_file(char* path, char* data);
 
 t_config* read_pokemon_metadata(char* table);
 t_config* read_file_metadata(char* table);
-void create_pokemon_dir(char* tableName);
-void create_pokemon_metadata_file(char* tableName);
+void crear_pokemon_dir(char* tableName);
+void crear_pokemon_metadata_file(char* tableName);
 void create_new_file_pokemon(char* pokemon);
 //
 
@@ -109,7 +108,7 @@ void esperar_mensaje_gameboy_gamecard(void* input);
 
 
 // Manejo de mensajes
-int handle_mensajes_gamecard(int conexion, op_code cod_op,int es_respuesta);
+int handle_mensajes_gamecard(int conexion, op_code cod_op);
 //void manejar_new_pokemon();
 //void manejar_catch_pokemon();
 //void manejar_get_pokemon();

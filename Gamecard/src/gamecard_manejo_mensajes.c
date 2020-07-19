@@ -3,21 +3,30 @@
 // TODO FUNCIONES DE MANEJAR MENSAJE
 
 void manejar_new_pokemon(t_new_pokemon *mensaje_new){
+	// TODO : AGREGAR  SEAFORO PARA SICRO DE ESAJE
 	// TODO: CHEQUEAR COSAS QUE HAY QUE HACER, fijarse mutex
-
-
 	// Verificar si existe pokemon en el Filesystem
 	crear_file_si_no_existe(mensaje_new);
 
-	chequear_archivo_abierto(mensaje_new);
+	if (file_open(mensaje_new->pokemon)){
 
-	manejar_bloques_pokemon(mensaje_new);
-
+		log_trace(logger,"Archivo se encuentra abierto, se reintenta operacion");
+		sleep(config_get_int_value(config,"TIEMPO_REINTENTO_OPERACION"));
+		log_trace(logger,"Reintentando operacion");
+		// TODO : USAR SEMAFORO PARA SINCRO PARA MANEJAR POKEMON
+		manejar_new_pokemon(mensaje_new); // TODO: Ver si funciona recursividad
+		}else{
+			manejar_bloques_pokemon(mensaje_new);// revisar
+			sleep(config_get_int_value(config,"TIEMPO_RETARDO_OPERACION"));
+			cerrar_archivo_pokemon(mensaje_new->pokemon);
+			t_appeared_pokemon * mensaje_appeared= de_new_a_appeared(mensaje_new);
+			pthread_create(&thread, NULL, (void*) enviar_appeared_pokemon_a_broker,
+					mensaje_appeared);
+	}
 	// mutex unlock
 		// Reintentar la operación luego de REINTENTO_OPERACION
 	// Verificar si las posiciones ya existen dentro del archivo
 	// Esperar la cantidad de segundos definidos en config
-	sleep(RETARDO_OPERACION);
 	// Cerrar el archivo
 	// Conectarse al broker y enviar a APPEARED_POKEMON un mensaje con ID del mensaje recibido, pokemon, posicion en el mapa
 	//enviar_appeared_pokemon_a_broker(BROKER,pokemon);
@@ -33,7 +42,6 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 	// Verificar si las posiciones existen dentro del archivo
 	// En caso de que la cantidad sea 1 -> eliminar la linea, en caso contrario se debe decrementar una unidad
 	// Esperar la cantidad de segundos definidos en config
-	sleep(RETARDO_OPERACION);
 	// Cerrar archivo
 	// Conectarse al broker y enviar el mensaje indicando ID del mensaje  y resultado a CAUGHT_POKEMON.
 	// Si no se puede conectar al broker informar por log y continuar
@@ -69,13 +77,7 @@ t_appeared_pokemon* convertir_a_appeared_pokemon(t_new_pokemon* pokemon){
 
 void chequear_archivo_abierto(t_new_pokemon *mensaje_new){
 
-	if (file_open(mensaje_new->pokemon)){
-			int reintento =config_get_int_value(config,"TIEMPO_REINTENTO_OPERACION");
-			log_trace(logger,"Archivo se encuentra abierto");
-			sleep(reintento);
-			log_trace(logger,"Reintentando operacion");
-			manejar_new_pokemon(mensaje_new); // TODO: Ver si esta bien implementado
-	}
+
 }
 
 void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
@@ -111,7 +113,7 @@ int tamanio_todos_los_bloques(char** bloques){
 	int tamanio=0;
 	int i=0;
 	while(bloques[i]!=NULL){
-		tamanio += tamanio_archivo(block_path(atoi(bloques[i])))
+		tamanio += tamanio_archivo(block_path(atoi(bloques[i])));
 	}
 	return tamanio;
 }
@@ -123,7 +125,7 @@ char* concatenar_posicion(t_new_pokemon* mensaje_new){
 }
 
 // Auxiliares.
-bool file_open(char* pokemon){
+bool file_open(char* pokemon){ // TODO : CAMBIAR A F_READ
 	t_config* config = read_pokemon_metadata(pokemon);
 	char* estado = config_get_string_value(config,"OPEN");
 	return !strcasecmp(estado,"Y");
@@ -134,12 +136,19 @@ bool file_open(char* pokemon){
 void crear_file_si_no_existe(t_new_pokemon * mensaje_new){
 	char* file = pokemon_metadata_path(mensaje_new->pokemon);
 	if(!file_existing(file)){
-		create_pokemon_dir(mensaje_new->pokemon);
-		create_pokemon_metadata_file(mensaje_new->pokemon);
+		log_trace(logger,"File del pokemon no existente, Lo creo");
+		crear_pokemon_dir(mensaje_new->pokemon);
+		crear_pokemon_metadata_file(mensaje_new->pokemon);
 	}
 }
-
-
+/*char* pokemon, int posicion_x,
+		int posicion_y, int id_mensaje)
+	*/
+t_appeared_pokemon * de_new_a_appeared(t_new_pokemon * mensaje_new){
+	t_appeared_pokemon * mensaje_appeared = crear_appeared_pokemon(mensaje_new->pokemon,
+		mensaje_new->posx,mensaje_new->posy, -30);
+	return mensaje_appeared;
+}
 
 
 

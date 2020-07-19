@@ -1,57 +1,5 @@
 #include "gamecard.h"
 
-char *concat(char *start, char *end)
-{
-    return string_from_format("%s%s", start, end);
-}
-
-char* concat_dirs(char* start, char* end) {
-    return concat(concat(start, end), "/");
-}
-
-
-void set_base_path(char* base) {
-    PUNTO_MONTAJE = base;
-}
-
-char* to_block_file(int blockNumber) {
-    return concat(string_itoa(blockNumber), EXTENSION);
-}
-
-// BASE PATH
-
-char* metadata_base_path() {
-    return concat(PUNTO_MONTAJE, METADATA_BASE_PATH);
-}
-
-char* blocks_base_path() {
-    return concat(PUNTO_MONTAJE, BLOCKS_BASE_PATH);
-}
-
-
-char* files_base_path(char* fileName) {
-    return concat_dirs(concat(PUNTO_MONTAJE, FILES_BASE_PATH), fileName);
-}
-
-
-// ----- PATH DEFINITIVOS -----
-
-char* block_path(int block) {
-    return concat(blocks_base_path(), to_block_file(block));
-}
-
-char* metadata_path() {
-    return concat(metadata_base_path(), METADATA_FILE_NAME);
-}
-
-char* bitmap_path() {
-    return concat(metadata_base_path(), BITMAP_FILE_NAME);
-}
-
-char* pokemon_metadata_path(char* fileName) {
-    return concat(files_base_path(fileName), METADATA_FILE_NAME);
-}
-
 // Manejo de archivos
 
 void create_file(char* path) {
@@ -113,15 +61,15 @@ t_config* read_file_metadata(char* table){
 	return config_create(files_base_path(table));
 }
 
-void create_pokemon_dir(char* tableName) {
+void crear_pokemon_dir(char* tableName) { // TODO: CAMBIAR A FOPEN, fwrite ETC
     create_dir(files_base_path(tableName));
     t_config* config_directorio = read_file_metadata(tableName);
     config_set_value(config_directorio, "DIRECTORY", "Y");
     config_save(config_directorio);
     config_destroy(config_directorio);
 }
-//CAMBIAR A FWRITE
-void create_pokemon_metadata_file(char* tableName){
+// TODO : CAMBIAR A FWRITE
+void crear_pokemon_metadata_file(char* tableName){
     create_file(pokemon_metadata_path(tableName));
     t_config* config_file = read_pokemon_metadata(tableName);
     config_save_in_file(config_file, "DIRECTORY", "N");
@@ -136,8 +84,8 @@ void create_pokemon_metadata_file(char* tableName){
 // Crear archivos
 
 void create_new_file_pokemon(char* pokemon) {
-    create_pokemon_dir(pokemon);
-    create_pokemon_metadata_file(pokemon);
+    crear_pokemon_dir(pokemon);
+    crear_pokemon_metadata_file(pokemon);
 }
 
 bool file_existing(char* path){
@@ -167,8 +115,8 @@ bool verificar_posiciones_file(int x, int y, char** bloques){
 
 void crear_file_si_no_existe(char* file, char* pokemon){
 	if(!file_existing(file)){
-		create_pokemon_dir(pokemon);
-		create_pokemon_metadata_file(pokemon);
+		crear_pokemon_dir(pokemon);
+		crear_pokemon_metadata_file(pokemon);
 	}
 }
 
@@ -284,13 +232,15 @@ bool buscar_posicion(char* fileName, char* pos){
 		code[n++] = (char) c;
 	}
 	code[n] = '\0';
-	char* posicion_posible = separarPosicion(code); // Falta fclose
+	char* posicion_posible = separar_posicion(code); // Falta fclose
 	return pos == posicion_posible; // No funciona no se por qué
 }
 
 char* separar_posicion(char* palabra){ // Separa Ej "1-2=13" a "1-2"
 	return strtok(palabra,"=");
 }
+
+
 
 
 
