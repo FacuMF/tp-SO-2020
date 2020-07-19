@@ -361,9 +361,11 @@ void agregar_mensaje_a_cache(void* mensaje_a_cachear, int tamano_stream,
 	memcpy(memoria_cache + (particion_mensaje->offset), mensaje_a_cachear,
 			tamano_stream);
 
+	char* tipo_mensaje = op_code_a_string(particion_mensaje->tipo_mensaje);
+
 	log_info(logger, "Se almaceno un mensaje %s en la posicion %i.",
-				op_code_a_string(particion_mensaje->tipo_mensaje),
-				(particion_mensaje->offset));
+				tipo_mensaje, (particion_mensaje->offset));
+	free(tipo_mensaje);
 }
 
 _Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2) {

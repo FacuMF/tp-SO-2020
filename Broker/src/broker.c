@@ -80,7 +80,7 @@ void handle_cliente(int socket_servidor) {
 	*argument = socket_cliente;
 	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente,
 			argument);
-	//pthread_detach(thread);	// Si termina el hilo, que sus recursos se liberen automaticamente
+	// Si termina el hilo, que sus recursos se liberen automaticamente
 }
 
 void recibir_mensaje_del_cliente(void* input) {
@@ -110,7 +110,9 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 	info_mensaje_a_manejar->conexion = socket_cliente;
 	info_mensaje_a_manejar->buffer = buffer;
 
-	log_trace(logger, "Se recibio un mensaje %s", op_code_a_string(cod_op));
+	char* tipo_mensaje = op_code_a_string(cod_op);
+	log_trace(logger, "Se recibio un mensaje %s", tipo_mensaje);
+	free(tipo_mensaje);
 
 	switch (cod_op) {
 	case SUSCRIPTOR:
@@ -124,6 +126,7 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 	case NEW_POKEMON:
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_new,
 				info_mensaje_a_manejar);
+		pthread_join(thread,NULL);
 		break;
 	case CATCH_POKEMON:
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_catch,

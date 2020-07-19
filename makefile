@@ -17,7 +17,7 @@ gamecard:
 	mkdir -p $(BIN_PATH)
 	$(COMPILER) $(UTILS) $(GAMECARD) -o gamecard $(LIBS)
 
-broker:
+bkr:
 	$(COMPILER) $(UTILS) $(BROKER) -o broker $(LIBS)
 	
 team:
@@ -34,4 +34,4 @@ gbb: #gameboy y broker
 	
 
 clean:
-	rm -rf
+	rm -rf broker gameboy gamecard team 

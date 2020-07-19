@@ -23,6 +23,8 @@ void manejar_mensaje_new(t_conexion_buffer *combo) {
 	cachear_new_pokemon(mensaje_new_pokemon);
 
 	//free (liberar memoria)
+	liberar_mensaje_new_pokemon(mensaje_new_pokemon);
+	pthread_exit(NULL);
 }
 
 int asignar_id_new_pokemon(t_new_pokemon* mensaje) {
@@ -33,7 +35,7 @@ int asignar_id_new_pokemon(t_new_pokemon* mensaje) {
 
 
 void devolver_new_pokemon(int socket_cliente, t_new_pokemon* mensaje_new_pokemon) {
-	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+	t_buffer* mensaje_serializado;
 	mensaje_serializado = serializar_new_pokemon(mensaje_new_pokemon);
 	enviar_mensaje(socket_cliente, mensaje_serializado, NEW_POKEMON);
 }
@@ -74,4 +76,6 @@ void cachear_new_pokemon(t_new_pokemon* mensaje){
 	void* mensaje_a_cachear = serializar_cache_new_pokemon(mensaje, size_stream);
 
 	cachear_mensaje(size_stream, id_mensaje, tipo_mensaje, mensaje_a_cachear);
+
+	liberar_stream(mensaje_a_cachear);
 }
