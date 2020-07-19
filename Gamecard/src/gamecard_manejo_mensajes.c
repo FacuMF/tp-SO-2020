@@ -56,7 +56,7 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 }
 
 //FUNCION AUXILIAR
-t_appeared_pokemon* convertir_a_appeared_pokemon(t_new_pokemon* pokemon){ // ver utilidad de esta funcion
+t_appeared_pokemon* convertir_a_appeared_pokemon(t_new_pokemon* pokemon){
 	t_appeared_pokemon* appeared_pokemon = malloc(sizeof(t_appeared_pokemon));
 	appeared_pokemon -> id_mensaje = pokemon->id_mensaje;
 	appeared_pokemon -> pokemon = pokemon->pokemon;
@@ -67,7 +67,7 @@ t_appeared_pokemon* convertir_a_appeared_pokemon(t_new_pokemon* pokemon){ // ver
 }
 
 
-chequear_archivo_abierto(t_new_pokemon *mensaje_new){
+void chequear_archivo_abierto(t_new_pokemon *mensaje_new){
 
 	if (file_open(mensaje_new->pokemon)){
 			int reintento =config_get_int_value(config,"TIEMPO_REINTENTO_OPERACION");
@@ -83,14 +83,31 @@ void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 	if(verificar_posiciones_file(mensaje_new->posx,mensaje_new->posy,bloques)){
 		//sumar_unidad_posicion(posicion);
 	}else{
-		agregar_posicion(mensaje_new);
+		agregar_posicion(mensaje_new,bloques);
 	}
 }
 
-void agregar_posicion(t_new_pokemon * mensaje_new){
+void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){
+	int tamanio_pokemon = string_length(string_itoa(mensaje_new->posx)) + string_length(string_itoa(mensaje_new->posy)) + string_length(string_itoa(mensaje_new->cantidad)) + 2; // CHEQUEAR
+	int i =0;
+	while(bloques[i]!=NULL){
+		int tamanio = tamanio_archivo(block_path()) + tamanio_pokemon;
+		if(tamanio <= tamanio_bloque()){
+			t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
+			t_config* config_bloque = block_path(bloques[i]);
+			char* posicion = concatenar_posicion(mensaje_new);
+			config_save_in_file(config_bloque, posicion, mensaje_new->cantidad);
+			config_set_value(config_metadata, "SIZE", tamanio);
+		}else{
+			//asignar_bloques();
+		}
+	}
+}
 
-	int tamanio = tamanio_archivo(pokemon_metadata_path(mensaje_new->pokemon));
-
+char* concatenar_posicion(t_new_pokemon* mensaje_new){
+	char* posicion_parcial = concat(string_itoa(mensaje_new->posx),"-");
+	char* posicion_definitiva = concat(posicion_parcial,string_itoa(mensaje_new->posy));
+	return posicion_definitiva;
 }
 
 // Auxiliares.

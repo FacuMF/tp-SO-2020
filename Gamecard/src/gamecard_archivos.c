@@ -120,14 +120,14 @@ void create_pokemon_dir(char* tableName) {
     config_save(config_directorio);
     config_destroy(config_directorio);
 }
-
+//CAMBIAR A FWRITE
 void create_pokemon_metadata_file(char* tableName){
     create_file(pokemon_metadata_path(tableName));
     t_config* config_file = read_pokemon_metadata(tableName);
-    config_set_value(config_file, "DIRECTORY", "N");
-    config_set_value(config_file, "SIZE", "0"); // A DEFINIR
-    config_set_value(config_file, "BLOCKS", "[]"); // A DEFINIR
-    config_set_value(config_file, "OPEN", "Y"); // A DEFINIR
+    config_save_in_file(config_file, "DIRECTORY", "N");
+    config_save_in_file(config_file, "SIZE", "0"); // A DEFINIR
+    config_save_in_file(config_file, "BLOCKS", "[]"); // A DEFINIR
+    config_save_in_file(config_file, "OPEN", "Y"); // A DEFINIR
     config_save(config_file);
     config_destroy(config_file);
 }
@@ -175,13 +175,13 @@ void crear_file_si_no_existe(char* file, char* pokemon){
 // Funciones Bitmap
 
 int tamanio_bloque(){
-	config = leer_config(metadata_path());
-	return config_get_int_value(config,"BLOCK_SIZE");
+	t_config config_tamanio = leer_config(metadata_path());
+	return config_get_int_value(config_tamanio,"BLOCK_SIZE");
 }
 
 int cantidad_bloques(){
-	config = leer_config(metadata_path());
-	return config_get_int_value(config, "BLOCKS");
+	t_config config_cantidad = leer_config(metadata_path());
+	return config_get_int_value(config_cantidad, "BLOCKS");
 }
 
 float size_bytes(char* data) {
@@ -202,10 +202,10 @@ char** extraer_bloques(char* pokemon){
 	return config_get_array_value(config,"BLOCKS");
 }
 
-// TODO: REVISAR ESTA FUNCION, QUE HACE????
-int buscar_siguiente_bloque(t_config config){
+// MAL, BORRAR
+int buscar_siguiente_bloque(){
 	//int numero_bloque = config_get_int_value(config,); TODO : VER CON QUE KEY EN ARCHIVO DE CONFIG CORRESPONDE
-	int numero_bloque = 1;
+	int numero_bloque = 0;
 	while(1){
 		if(numero_bloque){
 			if (numero_bloque < cantidad_bloques()){
@@ -219,11 +219,8 @@ int buscar_siguiente_bloque(t_config config){
 	}
 }
 
-void asignar_bloques(int bloque){
-	// Escribir en el archivo, despues fijarme su tamanio. Si es mayor al debido, retroceder.
-	if(tamanio_archivo(block_path(bloque)) <= tamanio_bloque()){
-
-	}
+void asignar_bloques(){
+	int contador = 0;
 }
 
 /*

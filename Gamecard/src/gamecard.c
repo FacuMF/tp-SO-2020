@@ -20,6 +20,7 @@ void iniciar_gamecard(char*argumentos_iniciales[]){
 		iniciar_chars_necesarios();
 		set_base_path(config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"));
 		iniciar_semaforos_gamecard();
+		bitmap_bloques = bitarray_create("bitmap_bloques",tamanio_bloque()/8);
 }
 
 void finalizar_gamecard(){

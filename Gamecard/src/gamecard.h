@@ -15,8 +15,8 @@ int RETARDO_OPERACION;
 int REINTENTO_CONEXION;
 int REINTENTO_OPERACION;
 
-
-
+// BITMAP
+t_bitarray* bitmap_bloques;
 
 t_log* logger; // Mismo nombre entre archivos?
 t_config* config;
