@@ -1,8 +1,13 @@
 #include "broker.h"
 
 void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
-	t_buffer * buffer = combo->buffer;
+	t_buffer * buffer = malloc(sizeof(t_buffer));
 	int socket_cliente= combo->conexion;
+
+	memcpy(buffer, combo->buffer, sizeof(t_buffer));
+	free(combo->buffer);
+	free(combo);
+
 
 	t_subscriptor* suscripcion = deserializar_suscripcion(buffer);
 
@@ -16,11 +21,14 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
 
 	desuscribir(socket_cliente, suscripcion);
 
-	//free (liberar memoria)
+	liberar_suscripcion(suscripcion);
+	pthread_exit(NULL);
 }
 
  void subscribir(int cliente, t_subscriptor* subscripcion){
-	log_trace(logger, "Suscribir a %i a cola %s.", cliente, op_code_a_string(subscripcion->cola_de_mensaje));
+	 char* tipo_mensaje = op_code_a_string(subscripcion->cola_de_mensaje);
+	log_trace(logger, "Suscribir a %i a cola %s.", cliente, tipo_mensaje);
+	free(tipo_mensaje);
 
 	pthread_mutex_lock(&mutex_suscribir);
 
@@ -65,17 +73,20 @@ void enviar_fin_de_mensajes(int socket_cliente){
 	memcpy(fin_serializado, &fin, sizeof(int));
 	int b = send(socket_cliente, fin_serializado, sizeof(int),0);
 	log_trace(logger, "Los bytes transmitidos fueron %d", b);
+	free(fin_serializado);
 }
 
 void desuscribir(int cliente, t_subscriptor* suscripcion){
 
+	char* tipo_mensaje = op_code_a_string(suscripcion->cola_de_mensaje);
 	if((suscripcion->tiempo) >= 0){ //Desuscribir si el parametro 'tiempo' es > a 0, si es menor, dejar suscripto para siempre
 		for(int i = (suscripcion->tiempo); i>0 ; i--){
 			log_trace(logger, "Desuscribir en %i...", i);
 			sleep(1);
 		}
 		enviar_fin_de_mensajes(cliente);
-		log_trace(logger, "Desuscribir a %i de cola %s.", cliente, op_code_a_string(suscripcion->cola_de_mensaje));
+		log_trace(logger, "Desuscribir a %i de cola %s.", cliente, tipo_mensaje);
+		free(tipo_mensaje);
 		switch (suscripcion->cola_de_mensaje) {
 			case APPEARED_POKEMON:
 				sacar_cliente_a_cola(appeared_pokemon, cliente);

@@ -1,15 +1,19 @@
 #include "broker.h"
 
 void manejar_mensaje_confirmacion(t_conexion_buffer *combo) {
-	t_buffer * buffer = combo->buffer;
-	int socket_cliente = combo->conexion;
+	t_buffer * buffer = malloc(sizeof(t_buffer));
+	int socket_cliente= combo->conexion;
+
+	memcpy(buffer, combo->buffer, sizeof(t_buffer));
+	free(combo->buffer);
+	free(combo);
 
 	t_confirmacion* mensaje_confirmacion = deserializar_confirmacion(buffer);
 
 	confirmar_recepcion_en_cache(mensaje_confirmacion, socket_cliente);
 
-	//free(mensaje_confirmacion);
-	//free(buffer);
+	liberar_confirmacion(mensaje_confirmacion);
+	pthread_exit(NULL);
 }
 
 

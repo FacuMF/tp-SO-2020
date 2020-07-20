@@ -386,9 +386,11 @@ void elegir_vitima_y_eliminarla() {
 	int id_victima = victima->id;
 	log_trace(logger, "El id de la victima elegida es: %i.", id_victima);
 
+	char* tipo_mensaje = op_code_a_string(victima->tipo_mensaje);
 	log_info(logger, "Se elimino una particion %s en la posicion %i.",
-						op_code_a_string(victima->tipo_mensaje),
+						tipo_mensaje,
 						victima->offset );
+	free(tipo_mensaje);
 
 	void vaciar_una_particion(void* particion) {
 		if (((t_mensaje_cache*) particion)->id == id_victima) // Si es victima
@@ -422,7 +424,9 @@ void vaciar_particion(t_mensaje_cache* particion) {
 	particion->flags_lru = -20;
 	particion->id = -20;
 	list_clean(particion->subscribers_enviados);
+	list_destroy(particion->subscribers_enviados);
 	list_clean(particion->subscribers_recibidos);
+	list_destroy(particion->subscribers_recibidos);
 }
 
 void consolidar_cache() {
@@ -910,17 +914,22 @@ void estado_actual_de_cache() {
 	FILE* dump_file = fopen("Dump Broker", "a");
 	int num_particion = 1;
 	char* header = string_new();
+	char* fecha = obtener_fecha();
 	string_append(&header, "Dump: ");
-	string_append(&header, obtener_fecha());
+	string_append(&header, fecha);
+	free(fecha);
 	char* borde =
 			"--------------------------------------------------------------------------------------------------\n";
 
 	void escribir_linea_de_particion(void* particion) {
 		char* estado_particion = string_new();
+		char* aux = obtener_estado_de_particion(particion, num_particion);
 		string_append(&estado_particion,
-				obtener_estado_de_particion(particion, num_particion));
+				aux);
 		fwrite(estado_particion, 1, strlen(estado_particion), dump_file);
 		num_particion++;
+		free(aux);
+		free(estado_particion);
 	}
 
 	fwrite(borde, 1, strlen(borde), dump_file);
@@ -930,11 +939,10 @@ void estado_actual_de_cache() {
 	fwrite(borde, 1, strlen(borde), dump_file);
 
 	fclose(dump_file);
+	free(header);
 }
 
 char* obtener_estado_de_particion(t_mensaje_cache* particion, int num_part) {
-	char* string = malloc(sizeof(char) * 100);
-
 	int direc_inicio = ((int) memoria_cache) + particion->offset;
 	int direc_final = ((int) memoria_cache) + particion->offset
 			+ particion->tamanio;
@@ -1016,7 +1024,7 @@ void enviar_mensajes_cacheados_a_cliente(t_subscriptor* suscripcion,
 void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,
 		int socket_cliente, t_mensaje_cache* particion) {
 	if (particion->tipo_mensaje == tipo_mensaje) {
-		t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+		t_buffer* mensaje_serializado;
 
 		mensaje_serializado = serializar_mensaje_de_cache(particion);
 
@@ -1032,7 +1040,7 @@ void enviar_mensaje_cacheado_a_sub_si_es_de_cola(int tipo_mensaje,
 }
 
 t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
-	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+	t_buffer* mensaje_serializado;
 
 	void* stream_mensaje = malloc(particion->tamanio);
 
@@ -1049,6 +1057,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 
 		mensaje_serializado = serializar_appeared_pokemon(
 				mensaje_appeared_pokemon);
+		liberar_mensaje_appeared_pokemon(mensaje_appeared_pokemon);
 		break;
 
 	case CATCH_POKEMON:
@@ -1058,6 +1067,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 		mensaje_catch_pokemon->id_mensaje = particion->id;
 
 		mensaje_serializado = serializar_catch_pokemon(mensaje_catch_pokemon);
+		liberar_mensaje_catch_pokemon(mensaje_catch_pokemon);
 		break;
 
 	case CAUGHT_POKEMON:
@@ -1067,6 +1077,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 		mensaje_caught_pokemon->id_mensaje = particion->id;
 
 		mensaje_serializado = serializar_caught_pokemon(mensaje_caught_pokemon);
+		liberar_mensaje_caught_pokemon(mensaje_caught_pokemon);
 		break;
 
 	case GET_POKEMON:
@@ -1076,6 +1087,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 		mensaje_get_pokemon->id_mensaje = particion->id;
 
 		mensaje_serializado = serializar_get_pokemon(mensaje_get_pokemon);
+		liberar_mensaje_get_pokemon(mensaje_get_pokemon);
 		break;
 
 	case LOCALIZED_POKEMON:
@@ -1085,6 +1097,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 		mensaje_localized_pokemon->id_mensaje = particion->id;
 		mensaje_serializado = serializar_localized_pokemon(
 				mensaje_localized_pokemon);
+		liberar_mensaje_localized_pokemon(mensaje_localized_pokemon);
 		break;
 
 	case NEW_POKEMON:
@@ -1094,6 +1107,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 		mensaje_new_pokemon->id_mensaje = particion->id;
 
 		mensaje_serializado = serializar_new_pokemon(mensaje_new_pokemon);
+		liberar_mensaje_new_pokemon(mensaje_new_pokemon);
 		break;
 
 	default:
@@ -1102,6 +1116,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 				"No deberia estar aca, trata de deserializar un mensaje vacio o no reconocido de cache.");
 		break;
 	}
+	liberar_stream(stream_mensaje);
 	return mensaje_serializado;
 }
 
