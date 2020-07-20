@@ -47,12 +47,18 @@ void enviar_a_todos_los_subs_new_pokemon(t_new_pokemon* mensaje) {
 	log_trace(logger,
 			"Se van a enviar a todos los subs, el nuevo NEW_POKEMON.");
 
+	pthread_mutex_lock(&mutex_suscribir);
+
+
 	void enviar_new_pokemon_a_suscriptor_aux(void* suscriptor) {
 		enviar_new_pokemon_a_suscriptor((int)suscriptor, mensaje);
 	}
 
 	list_iterate(new_pokemon,
 			enviar_new_pokemon_a_suscriptor_aux);
+
+	pthread_mutex_unlock(&mutex_suscribir);
+
 }
 
 void enviar_new_pokemon_a_suscriptor(int suscriptor,

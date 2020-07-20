@@ -47,12 +47,17 @@ void enviar_a_todos_los_subs_appeared_pokemon(t_appeared_pokemon* mensaje) {
 	log_trace(logger,
 			"Se van a enviar a todos los subs, el nuevo APPEARED_POKEMON.");
 
+	pthread_mutex_lock(&mutex_suscribir);
+
 	void enviar_appeared_pokemon_a_suscriptor_aux(void* suscriptor) {
 		enviar_appeared_pokemon_a_suscriptor((int)suscriptor, mensaje);
 	}
 
 	list_iterate(appeared_pokemon,
 			enviar_appeared_pokemon_a_suscriptor_aux);
+
+	pthread_mutex_unlock(&mutex_suscribir);
+
 }
 
 void enviar_appeared_pokemon_a_suscriptor(int suscriptor,

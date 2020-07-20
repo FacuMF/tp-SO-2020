@@ -43,11 +43,15 @@ void enviar_a_todos_los_subs_catch_pokemon(t_catch_pokemon* mensaje) {
 	log_trace(logger,
 			"Se van a enviar a todos los subs, el nuevo CATCH_POKEMON.");
 
+	pthread_mutex_lock(&mutex_suscribir);
+
 	void enviar_catch_pokemon_a_suscriptor_aux(void* suscriptor) {
 		enviar_catch_pokemon_a_suscriptor((int) suscriptor, mensaje);
 	}
 
 	list_iterate(catch_pokemon, enviar_catch_pokemon_a_suscriptor_aux);
+
+	pthread_mutex_unlock(&mutex_suscribir);
 
 }
 

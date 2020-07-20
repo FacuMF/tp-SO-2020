@@ -47,12 +47,17 @@ void enviar_a_todos_los_subs_get_pokemon(t_get_pokemon* mensaje) {
 	log_trace(logger,
 			"Se van a enviar a todos los subs, el nuevo GET_POKEMON.");
 
+	pthread_mutex_lock(&mutex_suscribir);
+
 	void enviar_get_pokemon_a_suscriptor_aux(void* suscriptor) {
 		enviar_get_pokemon_a_suscriptor((int)suscriptor, mensaje);
 	}
 
 	list_iterate(get_pokemon,
 			enviar_get_pokemon_a_suscriptor_aux);
+
+	pthread_mutex_unlock(&mutex_suscribir);
+
 
 }
 

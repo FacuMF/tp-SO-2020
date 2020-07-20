@@ -44,12 +44,6 @@ void inicializacion_cache(void) {
 	//Compactacion
 
 	contador_intentos_para_compactar = frecuencia_compactacion;
-
-	//Inicializar semaforos cache
-
-	pthread_mutex_init(&mutex_memoria_cache, NULL);
-	pthread_mutex_init(&mutex_lru_flag, NULL);
-
 }
 
 void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,

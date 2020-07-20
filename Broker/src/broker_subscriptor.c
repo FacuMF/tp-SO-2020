@@ -21,7 +21,10 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
 
  void subscribir(int cliente, t_subscriptor* subscripcion){
 	log_trace(logger, "Suscribir a %i a cola %s.", cliente, op_code_a_string(subscripcion->cola_de_mensaje));
-     switch (subscripcion->cola_de_mensaje) {
+
+	pthread_mutex_lock(&mutex_suscribir);
+
+	switch (subscripcion->cola_de_mensaje) {
      	 	case APPEARED_POKEMON:
      	 		agregar_cliente_a_cola(appeared_pokemon, cliente);
      	 		break;
@@ -41,6 +44,8 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
      			agregar_cliente_a_cola(localized_pokemon, cliente);
      			break;
      }
+
+	pthread_mutex_unlock(&mutex_suscribir);
 
 	 log_trace(logger, "Cliente %i suscripto.", cliente);
  }

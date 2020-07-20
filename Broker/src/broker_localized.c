@@ -47,12 +47,18 @@ void enviar_a_todos_los_subs_localized_pokemon(t_localized_pokemon* mensaje) {
 	log_trace(logger,
 			"Se van a enviar a todos los subs, el nuevo LOCALIZED_POKEMON.");
 
+	pthread_mutex_lock(&mutex_suscribir);
+
+
 	void enviar_localized_pokemon_a_suscriptor_aux(void* suscriptor) {
 		enviar_localized_pokemon_a_suscriptor((int)suscriptor, mensaje);
 	}
 
 	list_iterate(localized_pokemon,
 			enviar_localized_pokemon_a_suscriptor_aux);
+
+	pthread_mutex_unlock(&mutex_suscribir);
+
 }
 
 void enviar_localized_pokemon_a_suscriptor(int suscriptor,

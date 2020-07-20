@@ -85,6 +85,7 @@ pthread_mutex_t mutex_memoria_cache;
 
 pthread_mutex_t mutex_id_mensaje;
 pthread_mutex_t mutex_lru_flag;
+pthread_mutex_t mutex_suscribir;
 
 //Funciones Generales -----------------------------------------------------
 
@@ -93,6 +94,7 @@ void terminar_proceso(void);
 
 void inicializacion_colas(void);
 void inicializacion_ids(void);
+void inicializacion_semaforos();
 
 void* esperar_mensajes();
 void handle_cliente(int socket_servidor);

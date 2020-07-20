@@ -28,6 +28,8 @@ void inicializacion_broker(void) {
 
 	inicializacion_cache();
 
+	inicializacion_semaforos();
+
 	log_trace(logger, "Inicialiazacion terminada.");
 }
 
@@ -39,7 +41,7 @@ void terminar_proceso(void) {
 	pthread_mutex_destroy(&mutex_memoria_cache);
 	pthread_mutex_destroy(&mutex_id_mensaje);
 	pthread_mutex_destroy(&mutex_lru_flag);
-
+	pthread_mutex_destroy(&mutex_suscribir);
 }
 
 void inicializacion_colas(void) {
@@ -52,8 +54,14 @@ void inicializacion_colas(void) {
 }
 
 void inicializacion_ids(void) {
-	pthread_mutex_init(&mutex_id_mensaje, NULL);
 	id_mensajes = 0;
+}
+
+void inicializacion_semaforos(){
+	pthread_mutex_init(&mutex_memoria_cache, NULL);
+	pthread_mutex_init(&mutex_id_mensaje, NULL);
+	pthread_mutex_init(&mutex_lru_flag, NULL);
+	pthread_mutex_init(&mutex_suscribir, NULL);
 }
 
 void* esperar_mensajes() {
