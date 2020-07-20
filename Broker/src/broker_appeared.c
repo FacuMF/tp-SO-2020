@@ -1,8 +1,12 @@
 #include "broker.h"
 
 void manejar_mensaje_appeared(t_conexion_buffer *combo) {
-	t_buffer * buffer = combo->buffer;
+	t_buffer * buffer = malloc(sizeof(t_buffer));
 	int socket_cliente= combo->conexion;
+
+	memcpy(buffer, combo->buffer, sizeof(t_buffer));
+	free(combo->buffer);
+	free(combo);
 
 	t_appeared_pokemon* mensaje_appeared_pokemon =
 			deserializar_appeared_pokemon(buffer);
@@ -23,7 +27,7 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 	cachear_appeared_pokemon(mensaje_appeared_pokemon);
 
 	liberar_mensaje_appeared_pokemon(mensaje_appeared_pokemon);
-	//free (liberar memoria)
+	pthread_exit(NULL);
 }
 
 int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje) {
@@ -34,7 +38,7 @@ int asignar_id_appeared_pokemon(t_appeared_pokemon* mensaje) {
 
 
 void devolver_appeared_pokemon(int socket_cliente, t_appeared_pokemon* mensaje_appeared_pokemon) {
-	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+	t_buffer* mensaje_serializado;
 	mensaje_serializado = serializar_appeared_pokemon(mensaje_appeared_pokemon);
 	enviar_mensaje(socket_cliente, mensaje_serializado, APPEARED_POKEMON);
 }

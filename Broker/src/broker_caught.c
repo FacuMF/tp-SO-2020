@@ -1,8 +1,12 @@
 #include "broker.h"
 
 void manejar_mensaje_caught(t_conexion_buffer *combo) {
-	t_buffer * buffer = combo->buffer;
+	t_buffer * buffer = malloc(sizeof(t_buffer));
 	int socket_cliente= combo->conexion;
+
+	memcpy(buffer, combo->buffer, sizeof(t_buffer));
+	free(combo->buffer);
+	free(combo);
 
 	t_caught_pokemon* mensaje_caught_pokemon =
 			deserializar_caught_pokemon(buffer);
@@ -22,7 +26,8 @@ void manejar_mensaje_caught(t_conexion_buffer *combo) {
 
 	cachear_caught_pokemon(mensaje_caught_pokemon);
 
-	//free (liberar memoria)
+	liberar_mensaje_caught_pokemon(mensaje_caught_pokemon);
+	pthread_exit(NULL);
 }
 
 int asignar_id_caught_pokemon(t_caught_pokemon* mensaje) {
@@ -33,7 +38,7 @@ int asignar_id_caught_pokemon(t_caught_pokemon* mensaje) {
 
 
 void devolver_caught_pokemon(int socket_cliente, t_caught_pokemon* mensaje_caught_pokemon) {
-	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
+	t_buffer* mensaje_serializado;
 	mensaje_serializado = serializar_caught_pokemon(mensaje_caught_pokemon);
 	enviar_mensaje(socket_cliente, mensaje_serializado, CAUGHT_POKEMON);
 }
@@ -74,4 +79,6 @@ void cachear_caught_pokemon(t_caught_pokemon* mensaje){
 	void* mensaje_a_cachear = serializar_cache_caught_pokemon(mensaje, size_stream);
 
 	cachear_mensaje(size_stream, id_mensaje, tipo_mensaje, mensaje_a_cachear);
+
+	liberar_stream(mensaje_a_cachear);
 }
