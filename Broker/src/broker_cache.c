@@ -43,7 +43,7 @@ void inicializacion_cache(void) {
 
 	//Compactacion
 
-	contador_intentos_para_compactar = frecuencia_compactacion;
+	contador_part_eliminar_para_compactar = frecuencia_compactacion;
 }
 
 void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
@@ -57,6 +57,8 @@ void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 			tamano_a_cachear, size_stream);
 
 	pthread_mutex_lock(&mutex_memoria_cache);
+
+	_Bool compacto_o_elimino = true;//True = Compacto - False = Elimino particion
 
 	while (no_se_agrego_mensaje_a_cache) { // Se repite hasta que el mensaje este en cache.
 
@@ -92,9 +94,15 @@ void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 
 			log_trace(logger, "No hay lugar");
 
-			elegir_vitima_y_eliminarla(); // Y consolido
+			if(compacto_o_elimino){
+				compactar_cache_si_corresponde();
+				compacto_o_elimino = false;
+			}else {
+				elegir_vitima_y_eliminarla(); // Y consolido
+				compacto_o_elimino = true;
 
-			compactar_cache_si_corresponde();
+			}
+
 		}
 		log_dump_de_cache();
 
@@ -369,6 +377,7 @@ _Bool ordenar_segun_su_lugar_en_memoria(void* mensaje_1, void* mensaje_2) {
 }
 
 void elegir_vitima_y_eliminarla() {
+	if(frecuencia_compactacion>0) contador_part_eliminar_para_compactar--;
 
 	list_sort(struct_admin_cache, ordenar_segun_lru_flag); //Dejo primero al que quiero borrar
 	log_trace(logger, "Cache ordenada por LRU flag.");
@@ -852,14 +861,17 @@ void si_es_part_mover_struct_a(t_mensaje_cache* particion, int offset_destino) {
 
 _Bool corresponde_compactar() {
 	if (algoritmo_memoria == PARTICIONES) {
-		contador_intentos_para_compactar--;
-		if (contador_intentos_para_compactar == 0) {
-			contador_intentos_para_compactar = frecuencia_compactacion;
+
+		if(frecuencia_compactacion == -1) return false; // Si la frecuencia es -1, no se compacta nunca.
+
+		if (contador_part_eliminar_para_compactar == 0) { // Si el contador esta en 0 se compacta.
+			contador_part_eliminar_para_compactar = frecuencia_compactacion; //Reinicio contador
 			return true;
 		} else {
 			return false;
 		}
-	} else
+
+	} else // Si el algoritmo de memoria es Buddy Sistem, no se compacta.
 		return false;
 }
 

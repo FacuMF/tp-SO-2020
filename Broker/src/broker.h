@@ -26,7 +26,7 @@ int algoritmo_remplazo;
 int algoritmo_particion_libre;
 int frecuencia_compactacion;
 
-int contador_intentos_para_compactar;
+int contador_part_eliminar_para_compactar;
 
 //Cache
 
