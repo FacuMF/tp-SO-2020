@@ -1,8 +1,12 @@
 #include "broker.h"
 
 void manejar_mensaje_new(t_conexion_buffer *combo) {
-	t_buffer * buffer = combo->buffer;
+	t_buffer * buffer = malloc(sizeof(t_buffer));
 	int socket_cliente= combo->conexion;
+
+	memcpy(buffer, combo->buffer, sizeof(t_buffer));
+	free(combo->buffer);
+	free(combo);
 
 	t_new_pokemon* mensaje_new_pokemon =
 			deserializar_new_pokemon(buffer);
@@ -22,7 +26,6 @@ void manejar_mensaje_new(t_conexion_buffer *combo) {
 
 	cachear_new_pokemon(mensaje_new_pokemon);
 
-	//free (liberar memoria)
 	liberar_mensaje_new_pokemon(mensaje_new_pokemon);
 	pthread_exit(NULL);
 }

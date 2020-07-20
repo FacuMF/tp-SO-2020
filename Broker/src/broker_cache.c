@@ -499,8 +499,6 @@ void log_dump_de_cache() {
 }
 
 void log_info_particion(t_mensaje_cache* particion, int num_part) {
-	char* string = malloc(sizeof(char) * 100);
-
 	int direc_inicio = ((int) memoria_cache) + particion->offset;
 	int direc_final = ((int) memoria_cache) + particion->offset
 			+ particion->tamanio;

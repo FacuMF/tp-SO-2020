@@ -22,6 +22,7 @@ void manejar_mensaje_appeared(t_conexion_buffer *combo) {
 
 	cachear_appeared_pokemon(mensaje_appeared_pokemon);
 
+	liberar_mensaje_appeared_pokemon(mensaje_appeared_pokemon);
 	//free (liberar memoria)
 }
 
@@ -73,5 +74,7 @@ void cachear_appeared_pokemon(t_appeared_pokemon* mensaje){
 	void* mensaje_a_cachear = serializar_cache_appeared_pokemon(mensaje, size_stream);
 
 	cachear_mensaje(size_stream, id_mensaje, tipo_mensaje, mensaje_a_cachear);
+
+	liberar_stream(mensaje_a_cachear);
 }
 

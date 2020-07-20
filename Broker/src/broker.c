@@ -80,20 +80,22 @@ void handle_cliente(int socket_servidor) {
 	*argument = socket_cliente;
 	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente,
 			argument);
+	pthread_detach(thread);
 	// Si termina el hilo, que sus recursos se liberen automaticamente
 }
 
 void recibir_mensaje_del_cliente(void* input) {
 	int socket_cliente = *((int *) input);
 	int cod_op = 0;
+	free(input);
 
-	while (cod_op >= 0) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
+	while (cod_op >= 0 && cod_op<=9) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
 
 		cod_op = recibir_codigo_operacion(socket_cliente);
 		if (cod_op == -1)
 			log_error(logger, "Error en 'recibir_codigo_operacion'");
 
-		(cod_op >= 0) ?
+		(cod_op >= 0 && cod_op<=9) ?
 				handle_mensaje(cod_op, socket_cliente) :
 				log_warning(logger, "El cliente %i cerro el socket.",
 						socket_cliente);
@@ -121,12 +123,10 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 	case APPEARED_POKEMON:
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_appeared,
 				info_mensaje_a_manejar);
-		//pthread_detach(thread);
 		break;
 	case NEW_POKEMON:
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_new,
 				info_mensaje_a_manejar);
-		pthread_join(thread,NULL);
 		break;
 	case CATCH_POKEMON:
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_catch,
@@ -152,7 +152,7 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 		break;
 
 	}
-
+	pthread_detach(thread);
 }
 
 int get_id_mensajes(void) {
