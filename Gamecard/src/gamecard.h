@@ -114,10 +114,15 @@ int handle_mensajes_gamecard(int conexion, op_code cod_op);
 //void manejar_get_pokemon();
 
 // Auxiliares para Manejo de mensajes
+
+void informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch);
 bool file_existing(char* path);
-bool file_open(char* pokemon);
+bool abrir_archivo(char* pokemon);
 char** extraer_bloques(char* pokemon);
 bool verificar_posciones_file(int x, int y, char** bloques);
 void crear_file_si_no_existe(char* file, char* pokemon);
+void informar_error_no_existe_pokemon_catch(t_catch_pokemon* mensaje_catch);
+bool informar_no_existe_pokemon_get(t_get_pokemon* mensaje_get);
+void intentar_abrir_archivo(char* pokemon);
 
 #endif /* GAMECARD_H */

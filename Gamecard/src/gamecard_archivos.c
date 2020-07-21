@@ -98,7 +98,7 @@ bool file_existing(char* path){
 	}
 }
 
-bool file_open(char* pokemon){
+bool intentar_abrir_archivo(char* pokemon){
 	t_config* config = read_pokemon_metadata(pokemon);
 	char* estado = config_get_string_value(config,"OPEN");
 	if (estado == "Y"){

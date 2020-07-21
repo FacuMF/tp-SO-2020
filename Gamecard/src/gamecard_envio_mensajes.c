@@ -35,7 +35,7 @@ void enviar_appeared_pokemon_a_broker( void *element) {
 }
 
 
-void enviar_caught_pokemon_a_broker( void *element) {
+void enviar_caught_pokemon_a_broker( t_caught_pokemon* element) {
 	t_caught_pokemon * caught_a_enviar = element;
 	int socket_broker = iniciar_conexion_broker_gamecard();
 		if (socket_broker > 0) {
@@ -48,17 +48,13 @@ void enviar_caught_pokemon_a_broker( void *element) {
 
 			free(mensaje_caught_serializado);
 
-			/*caught_a_enviar->id_mensaje = handle_mensajes_gamecard(
-					socket_broker,recibir_codigo_operacion(socket_broker),1);
-			 TODO : FIJARSE SI SE REQUIERE RESPUESTA*/
 			close(socket_broker);
 		} else {
 			log_info(logger, "Error en comunicacion al intentar enviar caught. Se efectuara operacion default");
-			//TODO: CHEQUEAR FUNCION DEFAULT
 		}
 }
 
-void enviar_localized_pokemon_a_broker( void *element) {
+void enviar_localized_pokemon_a_broker( t_localized_pokemon* element) {
 	t_localized_pokemon * localized_a_enviar = element;
 	int socket_broker = iniciar_conexion_broker_gamecard();
 		if (socket_broker > 0) {
