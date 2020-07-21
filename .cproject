@@ -21,10 +21,19 @@
 							<builder id="cdt.managedbuild.target.gnu.builder.base.676066654" managedBuildOn="false" name="Gnu Make Builder.Default" superClass="cdt.managedbuild.target.gnu.builder.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.archiver.base.425922132" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.base.1305187205" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.c.compiler.base.1531478282" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.1229824087" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.base.1531478282" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1969587881" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.base.1229824087" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.base">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.2137348386" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.base.1051752156" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.base"/>
-							<tool id="cdt.managedbuild.tool.gnu.assembler.base.750165030" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.assembler.base.750165030" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.base">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.615001886" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
 						</toolChain>
 					</folderInfo>
 				</configuration>
@@ -39,4 +48,5 @@
 		<project id="tp-2020-1c-PokEbola.null.1813907836" name="tp-2020-1c-PokEbola"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

@@ -26,7 +26,7 @@ void clean_dir(char* path) {
     delete_from_path(path);
     create_dir(path);
 }
-
+/* Viejas funciones, borrar si no sirven
 char* read_file(char* path, int size) {
     FILE* file = fopen(path, "rb");
     char* result = string_repeat('\0', size);
@@ -44,12 +44,12 @@ void write_file(char* path, char* data) {
     fwrite(data, sizeof(char), string_length(data) + 1, file);
     fclose(file);
 }
+*/
 
-
-/*bool verificar_posiciones_file(){
+bool verificar_posiciones_file(){
 	// TODO
 	return true;
-}*/
+}
 
 // Base de crear archivos
 
@@ -150,22 +150,6 @@ char** extraer_bloques(char* pokemon){
 	return config_get_array_value(config,"BLOCKS");
 }
 
-// MAL, NO SIRVE, BORRAR
-int buscar_siguiente_bloque(){
-	//int numero_bloque = config_get_int_value(config,); TODO : VER CON QUE KEY EN ARCHIVO DE CONFIG CORRESPONDE
-	int numero_bloque = 0;
-	while(1){
-		if(numero_bloque){
-			if (numero_bloque < cantidad_bloques()){
-				numero_bloque +=1;
-			} else {
-				log_error(logger,"No hay bloques disponibles para almacenar mas informacion");
-			}
-		} else {
-			return numero_bloque;
-		}
-	}
-}
 
 void asignar_bloque(t_new_pokemon* mensaje_new, char** bloques){
 	int contador = 0;
@@ -204,7 +188,7 @@ char* crear_sentencia(int posx, int posy, int cantidad){
 }
 
 void escribir_sentencia(char* file, char* sentencia){
-	FILE *fp = fopen(file, "w+");
+	FILE *fp = fopen(file, "a");
 	fwrite(sentencia, strlen(sentencia) + 1, 1, fp);
 	fclose(fp);
 }
@@ -222,7 +206,7 @@ char* leer_sentencia(char* fileName){
     code[n] = '\0';
     return code; //Falta fclose
 }
-
+//Falta while a todas las sentencias
 bool buscar_posicion(char* fileName, char* pos){
 	FILE *file = fopen(fileName, "r");
     char *code = malloc(ftell(file));
