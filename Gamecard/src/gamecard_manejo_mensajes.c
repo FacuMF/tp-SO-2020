@@ -275,7 +275,7 @@ void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){
 				int posicion_vieja = config_get_int_value(config_bloque,posicion);
 				int diferencia_bytes = cantidad_bytes_de_mas(string_itoa(posicion_vieja), string_itoa(posicion_vieja + mensaje_pokemon->cantidad));
 				if(tamanio_archivo(block_path(atoi(bloques[n]))) == tamanio_bloque() && diferencia_bytes > 0){
-					asignar_bloque(mensaje_pokemon,bloques);
+					asignar_bloque(mensaje_pokemon,bloques[n],bloques);
 				}
 				config_set_value(config,posicion,posicion_vieja+mensaje_pokemon->cantidad);
 			}

@@ -162,24 +162,19 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 		config_set_value(config_bloque_nuevo, posicion, cantidad_vieja + mensaje_new->cantidad);
 
 		config_save(config_bloque_viejo);
-		config_save(config_bloque_nuevo);
-		config_destroy(config_bloque_nuevo);
 		config_destroy(config_bloque_viejo);
 
-
-
 	}else{
+		config_set_value(config_bloque_nuevo, posicion, mensaje_new->cantidad);
 
 	}
-
-
-	// asignar bloque al metadata pokemon, escribir la posicion y la cantidad al bloque.bin
-
+	actualizar_size_metadata(); // TODO
 	char* bloques_nuevos = agregar_bloque_metadata(bloques_pokemon,contador);
-	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
-	config_set_value(config_bloque_nuevo, posicion, mensaje_new->cantidad);
 	config_set_value(config_metadata, "BLOQUES", bloques_nuevos);
+	config_save(config_bloque_nuevo);
+	config_destroy(config_bloque_nuevo);
 	bitarray_set_bit(bitmap_bloques,contador); // Esperemos que lo setee en 1
+
 }
 
 char* agregar_bloque_metadata(char**bloques, int bloque_nuevo){
