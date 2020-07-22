@@ -11,8 +11,6 @@ void cargar_entrenadores() {
 	char ** objetivos = config_get_array_value(config,
 			"OBJETIVOS_ENTRENADORES");
 
-	//TODO: free char** ?
-
 	int i = 0;
 
 	while (posiciones[i] != NULL) {
@@ -35,6 +33,10 @@ void cargar_entrenadores() {
 
 	agregar_capturados(pokemones_capturados);
 	log_trace(logger, "Entrenadores cargados");
+
+	free(pokemones_capturados);
+	free(posiciones);
+	free(objetivos);
 }
 
 void agregar_capturados(char ** pokemones_capturados){
@@ -109,12 +111,14 @@ void reintento_suscripcion_si_aplica(){
 void iniciar_config_team(char* nombre_config) {
 	char *path_config = obtener_path(nombre_config);
 	config = leer_config(path_config);
+
 }
 
 char *obtener_path(char *path_leido) {
 	char* path = string_new();
 	string_append(&path, "./Team/config/");
 	string_append(&path, path_leido);
+
 	return path;
 }
 
@@ -151,6 +155,10 @@ int* de_string_a_posicion(char* cadena_con_posiciones) {
 	posicion[0] = atoi(posicion_prueba[0]);
 	posicion[1] = atoi(posicion_prueba[1]);
 
+	free(posicion_prueba[0]);
+	free(posicion_prueba[1]);
+	free(posicion_prueba);
+
 	return posicion;
 }
 
@@ -167,6 +175,8 @@ t_list* string_a_pokemon_list(char* cadena_con_pokemones) {
 		i++;
 	}
 
+	free(pokemones);
+
 	return head_pokemones;
 }
 
@@ -179,6 +189,8 @@ void iniciar_logger_team(){
 
 		char * path_log = obtener_path(nombre_archivo_log);
 		logger = iniciar_logger(path_log, "Team", log_nivel_minimo);
+
+		free(path_log);
 
 		log_trace(logger, "Log inicializado");
 }

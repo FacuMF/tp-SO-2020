@@ -83,6 +83,9 @@ t_entrenador * obtener_entrenador_a_planificar() {
 		entrenador = obtener_entrenador_sjf(entrenadores_en_ready);
 		break;
 	}
+
+	list_destroy(entrenadores_en_ready);
+
 	return entrenador;
 }
 
@@ -101,6 +104,8 @@ t_entrenador * obtener_entrenador_fifo(t_list * entrenadores) {
 	t_entrenador * entrenador_menor_tiempo = list_get(entrenador_antes_modif,
 			0);
 
+	list_destroy(entrenador_antes_modif);
+
 	return entrenador_menor_tiempo;
 }
 
@@ -118,6 +123,8 @@ t_entrenador * obtener_entrenador_sjf(t_list * entrenadores) {
 
 	t_entrenador * entrenador_menor_est = list_get(entrenadores_menor_est, 0);
 
+	list_destroy(entrenadores_menor_est);
+
 	return entrenador_menor_est;
 }
 
@@ -133,7 +140,9 @@ int objetivo_global_completo() {
 int entrenadores_en_ready() {
 	t_list * entrenadores_en_ready = obtener_entrenadores_en_estado(READY,
 			head_entrenadores);
-	return !list_is_empty(entrenadores_en_ready);
+	int result = !list_is_empty(entrenadores_en_ready);
+	list_destroy(entrenadores_en_ready);
+	return result;
 }
 
 int timeval_subtract(x, y)

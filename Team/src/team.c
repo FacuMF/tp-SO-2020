@@ -18,9 +18,10 @@ int main(int argv, char*archivo_config[]) {
 
 	pthread_create(&thread, NULL, (void*) iniciar_planificador, NULL);
 	pthread_detach(thread);
+
 	while (!objetivo_global_completo()) {
 		sem_wait(&verificar_objetivo_global);
-	}
+	} // TODO: PROBLEMA CON SEMAFOROS A VECES NO DETECTA DEADLOCK SJFCD C1
 
 	log_info(logger,"Inicio algoritmo de deteccion de deadlock");
 	iniciar_deteccion_deadlock();

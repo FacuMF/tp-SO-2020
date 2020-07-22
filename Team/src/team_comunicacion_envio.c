@@ -36,6 +36,7 @@ void enviar_suscripcion_broker(op_code tipo_mensaje) {
 
 		log_trace(logger, "Suscripcion completada");
 	}
+	close(socket_broker);
 }
 
 void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
@@ -78,6 +79,7 @@ void enviar_mensaje_get(void*element) {
 	}else{
 		log_info(logger, "Error en comunicacion al intentar enviar get. Se efectuara operacion default");
 	}
+
 }
 
 void enviar_mensaje_catch(void * element) { //mismo que get
@@ -97,7 +99,6 @@ void enviar_mensaje_catch(void * element) { //mismo que get
 
 		mensaje_catch_a_enviar->id_mensaje = manejar_recibo_mensajes(
 				socket_broker, recibir_codigo_operacion(socket_broker), 1);
-
 		close(socket_broker);
 	} else {
 		log_info(logger, "Error en comunicacion al intentar enviar catch. Se efectuara operacion default");

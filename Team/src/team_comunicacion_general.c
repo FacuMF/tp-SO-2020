@@ -28,6 +28,8 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 
 void esperar_mensaje_gameboy(void* input){
 	int conexion = *((int *) input);
+	free(input);
+
 	int cod_op = recibir_codigo_operacion(conexion);
 	if (cod_op > 0)
 		manejar_recibo_mensajes(conexion, cod_op, 0);
