@@ -188,13 +188,14 @@ void enviar_mensaje_catch(void * element);
 // GENERALES - Main
 void iniciar_team(char*archivo_config[]);
 void finalizar_team();
+void liberar_entrenador(void * element);
 
 // GENERALES - INICIALIZACION
 void inicializar_listas();
 void cargar_pokemones_necesitados();
 void reintento_suscripcion_si_aplica();
-t_list* cargar_entrenadores();
-void agregar_capturados(t_list * lista_head,char ** pokemones_capturados);
+void cargar_entrenadores();
+void agregar_capturados(char ** pokemones_capturados);
 void lanzar_hilo_entrenador(void*element);
 
 // Config
