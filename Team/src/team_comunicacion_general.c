@@ -149,7 +149,6 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 
 	log_trace(logger, "Mensaje recibido manejado.");
 
-	liberar_buffer(buffer);
 
 	return id_mensaje;
 }
