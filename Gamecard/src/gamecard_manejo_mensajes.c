@@ -126,16 +126,11 @@ t_appeared_pokemon* convertir_a_appeared_pokemon(t_new_pokemon* pokemon){
 }
 
 
-void chequear_archivo_abierto(t_new_pokemon *mensaje_new){
-
-
-}
-
 void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 	char ** bloques = extraer_bloques(mensaje_new->pokemon);
-
-	if(verificar_posiciones_file(mensaje_new->posx,mensaje_new->posy,bloques)){ // TODO
-		//sumar_unidad_posicion(posicion); // TODO
+	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
+	if(verificar_posiciones_file(posicion,bloques)){
+		sumar_unidad_posicion(mensaje_new,bloques);
 	}else{
 		agregar_posicion(mensaje_new,bloques);
 	}
@@ -162,7 +157,7 @@ void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){
 		if(tamanio <= tamanio_bloque()){
 			t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
 			t_config* config_bloque = block_path(bloques[i]);
-			char* posicion = concatenar_posicion(mensaje_new);
+			char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 			config_save_in_file(config_bloque, posicion, mensaje_new->cantidad);
 			int tamanio_definitivo =tamanio_todos_los_bloques(bloques);
 			config_set_value(config_metadata, "SIZE", tamanio_definitivo); // TODO: SUMA DE TODOS LOS BLOQUES
@@ -183,9 +178,9 @@ int tamanio_todos_los_bloques(char** bloques){
 	return tamanio;
 }
 
-char* concatenar_posicion(t_new_pokemon* mensaje_new){
-	char* posicion_parcial = concat(string_itoa(mensaje_new->posx),"-");
-	char* posicion_definitiva = concat(posicion_parcial,string_itoa(mensaje_new->posy));
+char* concatenar_posicion(int posx, int posy){
+	char* posicion_parcial = concat(string_itoa(posx),"-");
+	char* posicion_definitiva = concat(posicion_parcial,string_itoa(posy));
 	return posicion_definitiva;
 }
 
@@ -201,7 +196,7 @@ bool abrir_archivo(char* pokemon){ // TODO : CAMBIAR A F_READ
 
 	// mutex unlock
 
-	return !strcasecmp(estado,"Y");
+	return !strcasecmp(estado,"Y"); // VER SI SE NECESITA ! (DA 0 SI SON IGUALES)
 
 }
 
@@ -241,8 +236,8 @@ t_appeared_pokemon * de_new_a_appeared(t_new_pokemon * mensaje_new){
 }
 
 void intentar_abrir_archivo(char* pokemon){
-	while ( ! abrir_archivo(pokemon) ){
-		log_trace(logger,"Archivo se encuentra abierto, se reintenta operacion");
+	while ( abrir_archivo(pokemon) ){
+		log_trace(logger,"Archivo se encuentra abierto, se reintenta operacion"); // Podria cambiarse a log_info
 		sleep(config_get_int_value(config,"TIEMPO_REINTENTO_OPERACION"));
 		log_trace(logger,"Reintentando operacion");
 	}
@@ -255,7 +250,7 @@ void restar_uno_pos_catch(){
 	
 }
 
-t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ //TODO
+t_localized_pokemon* posicionobtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ //TODO
 
 	t_localized_pokemon* respuesta_localized = malloc(sizeof(t_localized_pokemon*));
 
@@ -271,3 +266,26 @@ void cerrar_archivo_pokemon(char* pokemon){
 	// mutex unlock
 }
 
+void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){
+	int n=0;
+	char* posicion = concatenar_posicion(mensaje_pokemon->posx, mensaje_pokemon->posy);
+	while(bloques[n]!=NULL){
+			t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+			if (config_has_property(config_bloque,posicion)){
+				int posicion_vieja = config_get_int_value(config_bloque,posicion);
+				int diferencia_bytes = cantidad_bytes_de_mas(string_itoa(posicion_vieja), string_itoa(posicion_vieja + mensaje_pokemon->cantidad));
+				if(tamanio_archivo(block_path(atoi(bloques[n]))) == tamanio_bloque() && diferencia_bytes > 0){
+					asignar_bloque(mensaje_pokemon,bloques[n],bloques);
+				}
+				config_set_value(config,posicion,posicion_vieja+mensaje_pokemon->cantidad);
+			}
+			config_save(config_bloque);
+			config_destroy(config_bloque);
+			n++;
+		}
+
+}
+
+int cantidad_bytes_de_mas(char* sentencia1, char* sentencia2){
+	return size_bytes(sentencia2) - size_bytes(sentencia1);
+}

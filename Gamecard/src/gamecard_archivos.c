@@ -26,29 +26,20 @@ void clean_dir(char* path) {
     delete_from_path(path);
     create_dir(path);
 }
-/* Viejas funciones, borrar si no sirven
-char* read_file(char* path, int size) {
-    FILE* file = fopen(path, "rb");
-    char* result = string_repeat('\0', size);
-    char* input = string_repeat('\0', 2);
-    while(fread(input, sizeof(char), 1, file)) {
-        string_append(&result, input);
-    }
-    fclose(file);
-    free(input); //
-    return result;
+
+char* encontrar_bloque_con_posicion(char* posicion, char** bloques){
+
 }
 
-void write_file(char* path, char* data) {
-    FILE* file = fopen(path, "wb");
-    fwrite(data, sizeof(char), string_length(data) + 1, file);
-    fclose(file);
-}
-*/
-
-bool verificar_posiciones_file(){
-	// TODO
-	return true;
+bool verificar_posiciones_file(char* posicion, char** bloques){
+	int n=0;
+	while(bloques[n]!=NULL){
+		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+		if (config_has_property(config_bloque,posicion)) return true;
+		config_destroy(config_bloque);
+		n++;
+	}
+	return false;
 }
 
 // Base de crear archivos
@@ -62,20 +53,21 @@ t_config* read_file_metadata(char* table){
 }
 
 void crear_pokemon_dir(char* tableName) { // TODO: CAMBIAR A FOPEN, fwrite ETC
-    create_dir(files_base_path(tableName));
+	create_dir(files_base_path(tableName));
     t_config* config_directorio = read_file_metadata(tableName);
     config_set_value(config_directorio, "DIRECTORY", "Y");
     config_save(config_directorio);
     config_destroy(config_directorio);
 }
-// TODO : CAMBIAR A FWRITE
+
+
 void crear_pokemon_metadata_file(char* tableName){
     create_file(pokemon_metadata_path(tableName));
     t_config* config_file = read_pokemon_metadata(tableName);
-    config_save_in_file(config_file, "DIRECTORY", "N");
-    config_save_in_file(config_file, "SIZE", "0"); // A DEFINIR
-    config_save_in_file(config_file, "BLOCKS", "[]"); // A DEFINIR
-    config_save_in_file(config_file, "OPEN", "Y"); // A DEFINIR
+    config_set_value(config_file, "DIRECTORY", "N");
+    config_set_value(config_file, "SIZE", "0"); // A DEFINIR
+    config_set_value(config_file, "BLOCKS", "[]"); // A DEFINIR
+    config_set_value(config_file, "OPEN", "Y"); // A DEFINIR
     config_save(config_file);
     config_destroy(config_file);
 }
@@ -108,11 +100,6 @@ bool intentar_abrir_archivo(char* pokemon){
 	}
 }
 
-bool verificar_posiciones_file(int x, int y, char** bloques){
-	//TODO
-	return true;
-}
-
 void crear_file_si_no_existe(char* file, char* pokemon){
 	if(!file_existing(file)){
 		crear_pokemon_dir(pokemon);
@@ -132,8 +119,8 @@ int cantidad_bloques(){
 	return config_get_int_value(config_cantidad, "BLOCKS");
 }
 
-float size_bytes(char* data) {
-    return 1.0 * sizeof(char) * string_length(data);
+int size_bytes(char* data) {
+    return sizeof(char) * string_length(data); // 1.0 * etc
 }
 
 float tamanio_archivo(char* path){
@@ -151,22 +138,46 @@ char** extraer_bloques(char* pokemon){
 }
 
 
-void asignar_bloque(t_new_pokemon* mensaje_new, char** bloques){
-	int contador = 0;
-	while(bitarray_test_bit(bitmap_bloques,contador)){
+void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
+	int contador = 1;
+	char** bloques_pokemon = extraer_bloques(mensaje_new->pokemon);
+	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
+
+	while(bitarray_test_bit(bitmap_bloques,contador) && contador <= cantidad_bloques()){ // No hay 0.bin?
 		contador++;
 	}
-	// asignar bloque al metadata pokemon, escribir la posicion y la cantidad al bloque.bin
+	if(contador > cantidad_bloques()){
+		log_error("No hay bloques disponibles para asignar informacion al pokemon %s.",mensaje_new->pokemon);
+		return;
+	}
+
 	t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
-	t_config* config_bloque = block_path(contador);
-	char** bloques_nuevos = agregar_bloque_metadata(bloques,contador);
-	char* posicion = concatenar_posicion(mensaje_new);
-	config_save_in_file(config_bloque, posicion, mensaje_new->cantidad);
+	t_config* config_bloque_nuevo = block_path(contador);
+
+	if(posicion_existente){
+		int bloque_viejo = encontrar_bloque_con_posicion(posicion,bloques_pokemon);
+		t_config* config_bloque_viejo = block_path(bloque_viejo);
+		int cantidad_vieja = config_get_int_value(config_bloque_viejo,posicion);
+		config_remove_key(config_bloque_viejo,posicion);
+		config_set_value(config_bloque_nuevo, posicion, cantidad_vieja + mensaje_new->cantidad);
+
+		config_save(config_bloque_viejo);
+		config_destroy(config_bloque_viejo);
+
+	}else{
+		config_set_value(config_bloque_nuevo, posicion, mensaje_new->cantidad);
+
+	}
+	actualizar_size_metadata(); // TODO
+	char* bloques_nuevos = agregar_bloque_metadata(bloques_pokemon,contador);
 	config_set_value(config_metadata, "BLOQUES", bloques_nuevos);
+	config_save(config_bloque_nuevo);
+	config_destroy(config_bloque_nuevo);
 	bitarray_set_bit(bitmap_bloques,contador); // Esperemos que lo setee en 1
+
 }
 
-char** agregar_bloque_metadata(char**bloques, int bloque_nuevo){
+char* agregar_bloque_metadata(char**bloques, int bloque_nuevo){
 	 // TODO, CAPAZ CON CONCAT FUNCIONA
 }
 
@@ -176,9 +187,9 @@ char* read_block(int blockNumber) {
 }
 */
 
+/*
 
-
-char* crear_sentencia(int posx, int posy, int cantidad){
+char* crear_sentencia(int posx, int posy, int cantidad){ // Ej 1-2=10
 	char* aux1 = concat(posx,"-");
 	char* aux2 = concat(aux1,posy);
 	char* aux3 = concat(aux2,"=");
@@ -189,8 +200,14 @@ char* crear_sentencia(int posx, int posy, int cantidad){
 
 void escribir_sentencia(char* file, char* sentencia){
 	FILE *fp = fopen(file, "a");
-	fwrite(sentencia, strlen(sentencia) + 1, 1, fp);
+		fwrite(sentencia, strlen(sentencia) + 1, 1, fp);
 	fclose(fp);
+}
+
+void escribir_atributo(char* file, char* atributo, char*propiedad){
+	char* aux = concat_igual(atributo,propiedad);
+	char* resultado = concat(aux,"\n");
+	escribir_sentencia(file,resultado);
 }
 
 char* leer_sentencia(char* fileName){
@@ -206,7 +223,7 @@ char* leer_sentencia(char* fileName){
     code[n] = '\0';
     return code; //Falta fclose
 }
-//Falta while a todas las sentencias
+//Falta while a todas las sentencias usar feof()
 bool buscar_posicion(char* fileName, char* pos){
 	FILE *file = fopen(fileName, "r");
     char *code = malloc(ftell(file));
@@ -224,7 +241,39 @@ char* separar_posicion(char* palabra){ // Separa Ej "1-2=13" a "1-2"
 	return strtok(palabra,"=");
 }
 
+*/
 
+/*
+void crear_pokemon_metadata_file(char* tableName){
+    char* file = pokemon_metadata_path(tableName);
+	create_file(file);
+    escribir_atributo(file,"DIRECTORY","N");
+    escribir_atributo(file,"SIZE","0");
+    escribir_atributo(file,"BLOCKS","[]"); // Ver
+    escribir_atributo(file,"OPEN","Y");
+}
+*/
+
+
+/* Viejas funciones, borrar si no sirven
+char* read_file(char* path, int size) {
+    FILE* file = fopen(path, "rb");
+    char* result = string_repeat('\0', size);
+    char* input = string_repeat('\0', 2);
+    while(fread(input, sizeof(char), 1, file)) {
+        string_append(&result, input);
+    }
+    fclose(file);
+    free(input); //
+    return result;
+}
+
+void write_file(char* path, char* data) {
+    FILE* file = fopen(path, "wb");
+    fwrite(data, sizeof(char), string_length(data) + 1, file);
+    fclose(file);
+}
+*/
 
 
 

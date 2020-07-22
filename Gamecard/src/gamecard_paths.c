@@ -5,6 +5,12 @@ char *concat(char *start, char *end)
     return string_from_format("%s%s", start, end);
 }
 
+char *concat_igual(char *start, char *end)
+{
+    return string_from_format("%s=%s", start, end);
+}
+
+
 char* concat_dirs(char* start, char* end) {
     return concat(concat(start, end), "/");
 }
