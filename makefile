@@ -13,8 +13,7 @@ all:
 	$(COMPILER) $(UTILS) $(BROKER) -o broker $(LIBS)
 	$(COMPILER) $(UTILS) $(GAMECARD) -o gamecard $(LIBS)
 
-gamecard:
-	mkdir -p $(BIN_PATH)
+gamecardd:
 	$(COMPILER) $(UTILS) $(GAMECARD) -o gamecard $(LIBS)
 
 bkr:

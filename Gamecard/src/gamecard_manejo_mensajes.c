@@ -162,12 +162,12 @@ int tamanio_todos_los_bloques(char** bloques){
 bool abrir_archivo(char* pokemon){
 	//Si abre devuelve true (-> salir del while), si no puede false(-> sigue en el while).
 
-	//todo mutex lock
+	pthread_mutex_lock(&mutex_open_file);
 
 	t_config* config = read_pokemon_metadata(pokemon);
 	char* estado = config_get_string_value(config,"OPEN");
 
-	// mutex unlock
+	pthread_mutex_unlock(&mutex_open_file);
 
 	return !strcasecmp(estado,"Y"); // VER SI SE NECESITA ! (DA 0 SI SON IGUALES)
 
@@ -237,14 +237,14 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 
 		
 void cerrar_archivo_pokemon(char* pokemon){
-	//TODO mutex lock (el mismo sem que en open)
+	pthread_mutex_lock(&mutex_open_file);
 	t_config* config_pokemon = read_pokemon_metadata(pokemon);
 	config_set_value(config_pokemon,"OPEN","N");
 
 	config_save(config_pokemon);
 	config_destroy(config_pokemon);
 
-	// mutex unlock
+	pthread_mutex_unlock(&mutex_open_file);
 }
 
 void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){ // Capaz se puede optimizar (usando for se puede salir)

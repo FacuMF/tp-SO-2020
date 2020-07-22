@@ -54,6 +54,7 @@ char* pokemon_metadata_path(char* pokemon);
 // SEMAFOROS
 pthread_mutex_t mutex_suscripcion;
 sem_t sem_suscripcion;
+pthread_mutex_t mutex_open_file;
 
 // FUNCIONES GENERALES
 void iniciar_gamecard(char*archivo_config[]);

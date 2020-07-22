@@ -8,13 +8,13 @@ void iniciar_config_gamecard(char* nombre_config) {
 void iniciar_logger_gamecard(){
 	string_nivel_log_minimo = config_get_string_value(config,
 					"LOG_NIVEL_MINIMO");
-			log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
-			char* nombre_archivo_log = config_get_string_value(config, "LOG_FILE");
+	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
+	char* nombre_archivo_log = config_get_string_value(config, "LOG_FILE");
 
-			char * path_log = obtener_path_gamecard(nombre_archivo_log);
-			logger = iniciar_logger(path_log, "Gamecard", log_nivel_minimo);
+	char * path_log = obtener_path_gamecard(nombre_archivo_log);
+	logger = iniciar_logger(path_log, "Gamecard", log_nivel_minimo);
 
-			log_trace(logger, "Log inicializado");
+	log_trace(logger, "Log inicializado");
 }
 
 char *obtener_path_gamecard(char *path_leido) {
@@ -35,6 +35,9 @@ void iniciar_chars_necesarios(){
 	EXTENSION = ".bin";
 }
 void iniciar_semaforos_gamecard(){
-		pthread_mutex_init(&mutex_suscripcion, NULL);
-			sem_init(&sem_suscripcion,1,0);
+
+	pthread_mutex_init(&mutex_suscripcion, NULL);
+	sem_init(&sem_suscripcion,1,0);
+	pthread_mutex_init(&mutex_open_file, NULL);
+
 }

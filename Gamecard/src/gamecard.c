@@ -14,11 +14,15 @@ int main(int argv, char*archivo_config[]){
 void iniciar_gamecard(char*argumentos_iniciales[]){
 		//Config
 		iniciar_config_gamecard(argumentos_iniciales[1]);
+
 		//logger
 		iniciar_logger_gamecard();
-		iniciar_chars_necesarios();
+
+		//iniciar_chars_necesarios();
 		iniciar_semaforos_gamecard();
 		bitmap_bloques = bitarray_create("bitmap_bloques",tamanio_bloque()/8);
+
+
 }
 
 void finalizar_gamecard(){
@@ -26,4 +30,5 @@ void finalizar_gamecard(){
 	// TODO : Ver si todos los hilos estan cerrados.
 	terminar_logger(logger);
 	config_destroy(config);
+	pthread_mutex_destroy(&mutex_open_file);
 }
