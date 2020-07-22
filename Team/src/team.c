@@ -6,7 +6,6 @@ int main(int argv, char*archivo_config[]) {
 
 	iniciar_team(archivo_config);
 
-	// TODO: DESCOMENTAR
 	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 	//pthread_detach(thread);
 
@@ -21,7 +20,7 @@ int main(int argv, char*archivo_config[]) {
 
 	while (!objetivo_global_completo()) {
 		sem_wait(&verificar_objetivo_global);
-	} // TODO: PROBLEMA CON SEMAFOROS A VECES NO DETECTA DEADLOCK SJFCD C1
+	}
 
 	log_info(logger,"Inicio algoritmo de deteccion de deadlock");
 	iniciar_deteccion_deadlock();
@@ -56,8 +55,6 @@ int obtener_ciclos_cpu_totales(){
 }
 
 void iniciar_team(char*argumentos_iniciales[]){
-	// TODO: Revisar todos los hilos y hacer detach/join donde haga falta
-
 	// Config
 	iniciar_config_team(argumentos_iniciales[1]);
 
@@ -89,8 +86,6 @@ void iniciar_team(char*argumentos_iniciales[]){
 }
 
 void finalizar_team() {
-	// TODO: Destroy todos los semaforos
-	// TODO: Finalizar todos los hilos? Ya deberian estar todos terminados
 
 	list_destroy(ids_mensajes_utiles);
 	list_destroy(appeared_a_asignar);
@@ -98,7 +93,7 @@ void finalizar_team() {
 	list_destroy(pokemones_recibidos);
 	list_destroy(pokemones_necesitados);
 
-	list_destroy_and_destroy_elements(head_entrenadores,liberar_entrenador); //TODO: PENDING
+	list_destroy_and_destroy_elements(head_entrenadores,liberar_entrenador);
 
 
 	pthread_mutex_destroy(&chequeo_sem_suscrip);
