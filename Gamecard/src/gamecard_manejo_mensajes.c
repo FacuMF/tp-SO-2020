@@ -3,8 +3,6 @@
 // TODO FUNCIONES DE MANEJAR MENSAJE
 
 void manejar_new_pokemon(t_new_pokemon *mensaje_new){
-	// TODO : AGREGAR  SEAFORO PARA SICRO DE MENSAJE
-	// TODO: CHEQUEAR COSAS QUE HAY QUE HACER, fijarse mutex
 
 	// 1. Verificar si existe pokemon en el Filesystem
 	crear_file_si_no_existe(mensaje_new);
@@ -101,15 +99,24 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 //FUNCION AUXILIAR
 
 void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
+	log_trace(logger, "Manejar bloques pokemon.");
+
 	t_config* config_pokemon = read_pokemon_metadata(mensaje_new->pokemon);
 	config_set_value(config_pokemon,"OPEN","Y");
+
+
 	char ** bloques = extraer_bloques(mensaje_new->pokemon);
 	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
+
 	if(verificar_posiciones_file(posicion,bloques)){
+		log_debug(logger, "Sumar unidad posicion.");
 		sumar_unidad_posicion(mensaje_new,bloques);
 	}else{
+		log_debug(logger, "Agregar posicion.");
 		agregar_posicion(mensaje_new,bloques);
 	}
+
+
 	config_save(config_pokemon);
 	config_destroy(config_pokemon);
 }
@@ -130,17 +137,24 @@ bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch){
 void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){ // Podriamos sacar los bloques como parametro
 	int tamanio_sentencia = string_length(string_itoa(mensaje_new->posx)) + string_length(string_itoa(mensaje_new->posy)) + string_length(string_itoa(mensaje_new->cantidad)) + 2; // CHEQUEAR
 	int i = 0;
+
 	while(bloques[i]!=NULL){
+
 		int tamanio_total = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_sentencia; // bloques[i] es char, cambiar a int (atoi)
+
 		if(tamanio_total <= tamanio_bloque()){
+
 			t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
 			t_config* config_bloque = config_create(block_path(atoi(bloques[i])));
 			char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 			config_set_value(config_bloque, posicion, string_itoa(mensaje_new->cantidad));
 			actualizar_size_metadata(config_metadata, bloques);
 			return;
+
 		}else{
+
 			i++;
+
 		}
 	}
 	asignar_bloque(mensaje_new,0);
@@ -230,9 +244,9 @@ void intentar_abrir_archivo(char* pokemon){
 		sleep( config_get_int_value(config,"TIEMPO_DE_REINTENTO_OPERACION") );
 
 		archivo_abierto_por_otro = abrir_archivo(pokemon);
-		log_trace(logger,"Reintentando operacion");
+		log_trace(logger,"Reintentando operacion.");
 	}
-	log_trace(logger, "Se logro abrir el archivo");
+	log_trace(logger, "Se abrio el archivo.");
 }
 
 void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
@@ -256,6 +270,7 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 		
 void cerrar_archivo_pokemon(char* pokemon){
 	pthread_mutex_lock(&mutex_open_file);
+
 	t_config* config_pokemon = read_pokemon_metadata(pokemon);
 	config_set_value(config_pokemon,"OPEN","N");
 
@@ -268,20 +283,22 @@ void cerrar_archivo_pokemon(char* pokemon){
 void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){ // Capaz se puede optimizar (usando for se puede salir)
 	int n=0;
 	char* posicion = concatenar_posicion(mensaje_pokemon->posx, mensaje_pokemon->posy);
+
 	while(bloques[n]!=NULL){
-			t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
-			if (config_has_property(config_bloque,posicion)){
-				int cantidad_vieja = config_get_int_value(config_bloque,posicion);
-				int diferencia_bytes = cantidad_bytes_de_mas(string_itoa(cantidad_vieja), string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
-				if(tamanio_archivo(block_path(atoi(bloques[n]))) == tamanio_bloque() && diferencia_bytes > 0){
-					asignar_bloque(mensaje_pokemon,1);
-				}
-				config_set_value(config,posicion, string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
+
+		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+		if (config_has_property(config_bloque,posicion)){
+			int cantidad_vieja = config_get_int_value(config_bloque,posicion);
+			int diferencia_bytes = cantidad_bytes_de_mas(string_itoa(cantidad_vieja), string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
+			if(tamanio_archivo(block_path(atoi(bloques[n]))) == tamanio_bloque() && diferencia_bytes > 0){
+				asignar_bloque(mensaje_pokemon,1);
 			}
-			config_save(config_bloque);
-			config_destroy(config_bloque);
-			n++;
+			config_set_value(config,posicion, string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
 		}
+		config_save(config_bloque);
+		config_destroy(config_bloque);
+		n++;
+	}
 
 }
 

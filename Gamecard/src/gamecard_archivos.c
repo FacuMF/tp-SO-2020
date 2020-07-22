@@ -134,10 +134,8 @@ bool file_existing(char* path){
 
 // TAMANIOS DE ARCHIVOS Y SUS ATRIBUTOS
 int tamanio_bloque(){
-	log_trace(logger, "Leer config: %s", metadata_path() );
 	t_config* config_tamanio = leer_config(metadata_path());
 
-	log_trace(logger, "get_value block_size.");
 	return config_get_int_value(config_tamanio,"BLOCK_SIZE");
 }
 
