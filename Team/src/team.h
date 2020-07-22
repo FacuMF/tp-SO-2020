@@ -139,6 +139,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught,t_entrenador * entrenador);
 void manejar_localized(t_localized_pokemon* mensaje_localized);
 
 // Auxiliares - Pokemon
+void verificar_pendientes(void);
 int pokemon_en_auxiliares(char * pokemon);
 int pokemon_asignado_a_entrenador(char * pokemon);
 

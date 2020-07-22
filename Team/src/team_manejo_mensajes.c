@@ -1,9 +1,8 @@
 #include "team.h"
 
-
 void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 	pthread_mutex_lock(&manejar_mensaje);
-	if (!requiero_pokemon(mensaje_appeared->pokemon)){
+	if (!requiero_pokemon(mensaje_appeared->pokemon)) {
 		liberar_mensaje_appeared_pokemon(mensaje_appeared);
 		return;
 	}
@@ -15,9 +14,9 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 	t_entrenador * entrenador_elegido = obtener_entrenador_buscado(
 			mensaje_appeared->posx, mensaje_appeared->posy);
 
-	if (entrenador_elegido != NULL){
+	if (entrenador_elegido != NULL) {
 		planificar_entrenador(entrenador_elegido, mensaje_appeared);
-	}else
+	} else
 		list_add(appeared_a_asignar, mensaje_appeared);
 	pthread_mutex_unlock(&manejar_mensaje);
 }
@@ -33,7 +32,8 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	//TODO: Testear con gamecard el necesito mensaje
 	if ((!necesito_mensaje(mensaje_localized->id_mensaje))
 			|| (!requiero_pokemon(mensaje_localized->pokemon))
-			|| (pokemon_en_lista(pokemones_recibidos, mensaje_localized->pokemon))){
+			|| (pokemon_en_lista(pokemones_recibidos,
+					mensaje_localized->pokemon))) {
 		liberar_mensaje_localized_pokemon(mensaje_localized);
 		return; // Mensaje descartado
 	}
@@ -42,11 +42,12 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	list_add(pokemones_recibidos, mensaje_localized->pokemon);
 
 	pthread_mutex_lock(&mutex_pokemones_necesitados);
-	int necesitados = cantidad_repeticiones_en_lista(
-			pokemones_necesitados, mensaje_localized->pokemon);
+	int necesitados = cantidad_repeticiones_en_lista(pokemones_necesitados,
+			mensaje_localized->pokemon);
 	pthread_mutex_unlock(&mutex_pokemones_necesitados);
 
-	necesitados-=cantidad_entrenadores_buscando_pokemon(mensaje_localized->pokemon);
+	necesitados -= cantidad_entrenadores_buscando_pokemon(
+			mensaje_localized->pokemon);
 
 	t_list * mensajes_appeared_equivalentes = de_localized_a_lista_appeared(
 			mensaje_localized);
@@ -61,7 +62,6 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	list_destroy(mensajes_appeared_necesitados);
 	liberar_mensaje_localized_pokemon(mensaje_localized);
 
-
 	pthread_mutex_unlock(&manejar_mensaje);
 }
 
@@ -69,7 +69,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 	if (entrenador == NULL)
 		entrenador = obtener_entrenador_segun_id_mensaje(
 				mensaje_caught->id_mensaje);
-	if (entrenador == NULL){
+	if (entrenador == NULL) {
 		liberar_mensaje_caught_pokemon(mensaje_caught);
 		return; // Mensaje descartado
 	}
@@ -84,7 +84,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 		list_add(entrenador->pokemones_capturados, pokemon);
 
 		pthread_mutex_lock(&mutex_pokemones_necesitados);
-		eliminar_si_esta(pokemones_necesitados,pokemon);
+		eliminar_si_esta(pokemones_necesitados, pokemon);
 		free(entrenador->catch_pendiente);
 		entrenador->catch_pendiente = NULL;
 		pthread_mutex_unlock(&mutex_pokemones_necesitados);
@@ -98,11 +98,11 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 				&& !pokemon_asignado_a_entrenador(pokemon))
 			eliminar_de_lista_appeared(appeared_auxiliares, pokemon);
 
-
-		if(entrenador->estado!=BLOCKED_NORMAL){
+		if (entrenador->estado != BLOCKED_NORMAL) {
 			sem_post(&verificar_objetivo_global);
 			pthread_mutex_unlock(&manejar_mensaje);
 			liberar_mensaje_caught_pokemon(mensaje_caught);
+			verificar_pendientes();
 			return;
 		}
 
@@ -121,12 +121,12 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 	} else { // SI NO LO ATRAPÓ
 		t_appeared_pokemon * mensaje_app = obtener_auxiliar_de_lista(pokemon);
 
-		if (mensaje_app != NULL){
+		if (mensaje_app != NULL) {
 			planificar_entrenador(entrenador, mensaje_app);
-		}else{
+		} else {
 			// Si hay pendientes, replanificarlo
-			t_list * lista_com_mensaje = list_take_and_remove(appeared_a_asignar,
-					1);
+			t_list * lista_com_mensaje = list_take_and_remove(
+					appeared_a_asignar, 1);
 			t_appeared_pokemon * mensaje = list_get(lista_com_mensaje, 0);
 
 			if (mensaje != NULL)
@@ -138,6 +138,18 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 }
 
 // AUXILIARES - POKEMON
+void verificar_pendientes() {
+	// Si hay pendientes, replanificarlo
+	t_list * lista_com_mensaje = list_take_and_remove(appeared_a_asignar, 1);
+	t_appeared_pokemon * mensaje = list_get(lista_com_mensaje, 0);
+	list_destroy(lista_com_mensaje);
+
+	if (mensaje == NULL){
+		sem_post(&verificar_objetivo_global);
+		return;
+	}
+	manejar_appeared(mensaje);
+}
 
 int pokemon_en_auxiliares(char * pokemon) {
 	bool pokemon_auxiliar(void * elemento) {
@@ -166,7 +178,8 @@ int necesito_mensaje(int id_mensaje) {
 		return id == id_mensaje;
 	}
 	pthread_mutex_lock(&mutex_ids_mensajes);
-	int result = list_find(ids_mensajes_utiles, corresponde_con_id_buscado) != NULL;
+	int result = list_find(ids_mensajes_utiles,
+			corresponde_con_id_buscado) != NULL;
 	pthread_mutex_unlock(&mutex_ids_mensajes);
 
 	return result;
@@ -188,7 +201,7 @@ t_appeared_pokemon * obtener_auxiliar_de_lista(char * pokemon) {
 				&& appeared->posx != mensaje->posx
 				&& appeared->posy != mensaje->posy;
 	}
-	if (mensaje != NULL){
+	if (mensaje != NULL) {
 		t_list * lista_auxiliar = appeared_auxiliares;
 		appeared_auxiliares = list_filter(appeared_auxiliares,
 				es_diferente_a_mensaje);

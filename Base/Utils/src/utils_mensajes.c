@@ -309,8 +309,9 @@ t_catch_pokemon* crear_catch_pokemon(char* pokemon, int posicion_x,
 		int posicion_y, int id_mensaje) {
 	t_catch_pokemon* mensaje = malloc(sizeof(t_catch_pokemon));
 	mensaje->size_pokemon = strlen(pokemon);
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	mensaje->pokemon = malloc(mensaje->size_pokemon + 1);
 	memcpy(mensaje->pokemon, pokemon, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] = '\0';
 	mensaje->posx = posicion_x;
 	mensaje->posy = posicion_y;
 	mensaje->id_mensaje = id_mensaje;
