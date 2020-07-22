@@ -126,7 +126,8 @@ void obtener_variables_planificacion(){
 	quantum = config_get_int_value(config, "QUANTUM");
 	estimacion_inicial = config_get_double_value(config, "ESTIMACION_INICIAL");
 	retardo_ciclo_cpu = config_get_int_value(config, "RETARDO_CICLO_CPU");
-	constante_estimacion = config_get_double_value(config, "CONSTANTE_ESTIMACION");
+	constante_estimacion = config_get_double_value(config, "ALPHA");
+	tiempo_reconexion = config_get_double_value(config, "TIEMPO_RECONEXION");
 	desalojar = 0;
 }
 

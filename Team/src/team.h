@@ -79,6 +79,7 @@ double estimacion_inicial;
 int retardo_ciclo_cpu;
 int desalojar;
 double constante_estimacion;
+int tiempo_reconexion;
 
 // Metricas
 int deadlocks_resueltos;
