@@ -160,11 +160,7 @@ int tamanio_todos_los_bloques(char** bloques){
 	return tamanio;
 }
 
-char* concatenar_posicion(int posx, int posy){
-	char* posicion_parcial = concat(string_itoa(posx),"-");
-	char* posicion_definitiva = concat(posicion_parcial,string_itoa(posy));
-	return posicion_definitiva;
-}
+
 
 // Auxiliares.
 

@@ -71,8 +71,7 @@ void iniciar_chars_necesarios();
 
 // Files functions
 
-void create_file(char* path);
-void create_dir(char* path) ;
+
 void delete_from_path(char* path);
 void clean_file(char* path);
 void clean_dir(char* path);
@@ -80,19 +79,48 @@ void clean_dir(char* path);
 char* read_file(char* path, int size);
 void write_file(char* path, char* data);
 
-//bool verificar_posiciones_file(int x, int y, char** bloques);
 
 
 
-// Crear archivos
+// FUNCIONES DE GAME CARD ARCHIVOS
 
+//Lectura de archivos
 t_config* read_pokemon_metadata(char* table);
 t_config* read_file_metadata(char* table);
+char** extraer_bloques(char* pokemon);
+bool verificar_posiciones_file(char* posicion, char** bloques);
+char* leer_sentencia(char* fileName);
+void intentar_abrir_archivo(char* pokemon);
+
+// Crear archivos
+void create_file(char* path);
+void create_dir(char* path);
 void crear_pokemon_dir(char* tableName);
 void crear_pokemon_metadata_file(char* tableName);
 void create_new_file_pokemon(char* pokemon);
-//
+bool file_existing(char* path);
+void crear_file_si_no_existe(char* file, char* pokemon);
 
+// TAMANIO DE ARCHIVOS Y SUS ATRIBUTOS
+int tamanio_bloque();
+int cantidad_bloques();
+int size_bytes(char* data);
+bool sentencia_sobrepasa_tamanio_maximo(int posx, int posy, int cantidad);
+float tamanio_archivo(char* path);
+
+//  MANEJO DE STRINGS PARA ARCHIVOS
+char* concatenar_posicion(int posx, int posy);
+char* separar_posicion(char* palabra);
+t_posicion* de_char_a_posicion(char* string_posicion);
+
+// Manejo de asignacion de bloques
+void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente);
+int encontrar_bloque_con_posicion(char* posicion, char** bloques);
+void agregar_bloque_metadata(t_config* config_metadata, int bloque_nuevo);
+void actualizar_size_metadata(t_config* config_metadata, bloques);
+
+// Funciones de handle localized
+t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get);
 
 // Funciones COMUNICACION con broker
 void suscribirse_a_colas_gamecard();
@@ -109,20 +137,20 @@ void esperar_mensaje_gameboy_gamecard(void* input);
 
 // Manejo de mensajes
 int handle_mensajes_gamecard(int conexion, op_code cod_op);
-//void manejar_new_pokemon();
-//void manejar_catch_pokemon();
-//void manejar_get_pokemon();
+void manejar_new_pokemon(t_new_pokemon *mensaje_new);
+void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch);
+void manejar_get_pokemon(t_catch_pokemon * mensaje_catch);
 
 // Auxiliares para Manejo de mensajes
 
 void informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch);
-bool file_existing(char* path);
+
 bool abrir_archivo(char* pokemon);
-char** extraer_bloques(char* pokemon);
+
 bool verificar_posciones_file(int x, int y, char** bloques);
-void crear_file_si_no_existe(char* file, char* pokemon);
+
 void informar_error_no_existe_pokemon_catch(t_catch_pokemon* mensaje_catch);
 bool informar_no_existe_pokemon_get(t_get_pokemon* mensaje_get);
-void intentar_abrir_archivo(char* pokemon);
+
 
 #endif /* GAMECARD_H */
