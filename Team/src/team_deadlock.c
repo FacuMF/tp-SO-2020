@@ -7,6 +7,8 @@ void iniciar_deteccion_deadlock(){
 					head_entrenadores);
 
 		t_entrenador * entrenador_activo = list_get(entrenadores_en_deadlock,0);
+		list_destroy(entrenadores_en_deadlock);
+
 		t_entrenador * entrenador_pasivo = NULL;
 
 		while(deadlock_en_curso){// Ciclo de un deadlock
@@ -73,7 +75,12 @@ char * obtener_pokemon_a_dar(t_list * pok_sobrantes,t_entrenador * entrenador_id
 		char * pokemon = element;
 		return pokemon_en_lista(pok_sobrantes,pokemon);
 	}
-	return list_find(obtener_pokemones_faltantes(entrenador_ideal),es_sobrante);
+	t_list * faltantes = obtener_pokemones_faltantes(entrenador_ideal);
+	char * result = list_find(faltantes,es_sobrante);
+
+	list_destroy(faltantes);
+
+	return result;
 }
 
 t_entrenador * obtener_entrenador_ideal(t_list * posibles_pasivos, t_entrenador * entrenador){
@@ -85,7 +92,11 @@ t_entrenador * obtener_entrenador_ideal(t_list * posibles_pasivos, t_entrenador 
 	// nota: para optimizar se podria buscar todos los ideales y buscar el mas cercano en vez del primero.
 	// nota2: tambien aquel que sea mayor (sus sobrantes que necesito+ mis sobrantes q necesita)
 	// TODO: Sortear por distancia p optimizacion
-	return list_find(posibles_pasivos, es_ideal);
+	t_entrenador * result = list_find(posibles_pasivos, es_ideal);
+
+	list_destroy(sobrantes_disponibles);
+
+	return result;
 }
 
 
@@ -93,11 +104,16 @@ t_list * entrenadores_con_pokemon_sobrante(char * pokemon){
 	bool le_sobra_pokemon(void*element){
 		t_entrenador * entrenador = element;
 		t_list * sobrantes = obtener_pokemones_sobrantes(entrenador);
-		return pokemon_en_lista(sobrantes,pokemon);
+		bool result =pokemon_en_lista(sobrantes,pokemon);
+		list_destroy(sobrantes);
+		return result;
 	}
 
-	return list_filter(obtener_entrenadores_en_estado(BLOCKED_DEADLOCK,
-			head_entrenadores), le_sobra_pokemon);
+	t_list * entrenadores_en_deadlock = obtener_entrenadores_en_estado(BLOCKED_DEADLOCK,
+			head_entrenadores);
+	t_list * result = list_filter(entrenadores_en_deadlock, le_sobra_pokemon);
+	list_destroy(entrenadores_en_deadlock);
+	return result;
 }
 
 int deadlocks_pendientes(){

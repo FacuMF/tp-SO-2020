@@ -17,7 +17,6 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 
 	if (entrenador_elegido != NULL){
 		planificar_entrenador(entrenador_elegido, mensaje_appeared);
-		liberar_mensaje_appeared_pokemon(mensaje_appeared);
 	}else
 		list_add(appeared_a_asignar, mensaje_appeared);
 	pthread_mutex_unlock(&manejar_mensaje);
@@ -103,7 +102,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 		if(entrenador->estado!=BLOCKED_NORMAL){
 			sem_post(&verificar_objetivo_global);
 			pthread_mutex_unlock(&manejar_mensaje);
-			//TODO: liberar mensaje
+			liberar_mensaje_caught_pokemon(mensaje_caught);
 			return;
 		}
 
@@ -189,9 +188,12 @@ t_appeared_pokemon * obtener_auxiliar_de_lista(char * pokemon) {
 				&& appeared->posx != mensaje->posx
 				&& appeared->posy != mensaje->posy;
 	}
-	if (mensaje != NULL)
+	if (mensaje != NULL){
+		t_list * lista_auxiliar = appeared_auxiliares;
 		appeared_auxiliares = list_filter(appeared_auxiliares,
 				es_diferente_a_mensaje);
+		list_destroy(lista_auxiliar);
+	}
 
 	return mensaje;
 }

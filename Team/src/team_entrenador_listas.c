@@ -5,11 +5,19 @@ t_entrenador * obtener_entrenador_buscado(int posx, int posy) {
 
 	t_list * entrenadores_disponibles = obtener_entrenadores_disponibles(
 			head_entrenadores);
-	if(list_get(entrenadores_disponibles,0)==NULL) return NULL;
+
+	if(list_get(entrenadores_disponibles,0)==NULL){
+		list_destroy(entrenadores_disponibles);
+		return NULL;
+	}
+
 	entrenadores_disponibles = obtener_entrenadores_con_espacio(
 			entrenadores_disponibles);
-	if(list_get(entrenadores_disponibles,0)==NULL) return NULL;
 
+	if(list_get(entrenadores_disponibles,0)==NULL){
+		list_destroy(entrenadores_disponibles);
+		return NULL;
+	}
 
 	return obtener_entrenador_mas_cercano(posx, posy, entrenadores_disponibles);
 }

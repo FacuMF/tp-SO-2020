@@ -250,6 +250,8 @@ void preparar_entrenador(t_entrenador * entrenador,
 	log_trace(logger, "Nuevo ent en ready: Posicion %i %i",
 			entrenador->posicion[0], entrenador->posicion[1]);
 
+	liberar_mensaje_appeared_pokemon(mensaje_appeared);
+
 }
 
 void planificar_entrenador(t_entrenador * entrenador,
