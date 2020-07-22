@@ -121,8 +121,8 @@ void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 
 bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch){
 	char ** bloques = extraer_bloques(mensaje_catch->pokemon);
-
-	if(verificar_posiciones_file(mensaje_catch->posx,mensaje_catch->posy,bloques)){
+	char* posicion = concatenar_posicion(mensaje_catch->posx,mensaje_catch->posy);
+	if(verificar_posiciones_file(posicion,bloques)){
 		return true;
 	}
 	else{
@@ -139,9 +139,9 @@ void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){ // Podriamos
 		int tamanio_total = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_sentencia; // bloques[i] es char, cambiar a int (atoi)
 		if(tamanio_total <= tamanio_bloque()){
 			t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
-			t_config* config_bloque = block_path(bloques[i]);
+			t_config* config_bloque = config_create(block_path(atoi(bloques[i])));
 			char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
-			config_set_value(config_bloque, posicion, mensaje_new->cantidad);
+			config_set_value(config_bloque, posicion, string_itoa(mensaje_new->cantidad));
 			actualizar_size_metadata(config_metadata, bloques);
 			return;
 		}else{
@@ -186,6 +186,7 @@ void crear_file_si_no_existe(t_new_pokemon * mensaje_new){
 		crear_pokemon_metadata_file(mensaje_new->pokemon);
 	}
 }
+
 
 bool informar_error_no_existe_pokemon_catch(t_catch_pokemon* mensaje_catch){
 	char* file = pokemon_metadata_path(mensaje_catch->pokemon);
@@ -259,7 +260,7 @@ void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){ // Ca
 				if(tamanio_archivo(block_path(atoi(bloques[n]))) == tamanio_bloque() && diferencia_bytes > 0){
 					asignar_bloque(mensaje_pokemon,1);
 				}
-				config_set_value(config,posicion, cantidad_vieja + mensaje_pokemon->cantidad);
+				config_set_value(config,posicion, string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
 			}
 			config_save(config_bloque);
 			config_destroy(config_bloque);

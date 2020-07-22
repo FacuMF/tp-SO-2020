@@ -79,6 +79,7 @@ void enviar_suscripcion_al_broker(op_code tipo_mensaje) {
 		log_trace(logger, "Suscripcion completada");
 	}
 }
+
 void reintento_suscripcion_si_aplica_gamecard(){
 	pthread_mutex_lock(&mutex_suscripcion);
 		int val_semaforo;

@@ -34,7 +34,7 @@ char* BITMAP_FILE_NAME;
 
 // EXTENSIONES
 char* EXTENSION;
-
+char* concat(char *start, char *end);
 char* concat_dirs(char* start, char* end);
 char* to_block_file(int blockNumber);
 
@@ -58,7 +58,6 @@ sem_t sem_suscripcion;
 // FUNCIONES GENERALES
 void iniciar_gamecard(char*archivo_config[]);
 void reintento_suscripcion_si_aplica_gamecard();
-
 void finalizar_gamecard();
 
 // FUNCIONES DE INICIALIZACION DE GAMECARD
@@ -99,14 +98,15 @@ void crear_pokemon_dir(char* tableName);
 void crear_pokemon_metadata_file(char* tableName);
 void create_new_file_pokemon(char* pokemon);
 bool file_existing(char* path);
-void crear_file_si_no_existe(char* file, char* pokemon);
+void crear_file_si_no_existe(t_new_pokemon* mensaje_new);
 
 // TAMANIO DE ARCHIVOS Y SUS ATRIBUTOS
 int tamanio_bloque();
 int cantidad_bloques();
 int size_bytes(char* data);
 bool sentencia_sobrepasa_tamanio_maximo(int posx, int posy, int cantidad);
-float tamanio_archivo(char* path);
+int tamanio_archivo(char* path);
+int tamanio_todos_los_bloques(char** bloques);
 
 //  MANEJO DE STRINGS PARA ARCHIVOS
 char* concatenar_posicion(int posx, int posy);
@@ -117,7 +117,7 @@ t_posicion* de_char_a_posicion(char* string_posicion);
 void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente);
 int encontrar_bloque_con_posicion(char* posicion, char** bloques);
 void agregar_bloque_metadata(t_config* config_metadata, int bloque_nuevo);
-void actualizar_size_metadata(t_config* config_metadata, bloques);
+void actualizar_size_metadata(t_config* config_metadata, char** bloques);
 
 // Funciones de handle localized
 t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get);
@@ -128,6 +128,9 @@ int iniciar_conexion_broker_gamecard();
 void enviar_suscripcion_al_broker(op_code tipo_mensaje);
 void enviar_mensaje_suscripcion_gamecard(op_code mensaje, int conexion);
 void esperar_mensajes_gamecard(void* input);
+void enviar_caught_pokemon_a_broker( t_caught_pokemon* element);
+void enviar_localized_pokemon_a_broker( t_localized_pokemon* element);
+void enviar_appeared_pokemon_a_broker( t_appeared_pokemon* element);
 
 //Funciones de comunicacion con gameboy
 void iniciar_conexion_con_gameboy_gamecard();
@@ -139,18 +142,21 @@ void esperar_mensaje_gameboy_gamecard(void* input);
 int handle_mensajes_gamecard(int conexion, op_code cod_op);
 void manejar_new_pokemon(t_new_pokemon *mensaje_new);
 void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch);
-void manejar_get_pokemon(t_catch_pokemon * mensaje_catch);
+void manejar_get_pokemon(t_get_pokemon * mensaje_get);
 
 // Auxiliares para Manejo de mensajes
-
-void informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch);
-
+void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques);
+bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch);
 bool abrir_archivo(char* pokemon);
-
-bool verificar_posciones_file(int x, int y, char** bloques);
-
-void informar_error_no_existe_pokemon_catch(t_catch_pokemon* mensaje_catch);
+bool informar_error_no_existe_pokemon_catch(t_catch_pokemon* mensaje_catch);
 bool informar_no_existe_pokemon_get(t_get_pokemon* mensaje_get);
+t_appeared_pokemon * de_new_a_appeared(t_new_pokemon * mensaje_new);
+
+void cerrar_archivo_pokemon(char* pokemon);
+void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques);
+void restar_uno_pos_catch();
+void manejar_bloques_pokemon(t_new_pokemon * mensaje_new);
+int cantidad_bytes_de_mas(char* sentencia1, char* sentencia2);
 
 
 #endif /* GAMECARD_H */

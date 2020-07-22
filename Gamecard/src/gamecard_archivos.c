@@ -61,15 +61,7 @@ char* leer_sentencia(char* fileName){
     code[n] = '\0';
     return code; //Falta fclose
 }
-bool intentar_abrir_archivo(char* pokemon){
-	t_config* config = read_pokemon_metadata(pokemon);
-	char* estado = config_get_string_value(config,"OPEN");
-	if (estado == "Y"){
-		return true;
-	} else {
-		return false;
-	}
-}
+
 
 // Crear archivos
 
@@ -120,13 +112,6 @@ bool file_existing(char* path){
 
 
 
-void crear_file_si_no_existe(char* file, char* pokemon){
-	if(!file_existing(file)){
-		crear_pokemon_dir(pokemon);
-		crear_pokemon_metadata_file(pokemon);
-	}
-}
-
 
 // TAMANIOS DE ARCHIVOS Y SUS ATRIBUTOS
 int tamanio_bloque(){
@@ -148,7 +133,7 @@ bool sentencia_sobrepasa_tamanio_maximo(int posx, int posy, int cantidad){
 	return tamanio_sentencia > tamanio_bloque();
 }
 
-float tamanio_archivo(char* path){
+int tamanio_archivo(char* path){
 	FILE * file = fopen(path,"r");
 	fseek(file, 0L, SEEK_END);
 	int tamanio = ftell(file);
@@ -190,16 +175,16 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 	}
 
 	if(contador > cantidad_bloques()){
-		log_error("No hay bloques disponibles para asignar informacion al pokemon %s.",mensaje_new->pokemon);
+		log_error(logger,"No hay bloques disponibles para asignar informacion al pokemon %s.",mensaje_new->pokemon);
 		return;
 	}
 
 	t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
-	t_config* config_bloque_nuevo = block_path(contador);
+	t_config* config_bloque_nuevo = config_create(block_path(contador));
 
 	if(posicion_existente){
 		int bloque_viejo = encontrar_bloque_con_posicion(posicion,bloques_pokemon);
-		t_config* config_bloque_viejo = block_path(bloque_viejo);
+		t_config* config_bloque_viejo = config_create(block_path(bloque_viejo));
 		int cantidad_vieja = config_get_int_value(config_bloque_viejo,posicion);
 		int cantidad_total = cantidad_vieja + mensaje_new->cantidad;
 		if (sentencia_sobrepasa_tamanio_maximo(mensaje_new->posx,mensaje_new->posy,cantidad_total)){
@@ -207,7 +192,7 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 			return;
 		}
 		config_remove_key(config_bloque_viejo,posicion);
-		config_set_value(config_bloque_nuevo, posicion, cantidad_total);
+		config_set_value(config_bloque_nuevo, posicion, string_itoa(cantidad_total));
 
 		config_save(config_bloque_viejo);
 		config_destroy(config_bloque_viejo);
@@ -217,7 +202,7 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 			log_error(logger,"La sentencia sobrepasa el tamanio maximo de bloque.");
 			return;
 		}
-		config_set_value(config_bloque_nuevo, posicion, mensaje_new->cantidad);
+		config_set_value(config_bloque_nuevo, posicion, string_itoa(mensaje_new->cantidad));
 
 	}
 	actualizar_size_metadata(config_metadata, bloques_pokemon);
@@ -236,7 +221,7 @@ int encontrar_bloque_con_posicion(char* posicion, char** bloques){
 		config_destroy(config_bloque);
 		n++;
 	}
-	log_trace("No se encontro bloque que contiene la posicion: %s",posicion);
+	log_trace(logger,"No se encontro bloque que contiene la posicion: %s",posicion);
 	return 0; // return 0 si no encuentra el bloque?
 }
 
@@ -253,9 +238,9 @@ void agregar_bloque_metadata(t_config* config_metadata, int bloque_nuevo){ // Ch
 
 }
 
-void actualizar_size_metadata(t_config* config_metadata, bloques){
+void actualizar_size_metadata(t_config* config_metadata,char** bloques){
 	int tamanio_definitivo = tamanio_todos_los_bloques(bloques);
-	config_set_value(config_metadata, "SIZE", tamanio_definitivo);
+	config_set_value(config_metadata, "SIZE", string_itoa(tamanio_definitivo));
 
 }
 
@@ -266,10 +251,10 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 	int n = 0;
 	t_list* lista_posiciones = list_create();
 	while(bloques[n]!=NULL){
-		t_config* config_bloque = config_create(block_path(bloques[n]));
+		t_config* config_bloque = config_create(block_path(atoi(bloques[n])));
 		int cantidad_posiciones = config_keys_amount(config_bloque);
 		for(int i = 0; i < cantidad_posiciones; i++){
-			char* sentencia = leer_sentencia(block_path(bloques[n]));
+			char* sentencia = leer_sentencia(block_path(atoi(bloques[n])));
 			char* posicion = separar_posicion(sentencia);
 			t_posicion* posicion_dividida = de_char_a_posicion(posicion);
 			list_add(lista_posiciones,posicion_dividida);
