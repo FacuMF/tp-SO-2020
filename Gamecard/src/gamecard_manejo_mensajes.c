@@ -33,7 +33,9 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 	respuesta_caugth = informar_error_no_existe_pokemon_catch(mensaje_catch);
 
 	// 2. Verifico si se puede abrir.
-	intentar_abrir_archivo(mensaje_catch->pokemon);
+	if (respuesta_caugth){
+		intentar_abrir_archivo(mensaje_catch->pokemon);
+	}
 
 	// 3. Verifica que exista la posicion.
 	if (respuesta_caugth){
@@ -41,16 +43,23 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 	}
 
 	// 4. Si la unidad es 1, elimino la linea. Si es mayor, resto una unidad.
-	restar_uno_pos_catch(); //TODO
+	if (respuesta_caugth){
+		restar_uno_pos_catch(mensaje_catch); //TODO
+	} else {
+		cerrar_archivo_pokemon(mensaje_catch->pokemon);
+	}
 
 	// 5. Esperar los segundos definidos por config
 	sleep(config_get_int_value(config,"TIEMPO_RETARDO_OPERACION"));
 
 	// 6. Cerrar archivo
-	cerrar_archivo_pokemon(mensaje_catch->pokemon);
+	if (respuesta_caugth){
+		cerrar_archivo_pokemon(mensaje_catch->pokemon);
+	}
 
 	// 7. Conectarse a broker y enviar resultado
 	enviar_caught_pokemon_a_broker(crear_caught_pokemon(mensaje_catch->id_mensaje,respuesta_caugth)); // cambiar la funcion para no tener (void*)
+
 	//TBR
 	//char* file = pokemon_metadata_path(mensaje_catch->pokemon);
 	// Verificar si existe pokemon en el Filesystem
@@ -87,20 +96,6 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 
 	// 6. Conectarse al broker y enviar resultado
 	enviar_localized_pokemon_a_broker(respuesta_localized);
-
-	//TBR
-	//char* file = pokemon_metadata_path(mensaje_get->pokemon);
-	// Verificar si existe pokemon en el Filesystem
-	//crear_file_si_no_existe(file,mensaje_get->pokemon);
-	// Verificar si se puede abrir el archivo
-	// Obtener todas las posiciones y cantidades del pokemon requerido
-	// Esperar la cantidad de segundos definidos en config
-	//sleep(RETARDO_OPERACION);
-	// Cerrar archivo
-	// Conectarse al broker y enviar el mensaje con todas las posiciones y su cantidad
-	// En caso de que se encuentre por lo menos una posicion para el pokemon solicitado se debera enviar un mensaje al broker a LOCALIZED_POKEMON indicando
-	// 	ID del mensaje, el pokemon solicitado y la lista de posiciones y cantidad de posiciones X e Y de cada una de ellas
-	// Si no se puede conectar al broker informar por log y continuar
 }
 
 //FUNCION AUXILIAR
@@ -222,21 +217,24 @@ void intentar_abrir_archivo(char* pokemon){
 	}
 }
 
-void restar_uno_pos_catch(){
+void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 	//Si la unidad es 1, elimino la linea. Si es mayor, resto una unidad.
-	
-	
-	
+	char** bloques = extraer_bloques(mensaje_catch->pokemon);
+	char* posicion = concatenar_posicion(mensaje_catch->posx,mensaje_catch->posy);
+	int bloque_con_posicion = encontrar_bloque_con_posicion(posicion, bloques);
+	t_config* config_bloque = config_create(block_path(bloque_con_posicion));
+	int cantidad = config_get_int_value(config_bloque,posicion);
+	if(cantidad == 1){
+		config_remove_key(config_bloque,posicion);
+	} else {
+		int cantidad_previa = config_get_int_value(config_bloque,posicion);
+		config_set_value(config_bloque,posicion,string_itoa(cantidad_previa-1));
+	}
+	actualizar_size_metadata(read_pokemon_metadata(mensaje_catch->pokemon),bloques);
+	config_save(config_bloque);
+	config_destroy(config_bloque);
 }
 
-t_localized_pokemon* posicionobtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ //TODO
-
-	t_localized_pokemon* respuesta_localized = malloc(sizeof(t_localized_pokemon*));
-
-
-
-	return respuesta_localized;
-}
 		
 void cerrar_archivo_pokemon(char* pokemon){
 	//TODO mutex lock (el mismo sem que en open)

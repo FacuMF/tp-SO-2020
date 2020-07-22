@@ -209,6 +209,8 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 	agregar_bloque_metadata(config_metadata,contador);
 	config_save(config_bloque_nuevo);
 	config_destroy(config_bloque_nuevo);
+	config_save(config_metadata);
+	config_destroy(config_metadata);
 	bitarray_set_bit(bitmap_bloques,contador); // Esperemos que lo setee en 1
 
 }
@@ -217,7 +219,10 @@ int encontrar_bloque_con_posicion(char* posicion, char** bloques){
 	int n=0;
 	while(bloques[n]!=NULL){
 		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
-		if (config_has_property(config_bloque,posicion)) return n;
+		if (config_has_property(config_bloque,posicion)){
+			config_destroy(config_bloque);
+			return atoi(bloques[n]);
+		}
 		config_destroy(config_bloque);
 		n++;
 	}
@@ -233,8 +238,7 @@ void agregar_bloque_metadata(t_config* config_metadata, int bloque_nuevo){ // Ch
 	char* aux1 = concat(bloques,string_itoa(bloque_nuevo));
 	char* bloques_final = concat(aux1,"]");
 	config_set_value(config_metadata,"BLOCKS",bloques_final);
-	config_save(config_metadata);
-	config_destroy(config_metadata);
+
 
 }
 
