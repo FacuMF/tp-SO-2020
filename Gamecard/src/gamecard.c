@@ -1,12 +1,15 @@
 #include "gamecard.h"
 
 int main(int argv, char*archivo_config[]){
+
 	iniciar_gamecard(archivo_config);
 
 	pthread_create(&thread,NULL,(void*) suscribirse_a_colas_gamecard,NULL);
 
 	pthread_create(&thread, NULL, (void*) iniciar_conexion_con_gameboy_gamecard, NULL);
+
 	sleep(100);// TBR
+
 	finalizar_gamecard();
 }
 
@@ -19,8 +22,11 @@ void iniciar_gamecard(char*argumentos_iniciales[]){
 		iniciar_logger_gamecard();
 
 		//iniciar_chars_necesarios();
+
 		iniciar_semaforos_gamecard();
 		bitmap_bloques = bitarray_create("bitmap_bloques",tamanio_bloque()/8);
+		log_trace(logger, "Gamecard iniciada.");
+
 
 
 }
