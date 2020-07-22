@@ -60,6 +60,7 @@ pthread_mutex_t mutex_open_file;
 void iniciar_gamecard(char*archivo_config[]);
 void reintento_suscripcion_si_aplica_gamecard();
 void finalizar_gamecard();
+void crear_metadata_bin();
 
 // FUNCIONES DE INICIALIZACION DE GAMECARD
 char *obtener_path_gamecard(char *path_leido);

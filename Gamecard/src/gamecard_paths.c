@@ -25,7 +25,7 @@ char* to_block_file(int blockNumber) {
 // BASE PATH
 
 char* metadata_base_path() {
-    return concat(PUNTO_MONTAJE, METADATA_BASE_PATH);
+    return concat_dirs(PUNTO_MONTAJE, METADATA_BASE_PATH);
 }
 
 char* blocks_base_path() {

@@ -176,7 +176,7 @@ bool abrir_archivo(char* pokemon){
 void crear_file_si_no_existe(t_new_pokemon * mensaje_new){
 	char* file = pokemon_metadata_path(mensaje_new->pokemon);
 	if(!file_existing(file)){
-		log_trace(logger,"File del pokemon no existente, Lo creo");
+		log_trace(logger,"File del pokemon no existente, lo creo.");
 		crear_pokemon_dir(mensaje_new->pokemon);
 		crear_pokemon_metadata_file(mensaje_new->pokemon);
 	}
@@ -212,7 +212,7 @@ t_appeared_pokemon * de_new_a_appeared(t_new_pokemon * mensaje_new){
 void intentar_abrir_archivo(char* pokemon){
 	while ( abrir_archivo(pokemon) ){
 		log_trace(logger,"Archivo se encuentra abierto, se reintenta operacion"); // Podria cambiarse a log_info
-		sleep(config_get_int_value(config,"TIEMPO_REINTENTO_OPERACION"));
+		sleep( config_get_int_value(config,"TIEMPO_DE_REINTENTO_OPERACION") );
 		log_trace(logger,"Reintentando operacion");
 	}
 }

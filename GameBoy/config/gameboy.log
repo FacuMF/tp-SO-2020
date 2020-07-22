@@ -43906,3 +43906,362 @@
 [TRACE] 14:12:07:546 GameBoy/(14691:14691): El mensaje fue serializado. 
 [TRACE] 14:12:07:546 GameBoy/(14691:14691): OPERATION CODE: 2
 [TRACE] 14:12:07:546 GameBoy/(14691:14691): El mensaje fue enviado.
+[TRACE] 17:38:53:493 GameBoy/(14844:14844): Caracteristicas de mensaje obtenidas
+[TRACE] 17:38:53:494 GameBoy/(14844:14844): Se quiere enviar un mensaje del tipo -3- al modulo -3-
+[TRACE] 17:38:53:494 GameBoy/(14844:14844): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 17:38:53:494 GameBoy/(14844:14844): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 17:38:53:494 GameBoy/(14844:14844): El mensaje fue serializado. 
+[TRACE] 17:38:53:494 GameBoy/(14844:14844): OPERATION CODE: 3
+[TRACE] 17:38:53:495 GameBoy/(14844:14844): El mensaje fue enviado.
+[TRACE] 17:38:53:495 GameBoy/(14844:14844): Mensaje recibido, cod_op: 3.
+[TRACE] 17:38:53:495 GameBoy/(14844:14844): Se recibio un mensaje NEW_POKEMON
+[TRACE] 17:38:53:495 GameBoy/(14844:14844): Pokemon: BULBASAUR, Posicion X: 3, Posicion Y: 1, Cantidad: 5, Id mensaje: 0
+[TRACE] 17:38:53:495 GameBoy/(14844:14844): Mensaje recibido manejado.
+[TRACE] 17:41:54:737 GameBoy/(14915:14915): Caracteristicas de mensaje obtenidas
+[TRACE] 17:41:54:738 GameBoy/(14915:14915): Se quiere enviar un mensaje del tipo -5- al modulo -3-
+[TRACE] 17:41:54:738 GameBoy/(14915:14915): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 17:41:54:738 GameBoy/(14915:14915): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 17:41:54:738 GameBoy/(14915:14915): El mensaje fue serializado. 
+[TRACE] 17:41:54:738 GameBoy/(14915:14915): OPERATION CODE: 5
+[TRACE] 17:41:54:739 GameBoy/(14915:14915): El mensaje fue enviado.
+[TRACE] 17:41:54:740 GameBoy/(14915:14915): Mensaje recibido, cod_op: 5.
+[TRACE] 17:41:54:740 GameBoy/(14915:14915): Se recibio un mensaje CATCH_POKEMON
+[TRACE] 17:41:54:740 GameBoy/(14915:14915): Pokemon: PIKACHU, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 17:41:54:740 GameBoy/(14915:14915): Mensaje recibido manejado.
+[TRACE] 17:42:35:561 GameBoy/(14951:14951): Caracteristicas de mensaje obtenidas
+[TRACE] 17:42:35:561 GameBoy/(14951:14951): Se quiere enviar un mensaje del tipo -5- al modulo -3-
+[TRACE] 17:42:35:562 GameBoy/(14951:14951): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 17:42:35:562 GameBoy/(14951:14951): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 17:42:35:562 GameBoy/(14951:14951): El mensaje fue serializado. 
+[TRACE] 17:42:35:562 GameBoy/(14951:14951): OPERATION CODE: 5
+[TRACE] 17:42:35:562 GameBoy/(14951:14951): El mensaje fue enviado.
+[TRACE] 17:42:35:562 GameBoy/(14951:14951): Mensaje recibido, cod_op: 5.
+[TRACE] 17:42:35:562 GameBoy/(14951:14951): Se recibio un mensaje CATCH_POKEMON
+[TRACE] 17:42:35:562 GameBoy/(14951:14951): Pokemon: PIKACHU, Posicion X: 3, Posicion Y: 1, Id mensaje: 0
+[TRACE] 17:42:35:562 GameBoy/(14951:14951): Mensaje recibido manejado.
+[TRACE] 17:44:57:398 GameBoy/(15003:15003): Caracteristicas de mensaje obtenidas
+[TRACE] 17:44:57:398 GameBoy/(15003:15003): Se quiere enviar un mensaje del tipo -6- al modulo -3-
+[TRACE] 17:44:57:398 GameBoy/(15003:15003): Leido de config por parametro BROKER. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 17:44:57:398 GameBoy/(15003:15003): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 17:44:57:399 GameBoy/(15003:15003): El mensaje fue serializado. 
+[TRACE] 17:44:57:399 GameBoy/(15003:15003): OPERATION CODE: 6
+[TRACE] 17:44:57:399 GameBoy/(15003:15003): El mensaje fue enviado.
+[TRACE] 17:44:57:399 GameBoy/(15003:15003): Mensaje recibido, cod_op: 6.
+[TRACE] 17:44:57:399 GameBoy/(15003:15003): Se recibio un mensaje GET_POKEMON
+[TRACE] 17:44:57:399 GameBoy/(15003:15003): Pokemon: SQUIRTLE, Id mensaje: 0
+[TRACE] 17:44:57:399 GameBoy/(15003:15003): Mensaje recibido manejado.
+[TRACE] 17:47:24:73 GameBoy/(15175:15175): Caracteristicas de mensaje obtenidas
+[TRACE] 17:47:24:73 GameBoy/(15175:15175): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 17:47:24:73 GameBoy/(15175:15175): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 17:47:24:74 GameBoy/(15175:15175): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 17:47:24:74 GameBoy/(15175:15175): El mensaje fue serializado. 
+[TRACE] 17:47:24:74 GameBoy/(15175:15175): OPERATION CODE: 3
+[TRACE] 17:47:24:74 GameBoy/(15175:15175): El mensaje fue enviado.
+[TRACE] 17:47:24:227 GameBoy/(15175:15175): Mensaje recibido, cod_op: 134530998.
+[TRACE] 17:47:24:227 GameBoy/(15175:15175): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 17:47:24:227 GameBoy/(15175:15175): Op_code inválido.
+[TRACE] 17:47:24:227 GameBoy/(15175:15175): Mensaje recibido manejado.
+[TRACE] 17:48:53:916 GameBoy/(15338:15338): Caracteristicas de mensaje obtenidas
+[TRACE] 17:48:53:916 GameBoy/(15338:15338): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 17:48:53:916 GameBoy/(15338:15338): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 17:48:53:918 GameBoy/(15338:15338): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 17:48:53:918 GameBoy/(15338:15338): El mensaje fue serializado. 
+[TRACE] 17:48:53:918 GameBoy/(15338:15338): OPERATION CODE: 3
+[TRACE] 17:48:53:918 GameBoy/(15338:15338): El mensaje fue enviado.
+[TRACE] 17:48:54:62 GameBoy/(15338:15338): Mensaje recibido, cod_op: 134530998.
+[TRACE] 17:48:54:62 GameBoy/(15338:15338): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 17:48:54:62 GameBoy/(15338:15338): Op_code inválido.
+[TRACE] 17:48:54:62 GameBoy/(15338:15338): Mensaje recibido manejado.
+[TRACE] 17:51:29:910 GameBoy/(15541:15541): Caracteristicas de mensaje obtenidas
+[TRACE] 17:51:29:910 GameBoy/(15541:15541): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 17:51:29:910 GameBoy/(15541:15541): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 17:51:29:911 GameBoy/(15541:15541): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 17:51:29:911 GameBoy/(15541:15541): El mensaje fue serializado. 
+[TRACE] 17:51:29:911 GameBoy/(15541:15541): OPERATION CODE: 3
+[TRACE] 17:51:29:911 GameBoy/(15541:15541): El mensaje fue enviado.
+[TRACE] 17:51:30:96 GameBoy/(15541:15541): Mensaje recibido, cod_op: 134530998.
+[TRACE] 17:51:30:96 GameBoy/(15541:15541): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 17:51:30:96 GameBoy/(15541:15541): Op_code inválido.
+[TRACE] 17:51:30:96 GameBoy/(15541:15541): Mensaje recibido manejado.
+[TRACE] 17:52:04:438 GameBoy/(15669:15669): Caracteristicas de mensaje obtenidas
+[TRACE] 17:52:04:438 GameBoy/(15669:15669): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 17:52:04:438 GameBoy/(15669:15669): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 17:52:04:438 GameBoy/(15669:15669): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 17:52:04:438 GameBoy/(15669:15669): El mensaje fue serializado. 
+[TRACE] 17:52:04:438 GameBoy/(15669:15669): OPERATION CODE: 3
+[TRACE] 17:52:04:438 GameBoy/(15669:15669): El mensaje fue enviado.
+[ERROR] 17:52:04:439 GameBoy/(15669:15669): Error en 'recibir_codigo_operacion'
+[WARNING] 17:52:04:439 GameBoy/(15669:15669): El broker cerro el socket -1.
+[TRACE] 17:53:37:777 GameBoy/(16191:16191): Caracteristicas de mensaje obtenidas
+[TRACE] 17:53:37:777 GameBoy/(16191:16191): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 17:53:37:777 GameBoy/(16191:16191): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 17:53:37:778 GameBoy/(16191:16191): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 17:53:37:778 GameBoy/(16191:16191): El mensaje fue serializado. 
+[TRACE] 17:53:37:778 GameBoy/(16191:16191): OPERATION CODE: 3
+[TRACE] 17:53:37:778 GameBoy/(16191:16191): El mensaje fue enviado.
+[TRACE] 17:53:37:2 GameBoy/(16191:16191): Mensaje recibido, cod_op: 134530998.
+[TRACE] 17:53:37:2 GameBoy/(16191:16191): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 17:53:37:2 GameBoy/(16191:16191): Op_code inválido.
+[TRACE] 17:53:37:2 GameBoy/(16191:16191): Mensaje recibido manejado.
+[TRACE] 17:54:43:510 GameBoy/(16355:16355): Caracteristicas de mensaje obtenidas
+[TRACE] 17:54:43:510 GameBoy/(16355:16355): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 17:54:43:510 GameBoy/(16355:16355): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 17:54:43:511 GameBoy/(16355:16355): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 17:54:43:511 GameBoy/(16355:16355): El mensaje fue serializado. 
+[TRACE] 17:54:43:511 GameBoy/(16355:16355): OPERATION CODE: 3
+[TRACE] 17:54:43:511 GameBoy/(16355:16355): El mensaje fue enviado.
+[TRACE] 17:54:43:717 GameBoy/(16355:16355): Mensaje recibido, cod_op: 134530998.
+[TRACE] 17:54:43:717 GameBoy/(16355:16355): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 17:54:43:717 GameBoy/(16355:16355): Op_code inválido.
+[TRACE] 17:54:43:717 GameBoy/(16355:16355): Mensaje recibido manejado.
+[TRACE] 17:55:55:51 GameBoy/(17009:17009): Caracteristicas de mensaje obtenidas
+[TRACE] 17:55:55:51 GameBoy/(17009:17009): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 17:55:55:51 GameBoy/(17009:17009): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 17:55:55:51 GameBoy/(17009:17009): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 17:55:55:51 GameBoy/(17009:17009): El mensaje fue serializado. 
+[TRACE] 17:55:55:52 GameBoy/(17009:17009): OPERATION CODE: 3
+[TRACE] 17:55:55:52 GameBoy/(17009:17009): El mensaje fue enviado.
+[TRACE] 17:55:55:260 GameBoy/(17009:17009): Mensaje recibido, cod_op: 134530998.
+[TRACE] 17:55:55:260 GameBoy/(17009:17009): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 17:55:55:260 GameBoy/(17009:17009): Op_code inválido.
+[TRACE] 17:55:55:260 GameBoy/(17009:17009): Mensaje recibido manejado.
+[TRACE] 17:57:06:138 GameBoy/(17153:17153): Caracteristicas de mensaje obtenidas
+[TRACE] 17:57:06:138 GameBoy/(17153:17153): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 17:57:06:138 GameBoy/(17153:17153): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 17:57:06:139 GameBoy/(17153:17153): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 17:57:06:139 GameBoy/(17153:17153): El mensaje fue serializado. 
+[TRACE] 17:57:06:139 GameBoy/(17153:17153): OPERATION CODE: 3
+[TRACE] 17:57:06:139 GameBoy/(17153:17153): El mensaje fue enviado.
+[TRACE] 17:57:06:353 GameBoy/(17153:17153): Mensaje recibido, cod_op: 134530998.
+[TRACE] 17:57:06:353 GameBoy/(17153:17153): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 17:57:06:353 GameBoy/(17153:17153): Op_code inválido.
+[TRACE] 17:57:06:353 GameBoy/(17153:17153): Mensaje recibido manejado.
+[TRACE] 17:59:37:572 GameBoy/(17353:17353): Caracteristicas de mensaje obtenidas
+[TRACE] 17:59:37:573 GameBoy/(17353:17353): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 17:59:37:573 GameBoy/(17353:17353): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 17:59:37:579 GameBoy/(17353:17353): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 17:59:37:579 GameBoy/(17353:17353): El mensaje fue serializado. 
+[TRACE] 17:59:37:580 GameBoy/(17353:17353): OPERATION CODE: 3
+[TRACE] 17:59:37:581 GameBoy/(17353:17353): El mensaje fue enviado.
+[TRACE] 17:59:37:861 GameBoy/(17353:17353): Mensaje recibido, cod_op: 134530998.
+[TRACE] 17:59:37:862 GameBoy/(17353:17353): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 17:59:37:862 GameBoy/(17353:17353): Op_code inválido.
+[TRACE] 17:59:37:862 GameBoy/(17353:17353): Mensaje recibido manejado.
+[TRACE] 18:01:04:388 GameBoy/(17505:17505): Caracteristicas de mensaje obtenidas
+[TRACE] 18:01:04:388 GameBoy/(17505:17505): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:01:04:388 GameBoy/(17505:17505): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:01:04:389 GameBoy/(17505:17505): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:01:04:389 GameBoy/(17505:17505): El mensaje fue serializado. 
+[TRACE] 18:01:04:389 GameBoy/(17505:17505): OPERATION CODE: 3
+[TRACE] 18:01:04:389 GameBoy/(17505:17505): El mensaje fue enviado.
+[TRACE] 18:01:04:577 GameBoy/(17505:17505): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:01:04:577 GameBoy/(17505:17505): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:01:04:577 GameBoy/(17505:17505): Op_code inválido.
+[TRACE] 18:01:04:577 GameBoy/(17505:17505): Mensaje recibido manejado.
+[TRACE] 18:04:43:865 GameBoy/(17978:17978): Caracteristicas de mensaje obtenidas
+[TRACE] 18:04:43:865 GameBoy/(17978:17978): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:04:43:865 GameBoy/(17978:17978): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:04:43:865 GameBoy/(17978:17978): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:04:43:865 GameBoy/(17978:17978): El mensaje fue serializado. 
+[TRACE] 18:04:43:866 GameBoy/(17978:17978): OPERATION CODE: 3
+[TRACE] 18:04:43:866 GameBoy/(17978:17978): El mensaje fue enviado.
+[TRACE] 18:04:44:30 GameBoy/(17978:17978): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:04:44:30 GameBoy/(17978:17978): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:04:44:30 GameBoy/(17978:17978): Op_code inválido.
+[TRACE] 18:04:44:30 GameBoy/(17978:17978): Mensaje recibido manejado.
+[TRACE] 18:07:10:127 GameBoy/(18634:18634): Caracteristicas de mensaje obtenidas
+[TRACE] 18:07:10:127 GameBoy/(18634:18634): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:07:10:128 GameBoy/(18634:18634): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:07:10:128 GameBoy/(18634:18634): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:07:10:128 GameBoy/(18634:18634): El mensaje fue serializado. 
+[TRACE] 18:07:10:128 GameBoy/(18634:18634): OPERATION CODE: 3
+[TRACE] 18:07:10:128 GameBoy/(18634:18634): El mensaje fue enviado.
+[TRACE] 18:07:10:294 GameBoy/(18634:18634): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:07:10:294 GameBoy/(18634:18634): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:07:10:294 GameBoy/(18634:18634): Op_code inválido.
+[TRACE] 18:07:10:294 GameBoy/(18634:18634): Mensaje recibido manejado.
+[TRACE] 18:11:54:471 GameBoy/(18858:18858): Caracteristicas de mensaje obtenidas
+[TRACE] 18:11:54:471 GameBoy/(18858:18858): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:11:54:471 GameBoy/(18858:18858): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:11:54:471 GameBoy/(18858:18858): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:11:54:471 GameBoy/(18858:18858): El mensaje fue serializado. 
+[TRACE] 18:11:54:471 GameBoy/(18858:18858): OPERATION CODE: 3
+[TRACE] 18:11:54:471 GameBoy/(18858:18858): El mensaje fue enviado.
+[TRACE] 18:11:54:648 GameBoy/(18858:18858): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:11:54:648 GameBoy/(18858:18858): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:11:54:648 GameBoy/(18858:18858): Op_code inválido.
+[TRACE] 18:11:54:648 GameBoy/(18858:18858): Mensaje recibido manejado.
+[TRACE] 18:18:29:197 GameBoy/(19105:19105): Caracteristicas de mensaje obtenidas
+[TRACE] 18:18:29:197 GameBoy/(19105:19105): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:18:29:197 GameBoy/(19105:19105): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:18:29:198 GameBoy/(19105:19105): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:18:29:198 GameBoy/(19105:19105): El mensaje fue serializado. 
+[TRACE] 18:18:29:198 GameBoy/(19105:19105): OPERATION CODE: 3
+[TRACE] 18:18:29:198 GameBoy/(19105:19105): El mensaje fue enviado.
+[TRACE] 18:18:29:375 GameBoy/(19105:19105): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:18:29:375 GameBoy/(19105:19105): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:18:29:375 GameBoy/(19105:19105): Op_code inválido.
+[TRACE] 18:18:29:375 GameBoy/(19105:19105): Mensaje recibido manejado.
+[TRACE] 18:19:57:184 GameBoy/(19259:19259): Caracteristicas de mensaje obtenidas
+[TRACE] 18:19:57:184 GameBoy/(19259:19259): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:19:57:184 GameBoy/(19259:19259): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:19:57:185 GameBoy/(19259:19259): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:19:57:185 GameBoy/(19259:19259): El mensaje fue serializado. 
+[TRACE] 18:19:57:185 GameBoy/(19259:19259): OPERATION CODE: 3
+[TRACE] 18:19:57:185 GameBoy/(19259:19259): El mensaje fue enviado.
+[TRACE] 18:19:57:378 GameBoy/(19259:19259): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:19:57:378 GameBoy/(19259:19259): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:19:57:378 GameBoy/(19259:19259): Op_code inválido.
+[TRACE] 18:19:57:378 GameBoy/(19259:19259): Mensaje recibido manejado.
+[TRACE] 18:31:01:261 GameBoy/(19739:19739): Caracteristicas de mensaje obtenidas
+[TRACE] 18:31:01:261 GameBoy/(19739:19739): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:31:01:261 GameBoy/(19739:19739): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:31:01:261 GameBoy/(19739:19739): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:31:01:261 GameBoy/(19739:19739): El mensaje fue serializado. 
+[TRACE] 18:31:01:261 GameBoy/(19739:19739): OPERATION CODE: 3
+[TRACE] 18:31:01:261 GameBoy/(19739:19739): El mensaje fue enviado.
+[TRACE] 18:31:01:441 GameBoy/(19739:19739): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:31:01:441 GameBoy/(19739:19739): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:31:01:441 GameBoy/(19739:19739): Op_code inválido.
+[TRACE] 18:31:01:441 GameBoy/(19739:19739): Mensaje recibido manejado.
+[TRACE] 18:32:55:674 GameBoy/(19918:19918): Caracteristicas de mensaje obtenidas
+[TRACE] 18:32:55:674 GameBoy/(19918:19918): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:32:55:674 GameBoy/(19918:19918): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:32:55:675 GameBoy/(19918:19918): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:32:55:675 GameBoy/(19918:19918): El mensaje fue serializado. 
+[TRACE] 18:32:55:675 GameBoy/(19918:19918): OPERATION CODE: 3
+[TRACE] 18:32:55:675 GameBoy/(19918:19918): El mensaje fue enviado.
+[TRACE] 18:32:55:854 GameBoy/(19918:19918): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:32:55:854 GameBoy/(19918:19918): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:32:55:854 GameBoy/(19918:19918): Op_code inválido.
+[TRACE] 18:32:55:854 GameBoy/(19918:19918): Mensaje recibido manejado.
+[TRACE] 18:34:56:27 GameBoy/(20093:20093): Caracteristicas de mensaje obtenidas
+[TRACE] 18:34:56:27 GameBoy/(20093:20093): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:34:56:27 GameBoy/(20093:20093): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:34:56:28 GameBoy/(20093:20093): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:34:56:28 GameBoy/(20093:20093): El mensaje fue serializado. 
+[TRACE] 18:34:56:28 GameBoy/(20093:20093): OPERATION CODE: 3
+[TRACE] 18:34:56:28 GameBoy/(20093:20093): El mensaje fue enviado.
+[TRACE] 18:34:56:206 GameBoy/(20093:20093): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:34:56:207 GameBoy/(20093:20093): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:34:56:207 GameBoy/(20093:20093): Op_code inválido.
+[TRACE] 18:34:56:207 GameBoy/(20093:20093): Mensaje recibido manejado.
+[TRACE] 18:34:58:233 GameBoy/(20096:20096): Caracteristicas de mensaje obtenidas
+[TRACE] 18:34:58:233 GameBoy/(20096:20096): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:34:58:233 GameBoy/(20096:20096): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:34:58:233 GameBoy/(20096:20096): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:34:58:233 GameBoy/(20096:20096): El mensaje fue serializado. 
+[TRACE] 18:34:58:233 GameBoy/(20096:20096): OPERATION CODE: 3
+[TRACE] 18:34:58:233 GameBoy/(20096:20096): El mensaje fue enviado.
+[ERROR] 18:34:58:233 GameBoy/(20096:20096): Error en 'recibir_codigo_operacion'
+[WARNING] 18:34:58:234 GameBoy/(20096:20096): El broker cerro el socket -1.
+[TRACE] 18:36:36:941 GameBoy/(20259:20259): Caracteristicas de mensaje obtenidas
+[TRACE] 18:36:36:941 GameBoy/(20259:20259): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:36:36:941 GameBoy/(20259:20259): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:36:36:942 GameBoy/(20259:20259): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:36:36:942 GameBoy/(20259:20259): El mensaje fue serializado. 
+[TRACE] 18:36:36:942 GameBoy/(20259:20259): OPERATION CODE: 3
+[TRACE] 18:36:36:942 GameBoy/(20259:20259): El mensaje fue enviado.
+[TRACE] 18:36:37:123 GameBoy/(20259:20259): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:36:37:123 GameBoy/(20259:20259): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:36:37:123 GameBoy/(20259:20259): Op_code inválido.
+[TRACE] 18:36:37:123 GameBoy/(20259:20259): Mensaje recibido manejado.
+[TRACE] 18:38:56:227 GameBoy/(20549:20549): Caracteristicas de mensaje obtenidas
+[TRACE] 18:38:56:227 GameBoy/(20549:20549): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:38:56:227 GameBoy/(20549:20549): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:38:56:228 GameBoy/(20549:20549): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:38:56:228 GameBoy/(20549:20549): El mensaje fue serializado. 
+[TRACE] 18:38:56:228 GameBoy/(20549:20549): OPERATION CODE: 3
+[TRACE] 18:38:56:228 GameBoy/(20549:20549): El mensaje fue enviado.
+[TRACE] 18:38:56:403 GameBoy/(20549:20549): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:38:56:403 GameBoy/(20549:20549): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:38:56:403 GameBoy/(20549:20549): Op_code inválido.
+[TRACE] 18:38:56:403 GameBoy/(20549:20549): Mensaje recibido manejado.
+[TRACE] 18:40:58:448 GameBoy/(20725:20725): Caracteristicas de mensaje obtenidas
+[TRACE] 18:40:58:448 GameBoy/(20725:20725): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:40:58:448 GameBoy/(20725:20725): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:40:58:448 GameBoy/(20725:20725): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:40:58:448 GameBoy/(20725:20725): El mensaje fue serializado. 
+[TRACE] 18:40:58:448 GameBoy/(20725:20725): OPERATION CODE: 3
+[TRACE] 18:40:58:449 GameBoy/(20725:20725): El mensaje fue enviado.
+[TRACE] 18:40:58:649 GameBoy/(20725:20725): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:40:58:649 GameBoy/(20725:20725): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:40:58:649 GameBoy/(20725:20725): Op_code inválido.
+[TRACE] 18:40:58:649 GameBoy/(20725:20725): Mensaje recibido manejado.
+[TRACE] 18:44:58:189 GameBoy/(21403:21403): Caracteristicas de mensaje obtenidas
+[TRACE] 18:44:58:189 GameBoy/(21403:21403): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:44:58:189 GameBoy/(21403:21403): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:44:58:190 GameBoy/(21403:21403): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:44:58:190 GameBoy/(21403:21403): El mensaje fue serializado. 
+[TRACE] 18:44:58:190 GameBoy/(21403:21403): OPERATION CODE: 3
+[TRACE] 18:44:58:190 GameBoy/(21403:21403): El mensaje fue enviado.
+[TRACE] 18:44:58:382 GameBoy/(21403:21403): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:44:58:382 GameBoy/(21403:21403): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:44:58:382 GameBoy/(21403:21403): Op_code inválido.
+[TRACE] 18:44:58:382 GameBoy/(21403:21403): Mensaje recibido manejado.
+[TRACE] 18:46:27:64 GameBoy/(21564:21564): Caracteristicas de mensaje obtenidas
+[TRACE] 18:46:27:64 GameBoy/(21564:21564): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:46:27:65 GameBoy/(21564:21564): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:46:27:65 GameBoy/(21564:21564): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:46:27:65 GameBoy/(21564:21564): El mensaje fue serializado. 
+[TRACE] 18:46:27:65 GameBoy/(21564:21564): OPERATION CODE: 3
+[TRACE] 18:46:27:65 GameBoy/(21564:21564): El mensaje fue enviado.
+[TRACE] 18:46:27:253 GameBoy/(21564:21564): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:46:27:253 GameBoy/(21564:21564): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:46:27:253 GameBoy/(21564:21564): Op_code inválido.
+[TRACE] 18:46:27:253 GameBoy/(21564:21564): Mensaje recibido manejado.
+[TRACE] 18:50:26:658 GameBoy/(21761:21761): Caracteristicas de mensaje obtenidas
+[TRACE] 18:50:26:658 GameBoy/(21761:21761): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:50:26:658 GameBoy/(21761:21761): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:50:26:658 GameBoy/(21761:21761): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:50:26:658 GameBoy/(21761:21761): El mensaje fue serializado. 
+[TRACE] 18:50:26:658 GameBoy/(21761:21761): OPERATION CODE: 3
+[TRACE] 18:50:26:659 GameBoy/(21761:21761): El mensaje fue enviado.
+[TRACE] 18:50:26:839 GameBoy/(21761:21761): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:50:26:839 GameBoy/(21761:21761): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:50:26:839 GameBoy/(21761:21761): Op_code inválido.
+[TRACE] 18:50:26:839 GameBoy/(21761:21761): Mensaje recibido manejado.
+[TRACE] 18:52:43:21 GameBoy/(21903:21903): Caracteristicas de mensaje obtenidas
+[TRACE] 18:52:43:21 GameBoy/(21903:21903): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:52:43:21 GameBoy/(21903:21903): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:52:43:21 GameBoy/(21903:21903): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:52:43:22 GameBoy/(21903:21903): El mensaje fue serializado. 
+[TRACE] 18:52:43:22 GameBoy/(21903:21903): OPERATION CODE: 3
+[TRACE] 18:52:43:22 GameBoy/(21903:21903): El mensaje fue enviado.
+[TRACE] 18:52:43:214 GameBoy/(21903:21903): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:52:43:214 GameBoy/(21903:21903): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:52:43:214 GameBoy/(21903:21903): Op_code inválido.
+[TRACE] 18:52:43:214 GameBoy/(21903:21903): Mensaje recibido manejado.
+[TRACE] 18:54:02:187 GameBoy/(22040:22040): Caracteristicas de mensaje obtenidas
+[TRACE] 18:54:02:187 GameBoy/(22040:22040): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:54:02:187 GameBoy/(22040:22040): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:54:02:188 GameBoy/(22040:22040): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:54:02:188 GameBoy/(22040:22040): El mensaje fue serializado. 
+[TRACE] 18:54:02:188 GameBoy/(22040:22040): OPERATION CODE: 3
+[TRACE] 18:54:02:188 GameBoy/(22040:22040): El mensaje fue enviado.
+[TRACE] 18:54:02:371 GameBoy/(22040:22040): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:54:02:371 GameBoy/(22040:22040): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:54:02:371 GameBoy/(22040:22040): Op_code inválido.
+[TRACE] 18:54:02:371 GameBoy/(22040:22040): Mensaje recibido manejado.
+[TRACE] 18:56:38:619 GameBoy/(22220:22220): Caracteristicas de mensaje obtenidas
+[TRACE] 18:56:38:619 GameBoy/(22220:22220): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 18:56:38:619 GameBoy/(22220:22220): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 18:56:38:620 GameBoy/(22220:22220): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 18:56:38:620 GameBoy/(22220:22220): El mensaje fue serializado. 
+[TRACE] 18:56:38:620 GameBoy/(22220:22220): OPERATION CODE: 3
+[TRACE] 18:56:38:620 GameBoy/(22220:22220): El mensaje fue enviado.
+[TRACE] 18:56:54:648 GameBoy/(22220:22220): Mensaje recibido, cod_op: 134530998.
+[TRACE] 18:56:54:649 GameBoy/(22220:22220): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 18:56:54:649 GameBoy/(22220:22220): Op_code inválido.
+[TRACE] 18:56:54:649 GameBoy/(22220:22220): Mensaje recibido manejado.
+[TRACE] 19:03:07:859 GameBoy/(22470:22470): Caracteristicas de mensaje obtenidas
+[TRACE] 19:03:07:859 GameBoy/(22470:22470): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 19:03:07:859 GameBoy/(22470:22470): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 19:03:07:860 GameBoy/(22470:22470): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 19:03:07:860 GameBoy/(22470:22470): El mensaje fue serializado. 
+[TRACE] 19:03:07:860 GameBoy/(22470:22470): OPERATION CODE: 3
+[TRACE] 19:03:07:860 GameBoy/(22470:22470): El mensaje fue enviado.
+[TRACE] 19:03:20:964 GameBoy/(22470:22470): Mensaje recibido, cod_op: 134530998.
+[TRACE] 19:03:20:965 GameBoy/(22470:22470): Se recibio un mensaje NO RECONOCIDO
+[ERROR] 19:03:20:965 GameBoy/(22470:22470): Op_code inválido.
+[TRACE] 19:03:20:965 GameBoy/(22470:22470): Mensaje recibido manejado.

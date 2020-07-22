@@ -21,11 +21,13 @@ void iniciar_gamecard(char*argumentos_iniciales[]){
 		//logger
 		iniciar_logger_gamecard();
 
-		//iniciar_chars_necesarios();
+		iniciar_chars_necesarios();
 
 		iniciar_semaforos_gamecard();
+
+		crear_metadata_bin();
+
 		bitmap_bloques = bitarray_create("bitmap_bloques",tamanio_bloque()/8);
-		log_trace(logger, "Gamecard iniciada.");
 
 
 
@@ -37,4 +39,30 @@ void finalizar_gamecard(){
 	terminar_logger(logger);
 	config_destroy(config);
 	pthread_mutex_destroy(&mutex_open_file);
+}
+
+
+void crear_metadata_bin(){
+	log_trace(logger, "Crear metadata");
+
+	create_dir(PUNTO_MONTAJE);
+	create_dir(metadata_base_path());
+
+	char* metadata_bin = concat(metadata_base_path(), "Metadata.bin");
+
+	create_file( metadata_bin );
+
+	t_config* config_metadata = config_create(metadata_bin);
+
+	config_set_value(config_metadata, "BLOCK_SIZE",
+			config_get_string_value(config, "BLOCK_SIZE"));
+
+	config_set_value(config_metadata, "BLOCKS",
+				config_get_string_value(config, "BLOCKS"));
+
+	config_set_value(config_metadata, "MAGIC_NUMBER",
+					config_get_string_value(config, "MAGIC_NUMBER"));
+
+	config_save(config_metadata);
+	config_destroy(config_metadata);
 }
