@@ -107,7 +107,7 @@ void crear_pokemon_metadata_file(char* tableName){
     config_set_value(config_file, "DIRECTORY", "N");
     config_set_value(config_file, "SIZE", "0"); // TODO: A DEFINIR
     config_set_value(config_file, "BLOCKS", "[]"); // TODO: A DEFINIR
-    config_set_value(config_file, "OPEN", "Y"); // TODO: A DEFINIR
+    config_set_value(config_file, "OPEN", "N"); // TODO: A DEFINIR
     config_save(config_file);
     config_destroy(config_file);
 }

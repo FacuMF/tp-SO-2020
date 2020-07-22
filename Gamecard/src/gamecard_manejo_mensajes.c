@@ -167,9 +167,22 @@ bool abrir_archivo(char* pokemon){
 	t_config* config = read_pokemon_metadata(pokemon);
 	char* estado = config_get_string_value(config,"OPEN");
 
+	bool estaba_abierto = !strcmp(estado,"Y");
+
+	log_trace(logger, "Archivo: OPEN=%s, estaba_abierto=%i.", estado, estaba_abierto);
+
+	if(strcasecmp(estado,"N")){ // Abro el archivo. Si estaba cerrado.
+
+		config_set_value(config, "OPEN", "Y");
+		config_save(config);
+
+	}
+
+	config_destroy(config);
+
 	pthread_mutex_unlock(&mutex_open_file);
 
-	return !strcasecmp(estado,"Y"); // VER SI SE NECESITA ! (DA 0 SI SON IGUALES)
+	return estaba_abierto; // SI ESTABA CERRADO => AHORA LO ABRI Y DEVUELVO FALSE => Salgo del while
 
 }
 
@@ -179,6 +192,7 @@ void crear_file_si_no_existe(t_new_pokemon * mensaje_new){
 		log_trace(logger,"File del pokemon no existente, lo creo.");
 		crear_pokemon_dir(mensaje_new->pokemon);
 		crear_pokemon_metadata_file(mensaje_new->pokemon);
+
 	}
 }
 
@@ -210,11 +224,15 @@ t_appeared_pokemon * de_new_a_appeared(t_new_pokemon * mensaje_new){
 }
 
 void intentar_abrir_archivo(char* pokemon){
-	while ( abrir_archivo(pokemon) ){
+	bool archivo_abierto_por_otro = abrir_archivo(pokemon);
+	while ( archivo_abierto_por_otro ){
 		log_trace(logger,"Archivo se encuentra abierto, se reintenta operacion"); // Podria cambiarse a log_info
 		sleep( config_get_int_value(config,"TIEMPO_DE_REINTENTO_OPERACION") );
+
+		archivo_abierto_por_otro = abrir_archivo(pokemon);
 		log_trace(logger,"Reintentando operacion");
 	}
+	log_trace(logger, "Se logro abrir el archivo");
 }
 
 void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
