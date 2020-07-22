@@ -11,7 +11,7 @@ void create_dir(char* path) {
     mkdir(path, 0777);    // 0777?
 }
 
-
+/* FIJAR SI NECESITO ESTAS FUNCIONES
 void delete_from_path(char* path) {
     system(concat("rm -rf ", path));
 }
@@ -26,33 +26,20 @@ void clean_dir(char* path) {
     delete_from_path(path);
     create_dir(path);
 }
-
-char* encontrar_bloque_con_posicion(char* posicion, char** bloques){
-
-}
-
-bool verificar_posiciones_file(char* posicion, char** bloques){
-	int n=0;
-	while(bloques[n]!=NULL){
-		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
-		if (config_has_property(config_bloque,posicion)) return true;
-		config_destroy(config_bloque);
-		n++;
-	}
-	return false;
-}
+*/
 
 // Base de crear archivos
 
 t_config* read_pokemon_metadata(char* table) {
-    return config_create(pokemon_metadata_path(table));
+	t_config* config_pokemon = config_create(pokemon_metadata_path(table));
+    return config_pokemon;
 }
 
 t_config* read_file_metadata(char* table){
 	return config_create(files_base_path(table));
 }
 
-void crear_pokemon_dir(char* tableName) { // TODO: CAMBIAR A FOPEN, fwrite ETC
+void crear_pokemon_dir(char* tableName) {
 	create_dir(files_base_path(tableName));
     t_config* config_directorio = read_file_metadata(tableName);
     config_set_value(config_directorio, "DIRECTORY", "Y");
@@ -62,7 +49,6 @@ void crear_pokemon_dir(char* tableName) { // TODO: CAMBIAR A FOPEN, fwrite ETC
 
 
 void crear_pokemon_metadata_file(char* tableName){
-    create_file(pokemon_metadata_path(tableName));
     t_config* config_file = read_pokemon_metadata(tableName);
     config_set_value(config_file, "DIRECTORY", "N");
     config_set_value(config_file, "SIZE", "0"); // A DEFINIR
@@ -110,12 +96,12 @@ void crear_file_si_no_existe(char* file, char* pokemon){
 // Funciones Bitmap
 
 int tamanio_bloque(){
-	t_config config_tamanio = leer_config(metadata_path());
+	t_config* config_tamanio = leer_config(metadata_path());
 	return config_get_int_value(config_tamanio,"BLOCK_SIZE");
 }
 
 int cantidad_bloques(){
-	t_config config_cantidad = leer_config(metadata_path());
+	t_config* config_cantidad = leer_config(metadata_path());
 	return config_get_int_value(config_cantidad, "BLOCKS");
 }
 
@@ -135,6 +121,17 @@ float tamanio_archivo(char* path){
 char** extraer_bloques(char* pokemon){
 	t_config* config = read_pokemon_metadata(pokemon);
 	return config_get_array_value(config,"BLOCKS");
+}
+
+bool verificar_posiciones_file(char* posicion, char** bloques){
+	int n=0;
+	while(bloques[n]!=NULL){
+		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+		if (config_has_property(config_bloque,posicion)) return true;
+		config_destroy(config_bloque);
+		n++;
+	}
+	return false;
 }
 
 
@@ -158,27 +155,116 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 		int bloque_viejo = encontrar_bloque_con_posicion(posicion,bloques_pokemon);
 		t_config* config_bloque_viejo = block_path(bloque_viejo);
 		int cantidad_vieja = config_get_int_value(config_bloque_viejo,posicion);
+		int cantidad_total = cantidad_vieja + mensaje_new->cantidad;
+		if (sentencia_sobrepasa_tamanio_maximo(mensaje_new->posx,mensaje_new->posy,cantidad_total)){
+			log_error(logger,"La sentencia sobrepasa el tamanio maximo de bloque.");
+			return;
+		}
 		config_remove_key(config_bloque_viejo,posicion);
-		config_set_value(config_bloque_nuevo, posicion, cantidad_vieja + mensaje_new->cantidad);
+		config_set_value(config_bloque_nuevo, posicion, cantidad_total);
 
 		config_save(config_bloque_viejo);
 		config_destroy(config_bloque_viejo);
 
 	}else{
+		if (sentencia_sobrepasa_tamanio_maximo(mensaje_new->posx,mensaje_new->posy,mensaje_new->cantidad)){
+			log_error(logger,"La sentencia sobrepasa el tamanio maximo de bloque.");
+			return;
+		}
 		config_set_value(config_bloque_nuevo, posicion, mensaje_new->cantidad);
 
 	}
-	actualizar_size_metadata(); // TODO
-	char* bloques_nuevos = agregar_bloque_metadata(bloques_pokemon,contador);
-	config_set_value(config_metadata, "BLOQUES", bloques_nuevos);
+	actualizar_size_metadata(config_metadata, bloques_pokemon);
+	agregar_bloque_metadata(config_metadata,contador);
 	config_save(config_bloque_nuevo);
 	config_destroy(config_bloque_nuevo);
 	bitarray_set_bit(bitmap_bloques,contador); // Esperemos que lo setee en 1
 
 }
 
-char* agregar_bloque_metadata(char**bloques, int bloque_nuevo){
-	 // TODO, CAPAZ CON CONCAT FUNCIONA
+int encontrar_bloque_con_posicion(char* posicion, char** bloques){
+	int n=0;
+	while(bloques[n]!=NULL){
+		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+		if (config_has_property(config_bloque,posicion)) return n;
+		config_destroy(config_bloque);
+		n++;
+	}
+	log_trace("No se encontro bloque que contiene la posicion: %s",posicion);
+	return 0; // return 0 si no encuentra el bloque?
+}
+
+bool sentencia_sobrepasa_tamanio_maximo(int posx, int posy, int cantidad){
+	int tamanio_sentencia = string_length(string_itoa(posx)) + string_length(string_itoa(posy)) + string_length(string_itoa(cantidad)) + 2; // CHEQUEAR
+	return tamanio_sentencia > tamanio_bloque();
+}
+
+void agregar_bloque_metadata(t_config* config_metadata, int bloque_nuevo){ // Chequear bien esta funcion
+	char* bloques = config_get_string_value(config_metadata,"BLOCKS");
+	bloques[strlen(bloques)-1] = ',';
+	char* aux1 = concat(bloques,string_itoa(bloque_nuevo));
+	char* bloques_final = concat(aux1,"]");
+	config_set_value(config_metadata,"BLOCKS",bloques_final);
+	config_save(config_metadata);
+	config_destroy(config_metadata);
+
+}
+
+void actualizar_size_metadata(t_config* config_metadata, bloques){
+	int tamanio_definitivo = tamanio_todos_los_bloques(bloques);
+	config_set_value(config_metadata, "SIZE", tamanio_definitivo);
+
+}
+
+
+t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ // TODO: VER
+	char** bloques = extraer_bloques(mensaje_get->pokemon);
+	int n = 0;
+	t_list* lista_posiciones = list_create();
+	while(bloques[n]!=NULL){
+		t_config* config_bloque = config_create(block_path(bloques[n]));
+		int cantidad_posiciones = config_keys_amount(config_bloque);
+		for(int i = 0; i < cantidad_posiciones; i++){
+			char* sentencia = leer_sentencia(block_path(bloques[n]));
+			char* posicion = separar_posicion(sentencia);
+			t_posicion* posicion_dividida = de_char_a_posicion(posicion);
+			list_add(lista_posiciones,posicion_dividida);
+			config_remove_key(config_bloque,posicion);
+		}
+		n++;
+		config_destroy(config_bloque);
+	}
+	t_localized_pokemon* pokemon_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_posiciones);
+	return pokemon_localized;
+}
+
+
+t_posicion* de_char_a_posicion(char* string_posicion){ // Ej "1-2"
+	t_posicion* posicion = malloc(sizeof(t_posicion*));
+	char** aux = string_split(string_posicion,"-");
+	posicion->x = atoi(aux[0]);
+	posicion->y = atoi(aux[1]);
+	return posicion;
+}
+
+
+char* leer_sentencia(char* fileName){
+  	FILE *file = fopen(fileName, "r");
+    char *code = malloc(ftell(file));
+    size_t n = 0;
+    int c;
+    if (file == NULL) return NULL;
+    while ((c = fgetc(file)) != '\n') // La sentencia entera. Ej "1-2=5"
+    {
+        code[n++] = (char) c;
+    }
+    code[n] = '\0';
+    return code; //Falta fclose
+}
+
+
+char* separar_posicion(char* palabra){ // Separa Ej "1-2=13" a "1-2"
+	return strtok(palabra,"=");
 }
 
 /*
@@ -210,19 +296,7 @@ void escribir_atributo(char* file, char* atributo, char*propiedad){
 	escribir_sentencia(file,resultado);
 }
 
-char* leer_sentencia(char* fileName){
-  	FILE *file = fopen(fileName, "r");
-    char *code = malloc(ftell(file));
-    size_t n = 0;
-    int c;
-    if (file == NULL) return NULL;
-    while ((c = fgetc(file)) != '\n') // La sentencia entera. Ej "1-2=5"
-    {
-        code[n++] = (char) c;
-    }
-    code[n] = '\0';
-    return code; //Falta fclose
-}
+
 //Falta while a todas las sentencias usar feof()
 bool buscar_posicion(char* fileName, char* pos){
 	FILE *file = fopen(fileName, "r");
@@ -237,9 +311,7 @@ bool buscar_posicion(char* fileName, char* pos){
 	return pos == posicion_posible; // No funciona no se por qué
 }
 
-char* separar_posicion(char* palabra){ // Separa Ej "1-2=13" a "1-2"
-	return strtok(palabra,"=");
-}
+
 
 */
 

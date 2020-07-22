@@ -34,7 +34,7 @@ char* blocks_base_path() {
 
 
 char* files_base_path(char* fileName) {
-    return concat_dirs(concat(PUNTO_MONTAJE, FILES_BASE_PATH), fileName);
+    return concat_dirs(concat(PUNTO_MONTAJE, FILES_BASE_PATH), fileName);//TALLGRASS/Files/Pikachu/
 }
 
 
@@ -53,7 +53,7 @@ char* bitmap_path() {
 }
 
 char* pokemon_metadata_path(char* fileName) {
-    return concat(files_base_path(fileName), METADATA_FILE_NAME);
+    return concat(files_base_path(fileName), METADATA_FILE_NAME); //TALLGRASS/Files/Pikachu/Metadata.bin
 }
 
 

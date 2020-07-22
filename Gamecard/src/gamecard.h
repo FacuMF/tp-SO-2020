@@ -49,7 +49,7 @@ char* files_base_path();
 char* block_path(int block);
 char* metadata_path();
 char* bitmap_path();
-char* files_path();
+char* pokemon_metadata_path(char* pokemon);
 
 // SEMAFOROS
 pthread_mutex_t mutex_suscripcion;

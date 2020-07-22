@@ -12,7 +12,7 @@ void enviar_mensaje_suscripcion_gamecard(op_code mensaje, int conexion){
 		log_trace(logger, "Mensaje suscripcion enviado");
 }
 
-void enviar_appeared_pokemon_a_broker( void *element) {
+void enviar_appeared_pokemon_a_broker( t_appeared_pokemon* element) {
 	t_appeared_pokemon * appeared_a_enviar = element;
 	int socket_broker = iniciar_conexion_broker_gamecard();
 		if (socket_broker > 0) {
@@ -24,10 +24,7 @@ void enviar_appeared_pokemon_a_broker( void *element) {
 					appeared_a_enviar->pokemon);
 
 			free(mensaje_appeared_serializado);
-			/*
-			appeared_a_enviar->id_mensaje = handle_mensajes_gamecard(
-					socket_broker,recibir_codigo_operacion(socket_broker),1);
-					 TODO : FIJARSE SI SE REQUIERE RESPUESTA*/
+
 			close(socket_broker);
 		} else {
 			log_info(logger, "Error en comunicacion al intentar enviar appeared. Se Continua ejecucion");

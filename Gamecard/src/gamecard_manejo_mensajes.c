@@ -24,15 +24,6 @@ void manejar_new_pokemon(t_new_pokemon *mensaje_new){
 	// 6. Enviar mensaje al broker
 	t_appeared_pokemon * mensaje_appeared= de_new_a_appeared(mensaje_new);
 	enviar_appeared_pokemon_a_broker(mensaje_appeared);
-
-	//TBR
-	// Reintentar la operación luego de REINTENTO_OPERACION
-	// Verificar si las posiciones ya existen dentro del archivo
-	// Esperar la cantidad de segundos definidos en config
-	// Cerrar el archivo
-	// Conectarse al broker y enviar a APPEARED_POKEMON un mensaje con ID del mensaje recibido, pokemon, posicion en el mapa
-	//enviar_appeared_pokemon_a_broker(BROKER,pokemon);
-	// En caso de no poder conectarse avisar por log
 }
 
 void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
@@ -59,9 +50,7 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 	cerrar_archivo_pokemon(mensaje_catch->pokemon);
 
 	// 7. Conectarse a broker y enviar resultado
-	enviar_caught_pokemon_a_broker( (void*) crear_caught_pokemon(respuesta_caugth) );
-
-
+	enviar_caught_pokemon_a_broker(crear_caught_pokemon(mensaje_catch->id_mensaje,respuesta_caugth)); // cambiar la funcion para no tener (void*)
 	//TBR
 	//char* file = pokemon_metadata_path(mensaje_catch->pokemon);
 	// Verificar si existe pokemon en el Filesystem
@@ -87,7 +76,7 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 
 	// 3. Obtener todas las pos y cantidades
 	if(respuesta_get){
-		respuesta_localized = obtener_pos_y_cant_localized(mensaje_get); //TODO
+		respuesta_localized = obtener_pos_y_cant_localized(mensaje_get);
 	}
 
 	// 4. Esperar los segundos definidos por config
@@ -115,18 +104,10 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 }
 
 //FUNCION AUXILIAR
-t_appeared_pokemon* convertir_a_appeared_pokemon(t_new_pokemon* pokemon){
-	t_appeared_pokemon* appeared_pokemon = malloc(sizeof(t_appeared_pokemon));
-	appeared_pokemon -> id_mensaje = pokemon->id_mensaje;
-	appeared_pokemon -> pokemon = pokemon->pokemon;
-	appeared_pokemon -> posx = pokemon->posx;
-	appeared_pokemon -> posy = pokemon->posy;
-	appeared_pokemon -> size_pokemon = pokemon -> size_pokemon;
-	return appeared_pokemon;
-}
-
 
 void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
+	t_config* config_pokemon = read_pokemon_metadata(mensaje_new->pokemon);
+	config_set_value(config_pokemon,"OPEN","Y");
 	char ** bloques = extraer_bloques(mensaje_new->pokemon);
 	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 	if(verificar_posiciones_file(posicion,bloques)){
@@ -134,12 +115,14 @@ void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 	}else{
 		agregar_posicion(mensaje_new,bloques);
 	}
+	config_save(config_pokemon);
+	config_destroy(config_pokemon);
 }
 
 bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch){
 	char ** bloques = extraer_bloques(mensaje_catch->pokemon);
 
-	if(verificar_posiciones_file(mensaje_catch->posx,mensaje_catch->posy,bloques)){ // TODO
+	if(verificar_posiciones_file(mensaje_catch->posx,mensaje_catch->posy,bloques)){
 		return true;
 	}
 	else{
@@ -149,24 +132,23 @@ bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch){
 
 }
 
-void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){
-	int tamanio_pokemon = string_length(string_itoa(mensaje_new->posx)) + string_length(string_itoa(mensaje_new->posy)) + string_length(string_itoa(mensaje_new->cantidad)) + 2; // CHEQUEAR
-	int i =0;
+void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){ // Podriamos sacar los bloques como parametro
+	int tamanio_sentencia = string_length(string_itoa(mensaje_new->posx)) + string_length(string_itoa(mensaje_new->posy)) + string_length(string_itoa(mensaje_new->cantidad)) + 2; // CHEQUEAR
+	int i = 0;
 	while(bloques[i]!=NULL){
-		int tamanio = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_pokemon; // bloques[i] es char, cambiar a int
-		if(tamanio <= tamanio_bloque()){
+		int tamanio_total = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_sentencia; // bloques[i] es char, cambiar a int (atoi)
+		if(tamanio_total <= tamanio_bloque()){
 			t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
 			t_config* config_bloque = block_path(bloques[i]);
 			char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
-			config_save_in_file(config_bloque, posicion, mensaje_new->cantidad);
-			int tamanio_definitivo =tamanio_todos_los_bloques(bloques);
-			config_set_value(config_metadata, "SIZE", tamanio_definitivo); // TODO: SUMA DE TODOS LOS BLOQUES
+			config_set_value(config_bloque, posicion, mensaje_new->cantidad);
+			actualizar_size_metadata(config_metadata, bloques);
 			return;
 		}else{
 			i++;
 		}
 	}
-	asignar_bloque(mensaje_new, bloques);
+	asignar_bloque(mensaje_new,0);
 }
 
 int tamanio_todos_los_bloques(char** bloques){
@@ -186,7 +168,7 @@ char* concatenar_posicion(int posx, int posy){
 
 // Auxiliares.
 
-bool abrir_archivo(char* pokemon){ // TODO : CAMBIAR A F_READ
+bool abrir_archivo(char* pokemon){
 	//Si abre devuelve true (-> salir del while), si no puede false(-> sigue en el while).
 
 	//todo mutex lock
@@ -261,23 +243,27 @@ t_localized_pokemon* posicionobtener_pos_y_cant_localized(t_get_pokemon* mensaje
 		
 void cerrar_archivo_pokemon(char* pokemon){
 	//TODO mutex lock (el mismo sem que en open)
+	t_config* config_pokemon = read_pokemon_metadata(pokemon);
+	config_set_value(config_pokemon,"OPEN","N");
 
+	config_save(config_pokemon);
+	config_destroy(config_pokemon);
 
 	// mutex unlock
 }
 
-void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){
+void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){ // Capaz se puede optimizar (usando for se puede salir)
 	int n=0;
 	char* posicion = concatenar_posicion(mensaje_pokemon->posx, mensaje_pokemon->posy);
 	while(bloques[n]!=NULL){
 			t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
 			if (config_has_property(config_bloque,posicion)){
-				int posicion_vieja = config_get_int_value(config_bloque,posicion);
-				int diferencia_bytes = cantidad_bytes_de_mas(string_itoa(posicion_vieja), string_itoa(posicion_vieja + mensaje_pokemon->cantidad));
+				int cantidad_vieja = config_get_int_value(config_bloque,posicion);
+				int diferencia_bytes = cantidad_bytes_de_mas(string_itoa(cantidad_vieja), string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
 				if(tamanio_archivo(block_path(atoi(bloques[n]))) == tamanio_bloque() && diferencia_bytes > 0){
-					asignar_bloque(mensaje_pokemon,bloques[n],bloques);
+					asignar_bloque(mensaje_pokemon,1);
 				}
-				config_set_value(config,posicion,posicion_vieja+mensaje_pokemon->cantidad);
+				config_set_value(config,posicion, cantidad_vieja + mensaje_pokemon->cantidad);
 			}
 			config_save(config_bloque);
 			config_destroy(config_bloque);
