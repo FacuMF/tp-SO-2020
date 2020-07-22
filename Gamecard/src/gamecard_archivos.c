@@ -11,7 +11,7 @@ void create_dir(char* path) {
     mkdir(path, 0777);    // 0777?
 }
 
-
+/* FIJAR SI NECESITO ESTAS FUNCIONES
 void delete_from_path(char* path) {
     system(concat("rm -rf ", path));
 }
@@ -26,34 +26,13 @@ void clean_dir(char* path) {
     delete_from_path(path);
     create_dir(path);
 }
-
-int encontrar_bloque_con_posicion(char* posicion, char** bloques){
-	int n=0;
-	while(bloques[n]!=NULL){
-		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
-		if (config_has_property(config_bloque,posicion)) return n;
-		config_destroy(config_bloque);
-		n++;
-	}
-	log_trace("No se encontro bloque que contiene la posicion: %s",posicion);
-	return 0; // return 0 si no encuentra el bloque?
-}
-
-bool verificar_posiciones_file(char* posicion, char** bloques){
-	int n=0;
-	while(bloques[n]!=NULL){
-		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
-		if (config_has_property(config_bloque,posicion)) return true;
-		config_destroy(config_bloque);
-		n++;
-	}
-	return false;
-}
+*/
 
 // Base de crear archivos
 
 t_config* read_pokemon_metadata(char* table) {
-    return config_create(pokemon_metadata_path(table));
+	t_config* config_pokemon = config_create(pokemon_metadata_path(table));
+    return config_pokemon;
 }
 
 t_config* read_file_metadata(char* table){
@@ -117,12 +96,12 @@ void crear_file_si_no_existe(char* file, char* pokemon){
 // Funciones Bitmap
 
 int tamanio_bloque(){
-	t_config config_tamanio = leer_config(metadata_path());
+	t_config* config_tamanio = leer_config(metadata_path());
 	return config_get_int_value(config_tamanio,"BLOCK_SIZE");
 }
 
 int cantidad_bloques(){
-	t_config config_cantidad = leer_config(metadata_path());
+	t_config* config_cantidad = leer_config(metadata_path());
 	return config_get_int_value(config_cantidad, "BLOCKS");
 }
 
@@ -142,6 +121,17 @@ float tamanio_archivo(char* path){
 char** extraer_bloques(char* pokemon){
 	t_config* config = read_pokemon_metadata(pokemon);
 	return config_get_array_value(config,"BLOCKS");
+}
+
+bool verificar_posiciones_file(char* posicion, char** bloques){
+	int n=0;
+	while(bloques[n]!=NULL){
+		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+		if (config_has_property(config_bloque,posicion)) return true;
+		config_destroy(config_bloque);
+		n++;
+	}
+	return false;
 }
 
 
@@ -167,7 +157,7 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 		int cantidad_vieja = config_get_int_value(config_bloque_viejo,posicion);
 		int cantidad_total = cantidad_vieja + mensaje_new->cantidad;
 		if (sentencia_sobrepasa_tamanio_maximo(mensaje_new->posx,mensaje_new->posy,cantidad_total)){
-			log_error("La sentencia sobrepasa el tamanio maximo de bloque.");
+			log_error(logger,"La sentencia sobrepasa el tamanio maximo de bloque.");
 			return;
 		}
 		config_remove_key(config_bloque_viejo,posicion);
@@ -178,7 +168,7 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 
 	}else{
 		if (sentencia_sobrepasa_tamanio_maximo(mensaje_new->posx,mensaje_new->posy,mensaje_new->cantidad)){
-			log_error("La sentencia sobrepasa el tamanio maximo de bloque.");
+			log_error(logger,"La sentencia sobrepasa el tamanio maximo de bloque.");
 			return;
 		}
 		config_set_value(config_bloque_nuevo, posicion, mensaje_new->cantidad);
@@ -190,6 +180,18 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 	config_destroy(config_bloque_nuevo);
 	bitarray_set_bit(bitmap_bloques,contador); // Esperemos que lo setee en 1
 
+}
+
+int encontrar_bloque_con_posicion(char* posicion, char** bloques){
+	int n=0;
+	while(bloques[n]!=NULL){
+		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+		if (config_has_property(config_bloque,posicion)) return n;
+		config_destroy(config_bloque);
+		n++;
+	}
+	log_trace("No se encontro bloque que contiene la posicion: %s",posicion);
+	return 0; // return 0 si no encuentra el bloque?
 }
 
 bool sentencia_sobrepasa_tamanio_maximo(int posx, int posy, int cantidad){
@@ -225,7 +227,9 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 		for(int i = 0; i < cantidad_posiciones; i++){
 			char* sentencia = leer_sentencia(block_path(bloques[n]));
 			char* posicion = separar_posicion(sentencia);
-			list_add(lista_posiciones,(void*) posicion);
+			t_posicion* posicion_dividida = de_char_a_posicion(posicion);
+			list_add(lista_posiciones,posicion_dividida);
+			config_remove_key(config_bloque,posicion);
 		}
 		n++;
 		config_destroy(config_bloque);
@@ -234,6 +238,14 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 	return pokemon_localized;
 }
 
+
+t_posicion* de_char_a_posicion(char* string_posicion){ // Ej "1-2"
+	t_posicion* posicion = malloc(sizeof(t_posicion*));
+	char** aux = string_split(string_posicion,"-");
+	posicion->x = atoi(aux[0]);
+	posicion->y = atoi(aux[1]);
+	return posicion;
+}
 
 
 char* leer_sentencia(char* fileName){
