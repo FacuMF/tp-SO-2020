@@ -3,6 +3,7 @@
 void iniciar_config_gamecard(char* nombre_config) {
 	char *path_config = obtener_path_gamecard(nombre_config);
 	config = leer_config(path_config);
+
 }
 
 void iniciar_logger_gamecard(){
@@ -24,8 +25,8 @@ char *obtener_path_gamecard(char *path_leido) {
 	return path;
 }
 void iniciar_chars_necesarios(){
-	PUNTO_MONTAJE= config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS");
-	METADATA_BASE_PATH = "Metadata/";
+	PUNTO_MONTAJE= concat( config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"), "/");
+	METADATA_BASE_PATH = "Metadata";
 	FILES_BASE_PATH = "Files/";
 	BLOCKS_BASE_PATH = "Blocks/";
 	METADATA_FILE_NAME = "Metadata.bin";
@@ -41,3 +42,4 @@ void iniciar_semaforos_gamecard(){
 	pthread_mutex_init(&mutex_open_file, NULL);
 
 }
+

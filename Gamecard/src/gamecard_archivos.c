@@ -75,8 +75,17 @@ void create_dir(char* path) {
 }
 
 void crear_pokemon_dir(char* tableName) {
+    log_trace(logger, "Crear directorio: %s", files_base_path(tableName) );
 	create_dir(files_base_path(tableName));
-    t_config* config_directorio = read_file_metadata(tableName);
+
+    char* metadata_bin = concat(concat(PUNTO_MONTAJE, FILES_BASE_PATH), "Metadata.bin");
+    log_trace(logger, "Crear metadata directorio: %s", metadata_bin );
+
+    create_file( metadata_bin );
+
+    log_debug(logger, "Ya se creo.");
+	t_config* config_directorio = config_create(metadata_bin);
+
     config_set_value(config_directorio, "DIRECTORY", "Y");
     config_save(config_directorio);
     config_destroy(config_directorio);
@@ -84,11 +93,21 @@ void crear_pokemon_dir(char* tableName) {
 
 
 void crear_pokemon_metadata_file(char* tableName){
-    t_config* config_file = read_pokemon_metadata(tableName);
+
+	//Creao archivo
+	create_file( concat( files_base_path(tableName), concat(tableName, ".txt") ) );
+
+	//Creo metadata
+	create_file( pokemon_metadata_path(tableName) );
+
+	log_trace(logger, pokemon_metadata_path(tableName));
+
+	t_config* config_file = read_pokemon_metadata(tableName);
+
     config_set_value(config_file, "DIRECTORY", "N");
-    config_set_value(config_file, "SIZE", "0"); // A DEFINIR
-    config_set_value(config_file, "BLOCKS", "[]"); // A DEFINIR
-    config_set_value(config_file, "OPEN", "Y"); // A DEFINIR
+    config_set_value(config_file, "SIZE", "0"); // TODO: A DEFINIR
+    config_set_value(config_file, "BLOCKS", "[]"); // TODO: A DEFINIR
+    config_set_value(config_file, "OPEN", "N"); // TODO: A DEFINIR
     config_save(config_file);
     config_destroy(config_file);
 }
@@ -116,6 +135,7 @@ bool file_existing(char* path){
 // TAMANIOS DE ARCHIVOS Y SUS ATRIBUTOS
 int tamanio_bloque(){
 	t_config* config_tamanio = leer_config(metadata_path());
+
 	return config_get_int_value(config_tamanio,"BLOCK_SIZE");
 }
 
