@@ -43,6 +43,11 @@ void iniciar_deteccion_deadlock(){
 
 			sem_wait(&sincro_deadlock);
 			sem_wait(&sincro_deadlock);
+
+			list_destroy(posibles_pasivos);
+			list_destroy(pok_faltantes);
+			list_destroy(pok_sobrantes);
+
 		}
 		deadlocks_resueltos++;
 	}
@@ -108,6 +113,8 @@ int deadlocks_pendientes(){
 		log_info(logger, "Resultado deteccion deadlock: Detectado");
 	else
 		log_info(logger, "Resultado deteccion deadlock: NO Detectado");
+
+	list_destroy(entrenadores_en_deadlock);
 
 	return result;
 }

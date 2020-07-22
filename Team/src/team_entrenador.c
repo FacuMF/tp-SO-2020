@@ -171,6 +171,7 @@ void cazar_pokemon(t_entrenador * entrenador) {
 					entrenador->catch_pendiente->pokemon);
 			pthread_create(&thread, NULL, (void*) enviar_mensaje_catch,
 					entrenador);
+			pthread_detach(thread);
 		}
 
 		entrenador->ciclos_cpu_restantes--;

@@ -2,9 +2,8 @@
 
 // CARGAR ENTRENADORES
 
-t_list* cargar_entrenadores() {
-	t_list* head_entrenadores = list_create();
-
+void cargar_entrenadores() {
+	head_entrenadores = list_create();
 	char ** posiciones = config_get_array_value(config,
 			"POSICIONES_ENTRENADORES");
 	char ** pokemones_capturados = config_get_array_value(config,
@@ -12,6 +11,7 @@ t_list* cargar_entrenadores() {
 	char ** objetivos = config_get_array_value(config,
 			"OBJETIVOS_ENTRENADORES");
 
+	//TODO: free char** ?
 
 	int i = 0;
 
@@ -22,7 +22,6 @@ t_list* cargar_entrenadores() {
 		entrenador->posicion = de_string_a_posicion(posiciones[i]);
 
 		entrenador->pokemones_capturados = list_create();
-
 		entrenador->pokemones_por_capturar = string_a_pokemon_list(
 				objetivos[i]);
 		entrenador->catch_pendiente = NULL;
@@ -34,22 +33,18 @@ t_list* cargar_entrenadores() {
 		i++;
 	}
 
-	agregar_capturados(head_entrenadores,pokemones_capturados);
+	agregar_capturados(pokemones_capturados);
 	log_trace(logger, "Entrenadores cargados");
-	//mostrar_entrenadores(head_entrenadores);
-
-	//TODO: free char** ?
-
-	return (head_entrenadores);
 }
 
-void agregar_capturados(t_list * lista_head,char ** pokemones_capturados){
+void agregar_capturados(char ** pokemones_capturados){
 	int j = 0;
 
 	while(pokemones_capturados[j]!=NULL){
-		t_entrenador * entrenador = list_get(lista_head,j);
+		t_entrenador * entrenador = list_get(head_entrenadores,j);
 		t_list * pokemones_a_agregar = string_a_pokemon_list(pokemones_capturados[j]);
 		list_add_all(entrenador->pokemones_capturados,pokemones_a_agregar);
+		list_destroy(pokemones_a_agregar);
 		j++;
 	}
 }
@@ -61,6 +56,7 @@ void lanzar_hilo_entrenador(void*element) {
 
 	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,
 			(void*) entrenador);
+	pthread_detach(hilo_entrenador);
 
 	(result != 0) ?
 			log_error(logger, "Error lanzando el hilo") :
@@ -69,7 +65,7 @@ void lanzar_hilo_entrenador(void*element) {
 }
 
 void inicializar_listas(){
-	head_entrenadores = cargar_entrenadores();
+	cargar_entrenadores();
 	ids_mensajes_utiles = list_create();
 	appeared_a_asignar = list_create();
 	appeared_auxiliares = list_create();
@@ -149,6 +145,7 @@ void elegir_algoritmo() {
 
 int* de_string_a_posicion(char* cadena_con_posiciones) {
 	char** posicion_prueba = string_split(cadena_con_posiciones, "|");
+	free(cadena_con_posiciones);
 
 	int* posicion = malloc(sizeof(int) * 3);
 	posicion[0] = atoi(posicion_prueba[0]);
@@ -159,6 +156,7 @@ int* de_string_a_posicion(char* cadena_con_posiciones) {
 
 t_list* string_a_pokemon_list(char* cadena_con_pokemones) {
 	char** pokemones = string_split(cadena_con_pokemones, "|");
+	free(cadena_con_pokemones);
 
 	t_list* head_pokemones = list_create();
 

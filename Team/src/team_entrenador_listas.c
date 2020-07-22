@@ -9,6 +9,8 @@ t_entrenador * obtener_entrenador_buscado(int posx, int posy) {
 	entrenadores_disponibles = obtener_entrenadores_con_espacio(
 			entrenadores_disponibles);
 	if(list_get(entrenadores_disponibles,0)==NULL) return NULL;
+
+
 	return obtener_entrenador_mas_cercano(posx, posy, entrenadores_disponibles);
 }
 
@@ -21,6 +23,7 @@ t_list * obtener_entrenadores_disponibles(t_list * entrenadores) {
 
 	list_add_all(entrenadores_disponibles, entrenadores_blocked_normal);
 
+	list_destroy(entrenadores_blocked_normal);
 
 	return entrenadores_disponibles;
 }
@@ -44,7 +47,11 @@ t_list * obtener_entrenadores_con_espacio(t_list * entrenadores) {
 		t_entrenador * entrenador = elemento;
 		return tiene_espacio_disponible(entrenador);
 	}
-	return list_filter(entrenadores, tiene_espacio_disponible_aux);
+
+	t_list * result = list_filter(entrenadores, tiene_espacio_disponible_aux);
+	list_destroy(entrenadores);
+
+	return result;
 
 }
 
@@ -94,6 +101,9 @@ t_entrenador * obtener_entrenador_mas_cercano(int posx, int posy,
 
 	t_entrenador * entrenador_mas_cercano = list_get(entrenadores_mas_cercanos,
 			0);
+
+	list_destroy(entrenadores_mas_cercanos);
+	list_destroy(entrenadores);
 
 	return entrenador_mas_cercano;
 }

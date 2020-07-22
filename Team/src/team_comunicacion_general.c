@@ -23,9 +23,10 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 	int * argument = malloc(sizeof(int));
 	*argument = socket_cliente;
 	pthread_create(&thread, NULL, (void*) esperar_mensaje_gameboy, argument);
+	pthread_detach(thread);
 }
 
-void esperar_mensaje_gameboy(void* input){ // TODO : VER REPITICION DE LOGICA CON ESPERAR MENSAJE COLA
+void esperar_mensaje_gameboy(void* input){
 	int conexion = *((int *) input);
 	int cod_op = recibir_codigo_operacion(conexion);
 	if (cod_op > 0)
@@ -47,6 +48,8 @@ int iniciar_conexion_con_broker() {
 // MANEJO MENSAJES
 void esperar_mensajes_cola(void* input) {
 	int conexion = *((int *) input);
+	free(input);
+
 	int cod_op = 1;
 
 	while (cod_op > 0) { // No es espera activa porque queda en recv
@@ -65,13 +68,16 @@ void esperar_mensajes_cola(void* input) {
 int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	t_buffer * buffer = recibir_mensaje(conexion);
 	int id_mensaje;
+	char * cadena_mensaje;
 
 	switch (cod_op) {
 	case APPEARED_POKEMON:
 		;
 		t_appeared_pokemon * mensaje_appeared = deserializar_appeared_pokemon(buffer);
 		id_mensaje = mensaje_appeared->id_mensaje;
-		log_info(logger, "Mensaje APPEARED_POKEMON: %s",mostrar_appeared_pokemon(mensaje_appeared));
+
+		cadena_mensaje =mostrar_appeared_pokemon(mensaje_appeared);
+		log_info(logger, "Mensaje APPEARED_POKEMON: %s",cadena_mensaje);
 
 		manejar_appeared(mensaje_appeared);
 
@@ -80,7 +86,9 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		;
 		t_caught_pokemon* mensaje_caught= deserializar_caught_pokemon(buffer);
 		id_mensaje = mensaje_caught->id_mensaje;
-		log_info(logger, "Mensaje CAUGHT_POKEMON: %s", mostrar_caught_pokemon(mensaje_caught));
+
+		cadena_mensaje =mostrar_caught_pokemon(mensaje_caught);
+		log_info(logger, "Mensaje CAUGHT_POKEMON: %s",cadena_mensaje );
 
 		manejar_caught(mensaje_caught,NULL);
 
@@ -89,7 +97,9 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		;
 		t_localized_pokemon* mensaje_localized= deserializar_localized_pokemon(buffer);
 		id_mensaje = mensaje_localized->id_mensaje;
-		log_info(logger, "Mensaje LOCALIZED_POKEMON: %s",mostrar_localized(mensaje_localized));
+
+		cadena_mensaje = mostrar_localized(mensaje_localized);
+		log_info(logger, "Mensaje LOCALIZED_POKEMON: %s",cadena_mensaje);
 
 		manejar_localized(mensaje_localized);
 
@@ -98,8 +108,12 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		;
 		t_get_pokemon* mensaje_get= deserializar_get_pokemon(buffer);
 		id_mensaje = mensaje_get->id_mensaje;
-		log_info(logger, "Mensaje GET_POKEMON: %s",mostrar_get_pokemon(mensaje_get));
-		//TODO: liberar mensaje
+
+		cadena_mensaje = mostrar_get_pokemon(mensaje_get);
+		log_info(logger, "Mensaje GET_POKEMON: %s",cadena_mensaje);
+		liberar_mensaje_get_pokemon(mensaje_get);
+
+
 		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
 
 		break;
@@ -107,8 +121,11 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		;
 		t_catch_pokemon* mensaje_catch= deserializar_catch_pokemon(buffer);
 		id_mensaje = mensaje_catch->id_mensaje;
-		log_info(logger, "Mensaje CATCH_POKEMON: %s",mostrar_catch_pokemon(mensaje_catch));
-		//TODO: liberar mensaje
+
+		cadena_mensaje = mostrar_catch_pokemon(mensaje_catch);
+		log_info(logger, "Mensaje CATCH_POKEMON: %s",cadena_mensaje);
+		liberar_mensaje_catch_pokemon(mensaje_catch);
+
 		log_trace(logger,"Recepcion id_mensaje: %d",id_mensaje);
 
 		break;
@@ -116,6 +133,7 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 		log_error(logger, "Opcode inválido.");
 		break;
 	}
+	free(cadena_mensaje);
 
 	if (es_respuesta) {
 		pthread_mutex_lock(&mutex_ids_mensajes);
@@ -128,6 +146,8 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	}
 
 	log_trace(logger, "Mensaje recibido manejado.");
-	//TODO: free buffer?
+
+	liberar_buffer(buffer);
+
 	return id_mensaje;
 }

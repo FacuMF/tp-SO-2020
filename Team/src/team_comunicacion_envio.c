@@ -32,6 +32,7 @@ void enviar_suscripcion_broker(op_code tipo_mensaje) {
 		int* argument = malloc(sizeof(int));
 		*argument = socket_broker;
 		pthread_create(&thread, NULL, (void*) esperar_mensajes_cola, argument);
+		pthread_detach(thread);
 
 		log_trace(logger, "Suscripcion completada");
 	}
@@ -41,8 +42,7 @@ void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
 	t_subscriptor* mensaje_suscripcion;
 	mensaje_suscripcion = crear_suscripcion(mensaje, -10);
 
-	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
-	mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
+	t_buffer* mensaje_serializado = serializar_suscripcion(mensaje_suscripcion);
 
 	enviar_mensaje(conexion, mensaje_serializado, SUSCRIPTOR);
 	log_trace(logger, "Mensaje suscripcion enviado");
@@ -71,8 +71,6 @@ void enviar_mensaje_get(void*element) {
 
 		log_trace(logger, "Enviado get para: %s", pokemon);
 
-		free(mensaje_serializado);
-
 		manejar_recibo_mensajes(socket_broker,
 				recibir_codigo_operacion(socket_broker), 1);
 
@@ -96,7 +94,6 @@ void enviar_mensaje_catch(void * element) { //mismo que get
 		log_trace(logger, "Enviado catch para: %s",
 				mensaje_catch_a_enviar->pokemon);
 
-		free(mensaje_catch_serializado);
 
 		mensaje_catch_a_enviar->id_mensaje = manejar_recibo_mensajes(
 				socket_broker, recibir_codigo_operacion(socket_broker), 1);

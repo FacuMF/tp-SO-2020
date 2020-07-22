@@ -6,14 +6,18 @@ int main(int argv, char*archivo_config[]) {
 
 	iniciar_team(archivo_config);
 
+	// TODO: DESCOMENTAR
 	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
+	//pthread_detach(thread);
 
 	pthread_create(&thread, NULL, (void*) enviar_requests_pokemones, NULL);
+	pthread_detach(thread);
 
 	pthread_create(&thread, NULL, (void*) iniciar_conexion_con_gameboy, NULL);
+	pthread_detach(thread);
 
 	pthread_create(&thread, NULL, (void*) iniciar_planificador, NULL);
-
+	pthread_detach(thread);
 	while (!objetivo_global_completo()) {
 		sem_wait(&verificar_objetivo_global);
 	}
@@ -28,7 +32,6 @@ int main(int argv, char*archivo_config[]) {
 
 void log_metricas(){
 	log_info(logger,"Ciclos CPU totales: %d", obtener_ciclos_cpu_totales());
-	log_info(logger,"Ciclos CPU Entrenadores:");
 	list_iterate(head_entrenadores,log_cpu_entrenador);
 	log_info(logger,"Cantidad de cambios de contexto: %d",cambios_contexto_totales);
 	log_info(logger, "Deadlocks Encontrados y Resueltos: %d",deadlocks_resueltos);
@@ -88,6 +91,42 @@ void finalizar_team() {
 	// TODO: Destroy todos los semaforos
 	// TODO: Finalizar todos los hilos? Ya deberian estar todos terminados
 
+	list_destroy(ids_mensajes_utiles);
+	list_destroy(appeared_a_asignar);
+	list_destroy(appeared_auxiliares);
+	list_destroy(pokemones_recibidos);
+	list_destroy(pokemones_necesitados);
+
+	list_destroy_and_destroy_elements(head_entrenadores,liberar_entrenador); //TODO: PENDING
+
+
+	pthread_mutex_destroy(&chequeo_sem_suscrip);
+	pthread_mutex_destroy(&manejar_mensaje);
+	pthread_mutex_destroy(&mutex_pokemones_necesitados);
+	pthread_mutex_destroy(&mutex_ids_mensajes);
+
+	sem_close(&entrenadores_ready);
+	sem_close(&cpu_disponible);
+	sem_close(&verificar_objetivo_global);
+	sem_close(&suscripcion);
+	sem_close(&resolver_deadlock);
+	sem_close(&cpu_disponible_sjf);
+	sem_close(&sincro_deadlock);
+
+
 	terminar_logger(logger);
 	config_destroy(config);
+}
+
+void liberar_entrenador(void * element){
+	t_entrenador * entrenador = element;
+
+	//char id;
+	sem_close(&entrenador->sem_est);
+
+	//int ciclos_cpu_totales;
+	free(entrenador->posicion);
+	list_destroy_and_destroy_elements(entrenador->pokemones_capturados,free);
+	list_destroy(entrenador->pokemones_por_capturar);
+	free(entrenador);
 }
