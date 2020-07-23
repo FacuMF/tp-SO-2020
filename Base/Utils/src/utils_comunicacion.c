@@ -87,8 +87,8 @@ int iniciar_conexion_servidor(char* ip,char* puerto){
 
 	struct addrinfo* servinfo = obtener_server_info(ip, puerto);
 	int socket_servidor = obtener_socket(servinfo);
-	asignar_socket_a_puerto(socket_servidor, servinfo);
 	setear_socket_reusable(socket_servidor);
+	asignar_socket_a_puerto(socket_servidor, servinfo);
 	freeaddrinfo(servinfo);
 
 	listen(socket_servidor, SOMAXCONN);

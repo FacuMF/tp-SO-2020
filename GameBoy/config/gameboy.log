@@ -46746,3 +46746,23 @@
 [TRACE] 21:10:52:403 GameBoy/(18867:18867): OPERATION CODE: 4
 [TRACE] 21:10:52:403 GameBoy/(18867:18867): El mensaje fue enviado.
 >>>>>>> ecf44783539b12f94a84b45e2c5aebd29d24dddd
+[TRACE] 21:33:13:653 GameBoy/(18055:18055): Caracteristicas de mensaje obtenidas
+[TRACE] 21:33:13:654 GameBoy/(18055:18055): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 21:33:13:654 GameBoy/(18055:18055): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 21:33:13:655 GameBoy/(18055:18055): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 21:33:13:656 GameBoy/(18055:18055): El mensaje fue serializado. 
+[TRACE] 21:33:13:656 GameBoy/(18055:18055): OPERATION CODE: 8
+[TRACE] 21:33:13:656 GameBoy/(18055:18055): El mensaje fue enviado.
+[ERROR] 21:33:13:656 GameBoy/(18055:18055): Error en 'recibir_codigo_operacion'
+[WARNING] 21:33:13:657 GameBoy/(18055:18055): El broker cerro el socket 4.
+[WARNING] 21:33:13:657 GameBoy/(18055:18055): Se salio del while del socket 4.
+[TRACE] 21:33:23:922 GameBoy/(18063:18063): Caracteristicas de mensaje obtenidas
+[TRACE] 21:33:23:922 GameBoy/(18063:18063): Se quiere enviar un mensaje del tipo -8- al modulo -3-
+[TRACE] 21:33:23:922 GameBoy/(18063:18063): Leido de config por parametro SUSCRIPTOR. Ip: 127.0.0.1 y Puerto: 4444
+[TRACE] 21:33:23:923 GameBoy/(18063:18063): Conexion Creada. Ip: 127.0.0.1 y Puerto: 4444 
+[TRACE] 21:33:23:923 GameBoy/(18063:18063): El mensaje fue serializado. 
+[TRACE] 21:33:23:923 GameBoy/(18063:18063): OPERATION CODE: 8
+[TRACE] 21:33:23:924 GameBoy/(18063:18063): El mensaje fue enviado.
+[ERROR] 21:33:23:924 GameBoy/(18063:18063): Error en 'recibir_codigo_operacion'
+[WARNING] 21:33:23:924 GameBoy/(18063:18063): El broker cerro el socket 4.
+[WARNING] 21:33:23:924 GameBoy/(18063:18063): Se salio del while del socket 4.

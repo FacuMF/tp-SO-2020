@@ -22,7 +22,7 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
 	desuscribir(socket_cliente, suscripcion);
 
 	liberar_suscripcion(suscripcion);
-
+	//close(socket_cliente);
 	pthread_exit(NULL);
 }
 
