@@ -40,6 +40,7 @@ void enviar_mensaje_gameboy(char** arg) {
 	log_trace(logger, "OPERATION CODE: %i", tipo_mensaje);
 	enviar_mensaje(conexion, mensaje_serializado, tipo_mensaje);
 	log_trace(logger, "El mensaje fue enviado.");
+	close(conexion);
 
 }
 

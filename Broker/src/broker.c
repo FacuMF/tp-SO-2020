@@ -81,7 +81,6 @@ void handle_cliente(int socket_servidor) {
 
 	log_trace(logger, "Aceptando cliente...");
 	int socket_cliente = aceptar_cliente(socket_servidor);
-
 	log_trace(logger, "Conexion del socket %i al Broker.", socket_cliente);
 
 	int* argument = malloc(sizeof(int));
@@ -100,13 +99,18 @@ void recibir_mensaje_del_cliente(void* input) {
 	while (cod_op >= 0 && cod_op<=9) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
 
 		cod_op = recibir_codigo_operacion(socket_cliente);
-		if (cod_op == -1)
+		if (cod_op == -1){
 			log_error(logger, "Error en 'recibir_codigo_operacion'");
+			//close(socket_cliente);
+		}
 
-		(cod_op >= 0 && cod_op<=9) ?
-				handle_mensaje(cod_op, socket_cliente) :
-				log_warning(logger, "El cliente %i cerro el socket.",
+		if (cod_op >= 0 && cod_op<=9)
+			handle_mensaje(cod_op, socket_cliente);
+		else{
+			log_warning(logger, "El cliente %i cerro el socket.",
 						socket_cliente);
+				//close(socket_cliente);
+		}
 	}
 
 }
