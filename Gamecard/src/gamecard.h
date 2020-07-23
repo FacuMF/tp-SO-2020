@@ -135,6 +135,7 @@ void esperar_mensajes_gamecard(void* input);
 void enviar_caught_pokemon_a_broker( t_caught_pokemon* element);
 void enviar_localized_pokemon_a_broker( t_localized_pokemon* element);
 void enviar_appeared_pokemon_a_broker( t_appeared_pokemon* element);
+void manejar_recibo_respuesta(int socket_broker, int cod_op);
 
 //Funciones de comunicacion con gameboy
 void iniciar_conexion_con_gameboy_gamecard();

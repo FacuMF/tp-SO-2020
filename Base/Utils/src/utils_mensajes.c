@@ -784,6 +784,7 @@ char* mostrar_posiciones(t_posicion* posicion) {
 //Confirmar Recepcion
 
 void confirmar_recepcion(int socket_broker, int cod_op, int id_mensaje) {
+
 	t_confirmacion* mensaje_confirmacion = crear_confirmacion(cod_op,
 			id_mensaje);
 	t_buffer* buffer_confirmacion = serializar_confirmacion(
@@ -792,6 +793,7 @@ void confirmar_recepcion(int socket_broker, int cod_op, int id_mensaje) {
 	enviar_mensaje(socket_broker, buffer_confirmacion, CONFIRMACION);
 
 	liberar_confirmacion(mensaje_confirmacion);
+
 }
 
 t_modulo string_a_modulo(char* nombre_modulo) {
