@@ -131,9 +131,9 @@ void esperar_mensajes_gamecard(void* input) {
 
 			log_trace(logger, "Se lanza el hilo: handle_mensaje_gamecard.");
 
-			pthread_create(&thread, NULL,(void*) handle_mensajes_gamecard, arg_handle);
+			//pthread_create(&thread, NULL,(void*) handle_mensajes_gamecard, arg_handle);
 
-			//handle_mensajes_gamecard(arg_handle);
+			handle_mensajes_gamecard(arg_handle);
 
 		}else{
 			log_error(logger, "Error en 'recibir_codigo_operacion' %i", cod_op);
