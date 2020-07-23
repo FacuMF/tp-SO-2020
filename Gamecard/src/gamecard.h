@@ -89,6 +89,7 @@ void write_file(char* path, char* data);
 t_config* read_pokemon_metadata(char* table);
 t_config* read_file_metadata(char* table);
 char** extraer_bloques(char* pokemon);
+char* extraer_bloques_string(char* pokemon);
 bool verificar_posiciones_file(char* posicion, char** bloques);
 char* leer_sentencia(char* fileName);
 void intentar_abrir_archivo(char* pokemon);
@@ -153,7 +154,8 @@ bool abrir_archivo(char* pokemon);
 bool informar_error_no_existe_pokemon_catch(t_catch_pokemon* mensaje_catch);
 bool informar_no_existe_pokemon_get(t_get_pokemon* mensaje_get);
 t_appeared_pokemon * de_new_a_appeared(t_new_pokemon * mensaje_new);
-
+void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion);
+void actualizar_bitmap(int bloque);
 void cerrar_archivo_pokemon(char* pokemon);
 void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques);
 void restar_uno_pos_catch();
