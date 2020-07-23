@@ -58,10 +58,6 @@ pthread_mutex_t mutex_open_file;
 
 //STRUCT PARA HILOS
 
-typedef struct{
-	int conexion;
-	op_code codigo_de_operacion;
-} t_handle_mensajes_gamecard;
 
 typedef struct{
 	int cod_op;
@@ -158,7 +154,7 @@ void esperar_mensaje_gameboy_gamecard(void* input);
 
 
 // Manejo de mensajes
-void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle);
+void handle_mensajes_gamecard(int conexion, op_code cod_op);
 void manejar_new_pokemon(t_new_pokemon *mensaje_new);
 void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch);
 void manejar_get_pokemon(t_get_pokemon * mensaje_get);

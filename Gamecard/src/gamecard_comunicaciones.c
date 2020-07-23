@@ -29,11 +29,7 @@ void esperar_mensaje_gameboy_gamecard(void* input){
 	int conexion = *((int *) input);
 	int cod_op = recibir_codigo_operacion(conexion);
 	if (cod_op > 0){
-		t_handle_mensajes_gamecard* arg_handle = malloc(sizeof(t_handle_mensajes_gamecard));
-		arg_handle->conexion = conexion;
-		arg_handle->codigo_de_operacion=cod_op;
-
-		handle_mensajes_gamecard(arg_handle); // No hace falta lanzar hilo.
+		handle_mensajes_gamecard(conexion,cod_op);
 
 	} else {
 		log_error(logger, "Error en 'recibir_codigo_operacion'");
@@ -126,15 +122,10 @@ void esperar_mensajes_gamecard(void* input) {
 
 			log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
 
-			t_handle_mensajes_gamecard* arg_handle = malloc(sizeof(t_handle_mensajes_gamecard));
-			arg_handle->conexion = conexion;
-			arg_handle->codigo_de_operacion = cod_op;
-
-			log_debug(logger, "Codigo de operacion: %i.", arg_handle->codigo_de_operacion);
 
 			log_trace(logger, "Se lanza el hilo: handle_mensaje_gamecard.");
 
-			handle_mensajes_gamecard(arg_handle);
+			handle_mensajes_gamecard(conexion,cod_op);
 
 		}else{
 			log_error(logger, "Error en 'recibir_codigo_operacion' %i", cod_op);
@@ -146,12 +137,8 @@ void esperar_mensajes_gamecard(void* input) {
 	}
 }
 
-void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle){
+void handle_mensajes_gamecard(int conexion, op_code cod_op ){
 
-	log_debug(logger, "Codigo de operacion argumento: %i.", arg_handle->codigo_de_operacion);
-
-	int conexion = arg_handle-> conexion;
-	int cod_op = arg_handle->codigo_de_operacion;
 
 	log_debug(logger, "Codigo de operacion cod_op: %i.", cod_op);
 
@@ -172,9 +159,9 @@ void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle){
 	argumentos->conexion = conexion;
 
 	pthread_create(&thread, NULL, (void*) manejar_mensajes_gamecard, argumentos);
-	//manejar_mensajes_gamecard(argumentos);
 
-	free(arg_handle);
+
+
 	log_trace(logger,"Mensaje recibido manejado");
 
 }
@@ -223,15 +210,9 @@ void manejar_mensajes_gamecard(t_manejar_mensajes_gamecard* argumentos){
 			break;
 	}
 
-
-	log_debug(logger, "Se va a entrar en confirmar recepcion");
-
 	confirmar_recepcion(conexion, cod_op, id_mensaje);
 
 	log_trace(logger, "Recepcion confirmada: %d %d %d", conexion, cod_op, id_mensaje);
-
-
-
 
 }
 
