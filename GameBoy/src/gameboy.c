@@ -10,6 +10,7 @@ int main(int argv, char* arg[]) {
 
 	cod_op_respuesta = 0;
 	esperar_respuesta();
+	//close(conexion);
 }
 
 void obtener_argumentos(char** arg) {
@@ -40,7 +41,7 @@ void enviar_mensaje_gameboy(char** arg) {
 	log_trace(logger, "OPERATION CODE: %i", tipo_mensaje);
 	enviar_mensaje(conexion, mensaje_serializado, tipo_mensaje);
 	log_trace(logger, "El mensaje fue enviado.");
-	close(conexion);
+
 
 }
 
@@ -109,6 +110,7 @@ int recibir_respuesta(int* socket_broker) {
 
 void confirmar_si_es_suscriptor(int socket, int cop_op, int id_mensaje) {
 	if (es_suscriptor) {
+		//sleep(5);
 		log_trace(logger, "Se confirmara la recepcion.");
 		confirmar_recepcion(socket, cop_op, id_mensaje);
 		log_trace(logger, "Recepcion confirmada.");

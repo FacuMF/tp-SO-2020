@@ -18,7 +18,7 @@ void manejar_mensaje_confirmacion(t_conexion_buffer *combo) {
 
 
 void confirmar_recepcion_en_cache(t_confirmacion* mensaje_confirmacion, int socket_cliente){
-
+	log_trace(logger, "se confirmo");
 	pthread_mutex_lock(&mutex_memoria_cache);
 
 	void confirmar_recepcion_de_cliente(void* particion){

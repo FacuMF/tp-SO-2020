@@ -145,8 +145,8 @@ void enviar_mensaje(int socket, t_buffer* buffer, op_code codigo_operacion){
 	int size_serializado;
 	void* serializado = serializar_paquete(paquete, &size_serializado);
 
-	send(socket, serializado, size_serializado, 0);
-
+	int b = send(socket, serializado, size_serializado, 0);
+	printf("byte tr: %d\n", b);
 	liberar_buffer(buffer);
 	free(paquete->buffer);
 	free(paquete);

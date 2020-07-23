@@ -96,20 +96,20 @@ void recibir_mensaje_del_cliente(void* input) {
 	int cod_op = 0;
 	free(input);
 
-	while (cod_op >= 0 && cod_op<=9) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
+	while (cod_op >= 0 && cod_op<10) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
 
+		log_warning(logger, "estoy antes recibir cod op %d", cod_op);
 		cod_op = recibir_codigo_operacion(socket_cliente);
+		log_trace(logger, "estoy en recibir cod op %d", cod_op);
 		if (cod_op == -1){
 			log_error(logger, "Error en 'recibir_codigo_operacion'");
-			//close(socket_cliente);
 		}
 
-		if (cod_op >= 0 && cod_op<=9)
+		if (cod_op >= 0 && cod_op<10)
 			handle_mensaje(cod_op, socket_cliente);
 		else{
 			log_warning(logger, "El cliente %i cerro el socket.",
 						socket_cliente);
-				//close(socket_cliente);
 		}
 	}
 
@@ -130,6 +130,8 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 
 	switch (cod_op) {
 	case SUSCRIPTOR:
+		//pthread_create(&thread, NULL, (void*) manejar_mensaje_suscriptor,
+						//info_mensaje_a_manejar);
 		manejar_mensaje_suscriptor(info_mensaje_a_manejar);
 		break;
 	case APPEARED_POKEMON:
@@ -157,6 +159,9 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 				info_mensaje_a_manejar);
 		break;
 	case CONFIRMACION:
+		//pthread_create(&thread, NULL, (void*) manejar_mensaje_confirmacion,
+						//info_mensaje_a_manejar);
+		log_warning(logger,"llego confirmacion");
 		manejar_mensaje_confirmacion(info_mensaje_a_manejar);
 		break;
 	default:
