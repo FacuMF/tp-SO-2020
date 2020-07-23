@@ -3,6 +3,7 @@
 // TODO FUNCIONES DE MANEJAR MENSAJE
 
 void manejar_new_pokemon(t_new_pokemon *mensaje_new){
+	log_trace( logger, "Manejar mensaje: %s.", mostrar_new_pokemon(mensaje_new) );
 
 	// 1. Verificar si existe pokemon en el Filesystem
 	crear_file_si_no_existe(mensaje_new);
@@ -20,7 +21,7 @@ void manejar_new_pokemon(t_new_pokemon *mensaje_new){
 	cerrar_archivo_pokemon(mensaje_new->pokemon);
 
 	// 6. Enviar mensaje al broker
-	t_appeared_pokemon * mensaje_appeared= de_new_a_appeared(mensaje_new);
+	t_appeared_pokemon * mensaje_appeared = de_new_a_appeared(mensaje_new);
 	enviar_appeared_pokemon_a_broker(mensaje_appeared);
 }
 
@@ -171,11 +172,11 @@ bool abrir_archivo(char* pokemon){
 	t_config* config = read_pokemon_metadata(pokemon);
 	char* estado = config_get_string_value(config,"OPEN");
 
-	bool estaba_abierto = !strcmp(estado,"Y");
+	bool estaba_abierto = strcmp(estado,"Y") == 0;
 
 	log_trace(logger, "Archivo: OPEN=%s, estaba_abierto=%i.", estado, estaba_abierto);
 
-	if(strcasecmp(estado,"N")){ // Abro el archivo. Si estaba cerrado.
+	if( strcmp(estado,"N") == 0 ){ // Abro el archivo. Si estaba cerrado.
 
 		config_set_value(config, "OPEN", "Y");
 		config_save(config);
@@ -219,20 +220,25 @@ bool informar_no_existe_pokemon_get(t_get_pokemon* mensaje_get){
 
 
 t_appeared_pokemon * de_new_a_appeared(t_new_pokemon * mensaje_new){
+
 	t_appeared_pokemon * mensaje_appeared = crear_appeared_pokemon(mensaje_new->pokemon,
-		mensaje_new->posx,mensaje_new->posy, -30);
+		mensaje_new->posx,mensaje_new->posy, mensaje_new->id_mensaje);
+
 	return mensaje_appeared;
 }
 
 void intentar_abrir_archivo(char* pokemon){
+
 	bool archivo_abierto_por_otro = abrir_archivo(pokemon);
+
 	while ( archivo_abierto_por_otro ){
-		log_trace(logger,"Archivo se encuentra abierto, se reintenta operacion"); // Podria cambiarse a log_info
+		log_warning(logger,"Archivo se encuentra abierto, se reintenta operacion"); // Podria cambiarse a log_info
 		sleep( config_get_int_value(config,"TIEMPO_DE_REINTENTO_OPERACION") );
 
 		archivo_abierto_por_otro = abrir_archivo(pokemon);
 		log_trace(logger,"Reintentando operacion.");
 	}
+
 	log_trace(logger, "Se abrio el archivo.");
 }
 

@@ -28,10 +28,16 @@ void esperar_cliente_gamecard(int socket_servidor) {
 void esperar_mensaje_gameboy_gamecard(void* input){
 	int conexion = *((int *) input);
 	int cod_op = recibir_codigo_operacion(conexion);
-	if (cod_op > 0)
-		handle_mensajes_gamecard(conexion, cod_op);
-	else
+	if (cod_op > 0){
+		t_handle_mensajes_gamecard* arg_handle = malloc(sizeof(t_handle_mensajes_gamecard));
+		arg_handle->conexion = conexion;
+		arg_handle->codigo_de_operacion=cod_op;
+
+		handle_mensajes_gamecard(arg_handle); // No hace falta lanzar hilo.
+
+	} else {
 		log_error(logger, "Error en 'recibir_codigo_operacion'");
+	}
 }
 
 
@@ -41,7 +47,12 @@ void esperar_mensaje_gameboy_gamecard(void* input){
 int iniciar_conexion_broker_gamecard() {
 	char * ip_broker = config_get_string_value(config, "IP_BROKER");
 	char * puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
-	return iniciar_conexion(ip_broker, puerto_broker);
+	int result = iniciar_conexion(ip_broker, puerto_broker);
+
+	if(result<0)
+		return -1;
+	else
+		return result;
 }
 
 void suscribirse_a_colas_gamecard() {
@@ -76,9 +87,12 @@ void enviar_suscripcion_al_broker(op_code tipo_mensaje) {
 		reintento_suscripcion_si_aplica_gamecard();
 	}else {
 		enviar_mensaje_suscripcion_gamecard(tipo_mensaje, socket_broker);
+
 		int* argument = malloc(sizeof(int));
 		*argument = socket_broker;
 		pthread_create(&thread, NULL, (void*) esperar_mensajes_gamecard, argument);
+		pthread_detach(thread);
+
 		log_trace(logger, "Suscripcion completada");
 	}
 }
@@ -96,23 +110,52 @@ void reintento_suscripcion_si_aplica_gamecard(){
 
 void esperar_mensajes_gamecard(void* input) {
 	int conexion = *((int *) input);
+	free(input);
+
 	int cod_op = 1;
 
 	while (cod_op > 0) { // No es espera activa porque queda en recv
+
 		cod_op = recibir_codigo_operacion(conexion);
-		if (cod_op > 0){
+
+
+		if (cod_op > 0 && cod_op <= 9 ){
+
 			log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
-			handle_mensajes_gamecard(conexion, cod_op);
+
+			t_handle_mensajes_gamecard* arg_handle = malloc(sizeof(t_handle_mensajes_gamecard));
+			arg_handle->conexion = conexion;
+			arg_handle->codigo_de_operacion = cod_op;
+
+			log_debug(logger, "Codigo de operacion: %i.", arg_handle->codigo_de_operacion);
+
+			log_trace(logger, "Se lanza el hilo: handle_mensaje_gamecard.");
+
+			pthread_create(&thread, NULL,(void*) handle_mensajes_gamecard, arg_handle);
+
+			//handle_mensajes_gamecard(arg_handle);
+
 		}else{
-			log_error(logger, "Error en 'recibir_codigo_operacion'");
+			log_error(logger, "Error en 'recibir_codigo_operacion' %i", cod_op);
 			reintento_suscripcion_si_aplica_gamecard();
+			close(conexion);
 			return;
 		}
 	}
 }
 
+void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle){
 
-int handle_mensajes_gamecard(int conexion, op_code cod_op){
+	log_debug(logger, "Codigo de operacion argumento: %i.", arg_handle->codigo_de_operacion);
+
+	int conexion = arg_handle-> conexion;
+
+	int cod_op = arg_handle->codigo_de_operacion;
+
+	log_debug(logger, "Codigo de operacion cod_op: %i.", cod_op);
+
+
+
 	t_buffer * buffer = recibir_mensaje(conexion);
 	int id_mensaje;
 
@@ -121,39 +164,48 @@ int handle_mensajes_gamecard(int conexion, op_code cod_op){
 	free(tipo_mensaje);
 
 	switch(cod_op){
-	case NEW_POKEMON:
-		;
-		t_new_pokemon *mensaje_new = deserializar_new_pokemon(buffer);
+		case NEW_POKEMON:
+			;
+			t_new_pokemon *mensaje_new = deserializar_new_pokemon(buffer);
 
-		manejar_new_pokemon(mensaje_new);
-		break;
+			id_mensaje = mensaje_new->id_mensaje;
 
-	case CATCH_POKEMON:
-		;
-		t_catch_pokemon * mensaje_catch = deserializar_catch_pokemon(buffer);
+			manejar_new_pokemon(mensaje_new);
+			break;
 
-		manejar_catch_pokemon(mensaje_catch);
-		break;
+		case CATCH_POKEMON:
+			;
+			t_catch_pokemon * mensaje_catch = deserializar_catch_pokemon(buffer);
 
-	case GET_POKEMON:
-		;
-		t_get_pokemon * mensaje_get = deserializar_get_pokemon(buffer);
+			id_mensaje = mensaje_catch -> id_mensaje;
 
-		manejar_get_pokemon(mensaje_get);
-		break;
+			manejar_catch_pokemon(mensaje_catch);
+			break;
 
-	default:
-		log_warning(logger,"OP_CODE INVALIDO");
-		break;
+		case GET_POKEMON:
+			;
+			t_get_pokemon * mensaje_get = deserializar_get_pokemon(buffer);
+
+			id_mensaje = mensaje_get -> id_mensaje;
+
+			manejar_get_pokemon(mensaje_get);
+			break;
+
+		default:
+			log_warning(logger,"OP_CODE INVALIDO");
+			break;
 	}
+
+
+	log_debug(logger, "Se va a entrar en confirmar recepcion");
 
 	confirmar_recepcion(conexion, cod_op, id_mensaje);
 
 	log_trace(logger, "Recepcion confirmada: %d %d %d", conexion, cod_op, id_mensaje);
 
+	free(arg_handle);
 	log_trace(logger,"Mensaje recibido manejado");
 
-	return id_mensaje;
 }
 
 
