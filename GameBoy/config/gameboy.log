@@ -46766,3 +46766,12 @@
 [ERROR] 21:33:23:924 GameBoy/(18063:18063): Error en 'recibir_codigo_operacion'
 [WARNING] 21:33:23:924 GameBoy/(18063:18063): El broker cerro el socket 4.
 [WARNING] 21:33:23:924 GameBoy/(18063:18063): Se salio del while del socket 4.
+[TRACE] 22:37:59:374 GameBoy/(6192:6192): Caracteristicas de mensaje obtenidas
+[TRACE] 22:37:59:374 GameBoy/(6192:6192): Se quiere enviar un mensaje del tipo -3- al modulo -2-
+[TRACE] 22:37:59:374 GameBoy/(6192:6192): Leido de config por parametro GAMECARD. Ip: 127.0.0.3 y Puerto: 5001
+[TRACE] 22:37:59:374 GameBoy/(6192:6192): Conexion Creada. Ip: 127.0.0.3 y Puerto: 5001 
+[TRACE] 22:37:59:374 GameBoy/(6192:6192): El mensaje fue serializado. 
+[TRACE] 22:37:59:375 GameBoy/(6192:6192): OPERATION CODE: 3
+[TRACE] 22:37:59:375 GameBoy/(6192:6192): El mensaje fue enviado.
+[ERROR] 22:37:59:375 GameBoy/(6192:6192): Error en 'recibir_codigo_operacion'
+[WARNING] 22:37:59:376 GameBoy/(6192:6192): El broker cerro el socket 4.

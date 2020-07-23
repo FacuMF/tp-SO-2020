@@ -39,6 +39,7 @@ void finalizar_gamecard(){
 	terminar_logger(logger);
 	config_destroy(config);
 	pthread_mutex_destroy(&mutex_open_file);
+	bitarray_destroy(bitmap_bloques);
 }
 
 

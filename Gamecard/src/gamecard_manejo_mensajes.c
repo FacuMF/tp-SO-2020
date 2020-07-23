@@ -265,8 +265,55 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 	actualizar_size_metadata(read_pokemon_metadata(mensaje_catch->pokemon),bloques);
 	config_save(config_bloque);
 	config_destroy(config_bloque);
+
+	if(tamanio_archivo(pokemon_metadata_path(mensaje_catch->pokemon)) == 0){
+		sacar_bloque_de_metadata(mensaje_catch->pokemon,bloque_con_posicion);
+	}
 }
 
+void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){
+	t_config* config_metadata = read_pokemon_metadata(pokemon);
+	char* bloques = extraer_bloques_string(pokemon);
+	if(string_starts_with(bloques,concat("[",string_itoa(bloque_con_posicion)))){
+		char**bloques_separados = string_split(bloques,concat(string_itoa(bloque_con_posicion),","));
+		char* bloques_nuevos = string_new();
+		string_append(&bloques_nuevos,bloques_separados[0]);
+		string_append(&bloques_nuevos,bloques_separados[1]);
+		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
+		config_save(config_metadata);
+		config_destroy(config_metadata);
+	}
+	else if(string_ends_with(bloques,concat(string_itoa(bloque_con_posicion),"]"))){
+		char**bloques_separados = string_split(bloques,concat(",",string_itoa(bloque_con_posicion)));
+		char* bloques_nuevos = string_new();
+		string_append(&bloques_nuevos,bloques_separados[0]);
+		string_append(&bloques_nuevos,bloques_separados[1]);
+		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
+		config_save(config_metadata);
+		config_destroy(config_metadata);
+	} else {
+		char* aux = concat(string_itoa(bloque_con_posicion),",");
+		char**bloques_separados = string_split(bloques,concat(",",aux));
+		char* bloques_nuevos = string_new();
+		string_append(&bloques_nuevos,bloques_separados[0]);
+		string_append(&bloques_nuevos,",");
+		string_append(&bloques_nuevos,bloques_separados[1]);
+		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
+		config_save(config_metadata);
+		config_destroy(config_metadata);
+	}
+	actualizar_bitmap(bloque_con_posicion);
+}
+
+char* extraer_bloques_string(char* pokemon){
+	t_config* config = read_pokemon_metadata(pokemon);
+	return config_get_string_value(config,"BLOCKS");
+}
+
+
+void actualizar_bitmap(int bloque){
+	bitarray_clean_bit(bitmap_bloques,bloque); // Algo mas que esto?
+}
 		
 void cerrar_archivo_pokemon(char* pokemon){
 	pthread_mutex_lock(&mutex_open_file);

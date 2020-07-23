@@ -32,7 +32,7 @@ t_config* read_file_metadata(char* table){
 	return config_create(files_base_path(table));
 }
 
-char** extraer_bloques(char* pokemon){
+char** extraer_bloques(char* pokemon){ //TODO destroy config?
 	t_config* config = read_pokemon_metadata(pokemon);
 	return config_get_array_value(config,"BLOCKS");
 }
@@ -225,12 +225,10 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 		config_set_value(config_bloque_nuevo, posicion, string_itoa(mensaje_new->cantidad));
 
 	}
-	actualizar_size_metadata(config_metadata, bloques_pokemon);
 	agregar_bloque_metadata(config_metadata,contador);
+	actualizar_size_metadata(config_metadata, bloques_pokemon); // el save y destroy esta puesto en el actualizar
 	config_save(config_bloque_nuevo);
 	config_destroy(config_bloque_nuevo);
-	config_save(config_metadata);
-	config_destroy(config_metadata);
 	bitarray_set_bit(bitmap_bloques,contador); // Esperemos que lo setee en 1
 
 }
@@ -265,6 +263,8 @@ void agregar_bloque_metadata(t_config* config_metadata, int bloque_nuevo){ // Ch
 void actualizar_size_metadata(t_config* config_metadata,char** bloques){
 	int tamanio_definitivo = tamanio_todos_los_bloques(bloques);
 	config_set_value(config_metadata, "SIZE", string_itoa(tamanio_definitivo));
+	config_save(config_metadata);
+	config_destroy(config_metadata);
 
 }
 
