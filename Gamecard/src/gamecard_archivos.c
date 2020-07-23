@@ -184,7 +184,6 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 
 	asignar_bloque_vacio(mensaje_new, contador, posicion_existente);
 
-
 }
 
 void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion_existente){
@@ -226,7 +225,10 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 	config_save(config_bloque_nuevo);
 	config_destroy(config_bloque_nuevo);
 	actualizar_size_metadata(mensaje_new->pokemon); // el save y destroy esta puesto en el actualizar
+
+	//TODO MUTEX bitmap
 	bitarray_set_bit(bitmap_bloques,contador);
+	save_bitmap();
 }
 
 int encontrar_bloque_con_posicion(char* posicion, char** bloques){
@@ -255,7 +257,8 @@ void agregar_bloque_metadata(char* pokemon, int bloque_nuevo){ // Chequear bien 
 	bool esta_al_principio = string_contains(bloques,concat("[",concat(string_itoa(bloque_nuevo),",")));
 	bool esta_al_medio = string_contains(bloques,concat(",",concat(string_itoa(bloque_nuevo),",")));
 	bool esta_al_final = string_contains(bloques,concat(",",concat(string_itoa(bloque_nuevo),"]")));
-	if(esta_al_principio || esta_al_medio || esta_al_final) return;
+	bool es_el_unico = string_contains(bloques,concat("[",concat(string_itoa(bloque_nuevo),"]")));
+	if(esta_al_principio || esta_al_medio || esta_al_final || es_el_unico) return;
 
 	if(strlen(bloques)==2){
 		bloques_final = concat(concat("[",string_itoa(bloque_nuevo)),"]");
@@ -288,19 +291,43 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 	char** bloques = extraer_bloques(mensaje_get->pokemon);
 	int n = 0;
 	t_list* lista_posiciones = list_create();
+
 	while(bloques[n]!=NULL){
+
 		t_config* config_bloque = config_create(block_path(atoi(bloques[n])));
+		t_dictionary* diccionario_bloque = config_bloque->properties;
+
+		void agregar_posicion_a_lista(void* element){
+			char* key = element;
+			t_posicion* posicion_dividida = de_char_a_posicion(key);
+
+			log_debug(logger, "Posicion a agregar: %s.", key);
+
+			list_add(lista_posiciones,posicion_dividida);
+
+		}
+
+		dictionary_iterator(diccionario_bloque, (void*) agregar_posicion_a_lista);
+
+/*
+
 		int cantidad_posiciones = config_keys_amount(config_bloque);
+
 		for(int i = 0; i < cantidad_posiciones; i++){
+
 			char* sentencia = leer_sentencia(block_path(atoi(bloques[n])));
 			char* posicion = separar_posicion(sentencia);
+
 			t_posicion* posicion_dividida = de_char_a_posicion(posicion);
+
 			list_add(lista_posiciones,posicion_dividida);
-			config_remove_key(config_bloque,posicion);
+
 		}
+*/
 		n++;
 		config_destroy(config_bloque);
 	}
+
 	t_localized_pokemon* pokemon_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_posiciones);
 	return pokemon_localized;
 }

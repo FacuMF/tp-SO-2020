@@ -12,7 +12,7 @@ void enviar_mensaje_suscripcion_gamecard(op_code mensaje, int conexion){
 		log_trace(logger, "Mensaje suscripcion enviado");
 }
 
-void enviar_appeared_pokemon_a_broker( t_appeared_pokemon* appeared_a_enviar) {
+void enviar_appeared_pokemon_a_broker( t_appeared_pokemon* appeared_a_enviar ) {
 	log_trace(logger, "Mensaje APPEARED a enviar: %s.", mostrar_appeared_pokemon(appeared_a_enviar) );
 
 	int socket_broker = iniciar_conexion_broker_gamecard();

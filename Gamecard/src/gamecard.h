@@ -16,6 +16,7 @@ int REINTENTO_CONEXION;
 int REINTENTO_OPERACION;
 
 // BITMAP
+void* bitmap_memory;
 t_bitarray* bitmap_bloques;
 
 t_log* logger; // Mismo nombre entre archivos?
@@ -168,7 +169,8 @@ bool informar_error_no_existe_pokemon_catch(t_catch_pokemon* mensaje_catch);
 bool informar_no_existe_pokemon_get(t_get_pokemon* mensaje_get);
 t_appeared_pokemon * de_new_a_appeared(t_new_pokemon * mensaje_new);
 void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion);
-void actualizar_bitmap(int bloque);
+void vaciar_bloque_bitmap(int bloque);
+void save_bitmap();
 void cerrar_archivo_pokemon(char* pokemon);
 void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques);
 void restar_uno_pos_catch();

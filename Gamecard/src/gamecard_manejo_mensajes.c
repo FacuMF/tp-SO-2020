@@ -26,38 +26,37 @@ void manejar_new_pokemon(t_new_pokemon *mensaje_new){
 }
 
 void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
-	bool respuesta_caugth = true;
+	bool respuesta_existe_archivo = true;
+	bool respuesta_existe_pos_archivo = false;
 
 	// 1. Verifico si existe
-	respuesta_caugth = informar_error_no_existe_pokemon_catch(mensaje_catch);
+	respuesta_existe_archivo = informar_error_no_existe_pokemon_catch(mensaje_catch); // Si existe -> true;
 
 	// 2. Verifico si se puede abrir.
-	if (respuesta_caugth){
+	if (respuesta_existe_archivo){ //Si no existe archivo no entra
 		intentar_abrir_archivo(mensaje_catch->pokemon);
 	}
 
 	// 3. Verifica que exista la posicion.
-	if (respuesta_caugth){
-		respuesta_caugth = informar_error_no_existe_pos_catch(mensaje_catch);
+	if (respuesta_existe_archivo){ //Si no existe archivo no entra
+		respuesta_existe_pos_archivo = informar_error_no_existe_pos_catch(mensaje_catch); // Si existe -> true;
 	}
 
 	// 4. Si la unidad es 1, elimino la linea. Si es mayor, resto una unidad.
-	if (respuesta_caugth){
+	if (respuesta_existe_pos_archivo){ //Si no posicion en archivo no entra => bool respuesta_pos queda en false;
 		restar_uno_pos_catch(mensaje_catch); //TODO
-	} else {
-		cerrar_archivo_pokemon(mensaje_catch->pokemon);
 	}
 
 	// 5. Esperar los segundos definidos por config
 	sleep(config_get_int_value(config,"TIEMPO_RETARDO_OPERACION"));
 
 	// 6. Cerrar archivo
-	if (respuesta_caugth){
+	if(respuesta_existe_archivo){ //Si no existe archivo no entra
 		cerrar_archivo_pokemon(mensaje_catch->pokemon);
 	}
 
 	// 7. Conectarse a broker y enviar resultado
-	enviar_caught_pokemon_a_broker(crear_caught_pokemon(mensaje_catch->id_mensaje,respuesta_caugth));
+	enviar_caught_pokemon_a_broker(crear_caught_pokemon(mensaje_catch->id_mensaje,respuesta_existe_pos_archivo));
 }
 
 void manejar_get_pokemon(t_get_pokemon * mensaje_get){
@@ -247,20 +246,27 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 	char** bloques = extraer_bloques(mensaje_catch->pokemon);
 	char* posicion = concatenar_posicion(mensaje_catch->posx,mensaje_catch->posy);
 	int bloque_con_posicion = encontrar_bloque_con_posicion(posicion, bloques);
+
 	t_config* config_bloque = config_create(block_path(bloque_con_posicion));
 	int cantidad = config_get_int_value(config_bloque,posicion);
+
 	if(cantidad == 1){
 		config_remove_key(config_bloque,posicion);
-	} else {
+	}
+	else {
 		int cantidad_previa = config_get_int_value(config_bloque,posicion);
 		config_set_value(config_bloque,posicion,string_itoa(cantidad_previa-1));
 	}
-	actualizar_size_metadata(mensaje_catch->pokemon);
+
 	config_save(config_bloque);
 	config_destroy(config_bloque);
 
-	if(tamanio_archivo(pokemon_metadata_path(mensaje_catch->pokemon)) == 0){
-		sacar_bloque_de_metadata(mensaje_catch->pokemon,bloque_con_posicion);
+	actualizar_size_metadata(mensaje_catch->pokemon);
+
+	int tamanio_bloque = tamanio_archivo(block_path(bloque_con_posicion));
+
+	if( tamanio_bloque == 0 ){
+		sacar_bloque_de_metadata(mensaje_catch->pokemon,bloque_con_posicion); //TODO: Modificar bitmap.
 	}
 }
 
@@ -295,7 +301,7 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){
 		config_save(config_metadata);
 		config_destroy(config_metadata);
 	}
-	actualizar_bitmap(bloque_con_posicion);
+	vaciar_bloque_bitmap(bloque_con_posicion);
 }
 
 char* extraer_bloques_string(char* pokemon){
@@ -304,8 +310,28 @@ char* extraer_bloques_string(char* pokemon){
 }
 
 
-void actualizar_bitmap(int bloque){
-	bitarray_clean_bit(bitmap_bloques,bloque); // Algo mas que esto?
+void vaciar_bloque_bitmap(int bloque){
+	//TODO mutex
+
+	bitarray_clean_bit(bitmap_bloques,bloque);
+	save_bitmap();
+
+	//TODO unlock mutex
+}
+
+void save_bitmap() {
+	FILE* file_birarray = fopen( bitmap_path(), "w");
+
+	for (int renglon = 0; renglon < (cantidad_bloques()/8) ; ++renglon) {
+
+		for (int bit = 0; bit < 8; ++bit) {
+			fprintf(file_birarray, "%i", bitarray_test_bit(bitmap_bloques, renglon*bit) );
+			//log_debug(logger, "SAVE BITARRAY bloque %i: %i", i, bitarray_test_bit(bitmap_bloques, i));
+		}
+		fprintf(file_birarray, "\n" );
+	}
+
+	fclose(file_birarray);
 }
 		
 void cerrar_archivo_pokemon(char* pokemon){

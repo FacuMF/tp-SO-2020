@@ -135,8 +135,9 @@ t_new_pokemon* crear_new_pokemon(char* pokemon, int posicion_x, int posicion_y,
 		int cantidad, int id_mensaje) {
 	t_new_pokemon* mensaje = malloc(sizeof(t_new_pokemon));
 	mensaje->size_pokemon = string_length(pokemon);
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	mensaje->pokemon = malloc(mensaje->size_pokemon +1);
 	memcpy(mensaje->pokemon, pokemon, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] ='\0';
 	mensaje->posx = posicion_x;
 	mensaje->posy = posicion_y;
 	mensaje->cantidad = cantidad;
@@ -226,8 +227,9 @@ t_appeared_pokemon* crear_appeared_pokemon(char* pokemon, int posicion_x,
 		int posicion_y, int id_mensaje) {
 	t_appeared_pokemon* mensaje = malloc(sizeof(t_appeared_pokemon));
 	mensaje->size_pokemon = strlen(pokemon);
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	mensaje->pokemon = malloc(mensaje->size_pokemon+1);
 	memcpy(mensaje->pokemon, pokemon, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] ='\0';
 	mensaje->posx = posicion_x;
 	mensaje->posy = posicion_y;
 	mensaje->id_mensaje = id_mensaje;
@@ -446,8 +448,9 @@ t_get_pokemon* crear_get_pokemon(char* pokemon, int id_mensaje) {
 	t_get_pokemon* mensaje = malloc(sizeof(t_get_pokemon));
 
 	mensaje->size_pokemon = strlen(pokemon);
-	mensaje->pokemon = malloc(mensaje->size_pokemon);
+	mensaje->pokemon = malloc(mensaje->size_pokemon+1);
 	memcpy(mensaje->pokemon, pokemon, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] ='\0';
 	mensaje->id_mensaje = id_mensaje;
 
 	return mensaje;
@@ -563,8 +566,9 @@ t_localized_pokemon* crear_localized_pokemon(int id_mensaje, char* pokemon,
 	int cantidad_posiciones = list_size(posiciones);
 
 	mensaje->size_pokemon = strlen(pokemon);
-	mensaje->pokemon = malloc(sizeof(char) * mensaje->size_pokemon);
+	mensaje->pokemon = malloc(mensaje->size_pokemon +1);
 	memcpy(mensaje->pokemon, pokemon, mensaje->size_pokemon);
+	(mensaje->pokemon)[mensaje->size_pokemon] ='\0';
 	mensaje->cantidad_posiciones = cantidad_posiciones;
 	mensaje->posiciones = list_duplicate(posiciones);
 	mensaje->id_mensaje = id_mensaje;

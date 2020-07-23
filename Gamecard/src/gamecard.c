@@ -25,11 +25,15 @@ void iniciar_gamecard(char*argumentos_iniciales[]){
 
 		crear_metadata_bin();
 
-		bitmap_bloques = bitarray_create_with_mode(bitmap_path(),cantidad_bloques()/8,LSB_FIRST);
+		//Creo bitmap
+
+		bitmap_memory = malloc(cantidad_bloques()/8);
+		bitmap_bloques = bitarray_create_with_mode(bitmap_memory,cantidad_bloques()/8,LSB_FIRST);
 		for(int i=0; i < cantidad_bloques();i++){
 			bitarray_clean_bit(bitmap_bloques,i);
 			create_file(block_path(i));
 		}
+		save_bitmap();
 
 }
 
