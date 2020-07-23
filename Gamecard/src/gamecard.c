@@ -27,8 +27,11 @@ void iniciar_gamecard(char*argumentos_iniciales[]){
 
 		crear_metadata_bin();
 
-		bitmap_bloques = bitarray_create("bitmap_bloques",tamanio_bloque()/8);
-
+		bitmap_bloques = bitarray_create_with_mode(bitmap_path(),cantidad_bloques()/8,LSB_FIRST);
+		for(int i=0; i < cantidad_bloques();i++){
+			bitarray_clean_bit(bitmap_bloques,i);
+			create_file(block_path(i));
+		}
 
 
 }
@@ -47,10 +50,12 @@ void crear_metadata_bin(){
 	log_trace(logger, "Crear metadata");
 
 	create_dir(PUNTO_MONTAJE);
+	create_dir(blocks_base_path());
+	create_dir(concat(PUNTO_MONTAJE, FILES_BASE_PATH));
 	create_dir(metadata_base_path());
+	create_file(bitmap_path());
 
-	char* metadata_bin = concat(metadata_base_path(), "Metadata.bin");
-
+	char* metadata_bin = concat(metadata_base_path(), METADATA_FILE_NAME);
 	create_file( metadata_bin );
 
 	t_config* config_metadata = config_create(metadata_bin);

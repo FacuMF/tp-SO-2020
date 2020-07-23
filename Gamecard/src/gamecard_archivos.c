@@ -1,28 +1,5 @@
 #include "gamecard.h"
 
-// Manejo de archivos
-
-/* FIJAR SI NECESITO ESTAS FUNCIONES
-void delete_from_path(char* path) {
-    system(concat("rm -rf ", path));
-}
-
-
-void clean_file(char* path) {
-    delete_from_path(path);
-    create_file(path);
-}
-
-void clean_dir(char* path) {
-    delete_from_path(path);
-    create_dir(path);
-}
-*/
-
-
-
-// LECTURA DE ARCHIVOS
-
 t_config* read_pokemon_metadata(char* table) {
 	t_config* config_pokemon = config_create(pokemon_metadata_path(table));
     return config_pokemon;
@@ -33,15 +10,20 @@ t_config* read_file_metadata(char* table){
 }
 
 char** extraer_bloques(char* pokemon){ //TODO destroy config?
-	t_config* config = read_pokemon_metadata(pokemon);
-	return config_get_array_value(config,"BLOCKS");
+	t_config* config_bloques = read_pokemon_metadata(pokemon);
+	char** bloques = config_get_array_value(config_bloques,"BLOCKS");
+	config_destroy(config_bloques);
+	return bloques;
 }
 
 bool verificar_posiciones_file(char* posicion, char** bloques){
 	int n=0;
 	while(bloques[n]!=NULL){
 		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
-		if (config_has_property(config_bloque,posicion)) return true;
+		if (config_has_property(config_bloque,posicion)) {
+			config_destroy(config_bloque);
+			return true;
+		}
 		config_destroy(config_bloque);
 		n++;
 	}
@@ -78,7 +60,7 @@ void crear_pokemon_dir(char* tableName) {
     log_trace(logger, "Crear directorio: %s", files_base_path(tableName) );
 	create_dir(files_base_path(tableName));
 
-    char* metadata_bin = concat(concat(PUNTO_MONTAJE, FILES_BASE_PATH), "Metadata.bin");
+    char* metadata_bin = concat(concat(PUNTO_MONTAJE, FILES_BASE_PATH), METADATA_FILE_NAME );
     log_trace(logger, "Crear metadata directorio: %s", metadata_bin );
 
     create_file( metadata_bin );
@@ -93,9 +75,6 @@ void crear_pokemon_dir(char* tableName) {
 
 
 void crear_pokemon_metadata_file(char* tableName){
-
-	//Creao archivo
-	create_file( concat( files_base_path(tableName), concat(tableName, ".txt") ) );
 
 	//Creo metadata
 	create_file( pokemon_metadata_path(tableName) );
@@ -135,13 +114,16 @@ bool file_existing(char* path){
 // TAMANIOS DE ARCHIVOS Y SUS ATRIBUTOS
 int tamanio_bloque(){
 	t_config* config_tamanio = leer_config(metadata_path());
-
-	return config_get_int_value(config_tamanio,"BLOCK_SIZE");
+	int tamanio = config_get_int_value(config_tamanio,"BLOCK_SIZE");
+	config_destroy(config_tamanio);
+	return tamanio;
 }
 
 int cantidad_bloques(){
 	t_config* config_cantidad = leer_config(metadata_path());
-	return config_get_int_value(config_cantidad, "BLOCKS");
+	int cantidad = config_get_int_value(config_cantidad, "BLOCKS");
+	config_destroy(config_cantidad);
+	return cantidad;
 }
 
 int size_bytes(char* data) {
@@ -186,11 +168,11 @@ t_posicion* de_char_a_posicion(char* string_posicion){ // Ej "1-2"
 // Manejo de asignacion de bloques
 
 void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
-	int contador = 1;
-	char** bloques_pokemon = extraer_bloques(mensaje_new->pokemon);
-	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
+	int contador = 0;
 
-	while(bitarray_test_bit(bitmap_bloques,contador) && contador <= cantidad_bloques()){ // No hay 0.bin?
+
+	while(bitarray_test_bit(bitmap_bloques,contador) && contador <= cantidad_bloques()){
+		log_debug(logger,"Bit: %d estado: %d",contador, bitarray_test_bit(bitmap_bloques,contador));
 		contador++;
 	}
 
@@ -198,19 +180,32 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 		log_error(logger,"No hay bloques disponibles para asignar informacion al pokemon %s.",mensaje_new->pokemon);
 		return;
 	}
+	log_debug(logger,"Va a proceder a asignar el bloque vacio:  %d",contador);
+
+	asignar_bloque_vacio(mensaje_new, contador, posicion_existente);
+
+
+}
+
+void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion_existente){
+	char** bloques_pokemon = extraer_bloques(mensaje_new->pokemon);
+	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 
 	t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
 	t_config* config_bloque_nuevo = config_create(block_path(contador));
 
 	if(posicion_existente){
+		log_debug(logger,"La posicion ya existia, se va a borrar la sentencia y escribir en otro bloque");
 		int bloque_viejo = encontrar_bloque_con_posicion(posicion,bloques_pokemon);
 		t_config* config_bloque_viejo = config_create(block_path(bloque_viejo));
 		int cantidad_vieja = config_get_int_value(config_bloque_viejo,posicion);
 		int cantidad_total = cantidad_vieja + mensaje_new->cantidad;
+
 		if (sentencia_sobrepasa_tamanio_maximo(mensaje_new->posx,mensaje_new->posy,cantidad_total)){
 			log_error(logger,"La sentencia sobrepasa el tamanio maximo de bloque.");
 			return;
 		}
+
 		config_remove_key(config_bloque_viejo,posicion);
 		config_set_value(config_bloque_nuevo, posicion, string_itoa(cantidad_total));
 
@@ -222,21 +217,22 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 			log_error(logger,"La sentencia sobrepasa el tamanio maximo de bloque.");
 			return;
 		}
+		log_debug(logger,"Se escribe la posicion en otro bloque ya que no existia");
 		config_set_value(config_bloque_nuevo, posicion, string_itoa(mensaje_new->cantidad));
 
 	}
-	agregar_bloque_metadata(config_metadata,contador);
-	actualizar_size_metadata(config_metadata, bloques_pokemon); // el save y destroy esta puesto en el actualizar
+	log_debug(logger,"Termino el if enorme");
+	agregar_bloque_metadata(mensaje_new->pokemon,contador);
+	actualizar_size_metadata(mensaje_new->pokemon, bloques_pokemon); // el save y destroy esta puesto en el actualizar
 	config_save(config_bloque_nuevo);
 	config_destroy(config_bloque_nuevo);
-	bitarray_set_bit(bitmap_bloques,contador); // Esperemos que lo setee en 1
-
+	bitarray_set_bit(bitmap_bloques,contador);
 }
 
 int encontrar_bloque_con_posicion(char* posicion, char** bloques){
 	int n=0;
 	while(bloques[n]!=NULL){
-		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+		t_config* config_bloque = config_create(block_path(atoi(bloques[n])));
 		if (config_has_property(config_bloque,posicion)){
 			config_destroy(config_bloque);
 			return atoi(bloques[n]);
@@ -250,17 +246,30 @@ int encontrar_bloque_con_posicion(char* posicion, char** bloques){
 
 
 
-void agregar_bloque_metadata(t_config* config_metadata, int bloque_nuevo){ // Chequear bien esta funcion
+void agregar_bloque_metadata(char* pokemon, int bloque_nuevo){ // Chequear bien esta funcion
+	t_config* config_metadata = config_create(pokemon_metadata_path(pokemon));
+	log_debug(logger,"Path del metadata yendo a agregar el bloque: %s",pokemon_metadata_path(pokemon));
 	char* bloques = config_get_string_value(config_metadata,"BLOCKS");
-	bloques[strlen(bloques)-1] = ',';
-	char* aux1 = concat(bloques,string_itoa(bloque_nuevo));
-	char* bloques_final = concat(aux1,"]");
-	config_set_value(config_metadata,"BLOCKS",bloques_final);
+	char* bloques_final;
 
+	if(strlen(bloques)==2){
+		bloques_final = concat(concat("[",string_itoa(bloque_nuevo)),"]");
+	}else{
+		bloques[strlen(bloques)-1] = ',';
+		char* aux1 = concat(bloques,string_itoa(bloque_nuevo));
+		bloques_final = concat(aux1,"]");
+	}
+
+	config_set_value(config_metadata,"BLOCKS",bloques_final);
+	log_debug(logger,"Lo que se seteo: %s",config_get_string_value(config_metadata,"BLOCKS"));
+	log_debug(logger,"Bloques final: %s",bloques_final);
+	config_save(config_metadata);
+	config_destroy(config_metadata);
 
 }
 
-void actualizar_size_metadata(t_config* config_metadata,char** bloques){
+void actualizar_size_metadata(char* pokemon,char** bloques){
+	t_config* config_metadata = config_create(pokemon_metadata_path(pokemon));
 	int tamanio_definitivo = tamanio_todos_los_bloques(bloques);
 	config_set_value(config_metadata, "SIZE", string_itoa(tamanio_definitivo));
 	config_save(config_metadata);

@@ -25,15 +25,17 @@ char *obtener_path_gamecard(char *path_leido) {
 	return path;
 }
 void iniciar_chars_necesarios(){
+	// EXTENSION
+	EXTENSION = ".txt";
+
 	PUNTO_MONTAJE= concat( config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"), "/");
 	METADATA_BASE_PATH = "Metadata";
 	FILES_BASE_PATH = "Files/";
 	BLOCKS_BASE_PATH = "Blocks/";
-	METADATA_FILE_NAME = "Metadata.bin";
-	BITMAP_FILE_NAME = "Bitmap.bin";
+	METADATA_FILE_NAME = concat("Metadata",EXTENSION);
+	BITMAP_FILE_NAME = concat("Bitmap",EXTENSION);
 
-	// EXTENSIONES
-	EXTENSION = ".bin";
+
 }
 void iniciar_semaforos_gamecard(){
 
@@ -42,4 +44,28 @@ void iniciar_semaforos_gamecard(){
 	pthread_mutex_init(&mutex_open_file, NULL);
 
 }
+
+
+// Manejo de archivos
+
+/* FIJAR SI NECESITO ESTAS FUNCIONES
+void delete_from_path(char* path) {
+    system(concat("rm -rf ", path));
+}
+
+
+void clean_file(char* path) {
+    delete_from_path(path);
+    create_file(path);
+}
+
+void clean_dir(char* path) {
+    delete_from_path(path);
+    create_dir(path);
+}
+*/
+
+
+
+// LECTURA DE ARCHIVOS
 

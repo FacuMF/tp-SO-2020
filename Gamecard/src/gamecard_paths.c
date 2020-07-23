@@ -25,11 +25,11 @@ char* to_block_file(int blockNumber) {
 // BASE PATH
 
 char* metadata_base_path() {
-    return concat_dirs(PUNTO_MONTAJE, METADATA_BASE_PATH);
+    return concat_dirs(PUNTO_MONTAJE, METADATA_BASE_PATH); //TALLGRASS/Metadata/
 }
 
 char* blocks_base_path() {
-    return concat(PUNTO_MONTAJE, BLOCKS_BASE_PATH);
+    return concat(PUNTO_MONTAJE, BLOCKS_BASE_PATH); //TALLGRASS/Blocks/
 }
 
 
@@ -41,15 +41,15 @@ char* files_base_path(char* fileName) {
 // ----- PATH DEFINITIVOS -----
 
 char* block_path(int block) {
-    return concat(blocks_base_path(), to_block_file(block));
+    return concat(blocks_base_path(), to_block_file(block)); //TALLGRASS/Blocks/1.bin
 }
 
 char* metadata_path() {
-    return concat(metadata_base_path(), METADATA_FILE_NAME);
+    return concat(metadata_base_path(), METADATA_FILE_NAME);//TALLGRASS/Metadata/Metadata.bin
 }
 
 char* bitmap_path() {
-    return concat(metadata_base_path(), BITMAP_FILE_NAME);
+    return concat(metadata_base_path(), BITMAP_FILE_NAME);//TALLGRASS/Metadata/Bitmap.bin
 }
 
 char* pokemon_metadata_path(char* fileName) {

@@ -56,19 +56,7 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 	}
 
 	// 7. Conectarse a broker y enviar resultado
-	enviar_caught_pokemon_a_broker(crear_caught_pokemon(mensaje_catch->id_mensaje,respuesta_caugth)); // cambiar la funcion para no tener (void*)
-
-	//TBR
-	//char* file = pokemon_metadata_path(mensaje_catch->pokemon);
-	// Verificar si existe pokemon en el Filesystem
-	//crear_file_si_no_existe(file,mensaje_catch->pokemon);
-	// Verificar si se puede abrir el archivo
-	// Verificar si las posiciones existen dentro del archivo
-	// En caso de que la cantidad sea 1 -> eliminar la linea, en caso contrario se debe decrementar una unidad
-	// Esperar la cantidad de segundos definidos en config
-	// Cerrar archivo
-	// Conectarse al broker y enviar el mensaje indicando ID del mensaje  y resultado a CAUGHT_POKEMON.
-	// Si no se puede conectar al broker informar por log y continuar
+	enviar_caught_pokemon_a_broker(crear_caught_pokemon(mensaje_catch->id_mensaje,respuesta_caugth));
 }
 
 void manejar_get_pokemon(t_get_pokemon * mensaje_get){
@@ -101,10 +89,9 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 	log_trace(logger, "Manejar bloques pokemon.");
 
-	t_config* config_pokemon = read_pokemon_metadata(mensaje_new->pokemon);
-	config_set_value(config_pokemon,"OPEN","Y");
-
-
+	//t_config* config_pokemon = read_pokemon_metadata(mensaje_new->pokemon);
+	//config_set_value(config_pokemon,"OPEN","Y");
+	log_debug(logger,"Abriendo el archivo, dejando OPEN = Y");
 	char ** bloques = extraer_bloques(mensaje_new->pokemon);
 	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 
@@ -115,10 +102,10 @@ void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 		log_debug(logger, "Agregar posicion.");
 		agregar_posicion(mensaje_new,bloques);
 	}
+	log_debug(logger,"Posicion agregada/sumada");
 
-
-	config_save(config_pokemon);
-	config_destroy(config_pokemon);
+	//config_save(config_pokemon);
+	//config_destroy(config_pokemon);
 }
 
 bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch){
@@ -137,18 +124,22 @@ bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch){
 void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){ // Podriamos sacar los bloques como parametro
 	int tamanio_sentencia = string_length(string_itoa(mensaje_new->posx)) + string_length(string_itoa(mensaje_new->posy)) + string_length(string_itoa(mensaje_new->cantidad)) + 2; // CHEQUEAR
 	int i = 0;
-
 	while(bloques[i]!=NULL){
-
+		log_debug(logger,"Entro al while");
 		int tamanio_total = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_sentencia; // bloques[i] es char, cambiar a int (atoi)
+		log_debug(logger,"Tamanio total del archivo al escribir la sentencia: %d",tamanio_total);
 
 		if(tamanio_total <= tamanio_bloque()){
 
-			t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
 			t_config* config_bloque = config_create(block_path(atoi(bloques[i])));
 			char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 			config_set_value(config_bloque, posicion, string_itoa(mensaje_new->cantidad));
-			actualizar_size_metadata(config_metadata, bloques);
+			actualizar_size_metadata(mensaje_new->pokemon, bloques);
+
+			config_save(config_bloque);
+			config_destroy(config_bloque);
+
+
 			return;
 
 		}else{
@@ -157,6 +148,7 @@ void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){ // Podriamos
 
 		}
 	}
+	log_debug(logger,"Paso el while sin entrar");
 	asignar_bloque(mensaje_new,0);
 }
 
@@ -165,6 +157,7 @@ int tamanio_todos_los_bloques(char** bloques){
 	int i=0;
 	while(bloques[i]!=NULL){
 		tamanio += tamanio_archivo(block_path(atoi(bloques[i])));
+		i++;
 	}
 	return tamanio;
 }
@@ -204,8 +197,7 @@ void crear_file_si_no_existe(t_new_pokemon * mensaje_new){
 	char* file = pokemon_metadata_path(mensaje_new->pokemon);
 	if(!file_existing(file)){
 		log_trace(logger,"File del pokemon no existente, lo creo.");
-		crear_pokemon_dir(mensaje_new->pokemon);
-		crear_pokemon_metadata_file(mensaje_new->pokemon);
+		create_new_file_pokemon(mensaje_new->pokemon);
 
 	}
 }
@@ -228,9 +220,7 @@ bool informar_no_existe_pokemon_get(t_get_pokemon* mensaje_get){
 	return file_existing(file);
 }
 
-/*char* pokemon, int posicion_x,
-		int posicion_y, int id_mensaje)
-	*/
+
 t_appeared_pokemon * de_new_a_appeared(t_new_pokemon * mensaje_new){
 	t_appeared_pokemon * mensaje_appeared = crear_appeared_pokemon(mensaje_new->pokemon,
 		mensaje_new->posx,mensaje_new->posy, -30);
@@ -262,7 +252,7 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 		int cantidad_previa = config_get_int_value(config_bloque,posicion);
 		config_set_value(config_bloque,posicion,string_itoa(cantidad_previa-1));
 	}
-	actualizar_size_metadata(read_pokemon_metadata(mensaje_catch->pokemon),bloques);
+	actualizar_size_metadata(mensaje_catch->pokemon,bloques);
 	config_save(config_bloque);
 	config_destroy(config_bloque);
 
