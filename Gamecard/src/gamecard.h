@@ -121,7 +121,7 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente);
 void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion_existente);
 int encontrar_bloque_con_posicion(char* posicion, char** bloques);
 void agregar_bloque_metadata(char* pokemon, int bloque_nuevo);
-void actualizar_size_metadata(char* pokemon, char** bloques);
+void actualizar_size_metadata(char* pokemon);
 
 // Funciones de handle localized
 t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get);

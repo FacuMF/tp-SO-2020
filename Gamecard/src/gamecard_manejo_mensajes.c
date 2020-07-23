@@ -89,8 +89,6 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 	log_trace(logger, "Manejar bloques pokemon.");
 
-	//t_config* config_pokemon = read_pokemon_metadata(mensaje_new->pokemon);
-	//config_set_value(config_pokemon,"OPEN","Y");
 	log_debug(logger,"Abriendo el archivo, dejando OPEN = Y");
 	char ** bloques = extraer_bloques(mensaje_new->pokemon);
 	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
@@ -104,8 +102,6 @@ void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 	}
 	log_debug(logger,"Posicion agregada/sumada");
 
-	//config_save(config_pokemon);
-	//config_destroy(config_pokemon);
 }
 
 bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch){
@@ -126,19 +122,19 @@ void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){ // Podriamos
 	int i = 0;
 	while(bloques[i]!=NULL){
 		log_debug(logger,"Entro al while");
-		int tamanio_total = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_sentencia; // bloques[i] es char, cambiar a int (atoi)
+		int tamanio_total = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_sentencia;
 		log_debug(logger,"Tamanio total del archivo al escribir la sentencia: %d",tamanio_total);
+		log_debug(logger,"Tamanio de bloques: %d",tamanio_bloque());
 
 		if(tamanio_total <= tamanio_bloque()){
 
 			t_config* config_bloque = config_create(block_path(atoi(bloques[i])));
 			char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 			config_set_value(config_bloque, posicion, string_itoa(mensaje_new->cantidad));
-			actualizar_size_metadata(mensaje_new->pokemon, bloques);
-
 			config_save(config_bloque);
 			config_destroy(config_bloque);
 
+			actualizar_size_metadata(mensaje_new->pokemon);
 
 			return;
 
@@ -159,6 +155,7 @@ int tamanio_todos_los_bloques(char** bloques){
 		tamanio += tamanio_archivo(block_path(atoi(bloques[i])));
 		i++;
 	}
+	log_debug(logger,"Tamanio de todos los bloques del pokemon: %d",tamanio);
 	return tamanio;
 }
 
@@ -252,7 +249,7 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 		int cantidad_previa = config_get_int_value(config_bloque,posicion);
 		config_set_value(config_bloque,posicion,string_itoa(cantidad_previa-1));
 	}
-	actualizar_size_metadata(mensaje_catch->pokemon,bloques);
+	actualizar_size_metadata(mensaje_catch->pokemon);
 	config_save(config_bloque);
 	config_destroy(config_bloque);
 
@@ -320,17 +317,26 @@ void cerrar_archivo_pokemon(char* pokemon){
 void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){ // Capaz se puede optimizar (usando for se puede salir)
 	int n=0;
 	char* posicion = concatenar_posicion(mensaje_pokemon->posx, mensaje_pokemon->posy);
-
+	log_debug(logger,"Entro a summar unidad pos");
 	while(bloques[n]!=NULL){
-
-		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+		log_debug(logger,"Entro en el while de sumar unidad posicion");
+		t_config* config_bloque = config_create(block_path(atoi(bloques[n])));
 		if (config_has_property(config_bloque,posicion)){
+			log_debug(logger,"Encontre bloque que tiene mi misma pos");
 			int cantidad_vieja = config_get_int_value(config_bloque,posicion);
 			int diferencia_bytes = cantidad_bytes_de_mas(string_itoa(cantidad_vieja), string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
-			if(tamanio_archivo(block_path(atoi(bloques[n]))) == tamanio_bloque() && diferencia_bytes > 0){
+			int tamanio_total = tamanio_archivo(block_path(atoi(bloques[n]))) + diferencia_bytes;
+			if(tamanio_total > tamanio_bloque()){
 				asignar_bloque(mensaje_pokemon,1);
+
+			} else {
+
+				config_set_value(config_bloque,posicion, string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
+				config_save(config_bloque);
 			}
-			config_set_value(config,posicion, string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
+			config_destroy(config_bloque);
+			actualizar_size_metadata(mensaje_pokemon->pokemon);
+			return;
 		}
 		config_save(config_bloque);
 		config_destroy(config_bloque);
@@ -338,6 +344,7 @@ void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){ // Ca
 	}
 
 }
+
 
 int cantidad_bytes_de_mas(char* sentencia1, char* sentencia2){
 	return size_bytes(sentencia2) - size_bytes(sentencia1);

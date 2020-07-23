@@ -221,11 +221,11 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 		config_set_value(config_bloque_nuevo, posicion, string_itoa(mensaje_new->cantidad));
 
 	}
-	log_debug(logger,"Termino el if enorme");
+	log_debug(logger,"Termino agregar bloque vacio");
 	agregar_bloque_metadata(mensaje_new->pokemon,contador);
-	actualizar_size_metadata(mensaje_new->pokemon, bloques_pokemon); // el save y destroy esta puesto en el actualizar
 	config_save(config_bloque_nuevo);
 	config_destroy(config_bloque_nuevo);
+	actualizar_size_metadata(mensaje_new->pokemon); // el save y destroy esta puesto en el actualizar
 	bitarray_set_bit(bitmap_bloques,contador);
 }
 
@@ -252,6 +252,11 @@ void agregar_bloque_metadata(char* pokemon, int bloque_nuevo){ // Chequear bien 
 	char* bloques = config_get_string_value(config_metadata,"BLOCKS");
 	char* bloques_final;
 
+	bool esta_al_principio = string_contains(bloques,concat("[",concat(string_itoa(bloque_nuevo),",")));
+	bool esta_al_medio = string_contains(bloques,concat(",",concat(string_itoa(bloque_nuevo),",")));
+	bool esta_al_final = string_contains(bloques,concat(",",concat(string_itoa(bloque_nuevo),"]")));
+	if(esta_al_principio || esta_al_medio || esta_al_final) return;
+
 	if(strlen(bloques)==2){
 		bloques_final = concat(concat("[",string_itoa(bloque_nuevo)),"]");
 	}else{
@@ -268,9 +273,9 @@ void agregar_bloque_metadata(char* pokemon, int bloque_nuevo){ // Chequear bien 
 
 }
 
-void actualizar_size_metadata(char* pokemon,char** bloques){
+void actualizar_size_metadata(char* pokemon){
 	t_config* config_metadata = config_create(pokemon_metadata_path(pokemon));
-	int tamanio_definitivo = tamanio_todos_los_bloques(bloques);
+	int tamanio_definitivo = tamanio_todos_los_bloques(extraer_bloques(pokemon));
 	config_set_value(config_metadata, "SIZE", string_itoa(tamanio_definitivo));
 	config_save(config_metadata);
 	config_destroy(config_metadata);

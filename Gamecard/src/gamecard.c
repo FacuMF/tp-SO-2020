@@ -33,7 +33,6 @@ void iniciar_gamecard(char*argumentos_iniciales[]){
 			create_file(block_path(i));
 		}
 
-
 }
 
 void finalizar_gamecard(){
