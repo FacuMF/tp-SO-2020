@@ -123,6 +123,9 @@ char *obtener_path(char *path_leido) {
 }
 
 void obtener_variables_planificacion(){
+	ip_broker = config_get_string_value(config, "IP_BROKER");
+	puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
+
 	quantum = config_get_int_value(config, "QUANTUM");
 	estimacion_inicial = config_get_double_value(config, "ESTIMACION_INICIAL");
 	retardo_ciclo_cpu = config_get_int_value(config, "RETARDO_CICLO_CPU");

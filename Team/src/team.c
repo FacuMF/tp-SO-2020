@@ -6,8 +6,8 @@ int main(int argv, char*archivo_config[]) {
 
 	iniciar_team(archivo_config);
 
-	//pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
-	//pthread_detach(thread);
+	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
+	pthread_detach(thread);
 
 	pthread_create(&thread, NULL, (void*) enviar_requests_pokemones, NULL);
 	pthread_detach(thread);

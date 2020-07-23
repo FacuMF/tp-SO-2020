@@ -4,6 +4,7 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 	pthread_mutex_lock(&manejar_mensaje);
 	if (!requiero_pokemon(mensaje_appeared->pokemon)) {
 		liberar_mensaje_appeared_pokemon(mensaje_appeared);
+		pthread_mutex_unlock(&manejar_mensaje);
 		return;
 	}
 
@@ -35,6 +36,7 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 			|| (pokemon_en_lista(pokemones_recibidos,
 					mensaje_localized->pokemon))) {
 		liberar_mensaje_localized_pokemon(mensaje_localized);
+		pthread_mutex_unlock(&manejar_mensaje);
 		return; // Mensaje descartado
 	}
 	log_trace(logger, "Manejo mensaje localized");
@@ -70,6 +72,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 		entrenador = obtener_entrenador_segun_id_mensaje(
 				mensaje_caught->id_mensaje);
 	if (entrenador == NULL) {
+		log_trace(logger,"Aun no tengo el entrenador con el catch");
 		liberar_mensaje_caught_pokemon(mensaje_caught);
 		return; // Mensaje descartado
 	}
@@ -79,8 +82,6 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 
 	char * pokemon = entrenador->catch_pendiente->pokemon;
 	if (mensaje_caught->ok_or_fail) { // SI LO ATRAPO
-
-		// Zona critica ampliada para evitar inconsistencias por pokemon siendo buscado y en lista de necesitados.
 		list_add(entrenador->pokemones_capturados, pokemon);
 
 		pthread_mutex_lock(&mutex_pokemones_necesitados);
@@ -88,8 +89,6 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 		free(entrenador->catch_pendiente);
 		entrenador->catch_pendiente = NULL;
 		pthread_mutex_unlock(&mutex_pokemones_necesitados);
-
-		//hasta aca esta en bloqueado, nadie lo va a tocar.
 
 		sem_post(&(entrenador->sem_est)); // Se autosetea status entrenador = blocked_normal/blocked_deadlock/exit
 

@@ -43,6 +43,8 @@ t_log* logger;
 t_config* config;
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
+char * ip_broker;
+char * puerto_broker;
 
 // Semaforos
 sem_t entrenadores_ready;
