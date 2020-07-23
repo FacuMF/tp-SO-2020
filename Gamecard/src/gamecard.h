@@ -56,6 +56,13 @@ pthread_mutex_t mutex_suscripcion;
 sem_t sem_suscripcion;
 pthread_mutex_t mutex_open_file;
 
+//STRUCT PARA HILOS
+
+typedef struct{
+	int conexion;
+	op_code codigo_de_operacion;
+} t_handle_mensajes_gamecard;
+
 // FUNCIONES GENERALES
 void iniciar_gamecard(char*archivo_config[]);
 void reintento_suscripcion_si_aplica_gamecard();
@@ -144,7 +151,7 @@ void esperar_mensaje_gameboy_gamecard(void* input);
 
 
 // Manejo de mensajes
-int handle_mensajes_gamecard(int conexion, op_code cod_op);
+void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle);
 void manejar_new_pokemon(t_new_pokemon *mensaje_new);
 void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch);
 void manejar_get_pokemon(t_get_pokemon * mensaje_get);
