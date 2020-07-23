@@ -40,10 +40,11 @@ void esperar_mensaje_gameboy(void* input){
 // BROKER
 
 int iniciar_conexion_con_broker() {
-	char * ip_broker = config_get_string_value(config, "IP_BROKER");
-	char * puerto_broker = config_get_string_value(config, "PUERTO_BROKER");
-
-	return iniciar_conexion(ip_broker, puerto_broker);
+	int result = iniciar_conexion(ip_broker, puerto_broker);
+	if(result<0)
+		return -1;
+	else
+		return result;
 }
 
 
@@ -62,6 +63,7 @@ void esperar_mensajes_cola(void* input) {
 		}else{
 			log_error(logger, "Error en 'recibir_codigo_operacion'");
 			reintento_suscripcion_si_aplica();
+			close(conexion);
 			return;
 		}
 	}

@@ -43,6 +43,8 @@ t_log* logger;
 t_config* config;
 char* string_nivel_log_minimo;
 t_log_level log_nivel_minimo;
+char * ip_broker;
+char * puerto_broker;
 
 // Semaforos
 sem_t entrenadores_ready;
@@ -79,6 +81,7 @@ double estimacion_inicial;
 int retardo_ciclo_cpu;
 int desalojar;
 double constante_estimacion;
+int tiempo_reconexion;
 
 // Metricas
 int deadlocks_resueltos;

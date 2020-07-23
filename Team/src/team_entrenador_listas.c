@@ -69,6 +69,9 @@ t_entrenador * obtener_entrenador_segun_id_mensaje(int id_mensaje) {
 
 		t_entrenador * cada_entrenador = elemento;
 
+		if(cada_entrenador->catch_pendiente == NULL)
+			return 0;
+
 		int id_mensaje_entrenador = cada_entrenador->catch_pendiente->id_mensaje;
 
 		return id_mensaje_entrenador == id_mensaje;

@@ -107,7 +107,7 @@ void crear_pokemon_metadata_file(char* tableName){
     config_set_value(config_file, "DIRECTORY", "N");
     config_set_value(config_file, "SIZE", "0"); // TODO: A DEFINIR
     config_set_value(config_file, "BLOCKS", "[]"); // TODO: A DEFINIR
-    config_set_value(config_file, "OPEN", "Y"); // TODO: A DEFINIR
+    config_set_value(config_file, "OPEN", "N"); // TODO: A DEFINIR
     config_save(config_file);
     config_destroy(config_file);
 }
@@ -134,10 +134,8 @@ bool file_existing(char* path){
 
 // TAMANIOS DE ARCHIVOS Y SUS ATRIBUTOS
 int tamanio_bloque(){
-	log_trace(logger, "Leer config: %s", metadata_path() );
 	t_config* config_tamanio = leer_config(metadata_path());
 
-	log_trace(logger, "get_value block_size.");
 	return config_get_int_value(config_tamanio,"BLOCK_SIZE");
 }
 

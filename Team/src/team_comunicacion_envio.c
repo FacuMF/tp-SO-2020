@@ -6,7 +6,7 @@ void suscribirse_a_colas_necesarias() {
 	enviar_suscripcion_broker(LOCALIZED_POKEMON);
 	enviar_suscripcion_broker(CAUGHT_POKEMON);
 	while (1) {
-		sleep(config_get_int_value(config, "RETARDO_REINTENTO_BROKER"));
+		sleep(tiempo_reconexion);
 		sem_wait(&suscripcion);
 		log_info(logger, "Inicio reintento de comunicacion con Broker");
 		enviar_suscripcion_broker(APPEARED_POKEMON);
@@ -24,6 +24,8 @@ void suscribirse_a_colas_necesarias() {
 
 void enviar_suscripcion_broker(op_code tipo_mensaje) {
 	int socket_broker = iniciar_conexion_con_broker();
+	log_warning(logger,"SOCKET %d",socket_broker);
+
 	if (socket_broker == -1){
 		reintento_suscripcion_si_aplica();
 	}else {
@@ -36,7 +38,7 @@ void enviar_suscripcion_broker(op_code tipo_mensaje) {
 
 		log_trace(logger, "Suscripcion completada");
 	}
-	close(socket_broker);
+	//close(socket_broker);
 }
 
 void enviar_mensaje_suscripcion(op_code mensaje, int conexion) {
