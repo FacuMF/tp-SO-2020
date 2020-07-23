@@ -89,6 +89,7 @@ void handle_cliente(int socket_servidor) {
 			argument);
 	pthread_detach(thread);
 	// Si termina el hilo, que sus recursos se liberen automaticamente
+
 }
 
 void recibir_mensaje_del_cliente(void* input) {
@@ -98,9 +99,9 @@ void recibir_mensaje_del_cliente(void* input) {
 
 	while (cod_op >= 0 && cod_op<10) { //Se tiene que repetir para que un socket pueda enviar mas de un mensaje.
 
-		log_warning(logger, "estoy antes recibir cod op %d", cod_op);
 		cod_op = recibir_codigo_operacion(socket_cliente);
-		log_trace(logger, "estoy en recibir cod op %d", cod_op);
+		log_trace(logger, "Recibi cod op %d.", cod_op);
+
 		if (cod_op == -1){
 			log_error(logger, "Error en 'recibir_codigo_operacion'");
 		}
@@ -112,6 +113,7 @@ void recibir_mensaje_del_cliente(void* input) {
 						socket_cliente);
 		}
 	}
+	pthread_exit(NULL);
 
 }
 
@@ -161,7 +163,6 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 	case CONFIRMACION:
 		//pthread_create(&thread, NULL, (void*) manejar_mensaje_confirmacion,
 						//info_mensaje_a_manejar);
-		log_warning(logger,"llego confirmacion");
 		manejar_mensaje_confirmacion(info_mensaje_a_manejar);
 		break;
 	default:
@@ -169,6 +170,7 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 		break;
 
 	}
+
 	pthread_detach(thread);
 }
 

@@ -19,10 +19,13 @@ void manejar_mensaje_suscriptor(t_conexion_buffer *combo) {
 
 	enviar_mensajes_cacheados_a_cliente(suscripcion, socket_cliente);
 
+	log_debug(logger, "Se va a intentar desuscribir. ");
+
 	desuscribir(socket_cliente, suscripcion);
 
 	liberar_suscripcion(suscripcion);
-	pthread_exit(NULL);
+
+
 }
 
  void subscribir(int cliente, t_subscriptor* subscripcion){

@@ -63,6 +63,13 @@ typedef struct{
 	op_code codigo_de_operacion;
 } t_handle_mensajes_gamecard;
 
+typedef struct{
+	int cod_op;
+	int id_mensaje;
+	t_buffer* buffer;
+	int conexion;
+}t_manejar_mensajes_gamecard;
+
 // FUNCIONES GENERALES
 void iniciar_gamecard(char*archivo_config[]);
 void reintento_suscripcion_si_aplica_gamecard();
@@ -155,6 +162,7 @@ void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle);
 void manejar_new_pokemon(t_new_pokemon *mensaje_new);
 void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch);
 void manejar_get_pokemon(t_get_pokemon * mensaje_get);
+void manejar_mensajes_gamecard(t_manejar_mensajes_gamecard* argumentos);
 
 // Auxiliares para Manejo de mensajes
 void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques);

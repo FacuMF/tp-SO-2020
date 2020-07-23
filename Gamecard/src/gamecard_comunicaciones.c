@@ -90,9 +90,10 @@ void enviar_suscripcion_al_broker(op_code tipo_mensaje) {
 
 		int* argument = malloc(sizeof(int));
 		*argument = socket_broker;
-		pthread_create(&thread, NULL, (void*) esperar_mensajes_gamecard, argument);
-		pthread_detach(thread);
 
+		pthread_create(&thread, NULL, (void*) esperar_mensajes_gamecard, argument);
+
+		pthread_detach(thread);
 		log_trace(logger, "Suscripcion completada");
 	}
 }
@@ -116,7 +117,9 @@ void esperar_mensajes_gamecard(void* input) {
 
 	while (cod_op > 0) { // No es espera activa porque queda en recv
 
+
 		cod_op = recibir_codigo_operacion(conexion);
+
 
 
 		if (cod_op > 0 && cod_op <= 9 ){
@@ -131,12 +134,11 @@ void esperar_mensajes_gamecard(void* input) {
 
 			log_trace(logger, "Se lanza el hilo: handle_mensaje_gamecard.");
 
-			//pthread_create(&thread, NULL,(void*) handle_mensajes_gamecard, arg_handle);
-
 			handle_mensajes_gamecard(arg_handle);
 
 		}else{
 			log_error(logger, "Error en 'recibir_codigo_operacion' %i", cod_op);
+
 			reintento_suscripcion_si_aplica_gamecard();
 			close(conexion);
 			return;
@@ -149,19 +151,40 @@ void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle){
 	log_debug(logger, "Codigo de operacion argumento: %i.", arg_handle->codigo_de_operacion);
 
 	int conexion = arg_handle-> conexion;
-
 	int cod_op = arg_handle->codigo_de_operacion;
 
 	log_debug(logger, "Codigo de operacion cod_op: %i.", cod_op);
 
-
-
 	t_buffer * buffer = recibir_mensaje(conexion);
+
 	int id_mensaje;
 
 	char* tipo_mensaje = op_code_a_string(cod_op);
 	log_trace(logger, "Se recibio un mensaje %s.", tipo_mensaje);
 	free(tipo_mensaje);
+
+
+	t_manejar_mensajes_gamecard* argumentos = malloc(sizeof(t_manejar_mensajes_gamecard));
+
+	argumentos->cod_op = cod_op;
+	argumentos->id_mensaje = id_mensaje;
+	argumentos->buffer = buffer;
+	argumentos->conexion = conexion;
+
+	pthread_create(&thread, NULL, (void*) manejar_mensajes_gamecard, argumentos);
+	//manejar_mensajes_gamecard(argumentos);
+
+	free(arg_handle);
+	log_trace(logger,"Mensaje recibido manejado");
+
+}
+
+void manejar_mensajes_gamecard(t_manejar_mensajes_gamecard* argumentos){
+
+	int cod_op = argumentos->cod_op;
+	int id_mensaje = argumentos->id_mensaje;
+	t_buffer* buffer = argumentos->buffer;
+	int conexion = argumentos->conexion;
 
 	switch(cod_op){
 		case NEW_POKEMON:
@@ -171,6 +194,7 @@ void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle){
 			id_mensaje = mensaje_new->id_mensaje;
 
 			manejar_new_pokemon(mensaje_new);
+
 			break;
 
 		case CATCH_POKEMON:
@@ -180,6 +204,7 @@ void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle){
 			id_mensaje = mensaje_catch -> id_mensaje;
 
 			manejar_catch_pokemon(mensaje_catch);
+
 			break;
 
 		case GET_POKEMON:
@@ -189,9 +214,11 @@ void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle){
 			id_mensaje = mensaje_get -> id_mensaje;
 
 			manejar_get_pokemon(mensaje_get);
+
 			break;
 
 		default:
+
 			log_warning(logger,"OP_CODE INVALIDO");
 			break;
 	}
@@ -203,12 +230,10 @@ void handle_mensajes_gamecard(t_handle_mensajes_gamecard* arg_handle){
 
 	log_trace(logger, "Recepcion confirmada: %d %d %d", conexion, cod_op, id_mensaje);
 
-	free(arg_handle);
-	log_trace(logger,"Mensaje recibido manejado");
+
+
 
 }
-
-
 
 
 

@@ -40,7 +40,7 @@ void iniciar_chars_necesarios(){
 void iniciar_semaforos_gamecard(){
 
 	pthread_mutex_init(&mutex_suscripcion, NULL);
-	sem_init(&sem_suscripcion,1,0);
+	sem_init(&sem_suscripcion, 1, 0);
 	pthread_mutex_init(&mutex_open_file, NULL);
 
 }
