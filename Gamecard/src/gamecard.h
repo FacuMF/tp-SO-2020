@@ -53,6 +53,7 @@ char* bitmap_path();
 char* pokemon_metadata_path(char* pokemon);
 
 // SEMAFOROS
+pthread_mutex_t mutex_bitmap;
 pthread_mutex_t mutex_suscripcion;
 sem_t sem_suscripcion;
 pthread_mutex_t mutex_open_file;

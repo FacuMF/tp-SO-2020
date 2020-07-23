@@ -226,9 +226,10 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 	config_destroy(config_bloque_nuevo);
 	actualizar_size_metadata(mensaje_new->pokemon); // el save y destroy esta puesto en el actualizar
 
-	//TODO MUTEX bitmap
+	pthread_mutex_lock(&mutex_bitmap);
 	bitarray_set_bit(bitmap_bloques,contador);
 	save_bitmap();
+	pthread_mutex_unlock(&mutex_bitmap);
 }
 
 int encontrar_bloque_con_posicion(char* posicion, char** bloques){

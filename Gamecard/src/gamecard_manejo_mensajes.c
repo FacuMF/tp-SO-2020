@@ -311,10 +311,12 @@ char* extraer_bloques_string(char* pokemon){
 
 
 void vaciar_bloque_bitmap(int bloque){
-	//TODO mutex
+	pthread_mutex_lock(&mutex_bitmap);
 
 	bitarray_clean_bit(bitmap_bloques,bloque);
 	save_bitmap();
+
+	pthread_mutex_unlock(&mutex_bitmap);
 
 	//TODO unlock mutex
 }
