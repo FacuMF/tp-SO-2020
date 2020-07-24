@@ -24,7 +24,11 @@ char** extraer_bloques(char* pokemon){ //TODO destroy config?
 bool verificar_posiciones_file(char* posicion, char** bloques){
 	int n=0;
 	while(bloques[n]!=NULL){
-		t_config* config_bloque = config_create(block_path(atoi(bloques[n]))); // atoi?
+
+		char* block_p = block_path(atoi(bloques[n]));
+		t_config* config_bloque = config_create(block_p);
+		free(block_p);
+
 		if (config_has_property(config_bloque,posicion)) {
 			config_destroy(config_bloque);
 			return true;

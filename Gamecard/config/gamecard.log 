@@ -16446,3 +16446,1504 @@
 [INFO] 04:08:19:851 Gamecard/(24077:24111): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1.
 [INFO] 04:08:19:853 Gamecard/(24077:24111): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
 [TRACE] 04:08:19:854 Gamecard/(24077:24111): Recepcion confirmada: 24 5 1
+[TRACE] 04:11:35:947 Gamecard/(24456:24456): Log inicializado
+[TRACE] 04:11:36:7 Gamecard/(24456:24456): Crear metadata
+[TRACE] 04:11:36:72 Gamecard/(24456:24456): Save bitmap.
+[TRACE] 04:11:36:145 Gamecard/(24456:24456): Iniciando conexion con gameboy
+[TRACE] 04:11:36:174 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:36:188 Gamecard/(24456:24458): Hilos de suscripcion lanzados
+[TRACE] 04:11:36:773 Gamecard/(24456:24456): Cliente aceptado: 5.
+[TRACE] 04:11:36:818 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:36:822 Gamecard/(24456:24461): Codigo de operacion cod_op: 3.
+[INFO] 04:11:36:828 Gamecard/(24456:24461): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:11:36:870 Gamecard/(24456:24461): Mensaje recibido manejado
+[TRACE] 04:11:36:892 Gamecard/(24456:24462): Manejar mensaje: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Cantidad: 3, Id mensaje: 1.
+[TRACE] 04:11:36:898 Gamecard/(24456:24462): File del pokemon no existente, lo creo.
+[TRACE] 04:11:36:905 Gamecard/(24456:24462): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Pikachu/
+[TRACE] 04:11:36:914 Gamecard/(24456:24462): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 04:11:36:916 Gamecard/(24456:24462): Ya se creo.
+[TRACE] 04:11:36:920 Gamecard/(24456:24462): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 04:11:36:930 Gamecard/(24456:24462): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:11:36:944 Gamecard/(24456:24462): Se abrio el archivo.
+[TRACE] 04:11:36:945 Gamecard/(24456:24462): Manejar bloques pokemon.
+[TRACE] 04:11:36:946 Gamecard/(24456:24462): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:11:36:955 Gamecard/(24456:24462): Agregar posicion.
+[TRACE] 04:11:36:958 Gamecard/(24456:24462): Paso el while sin entrar
+[TRACE] 04:11:36:969 Gamecard/(24456:24462): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 04:11:36:979 Gamecard/(24456:24462): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:11:36:981 Gamecard/(24456:24462): Termino agregar bloque vacio
+[TRACE] 04:11:36:983 Gamecard/(24456:24462): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 04:11:36:989 Gamecard/(24456:24462): Lo que se seteo: [0]
+[TRACE] 04:11:36:989 Gamecard/(24456:24462): Bloques final: [0]
+[TRACE] 04:11:37:13 Gamecard/(24456:24462): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:11:37:14 Gamecard/(24456:24462): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 04:11:37:18 Gamecard/(24456:24462): Save bitmap.
+[TRACE] 04:11:37:24 Gamecard/(24456:24462): Posicion agregada/sumada
+[INFO] 04:11:37:37 Gamecard/(24456:24462): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 04:11:37:39 Gamecard/(24456:24462): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:11:37:50 Gamecard/(24456:24462): Recepcion confirmada: 5 3 1
+[TRACE] 04:11:37:51 Gamecard/(24456:24456): Cliente aceptado: 10.
+[TRACE] 04:11:37:54 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:37:55 Gamecard/(24456:24464): Codigo de operacion cod_op: 3.
+[INFO] 04:11:37:55 Gamecard/(24456:24464): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:11:37:56 Gamecard/(24456:24464): Mensaje recibido manejado
+[TRACE] 04:11:37:57 Gamecard/(24456:24465): Manejar mensaje: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Cantidad: 101, Id mensaje: 2.
+[TRACE] 04:11:37:58 Gamecard/(24456:24465): File del pokemon no existente, lo creo.
+[TRACE] 04:11:37:59 Gamecard/(24456:24465): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Charmander/
+[TRACE] 04:11:37:61 Gamecard/(24456:24465): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 04:11:37:62 Gamecard/(24456:24465): Ya se creo.
+[TRACE] 04:11:37:64 Gamecard/(24456:24465): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:11:37:69 Gamecard/(24456:24465): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:11:37:70 Gamecard/(24456:24465): Se abrio el archivo.
+[TRACE] 04:11:37:71 Gamecard/(24456:24465): Manejar bloques pokemon.
+[TRACE] 04:11:37:71 Gamecard/(24456:24465): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:11:37:75 Gamecard/(24456:24465): Agregar posicion.
+[TRACE] 04:11:37:76 Gamecard/(24456:24465): Paso el while sin entrar
+[TRACE] 04:11:37:79 Gamecard/(24456:24465): Bit: 0 estado: 1
+[TRACE] 04:11:37:81 Gamecard/(24456:24465): Va a proceder a asignar el bloque vacio:  1
+[TRACE] 04:11:37:85 Gamecard/(24456:24465): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:11:37:86 Gamecard/(24456:24465): Termino agregar bloque vacio
+[TRACE] 04:11:37:87 Gamecard/(24456:24465): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:11:37:88 Gamecard/(24456:24465): Lo que se seteo: [1]
+[TRACE] 04:11:37:88 Gamecard/(24456:24465): Bloques final: [1]
+[TRACE] 04:11:37:94 Gamecard/(24456:24465): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:11:37:95 Gamecard/(24456:24465): Tamanio de todos los bloques del pokemon: 8
+[TRACE] 04:11:37:96 Gamecard/(24456:24465): Save bitmap.
+[TRACE] 04:11:37:103 Gamecard/(24456:24465): Posicion agregada/sumada
+[INFO] 04:11:37:106 Gamecard/(24456:24465): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 04:11:37:107 Gamecard/(24456:24465): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:11:37:108 Gamecard/(24456:24465): Recepcion confirmada: 10 3 2
+[TRACE] 04:11:37:111 Gamecard/(24456:24456): Cliente aceptado: 12.
+[TRACE] 04:11:37:111 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:37:112 Gamecard/(24456:24467): Codigo de operacion cod_op: 3.
+[INFO] 04:11:37:113 Gamecard/(24456:24467): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:11:37:114 Gamecard/(24456:24467): Mensaje recibido manejado
+[TRACE] 04:11:37:114 Gamecard/(24456:24468): Manejar mensaje: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Cantidad: 15, Id mensaje: 3.
+[TRACE] 04:11:37:117 Gamecard/(24456:24468): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:11:37:118 Gamecard/(24456:24468): Se abrio el archivo.
+[TRACE] 04:11:37:118 Gamecard/(24456:24468): Manejar bloques pokemon.
+[TRACE] 04:11:37:118 Gamecard/(24456:24468): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:11:37:123 Gamecard/(24456:24468): Agregar posicion.
+[TRACE] 04:11:37:123 Gamecard/(24456:24468): Entro al while
+[TRACE] 04:11:37:125 Gamecard/(24456:24468): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:11:37:127 Gamecard/(24456:24468): Tamanio total del archivo al escribir la sentencia: 19
+[TRACE] 04:11:37:131 Gamecard/(24456:24468): Tamanio de bloques: 64
+[TRACE] 04:11:37:145 Gamecard/(24456:24468): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:11:37:146 Gamecard/(24456:24468): Tamanio de todos los bloques del pokemon: 20
+[TRACE] 04:11:37:148 Gamecard/(24456:24468): Posicion agregada/sumada
+[INFO] 04:11:37:151 Gamecard/(24456:24468): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 04:11:37:152 Gamecard/(24456:24468): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:11:37:154 Gamecard/(24456:24468): Recepcion confirmada: 12 3 3
+[TRACE] 04:11:37:154 Gamecard/(24456:24456): Cliente aceptado: 14.
+[TRACE] 04:11:37:155 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:37:155 Gamecard/(24456:24470): Codigo de operacion cod_op: 3.
+[INFO] 04:11:37:156 Gamecard/(24456:24470): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:11:37:157 Gamecard/(24456:24471): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Cantidad: 1, Id mensaje: 4.
+[TRACE] 04:11:37:159 Gamecard/(24456:24471): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:11:37:161 Gamecard/(24456:24470): Mensaje recibido manejado
+[TRACE] 04:11:37:162 Gamecard/(24456:24471): Se abrio el archivo.
+[TRACE] 04:11:37:163 Gamecard/(24456:24471): Manejar bloques pokemon.
+[TRACE] 04:11:37:163 Gamecard/(24456:24471): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:11:37:169 Gamecard/(24456:24471): Agregar posicion.
+[TRACE] 04:11:37:170 Gamecard/(24456:24471): Entro al while
+[TRACE] 04:11:37:171 Gamecard/(24456:24471): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:11:37:172 Gamecard/(24456:24471): Tamanio total del archivo al escribir la sentencia: 28
+[TRACE] 04:11:37:178 Gamecard/(24456:24471): Tamanio de bloques: 64
+[TRACE] 04:11:37:184 Gamecard/(24456:24471): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:11:37:184 Gamecard/(24456:24471): Tamanio de todos los bloques del pokemon: 29
+[TRACE] 04:11:37:186 Gamecard/(24456:24471): Posicion agregada/sumada
+[INFO] 04:11:37:192 Gamecard/(24456:24471): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 04:11:37:195 Gamecard/(24456:24471): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:11:37:198 Gamecard/(24456:24471): Recepcion confirmada: 14 3 4
+[TRACE] 04:11:37:201 Gamecard/(24456:24456): Cliente aceptado: 16.
+[TRACE] 04:11:37:205 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:37:206 Gamecard/(24456:24473): Codigo de operacion cod_op: 3.
+[INFO] 04:11:37:206 Gamecard/(24456:24473): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:11:37:207 Gamecard/(24456:24473): Mensaje recibido manejado
+[TRACE] 04:11:37:210 Gamecard/(24456:24474): Manejar mensaje: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Cantidad: 29, Id mensaje: 5.
+[TRACE] 04:11:37:212 Gamecard/(24456:24474): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:11:37:213 Gamecard/(24456:24474): Se abrio el archivo.
+[TRACE] 04:11:37:213 Gamecard/(24456:24474): Manejar bloques pokemon.
+[TRACE] 04:11:37:214 Gamecard/(24456:24474): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:11:37:216 Gamecard/(24456:24474): Agregar posicion.
+[TRACE] 04:11:37:217 Gamecard/(24456:24474): Entro al while
+[TRACE] 04:11:37:218 Gamecard/(24456:24474): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:11:37:219 Gamecard/(24456:24474): Tamanio total del archivo al escribir la sentencia: 38
+[TRACE] 04:11:37:220 Gamecard/(24456:24474): Tamanio de bloques: 64
+[TRACE] 04:11:37:231 Gamecard/(24456:24474): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:11:37:232 Gamecard/(24456:24474): Tamanio de todos los bloques del pokemon: 39
+[TRACE] 04:11:37:236 Gamecard/(24456:24474): Posicion agregada/sumada
+[INFO] 04:11:37:239 Gamecard/(24456:24474): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 04:11:37:240 Gamecard/(24456:24474): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:11:37:242 Gamecard/(24456:24474): Recepcion confirmada: 16 3 5
+[TRACE] 04:11:37:250 Gamecard/(24456:24456): Cliente aceptado: 18.
+[TRACE] 04:11:37:250 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:37:252 Gamecard/(24456:24476): Codigo de operacion cod_op: 3.
+[INFO] 04:11:37:252 Gamecard/(24456:24476): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:11:37:253 Gamecard/(24456:24476): Mensaje recibido manejado
+[TRACE] 04:11:37:254 Gamecard/(24456:24477): Manejar mensaje: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Cantidad: 3001, Id mensaje: 6.
+[TRACE] 04:11:37:256 Gamecard/(24456:24477): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:11:37:257 Gamecard/(24456:24477): Se abrio el archivo.
+[TRACE] 04:11:37:258 Gamecard/(24456:24477): Manejar bloques pokemon.
+[TRACE] 04:11:37:259 Gamecard/(24456:24477): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:11:37:265 Gamecard/(24456:24477): Agregar posicion.
+[TRACE] 04:11:37:268 Gamecard/(24456:24477): Entro al while
+[TRACE] 04:11:37:270 Gamecard/(24456:24477): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:11:37:270 Gamecard/(24456:24477): Tamanio total del archivo al escribir la sentencia: 49
+[TRACE] 04:11:37:271 Gamecard/(24456:24477): Tamanio de bloques: 64
+[TRACE] 04:11:37:279 Gamecard/(24456:24477): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:11:37:280 Gamecard/(24456:24477): Tamanio de todos los bloques del pokemon: 50
+[TRACE] 04:11:37:282 Gamecard/(24456:24477): Posicion agregada/sumada
+[INFO] 04:11:37:284 Gamecard/(24456:24477): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 04:11:37:285 Gamecard/(24456:24477): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:11:37:287 Gamecard/(24456:24477): Recepcion confirmada: 18 3 6
+[TRACE] 04:11:37:289 Gamecard/(24456:24456): Cliente aceptado: 20.
+[TRACE] 04:11:37:290 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:37:291 Gamecard/(24456:24479): Codigo de operacion cod_op: 3.
+[INFO] 04:11:37:293 Gamecard/(24456:24479): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:11:37:294 Gamecard/(24456:24479): Mensaje recibido manejado
+[TRACE] 04:11:37:294 Gamecard/(24456:24480): Manejar mensaje: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Cantidad: 34, Id mensaje: 7.
+[TRACE] 04:11:37:297 Gamecard/(24456:24480): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:11:37:299 Gamecard/(24456:24480): Se abrio el archivo.
+[TRACE] 04:11:37:302 Gamecard/(24456:24480): Manejar bloques pokemon.
+[TRACE] 04:11:37:302 Gamecard/(24456:24480): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:11:37:312 Gamecard/(24456:24480): Agregar posicion.
+[TRACE] 04:11:37:313 Gamecard/(24456:24480): Entro al while
+[TRACE] 04:11:37:314 Gamecard/(24456:24480): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:11:37:315 Gamecard/(24456:24480): Tamanio total del archivo al escribir la sentencia: 58
+[TRACE] 04:11:37:318 Gamecard/(24456:24480): Tamanio de bloques: 64
+[TRACE] 04:11:37:324 Gamecard/(24456:24480): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:11:37:325 Gamecard/(24456:24480): Tamanio de todos los bloques del pokemon: 59
+[TRACE] 04:11:37:332 Gamecard/(24456:24480): Posicion agregada/sumada
+[INFO] 04:11:37:339 Gamecard/(24456:24480): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 04:11:37:339 Gamecard/(24456:24480): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:11:37:341 Gamecard/(24456:24480): Recepcion confirmada: 20 3 7
+[TRACE] 04:11:37:343 Gamecard/(24456:24456): Cliente aceptado: 22.
+[TRACE] 04:11:37:343 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:37:344 Gamecard/(24456:24482): Codigo de operacion cod_op: 3.
+[INFO] 04:11:37:344 Gamecard/(24456:24482): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:11:37:345 Gamecard/(24456:24482): Mensaje recibido manejado
+[TRACE] 04:11:37:346 Gamecard/(24456:24483): Manejar mensaje: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Cantidad: 11, Id mensaje: 8.
+[TRACE] 04:11:37:348 Gamecard/(24456:24483): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:11:37:349 Gamecard/(24456:24483): Se abrio el archivo.
+[TRACE] 04:11:37:350 Gamecard/(24456:24483): Manejar bloques pokemon.
+[TRACE] 04:11:37:350 Gamecard/(24456:24483): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:11:37:353 Gamecard/(24456:24483): Agregar posicion.
+[TRACE] 04:11:37:354 Gamecard/(24456:24483): Entro al while
+[TRACE] 04:11:37:355 Gamecard/(24456:24483): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:11:37:356 Gamecard/(24456:24483): Tamanio total del archivo al escribir la sentencia: 69
+[TRACE] 04:11:37:357 Gamecard/(24456:24483): Tamanio de bloques: 64
+[TRACE] 04:11:37:358 Gamecard/(24456:24483): Paso el while sin entrar
+[TRACE] 04:11:37:360 Gamecard/(24456:24483): Bit: 0 estado: 1
+[TRACE] 04:11:37:361 Gamecard/(24456:24483): Bit: 1 estado: 1
+[TRACE] 04:11:37:362 Gamecard/(24456:24483): Va a proceder a asignar el bloque vacio:  2
+[TRACE] 04:11:37:366 Gamecard/(24456:24483): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:11:37:367 Gamecard/(24456:24483): Termino agregar bloque vacio
+[TRACE] 04:11:37:368 Gamecard/(24456:24483): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:11:37:370 Gamecard/(24456:24483): Lo que se seteo: [1,2]
+[TRACE] 04:11:37:374 Gamecard/(24456:24483): Bloques final: [1,2]
+[TRACE] 04:11:37:382 Gamecard/(24456:24483): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:11:37:383 Gamecard/(24456:24483): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:11:37:384 Gamecard/(24456:24483): Tamanio de todos los bloques del pokemon: 70
+[TRACE] 04:11:37:385 Gamecard/(24456:24483): Save bitmap.
+[TRACE] 04:11:37:388 Gamecard/(24456:24483): Posicion agregada/sumada
+[INFO] 04:11:37:391 Gamecard/(24456:24483): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 04:11:37:392 Gamecard/(24456:24483): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:11:37:393 Gamecard/(24456:24483): Recepcion confirmada: 22 3 8
+[TRACE] 04:11:37:395 Gamecard/(24456:24456): Cliente aceptado: 24.
+[TRACE] 04:11:37:395 Gamecard/(24456:24456): Esperando Cliente
+[TRACE] 04:11:37:396 Gamecard/(24456:24485): Codigo de operacion cod_op: 5.
+[INFO] 04:11:37:397 Gamecard/(24456:24485): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 04:11:37:397 Gamecard/(24456:24485): Mensaje recibido manejado
+[TRACE] 04:11:37:404 Gamecard/(24456:24486): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 1.
+[TRACE] 04:11:37:414 Gamecard/(24456:24486): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:11:37:416 Gamecard/(24456:24486): Se abrio el archivo.
+[TRACE] 04:11:37:438 Gamecard/(24456:24486): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:11:37:441 Gamecard/(24456:24486): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:11:37:442 Gamecard/(24456:24486): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 04:11:37:450 Gamecard/(24456:24486): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:11:37:451 Gamecard/(24456:24486): Compactar bloques
+[TRACE] 04:11:37:452 Gamecard/(24456:24486): En el while, comparando el bloque: 0.
+[TRACE] 04:11:37:453 Gamecard/(24456:24486): En el while, comparando contra el bloque: 0.
+[TRACE] 04:11:37:455 Gamecard/(24456:24486): En el while, comparando contra el bloque: 1.
+[TRACE] 04:11:37:456 Gamecard/(24456:24486): Se compararon distinos bloques.
+[TRACE] 04:11:37:457 Gamecard/(24456:24486): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:11:37:459 Gamecard/(24456:24486): Bloque 1 de la comparacion: numero 2 , tamanio: 11.
+[TRACE] 04:11:37:463 Gamecard/(24456:24486): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:11:37:464 Gamecard/(24456:24486): Bloque 2 de la comparacion: numero 1 , tamanio: 50.
+[TRACE] 04:11:37:468 Gamecard/(24456:24486): Se compararon los tamanios y se va a compactar.
+[TRACE] 04:11:37:481 Gamecard/(24456:24486): Se va a actualizar size y sacar bloque del metadata.
+[TRACE] 04:11:37:485 Gamecard/(24456:24486): El archivo actualmente ocupa: 61 
+
+[TRACE] 04:11:37:486 Gamecard/(24456:24486): El archivo actualmente ocupa: 0 
+
+[TRACE] 04:11:37:487 Gamecard/(24456:24486): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 04:11:37:501 Gamecard/(24456:24486): Save bitmap.
+[TRACE] 04:11:37:508 Gamecard/(24456:24486): En el while, comparando el bloque: 1.
+[INFO] 04:11:37:516 Gamecard/(24456:24486): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1.
+[INFO] 04:11:37:518 Gamecard/(24456:24486): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[TRACE] 04:11:37:519 Gamecard/(24456:24486): Recepcion confirmada: 24 5 1
+[TRACE] 04:13:11:243 Gamecard/(24724:24724): Log inicializado
+[TRACE] 04:13:11:295 Gamecard/(24724:24724): Crear metadata
+[TRACE] 04:13:11:371 Gamecard/(24724:24724): Save bitmap.
+[TRACE] 04:13:11:432 Gamecard/(24724:24724): Iniciando conexion con gameboy
+[TRACE] 04:13:11:464 Gamecard/(24724:24726): Hilos de suscripcion lanzados
+[TRACE] 04:13:11:469 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:8 Gamecard/(24724:24724): Cliente aceptado: 7.
+[TRACE] 04:13:12:54 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:62 Gamecard/(24724:24729): Codigo de operacion cod_op: 3.
+[INFO] 04:13:12:66 Gamecard/(24724:24729): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:12:107 Gamecard/(24724:24729): Mensaje recibido manejado
+[TRACE] 04:13:12:141 Gamecard/(24724:24730): Manejar mensaje: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Cantidad: 3, Id mensaje: 1.
+[TRACE] 04:13:12:148 Gamecard/(24724:24730): File del pokemon no existente, lo creo.
+[TRACE] 04:13:12:162 Gamecard/(24724:24730): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Pikachu/
+[TRACE] 04:13:12:166 Gamecard/(24724:24730): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 04:13:12:174 Gamecard/(24724:24730): Ya se creo.
+[TRACE] 04:13:12:179 Gamecard/(24724:24730): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 04:13:12:188 Gamecard/(24724:24730): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:12:193 Gamecard/(24724:24730): Se abrio el archivo.
+[TRACE] 04:13:12:194 Gamecard/(24724:24730): Manejar bloques pokemon.
+[TRACE] 04:13:12:195 Gamecard/(24724:24730): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:12:211 Gamecard/(24724:24730): Agregar posicion.
+[TRACE] 04:13:12:215 Gamecard/(24724:24730): Paso el while sin entrar
+[TRACE] 04:13:12:217 Gamecard/(24724:24730): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 04:13:12:230 Gamecard/(24724:24730): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:13:12:239 Gamecard/(24724:24730): Termino agregar bloque vacio
+[TRACE] 04:13:12:246 Gamecard/(24724:24730): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 04:13:12:252 Gamecard/(24724:24730): Lo que se seteo: [0]
+[TRACE] 04:13:12:253 Gamecard/(24724:24730): Bloques final: [0]
+[TRACE] 04:13:12:276 Gamecard/(24724:24730): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:13:12:278 Gamecard/(24724:24730): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 04:13:12:282 Gamecard/(24724:24730): Save bitmap.
+[TRACE] 04:13:12:288 Gamecard/(24724:24730): Posicion agregada/sumada
+[INFO] 04:13:12:298 Gamecard/(24724:24730): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 04:13:12:299 Gamecard/(24724:24730): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:12:314 Gamecard/(24724:24730): Recepcion confirmada: 7 3 1
+[TRACE] 04:13:12:319 Gamecard/(24724:24724): Cliente aceptado: 10.
+[TRACE] 04:13:12:323 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:326 Gamecard/(24724:24732): Codigo de operacion cod_op: 3.
+[INFO] 04:13:12:327 Gamecard/(24724:24732): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:12:329 Gamecard/(24724:24732): Mensaje recibido manejado
+[TRACE] 04:13:12:330 Gamecard/(24724:24733): Manejar mensaje: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Cantidad: 101, Id mensaje: 2.
+[TRACE] 04:13:12:331 Gamecard/(24724:24733): File del pokemon no existente, lo creo.
+[TRACE] 04:13:12:332 Gamecard/(24724:24733): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Charmander/
+[TRACE] 04:13:12:335 Gamecard/(24724:24733): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 04:13:12:336 Gamecard/(24724:24733): Ya se creo.
+[TRACE] 04:13:12:338 Gamecard/(24724:24733): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:13:12:341 Gamecard/(24724:24733): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:12:343 Gamecard/(24724:24733): Se abrio el archivo.
+[TRACE] 04:13:12:343 Gamecard/(24724:24733): Manejar bloques pokemon.
+[TRACE] 04:13:12:344 Gamecard/(24724:24733): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:12:346 Gamecard/(24724:24733): Agregar posicion.
+[TRACE] 04:13:12:347 Gamecard/(24724:24733): Paso el while sin entrar
+[TRACE] 04:13:12:349 Gamecard/(24724:24733): Bit: 0 estado: 1
+[TRACE] 04:13:12:351 Gamecard/(24724:24733): Va a proceder a asignar el bloque vacio:  1
+[TRACE] 04:13:12:358 Gamecard/(24724:24733): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:13:12:358 Gamecard/(24724:24733): Termino agregar bloque vacio
+[TRACE] 04:13:12:360 Gamecard/(24724:24733): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:13:12:362 Gamecard/(24724:24733): Lo que se seteo: [1]
+[TRACE] 04:13:12:362 Gamecard/(24724:24733): Bloques final: [1]
+[TRACE] 04:13:12:372 Gamecard/(24724:24733): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:13:12:373 Gamecard/(24724:24733): Tamanio de todos los bloques del pokemon: 8
+[TRACE] 04:13:12:375 Gamecard/(24724:24733): Save bitmap.
+[TRACE] 04:13:12:378 Gamecard/(24724:24733): Posicion agregada/sumada
+[INFO] 04:13:12:381 Gamecard/(24724:24733): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 04:13:12:385 Gamecard/(24724:24733): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:12:386 Gamecard/(24724:24733): Recepcion confirmada: 10 3 2
+[TRACE] 04:13:12:387 Gamecard/(24724:24724): Cliente aceptado: 12.
+[TRACE] 04:13:12:388 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:389 Gamecard/(24724:24735): Codigo de operacion cod_op: 3.
+[INFO] 04:13:12:389 Gamecard/(24724:24735): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:12:390 Gamecard/(24724:24735): Mensaje recibido manejado
+[TRACE] 04:13:12:391 Gamecard/(24724:24736): Manejar mensaje: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Cantidad: 15, Id mensaje: 3.
+[TRACE] 04:13:12:394 Gamecard/(24724:24736): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:12:395 Gamecard/(24724:24736): Se abrio el archivo.
+[TRACE] 04:13:12:396 Gamecard/(24724:24736): Manejar bloques pokemon.
+[TRACE] 04:13:12:396 Gamecard/(24724:24736): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:12:404 Gamecard/(24724:24736): Agregar posicion.
+[TRACE] 04:13:12:405 Gamecard/(24724:24736): Entro al while
+[TRACE] 04:13:12:406 Gamecard/(24724:24736): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:13:12:407 Gamecard/(24724:24736): Tamanio total del archivo al escribir la sentencia: 19
+[TRACE] 04:13:12:409 Gamecard/(24724:24736): Tamanio de bloques: 64
+[TRACE] 04:13:12:421 Gamecard/(24724:24736): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:13:12:422 Gamecard/(24724:24736): Tamanio de todos los bloques del pokemon: 20
+[TRACE] 04:13:12:427 Gamecard/(24724:24736): Posicion agregada/sumada
+[INFO] 04:13:12:433 Gamecard/(24724:24736): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 04:13:12:437 Gamecard/(24724:24736): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:12:439 Gamecard/(24724:24736): Recepcion confirmada: 12 3 3
+[TRACE] 04:13:12:440 Gamecard/(24724:24724): Cliente aceptado: 14.
+[TRACE] 04:13:12:440 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:441 Gamecard/(24724:24738): Codigo de operacion cod_op: 3.
+[INFO] 04:13:12:441 Gamecard/(24724:24738): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:12:442 Gamecard/(24724:24738): Mensaje recibido manejado
+[TRACE] 04:13:12:443 Gamecard/(24724:24739): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Cantidad: 1, Id mensaje: 4.
+[TRACE] 04:13:12:445 Gamecard/(24724:24739): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:12:446 Gamecard/(24724:24739): Se abrio el archivo.
+[TRACE] 04:13:12:447 Gamecard/(24724:24739): Manejar bloques pokemon.
+[TRACE] 04:13:12:447 Gamecard/(24724:24739): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:12:454 Gamecard/(24724:24739): Agregar posicion.
+[TRACE] 04:13:12:455 Gamecard/(24724:24739): Entro al while
+[TRACE] 04:13:12:457 Gamecard/(24724:24739): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:13:12:458 Gamecard/(24724:24739): Tamanio total del archivo al escribir la sentencia: 28
+[TRACE] 04:13:12:460 Gamecard/(24724:24739): Tamanio de bloques: 64
+[TRACE] 04:13:12:467 Gamecard/(24724:24739): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:13:12:469 Gamecard/(24724:24739): Tamanio de todos los bloques del pokemon: 29
+[TRACE] 04:13:12:471 Gamecard/(24724:24739): Posicion agregada/sumada
+[INFO] 04:13:12:473 Gamecard/(24724:24739): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 04:13:12:474 Gamecard/(24724:24739): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:12:476 Gamecard/(24724:24739): Recepcion confirmada: 14 3 4
+[TRACE] 04:13:12:477 Gamecard/(24724:24724): Cliente aceptado: 16.
+[TRACE] 04:13:12:478 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:478 Gamecard/(24724:24741): Codigo de operacion cod_op: 3.
+[INFO] 04:13:12:479 Gamecard/(24724:24741): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:12:480 Gamecard/(24724:24741): Mensaje recibido manejado
+[TRACE] 04:13:12:480 Gamecard/(24724:24742): Manejar mensaje: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Cantidad: 29, Id mensaje: 5.
+[TRACE] 04:13:12:483 Gamecard/(24724:24742): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:12:490 Gamecard/(24724:24742): Se abrio el archivo.
+[TRACE] 04:13:12:491 Gamecard/(24724:24742): Manejar bloques pokemon.
+[TRACE] 04:13:12:491 Gamecard/(24724:24742): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:12:496 Gamecard/(24724:24742): Agregar posicion.
+[TRACE] 04:13:12:499 Gamecard/(24724:24742): Entro al while
+[TRACE] 04:13:12:501 Gamecard/(24724:24742): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:13:12:505 Gamecard/(24724:24742): Tamanio total del archivo al escribir la sentencia: 38
+[TRACE] 04:13:12:507 Gamecard/(24724:24742): Tamanio de bloques: 64
+[TRACE] 04:13:12:521 Gamecard/(24724:24742): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:13:12:521 Gamecard/(24724:24742): Tamanio de todos los bloques del pokemon: 39
+[TRACE] 04:13:12:523 Gamecard/(24724:24742): Posicion agregada/sumada
+[INFO] 04:13:12:526 Gamecard/(24724:24742): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 04:13:12:527 Gamecard/(24724:24742): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:12:528 Gamecard/(24724:24742): Recepcion confirmada: 16 3 5
+[TRACE] 04:13:12:531 Gamecard/(24724:24724): Cliente aceptado: 18.
+[TRACE] 04:13:12:531 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:535 Gamecard/(24724:24744): Codigo de operacion cod_op: 3.
+[INFO] 04:13:12:537 Gamecard/(24724:24744): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:12:538 Gamecard/(24724:24744): Mensaje recibido manejado
+[TRACE] 04:13:12:539 Gamecard/(24724:24745): Manejar mensaje: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Cantidad: 3001, Id mensaje: 6.
+[TRACE] 04:13:12:541 Gamecard/(24724:24745): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:12:543 Gamecard/(24724:24745): Se abrio el archivo.
+[TRACE] 04:13:12:544 Gamecard/(24724:24745): Manejar bloques pokemon.
+[TRACE] 04:13:12:545 Gamecard/(24724:24745): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:12:549 Gamecard/(24724:24745): Agregar posicion.
+[TRACE] 04:13:12:550 Gamecard/(24724:24745): Entro al while
+[TRACE] 04:13:12:551 Gamecard/(24724:24745): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:13:12:554 Gamecard/(24724:24745): Tamanio total del archivo al escribir la sentencia: 49
+[TRACE] 04:13:12:555 Gamecard/(24724:24745): Tamanio de bloques: 64
+[TRACE] 04:13:12:563 Gamecard/(24724:24745): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:12:564 Gamecard/(24724:24745): Tamanio de todos los bloques del pokemon: 50
+[TRACE] 04:13:12:566 Gamecard/(24724:24745): Posicion agregada/sumada
+[INFO] 04:13:12:572 Gamecard/(24724:24745): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 04:13:12:573 Gamecard/(24724:24745): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:12:575 Gamecard/(24724:24745): Recepcion confirmada: 18 3 6
+[TRACE] 04:13:12:576 Gamecard/(24724:24724): Cliente aceptado: 20.
+[TRACE] 04:13:12:577 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:579 Gamecard/(24724:24747): Codigo de operacion cod_op: 3.
+[INFO] 04:13:12:580 Gamecard/(24724:24747): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:12:581 Gamecard/(24724:24747): Mensaje recibido manejado
+[TRACE] 04:13:12:584 Gamecard/(24724:24748): Manejar mensaje: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Cantidad: 34, Id mensaje: 7.
+[TRACE] 04:13:12:586 Gamecard/(24724:24748): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:12:587 Gamecard/(24724:24748): Se abrio el archivo.
+[TRACE] 04:13:12:588 Gamecard/(24724:24748): Manejar bloques pokemon.
+[TRACE] 04:13:12:588 Gamecard/(24724:24748): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:12:591 Gamecard/(24724:24748): Agregar posicion.
+[TRACE] 04:13:12:591 Gamecard/(24724:24748): Entro al while
+[TRACE] 04:13:12:592 Gamecard/(24724:24748): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:12:592 Gamecard/(24724:24748): Tamanio total del archivo al escribir la sentencia: 58
+[TRACE] 04:13:12:594 Gamecard/(24724:24748): Tamanio de bloques: 64
+[TRACE] 04:13:12:606 Gamecard/(24724:24748): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:13:12:607 Gamecard/(24724:24748): Tamanio de todos los bloques del pokemon: 59
+[TRACE] 04:13:12:608 Gamecard/(24724:24748): Posicion agregada/sumada
+[INFO] 04:13:12:612 Gamecard/(24724:24748): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 04:13:12:614 Gamecard/(24724:24748): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:12:615 Gamecard/(24724:24748): Recepcion confirmada: 20 3 7
+[TRACE] 04:13:12:617 Gamecard/(24724:24724): Cliente aceptado: 22.
+[TRACE] 04:13:12:618 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:618 Gamecard/(24724:24750): Codigo de operacion cod_op: 3.
+[INFO] 04:13:12:621 Gamecard/(24724:24750): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:12:622 Gamecard/(24724:24750): Mensaje recibido manejado
+[TRACE] 04:13:12:624 Gamecard/(24724:24751): Manejar mensaje: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Cantidad: 11, Id mensaje: 8.
+[TRACE] 04:13:12:626 Gamecard/(24724:24751): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:12:628 Gamecard/(24724:24751): Se abrio el archivo.
+[TRACE] 04:13:12:629 Gamecard/(24724:24751): Manejar bloques pokemon.
+[TRACE] 04:13:12:629 Gamecard/(24724:24751): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:12:632 Gamecard/(24724:24751): Agregar posicion.
+[TRACE] 04:13:12:633 Gamecard/(24724:24751): Entro al while
+[TRACE] 04:13:12:634 Gamecard/(24724:24751): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:13:12:637 Gamecard/(24724:24751): Tamanio total del archivo al escribir la sentencia: 69
+[TRACE] 04:13:12:639 Gamecard/(24724:24751): Tamanio de bloques: 64
+[TRACE] 04:13:12:640 Gamecard/(24724:24751): Paso el while sin entrar
+[TRACE] 04:13:12:641 Gamecard/(24724:24751): Bit: 0 estado: 1
+[TRACE] 04:13:12:642 Gamecard/(24724:24751): Bit: 1 estado: 1
+[TRACE] 04:13:12:643 Gamecard/(24724:24751): Va a proceder a asignar el bloque vacio:  2
+[TRACE] 04:13:12:651 Gamecard/(24724:24751): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:13:12:652 Gamecard/(24724:24751): Termino agregar bloque vacio
+[TRACE] 04:13:12:653 Gamecard/(24724:24751): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:13:12:655 Gamecard/(24724:24751): Lo que se seteo: [1,2]
+[TRACE] 04:13:12:655 Gamecard/(24724:24751): Bloques final: [1,2]
+[TRACE] 04:13:12:661 Gamecard/(24724:24751): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:13:12:663 Gamecard/(24724:24751): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:13:12:663 Gamecard/(24724:24751): Tamanio de todos los bloques del pokemon: 70
+[TRACE] 04:13:12:664 Gamecard/(24724:24751): Save bitmap.
+[TRACE] 04:13:12:674 Gamecard/(24724:24751): Posicion agregada/sumada
+[INFO] 04:13:12:676 Gamecard/(24724:24751): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 04:13:12:678 Gamecard/(24724:24751): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:12:681 Gamecard/(24724:24751): Recepcion confirmada: 22 3 8
+[TRACE] 04:13:12:683 Gamecard/(24724:24724): Cliente aceptado: 24.
+[TRACE] 04:13:12:683 Gamecard/(24724:24724): Esperando Cliente
+[TRACE] 04:13:12:684 Gamecard/(24724:24753): Codigo de operacion cod_op: 5.
+[INFO] 04:13:12:685 Gamecard/(24724:24753): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 04:13:12:686 Gamecard/(24724:24753): Mensaje recibido manejado
+[TRACE] 04:13:12:690 Gamecard/(24724:24754): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 1.
+[TRACE] 04:13:12:697 Gamecard/(24724:24754): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:12:698 Gamecard/(24724:24754): Se abrio el archivo.
+[TRACE] 04:13:12:720 Gamecard/(24724:24754): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:12:722 Gamecard/(24724:24754): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:13:12:722 Gamecard/(24724:24754): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 04:13:12:724 Gamecard/(24724:24754): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:12:725 Gamecard/(24724:24754): Compactar bloques
+[TRACE] 04:13:12:726 Gamecard/(24724:24754): En el while, comparando el bloque: 0.
+[TRACE] 04:13:12:727 Gamecard/(24724:24754): En el while, comparando contra el bloque: 0.
+[TRACE] 04:13:12:729 Gamecard/(24724:24754): En el while, comparando contra el bloque: 1.
+[TRACE] 04:13:12:729 Gamecard/(24724:24754): Se compararon distinos bloques.
+[TRACE] 04:13:12:731 Gamecard/(24724:24754): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:13:12:732 Gamecard/(24724:24754): Bloque 1 de la comparacion: numero 2 , tamanio: 11.
+[TRACE] 04:13:12:734 Gamecard/(24724:24754): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:12:737 Gamecard/(24724:24754): Bloque 2 de la comparacion: numero 1 , tamanio: 50.
+[TRACE] 04:13:12:739 Gamecard/(24724:24754): Se compararon los tamanios y se va a compactar.
+[TRACE] 04:13:12:748 Gamecard/(24724:24754): Se va a actualizar size y sacar bloque del metadata.
+[TRACE] 04:13:12:751 Gamecard/(24724:24754): El archivo actualmente ocupa: 61 
+
+[TRACE] 04:13:12:752 Gamecard/(24724:24754): El archivo actualmente ocupa: 0 
+
+[TRACE] 04:13:12:752 Gamecard/(24724:24754): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 04:13:12:772 Gamecard/(24724:24754): Save bitmap.
+[TRACE] 04:13:12:781 Gamecard/(24724:24754): En el while, comparando el bloque: 1.
+[INFO] 04:13:12:788 Gamecard/(24724:24754): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1.
+[INFO] 04:13:12:790 Gamecard/(24724:24754): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[TRACE] 04:13:12:791 Gamecard/(24724:24754): Recepcion confirmada: 24 5 1
+[TRACE] 04:13:48:695 Gamecard/(24913:24913): Log inicializado
+[TRACE] 04:13:48:750 Gamecard/(24913:24913): Crear metadata
+[TRACE] 04:13:48:813 Gamecard/(24913:24913): Save bitmap.
+[TRACE] 04:13:48:906 Gamecard/(24913:24913): Iniciando conexion con gameboy
+[TRACE] 04:13:48:934 Gamecard/(24913:24914): Hilos de suscripcion lanzados
+[TRACE] 04:13:48:937 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:227 Gamecard/(24913:24913): Cliente aceptado: 9.
+[TRACE] 04:13:50:264 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:272 Gamecard/(24913:24921): Codigo de operacion cod_op: 3.
+[INFO] 04:13:50:276 Gamecard/(24913:24921): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:50:321 Gamecard/(24913:24921): Mensaje recibido manejado
+[TRACE] 04:13:50:330 Gamecard/(24913:24922): Manejar mensaje: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Cantidad: 3, Id mensaje: 1.
+[TRACE] 04:13:50:357 Gamecard/(24913:24922): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:50:364 Gamecard/(24913:24922): Se abrio el archivo.
+[TRACE] 04:13:50:365 Gamecard/(24913:24922): Manejar bloques pokemon.
+[TRACE] 04:13:50:366 Gamecard/(24913:24922): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:50:386 Gamecard/(24913:24922): Agregar posicion.
+[TRACE] 04:13:50:389 Gamecard/(24913:24922): Entro al while
+[TRACE] 04:13:50:399 Gamecard/(24913:24922): El archivo actualmente ocupa: 0 
+
+[TRACE] 04:13:50:404 Gamecard/(24913:24922): Tamanio total del archivo al escribir la sentencia: 5
+[TRACE] 04:13:50:409 Gamecard/(24913:24922): Tamanio de bloques: 64
+[TRACE] 04:13:50:421 Gamecard/(24913:24922): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:13:50:423 Gamecard/(24913:24922): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 04:13:50:425 Gamecard/(24913:24922): Posicion agregada/sumada
+[INFO] 04:13:50:441 Gamecard/(24913:24922): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 04:13:50:442 Gamecard/(24913:24922): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:50:454 Gamecard/(24913:24922): Recepcion confirmada: 9 3 1
+[TRACE] 04:13:50:456 Gamecard/(24913:24913): Cliente aceptado: 10.
+[TRACE] 04:13:50:459 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:462 Gamecard/(24913:24924): Codigo de operacion cod_op: 3.
+[INFO] 04:13:50:462 Gamecard/(24913:24924): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:50:463 Gamecard/(24913:24924): Mensaje recibido manejado
+[TRACE] 04:13:50:463 Gamecard/(24913:24925): Manejar mensaje: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Cantidad: 101, Id mensaje: 2.
+[TRACE] 04:13:50:470 Gamecard/(24913:24925): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:50:473 Gamecard/(24913:24925): Se abrio el archivo.
+[TRACE] 04:13:50:473 Gamecard/(24913:24925): Manejar bloques pokemon.
+[TRACE] 04:13:50:474 Gamecard/(24913:24925): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:50:476 Gamecard/(24913:24925): Agregar posicion.
+[TRACE] 04:13:50:477 Gamecard/(24913:24925): Entro al while
+[TRACE] 04:13:50:477 Gamecard/(24913:24925): El archivo actualmente ocupa: 0 
+
+[TRACE] 04:13:50:479 Gamecard/(24913:24925): Tamanio total del archivo al escribir la sentencia: 7
+[TRACE] 04:13:50:480 Gamecard/(24913:24925): Tamanio de bloques: 64
+[TRACE] 04:13:50:489 Gamecard/(24913:24925): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:13:50:489 Gamecard/(24913:24925): Tamanio de todos los bloques del pokemon: 8
+[TRACE] 04:13:50:491 Gamecard/(24913:24925): Posicion agregada/sumada
+[INFO] 04:13:50:494 Gamecard/(24913:24925): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 04:13:50:495 Gamecard/(24913:24925): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:50:496 Gamecard/(24913:24925): Recepcion confirmada: 10 3 2
+[TRACE] 04:13:50:500 Gamecard/(24913:24913): Cliente aceptado: 12.
+[TRACE] 04:13:50:501 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:505 Gamecard/(24913:24927): Codigo de operacion cod_op: 3.
+[INFO] 04:13:50:506 Gamecard/(24913:24927): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:50:506 Gamecard/(24913:24927): Mensaje recibido manejado
+[TRACE] 04:13:50:507 Gamecard/(24913:24928): Manejar mensaje: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Cantidad: 15, Id mensaje: 3.
+[TRACE] 04:13:50:509 Gamecard/(24913:24928): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:50:510 Gamecard/(24913:24928): Se abrio el archivo.
+[TRACE] 04:13:50:511 Gamecard/(24913:24928): Manejar bloques pokemon.
+[TRACE] 04:13:50:511 Gamecard/(24913:24928): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:50:514 Gamecard/(24913:24928): Agregar posicion.
+[TRACE] 04:13:50:514 Gamecard/(24913:24928): Entro al while
+[TRACE] 04:13:50:515 Gamecard/(24913:24928): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:13:50:516 Gamecard/(24913:24928): Tamanio total del archivo al escribir la sentencia: 19
+[TRACE] 04:13:50:517 Gamecard/(24913:24928): Tamanio de bloques: 64
+[TRACE] 04:13:50:522 Gamecard/(24913:24928): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:13:50:523 Gamecard/(24913:24928): Tamanio de todos los bloques del pokemon: 20
+[TRACE] 04:13:50:524 Gamecard/(24913:24928): Posicion agregada/sumada
+[INFO] 04:13:50:527 Gamecard/(24913:24928): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 04:13:50:528 Gamecard/(24913:24928): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:50:529 Gamecard/(24913:24928): Recepcion confirmada: 12 3 3
+[TRACE] 04:13:50:538 Gamecard/(24913:24913): Cliente aceptado: 14.
+[TRACE] 04:13:50:539 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:540 Gamecard/(24913:24930): Codigo de operacion cod_op: 3.
+[INFO] 04:13:50:541 Gamecard/(24913:24930): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:50:542 Gamecard/(24913:24930): Mensaje recibido manejado
+[TRACE] 04:13:50:542 Gamecard/(24913:24931): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Cantidad: 1, Id mensaje: 4.
+[TRACE] 04:13:50:544 Gamecard/(24913:24931): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:50:546 Gamecard/(24913:24931): Se abrio el archivo.
+[TRACE] 04:13:50:546 Gamecard/(24913:24931): Manejar bloques pokemon.
+[TRACE] 04:13:50:547 Gamecard/(24913:24931): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:50:552 Gamecard/(24913:24931): Agregar posicion.
+[TRACE] 04:13:50:553 Gamecard/(24913:24931): Entro al while
+[TRACE] 04:13:50:554 Gamecard/(24913:24931): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:13:50:554 Gamecard/(24913:24931): Tamanio total del archivo al escribir la sentencia: 28
+[TRACE] 04:13:50:556 Gamecard/(24913:24931): Tamanio de bloques: 64
+[TRACE] 04:13:50:561 Gamecard/(24913:24931): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:13:50:561 Gamecard/(24913:24931): Tamanio de todos los bloques del pokemon: 29
+[TRACE] 04:13:50:563 Gamecard/(24913:24931): Posicion agregada/sumada
+[INFO] 04:13:50:566 Gamecard/(24913:24931): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 04:13:50:567 Gamecard/(24913:24931): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:50:568 Gamecard/(24913:24931): Recepcion confirmada: 14 3 4
+[TRACE] 04:13:50:576 Gamecard/(24913:24913): Cliente aceptado: 16.
+[TRACE] 04:13:50:577 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:577 Gamecard/(24913:24933): Codigo de operacion cod_op: 3.
+[INFO] 04:13:50:578 Gamecard/(24913:24933): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:50:579 Gamecard/(24913:24933): Mensaje recibido manejado
+[TRACE] 04:13:50:579 Gamecard/(24913:24934): Manejar mensaje: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Cantidad: 29, Id mensaje: 5.
+[TRACE] 04:13:50:582 Gamecard/(24913:24934): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:50:584 Gamecard/(24913:24934): Se abrio el archivo.
+[TRACE] 04:13:50:584 Gamecard/(24913:24934): Manejar bloques pokemon.
+[TRACE] 04:13:50:585 Gamecard/(24913:24934): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:50:588 Gamecard/(24913:24934): Agregar posicion.
+[TRACE] 04:13:50:588 Gamecard/(24913:24934): Entro al while
+[TRACE] 04:13:50:589 Gamecard/(24913:24934): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:13:50:589 Gamecard/(24913:24934): Tamanio total del archivo al escribir la sentencia: 38
+[TRACE] 04:13:50:591 Gamecard/(24913:24934): Tamanio de bloques: 64
+[TRACE] 04:13:50:598 Gamecard/(24913:24934): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:13:50:602 Gamecard/(24913:24934): Tamanio de todos los bloques del pokemon: 39
+[TRACE] 04:13:50:609 Gamecard/(24913:24934): Posicion agregada/sumada
+[INFO] 04:13:50:614 Gamecard/(24913:24934): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 04:13:50:617 Gamecard/(24913:24934): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:50:621 Gamecard/(24913:24934): Recepcion confirmada: 16 3 5
+[TRACE] 04:13:50:623 Gamecard/(24913:24913): Cliente aceptado: 18.
+[TRACE] 04:13:50:624 Gamecard/(24913:24936): Codigo de operacion cod_op: 3.
+[INFO] 04:13:50:624 Gamecard/(24913:24936): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:50:625 Gamecard/(24913:24936): Mensaje recibido manejado
+[TRACE] 04:13:50:626 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:627 Gamecard/(24913:24937): Manejar mensaje: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Cantidad: 3001, Id mensaje: 6.
+[TRACE] 04:13:50:629 Gamecard/(24913:24937): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:50:631 Gamecard/(24913:24937): Se abrio el archivo.
+[TRACE] 04:13:50:632 Gamecard/(24913:24937): Manejar bloques pokemon.
+[TRACE] 04:13:50:633 Gamecard/(24913:24937): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:50:639 Gamecard/(24913:24937): Agregar posicion.
+[TRACE] 04:13:50:639 Gamecard/(24913:24937): Entro al while
+[TRACE] 04:13:50:640 Gamecard/(24913:24937): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:13:50:641 Gamecard/(24913:24937): Tamanio total del archivo al escribir la sentencia: 49
+[TRACE] 04:13:50:642 Gamecard/(24913:24937): Tamanio de bloques: 64
+[TRACE] 04:13:50:651 Gamecard/(24913:24937): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:50:652 Gamecard/(24913:24937): Tamanio de todos los bloques del pokemon: 50
+[TRACE] 04:13:50:654 Gamecard/(24913:24937): Posicion agregada/sumada
+[INFO] 04:13:50:656 Gamecard/(24913:24937): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 04:13:50:657 Gamecard/(24913:24937): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:50:658 Gamecard/(24913:24937): Recepcion confirmada: 18 3 6
+[TRACE] 04:13:50:659 Gamecard/(24913:24913): Cliente aceptado: 20.
+[TRACE] 04:13:50:660 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:660 Gamecard/(24913:24939): Codigo de operacion cod_op: 3.
+[INFO] 04:13:50:661 Gamecard/(24913:24939): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:50:695 Gamecard/(24913:24939): Mensaje recibido manejado
+[TRACE] 04:13:50:696 Gamecard/(24913:24940): Manejar mensaje: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Cantidad: 34, Id mensaje: 7.
+[TRACE] 04:13:50:698 Gamecard/(24913:24940): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:50:703 Gamecard/(24913:24940): Se abrio el archivo.
+[TRACE] 04:13:50:706 Gamecard/(24913:24940): Manejar bloques pokemon.
+[TRACE] 04:13:50:709 Gamecard/(24913:24940): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:50:712 Gamecard/(24913:24940): Agregar posicion.
+[TRACE] 04:13:50:713 Gamecard/(24913:24940): Entro al while
+[TRACE] 04:13:50:714 Gamecard/(24913:24940): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:50:715 Gamecard/(24913:24940): Tamanio total del archivo al escribir la sentencia: 58
+[TRACE] 04:13:50:720 Gamecard/(24913:24940): Tamanio de bloques: 64
+[TRACE] 04:13:50:727 Gamecard/(24913:24940): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:13:50:728 Gamecard/(24913:24940): Tamanio de todos los bloques del pokemon: 59
+[TRACE] 04:13:50:729 Gamecard/(24913:24940): Posicion agregada/sumada
+[INFO] 04:13:50:733 Gamecard/(24913:24940): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 04:13:50:735 Gamecard/(24913:24940): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:50:738 Gamecard/(24913:24940): Recepcion confirmada: 20 3 7
+[TRACE] 04:13:50:740 Gamecard/(24913:24913): Cliente aceptado: 22.
+[TRACE] 04:13:50:740 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:741 Gamecard/(24913:24942): Codigo de operacion cod_op: 3.
+[INFO] 04:13:50:742 Gamecard/(24913:24942): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:13:50:743 Gamecard/(24913:24943): Manejar mensaje: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Cantidad: 11, Id mensaje: 8.
+[TRACE] 04:13:50:745 Gamecard/(24913:24943): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:50:745 Gamecard/(24913:24942): Mensaje recibido manejado
+[TRACE] 04:13:50:747 Gamecard/(24913:24943): Se abrio el archivo.
+[TRACE] 04:13:50:748 Gamecard/(24913:24943): Manejar bloques pokemon.
+[TRACE] 04:13:50:748 Gamecard/(24913:24943): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:13:50:754 Gamecard/(24913:24943): Agregar posicion.
+[TRACE] 04:13:50:755 Gamecard/(24913:24943): Entro al while
+[TRACE] 04:13:50:755 Gamecard/(24913:24943): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:13:50:756 Gamecard/(24913:24943): Tamanio total del archivo al escribir la sentencia: 69
+[TRACE] 04:13:50:757 Gamecard/(24913:24943): Tamanio de bloques: 64
+[TRACE] 04:13:50:759 Gamecard/(24913:24943): Paso el while sin entrar
+[TRACE] 04:13:50:762 Gamecard/(24913:24943): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 04:13:50:772 Gamecard/(24913:24943): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:13:50:775 Gamecard/(24913:24943): Termino agregar bloque vacio
+[TRACE] 04:13:50:777 Gamecard/(24913:24943): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:13:50:786 Gamecard/(24913:24943): Lo que se seteo: [1,0]
+[TRACE] 04:13:50:787 Gamecard/(24913:24943): Bloques final: [1,0]
+[TRACE] 04:13:50:794 Gamecard/(24913:24943): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:13:50:795 Gamecard/(24913:24943): El archivo actualmente ocupa: 17 
+
+[TRACE] 04:13:50:795 Gamecard/(24913:24943): Tamanio de todos los bloques del pokemon: 76
+[TRACE] 04:13:50:800 Gamecard/(24913:24943): Save bitmap.
+[TRACE] 04:13:50:810 Gamecard/(24913:24943): Posicion agregada/sumada
+[INFO] 04:13:50:812 Gamecard/(24913:24943): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 04:13:50:813 Gamecard/(24913:24943): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:13:50:815 Gamecard/(24913:24943): Recepcion confirmada: 22 3 8
+[TRACE] 04:13:50:822 Gamecard/(24913:24913): Cliente aceptado: 24.
+[TRACE] 04:13:50:823 Gamecard/(24913:24913): Esperando Cliente
+[TRACE] 04:13:50:823 Gamecard/(24913:24945): Codigo de operacion cod_op: 5.
+[INFO] 04:13:50:824 Gamecard/(24913:24945): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 04:13:50:825 Gamecard/(24913:24945): Mensaje recibido manejado
+[TRACE] 04:13:50:829 Gamecard/(24913:24946): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 1.
+[TRACE] 04:13:50:841 Gamecard/(24913:24946): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:13:50:842 Gamecard/(24913:24946): Se abrio el archivo.
+[TRACE] 04:13:50:859 Gamecard/(24913:24946): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:50:860 Gamecard/(24913:24946): El archivo actualmente ocupa: 17 
+
+[TRACE] 04:13:50:861 Gamecard/(24913:24946): Tamanio de todos los bloques del pokemon: 67
+[TRACE] 04:13:50:863 Gamecard/(24913:24946): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:50:864 Gamecard/(24913:24946): Compactar bloques
+[TRACE] 04:13:50:865 Gamecard/(24913:24946): En el while, comparando el bloque: 0.
+[TRACE] 04:13:50:866 Gamecard/(24913:24946): En el while, comparando contra el bloque: 0.
+[TRACE] 04:13:50:868 Gamecard/(24913:24946): En el while, comparando contra el bloque: 1.
+[TRACE] 04:13:50:872 Gamecard/(24913:24946): Se compararon distinos bloques.
+[TRACE] 04:13:50:881 Gamecard/(24913:24946): El archivo actualmente ocupa: 17 
+
+[TRACE] 04:13:50:882 Gamecard/(24913:24946): Bloque 1 de la comparacion: numero 0 , tamanio: 17.
+[TRACE] 04:13:50:884 Gamecard/(24913:24946): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:13:50:887 Gamecard/(24913:24946): Bloque 2 de la comparacion: numero 1 , tamanio: 50.
+[TRACE] 04:13:50:889 Gamecard/(24913:24946): En el while, comparando el bloque: 1.
+[INFO] 04:13:50:896 Gamecard/(24913:24946): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1.
+[INFO] 04:13:50:902 Gamecard/(24913:24946): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[TRACE] 04:13:50:907 Gamecard/(24913:24946): Recepcion confirmada: 24 5 1
+[INFO] 04:14:18:973 Gamecard/(24913:24914): Inicio reintento de comunicacion con Broker
+[INFO] 04:14:18:975 Gamecard/(24913:24914): Reintento de comunicación con broker fallido
+[INFO] 04:14:48:978 Gamecard/(24913:24914): Inicio reintento de comunicacion con Broker
+[INFO] 04:14:48:979 Gamecard/(24913:24914): Reintento de comunicación con broker fallido
+[TRACE] 04:17:21:163 Gamecard/(25294:25294): Log inicializado
+[TRACE] 04:17:21:219 Gamecard/(25294:25294): Crear metadata
+[TRACE] 04:17:21:282 Gamecard/(25294:25294): Save bitmap.
+[TRACE] 04:17:21:341 Gamecard/(25294:25294): Iniciando conexion con gameboy
+[TRACE] 04:17:21:370 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:21:375 Gamecard/(25294:25299): Hilos de suscripcion lanzados
+[TRACE] 04:17:22:374 Gamecard/(25294:25294): Cliente aceptado: 5.
+[TRACE] 04:17:22:414 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:22:417 Gamecard/(25294:25302): Codigo de operacion cod_op: 3.
+[INFO] 04:17:22:420 Gamecard/(25294:25302): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:17:22:472 Gamecard/(25294:25302): Mensaje recibido manejado
+[TRACE] 04:17:22:508 Gamecard/(25294:25303): Manejar mensaje: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Cantidad: 3, Id mensaje: 1.
+[TRACE] 04:17:22:519 Gamecard/(25294:25303): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:17:22:525 Gamecard/(25294:25303): Se abrio el archivo.
+[TRACE] 04:17:22:527 Gamecard/(25294:25303): Manejar bloques pokemon.
+[TRACE] 04:17:22:528 Gamecard/(25294:25303): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:17:22:552 Gamecard/(25294:25303): Agregar posicion.
+[TRACE] 04:17:22:557 Gamecard/(25294:25303): Entro al while
+[TRACE] 04:17:22:575 Gamecard/(25294:25303): El archivo actualmente ocupa: 0 
+
+[TRACE] 04:17:22:576 Gamecard/(25294:25303): Tamanio total del archivo al escribir la sentencia: 5
+[TRACE] 04:17:22:580 Gamecard/(25294:25303): Tamanio de bloques: 64
+[TRACE] 04:17:22:591 Gamecard/(25294:25303): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:17:22:592 Gamecard/(25294:25303): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 04:17:22:604 Gamecard/(25294:25303): Posicion agregada/sumada
+[INFO] 04:17:22:615 Gamecard/(25294:25303): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 04:17:22:617 Gamecard/(25294:25303): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:17:22:631 Gamecard/(25294:25303): Recepcion confirmada: 5 3 1
+[TRACE] 04:17:22:632 Gamecard/(25294:25294): Cliente aceptado: 10.
+[TRACE] 04:17:22:637 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:22:641 Gamecard/(25294:25305): Codigo de operacion cod_op: 3.
+[INFO] 04:17:22:641 Gamecard/(25294:25305): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:17:22:642 Gamecard/(25294:25305): Mensaje recibido manejado
+[TRACE] 04:17:22:642 Gamecard/(25294:25306): Manejar mensaje: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Cantidad: 101, Id mensaje: 2.
+[TRACE] 04:17:22:646 Gamecard/(25294:25306): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:17:22:651 Gamecard/(25294:25306): Se abrio el archivo.
+[TRACE] 04:17:22:651 Gamecard/(25294:25306): Manejar bloques pokemon.
+[TRACE] 04:17:22:651 Gamecard/(25294:25306): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:17:22:655 Gamecard/(25294:25306): Agregar posicion.
+[TRACE] 04:17:22:656 Gamecard/(25294:25306): Entro al while
+[TRACE] 04:17:22:657 Gamecard/(25294:25306): El archivo actualmente ocupa: 0 
+
+[TRACE] 04:17:22:657 Gamecard/(25294:25306): Tamanio total del archivo al escribir la sentencia: 7
+[TRACE] 04:17:22:659 Gamecard/(25294:25306): Tamanio de bloques: 64
+[TRACE] 04:17:22:665 Gamecard/(25294:25306): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:17:22:665 Gamecard/(25294:25306): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:17:22:666 Gamecard/(25294:25306): Tamanio de todos los bloques del pokemon: 14
+[TRACE] 04:17:22:668 Gamecard/(25294:25306): Posicion agregada/sumada
+[INFO] 04:17:22:674 Gamecard/(25294:25306): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 04:17:22:675 Gamecard/(25294:25306): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:17:22:677 Gamecard/(25294:25306): Recepcion confirmada: 10 3 2
+[TRACE] 04:17:22:682 Gamecard/(25294:25294): Cliente aceptado: 12.
+[TRACE] 04:17:22:682 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:22:683 Gamecard/(25294:25308): Codigo de operacion cod_op: 3.
+[INFO] 04:17:22:684 Gamecard/(25294:25308): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:17:22:684 Gamecard/(25294:25308): Mensaje recibido manejado
+[TRACE] 04:17:22:687 Gamecard/(25294:25309): Manejar mensaje: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Cantidad: 15, Id mensaje: 3.
+[TRACE] 04:17:22:689 Gamecard/(25294:25309): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:17:22:690 Gamecard/(25294:25309): Se abrio el archivo.
+[TRACE] 04:17:22:691 Gamecard/(25294:25309): Manejar bloques pokemon.
+[TRACE] 04:17:22:691 Gamecard/(25294:25309): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:17:22:697 Gamecard/(25294:25309): Agregar posicion.
+[TRACE] 04:17:22:698 Gamecard/(25294:25309): Entro al while
+[TRACE] 04:17:22:698 Gamecard/(25294:25309): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:17:22:699 Gamecard/(25294:25309): Tamanio total del archivo al escribir la sentencia: 19
+[TRACE] 04:17:22:701 Gamecard/(25294:25309): Tamanio de bloques: 64
+[TRACE] 04:17:22:709 Gamecard/(25294:25309): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:17:22:710 Gamecard/(25294:25309): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:17:22:711 Gamecard/(25294:25309): Tamanio de todos los bloques del pokemon: 26
+[TRACE] 04:17:22:716 Gamecard/(25294:25309): Posicion agregada/sumada
+[INFO] 04:17:22:719 Gamecard/(25294:25309): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 04:17:22:720 Gamecard/(25294:25309): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:17:22:721 Gamecard/(25294:25309): Recepcion confirmada: 12 3 3
+[TRACE] 04:17:22:723 Gamecard/(25294:25294): Cliente aceptado: 14.
+[TRACE] 04:17:22:724 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:22:725 Gamecard/(25294:25311): Codigo de operacion cod_op: 3.
+[INFO] 04:17:22:726 Gamecard/(25294:25311): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:17:22:729 Gamecard/(25294:25311): Mensaje recibido manejado
+[TRACE] 04:17:22:732 Gamecard/(25294:25312): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Cantidad: 1, Id mensaje: 4.
+[TRACE] 04:17:22:735 Gamecard/(25294:25312): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:17:22:740 Gamecard/(25294:25312): Se abrio el archivo.
+[TRACE] 04:17:22:744 Gamecard/(25294:25312): Manejar bloques pokemon.
+[TRACE] 04:17:22:745 Gamecard/(25294:25312): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:17:22:751 Gamecard/(25294:25312): Agregar posicion.
+[TRACE] 04:17:22:755 Gamecard/(25294:25312): Entro al while
+[TRACE] 04:17:22:756 Gamecard/(25294:25312): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:17:22:756 Gamecard/(25294:25312): Tamanio total del archivo al escribir la sentencia: 28
+[TRACE] 04:17:22:758 Gamecard/(25294:25312): Tamanio de bloques: 64
+[TRACE] 04:17:22:790 Gamecard/(25294:25312): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:17:22:792 Gamecard/(25294:25312): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:17:22:792 Gamecard/(25294:25312): Tamanio de todos los bloques del pokemon: 35
+[TRACE] 04:17:22:795 Gamecard/(25294:25312): Posicion agregada/sumada
+[INFO] 04:17:22:798 Gamecard/(25294:25312): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 04:17:22:799 Gamecard/(25294:25312): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:17:22:801 Gamecard/(25294:25312): Recepcion confirmada: 14 3 4
+[TRACE] 04:17:22:805 Gamecard/(25294:25294): Cliente aceptado: 16.
+[TRACE] 04:17:22:806 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:22:807 Gamecard/(25294:25314): Codigo de operacion cod_op: 3.
+[INFO] 04:17:22:808 Gamecard/(25294:25314): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:17:22:809 Gamecard/(25294:25314): Mensaje recibido manejado
+[TRACE] 04:17:22:809 Gamecard/(25294:25315): Manejar mensaje: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Cantidad: 29, Id mensaje: 5.
+[TRACE] 04:17:22:813 Gamecard/(25294:25315): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:17:22:815 Gamecard/(25294:25315): Se abrio el archivo.
+[TRACE] 04:17:22:815 Gamecard/(25294:25315): Manejar bloques pokemon.
+[TRACE] 04:17:22:815 Gamecard/(25294:25315): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:17:22:819 Gamecard/(25294:25315): Agregar posicion.
+[TRACE] 04:17:22:819 Gamecard/(25294:25315): Entro al while
+[TRACE] 04:17:22:820 Gamecard/(25294:25315): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:17:22:820 Gamecard/(25294:25315): Tamanio total del archivo al escribir la sentencia: 38
+[TRACE] 04:17:22:822 Gamecard/(25294:25315): Tamanio de bloques: 64
+[TRACE] 04:17:22:835 Gamecard/(25294:25315): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:17:22:838 Gamecard/(25294:25315): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:17:22:840 Gamecard/(25294:25315): Tamanio de todos los bloques del pokemon: 45
+[TRACE] 04:17:22:842 Gamecard/(25294:25315): Posicion agregada/sumada
+[INFO] 04:17:22:846 Gamecard/(25294:25315): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 04:17:22:848 Gamecard/(25294:25315): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:17:22:849 Gamecard/(25294:25315): Recepcion confirmada: 16 3 5
+[TRACE] 04:17:22:850 Gamecard/(25294:25294): Cliente aceptado: 18.
+[TRACE] 04:17:22:851 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:22:851 Gamecard/(25294:25317): Codigo de operacion cod_op: 3.
+[INFO] 04:17:22:859 Gamecard/(25294:25317): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:17:22:859 Gamecard/(25294:25317): Mensaje recibido manejado
+[TRACE] 04:17:22:861 Gamecard/(25294:25318): Manejar mensaje: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Cantidad: 3001, Id mensaje: 6.
+[TRACE] 04:17:22:863 Gamecard/(25294:25318): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:17:22:864 Gamecard/(25294:25318): Se abrio el archivo.
+[TRACE] 04:17:22:865 Gamecard/(25294:25318): Manejar bloques pokemon.
+[TRACE] 04:17:22:866 Gamecard/(25294:25318): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:17:22:873 Gamecard/(25294:25318): Agregar posicion.
+[TRACE] 04:17:22:874 Gamecard/(25294:25318): Entro al while
+[TRACE] 04:17:22:875 Gamecard/(25294:25318): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:17:22:876 Gamecard/(25294:25318): Tamanio total del archivo al escribir la sentencia: 49
+[TRACE] 04:17:22:881 Gamecard/(25294:25318): Tamanio de bloques: 64
+[TRACE] 04:17:22:891 Gamecard/(25294:25318): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:17:22:892 Gamecard/(25294:25318): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:17:22:894 Gamecard/(25294:25318): Tamanio de todos los bloques del pokemon: 56
+[TRACE] 04:17:22:896 Gamecard/(25294:25318): Posicion agregada/sumada
+[INFO] 04:17:22:900 Gamecard/(25294:25318): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 04:17:22:901 Gamecard/(25294:25318): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:17:22:903 Gamecard/(25294:25318): Recepcion confirmada: 18 3 6
+[TRACE] 04:17:22:907 Gamecard/(25294:25294): Cliente aceptado: 20.
+[TRACE] 04:17:22:907 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:22:908 Gamecard/(25294:25320): Codigo de operacion cod_op: 3.
+[INFO] 04:17:22:909 Gamecard/(25294:25320): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:17:22:909 Gamecard/(25294:25320): Mensaje recibido manejado
+[TRACE] 04:17:22:910 Gamecard/(25294:25321): Manejar mensaje: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Cantidad: 34, Id mensaje: 7.
+[TRACE] 04:17:22:913 Gamecard/(25294:25321): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:17:22:915 Gamecard/(25294:25321): Se abrio el archivo.
+[TRACE] 04:17:22:915 Gamecard/(25294:25321): Manejar bloques pokemon.
+[TRACE] 04:17:22:916 Gamecard/(25294:25321): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:17:22:919 Gamecard/(25294:25321): Agregar posicion.
+[TRACE] 04:17:22:919 Gamecard/(25294:25321): Entro al while
+[TRACE] 04:17:22:920 Gamecard/(25294:25321): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:17:22:920 Gamecard/(25294:25321): Tamanio total del archivo al escribir la sentencia: 58
+[TRACE] 04:17:22:922 Gamecard/(25294:25321): Tamanio de bloques: 64
+[TRACE] 04:17:22:933 Gamecard/(25294:25321): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:17:22:935 Gamecard/(25294:25321): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:17:22:936 Gamecard/(25294:25321): Tamanio de todos los bloques del pokemon: 65
+[TRACE] 04:17:22:940 Gamecard/(25294:25321): Posicion agregada/sumada
+[INFO] 04:17:22:943 Gamecard/(25294:25321): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 04:17:22:946 Gamecard/(25294:25321): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:17:22:947 Gamecard/(25294:25321): Recepcion confirmada: 20 3 7
+[TRACE] 04:17:22:952 Gamecard/(25294:25294): Cliente aceptado: 22.
+[TRACE] 04:17:22:955 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:22:956 Gamecard/(25294:25323): Codigo de operacion cod_op: 3.
+[INFO] 04:17:22:957 Gamecard/(25294:25323): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:17:22:958 Gamecard/(25294:25323): Mensaje recibido manejado
+[TRACE] 04:17:22:958 Gamecard/(25294:25324): Manejar mensaje: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Cantidad: 11, Id mensaje: 8.
+[TRACE] 04:17:22:967 Gamecard/(25294:25324): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:17:22:972 Gamecard/(25294:25324): Se abrio el archivo.
+[TRACE] 04:17:22:972 Gamecard/(25294:25324): Manejar bloques pokemon.
+[TRACE] 04:17:22:973 Gamecard/(25294:25324): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:17:22:982 Gamecard/(25294:25324): Agregar posicion.
+[TRACE] 04:17:22:992 Gamecard/(25294:25324): Entro al while
+[TRACE] 04:17:22:992 Gamecard/(25294:25324): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:17:22:993 Gamecard/(25294:25324): Tamanio total del archivo al escribir la sentencia: 69
+[TRACE] 04:17:22:994 Gamecard/(25294:25324): Tamanio de bloques: 64
+[TRACE] 04:17:22:996 Gamecard/(25294:25324): Entro al while
+[TRACE] 04:17:22:996 Gamecard/(25294:25324): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:17:22:997 Gamecard/(25294:25324): Tamanio total del archivo al escribir la sentencia: 16
+[TRACE] 04:17:22:998 Gamecard/(25294:25324): Tamanio de bloques: 64
+[TRACE] 04:17:23:6 Gamecard/(25294:25324): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:17:23:7 Gamecard/(25294:25324): El archivo actualmente ocupa: 17 
+
+[TRACE] 04:17:23:8 Gamecard/(25294:25324): Tamanio de todos los bloques del pokemon: 76
+[TRACE] 04:17:23:9 Gamecard/(25294:25324): Posicion agregada/sumada
+[INFO] 04:17:23:12 Gamecard/(25294:25324): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 04:17:23:13 Gamecard/(25294:25324): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:17:23:14 Gamecard/(25294:25324): Recepcion confirmada: 22 3 8
+[TRACE] 04:17:23:15 Gamecard/(25294:25294): Cliente aceptado: 24.
+[TRACE] 04:17:23:16 Gamecard/(25294:25294): Esperando Cliente
+[TRACE] 04:17:23:16 Gamecard/(25294:25326): Codigo de operacion cod_op: 5.
+[INFO] 04:17:23:17 Gamecard/(25294:25326): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 04:17:23:18 Gamecard/(25294:25326): Mensaje recibido manejado
+[TRACE] 04:17:23:22 Gamecard/(25294:25327): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 1.
+[TRACE] 04:17:23:38 Gamecard/(25294:25327): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:17:23:40 Gamecard/(25294:25327): Se abrio el archivo.
+[TRACE] 04:17:23:60 Gamecard/(25294:25327): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:17:23:61 Gamecard/(25294:25327): El archivo actualmente ocupa: 17 
+
+[TRACE] 04:17:23:62 Gamecard/(25294:25327): Tamanio de todos los bloques del pokemon: 67
+[TRACE] 04:17:23:64 Gamecard/(25294:25327): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:17:23:65 Gamecard/(25294:25327): Compactar bloques
+[TRACE] 04:17:23:66 Gamecard/(25294:25327): En el while, comparando el bloque: 0.
+[TRACE] 04:17:23:66 Gamecard/(25294:25327): En el while, comparando contra el bloque: 0.
+[TRACE] 04:17:23:70 Gamecard/(25294:25327): En el while, comparando contra el bloque: 1.
+[TRACE] 04:17:23:71 Gamecard/(25294:25327): Se compararon distinos bloques.
+[TRACE] 04:17:23:73 Gamecard/(25294:25327): El archivo actualmente ocupa: 17 
+
+[TRACE] 04:17:23:74 Gamecard/(25294:25327): Bloque 1 de la comparacion: numero 0 , tamanio: 17.
+[TRACE] 04:17:23:75 Gamecard/(25294:25327): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:17:23:81 Gamecard/(25294:25327): Bloque 2 de la comparacion: numero 1 , tamanio: 50.
+[TRACE] 04:17:23:83 Gamecard/(25294:25327): En el while, comparando el bloque: 1.
+[INFO] 04:17:23:88 Gamecard/(25294:25327): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1.
+[INFO] 04:17:23:90 Gamecard/(25294:25327): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[TRACE] 04:17:23:93 Gamecard/(25294:25327): Recepcion confirmada: 24 5 1
+[TRACE] 04:22:08:93 Gamecard/(25904:25904): Log inicializado
+[TRACE] 04:22:08:146 Gamecard/(25904:25904): Crear metadata
+[TRACE] 04:22:08:219 Gamecard/(25904:25904): Save bitmap.
+[TRACE] 04:22:08:280 Gamecard/(25904:25904): Iniciando conexion con gameboy
+[TRACE] 04:22:08:311 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:08:329 Gamecard/(25904:25909): Hilos de suscripcion lanzados
+[TRACE] 04:22:08:842 Gamecard/(25904:25904): Cliente aceptado: 5.
+[TRACE] 04:22:08:882 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:08:886 Gamecard/(25904:25912): Codigo de operacion cod_op: 3.
+[INFO] 04:22:08:890 Gamecard/(25904:25912): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:22:08:934 Gamecard/(25904:25912): Mensaje recibido manejado
+[TRACE] 04:22:08:963 Gamecard/(25904:25913): Manejar mensaje: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Cantidad: 3, Id mensaje: 1.
+[TRACE] 04:22:08:976 Gamecard/(25904:25913): File del pokemon no existente, lo creo.
+[TRACE] 04:22:08:978 Gamecard/(25904:25913): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Pikachu/
+[TRACE] 04:22:08:981 Gamecard/(25904:25913): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 04:22:08:985 Gamecard/(25904:25913): Ya se creo.
+[TRACE] 04:22:08:989 Gamecard/(25904:25913): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 04:22:08:0 Gamecard/(25904:25913): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:22:09:8 Gamecard/(25904:25913): Se abrio el archivo.
+[TRACE] 04:22:09:11 Gamecard/(25904:25913): Manejar bloques pokemon.
+[TRACE] 04:22:09:12 Gamecard/(25904:25913): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:22:09:22 Gamecard/(25904:25913): Agregar posicion.
+[TRACE] 04:22:09:25 Gamecard/(25904:25913): Paso el while sin entrar
+[TRACE] 04:22:09:27 Gamecard/(25904:25913): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 04:22:09:37 Gamecard/(25904:25913): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:22:09:40 Gamecard/(25904:25913): Termino agregar bloque vacio
+[TRACE] 04:22:09:43 Gamecard/(25904:25913): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 04:22:09:50 Gamecard/(25904:25913): Lo que se seteo: [0]
+[TRACE] 04:22:09:51 Gamecard/(25904:25913): Bloques final: [0]
+[TRACE] 04:22:09:77 Gamecard/(25904:25913): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:22:09:79 Gamecard/(25904:25913): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 04:22:09:85 Gamecard/(25904:25913): Save bitmap.
+[TRACE] 04:22:09:90 Gamecard/(25904:25913): Posicion agregada/sumada
+[INFO] 04:22:09:99 Gamecard/(25904:25913): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 04:22:09:100 Gamecard/(25904:25913): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:22:09:116 Gamecard/(25904:25913): Recepcion confirmada: 5 3 1
+[TRACE] 04:22:09:118 Gamecard/(25904:25904): Cliente aceptado: 10.
+[TRACE] 04:22:09:122 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:09:126 Gamecard/(25904:25915): Codigo de operacion cod_op: 3.
+[INFO] 04:22:09:127 Gamecard/(25904:25915): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:22:09:128 Gamecard/(25904:25916): Manejar mensaje: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Cantidad: 101, Id mensaje: 2.
+[TRACE] 04:22:09:131 Gamecard/(25904:25916): File del pokemon no existente, lo creo.
+[TRACE] 04:22:09:134 Gamecard/(25904:25916): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Charmander/
+[TRACE] 04:22:09:135 Gamecard/(25904:25916): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 04:22:09:136 Gamecard/(25904:25916): Ya se creo.
+[TRACE] 04:22:09:144 Gamecard/(25904:25916): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:22:09:136 Gamecard/(25904:25915): Mensaje recibido manejado
+[TRACE] 04:22:09:154 Gamecard/(25904:25916): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:22:09:156 Gamecard/(25904:25916): Se abrio el archivo.
+[TRACE] 04:22:09:161 Gamecard/(25904:25916): Manejar bloques pokemon.
+[TRACE] 04:22:09:162 Gamecard/(25904:25916): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:22:09:163 Gamecard/(25904:25916): Agregar posicion.
+[TRACE] 04:22:09:164 Gamecard/(25904:25916): Paso el while sin entrar
+[TRACE] 04:22:09:167 Gamecard/(25904:25916): Bit: 0 estado: 1
+[TRACE] 04:22:09:171 Gamecard/(25904:25916): Va a proceder a asignar el bloque vacio:  1
+[TRACE] 04:22:09:176 Gamecard/(25904:25916): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:22:09:177 Gamecard/(25904:25916): Termino agregar bloque vacio
+[TRACE] 04:22:09:182 Gamecard/(25904:25916): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:22:09:184 Gamecard/(25904:25916): Lo que se seteo: [1]
+[TRACE] 04:22:09:185 Gamecard/(25904:25916): Bloques final: [1]
+[TRACE] 04:22:09:190 Gamecard/(25904:25916): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:22:09:191 Gamecard/(25904:25916): Tamanio de todos los bloques del pokemon: 8
+[TRACE] 04:22:09:192 Gamecard/(25904:25916): Save bitmap.
+[TRACE] 04:22:09:196 Gamecard/(25904:25916): Posicion agregada/sumada
+[INFO] 04:22:09:199 Gamecard/(25904:25916): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 04:22:09:203 Gamecard/(25904:25916): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:22:09:204 Gamecard/(25904:25916): Recepcion confirmada: 10 3 2
+[TRACE] 04:22:09:213 Gamecard/(25904:25904): Cliente aceptado: 12.
+[TRACE] 04:22:09:213 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:09:214 Gamecard/(25904:25918): Codigo de operacion cod_op: 3.
+[INFO] 04:22:09:215 Gamecard/(25904:25918): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:22:09:215 Gamecard/(25904:25918): Mensaje recibido manejado
+[TRACE] 04:22:09:217 Gamecard/(25904:25919): Manejar mensaje: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Cantidad: 15, Id mensaje: 3.
+[TRACE] 04:22:09:221 Gamecard/(25904:25919): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:22:09:222 Gamecard/(25904:25919): Se abrio el archivo.
+[TRACE] 04:22:09:223 Gamecard/(25904:25919): Manejar bloques pokemon.
+[TRACE] 04:22:09:224 Gamecard/(25904:25919): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:22:09:229 Gamecard/(25904:25919): Agregar posicion.
+[TRACE] 04:22:09:230 Gamecard/(25904:25919): Entro al while
+[TRACE] 04:22:09:231 Gamecard/(25904:25919): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:22:09:239 Gamecard/(25904:25919): Tamanio total del archivo al escribir la sentencia: 19
+[TRACE] 04:22:09:243 Gamecard/(25904:25919): Tamanio de bloques: 64
+[TRACE] 04:22:09:262 Gamecard/(25904:25919): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:22:09:263 Gamecard/(25904:25919): Tamanio de todos los bloques del pokemon: 20
+[TRACE] 04:22:09:266 Gamecard/(25904:25919): Posicion agregada/sumada
+[INFO] 04:22:09:270 Gamecard/(25904:25919): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 04:22:09:273 Gamecard/(25904:25919): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:22:09:274 Gamecard/(25904:25919): Recepcion confirmada: 12 3 3
+[TRACE] 04:22:09:276 Gamecard/(25904:25904): Cliente aceptado: 14.
+[TRACE] 04:22:09:276 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:09:277 Gamecard/(25904:25921): Codigo de operacion cod_op: 3.
+[INFO] 04:22:09:278 Gamecard/(25904:25921): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:22:09:278 Gamecard/(25904:25921): Mensaje recibido manejado
+[TRACE] 04:22:09:279 Gamecard/(25904:25922): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Cantidad: 1, Id mensaje: 4.
+[TRACE] 04:22:09:283 Gamecard/(25904:25922): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:22:09:285 Gamecard/(25904:25922): Se abrio el archivo.
+[TRACE] 04:22:09:285 Gamecard/(25904:25922): Manejar bloques pokemon.
+[TRACE] 04:22:09:286 Gamecard/(25904:25922): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:22:09:288 Gamecard/(25904:25922): Agregar posicion.
+[TRACE] 04:22:09:289 Gamecard/(25904:25922): Entro al while
+[TRACE] 04:22:09:290 Gamecard/(25904:25922): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:22:09:290 Gamecard/(25904:25922): Tamanio total del archivo al escribir la sentencia: 28
+[TRACE] 04:22:09:292 Gamecard/(25904:25922): Tamanio de bloques: 64
+[TRACE] 04:22:09:302 Gamecard/(25904:25922): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:22:09:309 Gamecard/(25904:25922): Tamanio de todos los bloques del pokemon: 29
+[TRACE] 04:22:09:313 Gamecard/(25904:25922): Posicion agregada/sumada
+[INFO] 04:22:09:319 Gamecard/(25904:25922): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 04:22:09:320 Gamecard/(25904:25922): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:22:09:322 Gamecard/(25904:25922): Recepcion confirmada: 14 3 4
+[TRACE] 04:22:09:324 Gamecard/(25904:25904): Cliente aceptado: 16.
+[TRACE] 04:22:09:324 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:09:325 Gamecard/(25904:25924): Codigo de operacion cod_op: 3.
+[INFO] 04:22:09:326 Gamecard/(25904:25924): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:22:09:326 Gamecard/(25904:25924): Mensaje recibido manejado
+[TRACE] 04:22:09:327 Gamecard/(25904:25925): Manejar mensaje: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Cantidad: 29, Id mensaje: 5.
+[TRACE] 04:22:09:329 Gamecard/(25904:25925): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:22:09:331 Gamecard/(25904:25925): Se abrio el archivo.
+[TRACE] 04:22:09:331 Gamecard/(25904:25925): Manejar bloques pokemon.
+[TRACE] 04:22:09:332 Gamecard/(25904:25925): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:22:09:335 Gamecard/(25904:25925): Agregar posicion.
+[TRACE] 04:22:09:336 Gamecard/(25904:25925): Entro al while
+[TRACE] 04:22:09:339 Gamecard/(25904:25925): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:22:09:340 Gamecard/(25904:25925): Tamanio total del archivo al escribir la sentencia: 38
+[TRACE] 04:22:09:341 Gamecard/(25904:25925): Tamanio de bloques: 64
+[TRACE] 04:22:09:347 Gamecard/(25904:25925): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:22:09:347 Gamecard/(25904:25925): Tamanio de todos los bloques del pokemon: 39
+[TRACE] 04:22:09:351 Gamecard/(25904:25925): Posicion agregada/sumada
+[INFO] 04:22:09:355 Gamecard/(25904:25925): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 04:22:09:356 Gamecard/(25904:25925): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:22:09:357 Gamecard/(25904:25925): Recepcion confirmada: 16 3 5
+[TRACE] 04:22:09:358 Gamecard/(25904:25904): Cliente aceptado: 18.
+[TRACE] 04:22:09:359 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:09:359 Gamecard/(25904:25927): Codigo de operacion cod_op: 3.
+[INFO] 04:22:09:360 Gamecard/(25904:25927): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:22:09:361 Gamecard/(25904:25927): Mensaje recibido manejado
+[TRACE] 04:22:09:361 Gamecard/(25904:25928): Manejar mensaje: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Cantidad: 3001, Id mensaje: 6.
+[TRACE] 04:22:09:363 Gamecard/(25904:25928): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:22:09:365 Gamecard/(25904:25928): Se abrio el archivo.
+[TRACE] 04:22:09:367 Gamecard/(25904:25928): Manejar bloques pokemon.
+[TRACE] 04:22:09:369 Gamecard/(25904:25928): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:22:09:374 Gamecard/(25904:25928): Agregar posicion.
+[TRACE] 04:22:09:375 Gamecard/(25904:25928): Entro al while
+[TRACE] 04:22:09:376 Gamecard/(25904:25928): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:22:09:377 Gamecard/(25904:25928): Tamanio total del archivo al escribir la sentencia: 49
+[TRACE] 04:22:09:378 Gamecard/(25904:25928): Tamanio de bloques: 64
+[TRACE] 04:22:09:384 Gamecard/(25904:25928): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:22:09:385 Gamecard/(25904:25928): Tamanio de todos los bloques del pokemon: 50
+[TRACE] 04:22:09:387 Gamecard/(25904:25928): Posicion agregada/sumada
+[INFO] 04:22:09:390 Gamecard/(25904:25928): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 04:22:09:391 Gamecard/(25904:25928): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:22:09:392 Gamecard/(25904:25928): Recepcion confirmada: 18 3 6
+[TRACE] 04:22:09:394 Gamecard/(25904:25904): Cliente aceptado: 20.
+[TRACE] 04:22:09:394 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:09:395 Gamecard/(25904:25930): Codigo de operacion cod_op: 3.
+[INFO] 04:22:09:396 Gamecard/(25904:25930): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:22:09:396 Gamecard/(25904:25930): Mensaje recibido manejado
+[TRACE] 04:22:09:397 Gamecard/(25904:25931): Manejar mensaje: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Cantidad: 34, Id mensaje: 7.
+[TRACE] 04:22:09:406 Gamecard/(25904:25931): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:22:09:408 Gamecard/(25904:25931): Se abrio el archivo.
+[TRACE] 04:22:09:408 Gamecard/(25904:25931): Manejar bloques pokemon.
+[TRACE] 04:22:09:409 Gamecard/(25904:25931): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:22:09:412 Gamecard/(25904:25931): Agregar posicion.
+[TRACE] 04:22:09:413 Gamecard/(25904:25931): Entro al while
+[TRACE] 04:22:09:414 Gamecard/(25904:25931): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:22:09:415 Gamecard/(25904:25931): Tamanio total del archivo al escribir la sentencia: 58
+[TRACE] 04:22:09:419 Gamecard/(25904:25931): Tamanio de bloques: 64
+[TRACE] 04:22:09:425 Gamecard/(25904:25931): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:22:09:426 Gamecard/(25904:25931): Tamanio de todos los bloques del pokemon: 59
+[TRACE] 04:22:09:427 Gamecard/(25904:25931): Posicion agregada/sumada
+[INFO] 04:22:09:430 Gamecard/(25904:25931): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 04:22:09:430 Gamecard/(25904:25931): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:22:09:433 Gamecard/(25904:25931): Recepcion confirmada: 20 3 7
+[TRACE] 04:22:09:435 Gamecard/(25904:25904): Cliente aceptado: 22.
+[TRACE] 04:22:09:435 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:09:436 Gamecard/(25904:25933): Codigo de operacion cod_op: 3.
+[INFO] 04:22:09:438 Gamecard/(25904:25933): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:22:09:439 Gamecard/(25904:25933): Mensaje recibido manejado
+[TRACE] 04:22:09:440 Gamecard/(25904:25934): Manejar mensaje: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Cantidad: 11, Id mensaje: 8.
+[TRACE] 04:22:09:442 Gamecard/(25904:25934): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:22:09:444 Gamecard/(25904:25934): Se abrio el archivo.
+[TRACE] 04:22:09:445 Gamecard/(25904:25934): Manejar bloques pokemon.
+[TRACE] 04:22:09:445 Gamecard/(25904:25934): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:22:09:449 Gamecard/(25904:25934): Agregar posicion.
+[TRACE] 04:22:09:451 Gamecard/(25904:25934): Entro al while
+[TRACE] 04:22:09:453 Gamecard/(25904:25934): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:22:09:454 Gamecard/(25904:25934): Tamanio total del archivo al escribir la sentencia: 69
+[TRACE] 04:22:09:455 Gamecard/(25904:25934): Tamanio de bloques: 64
+[TRACE] 04:22:09:456 Gamecard/(25904:25934): Paso el while sin entrar
+[TRACE] 04:22:09:457 Gamecard/(25904:25934): Bit: 0 estado: 1
+[TRACE] 04:22:09:458 Gamecard/(25904:25934): Bit: 1 estado: 1
+[TRACE] 04:22:09:459 Gamecard/(25904:25934): Va a proceder a asignar el bloque vacio:  2
+[TRACE] 04:22:09:462 Gamecard/(25904:25934): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:22:09:463 Gamecard/(25904:25934): Termino agregar bloque vacio
+[TRACE] 04:22:09:466 Gamecard/(25904:25934): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:22:09:470 Gamecard/(25904:25934): Lo que se seteo: [1,2]
+[TRACE] 04:22:09:472 Gamecard/(25904:25934): Bloques final: [1,2]
+[TRACE] 04:22:09:479 Gamecard/(25904:25934): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:22:09:480 Gamecard/(25904:25934): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:22:09:481 Gamecard/(25904:25934): Tamanio de todos los bloques del pokemon: 70
+[TRACE] 04:22:09:484 Gamecard/(25904:25934): Save bitmap.
+[TRACE] 04:22:09:487 Gamecard/(25904:25934): Posicion agregada/sumada
+[INFO] 04:22:09:490 Gamecard/(25904:25934): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 04:22:09:495 Gamecard/(25904:25934): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:22:09:496 Gamecard/(25904:25934): Recepcion confirmada: 22 3 8
+[TRACE] 04:22:09:497 Gamecard/(25904:25904): Cliente aceptado: 24.
+[TRACE] 04:22:09:498 Gamecard/(25904:25904): Esperando Cliente
+[TRACE] 04:22:09:499 Gamecard/(25904:25936): Codigo de operacion cod_op: 5.
+[INFO] 04:22:09:500 Gamecard/(25904:25936): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 04:22:09:503 Gamecard/(25904:25936): Mensaje recibido manejado
+[TRACE] 04:22:09:510 Gamecard/(25904:25937): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 1.
+[TRACE] 04:22:09:516 Gamecard/(25904:25937): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:22:09:517 Gamecard/(25904:25937): Se abrio el archivo.
+[TRACE] 04:22:09:542 Gamecard/(25904:25937): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:22:09:543 Gamecard/(25904:25937): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:22:09:543 Gamecard/(25904:25937): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 04:22:09:546 Gamecard/(25904:25937): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:22:09:547 Gamecard/(25904:25937): Compactar bloques
+[TRACE] 04:22:09:548 Gamecard/(25904:25937): En el while, comparando el bloque: 0.
+[TRACE] 04:22:09:550 Gamecard/(25904:25937): En el while, comparando contra el bloque: 0.
+[TRACE] 04:22:09:554 Gamecard/(25904:25937): En el while, comparando contra el bloque: 1.
+[TRACE] 04:22:09:555 Gamecard/(25904:25937): Se compararon distinos bloques.
+[TRACE] 04:22:09:556 Gamecard/(25904:25937): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:22:09:557 Gamecard/(25904:25937): Bloque 1 de la comparacion: numero 2 , tamanio: 11.
+[TRACE] 04:22:09:558 Gamecard/(25904:25937): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:22:09:559 Gamecard/(25904:25937): Bloque 2 de la comparacion: numero 1 , tamanio: 50.
+[TRACE] 04:22:09:561 Gamecard/(25904:25937): Se compararon los tamanios y se va a compactar.
+[TRACE] 04:22:09:569 Gamecard/(25904:25937): Se va a actualizar size y sacar bloque del metadata.
+[TRACE] 04:22:09:577 Gamecard/(25904:25937): El archivo actualmente ocupa: 61 
+
+[TRACE] 04:22:09:578 Gamecard/(25904:25937): El archivo actualmente ocupa: 0 
+
+[TRACE] 04:22:09:579 Gamecard/(25904:25937): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 04:22:11:99 Gamecard/(25904:25937): Save bitmap.
+[TRACE] 04:22:11:107 Gamecard/(25904:25937): En el while, comparando el bloque: 1.
+[INFO] 04:22:11:113 Gamecard/(25904:25937): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1.
+[INFO] 04:22:11:114 Gamecard/(25904:25937): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[TRACE] 04:22:11:118 Gamecard/(25904:25937): Recepcion confirmada: 24 5 1
+[TRACE] 04:35:32:2 Gamecard/(27060:27060): Log inicializado
+[TRACE] 04:35:33:61 Gamecard/(27060:27060): Crear metadata
+[TRACE] 04:35:33:135 Gamecard/(27060:27060): Save bitmap.
+[TRACE] 04:35:33:201 Gamecard/(27060:27060): Iniciando conexion con gameboy
+[TRACE] 04:35:33:210 Gamecard/(27060:27062): Hilos de suscripcion lanzados
+[TRACE] 04:35:33:243 Gamecard/(27060:27060): Esperando Cliente
+[TRACE] 04:35:33:885 Gamecard/(27060:27060): Cliente aceptado: 5.
+[TRACE] 04:35:33:927 Gamecard/(27060:27060): Esperando Cliente
+[TRACE] 04:35:33:933 Gamecard/(27060:27065): Codigo de operacion cod_op: 3.
+[INFO] 04:35:33:937 Gamecard/(27060:27065): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:35:33:7 Gamecard/(27060:27066): Manejar mensaje: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Cantidad: 3, Id mensaje: 1.
+[TRACE] 04:35:34:8 Gamecard/(27060:27065): Mensaje recibido manejado
+[TRACE] 04:35:34:23 Gamecard/(27060:27066): File del pokemon no existente, lo creo.
+[TRACE] 04:35:34:25 Gamecard/(27060:27066): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Pikachu/
+[TRACE] 04:35:34:27 Gamecard/(27060:27066): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 04:35:34:30 Gamecard/(27060:27066): Ya se creo.
+[TRACE] 04:35:34:35 Gamecard/(27060:27066): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 04:35:34:51 Gamecard/(27060:27066): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:35:34:63 Gamecard/(27060:27066): Se abrio el archivo.
+[TRACE] 04:35:34:65 Gamecard/(27060:27066): Manejar bloques pokemon.
+[TRACE] 04:35:34:66 Gamecard/(27060:27066): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:35:34:78 Gamecard/(27060:27066): Agregar posicion.
+[TRACE] 04:35:34:82 Gamecard/(27060:27066): Paso el while sin entrar
+[TRACE] 04:35:34:91 Gamecard/(27060:27066): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 04:35:34:102 Gamecard/(27060:27066): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:35:34:103 Gamecard/(27060:27066): Termino agregar bloque vacio
+[TRACE] 04:35:34:109 Gamecard/(27060:27066): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 04:35:34:115 Gamecard/(27060:27066): Lo que se seteo: [0]
+[TRACE] 04:35:34:115 Gamecard/(27060:27066): Bloques final: [0]
+[TRACE] 04:35:34:158 Gamecard/(27060:27066): El archivo actualmente ocupa: 6 
+
+[TRACE] 04:35:34:159 Gamecard/(27060:27066): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 04:35:34:163 Gamecard/(27060:27066): Save bitmap.
+[TRACE] 04:35:34:169 Gamecard/(27060:27066): Posicion agregada/sumada
+[INFO] 04:35:34:182 Gamecard/(27060:27066): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 04:35:34:183 Gamecard/(27060:27066): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:35:34:196 Gamecard/(27060:27066): Recepcion confirmada: 5 3 1
+[TRACE] 04:35:34:197 Gamecard/(27060:27060): Cliente aceptado: 10.
+[TRACE] 04:35:34:200 Gamecard/(27060:27068): Codigo de operacion cod_op: 3.
+[TRACE] 04:35:34:201 Gamecard/(27060:27060): Esperando Cliente
+[INFO] 04:35:34:201 Gamecard/(27060:27068): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:35:34:202 Gamecard/(27060:27068): Mensaje recibido manejado
+[TRACE] 04:35:34:203 Gamecard/(27060:27069): Manejar mensaje: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Cantidad: 101, Id mensaje: 2.
+[TRACE] 04:35:34:204 Gamecard/(27060:27069): File del pokemon no existente, lo creo.
+[TRACE] 04:35:34:205 Gamecard/(27060:27069): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Charmander/
+[TRACE] 04:35:34:207 Gamecard/(27060:27069): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 04:35:34:207 Gamecard/(27060:27069): Ya se creo.
+[TRACE] 04:35:34:209 Gamecard/(27060:27069): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:35:34:212 Gamecard/(27060:27069): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:35:34:228 Gamecard/(27060:27069): Se abrio el archivo.
+[TRACE] 04:35:34:229 Gamecard/(27060:27069): Manejar bloques pokemon.
+[TRACE] 04:35:34:231 Gamecard/(27060:27069): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:35:34:232 Gamecard/(27060:27069): Agregar posicion.
+[TRACE] 04:35:34:233 Gamecard/(27060:27069): Paso el while sin entrar
+[TRACE] 04:35:34:235 Gamecard/(27060:27069): Bit: 0 estado: 1
+[TRACE] 04:35:34:237 Gamecard/(27060:27069): Va a proceder a asignar el bloque vacio:  1
+[TRACE] 04:35:34:244 Gamecard/(27060:27069): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:35:34:245 Gamecard/(27060:27069): Termino agregar bloque vacio
+[TRACE] 04:35:34:246 Gamecard/(27060:27069): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:35:34:247 Gamecard/(27060:27069): Lo que se seteo: [1]
+[TRACE] 04:35:34:247 Gamecard/(27060:27069): Bloques final: [1]
+[TRACE] 04:35:34:252 Gamecard/(27060:27069): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:35:34:253 Gamecard/(27060:27069): Tamanio de todos los bloques del pokemon: 8
+[TRACE] 04:35:34:254 Gamecard/(27060:27069): Save bitmap.
+[TRACE] 04:35:34:257 Gamecard/(27060:27069): Posicion agregada/sumada
+[INFO] 04:35:34:261 Gamecard/(27060:27069): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 04:35:34:261 Gamecard/(27060:27069): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:35:34:263 Gamecard/(27060:27069): Recepcion confirmada: 10 3 2
+[TRACE] 04:35:34:268 Gamecard/(27060:27060): Cliente aceptado: 12.
+[TRACE] 04:35:34:268 Gamecard/(27060:27060): Esperando Cliente
+[TRACE] 04:35:34:269 Gamecard/(27060:27071): Codigo de operacion cod_op: 3.
+[INFO] 04:35:34:269 Gamecard/(27060:27071): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:35:34:273 Gamecard/(27060:27071): Mensaje recibido manejado
+[TRACE] 04:35:34:278 Gamecard/(27060:27072): Manejar mensaje: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Cantidad: 15, Id mensaje: 3.
+[TRACE] 04:35:34:286 Gamecard/(27060:27072): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:35:34:287 Gamecard/(27060:27072): Se abrio el archivo.
+[TRACE] 04:35:34:288 Gamecard/(27060:27072): Manejar bloques pokemon.
+[TRACE] 04:35:34:288 Gamecard/(27060:27072): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:35:34:293 Gamecard/(27060:27072): Agregar posicion.
+[TRACE] 04:35:34:294 Gamecard/(27060:27072): Entro al while
+[TRACE] 04:35:34:297 Gamecard/(27060:27072): El archivo actualmente ocupa: 8 
+
+[TRACE] 04:35:34:298 Gamecard/(27060:27072): Tamanio total del archivo al escribir la sentencia: 19
+[TRACE] 04:35:34:300 Gamecard/(27060:27072): Tamanio de bloques: 64
+[TRACE] 04:35:34:313 Gamecard/(27060:27072): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:35:34:315 Gamecard/(27060:27072): Tamanio de todos los bloques del pokemon: 20
+[TRACE] 04:35:34:316 Gamecard/(27060:27072): Posicion agregada/sumada
+[INFO] 04:35:34:319 Gamecard/(27060:27072): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 04:35:34:320 Gamecard/(27060:27072): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:35:34:321 Gamecard/(27060:27072): Recepcion confirmada: 12 3 3
+[TRACE] 04:35:34:329 Gamecard/(27060:27060): Cliente aceptado: 14.
+[TRACE] 04:35:34:330 Gamecard/(27060:27074): Codigo de operacion cod_op: 3.
+[INFO] 04:35:34:330 Gamecard/(27060:27074): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:35:34:332 Gamecard/(27060:27074): Mensaje recibido manejado
+[TRACE] 04:35:34:331 Gamecard/(27060:27060): Esperando Cliente
+[TRACE] 04:35:34:332 Gamecard/(27060:27075): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Cantidad: 1, Id mensaje: 4.
+[TRACE] 04:35:34:335 Gamecard/(27060:27075): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:35:34:336 Gamecard/(27060:27075): Se abrio el archivo.
+[TRACE] 04:35:34:336 Gamecard/(27060:27075): Manejar bloques pokemon.
+[TRACE] 04:35:34:337 Gamecard/(27060:27075): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:35:34:343 Gamecard/(27060:27075): Agregar posicion.
+[TRACE] 04:35:34:344 Gamecard/(27060:27075): Entro al while
+[TRACE] 04:35:34:345 Gamecard/(27060:27075): El archivo actualmente ocupa: 20 
+
+[TRACE] 04:35:34:347 Gamecard/(27060:27075): Tamanio total del archivo al escribir la sentencia: 28
+[TRACE] 04:35:34:354 Gamecard/(27060:27075): Tamanio de bloques: 64
+[TRACE] 04:35:34:360 Gamecard/(27060:27075): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:35:34:361 Gamecard/(27060:27075): Tamanio de todos los bloques del pokemon: 29
+[TRACE] 04:35:34:364 Gamecard/(27060:27075): Posicion agregada/sumada
+[INFO] 04:35:34:367 Gamecard/(27060:27075): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 04:35:34:368 Gamecard/(27060:27075): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:35:34:369 Gamecard/(27060:27075): Recepcion confirmada: 14 3 4
+[TRACE] 04:35:34:372 Gamecard/(27060:27060): Cliente aceptado: 16.
+[TRACE] 04:35:34:374 Gamecard/(27060:27077): Codigo de operacion cod_op: 3.
+[INFO] 04:35:34:377 Gamecard/(27060:27077): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:35:34:378 Gamecard/(27060:27077): Mensaje recibido manejado
+[TRACE] 04:35:34:375 Gamecard/(27060:27060): Esperando Cliente
+[TRACE] 04:35:34:381 Gamecard/(27060:27078): Manejar mensaje: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Cantidad: 29, Id mensaje: 5.
+[TRACE] 04:35:34:384 Gamecard/(27060:27078): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:35:34:390 Gamecard/(27060:27078): Se abrio el archivo.
+[TRACE] 04:35:34:391 Gamecard/(27060:27078): Manejar bloques pokemon.
+[TRACE] 04:35:34:391 Gamecard/(27060:27078): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:35:34:394 Gamecard/(27060:27078): Agregar posicion.
+[TRACE] 04:35:34:394 Gamecard/(27060:27078): Entro al while
+[TRACE] 04:35:34:395 Gamecard/(27060:27078): El archivo actualmente ocupa: 29 
+
+[TRACE] 04:35:34:396 Gamecard/(27060:27078): Tamanio total del archivo al escribir la sentencia: 38
+[TRACE] 04:35:34:401 Gamecard/(27060:27078): Tamanio de bloques: 64
+[TRACE] 04:35:34:409 Gamecard/(27060:27078): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:35:34:409 Gamecard/(27060:27078): Tamanio de todos los bloques del pokemon: 39
+[TRACE] 04:35:34:411 Gamecard/(27060:27078): Posicion agregada/sumada
+[INFO] 04:35:34:417 Gamecard/(27060:27078): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 04:35:34:419 Gamecard/(27060:27078): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:35:34:425 Gamecard/(27060:27078): Recepcion confirmada: 16 3 5
+[TRACE] 04:35:34:431 Gamecard/(27060:27060): Cliente aceptado: 18.
+[TRACE] 04:35:34:431 Gamecard/(27060:27060): Esperando Cliente
+[TRACE] 04:35:34:432 Gamecard/(27060:27080): Codigo de operacion cod_op: 3.
+[INFO] 04:35:34:432 Gamecard/(27060:27080): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:35:34:433 Gamecard/(27060:27080): Mensaje recibido manejado
+[TRACE] 04:35:34:434 Gamecard/(27060:27081): Manejar mensaje: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Cantidad: 3001, Id mensaje: 6.
+[TRACE] 04:35:34:436 Gamecard/(27060:27081): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:35:34:438 Gamecard/(27060:27081): Se abrio el archivo.
+[TRACE] 04:35:34:438 Gamecard/(27060:27081): Manejar bloques pokemon.
+[TRACE] 04:35:34:439 Gamecard/(27060:27081): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:35:34:445 Gamecard/(27060:27081): Agregar posicion.
+[TRACE] 04:35:34:447 Gamecard/(27060:27081): Entro al while
+[TRACE] 04:35:34:450 Gamecard/(27060:27081): El archivo actualmente ocupa: 39 
+
+[TRACE] 04:35:34:450 Gamecard/(27060:27081): Tamanio total del archivo al escribir la sentencia: 49
+[TRACE] 04:35:34:452 Gamecard/(27060:27081): Tamanio de bloques: 64
+[TRACE] 04:35:34:459 Gamecard/(27060:27081): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:35:34:459 Gamecard/(27060:27081): Tamanio de todos los bloques del pokemon: 50
+[TRACE] 04:35:34:461 Gamecard/(27060:27081): Posicion agregada/sumada
+[INFO] 04:35:34:466 Gamecard/(27060:27081): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 04:35:34:467 Gamecard/(27060:27081): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:35:34:468 Gamecard/(27060:27081): Recepcion confirmada: 18 3 6
+[TRACE] 04:35:34:470 Gamecard/(27060:27060): Cliente aceptado: 20.
+[TRACE] 04:35:34:474 Gamecard/(27060:27060): Esperando Cliente
+[TRACE] 04:35:34:474 Gamecard/(27060:27083): Codigo de operacion cod_op: 3.
+[INFO] 04:35:34:479 Gamecard/(27060:27083): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:35:34:480 Gamecard/(27060:27083): Mensaje recibido manejado
+[TRACE] 04:35:34:480 Gamecard/(27060:27084): Manejar mensaje: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Cantidad: 34, Id mensaje: 7.
+[TRACE] 04:35:34:483 Gamecard/(27060:27084): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:35:34:493 Gamecard/(27060:27084): Se abrio el archivo.
+[TRACE] 04:35:34:493 Gamecard/(27060:27084): Manejar bloques pokemon.
+[TRACE] 04:35:34:495 Gamecard/(27060:27084): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:35:34:509 Gamecard/(27060:27084): Agregar posicion.
+[TRACE] 04:35:34:510 Gamecard/(27060:27084): Entro al while
+[TRACE] 04:35:34:511 Gamecard/(27060:27084): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:35:34:512 Gamecard/(27060:27084): Tamanio total del archivo al escribir la sentencia: 58
+[TRACE] 04:35:34:514 Gamecard/(27060:27084): Tamanio de bloques: 64
+[TRACE] 04:35:34:521 Gamecard/(27060:27084): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:35:34:522 Gamecard/(27060:27084): Tamanio de todos los bloques del pokemon: 59
+[TRACE] 04:35:34:523 Gamecard/(27060:27084): Posicion agregada/sumada
+[INFO] 04:35:34:526 Gamecard/(27060:27084): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 04:35:34:526 Gamecard/(27060:27084): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:35:34:527 Gamecard/(27060:27084): Recepcion confirmada: 20 3 7
+[TRACE] 04:35:34:537 Gamecard/(27060:27060): Cliente aceptado: 22.
+[TRACE] 04:35:34:538 Gamecard/(27060:27086): Codigo de operacion cod_op: 3.
+[INFO] 04:35:34:538 Gamecard/(27060:27086): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 04:35:34:542 Gamecard/(27060:27086): Mensaje recibido manejado
+[TRACE] 04:35:34:543 Gamecard/(27060:27060): Esperando Cliente
+[TRACE] 04:35:34:546 Gamecard/(27060:27087): Manejar mensaje: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Cantidad: 11, Id mensaje: 8.
+[TRACE] 04:35:34:551 Gamecard/(27060:27087): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:35:34:552 Gamecard/(27060:27087): Se abrio el archivo.
+[TRACE] 04:35:34:553 Gamecard/(27060:27087): Manejar bloques pokemon.
+[TRACE] 04:35:34:553 Gamecard/(27060:27087): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 04:35:34:563 Gamecard/(27060:27087): Agregar posicion.
+[TRACE] 04:35:34:563 Gamecard/(27060:27087): Entro al while
+[TRACE] 04:35:34:564 Gamecard/(27060:27087): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:35:34:565 Gamecard/(27060:27087): Tamanio total del archivo al escribir la sentencia: 69
+[TRACE] 04:35:34:567 Gamecard/(27060:27087): Tamanio de bloques: 64
+[TRACE] 04:35:34:568 Gamecard/(27060:27087): Paso el while sin entrar
+[TRACE] 04:35:34:570 Gamecard/(27060:27087): Bit: 0 estado: 1
+[TRACE] 04:35:34:571 Gamecard/(27060:27087): Bit: 1 estado: 1
+[TRACE] 04:35:34:575 Gamecard/(27060:27087): Va a proceder a asignar el bloque vacio:  2
+[TRACE] 04:35:34:583 Gamecard/(27060:27087): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 04:35:34:583 Gamecard/(27060:27087): Termino agregar bloque vacio
+[TRACE] 04:35:34:585 Gamecard/(27060:27087): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.txt
+[TRACE] 04:35:34:587 Gamecard/(27060:27087): Lo que se seteo: [1,2]
+[TRACE] 04:35:34:589 Gamecard/(27060:27087): Bloques final: [1,2]
+[TRACE] 04:35:34:593 Gamecard/(27060:27087): El archivo actualmente ocupa: 59 
+
+[TRACE] 04:35:34:594 Gamecard/(27060:27087): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:35:34:595 Gamecard/(27060:27087): Tamanio de todos los bloques del pokemon: 70
+[TRACE] 04:35:34:596 Gamecard/(27060:27087): Save bitmap.
+[TRACE] 04:35:34:600 Gamecard/(27060:27087): Posicion agregada/sumada
+[INFO] 04:35:34:603 Gamecard/(27060:27087): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 04:35:34:604 Gamecard/(27060:27087): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 04:35:34:604 Gamecard/(27060:27087): Recepcion confirmada: 22 3 8
+[TRACE] 04:35:34:610 Gamecard/(27060:27060): Cliente aceptado: 24.
+[TRACE] 04:35:34:611 Gamecard/(27060:27060): Esperando Cliente
+[TRACE] 04:35:34:611 Gamecard/(27060:27089): Codigo de operacion cod_op: 5.
+[INFO] 04:35:34:613 Gamecard/(27060:27089): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 04:35:34:650 Gamecard/(27060:27089): Mensaje recibido manejado
+[TRACE] 04:35:34:654 Gamecard/(27060:27090): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 1.
+[TRACE] 04:35:34:657 Gamecard/(27060:27090): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 04:35:34:659 Gamecard/(27060:27090): Se abrio el archivo.
+[TRACE] 04:35:34:677 Gamecard/(27060:27090): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:35:34:679 Gamecard/(27060:27090): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:35:34:679 Gamecard/(27060:27090): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 04:35:34:681 Gamecard/(27060:27090): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:35:34:682 Gamecard/(27060:27090): Compactar bloques
+[TRACE] 04:35:34:683 Gamecard/(27060:27090): En el while, comparando el bloque: 0.
+[TRACE] 04:35:34:684 Gamecard/(27060:27090): En el while, comparando contra el bloque: 0.
+[TRACE] 04:35:34:685 Gamecard/(27060:27090): En el while, comparando contra el bloque: 1.
+[TRACE] 04:35:34:686 Gamecard/(27060:27090): Se compararon distinos bloques.
+[TRACE] 04:35:34:687 Gamecard/(27060:27090): El archivo actualmente ocupa: 11 
+
+[TRACE] 04:35:34:688 Gamecard/(27060:27090): Bloque 1 de la comparacion: numero 2 , tamanio: 11.
+[TRACE] 04:35:34:689 Gamecard/(27060:27090): El archivo actualmente ocupa: 50 
+
+[TRACE] 04:35:34:690 Gamecard/(27060:27090): Bloque 2 de la comparacion: numero 1 , tamanio: 50.
+[TRACE] 04:35:34:692 Gamecard/(27060:27090): Se compararon los tamanios y se va a compactar.
+[TRACE] 04:35:34:702 Gamecard/(27060:27090): Se va a actualizar size y sacar bloque del metadata.
+[TRACE] 04:35:34:711 Gamecard/(27060:27090): El archivo actualmente ocupa: 61 
+
+[TRACE] 04:35:34:713 Gamecard/(27060:27090): El archivo actualmente ocupa: 0 
+
+[TRACE] 04:35:34:714 Gamecard/(27060:27090): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 04:35:34:728 Gamecard/(27060:27090): Save bitmap.
+[TRACE] 04:35:34:733 Gamecard/(27060:27090): En el while, comparando el bloque: 1.
+[INFO] 04:35:34:744 Gamecard/(27060:27090): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1.
+[INFO] 04:35:34:747 Gamecard/(27060:27090): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[TRACE] 04:35:34:750 Gamecard/(27060:27090): Recepcion confirmada: 24 5 1

@@ -182,7 +182,7 @@ void manejar_mensajes_gamecard(t_manejar_mensajes_gamecard* argumentos){
 			id_mensaje = mensaje_new->id_mensaje;
 
 			manejar_new_pokemon(mensaje_new);
-
+			liberar_mensaje_new_pokemon(mensaje_new);
 			break;
 
 		case CATCH_POKEMON:
@@ -192,7 +192,7 @@ void manejar_mensajes_gamecard(t_manejar_mensajes_gamecard* argumentos){
 			id_mensaje = mensaje_catch -> id_mensaje;
 
 			manejar_catch_pokemon(mensaje_catch);
-
+			liberar_mensaje_catch_pokemon(mensaje_catch);
 			break;
 
 		case GET_POKEMON:
@@ -202,7 +202,7 @@ void manejar_mensajes_gamecard(t_manejar_mensajes_gamecard* argumentos){
 			id_mensaje = mensaje_get -> id_mensaje;
 
 			manejar_get_pokemon(mensaje_get);
-
+			liberar_mensaje_get_pokemon(mensaje_get);
 			break;
 
 		default:
@@ -215,6 +215,8 @@ void manejar_mensajes_gamecard(t_manejar_mensajes_gamecard* argumentos){
 
 	log_trace(logger, "Recepcion confirmada: %d %d %d", conexion, cod_op, id_mensaje);
 
+	free(argumentos);
+	//NO liberar(buffer), YA SE LIBERA EN LOS DESERALIZAR
 }
 
 

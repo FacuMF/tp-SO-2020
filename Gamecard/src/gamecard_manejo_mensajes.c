@@ -25,6 +25,7 @@ void manejar_new_pokemon(t_new_pokemon *mensaje_new){
 	// 6. Enviar mensaje al broker
 	t_appeared_pokemon * mensaje_appeared = de_new_a_appeared(mensaje_new);
 	enviar_appeared_pokemon_a_broker(mensaje_appeared);
+	liberar_mensaje_appeared_pokemon(mensaje_appeared);
 }
 
 void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
@@ -62,7 +63,9 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 	}
 
 	// 7. Conectarse a broker y enviar resultado
-	enviar_caught_pokemon_a_broker(crear_caught_pokemon(mensaje_catch->id_mensaje,respuesta_existe_pos_archivo));
+	t_caught_pokemon* caught_pokemon = crear_caught_pokemon(mensaje_catch->id_mensaje, respuesta_existe_pos_archivo);
+	enviar_caught_pokemon_a_broker(caught_pokemon);
+	liberar_mensaje_caught_pokemon(caught_pokemon);
 }
 
 void manejar_get_pokemon(t_get_pokemon * mensaje_get){
@@ -92,6 +95,7 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 
 	// 6. Conectarse al broker y enviar resultado
 	enviar_localized_pokemon_a_broker(respuesta_localized);
+	liberar_mensaje_localized_pokemon(respuesta_localized);
 }
 
 //FUNCION AUXILIAR
@@ -404,30 +408,48 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){
 	t_config* config_metadata = read_pokemon_metadata(pokemon);
 	char* bloques = extraer_bloques_string(pokemon);
+	
+	char* bloque_con_pos = string_itoa(bloque_con_posicion);
+	char* concat_pos_corchete_antes = concat("[", bloque_con_pos);
+	char* concat_pos_corchete_despues = concat(bloque_con_pos,"]");
 
-	if(string_starts_with(bloques,concat("[",string_itoa(bloque_con_posicion)))){
-		char**bloques_separados = string_split(bloques,concat(string_itoa(bloque_con_posicion),","));
+	if (string_starts_with(bloques, concat_pos_corchete_antes)) {
+		char* concat_pos_coma = concat(bloque_con_pos, ",");
+		char**bloques_separados = string_split(bloques, concat_pos_coma);
 		char* bloques_nuevos = string_new();
 		string_append(&bloques_nuevos,bloques_separados[0]);
 		string_append(&bloques_nuevos,bloques_separados[1]);
 		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
 		config_save(config_metadata);
 		config_destroy(config_metadata);
+		
+		for(int i = 0; bloques_separados[i] != NULL; i++) free(bloques_separados[i]);
+		free(bloques_separados);
+		free(bloques_nuevos);
+		free(concat_pos_coma);
 	}
 
-	else if(string_ends_with(bloques,concat(string_itoa(bloque_con_posicion),"]"))){
-		char**bloques_separados = string_split(bloques,concat(",",string_itoa(bloque_con_posicion)));
+	else if(string_ends_with(bloques,concat_pos_corchete_despues)){
+		char* concat_coma_antes = concat(",", bloque_con_pos);
+		char**bloques_separados = string_split(bloques, concat_coma_antes);
 		char* bloques_nuevos = string_new();
 		string_append(&bloques_nuevos,bloques_separados[0]);
 		string_append(&bloques_nuevos,bloques_separados[1]);
 		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
 		config_save(config_metadata);
 		config_destroy(config_metadata);
+		
+		for(int i = 0; bloques_separados[i] != NULL; i++) free(bloques_separados[i]);
+		free(bloques_separados);
+		free(bloques_nuevos);
+		free(concat_coma_antes);
+		
 	}
 
 	else {
-		char* aux = concat(string_itoa(bloque_con_posicion),",");
-		char**bloques_separados = string_split(bloques,concat(",",aux));
+		char* aux = concat(bloque_con_pos,",");
+		char* concat_aux = concat(",", aux);
+		char**bloques_separados = string_split(bloques, concat_aux);
 		char* bloques_nuevos = string_new();
 		string_append(&bloques_nuevos,bloques_separados[0]);
 		string_append(&bloques_nuevos,",");
@@ -435,8 +457,23 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){
 		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
 		config_save(config_metadata);
 		config_destroy(config_metadata);
+		
+
+		for(int i = 0; bloques_separados[i] != NULL; i++) free(bloques_separados[i]);
+		free(bloques_separados);
+		free(bloques_nuevos);
+		free(aux);
+		free(concat_aux);
+		
 	}
+
 	vaciar_bloque_bitmap(bloque_con_posicion);
+
+	free(bloque_con_pos);
+	free(concat_pos_corchete_antes);
+	free(concat_pos_corchete_despues);
+	free(bloques);
+
 }
 
 char* extraer_bloques_string(char* pokemon){
