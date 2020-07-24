@@ -79,19 +79,23 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 	// 1. Verificar si el pokemon existe.
 	respuesta_get = informar_no_existe_pokemon_get(mensaje_get);
 
-	// 2. Verificar si se puede abrir
-	intentar_abrir_archivo(mensaje_get->pokemon);
-
-	// 3. Obtener todas las pos y cantidades
 	if(respuesta_get){
+		// 2. Verificar si se puede abrir
+		intentar_abrir_archivo(mensaje_get->pokemon);
+
+		// 3. Obtener todas las pos y cantidades
 		respuesta_localized = obtener_pos_y_cant_localized(mensaje_get);
+	}else{
+		t_list * lista_vacia = list_create();
+		respuesta_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_vacia);
 	}
 
 	// 4. Esperar los segundos definidos por config
 	sleep(config_get_int_value(config,"TIEMPO_RETARDO_OPERACION"));
 
 	// 5. Cerrar archivo
-	cerrar_archivo_pokemon(mensaje_get->pokemon);
+	if(respuesta_get)
+		cerrar_archivo_pokemon(mensaje_get->pokemon);
 
 	// 6. Conectarse al broker y enviar resultado
 	enviar_localized_pokemon_a_broker(respuesta_localized);
@@ -263,8 +267,8 @@ bool informar_no_existe_pokemon_get(t_get_pokemon* mensaje_get){
 	char* poke_meta_pa = pokemon_metadata_path(mensaje_get->pokemon);
 	char* file = poke_meta_pa;
 	bool existe = file_existing(file);
-	free(poke_meta_pa);
-	free(file);
+	//free(poke_meta_pa);
+	//free(file);
 	return existe;
 }
 

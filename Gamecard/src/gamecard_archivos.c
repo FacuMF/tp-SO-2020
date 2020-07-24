@@ -2,6 +2,7 @@
 
 t_config* read_pokemon_metadata(char* table) {
 	char* poke_p = pokemon_metadata_path(table);
+	log_trace(logger,"%s", poke_p);
 	t_config* config_pokemon = config_create(poke_p);
 	free(poke_p);
     return config_pokemon;
@@ -14,7 +15,7 @@ t_config* read_file_metadata(char* table){
 	return config_file;
 }
 
-char** extraer_bloques(char* pokemon){ //TODO destroy config?
+char** extraer_bloques(char* pokemon){
 	t_config* config_bloques = read_pokemon_metadata(pokemon);
 	char** bloques = config_get_array_value(config_bloques,"BLOCKS");
 	config_destroy(config_bloques);
@@ -199,7 +200,7 @@ char* separar_posicion(char* palabra){ // Separa Ej "1-2=13" a "1-2"
 }
 
 t_posicion* de_char_a_posicion(char* string_posicion){ // Ej "1-2"
-	t_posicion* posicion = malloc(sizeof(t_posicion*));
+	t_posicion* posicion = malloc(sizeof(t_posicion));
 	char** aux = string_split(string_posicion,"-");
 	posicion->x = atoi(aux[0]);
 	posicion->y = atoi(aux[1]);
@@ -385,12 +386,15 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 	t_list* lista_posiciones = list_create();
 
 	while(bloques[n]!=NULL){
-
+		log_trace(logger, "Entra a while bloques");
 		char* block_p = block_path(atoi(bloques[n]));
 		t_config* config_bloque = config_create(block_p);
-		free(block_p);
+		//free(block_p);
+		log_trace(logger, "Config bloque creado");
 
 		t_dictionary* diccionario_bloque = config_bloque->properties;
+
+		log_trace(logger, "Por hacer iteractor");
 
 		void agregar_posicion_a_lista(void* element){
 			char* key = element;
@@ -411,8 +415,8 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 
 	t_localized_pokemon* pokemon_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_posiciones);
 
-	for(int i=0;bloques[i] != NULL;i++) free(bloques[i]);
-	free(bloques);
+	//for(int i=0;bloques[i] != NULL;i++) free(bloques[i]);
+	//free(bloques);
 	return pokemon_localized;
 }
 
