@@ -201,14 +201,14 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 
 	char* block_p = block_path(contador);
 	t_config* config_bloque_nuevo = config_create(block_p);
-	free(block_p);
+	//free(block_p);
 
 	if(posicion_existente){
 		log_trace(logger,"La posicion ya existia, se va a borrar la sentencia y escribir en otro bloque");
 		int bloque_viejo = encontrar_bloque_con_posicion(posicion,bloques_pokemon);
 		char* block_p = block_path(bloque_viejo);
 		t_config* config_bloque_viejo = config_create(block_p);
-		free(block_p);
+		//free(block_p);
 		int cantidad_vieja = config_get_int_value(config_bloque_viejo,posicion);
 		int cantidad_total = cantidad_vieja + mensaje_new->cantidad;
 
@@ -220,7 +220,7 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 		config_remove_key(config_bloque_viejo,posicion);
 		char* cant_t = string_itoa(cantidad_total);
 		config_set_value(config_bloque_nuevo, posicion, cant_t);
-		free(cant_t);
+		//free(cant_t);
 
 		config_save(config_bloque_viejo);
 		config_destroy(config_bloque_viejo);
@@ -233,7 +233,7 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 		log_trace(logger,"Se escribe la posicion en otro bloque ya que no existia");
 		char* cant_n = string_itoa(mensaje_new->cantidad);
 		config_set_value(config_bloque_nuevo, posicion, cant_n);
-		free(cant_n);
+		//free(cant_n);
 
 	}
 	log_trace(logger,"Termino agregar bloque vacio");
@@ -247,9 +247,9 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 	save_bitmap();
 	pthread_mutex_unlock(&mutex_bitmap);
 
-	free(posicion);
-	for(int i=0;bloques_pokemon[i] != NULL;i++) free(bloques_pokemon[i]);
-	free(bloques_pokemon);
+	//free(posicion);
+	//for(int i=0;bloques_pokemon[i] != NULL;i++) //free(bloques_pokemon[i]);
+	//free(bloques_pokemon);
 }
 
 int encontrar_bloque_con_posicion(char* posicion, char** bloques){
@@ -272,12 +272,11 @@ int encontrar_bloque_con_posicion(char* posicion, char** bloques){
 
 
 
-	// Chequear bien esta funcion
 void agregar_bloque_metadata(char* pokemon, int bloque_nuevo) {
 	char* poke_meta = pokemon_metadata_path(pokemon);
 	t_config* config_metadata = config_create(poke_meta);
 	log_trace(logger,"Path del metadata yendo a agregar el bloque: %s",poke_meta);
-	free(poke_meta);
+	//free(poke_meta);
 	
 	char* bloques = config_get_string_value(config_metadata,"BLOCKS");
 	char* bloques_final;
@@ -303,12 +302,12 @@ void agregar_bloque_metadata(char* pokemon, int bloque_nuevo) {
 	if(strlen(bloques)==2){
 		char* bloque_parcial = concat("[", bloque_n);
 		bloques_final = concat(bloque_parcial, "]");
-		free(bloque_parcial);
+		//free(bloque_parcial);
 	}else{
 		bloques[strlen(bloques)-1] = ',';
 		char* aux1 = concat(bloques,bloque_n);
 		bloques_final = concat(aux1,"]");
-		free(aux1);
+		//free(aux1);
 	}
 
 
@@ -319,15 +318,15 @@ void agregar_bloque_metadata(char* pokemon, int bloque_nuevo) {
 	config_destroy(config_metadata);
 
 
-	free(bloque_n);
-	free(conca_coma);
-	free(conca_cor);
-	free(conca1);
-	free(conca2);
-	free(conca3);
-	free(conca4);
-	free(bloques_final);
-	free(bloques);
+	//free(bloque_n);
+	//free(conca_coma);
+	//free(conca_cor);
+	//free(conca1);
+	//free(conca2);
+	//free(conca3);
+	//free(conca4);
+	//free(bloques_final);
+	//free(bloques);
 
 }
 
