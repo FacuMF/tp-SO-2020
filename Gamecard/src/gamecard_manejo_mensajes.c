@@ -355,6 +355,17 @@ void compactar_bloques(char** bloques, char* pokemon){
 
 }
 
+void delete_from_path(char* path){
+	char* comando = concat("rm -rf ",path);
+	system(comando);
+	//free(comando);
+}
+
+void limpiar_file(char* path){
+	delete_from_path(path);
+	create_file(path);
+}
+
 void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,char** bloques, char* pokemon) {
 
 	if(bloque_a_vaciar != bloque_a_llenar){
@@ -388,11 +399,9 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 			//Voy a pasar la info del bloque 1 al 2.
 
 			t_config* config_1 = config_create( block_vaciar_p);
-			t_config* config_1_aux = config_create( block_vaciar_p);
 			t_config* config_2 = config_create( block_llenar_p);
 
 			t_dictionary* diccionario_1 = config_1->properties;
-			t_dictionary* diccionario_1_aux = config_1_aux->properties;
 
 			void pasar_key_a_config(void* element){
 
@@ -401,25 +410,24 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 					char* value = config_get_string_value(config_1, key);
 					config_set_value(config_2, key, value);
 
-					config_remove_key(config_1, key);
-
 					// NO PONER free(key). ni tampoco free(value) ROMPE
 
 			}
 
-			dictionary_iterator(diccionario_1_aux,(void*) pasar_key_a_config);
+			dictionary_iterator(diccionario_1,(void*) pasar_key_a_config);
+			log_debug(logger,"ya paso el iterator");
 
-			config_save(config_1);
+			limpiar_file(block_vaciar_p);
+
 			config_save(config_2);
 			config_destroy(config_1);
 			config_destroy(config_2);
-			config_destroy(config_1_aux);
 
 			log_trace(logger, "Se va a actualizar size y sacar bloque del metadata.");
 
-			actualizar_size_metadata(pokemon);
-
 			sacar_bloque_de_metadata(pokemon,num_bloque_a_vaciar);
+
+			actualizar_size_metadata(pokemon);
 
 		}
 
@@ -438,7 +446,11 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){ // mucho r
 	char* concat_pos_corchete_antes = concat("[", bloque_con_pos);
 	char* concat_pos_corchete_despues = concat(bloque_con_pos,"]");
 
+	log_debug(logger,"asigno todas las variables pokemon:%s bloque: %d", pokemon, bloque_con_posicion);
+
 	if (string_starts_with(bloques, concat_pos_corchete_antes)) {
+
+		log_debug(logger,"entro el prmero");
 		char* concat_pos_coma = concat(bloque_con_pos, ",");
 		char**bloques_separados = string_split(bloques, concat_pos_coma);
 		char* bloques_nuevos = string_new();
@@ -452,12 +464,17 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){ // mucho r
 		free(bloques_separados);
 		free(bloques_nuevos);
 		free(concat_pos_coma);
+
+		log_debug(logger,"termino el primer if");
 	}
 
 	else if(string_ends_with(bloques,concat_pos_corchete_despues)){
+
+		log_debug(logger,"entro el segundo");
 		char* concat_coma_antes = concat(",", bloque_con_pos);
 		char**bloques_separados = string_split(bloques, concat_coma_antes);
 		char* bloques_nuevos = string_new();
+
 		string_append(&bloques_nuevos,bloques_separados[0]);
 		string_append(&bloques_nuevos,bloques_separados[1]);
 		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
@@ -468,28 +485,35 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){ // mucho r
 		free(bloques_separados);
 		free(bloques_nuevos);
 		free(concat_coma_antes);
+
+		log_debug(logger,"termino el segundo if");
 		
 	}
 
 	else {
+		log_debug(logger,"entro en else");
 		char* aux = concat(bloque_con_pos,",");
 		char* concat_aux = concat(",", aux);
 		char**bloques_separados = string_split(bloques, concat_aux);
+		log_debug(logger,"bloques separados 0: %s bloques separados 1: %s, bloques: %s",bloques_separados[0],bloques_separados[1], bloques);
 		char* bloques_nuevos = string_new();
 		string_append(&bloques_nuevos,bloques_separados[0]);
 		string_append(&bloques_nuevos,",");
 		string_append(&bloques_nuevos,bloques_separados[1]);
+		log_debug(logger,"paso los appends");
 		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
 		config_save(config_metadata);
 		config_destroy(config_metadata);
 		
 
+		log_debug(logger,"termino todo, haciendo free");
 		for(int i = 0; bloques_separados[i] != NULL; i++) free(bloques_separados[i]);
 		free(bloques_separados);
 		free(bloques_nuevos);
 		free(aux);
 		free(concat_aux);
-		
+
+		log_debug(logger,"fin sacar bloque");
 	}
 
 	vaciar_bloque_bitmap(bloque_con_posicion);
@@ -504,7 +528,7 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){ // mucho r
 char* extraer_bloques_string(char* pokemon){
 	t_config* config_bloque = read_pokemon_metadata(pokemon);
 	char* bloques = config_get_string_value(config_bloque,"BLOCKS");
-	config_destroy(config_bloque);
+	//config_destroy(config_bloque); 			TODO NO SE POR Q ROMPE ESTO AYUDA
 	return bloques;
 }
 

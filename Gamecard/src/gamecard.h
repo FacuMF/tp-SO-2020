@@ -114,6 +114,8 @@ void crear_pokemon_metadata_file(char* tableName);
 void create_new_file_pokemon(char* pokemon);
 bool file_existing(char* path);
 void crear_file_si_no_existe(t_new_pokemon* mensaje_new);
+void delete_from_path(char* path);
+void limpiar_file(char* path);
 
 // TAMANIO DE ARCHIVOS Y SUS ATRIBUTOS
 int tamanio_bloque();

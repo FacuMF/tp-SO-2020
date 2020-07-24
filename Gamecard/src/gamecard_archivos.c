@@ -337,17 +337,14 @@ void agregar_bloque_metadata(char* pokemon, int bloque_nuevo) {
 void actualizar_size_metadata(char* pokemon){
 	char* meta_p = pokemon_metadata_path(pokemon);
 	t_config* config_metadata = config_create(meta_p);
-	free(meta_p);
-
 	int tamanio_definitivo = tamanio_todos_los_bloques(extraer_bloques(pokemon));
-
 	char* tamanio_d = string_itoa(tamanio_definitivo);
 	config_set_value(config_metadata, "SIZE", tamanio_d);
-	free(tamanio_d);
 
 	config_save(config_metadata);
 	config_destroy(config_metadata);
-
+	free(meta_p);
+	free(tamanio_d);
 }
 
 // Funciones de handle localized
