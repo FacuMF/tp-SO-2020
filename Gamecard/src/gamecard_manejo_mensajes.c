@@ -116,6 +116,7 @@ void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 	}
 	log_trace(logger,"Posicion agregada/sumada");
 
+	free(posicion);
 }
 
 bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch){
@@ -360,17 +361,6 @@ void compactar_bloques(char** bloques, char* pokemon){
 		bloque_que_comparo++;
 	}
 
-}
-
-void delete_from_path(char* path){
-	char* comando = concat("rm -rf ",path);
-	system(comando);
-	//free(comando);
-}
-
-void limpiar_file(char* path){
-	delete_from_path(path);
-	create_file(path);
 }
 
 void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,char** bloques, char* pokemon) {

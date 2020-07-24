@@ -57,13 +57,17 @@ void finalizar_gamecard(){
 void crear_metadata_bin(){
 	log_trace(logger, "Crear metadata");
 
+	char* block_base_p = blocks_base_path();
+	char* pm_files_base_p = concat(PUNTO_MONTAJE, FILES_BASE_PATH);
+	char* meta_base_p = metadata_base_path();
+	char* bitmap_p = bitmap_path();
 	create_dir(PUNTO_MONTAJE);
-	create_dir(blocks_base_path());
-	create_dir(concat(PUNTO_MONTAJE, FILES_BASE_PATH));
-	create_dir(metadata_base_path());
-	create_file(bitmap_path());
+	create_dir(block_base_p);
+	create_dir(pm_files_base_p);
+	create_dir(meta_base_p);
+	create_file(bitmap_p);
 
-	char* metadata_bin = concat(metadata_base_path(), METADATA_FILE_NAME);
+	char* metadata_bin = concat(meta_base_p, METADATA_FILE_NAME);
 	create_file( metadata_bin );
 
 	t_config* config_metadata = config_create(metadata_bin);
@@ -79,4 +83,11 @@ void crear_metadata_bin(){
 
 	config_save(config_metadata);
 	config_destroy(config_metadata);
+
+	free(block_base_p);
+	free(pm_files_base_p);
+	free(meta_base_p);
+	free(bitmap_p);
+	free(metadata_bin);
+
 }

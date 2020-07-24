@@ -127,6 +127,16 @@ bool file_existing(char* path){
 }
 
 
+void delete_from_path(char* path){
+	char* comando = concat("rm -rf ",path);
+	system(comando);
+	free(comando);
+}
+
+void limpiar_file(char* path){
+	delete_from_path(path);
+	create_file(path);
+}
 
 
 // TAMANIOS DE ARCHIVOS Y SUS ATRIBUTOS
@@ -169,8 +179,11 @@ int tamanio_archivo(char* path){
 
 // MANEJO DE STRINGS
 char* concatenar_posicion(int posx, int posy){
-	char* posicion_parcial = concat(string_itoa(posx),"-");
-	char* posicion_definitiva = concat(posicion_parcial,string_itoa(posy));
+	char* posicion_parcial = concat(string_itoa(posx), "-");
+	char* posicion_definitiva = concat(posicion_parcial, string_itoa(posy));
+
+	free(posicion_parcial);
+
 	return posicion_definitiva;
 }
 char* separar_posicion(char* palabra){ // Separa Ej "1-2=13" a "1-2"
