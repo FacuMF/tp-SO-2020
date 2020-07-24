@@ -66,10 +66,16 @@ void create_dir(char* path) {
 }
 
 void crear_pokemon_dir(char* tableName) {
-    log_trace(logger, "Crear directorio: %s", files_base_path(tableName) );
-	create_dir(files_base_path(tableName));
 
-    char* metadata_bin = concat(concat(PUNTO_MONTAJE, FILES_BASE_PATH), METADATA_FILE_NAME );
+	char* files_base_p = files_base_path(tableName);
+	log_trace(logger, "Crear directorio: %s", files_base_p);
+	create_dir(files_base_p);
+	free(files_base_p);
+
+	char* pm_files_base_p = concat(PUNTO_MONTAJE, FILES_BASE_PATH);
+	char* metadata_bin = concat(pm_files_base_p, METADATA_FILE_NAME);
+
+
     log_trace(logger, "Crear metadata directorio: %s", metadata_bin );
 
     create_file( metadata_bin );
@@ -80,22 +86,25 @@ void crear_pokemon_dir(char* tableName) {
     config_set_value(config_directorio, "DIRECTORY", "Y");
     config_save(config_directorio);
     config_destroy(config_directorio);
+    free(pm_files_base_p);
+    free(metadata_bin);
+
 }
 
 
 void crear_pokemon_metadata_file(char* tableName){
 
-	//Creo metadata
-	create_file( pokemon_metadata_path(tableName) );
-
-	log_trace(logger, pokemon_metadata_path(tableName));
+	char* poke_meta_p = pokemon_metadata_path(tableName);
+	create_file( poke_meta_p );
+	log_trace(logger, poke_meta_p);
+	free(poke_meta_p);
 
 	t_config* config_file = read_pokemon_metadata(tableName);
 
     config_set_value(config_file, "DIRECTORY", "N");
-    config_set_value(config_file, "SIZE", "0"); // TODO: A DEFINIR
-    config_set_value(config_file, "BLOCKS", "[]"); // TODO: A DEFINIR
-    config_set_value(config_file, "OPEN", "N"); // TODO: A DEFINIR
+    config_set_value(config_file, "SIZE", "0");
+    config_set_value(config_file, "BLOCKS", "[]");
+    config_set_value(config_file, "OPEN", "N");
     config_save(config_file);
     config_destroy(config_file);
 }

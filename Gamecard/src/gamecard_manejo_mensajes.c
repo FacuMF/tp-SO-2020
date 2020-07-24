@@ -244,20 +244,27 @@ void crear_file_si_no_existe(t_new_pokemon * mensaje_new){
 
 
 bool informar_error_no_existe_pokemon_catch(t_catch_pokemon* mensaje_catch){
-	char* file = pokemon_metadata_path(mensaje_catch->pokemon);
+	char* poke_meta_path = pokemon_metadata_path(mensaje_catch->pokemon);
+	char* file = poke_meta_path;
 	if(file_existing(file)){
+		free(poke_meta_path);
 		return true;
 	}
 	else{
 		log_error(logger,"File del pokemon %s no existente.", mensaje_catch->pokemon);
+		free(poke_meta_path);
 		return false;
 	}
 
 }
 
 bool informar_no_existe_pokemon_get(t_get_pokemon* mensaje_get){
-	char* file = pokemon_metadata_path(mensaje_get->pokemon);
-	return file_existing(file);
+	char* poke_meta_pa = pokemon_metadata_path(mensaje_get->pokemon);
+	char* file = poke_meta_pa;
+	bool existe = file_existing(file);
+	free(poke_meta_pa);
+	free(file);
+	return existe;
 }
 
 
@@ -415,7 +422,6 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 			}
 
 			dictionary_iterator(diccionario_1,(void*) pasar_key_a_config);
-			log_debug(logger,"ya paso el iterator");
 
 			limpiar_file(block_vaciar_p);
 
@@ -425,9 +431,9 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 
 			log_trace(logger, "Se va a actualizar size y sacar bloque del metadata.");
 
-			sacar_bloque_de_metadata(pokemon,num_bloque_a_vaciar);
-
 			actualizar_size_metadata(pokemon);
+
+			sacar_bloque_de_metadata(pokemon,num_bloque_a_vaciar);
 
 		}
 
@@ -446,11 +452,8 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){ // mucho r
 	char* concat_pos_corchete_antes = concat("[", bloque_con_pos);
 	char* concat_pos_corchete_despues = concat(bloque_con_pos,"]");
 
-	log_debug(logger,"asigno todas las variables pokemon:%s bloque: %d", pokemon, bloque_con_posicion);
-
 	if (string_starts_with(bloques, concat_pos_corchete_antes)) {
 
-		log_debug(logger,"entro el prmero");
 		char* concat_pos_coma = concat(bloque_con_pos, ",");
 		char**bloques_separados = string_split(bloques, concat_pos_coma);
 		char* bloques_nuevos = string_new();
@@ -465,12 +468,10 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){ // mucho r
 		free(bloques_nuevos);
 		free(concat_pos_coma);
 
-		log_debug(logger,"termino el primer if");
 	}
 
 	else if(string_ends_with(bloques,concat_pos_corchete_despues)){
 
-		log_debug(logger,"entro el segundo");
 		char* concat_coma_antes = concat(",", bloque_con_pos);
 		char**bloques_separados = string_split(bloques, concat_coma_antes);
 		char* bloques_nuevos = string_new();
@@ -485,35 +486,28 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){ // mucho r
 		free(bloques_separados);
 		free(bloques_nuevos);
 		free(concat_coma_antes);
-
-		log_debug(logger,"termino el segundo if");
 		
 	}
 
 	else {
-		log_debug(logger,"entro en else");
 		char* aux = concat(bloque_con_pos,",");
 		char* concat_aux = concat(",", aux);
 		char**bloques_separados = string_split(bloques, concat_aux);
-		log_debug(logger,"bloques separados 0: %s bloques separados 1: %s, bloques: %s",bloques_separados[0],bloques_separados[1], bloques);
 		char* bloques_nuevos = string_new();
 		string_append(&bloques_nuevos,bloques_separados[0]);
 		string_append(&bloques_nuevos,",");
 		string_append(&bloques_nuevos,bloques_separados[1]);
-		log_debug(logger,"paso los appends");
 		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
 		config_save(config_metadata);
 		config_destroy(config_metadata);
 		
 
-		log_debug(logger,"termino todo, haciendo free");
 		for(int i = 0; bloques_separados[i] != NULL; i++) free(bloques_separados[i]);
 		free(bloques_separados);
 		free(bloques_nuevos);
 		free(aux);
 		free(concat_aux);
 
-		log_debug(logger,"fin sacar bloque");
 	}
 
 	vaciar_bloque_bitmap(bloque_con_posicion);
@@ -545,7 +539,9 @@ void vaciar_bloque_bitmap(int bloque){
 void save_bitmap() {
 	log_trace(logger, "Save bitmap.");
 
-	FILE* file_birarray = fopen( bitmap_path(), "w");
+	char* bitmap_p = bitmap_path();
+	FILE* file_birarray = fopen(bitmap_p, "w");
+	free(bitmap_p);
 
 	for (int renglon = 0; renglon < ( cantidad_bloques()/8 ) ; renglon++) {
 
