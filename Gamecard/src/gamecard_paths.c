@@ -12,14 +12,20 @@ char *concat_igual(char *start, char *end)
 
 
 char* concat_dirs(char* start, char* end) {
-    return concat(concat(start, end), "/");
+	char* conca = concat(start, end);
+	char* rtn = concat(conca, "/");
+	free(conca);
+	return rtn;
 }
 
 
 
 
 char* to_block_file(int blockNumber) {
-    return concat(string_itoa(blockNumber), EXTENSION);
+	char* block = string_itoa(blockNumber);
+	char* rtn = concat(block, EXTENSION);
+	free(block);
+	return rtn;
 }
 
 // BASE PATH
@@ -34,26 +40,43 @@ char* blocks_base_path() {
 
 
 char* files_base_path(char* fileName) {
-    return concat_dirs(concat(PUNTO_MONTAJE, FILES_BASE_PATH), fileName);//TALLGRASS/Files/Pikachu/
+	char* conca = concat(PUNTO_MONTAJE, FILES_BASE_PATH);
+	char* rtn = concat_dirs(conca, fileName);
+	free(conca);
+	return rtn; //TALLGRASS/Files/Pikachu/
 }
 
 
 // ----- PATH DEFINITIVOS -----
 
 char* block_path(int block) {
-    return concat(blocks_base_path(), to_block_file(block)); //TALLGRASS/Blocks/1.bin
+	char* bloque = blocks_base_path();
+	char* a_bloque = to_block_file(block);
+	char* rtn = concat(bloque, a_bloque);
+	free(bloque);
+	free(a_bloque);
+	return rtn; //TALLGRASS/Blocks/1.bin
 }
 
 char* metadata_path() {
-    return concat(metadata_base_path(), METADATA_FILE_NAME);//TALLGRASS/Metadata/Metadata.bin
+	char* meta = metadata_base_path();
+	char* rtn = concat(meta, METADATA_FILE_NAME);
+	free(meta);
+	return rtn; //TALLGRASS/Metadata/Metadata.bin
 }
 
 char* bitmap_path() {
-    return concat(metadata_base_path(), BITMAP_FILE_NAME);//TALLGRASS/Metadata/Bitmap.bin
+	char* meta = metadata_base_path();
+	char* rtn = concat(meta, BITMAP_FILE_NAME);
+	free(meta);
+	return rtn; //TALLGRASS/Metadata/Bitmap.bin
 }
 
 char* pokemon_metadata_path(char* fileName) {
-    return concat(files_base_path(fileName), METADATA_FILE_NAME); //TALLGRASS/Files/Pikachu/Metadata.bin
+	char* a_file = files_base_path(fileName);
+	char* rtn = concat(a_file, METADATA_FILE_NAME);
+	free(a_file);
+	return rtn; //TALLGRASS/Files/Pikachu/Metadata.bin
 }
 
 
