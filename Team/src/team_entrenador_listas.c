@@ -104,7 +104,7 @@ t_entrenador * obtener_entrenador_mas_cercano(int posx, int posy,
 		t_entrenador *entrenador_1 = elemento_1;
 		t_entrenador *entrenador_2 = elemento_2;
 		return distancia(entrenador_1, posx, posy)
-				< distancia(entrenador_2, posx, posy);
+				<= distancia(entrenador_2, posx, posy);
 	}
 
 	t_list * entrenadores_mas_cercanos = list_sorted(entrenadores,
