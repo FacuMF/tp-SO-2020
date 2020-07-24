@@ -17,10 +17,13 @@ void handler_senial(int signum) {
 }
 
 void inicializacion_broker(void) {
-	logger = iniciar_logger("./Broker/config/broker.log", "Broker",
-			LOG_LEVEL_TRACE);
-
 	config = leer_config("./Broker/config/broker.config");
+
+
+	string_nivel_log_minimo = config_get_string_value(config,
+				"LOG_NIVEL_MINIMO");
+	log_nivel_minimo = log_level_from_string(string_nivel_log_minimo);
+	logger = iniciar_logger("./Broker/config/broker.log", "Broker", log_nivel_minimo );
 
 	inicializacion_colas();
 
@@ -109,7 +112,7 @@ void recibir_mensaje_del_cliente(void* input) {
 		if (cod_op >= 0 && cod_op<10)
 			handle_mensaje(cod_op, socket_cliente);
 		else{
-			log_warning(logger, "El cliente %i cerro el socket.",
+			log_trace(logger, "El cliente %i cerro el socket.",
 						socket_cliente);
 		}
 	}

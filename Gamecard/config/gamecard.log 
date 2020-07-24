@@ -29926,3 +29926,22 @@
 [INFO] 06:31:05:777 Gamecard/(12010:12044): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1.
 [INFO] 06:31:05:778 Gamecard/(12010:12044): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
 [TRACE] 06:31:05:781 Gamecard/(12010:12044): Recepcion confirmada: 24 5 1
+[TRACE] 14:52:35:137 Gamecard/(4503:4503): Log inicializado
+[TRACE] 14:52:35:137 Gamecard/(4503:4503): Crear metadata
+[TRACE] 14:52:35:145 Gamecard/(4503:4503): Save bitmap.
+[TRACE] 14:52:35:146 Gamecard/(4503:4503): Iniciando conexion con gameboy
+[TRACE] 14:52:35:146 Gamecard/(4503:4503): Esperando Cliente
+[TRACE] 14:52:35:148 Gamecard/(4503:4504): Hilos de suscripcion lanzados
+[INFO] 14:53:05:149 Gamecard/(4503:4504): Inicio reintento de comunicacion con Broker
+[INFO] 14:53:05:150 Gamecard/(4503:4504): Reintento de comunicación con broker fallido
+[INFO] 14:53:35:150 Gamecard/(4503:4504): Inicio reintento de comunicacion con Broker
+[INFO] 14:53:35:151 Gamecard/(4503:4504): Reintento de comunicación con broker fallido
+[TRACE] 14:54:04:547 Gamecard/(4503:4503): Cliente aceptado: 5.
+[TRACE] 14:54:04:547 Gamecard/(4503:4503): Esperando Cliente
+[TRACE] 14:54:04:548 Gamecard/(4503:4556): Codigo de operacion cod_op: 3.
+[INFO] 14:54:04:548 Gamecard/(4503:4556): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 14:54:04:548 Gamecard/(4503:4556): Mensaje recibido manejado
+[TRACE] 14:54:04:548 Gamecard/(4503:4557): Manejar mensaje: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Cantidad: 10, Id mensaje: 9.
+[TRACE] 14:54:04:548 Gamecard/(4503:4557): File del pokemon no existente, lo creo.
+[TRACE] 14:54:04:548 Gamecard/(4503:4557): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Pikachu/
+[TRACE] 14:54:04:549 Gamecard/(4503:4557): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt

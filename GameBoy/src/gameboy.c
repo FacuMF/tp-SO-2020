@@ -18,6 +18,9 @@ void obtener_argumentos(char** arg) {
 	modulo = obtener_modulo(arg);
 	tipo_mensaje = obtener_tipo_mensaje(arg);
 
+	(es_suscriptor)? log_info(logger, "Se establecio conexion al proceso %s.", arg[1]):
+			log_info(logger, "Se establecio conexion al proceso Broker.");
+
 	log_trace(logger, "Caracteristicas de mensaje obtenidas");
 
 	log_trace(logger,
@@ -26,14 +29,14 @@ void obtener_argumentos(char** arg) {
 
 	ip = leer_ip(modulo, config);
 	puerto = leer_puerto(modulo, config);
-	/*TBR*/log_trace(logger,
-			"Leido de config por parametro %s. Ip: %s y Puerto: %s", arg[1], ip,
-			puerto);
+
 }
 
 void enviar_mensaje_gameboy(char** arg) {
 	conexion = iniciar_conexion(ip, puerto);
 	log_trace(logger, "Conexion Creada. Ip: %s y Puerto: %s ", ip, puerto);
+
+	if (es_suscriptor) log_info(logger, "Se realizo suscripcion a la cola.");
 
 	t_buffer* mensaje_serializado = mensaje_a_enviar(modulo, tipo_mensaje, arg);
 	log_trace(logger, "El mensaje fue serializado. ");
@@ -51,8 +54,8 @@ void esperar_respuesta(void) {
 		while (cod_op_respuesta >= 0) {
 			cod_op_respuesta = recibir_respuesta(&conexion);
 		}
-		log_warning(logger, "Se salio del while del socket %i.", conexion);
-	} else if (modulo != team) {
+		log_trace(logger, "Se salio del while del socket %i.", conexion);
+	} else if (modulo == broker) {
 		// Para el resto de mensajes, se va a recibir el mismo mensaje pero con el id asignado por el broker.
 		recibir_respuesta(&conexion);
 	}
@@ -98,12 +101,12 @@ int recibir_respuesta(int* socket_broker) {
 	if (cod_op == -2)
 				log_trace(logger, "Fin de recepcion de mensajes cacheados");
 	(cod_op == -1) ?
-			log_error(logger, "Error en 'recibir_codigo_operacion'") :
+			log_trace(logger, "Error en 'recibir_codigo_operacion'") :
 			log_trace(logger, "Mensaje recibido, cod_op: %i.", cod_op);
 
 	(cod_op >= 0) ?
 			handle_respuesta(cod_op, *socket_broker) :
-			log_warning(logger, "El broker cerro el socket %i.",
+			log_trace(logger, "El broker cerro el socket %i.",
 					*socket_broker);
 	return cod_op;
 }
@@ -138,7 +141,6 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_appeared_pokemon->id_mensaje);
 		liberar_mensaje_appeared_pokemon(mensaje_appeared_pokemon);
-		free(parametros);
 		break;
 	case CAUGHT_POKEMON:
 		;
@@ -149,7 +151,6 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_caught_pokemon->id_mensaje);
 		liberar_mensaje_caught_pokemon(mensaje_caught_pokemon);
-		free(parametros);
 		break;
 	case LOCALIZED_POKEMON:
 		;
@@ -159,7 +160,6 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		log_trace(logger, parametros);
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_localized_pokemon->id_mensaje);
-		free(parametros);
 		liberar_mensaje_localized_pokemon(mensaje_localized_pokemon);
 		break;
 	case NEW_POKEMON:
@@ -170,7 +170,6 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_new_pokemon->id_mensaje);
 		liberar_mensaje_new_pokemon(mensaje_new_pokemon);
-		free(parametros);
 		break;
 	case GET_POKEMON:
 		;
@@ -180,7 +179,6 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_get_pokemon->id_mensaje);
 		liberar_mensaje_get_pokemon(mensaje_get_pokemon);
-		free(parametros);
 		break;
 	case CATCH_POKEMON:
 		;
@@ -191,12 +189,15 @@ void handle_respuesta(int cod_op, int socket_broker) {
 		confirmar_si_es_suscriptor(socket_broker, cod_op,
 				mensaje_catch_pokemon->id_mensaje);
 		liberar_mensaje_catch_pokemon(mensaje_catch_pokemon);
-		free(parametros);
 		break;
 	default:
 		log_error(logger, "Op_code inválido.");
 		break;
 	}
+
+	log_info(logger, "Llegada de nuevo mensaje a la cola %s: %s.", op_code_a_string(cod_op), parametros);
+	free(parametros);
+
 	log_trace(logger, "Mensaje recibido manejado.");
 }
 
@@ -305,6 +306,9 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 	case SUSCRIPTOR:
 		;
 		t_subscriptor* mensaje_suscripcion;
+
+		log_info(logger, "Suscripcion a cola de mensajes %s.", op_code_a_string(cola_de_mensajes) );
+
 		cargar_parametros_suscriptor(&cola_de_mensajes, &tiempo_suscripcion,
 				arg);
 		mensaje_suscripcion = crear_suscripcion(cola_de_mensajes,
