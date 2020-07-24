@@ -13,7 +13,10 @@ void enviar_mensaje_suscripcion_gamecard(op_code mensaje, int conexion){
 }
 
 void enviar_appeared_pokemon_a_broker( t_appeared_pokemon* appeared_a_enviar ) {
-	log_info(logger, "Mensaje APPEARED a enviar: %s.", mostrar_appeared_pokemon(appeared_a_enviar) );
+
+		char* mostrar_ap = mostrar_appeared_pokemon(appeared_a_enviar);
+		log_info(logger, "Mensaje APPEARED a enviar: %s.", mostrar_ap);
+		free(mostrar_ap);
 
 	int socket_broker = iniciar_conexion_broker_gamecard();
 
@@ -34,8 +37,12 @@ void enviar_appeared_pokemon_a_broker( t_appeared_pokemon* appeared_a_enviar ) {
 }
 
 
-void enviar_caught_pokemon_a_broker( t_caught_pokemon* element) {
-	t_caught_pokemon * caught_a_enviar = element;
+void enviar_caught_pokemon_a_broker( t_caught_pokemon* caught_a_enviar) {
+
+		char* mostrar_ca = mostrar_caught_pokemon(caught_a_enviar);
+		log_info(logger, "Mensaje CAUGHT a enviar: %s.", mostrar_ca);
+		free(mostrar_ca);
+
 	int socket_broker = iniciar_conexion_broker_gamecard();
 		if (socket_broker > 0) {
 			t_buffer*mensaje_caught_serializado = serializar_caught_pokemon(caught_a_enviar);
@@ -53,8 +60,12 @@ void enviar_caught_pokemon_a_broker( t_caught_pokemon* element) {
 		}
 }
 
-void enviar_localized_pokemon_a_broker( t_localized_pokemon* element) {
-	t_localized_pokemon * localized_a_enviar = element;
+void enviar_localized_pokemon_a_broker( t_localized_pokemon* localized_a_enviar) {
+
+		char* mostrar_lo = mostrar_localized(localized_a_enviar);
+		log_info(logger, "Mensaje LOCALIZED a enviar: %s.", mostrar_lo);
+		free(mostrar_lo);
+
 	int socket_broker = iniciar_conexion_broker_gamecard();
 		if (socket_broker > 0) {
 			t_buffer*mensaje_localized_serializado = serializar_localized_pokemon(localized_a_enviar);

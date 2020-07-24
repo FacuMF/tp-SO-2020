@@ -3,7 +3,9 @@
 // TODO FUNCIONES DE MANEJAR MENSAJE
 
 void manejar_new_pokemon(t_new_pokemon *mensaje_new){
-	log_trace( logger, "Manejar mensaje: %s.", mostrar_new_pokemon(mensaje_new) );
+	char* mostrar_new = mostrar_new_pokemon(mensaje_new);
+	log_trace(logger, "Manejar mensaje: %s.", mostrar_new);
+	free(mostrar_new);
 
 	// 1. Verificar si existe pokemon en el Filesystem
 	crear_file_si_no_existe(mensaje_new);
@@ -26,6 +28,10 @@ void manejar_new_pokemon(t_new_pokemon *mensaje_new){
 }
 
 void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
+	char* mostrar_catch = mostrar_catch_pokemon(mensaje_catch);
+	log_trace(logger, "Manejar mensaje: %s.", mostrar_catch);
+	free(mostrar_catch);
+
 	bool respuesta_existe_archivo = true;
 	bool respuesta_existe_pos_archivo = false;
 
@@ -60,6 +66,10 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 }
 
 void manejar_get_pokemon(t_get_pokemon * mensaje_get){
+	char* mostrar_get = mostrar_get_pokemon(mensaje_get);
+	log_trace(logger, "Manejar mensaje: %s.", mostrar_get);
+	free(mostrar_get);
+
 	bool respuesta_get = true;
 	t_localized_pokemon* respuesta_localized;
 

@@ -196,11 +196,13 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 }
 
 void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion_existente){
-	char** bloques_pokemon = extraer_bloques(mensaje_new->pokemon);
-	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
+	char** bloques_pokemon = extraer_bloques(mensaje_new->pokemon);   // free
+	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy); // free
 
 	t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
-	t_config* config_bloque_nuevo = config_create(block_path(contador));
+	char* block_p = block_path(contador);
+	t_config* config_bloque_nuevo = config_create(block_p);
+	free(block_p);
 
 	if(posicion_existente){
 		log_trace(logger,"La posicion ya existia, se va a borrar la sentencia y escribir en otro bloque");
