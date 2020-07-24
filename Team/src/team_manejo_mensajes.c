@@ -92,6 +92,8 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 
 		sem_post(&(entrenador->sem_est)); // Se autosetea status entrenador = blocked_normal/blocked_deadlock/exit
 
+		mostrar_entrenadores(head_entrenadores);
+
 		// Si guarde auxiliares y no los necesito, borrarlos
 		if (pokemon_en_auxiliares(pokemon)
 				&& !pokemon_asignado_a_entrenador(pokemon))
