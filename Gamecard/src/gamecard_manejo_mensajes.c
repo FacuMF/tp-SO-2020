@@ -127,20 +127,43 @@ bool informar_error_no_existe_pos_catch(t_catch_pokemon* mensaje_catch){
 
 }
 
-void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){ // Podriamos sacar los bloques como parametro
-	int tamanio_sentencia = string_length(string_itoa(mensaje_new->posx)) + string_length(string_itoa(mensaje_new->posy)) + string_length(string_itoa(mensaje_new->cantidad)) + 2; // CHEQUEAR
+void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques) {
+	char* px = string_itoa(mensaje_new->posx);
+	char* py = string_itoa(mensaje_new->posy);
+	char* canti = string_itoa(mensaje_new->cantidad);
+	// Podriamos sacar los bloques como parametro
+	int tamanio_sentencia = string_length(px) + string_length(py) + string_length(canti) + 2; // CHEQUEAR
+
+	free(px);
+	free(py);
+	free(canti);
+
 	int i = 0;
 	while(bloques[i]!=NULL){
+
 		log_trace(logger,"Entro al while");
-		int tamanio_total = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_sentencia;
+
+		char* tamanio_t = block_path(atoi(bloques[i]));
+		int tamanio_total = tamanio_archivo(tamanio_t) + tamanio_sentencia;
+		free(tamanio_t);
+
 		log_trace(logger,"Tamanio total del archivo al escribir la sentencia: %d",tamanio_total);
 		log_trace(logger,"Tamanio de bloques: %d",tamanio_bloque());
 
 		if(tamanio_total <= tamanio_bloque()){
 
-			t_config* config_bloque = config_create(block_path(atoi(bloques[i])));
+			char* block_pa = block_path(atoi(bloques[i]));
+			t_config* config_bloque = config_create(block_pa);
+			free(block_pa);
+
 			char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
-			config_set_value(config_bloque, posicion, string_itoa(mensaje_new->cantidad));
+
+			char* cant = string_itoa(mensaje_new->cantidad);
+			config_set_value(config_bloque, posicion, cant);
+
+			free(cant);
+			free(posicion);
+
 			config_save(config_bloque);
 			config_destroy(config_bloque);
 
@@ -203,12 +226,16 @@ bool abrir_archivo(char* pokemon){
 }
 
 void crear_file_si_no_existe(t_new_pokemon * mensaje_new){
+
 	char* file = pokemon_metadata_path(mensaje_new->pokemon);
+
 	if(!file_existing(file)){
 		log_trace(logger,"File del pokemon no existente, lo creo.");
 		create_new_file_pokemon(mensaje_new->pokemon);
 
 	}
+
+	free(file);
 }
 
 

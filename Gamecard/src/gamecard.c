@@ -32,8 +32,12 @@ void iniciar_gamecard(char*argumentos_iniciales[]){
 
 		pthread_mutex_lock(&mutex_bitmap);
 		for(int i=0; i < cantidad_bloques();i++){
-			bitarray_clean_bit(bitmap_bloques,i);
-			create_file(block_path(i));
+		bitarray_clean_bit(bitmap_bloques,i);
+
+		char* block_p = block_path(i);
+		create_file(block_p);
+		free(block_p);
+
 		}
 		save_bitmap();
 		pthread_mutex_unlock(&mutex_bitmap);
