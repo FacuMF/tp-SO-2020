@@ -51,7 +51,7 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 
 	// 4. Si la unidad es 1, elimino la linea. Si es mayor, resto una unidad.
 	if (respuesta_existe_pos_archivo){ //Si no posicion en archivo no entra => bool respuesta_pos queda en false;
-		restar_uno_pos_catch(mensaje_catch); //TODO
+		restar_uno_pos_catch(mensaje_catch);
 	}
 
 	// 5. Esperar los segundos definidos por config
@@ -429,8 +429,8 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 	}
 
 }
-// [1,2]
-void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){
+
+void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){ // mucho repeticion de code
 	t_config* config_metadata = read_pokemon_metadata(pokemon);
 	char* bloques = extraer_bloques_string(pokemon);
 	
@@ -502,8 +502,10 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){
 }
 
 char* extraer_bloques_string(char* pokemon){
-	t_config* config = read_pokemon_metadata(pokemon);
-	return config_get_string_value(config,"BLOCKS");
+	t_config* config_bloque = read_pokemon_metadata(pokemon);
+	char* bloques = config_get_string_value(config_bloque,"BLOCKS");
+	config_destroy(config_bloque);
+	return bloques;
 }
 
 
