@@ -175,6 +175,8 @@ void save_bitmap();
 void cerrar_archivo_pokemon(char* pokemon);
 void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques);
 void restar_uno_pos_catch();
+void compactar_bloques(char** bloques, char* pokemon);
+void copactar_bloques_si_corresponde(int bloque_que_comparo, int bloque_contra_el_que_comparo,char** bloques, char* pokemon);
 void manejar_bloques_pokemon(t_new_pokemon * mensaje_new);
 int cantidad_bytes_de_mas(char* sentencia1, char* sentencia2);
 

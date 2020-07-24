@@ -261,18 +261,111 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 	config_save(config_bloque);
 	config_destroy(config_bloque);
 
+
 	actualizar_size_metadata(mensaje_catch->pokemon);
 
 	int tamanio_bloque = tamanio_archivo(block_path(bloque_con_posicion));
 
 	if( tamanio_bloque == 0 ){
-		sacar_bloque_de_metadata(mensaje_catch->pokemon,bloque_con_posicion); //TODO: Modificar bitmap.
+		sacar_bloque_de_metadata(mensaje_catch->pokemon,bloque_con_posicion);
 	}
+
+	compactar_bloques(bloques, mensaje_catch->pokemon);
 }
 
+void compactar_bloques(char** bloques, char* pokemon){
+	log_debug(logger, "Compactar bloques");
+
+	int bloque_que_comparo = 0;
+	int bloque_contra_el_que_comparo = 0;
+
+	while( bloques[bloque_que_comparo] != NULL ){
+
+		log_debug(logger, "En el while, comparando el bloque: %i.", bloque_que_comparo);
+
+		while( bloques[bloque_contra_el_que_comparo] != NULL ){
+
+			log_debug(logger, "En el while, comparando contra el bloque: %i.", bloque_contra_el_que_comparo);
+
+			copactar_bloques_si_corresponde(bloque_contra_el_que_comparo,
+							bloque_que_comparo, bloques, pokemon);
+
+			bloque_contra_el_que_comparo++;
+
+		}
+
+		bloque_que_comparo++;
+	}
+
+}
+
+void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,char** bloques, char* pokemon) {
+
+	if(bloque_a_vaciar != bloque_a_llenar){
+
+		log_debug(logger, "Se compararon distinos bloques.");
+
+		int num_bloque_a_vaciar = atoi(bloques[bloque_a_vaciar]);
+		int tamanio_que_comparo = tamanio_archivo( block_path( num_bloque_a_vaciar ) );
+
+		log_debug(logger, "Bloque 1 de la comparacion: numero %i , tamanio: %i.",
+				num_bloque_a_vaciar, tamanio_que_comparo);
+
+		int num_bloque_a_llenar = atoi(bloques[bloque_a_llenar]);
+		int tamanio_contra_el_que_comparo = tamanio_archivo( block_path( num_bloque_a_llenar ) );
+
+		log_debug(logger, "Bloque 2 de la comparacion: numero %i , tamanio: %i.",
+				num_bloque_a_llenar, tamanio_contra_el_que_comparo);
+
+		int tamanio_sobrante_del_bloque_a_llenar = (tamanio_bloque() - tamanio_contra_el_que_comparo);
+
+		if(  tamanio_que_comparo <= tamanio_sobrante_del_bloque_a_llenar ){
+
+			log_debug(logger, "Se compararon los tamanios y se va a compactar.");
+			//Tengo que pasar el bloque que compare => al archivo contra el que compare.
+			//Voy a pasar la info del bloque 1 al 2.
+
+			t_config* config_1 = config_create( block_path( num_bloque_a_vaciar ));
+			t_config* config_2 = config_create( block_path( num_bloque_a_llenar ));
+
+			t_dictionary* diccionario_1 = config_1->properties;
+
+			void pasar_key_a_config(void* element){
+
+				char* key = element;
+
+				if( dictionary_has_key(diccionario_1, key)){
+					char* value = config_get_string_value(config_1, key);
+					config_set_value(config_2, key, value);
+
+					config_remove_key(config_1, key);
+				}
+
+			}
+
+			dictionary_iterator(diccionario_1,(void*) pasar_key_a_config);
+
+			config_save(config_1);
+			config_save(config_2);
+			config_destroy(config_1);
+			config_destroy(config_2);
+
+			log_debug(logger, "Se va a actualizar size y sacar bloque del metadata.");
+
+			actualizar_size_metadata(pokemon);
+
+			sacar_bloque_de_metadata(pokemon,num_bloque_a_vaciar);
+
+		}
+
+	}
+
+}
+// [1,2]
 void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){
 	t_config* config_metadata = read_pokemon_metadata(pokemon);
 	char* bloques = extraer_bloques_string(pokemon);
+
 	if(string_starts_with(bloques,concat("[",string_itoa(bloque_con_posicion)))){
 		char**bloques_separados = string_split(bloques,concat(string_itoa(bloque_con_posicion),","));
 		char* bloques_nuevos = string_new();
@@ -282,6 +375,7 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){
 		config_save(config_metadata);
 		config_destroy(config_metadata);
 	}
+
 	else if(string_ends_with(bloques,concat(string_itoa(bloque_con_posicion),"]"))){
 		char**bloques_separados = string_split(bloques,concat(",",string_itoa(bloque_con_posicion)));
 		char* bloques_nuevos = string_new();
@@ -290,7 +384,9 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){
 		config_set_value(config_metadata,"BLOCKS",bloques_nuevos);
 		config_save(config_metadata);
 		config_destroy(config_metadata);
-	} else {
+	}
+
+	else {
 		char* aux = concat(string_itoa(bloque_con_posicion),",");
 		char**bloques_separados = string_split(bloques,concat(",",aux));
 		char* bloques_nuevos = string_new();
