@@ -5,7 +5,7 @@ int main(int argv, char*archivo_config[]){
 	iniciar_gamecard(archivo_config);
 
 	pthread_create(&thread,NULL,(void*) suscribirse_a_colas_gamecard,NULL);
-
+	pthread_detach(thread);
 	iniciar_conexion_con_gameboy_gamecard();
 
 	finalizar_gamecard();

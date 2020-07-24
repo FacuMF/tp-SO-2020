@@ -23,6 +23,7 @@ void esperar_cliente_gamecard(int socket_servidor) {
 	int * argument = malloc(sizeof(int));
 	*argument = socket_cliente;
 	pthread_create(&thread, NULL, (void*) esperar_mensaje_gameboy_gamecard, argument);
+	pthread_detach(thread);
 }
 
 void esperar_mensaje_gameboy_gamecard(void* input){
@@ -88,8 +89,8 @@ void enviar_suscripcion_al_broker(op_code tipo_mensaje) {
 		*argument = socket_broker;
 
 		pthread_create(&thread, NULL, (void*) esperar_mensajes_gamecard, argument);
-
 		pthread_detach(thread);
+
 		log_trace(logger, "Suscripcion completada");
 	}
 }
@@ -159,7 +160,7 @@ void handle_mensajes_gamecard(int conexion, op_code cod_op ){
 	argumentos->conexion = conexion;
 
 	pthread_create(&thread, NULL, (void*) manejar_mensajes_gamecard, argumentos);
-
+	pthread_detach(thread);
 
 
 	log_trace(logger,"Mensaje recibido manejado");
