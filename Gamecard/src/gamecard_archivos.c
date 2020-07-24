@@ -65,7 +65,7 @@ void crear_pokemon_dir(char* tableName) {
 
     create_file( metadata_bin );
 
-    log_debug(logger, "Ya se creo.");
+    log_trace(logger, "Ya se creo.");
 	t_config* config_directorio = config_create(metadata_bin);
 
     config_set_value(config_directorio, "DIRECTORY", "Y");
@@ -172,7 +172,7 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 
 
 	while(bitarray_test_bit(bitmap_bloques,contador) && contador <= cantidad_bloques()){
-		log_debug(logger,"Bit: %d estado: %d",contador, bitarray_test_bit(bitmap_bloques,contador));
+		log_trace(logger,"Bit: %d estado: %d",contador, bitarray_test_bit(bitmap_bloques,contador));
 		contador++;
 	}
 
@@ -180,7 +180,7 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 		log_error(logger,"No hay bloques disponibles para asignar informacion al pokemon %s.",mensaje_new->pokemon);
 		return;
 	}
-	log_debug(logger,"Va a proceder a asignar el bloque vacio:  %d",contador);
+	log_trace(logger,"Va a proceder a asignar el bloque vacio:  %d",contador);
 
 	asignar_bloque_vacio(mensaje_new, contador, posicion_existente);
 
@@ -194,7 +194,7 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 	t_config* config_bloque_nuevo = config_create(block_path(contador));
 
 	if(posicion_existente){
-		log_debug(logger,"La posicion ya existia, se va a borrar la sentencia y escribir en otro bloque");
+		log_trace(logger,"La posicion ya existia, se va a borrar la sentencia y escribir en otro bloque");
 		int bloque_viejo = encontrar_bloque_con_posicion(posicion,bloques_pokemon);
 		t_config* config_bloque_viejo = config_create(block_path(bloque_viejo));
 		int cantidad_vieja = config_get_int_value(config_bloque_viejo,posicion);
@@ -216,11 +216,11 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 			log_error(logger,"La sentencia sobrepasa el tamanio maximo de bloque.");
 			return;
 		}
-		log_debug(logger,"Se escribe la posicion en otro bloque ya que no existia");
+		log_trace(logger,"Se escribe la posicion en otro bloque ya que no existia");
 		config_set_value(config_bloque_nuevo, posicion, string_itoa(mensaje_new->cantidad));
 
 	}
-	log_debug(logger,"Termino agregar bloque vacio");
+	log_trace(logger,"Termino agregar bloque vacio");
 	agregar_bloque_metadata(mensaje_new->pokemon,contador);
 	config_save(config_bloque_nuevo);
 	config_destroy(config_bloque_nuevo);
@@ -251,7 +251,7 @@ int encontrar_bloque_con_posicion(char* posicion, char** bloques){
 
 void agregar_bloque_metadata(char* pokemon, int bloque_nuevo){ // Chequear bien esta funcion
 	t_config* config_metadata = config_create(pokemon_metadata_path(pokemon));
-	log_debug(logger,"Path del metadata yendo a agregar el bloque: %s",pokemon_metadata_path(pokemon));
+	log_trace(logger,"Path del metadata yendo a agregar el bloque: %s",pokemon_metadata_path(pokemon));
 	char* bloques = config_get_string_value(config_metadata,"BLOCKS");
 	char* bloques_final;
 
@@ -270,8 +270,8 @@ void agregar_bloque_metadata(char* pokemon, int bloque_nuevo){ // Chequear bien 
 	}
 
 	config_set_value(config_metadata,"BLOCKS",bloques_final);
-	log_debug(logger,"Lo que se seteo: %s",config_get_string_value(config_metadata,"BLOCKS"));
-	log_debug(logger,"Bloques final: %s",bloques_final);
+	log_trace(logger,"Lo que se seteo: %s",config_get_string_value(config_metadata,"BLOCKS"));
+	log_trace(logger,"Bloques final: %s",bloques_final);
 	config_save(config_metadata);
 	config_destroy(config_metadata);
 
@@ -302,7 +302,7 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 			char* key = element;
 			t_posicion* posicion_dividida = de_char_a_posicion(key);
 
-			log_debug(logger, "Posicion a agregar: %s.", key);
+			log_trace(logger, "Posicion a agregar: %s.", key);
 
 			list_add(lista_posiciones,posicion_dividida);
 
@@ -310,21 +310,7 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 
 		dictionary_iterator(diccionario_bloque, (void*) agregar_posicion_a_lista);
 
-/*
 
-		int cantidad_posiciones = config_keys_amount(config_bloque);
-
-		for(int i = 0; i < cantidad_posiciones; i++){
-
-			char* sentencia = leer_sentencia(block_path(atoi(bloques[n])));
-			char* posicion = separar_posicion(sentencia);
-
-			t_posicion* posicion_dividida = de_char_a_posicion(posicion);
-
-			list_add(lista_posiciones,posicion_dividida);
-
-		}
-*/
 		n++;
 		config_destroy(config_bloque);
 	}
@@ -332,86 +318,5 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 	t_localized_pokemon* pokemon_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_posiciones);
 	return pokemon_localized;
 }
-
-/*
-char* read_block(int blockNumber) {
-    return read_file(block_path(blockNumber), read_block_size());
-}
-*/
-
-/*
-
-char* crear_sentencia(int posx, int posy, int cantidad){ // Ej 1-2=10
-	char* aux1 = concat(posx,"-");
-	char* aux2 = concat(aux1,posy);
-	char* aux3 = concat(aux2,"=");
-	char* aux4 = concat(aux3,cantidad);
-	char* definitivo = concat(aux4,"\n"); // TODO: Ver bien si se pone el renglon
-	return definitivo;
-}
-
-void escribir_sentencia(char* file, char* sentencia){
-	FILE *fp = fopen(file, "a");
-		fwrite(sentencia, strlen(sentencia) + 1, 1, fp);
-	fclose(fp);
-}
-
-void escribir_atributo(char* file, char* atributo, char*propiedad){
-	char* aux = concat_igual(atributo,propiedad);
-	char* resultado = concat(aux,"\n");
-	escribir_sentencia(file,resultado);
-}
-
-
-//Falta while a todas las sentencias usar feof()
-bool buscar_posicion(char* fileName, char* pos){
-	FILE *file = fopen(fileName, "r");
-    char *code = malloc(ftell(file));
-    size_t n = 0;
-    int c;
-	while ((c = fgetc(file)) != '\n'){  // Sentencia entera
-		code[n++] = (char) c;
-	}
-	code[n] = '\0';
-	char* posicion_posible = separar_posicion(code); // Falta fclose
-	return pos == posicion_posible; // No funciona no se por qué
-}
-
-
-
-*/
-
-/*
-void crear_pokemon_metadata_file(char* tableName){
-    char* file = pokemon_metadata_path(tableName);
-	create_file(file);
-    escribir_atributo(file,"DIRECTORY","N");
-    escribir_atributo(file,"SIZE","0");
-    escribir_atributo(file,"BLOCKS","[]"); // Ver
-    escribir_atributo(file,"OPEN","Y");
-}
-*/
-
-
-/* Viejas funciones, borrar si no sirven
-char* read_file(char* path, int size) {
-    FILE* file = fopen(path, "rb");
-    char* result = string_repeat('\0', size);
-    char* input = string_repeat('\0', 2);
-    while(fread(input, sizeof(char), 1, file)) {
-        string_append(&result, input);
-    }
-    fclose(file);
-    free(input); //
-    return result;
-}
-
-void write_file(char* path, char* data) {
-    FILE* file = fopen(path, "wb");
-    fwrite(data, sizeof(char), string_length(data) + 1, file);
-    fclose(file);
-}
-*/
-
 
 

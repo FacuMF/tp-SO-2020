@@ -89,18 +89,18 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 	log_trace(logger, "Manejar bloques pokemon.");
 
-	log_debug(logger,"Abriendo el archivo, dejando OPEN = Y");
+	log_trace(logger,"Abriendo el archivo, dejando OPEN = Y");
 	char ** bloques = extraer_bloques(mensaje_new->pokemon);
 	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 
 	if(verificar_posiciones_file(posicion,bloques)){
-		log_debug(logger, "Sumar unidad posicion.");
+		log_trace(logger, "Sumar unidad posicion.");
 		sumar_unidad_posicion(mensaje_new,bloques);
 	}else{
-		log_debug(logger, "Agregar posicion.");
+		log_trace(logger, "Agregar posicion.");
 		agregar_posicion(mensaje_new,bloques);
 	}
-	log_debug(logger,"Posicion agregada/sumada");
+	log_trace(logger,"Posicion agregada/sumada");
 
 }
 
@@ -121,10 +121,10 @@ void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){ // Podriamos
 	int tamanio_sentencia = string_length(string_itoa(mensaje_new->posx)) + string_length(string_itoa(mensaje_new->posy)) + string_length(string_itoa(mensaje_new->cantidad)) + 2; // CHEQUEAR
 	int i = 0;
 	while(bloques[i]!=NULL){
-		log_debug(logger,"Entro al while");
+		log_trace(logger,"Entro al while");
 		int tamanio_total = tamanio_archivo(block_path(atoi(bloques[i]))) + tamanio_sentencia;
-		log_debug(logger,"Tamanio total del archivo al escribir la sentencia: %d",tamanio_total);
-		log_debug(logger,"Tamanio de bloques: %d",tamanio_bloque());
+		log_trace(logger,"Tamanio total del archivo al escribir la sentencia: %d",tamanio_total);
+		log_trace(logger,"Tamanio de bloques: %d",tamanio_bloque());
 
 		if(tamanio_total <= tamanio_bloque()){
 
@@ -144,7 +144,7 @@ void agregar_posicion(t_new_pokemon * mensaje_new, char** bloques){ // Podriamos
 
 		}
 	}
-	log_debug(logger,"Paso el while sin entrar");
+	log_trace(logger,"Paso el while sin entrar");
 	asignar_bloque(mensaje_new,0);
 }
 
@@ -155,7 +155,7 @@ int tamanio_todos_los_bloques(char** bloques){
 		tamanio += tamanio_archivo(block_path(atoi(bloques[i])));
 		i++;
 	}
-	log_debug(logger,"Tamanio de todos los bloques del pokemon: %d",tamanio);
+	log_trace(logger,"Tamanio de todos los bloques del pokemon: %d",tamanio);
 	return tamanio;
 }
 
@@ -274,18 +274,18 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 }
 
 void compactar_bloques(char** bloques, char* pokemon){
-	log_debug(logger, "Compactar bloques");
+	log_trace(logger, "Compactar bloques");
 
 	int bloque_que_comparo = 0;
 	int bloque_contra_el_que_comparo = 0;
 
 	while( bloques[bloque_que_comparo] != NULL ){
 
-		log_debug(logger, "En el while, comparando el bloque: %i.", bloque_que_comparo);
+		log_trace(logger, "En el while, comparando el bloque: %i.", bloque_que_comparo);
 
 		while( bloques[bloque_contra_el_que_comparo] != NULL ){
 
-			log_debug(logger, "En el while, comparando contra el bloque: %i.", bloque_contra_el_que_comparo);
+			log_trace(logger, "En el while, comparando contra el bloque: %i.", bloque_contra_el_que_comparo);
 
 			copactar_bloques_si_corresponde(bloque_contra_el_que_comparo,
 							bloque_que_comparo, bloques, pokemon);
@@ -303,25 +303,25 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 
 	if(bloque_a_vaciar != bloque_a_llenar){
 
-		log_debug(logger, "Se compararon distinos bloques.");
+		log_trace(logger, "Se compararon distinos bloques.");
 
 		int num_bloque_a_vaciar = atoi(bloques[bloque_a_vaciar]);
 		int tamanio_que_comparo = tamanio_archivo( block_path( num_bloque_a_vaciar ) );
 
-		log_debug(logger, "Bloque 1 de la comparacion: numero %i , tamanio: %i.",
+		log_trace(logger, "Bloque 1 de la comparacion: numero %i , tamanio: %i.",
 				num_bloque_a_vaciar, tamanio_que_comparo);
 
 		int num_bloque_a_llenar = atoi(bloques[bloque_a_llenar]);
 		int tamanio_contra_el_que_comparo = tamanio_archivo( block_path( num_bloque_a_llenar ) );
 
-		log_debug(logger, "Bloque 2 de la comparacion: numero %i , tamanio: %i.",
+		log_trace(logger, "Bloque 2 de la comparacion: numero %i , tamanio: %i.",
 				num_bloque_a_llenar, tamanio_contra_el_que_comparo);
 
 		int tamanio_sobrante_del_bloque_a_llenar = (tamanio_bloque() - tamanio_contra_el_que_comparo);
 
 		if(  tamanio_que_comparo <= tamanio_sobrante_del_bloque_a_llenar ){
 
-			log_debug(logger, "Se compararon los tamanios y se va a compactar.");
+			log_trace(logger, "Se compararon los tamanios y se va a compactar.");
 			//Tengo que pasar el bloque que compare => al archivo contra el que compare.
 			//Voy a pasar la info del bloque 1 al 2.
 
@@ -350,7 +350,7 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 			config_destroy(config_1);
 			config_destroy(config_2);
 
-			log_debug(logger, "Se va a actualizar size y sacar bloque del metadata.");
+			log_trace(logger, "Se va a actualizar size y sacar bloque del metadata.");
 
 			actualizar_size_metadata(pokemon);
 
@@ -413,19 +413,23 @@ void vaciar_bloque_bitmap(int bloque){
 	save_bitmap();
 
 	pthread_mutex_unlock(&mutex_bitmap);
-
-	//TODO unlock mutex
 }
 
 void save_bitmap() {
+	log_trace(logger, "Save bitmap.");
+
 	FILE* file_birarray = fopen( bitmap_path(), "w");
 
-	for (int renglon = 0; renglon < (cantidad_bloques()/8) ; ++renglon) {
+	for (int renglon = 0; renglon < ( cantidad_bloques()/8 ) ; renglon++) {
 
-		for (int bit = 0; bit < 8; ++bit) {
-			fprintf(file_birarray, "%i", bitarray_test_bit(bitmap_bloques, renglon*bit) );
-			//log_debug(logger, "SAVE BITARRAY bloque %i: %i", i, bitarray_test_bit(bitmap_bloques, i));
+		for (int bit = 0; bit < 8; bit++) {
+
+			fprintf(file_birarray, "%i", bitarray_test_bit(bitmap_bloques, renglon*8+bit) );
+
+			//log_debug(logger, "SAVE BITARRAY bloque %i: %i",renglon*8+bit, bitarray_test_bit(bitmap_bloques, renglon*8+bit));
+
 		}
+
 		fprintf(file_birarray, "\n" );
 	}
 
@@ -447,12 +451,12 @@ void cerrar_archivo_pokemon(char* pokemon){
 void sumar_unidad_posicion(t_new_pokemon* mensaje_pokemon,char** bloques){ // Capaz se puede optimizar (usando for se puede salir)
 	int n=0;
 	char* posicion = concatenar_posicion(mensaje_pokemon->posx, mensaje_pokemon->posy);
-	log_debug(logger,"Entro a summar unidad pos");
+	log_trace(logger,"Entro a summar unidad pos");
 	while(bloques[n]!=NULL){
-		log_debug(logger,"Entro en el while de sumar unidad posicion");
+		log_trace(logger,"Entro en el while de sumar unidad posicion");
 		t_config* config_bloque = config_create(block_path(atoi(bloques[n])));
 		if (config_has_property(config_bloque,posicion)){
-			log_debug(logger,"Encontre bloque que tiene mi misma pos");
+			log_trace(logger,"Encontre bloque que tiene mi misma pos");
 			int cantidad_vieja = config_get_int_value(config_bloque,posicion);
 			int diferencia_bytes = cantidad_bytes_de_mas(string_itoa(cantidad_vieja), string_itoa(cantidad_vieja + mensaje_pokemon->cantidad));
 			int tamanio_total = tamanio_archivo(block_path(atoi(bloques[n]))) + diferencia_bytes;

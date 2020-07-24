@@ -13,7 +13,7 @@ void enviar_mensaje_suscripcion_gamecard(op_code mensaje, int conexion){
 }
 
 void enviar_appeared_pokemon_a_broker( t_appeared_pokemon* appeared_a_enviar ) {
-	log_trace(logger, "Mensaje APPEARED a enviar: %s.", mostrar_appeared_pokemon(appeared_a_enviar) );
+	log_info(logger, "Mensaje APPEARED a enviar: %s.", mostrar_appeared_pokemon(appeared_a_enviar) );
 
 	int socket_broker = iniciar_conexion_broker_gamecard();
 
@@ -61,7 +61,7 @@ void enviar_localized_pokemon_a_broker( t_localized_pokemon* element) {
 
 			enviar_mensaje(socket_broker, mensaje_localized_serializado, LOCALIZED_POKEMON);
 
-			log_trace(logger, "Enviado localized para: %s. Cantidad: %d", // posiciones?
+			log_trace(logger, "Enviado localized para: %s. Cantidad: %d",
 					localized_a_enviar->pokemon, localized_a_enviar->cantidad_posiciones);
 
 			manejar_recibo_respuesta(socket_broker, recibir_codigo_operacion(socket_broker));

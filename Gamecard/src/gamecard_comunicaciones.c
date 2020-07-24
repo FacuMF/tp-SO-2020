@@ -140,14 +140,14 @@ void esperar_mensajes_gamecard(void* input) {
 void handle_mensajes_gamecard(int conexion, op_code cod_op ){
 
 
-	log_debug(logger, "Codigo de operacion cod_op: %i.", cod_op);
+	log_trace(logger, "Codigo de operacion cod_op: %i.", cod_op);
 
 	t_buffer * buffer = recibir_mensaje(conexion);
 
 	int id_mensaje;
 
 	char* tipo_mensaje = op_code_a_string(cod_op);
-	log_trace(logger, "Se recibio un mensaje %s.", tipo_mensaje);
+	log_info(logger, "Se recibio un mensaje %s.", tipo_mensaje);
 	free(tipo_mensaje);
 
 
