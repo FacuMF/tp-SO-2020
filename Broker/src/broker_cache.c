@@ -128,7 +128,7 @@ int calcular_tamanio_a_cachear(int size_stream) {
 
 		break;
 	default:
-		log_warning(logger, "Algoritmo de memoria incorrecto.");
+		log_debug(logger, "Algoritmo de memoria incorrecto.");
 		break;
 	}
 
@@ -202,7 +202,7 @@ void crear_y_agregar_particion_sobrante(int tamanio_cacheado) {
 
 		break;
 	default:
-		log_warning(logger, "Algoritmo de memoria incorrecto.");
+		log_debug(logger, "Algoritmo de memoria incorrecto.");
 		break;
 	}
 
@@ -787,14 +787,14 @@ _Bool intentar_compactar_elemento(int num_particion) {
 	// Si no es ultimo y esta vacio, se chequea. Si no, se pasa de largo.
 
 	if (!es_ultimo && es_vacio) {
-		log_warning(logger,
+		log_trace(logger,
 				"No es ni ultimo ni vacio: Se va a realizar un cambio.");
 
 		_Bool siguiente_vacio = es_vacia_particion(
 				list_get(struct_admin_cache, num_particion + 1));
 
 		if (siguiente_vacio) {
-			log_warning(logger, "Siguiente es vacio, se consolidara.");
+			log_trace(logger, "Siguiente es vacio, se consolidara.");
 
 			dejar_particion_adelante(num_particion); //Para consolidar tengo que dejar el elemento vacio adelante.
 			consolidar_cache();
@@ -802,7 +802,7 @@ _Bool intentar_compactar_elemento(int num_particion) {
 			return false; //Que se fije si esta compactada o no
 
 		} else {
-			log_warning(logger,
+			log_trace(logger,
 					"Siguiente es lleno, se movera la informacion.");
 
 			mover_a_particion_info_del_siguiente(num_particion);
@@ -1112,7 +1112,7 @@ t_buffer* serializar_mensaje_de_cache(t_mensaje_cache* particion) {
 
 	default:
 
-		log_warning(logger,
+		log_debug(logger,
 				"No deberia estar aca, trata de deserializar un mensaje vacio o no reconocido de cache.");
 		break;
 	}

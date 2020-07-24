@@ -76,9 +76,9 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 		liberar_mensaje_caught_pokemon(mensaje_caught);
 		return; // Mensaje descartado
 	}
-
+	log_debug(logger,"Esperando a manejar caught");
 	pthread_mutex_lock(&manejar_mensaje);
-	log_trace(logger, "Manejo mensaje caught");
+	log_debug(logger, "Manejo mensaje caught");
 
 	char * pokemon = entrenador->catch_pendiente->pokemon;
 	if (mensaje_caught->ok_or_fail) { // SI LO ATRAPO

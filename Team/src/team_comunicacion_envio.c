@@ -97,9 +97,10 @@ void enviar_mensaje_catch(void * element) { //mismo que get
 		log_trace(logger, "Enviado catch para: %s",
 				mensaje_catch_a_enviar->pokemon);
 
-
 		mensaje_catch_a_enviar->id_mensaje = manejar_recibo_mensajes(
 				socket_broker, recibir_codigo_operacion(socket_broker), 1);
+		log_debug(logger,"Esperando caught de pokemon %s con id %d",mensaje_catch_a_enviar->pokemon,mensaje_catch_a_enviar->id_mensaje);
+
 		close(socket_broker);
 	} else {
 		log_info(logger, "Error en comunicacion al intentar enviar catch. Se efectuara operacion default");

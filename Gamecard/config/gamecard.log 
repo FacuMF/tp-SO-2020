@@ -33320,3 +33320,2265 @@
 [ERROR] 17:44:53:320 Gamecard/(31308:31317): Error en 'recibir_codigo_operacion' -1
 [INFO] 17:44:53:327 Gamecard/(31308:31313): Inicio reintento de comunicacion con Broker
 [INFO] 17:44:53:351 Gamecard/(31308:31313): Reintento de comunicación con broker fallido
+[TRACE] 17:51:24:42 Gamecard/(32292:32292): Log inicializado
+[TRACE] 17:51:25:101 Gamecard/(32292:32292): Crear metadata
+[TRACE] 17:51:26:376 Gamecard/(32292:32292): Save bitmap.
+[TRACE] 17:51:26:486 Gamecard/(32292:32292): Iniciando conexion con gameboy
+[TRACE] 17:51:26:497 Gamecard/(32292:32297): Hilos de suscripcion lanzados
+[TRACE] 17:51:26:534 Gamecard/(32292:32292): Esperando Cliente
+[TRACE] 17:51:26:538 Gamecard/(32292:32297): Mensaje suscripcion enviado
+[TRACE] 17:51:26:541 Gamecard/(32292:32297): Suscripcion completada
+[TRACE] 17:51:26:543 Gamecard/(32292:32297): Mensaje suscripcion enviado
+[TRACE] 17:51:26:547 Gamecard/(32292:32297): Suscripcion completada
+[TRACE] 17:51:26:549 Gamecard/(32292:32297): Mensaje suscripcion enviado
+[TRACE] 17:51:26:551 Gamecard/(32292:32297): Suscripcion completada
+[TRACE] 17:51:32:953 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:32:954 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:32:955 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[INFO] 17:51:32:959 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:32:970 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:32:971 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:32:971 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:32:994 Gamecard/(32292:32315): Manejar mensaje: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Cantidad: 1, Id mensaje: 0.
+[TRACE] 17:51:32:994 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[INFO] 17:51:32:997 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:33:6 Gamecard/(32292:32322): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Cantidad: 1, Id mensaje: 1.
+[TRACE] 17:51:33:6 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:33:16 Gamecard/(32292:32322): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:51:33:17 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:33:17 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:33:18 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[INFO] 17:51:33:18 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:33:48 Gamecard/(32292:32322): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:33:49 Gamecard/(32292:32323): Manejar mensaje: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Cantidad: 1, Id mensaje: 2.
+[TRACE] 17:51:33:49 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:33:51 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:33:52 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:33:52 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[INFO] 17:51:33:53 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:33:69 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:33:69 Gamecard/(32292:32324): Manejar mensaje: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Cantidad: 1, Id mensaje: 3.
+[TRACE] 17:51:33:72 Gamecard/(32292:32315): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:51:33:74 Gamecard/(32292:32315): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:33:77 Gamecard/(32292:32322): Se abrio el archivo.
+[TRACE] 17:51:33:78 Gamecard/(32292:32323): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 17:51:33:81 Gamecard/(32292:32323): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:33:79 Gamecard/(32292:32315): Se abrio el archivo.
+[TRACE] 17:51:33:91 Gamecard/(32292:32315): Manejar bloques pokemon.
+[TRACE] 17:51:33:92 Gamecard/(32292:32322): Manejar bloques pokemon.
+[TRACE] 17:51:33:92 Gamecard/(32292:32322): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:33:93 Gamecard/(32292:32322): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:51:33:94 Gamecard/(32292:32324): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 17:51:33:96 Gamecard/(32292:32323): Se abrio el archivo.
+[TRACE] 17:51:33:98 Gamecard/(32292:32324): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:33:99 Gamecard/(32292:32324): Se abrio el archivo.
+[TRACE] 17:51:33:119 Gamecard/(32292:32324): Manejar bloques pokemon.
+[TRACE] 17:51:33:119 Gamecard/(32292:32324): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:33:120 Gamecard/(32292:32324): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 17:51:33:121 Gamecard/(32292:32315): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:33:121 Gamecard/(32292:32315): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:51:33:124 Gamecard/(32292:32315): Agregar posicion.
+[TRACE] 17:51:33:125 Gamecard/(32292:32322): Agregar posicion.
+[TRACE] 17:51:33:126 Gamecard/(32292:32323): Manejar bloques pokemon.
+[TRACE] 17:51:33:126 Gamecard/(32292:32323): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:33:127 Gamecard/(32292:32323): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 17:51:33:129 Gamecard/(32292:32323): Agregar posicion.
+[TRACE] 17:51:33:137 Gamecard/(32292:32322): Entro al while
+[TRACE] 17:51:33:138 Gamecard/(32292:32315): Entro al while
+[TRACE] 17:51:33:155 Gamecard/(32292:32315): El archivo actualmente ocupa: 0 
+
+[TRACE] 17:51:33:138 Gamecard/(32292:32324): Agregar posicion.
+[TRACE] 17:51:33:139 Gamecard/(32292:32323): Entro al while
+[TRACE] 17:51:33:157 Gamecard/(32292:32324): Entro al while
+[TRACE] 17:51:33:155 Gamecard/(32292:32322): El archivo actualmente ocupa: 0 
+
+[TRACE] 17:51:33:159 Gamecard/(32292:32324): El archivo actualmente ocupa: 0 
+
+[TRACE] 17:51:33:159 Gamecard/(32292:32323): El archivo actualmente ocupa: 0 
+
+[TRACE] 17:51:33:162 Gamecard/(32292:32323): Tamanio total del archivo al escribir la sentencia: 5
+[TRACE] 17:51:33:164 Gamecard/(32292:32322): Tamanio total del archivo al escribir la sentencia: 5
+[TRACE] 17:51:33:165 Gamecard/(32292:32324): Tamanio total del archivo al escribir la sentencia: 5
+[TRACE] 17:51:33:168 Gamecard/(32292:32324): Tamanio de bloques: 64
+[TRACE] 17:51:33:169 Gamecard/(32292:32315): Tamanio total del archivo al escribir la sentencia: 5
+[TRACE] 17:51:33:171 Gamecard/(32292:32315): Tamanio de bloques: 64
+[TRACE] 17:51:33:172 Gamecard/(32292:32323): Tamanio de bloques: 64
+[TRACE] 17:51:33:173 Gamecard/(32292:32322): Tamanio de bloques: 64
+[TRACE] 17:51:33:193 Gamecard/(32292:32324): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 17:51:33:199 Gamecard/(32292:32323): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 17:51:33:200 Gamecard/(32292:32322): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:51:33:204 Gamecard/(32292:32324): El archivo actualmente ocupa: 18 
+
+[TRACE] 17:51:33:197 Gamecard/(32292:32315): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:51:33:207 Gamecard/(32292:32323): El archivo actualmente ocupa: 18 
+
+[TRACE] 17:51:33:217 Gamecard/(32292:32315): El archivo actualmente ocupa: 18 
+
+[TRACE] 17:51:33:218 Gamecard/(32292:32322): El archivo actualmente ocupa: 18 
+
+[TRACE] 17:51:33:219 Gamecard/(32292:32315): Tamanio de todos los bloques del pokemon: 18
+[TRACE] 17:51:33:219 Gamecard/(32292:32322): Tamanio de todos los bloques del pokemon: 18
+[TRACE] 17:51:33:221 Gamecard/(32292:32324): Tamanio de todos los bloques del pokemon: 18
+[TRACE] 17:51:33:223 Gamecard/(32292:32324): Posicion agregada/sumada
+[TRACE] 17:51:33:224 Gamecard/(32292:32322): Posicion agregada/sumada
+[TRACE] 17:51:33:224 Gamecard/(32292:32323): Tamanio de todos los bloques del pokemon: 18
+[TRACE] 17:51:33:227 Gamecard/(32292:32323): Posicion agregada/sumada
+[TRACE] 17:51:33:228 Gamecard/(32292:32315): Posicion agregada/sumada
+[TRACE] 17:51:36:233 Gamecard/(32292:32323): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 17:51:36:242 Gamecard/(32292:32315): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:51:36:244 Gamecard/(32292:32324): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 17:51:36:247 Gamecard/(32292:32322): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 17:51:36:263 Gamecard/(32292:32324): Mensaje APPEARED a enviar: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 3.
+[INFO] 17:51:36:264 Gamecard/(32292:32322): Mensaje APPEARED a enviar: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 1.
+[INFO] 17:51:36:264 Gamecard/(32292:32315): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 0.
+[INFO] 17:51:36:265 Gamecard/(32292:32323): Mensaje APPEARED a enviar: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 2.
+[TRACE] 17:51:36:279 Gamecard/(32292:32322): Enviado appeared para: Squirtle
+[TRACE] 17:51:36:280 Gamecard/(32292:32323): Enviado appeared para: Jolteon
+[TRACE] 17:51:36:283 Gamecard/(32292:32324): Enviado appeared para: Flareon
+[TRACE] 17:51:36:314 Gamecard/(32292:32323): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 4. 
+[TRACE] 17:51:36:315 Gamecard/(32292:32322): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 5. 
+[TRACE] 17:51:36:321 Gamecard/(32292:32315): Enviado appeared para: Pikachu
+[TRACE] 17:51:36:316 Gamecard/(32292:32324): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 6. 
+[TRACE] 17:51:36:350 Gamecard/(32292:32323): Recepcion confirmada: 4 3 2
+[TRACE] 17:51:36:353 Gamecard/(32292:32324): Recepcion confirmada: 4 3 3
+[TRACE] 17:51:36:376 Gamecard/(32292:32322): Recepcion confirmada: 4 3 1
+[TRACE] 17:51:36:379 Gamecard/(32292:32315): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 7. 
+[TRACE] 17:51:36:382 Gamecard/(32292:32315): Recepcion confirmada: 4 3 0
+[TRACE] 17:51:39:376 Gamecard/(32292:32303): Mensaje recibido, cod_op: 6.
+[TRACE] 17:51:39:377 Gamecard/(32292:32303): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:39:377 Gamecard/(32292:32303): Codigo de operacion cod_op: 6.
+[INFO] 17:51:39:378 Gamecard/(32292:32303): Se recibio un mensaje GET_POKEMON.
+[TRACE] 17:51:39:388 Gamecard/(32292:32303): Mensaje recibido manejado
+[TRACE] 17:51:39:389 Gamecard/(32292:32303): Mensaje recibido, cod_op: 6.
+[TRACE] 17:51:39:389 Gamecard/(32292:32303): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:39:390 Gamecard/(32292:32303): Codigo de operacion cod_op: 6.
+[TRACE] 17:51:39:394 Gamecard/(32292:32355): Manejar mensaje: Pokemon: Squirtle, Id mensaje: 8.
+[INFO] 17:51:39:394 Gamecard/(32292:32303): Se recibio un mensaje GET_POKEMON.
+[TRACE] 17:51:39:395 Gamecard/(32292:32303): Mensaje recibido manejado
+[TRACE] 17:51:39:396 Gamecard/(32292:32303): Mensaje recibido, cod_op: 6.
+[TRACE] 17:51:39:396 Gamecard/(32292:32303): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:39:397 Gamecard/(32292:32303): Codigo de operacion cod_op: 6.
+[INFO] 17:51:39:397 Gamecard/(32292:32303): Se recibio un mensaje GET_POKEMON.
+[TRACE] 17:51:39:410 Gamecard/(32292:32355): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:51:39:410 Gamecard/(32292:32303): Mensaje recibido manejado
+[TRACE] 17:51:39:411 Gamecard/(32292:32303): Mensaje recibido, cod_op: 6.
+[TRACE] 17:51:39:412 Gamecard/(32292:32303): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:39:412 Gamecard/(32292:32303): Codigo de operacion cod_op: 6.
+[INFO] 17:51:39:413 Gamecard/(32292:32303): Se recibio un mensaje GET_POKEMON.
+[TRACE] 17:51:39:410 Gamecard/(32292:32360): Manejar mensaje: Pokemon: Pikachu, Id mensaje: 9.
+[TRACE] 17:51:39:411 Gamecard/(32292:32361): Manejar mensaje: Pokemon: Gengar, Id mensaje: 10.
+[TRACE] 17:51:39:415 Gamecard/(32292:32303): Mensaje recibido manejado
+[TRACE] 17:51:39:416 Gamecard/(32292:32355): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:39:417 Gamecard/(32292:32362): Manejar mensaje: Pokemon: Onix, Id mensaje: 11.
+[TRACE] 17:51:39:419 Gamecard/(32292:32360): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:51:39:422 Gamecard/(32292:32360): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:39:422 Gamecard/(32292:32355): Se abrio el archivo.
+[TRACE] 17:51:39:424 Gamecard/(32292:32361): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 17:51:39:425 Gamecard/(32292:32361): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:39:426 Gamecard/(32292:32361): Se abrio el archivo.
+[TRACE] 17:51:39:427 Gamecard/(32292:32362): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 17:51:39:429 Gamecard/(32292:32361): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 17:51:39:429 Gamecard/(32292:32355): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:51:39:434 Gamecard/(32292:32355): Entra a while bloques
+[TRACE] 17:51:39:431 Gamecard/(32292:32360): Se abrio el archivo.
+[TRACE] 17:51:39:431 Gamecard/(32292:32362): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:39:441 Gamecard/(32292:32360): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:51:39:447 Gamecard/(32292:32360): Entra a while bloques
+[TRACE] 17:51:39:437 Gamecard/(32292:32361): Entra a while bloques
+[TRACE] 17:51:39:452 Gamecard/(32292:32362): Se abrio el archivo.
+[TRACE] 17:51:39:453 Gamecard/(32292:32362): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 17:51:39:457 Gamecard/(32292:32355): Config bloque creado
+[TRACE] 17:51:39:458 Gamecard/(32292:32360): Config bloque creado
+[TRACE] 17:51:39:458 Gamecard/(32292:32361): Config bloque creado
+[TRACE] 17:51:39:460 Gamecard/(32292:32362): Entra a while bloques
+[TRACE] 17:51:39:461 Gamecard/(32292:32355): Por hacer iteractor
+[TRACE] 17:51:39:461 Gamecard/(32292:32361): Por hacer iteractor
+[TRACE] 17:51:39:462 Gamecard/(32292:32362): Config bloque creado
+[TRACE] 17:51:39:462 Gamecard/(32292:32360): Por hacer iteractor
+[TRACE] 17:51:39:477 Gamecard/(32292:32355): Posicion a agregar: 5-2.
+[TRACE] 17:51:39:477 Gamecard/(32292:32362): Por hacer iteractor
+[TRACE] 17:51:39:478 Gamecard/(32292:32360): Posicion a agregar: 5-2.
+[TRACE] 17:51:39:480 Gamecard/(32292:32360): Posicion a agregar: 2-2.
+[TRACE] 17:51:39:483 Gamecard/(32292:32360): Posicion a agregar: 9-9.
+[TRACE] 17:51:39:483 Gamecard/(32292:32355): Posicion a agregar: 2-2.
+[TRACE] 17:51:39:484 Gamecard/(32292:32355): Posicion a agregar: 9-9.
+[TRACE] 17:51:41:0 Gamecard/(32292:32303): Mensaje recibido, cod_op: 6.
+[TRACE] 17:51:41:1 Gamecard/(32292:32303): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:41:2 Gamecard/(32292:32303): Codigo de operacion cod_op: 6.
+[INFO] 17:51:41:3 Gamecard/(32292:32303): Se recibio un mensaje GET_POKEMON.
+[TRACE] 17:51:42:8 Gamecard/(32292:32303): Mensaje recibido manejado
+[TRACE] 17:51:42:9 Gamecard/(32292:32303): Mensaje recibido, cod_op: 6.
+[TRACE] 17:51:42:15 Gamecard/(32292:32303): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:42:15 Gamecard/(32292:32303): Codigo de operacion cod_op: 6.
+[TRACE] 17:51:42:16 Gamecard/(32292:32386): Manejar mensaje: Pokemon: Vaporeon, Id mensaje: 12.
+[INFO] 17:51:42:17 Gamecard/(32292:32303): Se recibio un mensaje GET_POKEMON.
+[TRACE] 17:51:42:20 Gamecard/(32292:32386): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:51:42:23 Gamecard/(32292:32386): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:42:23 Gamecard/(32292:32390): Manejar mensaje: Pokemon: Jolteon, Id mensaje: 13.
+[TRACE] 17:51:42:24 Gamecard/(32292:32303): Mensaje recibido manejado
+[TRACE] 17:51:42:36 Gamecard/(32292:32386): Se abrio el archivo.
+[TRACE] 17:51:42:40 Gamecard/(32292:32390): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 17:51:42:40 Gamecard/(32292:32303): Mensaje recibido, cod_op: 6.
+[TRACE] 17:51:42:41 Gamecard/(32292:32303): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:42:42 Gamecard/(32292:32303): Codigo de operacion cod_op: 6.
+[TRACE] 17:51:42:44 Gamecard/(32292:32390): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:42:47 Gamecard/(32292:32390): Se abrio el archivo.
+[INFO] 17:51:42:48 Gamecard/(32292:32303): Se recibio un mensaje GET_POKEMON.
+[TRACE] 17:51:42:51 Gamecard/(32292:32386): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:51:42:53 Gamecard/(32292:32390): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 17:51:42:59 Gamecard/(32292:32390): Entra a while bloques
+[TRACE] 17:51:42:60 Gamecard/(32292:32395): Manejar mensaje: Pokemon: Flareon, Id mensaje: 14.
+[TRACE] 17:51:42:60 Gamecard/(32292:32303): Mensaje recibido manejado
+[TRACE] 17:51:42:61 Gamecard/(32292:32395): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 17:51:42:62 Gamecard/(32292:32303): Mensaje recibido, cod_op: 6.
+[TRACE] 17:51:42:62 Gamecard/(32292:32303): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:42:63 Gamecard/(32292:32303): Codigo de operacion cod_op: 6.
+[INFO] 17:51:42:63 Gamecard/(32292:32303): Se recibio un mensaje GET_POKEMON.
+[TRACE] 17:51:42:67 Gamecard/(32292:32395): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:42:78 Gamecard/(32292:32395): Se abrio el archivo.
+[TRACE] 17:51:42:80 Gamecard/(32292:32390): Config bloque creado
+[TRACE] 17:51:42:80 Gamecard/(32292:32303): Mensaje recibido manejado
+[TRACE] 17:51:42:81 Gamecard/(32292:32303): Mensaje recibido, cod_op: 6.
+[TRACE] 17:51:42:81 Gamecard/(32292:32303): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:42:82 Gamecard/(32292:32303): Codigo de operacion cod_op: 6.
+[INFO] 17:51:42:82 Gamecard/(32292:32303): Se recibio un mensaje GET_POKEMON.
+[TRACE] 17:51:42:84 Gamecard/(32292:32390): Por hacer iteractor
+[TRACE] 17:51:42:86 Gamecard/(32292:32390): Posicion a agregar: 5-2.
+[TRACE] 17:51:42:80 Gamecard/(32292:32396): Manejar mensaje: Pokemon: Umbreon, Id mensaje: 15.
+[TRACE] 17:51:42:86 Gamecard/(32292:32390): Posicion a agregar: 2-2.
+[TRACE] 17:51:42:87 Gamecard/(32292:32396): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:51:42:90 Gamecard/(32292:32396): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:42:90 Gamecard/(32292:32390): Posicion a agregar: 9-9.
+[TRACE] 17:51:42:91 Gamecard/(32292:32395): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 17:51:42:94 Gamecard/(32292:32395): Entra a while bloques
+[TRACE] 17:51:42:91 Gamecard/(32292:32397): Manejar mensaje: Pokemon: Espeon, Id mensaje: 16.
+[TRACE] 17:51:42:92 Gamecard/(32292:32303): Mensaje recibido manejado
+[TRACE] 17:51:42:97 Gamecard/(32292:32397): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 17:51:42:102 Gamecard/(32292:32397): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:42:104 Gamecard/(32292:32395): Config bloque creado
+[TRACE] 17:51:42:104 Gamecard/(32292:32396): Se abrio el archivo.
+[TRACE] 17:51:42:110 Gamecard/(32292:32396): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:51:42:111 Gamecard/(32292:32395): Por hacer iteractor
+[TRACE] 17:51:42:112 Gamecard/(32292:32395): Posicion a agregar: 5-2.
+[TRACE] 17:51:42:113 Gamecard/(32292:32395): Posicion a agregar: 2-2.
+[TRACE] 17:51:42:113 Gamecard/(32292:32395): Posicion a agregar: 9-9.
+[TRACE] 17:51:42:116 Gamecard/(32292:32396): Entra a while bloques
+[TRACE] 17:51:42:116 Gamecard/(32292:32397): Se abrio el archivo.
+[TRACE] 17:51:42:118 Gamecard/(32292:32396): Config bloque creado
+[TRACE] 17:51:42:118 Gamecard/(32292:32397): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 17:51:42:122 Gamecard/(32292:32397): Entra a while bloques
+[TRACE] 17:51:42:123 Gamecard/(32292:32396): Por hacer iteractor
+[TRACE] 17:51:42:124 Gamecard/(32292:32397): Config bloque creado
+[TRACE] 17:51:42:125 Gamecard/(32292:32397): Por hacer iteractor
+[TRACE] 17:51:42:480 Gamecard/(32292:32362): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[INFO] 17:51:42:483 Gamecard/(32292:32362): Mensaje LOCALIZED a enviar: Id_mensaje: 11, Pokemon: Onix, Cantidad: 0, Posiciones:.
+[TRACE] 17:51:42:483 Gamecard/(32292:32361): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[INFO] 17:51:42:485 Gamecard/(32292:32361): Mensaje LOCALIZED a enviar: Id_mensaje: 10, Pokemon: Gengar, Cantidad: 0, Posiciones:.
+[TRACE] 17:51:42:491 Gamecard/(32292:32360): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:51:42:494 Gamecard/(32292:32355): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:51:42:497 Gamecard/(32292:32362): Enviado localized para: Onix. Cantidad: 0
+[INFO] 17:51:42:500 Gamecard/(32292:32355): Mensaje LOCALIZED a enviar: Id_mensaje: 8, Pokemon: Squirtle, Cantidad: 3, Posiciones:5 2 2 2 9 9 .
+[INFO] 17:51:42:501 Gamecard/(32292:32360): Mensaje LOCALIZED a enviar: Id_mensaje: 9, Pokemon: Pikachu, Cantidad: 3, Posiciones:5 2 2 2 9 9 .
+[TRACE] 17:51:42:501 Gamecard/(32292:32361): Enviado localized para: Gengar. Cantidad: 0
+[TRACE] 17:51:42:503 Gamecard/(32292:32360): Enviado localized para: Pikachu. Cantidad: 3
+[TRACE] 17:51:42:522 Gamecard/(32292:32361): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 17, Pokemon: Gengar, Cantidad: 0, Posiciones:. 
+[TRACE] 17:51:42:523 Gamecard/(32292:32362): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 18, Pokemon: Onix, Cantidad: 0, Posiciones:. 
+[TRACE] 17:51:42:523 Gamecard/(32292:32355): Enviado localized para: Squirtle. Cantidad: 3
+[TRACE] 17:51:42:527 Gamecard/(32292:32360): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 19, Pokemon: Pikachu, Cantidad: 3, Posiciones:5 2 2 2 9 9 . 
+[TRACE] 17:51:42:537 Gamecard/(32292:32360): Recepcion confirmada: 9 6 9
+[TRACE] 17:51:42:537 Gamecard/(32292:32361): Recepcion confirmada: 9 6 10
+[TRACE] 17:51:42:538 Gamecard/(32292:32362): Recepcion confirmada: 9 6 11
+[TRACE] 17:51:42:539 Gamecard/(32292:32355): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 20, Pokemon: Squirtle, Cantidad: 3, Posiciones:5 2 2 2 9 9 . 
+[TRACE] 17:51:42:546 Gamecard/(32292:32355): Recepcion confirmada: 9 6 8
+[TRACE] 17:51:45:53 Gamecard/(32292:32386): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[INFO] 17:51:45:56 Gamecard/(32292:32386): Mensaje LOCALIZED a enviar: Id_mensaje: 12, Pokemon: Vaporeon, Cantidad: 0, Posiciones:.
+[TRACE] 17:51:45:57 Gamecard/(32292:32386): Enviado localized para: Vaporeon. Cantidad: 0
+[TRACE] 17:51:45:58 Gamecard/(32292:32386): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:. 
+[TRACE] 17:51:45:61 Gamecard/(32292:32386): Recepcion confirmada: 9 6 12
+[TRACE] 17:51:45:93 Gamecard/(32292:32390): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[INFO] 17:51:45:96 Gamecard/(32292:32390): Mensaje LOCALIZED a enviar: Id_mensaje: 13, Pokemon: Jolteon, Cantidad: 3, Posiciones:5 2 2 2 9 9 .
+[TRACE] 17:51:45:98 Gamecard/(32292:32390): Enviado localized para: Jolteon. Cantidad: 3
+[TRACE] 17:51:45:99 Gamecard/(32292:32390): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 3, Posiciones:5 2 2 2 9 9 . 
+[TRACE] 17:51:45:100 Gamecard/(32292:32390): Recepcion confirmada: 9 6 13
+[TRACE] 17:51:45:116 Gamecard/(32292:32395): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 17:51:45:135 Gamecard/(32292:32397): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[INFO] 17:51:45:144 Gamecard/(32292:32395): Mensaje LOCALIZED a enviar: Id_mensaje: 14, Pokemon: Flareon, Cantidad: 3, Posiciones:5 2 2 2 9 9 .
+[TRACE] 17:51:45:146 Gamecard/(32292:32396): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[INFO] 17:51:45:148 Gamecard/(32292:32396): Mensaje LOCALIZED a enviar: Id_mensaje: 15, Pokemon: Umbreon, Cantidad: 0, Posiciones:.
+[TRACE] 17:51:45:149 Gamecard/(32292:32395): Enviado localized para: Flareon. Cantidad: 3
+[TRACE] 17:51:45:154 Gamecard/(32292:32396): Enviado localized para: Umbreon. Cantidad: 0
+[INFO] 17:51:45:155 Gamecard/(32292:32397): Mensaje LOCALIZED a enviar: Id_mensaje: 16, Pokemon: Espeon, Cantidad: 0, Posiciones:.
+[TRACE] 17:51:45:156 Gamecard/(32292:32397): Enviado localized para: Espeon. Cantidad: 0
+[TRACE] 17:51:45:158 Gamecard/(32292:32395): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 23, Pokemon: Flareon, Cantidad: 3, Posiciones:5 2 2 2 9 9 . 
+[TRACE] 17:51:45:160 Gamecard/(32292:32395): Recepcion confirmada: 9 6 14
+[TRACE] 17:51:45:163 Gamecard/(32292:32396): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:. 
+[TRACE] 17:51:45:164 Gamecard/(32292:32396): Recepcion confirmada: 9 6 15
+[TRACE] 17:51:45:167 Gamecard/(32292:32397): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:. 
+[TRACE] 17:51:45:168 Gamecard/(32292:32397): Recepcion confirmada: 9 6 16
+[TRACE] 17:51:47:75 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:47:77 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:47:84 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[INFO] 17:51:47:85 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:47:90 Gamecard/(32292:32425): Manejar mensaje: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Cantidad: 1, Id mensaje: 26.
+[TRACE] 17:51:47:93 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:47:94 Gamecard/(32292:32425): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 17:51:47:104 Gamecard/(32292:32425): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:47:114 Gamecard/(32292:32425): Se abrio el archivo.
+[TRACE] 17:51:47:115 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:47:122 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:47:124 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[INFO] 17:51:47:125 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:47:129 Gamecard/(32292:32425): Manejar bloques pokemon.
+[TRACE] 17:51:47:133 Gamecard/(32292:32425): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:47:134 Gamecard/(32292:32429): Manejar mensaje: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Cantidad: 1, Id mensaje: 27.
+[TRACE] 17:51:47:142 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:47:145 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:47:146 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:47:146 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[TRACE] 17:51:47:147 Gamecard/(32292:32425): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[INFO] 17:51:47:150 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:47:154 Gamecard/(32292:32429): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 17:51:47:155 Gamecard/(32292:32429): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:47:159 Gamecard/(32292:32425): Agregar posicion.
+[TRACE] 17:51:47:169 Gamecard/(32292:32429): Se abrio el archivo.
+[TRACE] 17:51:47:169 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:47:172 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:47:172 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:47:175 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[TRACE] 17:51:47:171 Gamecard/(32292:32425): Entro al while
+[TRACE] 17:51:47:178 Gamecard/(32292:32436): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Cantidad: 1, Id mensaje: 28.
+[INFO] 17:51:47:183 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:47:185 Gamecard/(32292:32429): Manejar bloques pokemon.
+[TRACE] 17:51:47:186 Gamecard/(32292:32429): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:47:189 Gamecard/(32292:32429): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 17:51:47:192 Gamecard/(32292:32425): El archivo actualmente ocupa: 0 
+
+[TRACE] 17:51:47:193 Gamecard/(32292:32425): Tamanio total del archivo al escribir la sentencia: 5
+[TRACE] 17:51:47:195 Gamecard/(32292:32438): Manejar mensaje: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Cantidad: 1, Id mensaje: 29.
+[TRACE] 17:51:47:205 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:47:206 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:47:209 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:47:211 Gamecard/(32292:32425): Tamanio de bloques: 64
+[TRACE] 17:51:47:215 Gamecard/(32292:32429): Agregar posicion.
+[TRACE] 17:51:47:217 Gamecard/(32292:32429): Entro al while
+[TRACE] 17:51:47:228 Gamecard/(32292:32436): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:51:47:231 Gamecard/(32292:32436): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:47:234 Gamecard/(32292:32436): Se abrio el archivo.
+[TRACE] 17:51:47:238 Gamecard/(32292:32438): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:51:47:238 Gamecard/(32292:32438): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:47:239 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[INFO] 17:51:47:241 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:47:242 Gamecard/(32292:32429): El archivo actualmente ocupa: 0 
+
+[TRACE] 17:51:47:243 Gamecard/(32292:32438): Se abrio el archivo.
+[TRACE] 17:51:47:253 Gamecard/(32292:32425): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 17:51:47:254 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:47:254 Gamecard/(32292:32443): Manejar mensaje: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Cantidad: 1, Id mensaje: 30.
+[TRACE] 17:51:47:263 Gamecard/(32292:32436): Manejar bloques pokemon.
+[TRACE] 17:51:47:263 Gamecard/(32292:32436): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:47:264 Gamecard/(32292:32436): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:51:47:265 Gamecard/(32292:32299): Mensaje recibido, cod_op: 3.
+[TRACE] 17:51:47:270 Gamecard/(32292:32299): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:51:47:270 Gamecard/(32292:32299): Codigo de operacion cod_op: 3.
+[INFO] 17:51:47:271 Gamecard/(32292:32299): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 17:51:47:271 Gamecard/(32292:32429): Tamanio total del archivo al escribir la sentencia: 5
+[TRACE] 17:51:47:273 Gamecard/(32292:32429): Tamanio de bloques: 64
+[TRACE] 17:51:47:287 Gamecard/(32292:32443): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 17:51:47:293 Gamecard/(32292:32436): Agregar posicion.
+[TRACE] 17:51:47:294 Gamecard/(32292:32438): Manejar bloques pokemon.
+[TRACE] 17:51:47:325 Gamecard/(32292:32436): Entro al while
+[TRACE] 17:51:47:319 Gamecard/(32292:32299): Mensaje recibido manejado
+[TRACE] 17:51:47:329 Gamecard/(32292:32444): Manejar mensaje: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Cantidad: 1, Id mensaje: 31.
+[TRACE] 17:51:47:330 Gamecard/(32292:32438): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:47:331 Gamecard/(32292:32438): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:51:47:332 Gamecard/(32292:32438): Agregar posicion.
+[TRACE] 17:51:47:323 Gamecard/(32292:32425): El archivo actualmente ocupa: 6 
+
+[TRACE] 17:51:47:321 Gamecard/(32292:32443): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:47:338 Gamecard/(32292:32436): El archivo actualmente ocupa: 18 
+
+[TRACE] 17:51:47:338 Gamecard/(32292:32436): Tamanio total del archivo al escribir la sentencia: 23
+[TRACE] 17:51:47:339 Gamecard/(32292:32425): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 17:51:47:340 Gamecard/(32292:32425): Posicion agregada/sumada
+[TRACE] 17:51:47:354 Gamecard/(32292:32436): Tamanio de bloques: 64
+[TRACE] 17:51:47:355 Gamecard/(32292:32443): Se abrio el archivo.
+[TRACE] 17:51:47:356 Gamecard/(32292:32444): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:51:47:356 Gamecard/(32292:32438): Entro al while
+[TRACE] 17:51:47:378 Gamecard/(32292:32443): Manejar bloques pokemon.
+[TRACE] 17:51:47:382 Gamecard/(32292:32444): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:51:47:383 Gamecard/(32292:32438): El archivo actualmente ocupa: 0 
+
+[TRACE] 17:51:47:384 Gamecard/(32292:32438): Tamanio total del archivo al escribir la sentencia: 6
+[TRACE] 17:51:47:386 Gamecard/(32292:32438): Tamanio de bloques: 64
+[TRACE] 17:51:47:368 Gamecard/(32292:32429): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 17:51:47:389 Gamecard/(32292:32443): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:47:390 Gamecard/(32292:32443): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 17:51:47:391 Gamecard/(32292:32444): Se abrio el archivo.
+[TRACE] 17:51:47:392 Gamecard/(32292:32444): Manejar bloques pokemon.
+[TRACE] 17:51:47:392 Gamecard/(32292:32444): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 17:51:47:395 Gamecard/(32292:32429): El archivo actualmente ocupa: 12 
+
+[TRACE] 17:51:47:396 Gamecard/(32292:32444): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:51:47:397 Gamecard/(32292:32436): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:51:47:405 Gamecard/(32292:32438): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:51:47:410 Gamecard/(32292:32429): Tamanio de todos los bloques del pokemon: 12
+[TRACE] 17:51:47:415 Gamecard/(32292:32429): Posicion agregada/sumada
+[TRACE] 17:51:47:411 Gamecard/(32292:32444): Agregar posicion.
+[TRACE] 17:51:47:416 Gamecard/(32292:32444): Paso el while sin entrar
+[TRACE] 17:51:47:419 Gamecard/(32292:32444): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 17:51:47:413 Gamecard/(32292:32436): El archivo actualmente ocupa: 24 
+
+[TRACE] 17:51:47:410 Gamecard/(32292:32443): Agregar posicion.
+[TRACE] 17:51:47:422 Gamecard/(32292:32436): Tamanio de todos los bloques del pokemon: 24
+[TRACE] 17:51:47:423 Gamecard/(32292:32436): Posicion agregada/sumada
+[TRACE] 17:51:47:423 Gamecard/(32292:32438): El archivo actualmente ocupa: 7 
+
+[TRACE] 17:51:47:424 Gamecard/(32292:32443): Entro al while
+[TRACE] 17:51:47:425 Gamecard/(32292:32443): El archivo actualmente ocupa: 7 
+
+[TRACE] 17:51:47:426 Gamecard/(32292:32443): Tamanio total del archivo al escribir la sentencia: 12
+[TRACE] 17:51:47:427 Gamecard/(32292:32438): Tamanio de todos los bloques del pokemon: 7
+[TRACE] 17:51:47:429 Gamecard/(32292:32443): Tamanio de bloques: 64
+[TRACE] 17:51:47:430 Gamecard/(32292:32444): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:51:47:432 Gamecard/(32292:32438): Posicion agregada/sumada
+[TRACE] 17:51:47:449 Gamecard/(32292:32443): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 17:51:47:451 Gamecard/(32292:32444): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 17:51:47:453 Gamecard/(32292:32443): El archivo actualmente ocupa: 13 
+
+[TRACE] 17:51:47:455 Gamecard/(32292:32444): Termino agregar bloque vacio
+[TRACE] 17:51:47:460 Gamecard/(32292:32444): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:51:47:461 Gamecard/(32292:32443): Tamanio de todos los bloques del pokemon: 13
+[TRACE] 17:51:47:462 Gamecard/(32292:32443): Posicion agregada/sumada
+[TRACE] 17:51:47:476 Gamecard/(32292:32444): Lo que se seteo: [0]
+[TRACE] 17:51:47:478 Gamecard/(32292:32444): Bloques final: [0]
+[TRACE] 17:51:47:484 Gamecard/(32292:32444): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:51:47:486 Gamecard/(32292:32444): El archivo actualmente ocupa: 31 
+
+[TRACE] 17:51:47:487 Gamecard/(32292:32444): Tamanio de todos los bloques del pokemon: 31
+[TRACE] 17:51:47:490 Gamecard/(32292:32444): Save bitmap.
+[TRACE] 17:51:47:576 Gamecard/(32292:32444): Posicion agregada/sumada
+[TRACE] 17:51:50:384 Gamecard/(32292:32425): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[INFO] 17:51:50:386 Gamecard/(32292:32425): Mensaje APPEARED a enviar: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 26.
+[TRACE] 17:51:50:388 Gamecard/(32292:32425): Enviado appeared para: Onix
+[TRACE] 17:51:50:401 Gamecard/(32292:32425): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 32. 
+[TRACE] 17:51:50:402 Gamecard/(32292:32425): Recepcion confirmada: 4 3 26
+[TRACE] 17:51:50:423 Gamecard/(32292:32429): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[INFO] 17:51:50:425 Gamecard/(32292:32429): Mensaje APPEARED a enviar: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 27.
+[TRACE] 17:51:50:427 Gamecard/(32292:32429): Enviado appeared para: Gengar
+[TRACE] 17:51:50:437 Gamecard/(32292:32436): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 17:51:50:440 Gamecard/(32292:32436): Mensaje APPEARED a enviar: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 28.
+[TRACE] 17:51:50:446 Gamecard/(32292:32436): Enviado appeared para: Squirtle
+[TRACE] 17:51:50:451 Gamecard/(32292:32438): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[INFO] 17:51:50:452 Gamecard/(32292:32438): Mensaje APPEARED a enviar: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 29.
+[TRACE] 17:51:50:468 Gamecard/(32292:32429): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 33. 
+[TRACE] 17:51:50:471 Gamecard/(32292:32443): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[INFO] 17:51:50:490 Gamecard/(32292:32443): Mensaje APPEARED a enviar: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 30.
+[TRACE] 17:51:50:472 Gamecard/(32292:32436): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 34. 
+[TRACE] 17:51:50:497 Gamecard/(32292:32436): Recepcion confirmada: 4 3 28
+[TRACE] 17:51:50:491 Gamecard/(32292:32429): Recepcion confirmada: 4 3 27
+[TRACE] 17:51:50:491 Gamecard/(32292:32438): Enviado appeared para: Umbreon
+[TRACE] 17:51:50:503 Gamecard/(32292:32438): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 35. 
+[TRACE] 17:51:50:513 Gamecard/(32292:32443): Enviado appeared para: Espeon
+[TRACE] 17:51:50:521 Gamecard/(32292:32438): Recepcion confirmada: 4 3 29
+[TRACE] 17:51:50:525 Gamecard/(32292:32443): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 36. 
+[TRACE] 17:51:50:531 Gamecard/(32292:32443): Recepcion confirmada: 4 3 30
+[TRACE] 17:51:50:578 Gamecard/(32292:32444): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[INFO] 17:51:50:585 Gamecard/(32292:32444): Mensaje APPEARED a enviar: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 31.
+[TRACE] 17:51:50:589 Gamecard/(32292:32444): Enviado appeared para: Vaporeon
+[TRACE] 17:51:50:592 Gamecard/(32292:32444): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 37. 
+[TRACE] 17:51:50:593 Gamecard/(32292:32444): Recepcion confirmada: 4 3 31
+[TRACE] 17:52:45:525 Gamecard/(32292:32301): Mensaje recibido, cod_op: 5.
+[TRACE] 17:52:45:527 Gamecard/(32292:32301): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:52:45:528 Gamecard/(32292:32301): Codigo de operacion cod_op: 5.
+[INFO] 17:52:45:529 Gamecard/(32292:32301): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 17:52:45:530 Gamecard/(32292:32301): Mensaje recibido manejado
+[TRACE] 17:52:45:545 Gamecard/(32292:32505): Manejar mensaje: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 38.
+[TRACE] 17:52:45:556 Gamecard/(32292:32505): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 17:52:45:566 Gamecard/(32292:32505): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:52:45:567 Gamecard/(32292:32505): Se abrio el archivo.
+[TRACE] 17:52:45:568 Gamecard/(32292:32505): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 17:52:45:575 Gamecard/(32292:32505): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 17:52:45:592 Gamecard/(32292:32505): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 17:52:45:605 Gamecard/(32292:32505): El archivo actualmente ocupa: 7 
+
+[TRACE] 17:52:45:607 Gamecard/(32292:32505): Tamanio de todos los bloques del pokemon: 7
+[TRACE] 17:52:45:609 Gamecard/(32292:32505): El archivo actualmente ocupa: 7 
+
+[TRACE] 17:52:45:610 Gamecard/(32292:32505): Compactar bloques
+[TRACE] 17:52:45:611 Gamecard/(32292:32505): En el while, comparando el bloque: 0.
+[TRACE] 17:52:45:614 Gamecard/(32292:32505): En el while, comparando contra el bloque: 0.
+[TRACE] 17:52:48:618 Gamecard/(32292:32505): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[INFO] 17:52:48:624 Gamecard/(32292:32505): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 38.
+[TRACE] 17:52:48:712 Gamecard/(32292:32505): Enviado resultado de caught: %B
+[TRACE] 17:52:48:715 Gamecard/(32292:32505): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 39. 
+[TRACE] 17:52:48:745 Gamecard/(32292:32505): Recepcion confirmada: 8 5 38
+[TRACE] 17:52:49:393 Gamecard/(32292:32301): Mensaje recibido, cod_op: 5.
+[TRACE] 17:52:49:393 Gamecard/(32292:32301): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:52:49:394 Gamecard/(32292:32301): Codigo de operacion cod_op: 5.
+[INFO] 17:52:49:395 Gamecard/(32292:32301): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 17:52:49:396 Gamecard/(32292:32301): Mensaje recibido manejado
+[TRACE] 17:52:49:398 Gamecard/(32292:32515): Manejar mensaje: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 40.
+[TRACE] 17:52:49:399 Gamecard/(32292:32515): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:52:49:400 Gamecard/(32292:32515): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:52:49:409 Gamecard/(32292:32515): Se abrio el archivo.
+[TRACE] 17:52:49:410 Gamecard/(32292:32515): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:52:49:413 Gamecard/(32292:32515): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:52:49:417 Gamecard/(32292:32515): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 17:52:49:433 Gamecard/(32292:32515): El archivo actualmente ocupa: 25 
+
+[TRACE] 17:52:49:436 Gamecard/(32292:32515): Tamanio de todos los bloques del pokemon: 25
+[TRACE] 17:52:49:446 Gamecard/(32292:32515): El archivo actualmente ocupa: 25 
+
+[TRACE] 17:52:49:446 Gamecard/(32292:32515): Compactar bloques
+[TRACE] 17:52:49:447 Gamecard/(32292:32515): En el while, comparando el bloque: 0.
+[TRACE] 17:52:49:447 Gamecard/(32292:32515): En el while, comparando contra el bloque: 0.
+[TRACE] 17:52:50:537 Gamecard/(32292:32301): Mensaje recibido, cod_op: 5.
+[TRACE] 17:52:50:537 Gamecard/(32292:32301): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:52:50:538 Gamecard/(32292:32301): Codigo de operacion cod_op: 5.
+[INFO] 17:52:50:539 Gamecard/(32292:32301): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 17:52:50:539 Gamecard/(32292:32301): Mensaje recibido manejado
+[TRACE] 17:52:50:543 Gamecard/(32292:32519): Manejar mensaje: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 41.
+[TRACE] 17:52:50:544 Gamecard/(32292:32519): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:52:50:560 Gamecard/(32292:32519): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:52:50:570 Gamecard/(32292:32519): Se abrio el archivo.
+[TRACE] 17:52:50:571 Gamecard/(32292:32519): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:52:50:579 Gamecard/(32292:32519): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:52:50:609 Gamecard/(32292:32519): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 17:52:50:623 Gamecard/(32292:32519): El archivo actualmente ocupa: 18 
+
+[TRACE] 17:52:50:625 Gamecard/(32292:32519): Tamanio de todos los bloques del pokemon: 18
+[TRACE] 17:52:50:626 Gamecard/(32292:32519): El archivo actualmente ocupa: 18 
+
+[TRACE] 17:52:50:629 Gamecard/(32292:32519): Compactar bloques
+[TRACE] 17:52:50:630 Gamecard/(32292:32519): En el while, comparando el bloque: 0.
+[TRACE] 17:52:50:636 Gamecard/(32292:32519): En el while, comparando contra el bloque: 0.
+[TRACE] 17:52:52:449 Gamecard/(32292:32515): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[INFO] 17:52:52:455 Gamecard/(32292:32515): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 40.
+[TRACE] 17:52:52:458 Gamecard/(32292:32515): Enviado resultado de caught: %B
+[TRACE] 17:52:52:466 Gamecard/(32292:32515): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 42. 
+[TRACE] 17:52:52:467 Gamecard/(32292:32515): Recepcion confirmada: 8 5 40
+[TRACE] 17:52:53:637 Gamecard/(32292:32519): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[INFO] 17:52:53:640 Gamecard/(32292:32519): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 41.
+[TRACE] 17:52:53:641 Gamecard/(32292:32519): Enviado resultado de caught: %B
+[TRACE] 17:52:53:669 Gamecard/(32292:32519): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 43. 
+[TRACE] 17:52:53:671 Gamecard/(32292:32519): Recepcion confirmada: 8 5 41
+[TRACE] 17:52:55:534 Gamecard/(32292:32301): Mensaje recibido, cod_op: 5.
+[TRACE] 17:52:55:534 Gamecard/(32292:32301): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:52:55:535 Gamecard/(32292:32301): Codigo de operacion cod_op: 5.
+[INFO] 17:52:55:535 Gamecard/(32292:32301): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 17:52:55:536 Gamecard/(32292:32301): Mensaje recibido manejado
+[TRACE] 17:52:55:541 Gamecard/(32292:32531): Manejar mensaje: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 44.
+[TRACE] 17:52:55:542 Gamecard/(32292:32531): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:52:55:547 Gamecard/(32292:32531): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:52:55:550 Gamecard/(32292:32531): Se abrio el archivo.
+[TRACE] 17:52:55:566 Gamecard/(32292:32531): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:52:55:568 Gamecard/(32292:32531): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:52:55:602 Gamecard/(32292:32531): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:52:55:608 Gamecard/(32292:32531): El archivo actualmente ocupa: 0 
+
+[TRACE] 17:52:55:637 Gamecard/(32292:32531): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 17:52:55:639 Gamecard/(32292:32531): El archivo actualmente ocupa: 0 
+
+[TRACE] 17:52:55:645 Gamecard/(32292:32531): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:52:55:647 Gamecard/(32292:32531): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 17:52:55:679 Gamecard/(32292:32531): Save bitmap.
+[TRACE] 17:52:55:974 Gamecard/(32292:32531): Compactar bloques
+[TRACE] 17:52:55:975 Gamecard/(32292:32531): En el while, comparando el bloque: 0.
+[TRACE] 17:52:55:975 Gamecard/(32292:32531): En el while, comparando contra el bloque: 0.
+[TRACE] 17:52:58:977 Gamecard/(32292:32531): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[INFO] 17:52:58:979 Gamecard/(32292:32531): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 44.
+[TRACE] 17:52:58:982 Gamecard/(32292:32531): Enviado resultado de caught: %B
+[TRACE] 17:52:58:984 Gamecard/(32292:32531): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 45. 
+[TRACE] 17:52:58:985 Gamecard/(32292:32531): Recepcion confirmada: 8 5 44
+[TRACE] 17:53:09:408 Gamecard/(32292:32301): Mensaje recibido, cod_op: 5.
+[TRACE] 17:53:09:413 Gamecard/(32292:32301): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:53:09:414 Gamecard/(32292:32301): Codigo de operacion cod_op: 5.
+[INFO] 17:53:09:414 Gamecard/(32292:32301): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 17:53:09:418 Gamecard/(32292:32647): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 46.
+[TRACE] 17:53:09:437 Gamecard/(32292:32301): Mensaje recibido manejado
+[TRACE] 17:53:09:438 Gamecard/(32292:32647): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:53:09:447 Gamecard/(32292:32647): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:53:09:464 Gamecard/(32292:32647): Se abrio el archivo.
+[TRACE] 17:53:09:481 Gamecard/(32292:32647): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:53:09:488 Gamecard/(32292:32647): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:53:09:545 Gamecard/(32292:32647): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 17:53:09:547 Gamecard/(32292:32647): El archivo actualmente ocupa: 12 
+
+[TRACE] 17:53:09:553 Gamecard/(32292:32647): Tamanio de todos los bloques del pokemon: 12
+[TRACE] 17:53:09:577 Gamecard/(32292:32647): El archivo actualmente ocupa: 12 
+
+[TRACE] 17:53:09:585 Gamecard/(32292:32647): Compactar bloques
+[TRACE] 17:53:09:591 Gamecard/(32292:32647): En el while, comparando el bloque: 0.
+[TRACE] 17:53:09:591 Gamecard/(32292:32647): En el while, comparando contra el bloque: 0.
+[TRACE] 17:53:12:600 Gamecard/(32292:32647): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 17:53:12:603 Gamecard/(32292:32647): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 46.
+[TRACE] 17:53:12:606 Gamecard/(32292:32647): Enviado resultado de caught: %B
+[TRACE] 17:53:12:615 Gamecard/(32292:32647): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 47. 
+[TRACE] 17:53:12:615 Gamecard/(32292:32647): Recepcion confirmada: 8 5 46
+[TRACE] 17:53:44:404 Gamecard/(32292:32301): Mensaje recibido, cod_op: 5.
+[TRACE] 17:53:44:409 Gamecard/(32292:32301): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 17:53:44:411 Gamecard/(32292:32301): Codigo de operacion cod_op: 5.
+[INFO] 17:53:44:412 Gamecard/(32292:32301): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 17:53:44:413 Gamecard/(32292:32301): Mensaje recibido manejado
+[TRACE] 17:53:44:417 Gamecard/(32292:32679): Manejar mensaje: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 48.
+[TRACE] 17:53:44:419 Gamecard/(32292:32679): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 17:53:44:420 Gamecard/(32292:32679): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 17:53:44:421 Gamecard/(32292:32679): Se abrio el archivo.
+[TRACE] 17:53:44:422 Gamecard/(32292:32679): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 17:53:44:426 Gamecard/(32292:32679): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 17:53:44:439 Gamecard/(32292:32679): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 17:53:44:443 Gamecard/(32292:32679): El archivo actualmente ocupa: 6 
+
+[TRACE] 17:53:44:444 Gamecard/(32292:32679): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 17:53:44:449 Gamecard/(32292:32679): El archivo actualmente ocupa: 6 
+
+[TRACE] 17:53:44:449 Gamecard/(32292:32679): Compactar bloques
+[TRACE] 17:53:44:450 Gamecard/(32292:32679): En el while, comparando el bloque: 0.
+[TRACE] 17:53:44:450 Gamecard/(32292:32679): En el while, comparando contra el bloque: 0.
+[TRACE] 17:53:47:451 Gamecard/(32292:32679): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[INFO] 17:53:47:454 Gamecard/(32292:32679): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 48.
+[TRACE] 17:53:47:455 Gamecard/(32292:32679): Enviado resultado de caught: %B
+[TRACE] 17:53:47:456 Gamecard/(32292:32679): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 49. 
+[TRACE] 17:53:47:456 Gamecard/(32292:32679): Recepcion confirmada: 8 5 48
+[ERROR] 17:59:44:432 Gamecard/(32292:32303): Error en 'recibir_codigo_operacion' -1
+[ERROR] 17:59:44:432 Gamecard/(32292:32299): Error en 'recibir_codigo_operacion' -1
+[ERROR] 17:59:44:432 Gamecard/(32292:32301): Error en 'recibir_codigo_operacion' -1
+[INFO] 17:59:44:464 Gamecard/(32292:32297): Inicio reintento de comunicacion con Broker
+[INFO] 17:59:44:507 Gamecard/(32292:32297): Reintento de comunicación con broker fallido
+[TRACE] 18:02:19:209 Gamecard/(1148:1148): Log inicializado
+[TRACE] 18:02:19:209 Gamecard/(1148:1148): Crear metadata
+[TRACE] 18:02:19:250 Gamecard/(1148:1148): Save bitmap.
+[TRACE] 18:02:19:254 Gamecard/(1148:1148): Iniciando conexion con gameboy
+[TRACE] 18:02:19:254 Gamecard/(1148:1148): Esperando Cliente
+[TRACE] 18:02:19:254 Gamecard/(1148:1149): Hilos de suscripcion lanzados
+[TRACE] 18:02:19:255 Gamecard/(1148:1149): Mensaje suscripcion enviado
+[TRACE] 18:02:19:255 Gamecard/(1148:1149): Suscripcion completada
+[TRACE] 18:02:19:256 Gamecard/(1148:1149): Mensaje suscripcion enviado
+[TRACE] 18:02:19:256 Gamecard/(1148:1149): Suscripcion completada
+[TRACE] 18:02:19:256 Gamecard/(1148:1149): Mensaje suscripcion enviado
+[TRACE] 18:02:19:256 Gamecard/(1148:1149): Suscripcion completada
+[TRACE] 18:02:28:403 Gamecard/(1148:1153): Mensaje recibido, cod_op: 3.
+[TRACE] 18:02:28:403 Gamecard/(1148:1153): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:02:28:403 Gamecard/(1148:1153): Codigo de operacion cod_op: 3.
+[INFO] 18:02:28:403 Gamecard/(1148:1153): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:02:28:403 Gamecard/(1148:1153): Mensaje recibido manejado
+[TRACE] 18:02:28:404 Gamecard/(1148:1174): Manejar mensaje: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Cantidad: 1, Id mensaje: 0.
+[TRACE] 18:02:28:404 Gamecard/(1148:1174): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:02:28:404 Gamecard/(1148:1174): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:02:28:404 Gamecard/(1148:1174): Se abrio el archivo.
+[TRACE] 18:02:28:405 Gamecard/(1148:1174): Manejar bloques pokemon.
+[TRACE] 18:02:28:405 Gamecard/(1148:1174): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:02:28:405 Gamecard/(1148:1174): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:02:28:406 Gamecard/(1148:1174): Agregar posicion.
+[TRACE] 18:02:28:406 Gamecard/(1148:1174): Entro al while
+[TRACE] 18:02:28:406 Gamecard/(1148:1174): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:02:28:406 Gamecard/(1148:1174): Tamanio total del archivo al escribir la sentencia: 5
+[TRACE] 18:02:28:406 Gamecard/(1148:1174): Tamanio de bloques: 64
+[TRACE] 18:02:28:407 Gamecard/(1148:1174): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:02:28:407 Gamecard/(1148:1174): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:02:28:407 Gamecard/(1148:1174): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:02:28:408 Gamecard/(1148:1174): Posicion agregada/sumada
+[TRACE] 18:02:28:413 Gamecard/(1148:1153): Mensaje recibido, cod_op: 3.
+[TRACE] 18:02:28:413 Gamecard/(1148:1153): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:02:28:413 Gamecard/(1148:1153): Codigo de operacion cod_op: 3.
+[INFO] 18:02:28:414 Gamecard/(1148:1153): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:02:28:414 Gamecard/(1148:1153): Mensaje recibido manejado
+[TRACE] 18:02:28:414 Gamecard/(1148:1178): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Cantidad: 1, Id mensaje: 1.
+[TRACE] 18:02:28:414 Gamecard/(1148:1178): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:02:28:414 Gamecard/(1148:1178): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:02:28:414 Gamecard/(1148:1178): Se abrio el archivo.
+[TRACE] 18:02:28:415 Gamecard/(1148:1178): Manejar bloques pokemon.
+[TRACE] 18:02:28:416 Gamecard/(1148:1178): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:02:28:416 Gamecard/(1148:1178): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:02:28:416 Gamecard/(1148:1178): Agregar posicion.
+[TRACE] 18:02:28:416 Gamecard/(1148:1178): Entro al while
+[TRACE] 18:02:28:416 Gamecard/(1148:1178): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:02:28:416 Gamecard/(1148:1178): Tamanio total del archivo al escribir la sentencia: 11
+[TRACE] 18:02:28:417 Gamecard/(1148:1178): Tamanio de bloques: 64
+[TRACE] 18:02:28:417 Gamecard/(1148:1178): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:02:28:417 Gamecard/(1148:1178): El archivo actualmente ocupa: 12 
+
+[TRACE] 18:02:28:418 Gamecard/(1148:1178): Tamanio de todos los bloques del pokemon: 12
+[TRACE] 18:02:28:418 Gamecard/(1148:1178): Posicion agregada/sumada
+[TRACE] 18:02:28:420 Gamecard/(1148:1153): Mensaje recibido, cod_op: 3.
+[TRACE] 18:02:28:420 Gamecard/(1148:1153): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:02:28:420 Gamecard/(1148:1153): Codigo de operacion cod_op: 3.
+[INFO] 18:02:28:420 Gamecard/(1148:1153): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:02:28:420 Gamecard/(1148:1153): Mensaje recibido manejado
+[TRACE] 18:02:28:420 Gamecard/(1148:1182): Manejar mensaje: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Cantidad: 1, Id mensaje: 2.
+[TRACE] 18:02:28:421 Gamecard/(1148:1182): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:02:28:421 Gamecard/(1148:1182): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:02:28:421 Gamecard/(1148:1182): Se abrio el archivo.
+[TRACE] 18:02:28:422 Gamecard/(1148:1182): Manejar bloques pokemon.
+[TRACE] 18:02:28:422 Gamecard/(1148:1182): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:02:28:422 Gamecard/(1148:1182): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:02:28:422 Gamecard/(1148:1182): Agregar posicion.
+[TRACE] 18:02:28:423 Gamecard/(1148:1182): Entro al while
+[TRACE] 18:02:28:423 Gamecard/(1148:1182): El archivo actualmente ocupa: 12 
+
+[TRACE] 18:02:28:423 Gamecard/(1148:1182): Tamanio total del archivo al escribir la sentencia: 17
+[TRACE] 18:02:28:423 Gamecard/(1148:1182): Tamanio de bloques: 64
+[TRACE] 18:02:28:424 Gamecard/(1148:1182): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:02:28:431 Gamecard/(1148:1182): El archivo actualmente ocupa: 18 
+
+[TRACE] 18:02:28:431 Gamecard/(1148:1182): Tamanio de todos los bloques del pokemon: 18
+[TRACE] 18:02:28:431 Gamecard/(1148:1182): Posicion agregada/sumada
+[TRACE] 18:02:28:438 Gamecard/(1148:1153): Mensaje recibido, cod_op: 3.
+[TRACE] 18:02:28:438 Gamecard/(1148:1153): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:02:28:438 Gamecard/(1148:1153): Codigo de operacion cod_op: 3.
+[INFO] 18:02:28:438 Gamecard/(1148:1153): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:02:28:438 Gamecard/(1148:1153): Mensaje recibido manejado
+[TRACE] 18:02:28:438 Gamecard/(1148:1185): Manejar mensaje: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Cantidad: 1, Id mensaje: 3.
+[TRACE] 18:02:28:438 Gamecard/(1148:1185): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:02:28:439 Gamecard/(1148:1185): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:02:28:439 Gamecard/(1148:1185): Se abrio el archivo.
+[TRACE] 18:02:28:439 Gamecard/(1148:1185): Manejar bloques pokemon.
+[TRACE] 18:02:28:439 Gamecard/(1148:1185): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:02:28:439 Gamecard/(1148:1185): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:02:28:440 Gamecard/(1148:1185): Agregar posicion.
+[TRACE] 18:02:28:440 Gamecard/(1148:1185): Entro al while
+[TRACE] 18:02:28:440 Gamecard/(1148:1185): El archivo actualmente ocupa: 18 
+
+[TRACE] 18:02:28:440 Gamecard/(1148:1185): Tamanio total del archivo al escribir la sentencia: 23
+[TRACE] 18:02:28:440 Gamecard/(1148:1185): Tamanio de bloques: 64
+[TRACE] 18:02:28:440 Gamecard/(1148:1185): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:02:28:441 Gamecard/(1148:1185): El archivo actualmente ocupa: 24 
+
+[TRACE] 18:02:28:441 Gamecard/(1148:1185): Tamanio de todos los bloques del pokemon: 24
+[TRACE] 18:02:28:441 Gamecard/(1148:1185): Posicion agregada/sumada
+[TRACE] 18:02:31:409 Gamecard/(1148:1174): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[INFO] 18:02:31:409 Gamecard/(1148:1174): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 0.
+[TRACE] 18:02:31:409 Gamecard/(1148:1174): Enviado appeared para: Pikachu
+[TRACE] 18:02:31:410 Gamecard/(1148:1174): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 4. 
+[TRACE] 18:02:31:410 Gamecard/(1148:1174): Recepcion confirmada: 7 3 0
+[TRACE] 18:02:31:419 Gamecard/(1148:1178): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 18:02:31:419 Gamecard/(1148:1178): Mensaje APPEARED a enviar: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 1.
+[TRACE] 18:02:31:423 Gamecard/(1148:1178): Enviado appeared para: Squirtle
+[TRACE] 18:02:31:426 Gamecard/(1148:1178): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 5. 
+[TRACE] 18:02:31:426 Gamecard/(1148:1178): Recepcion confirmada: 7 3 1
+[TRACE] 18:02:31:429 Gamecard/(1148:1159): Mensaje recibido, cod_op: 6.
+[TRACE] 18:02:31:429 Gamecard/(1148:1159): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:02:31:429 Gamecard/(1148:1159): Codigo de operacion cod_op: 6.
+[INFO] 18:02:31:429 Gamecard/(1148:1159): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:02:31:429 Gamecard/(1148:1159): Mensaje recibido manejado
+[TRACE] 18:02:31:430 Gamecard/(1148:1207): Manejar mensaje: Pokemon: Squirtle, Id mensaje: 6.
+[TRACE] 18:02:31:430 Gamecard/(1148:1207): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:02:31:430 Gamecard/(1148:1207): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:02:31:431 Gamecard/(1148:1207): Se abrio el archivo.
+[TRACE] 18:02:31:431 Gamecard/(1148:1207): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:02:31:431 Gamecard/(1148:1207): Entra a while bloques
+[TRACE] 18:02:31:432 Gamecard/(1148:1182): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[INFO] 18:02:31:432 Gamecard/(1148:1182): Mensaje APPEARED a enviar: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 2.
+[TRACE] 18:02:31:432 Gamecard/(1148:1182): Enviado appeared para: Jolteon
+[TRACE] 18:02:31:433 Gamecard/(1148:1207): Config bloque creado
+[TRACE] 18:02:31:433 Gamecard/(1148:1207): Por hacer iteractor
+[TRACE] 18:02:31:433 Gamecard/(1148:1207): Posicion a agregar: 5-2.
+[TRACE] 18:02:31:433 Gamecard/(1148:1207): Posicion a agregar: 2-2.
+[TRACE] 18:02:31:433 Gamecard/(1148:1207): Posicion a agregar: 4-6.
+[TRACE] 18:02:31:434 Gamecard/(1148:1207): Posicion a agregar: 9-9.
+[TRACE] 18:02:31:435 Gamecard/(1148:1159): Mensaje recibido, cod_op: 6.
+[TRACE] 18:02:31:435 Gamecard/(1148:1159): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:02:31:435 Gamecard/(1148:1159): Codigo de operacion cod_op: 6.
+[INFO] 18:02:31:435 Gamecard/(1148:1159): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:02:31:435 Gamecard/(1148:1159): Mensaje recibido manejado
+[TRACE] 18:02:31:442 Gamecard/(1148:1185): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[INFO] 18:02:31:443 Gamecard/(1148:1185): Mensaje APPEARED a enviar: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 3.
+[TRACE] 18:02:31:443 Gamecard/(1148:1185): Enviado appeared para: Flareon
+[TRACE] 18:02:31:444 Gamecard/(1148:1212): Manejar mensaje: Pokemon: Pikachu, Id mensaje: 7.
+[TRACE] 18:02:31:444 Gamecard/(1148:1212): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:02:31:444 Gamecard/(1148:1212): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:02:31:444 Gamecard/(1148:1212): Se abrio el archivo.
+[TRACE] 18:02:31:444 Gamecard/(1148:1182): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 8. 
+[TRACE] 18:02:31:445 Gamecard/(1148:1182): Recepcion confirmada: 7 3 2
+[TRACE] 18:02:31:445 Gamecard/(1148:1212): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:02:31:445 Gamecard/(1148:1212): Entra a while bloques
+[TRACE] 18:02:31:445 Gamecard/(1148:1212): Config bloque creado
+[TRACE] 18:02:31:445 Gamecard/(1148:1212): Por hacer iteractor
+[TRACE] 18:02:31:445 Gamecard/(1148:1212): Posicion a agregar: 5-2.
+[TRACE] 18:02:31:445 Gamecard/(1148:1212): Posicion a agregar: 2-2.
+[TRACE] 18:02:31:447 Gamecard/(1148:1212): Posicion a agregar: 4-6.
+[TRACE] 18:02:31:447 Gamecard/(1148:1159): Mensaje recibido, cod_op: 6.
+[TRACE] 18:02:31:447 Gamecard/(1148:1159): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:02:31:447 Gamecard/(1148:1159): Codigo de operacion cod_op: 6.
+[INFO] 18:02:31:447 Gamecard/(1148:1159): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:02:31:447 Gamecard/(1148:1159): Mensaje recibido manejado
+[TRACE] 18:02:31:447 Gamecard/(1148:1212): Posicion a agregar: 9-9.
+[TRACE] 18:02:31:447 Gamecard/(1148:1217): Manejar mensaje: Pokemon: Gengar, Id mensaje: 9.
+[TRACE] 18:02:31:447 Gamecard/(1148:1217): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:02:31:447 Gamecard/(1148:1217): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:02:31:448 Gamecard/(1148:1217): Se abrio el archivo.
+[TRACE] 18:02:31:448 Gamecard/(1148:1217): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:02:31:448 Gamecard/(1148:1217): Entra a while bloques
+[TRACE] 18:02:31:448 Gamecard/(1148:1217): Config bloque creado
+[TRACE] 18:02:31:448 Gamecard/(1148:1217): Por hacer iteractor
+[TRACE] 18:02:31:449 Gamecard/(1148:1185): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 10. 
+[TRACE] 18:02:31:449 Gamecard/(1148:1185): Recepcion confirmada: 7 3 3
+[TRACE] 18:02:31:453 Gamecard/(1148:1159): Mensaje recibido, cod_op: 6.
+[TRACE] 18:02:31:453 Gamecard/(1148:1159): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:02:31:453 Gamecard/(1148:1159): Codigo de operacion cod_op: 6.
+[INFO] 18:02:31:453 Gamecard/(1148:1159): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:02:31:453 Gamecard/(1148:1159): Mensaje recibido manejado
+[TRACE] 18:02:31:454 Gamecard/(1148:1220): Manejar mensaje: Pokemon: Onix, Id mensaje: 11.
+[TRACE] 18:02:31:454 Gamecard/(1148:1220): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:02:31:454 Gamecard/(1148:1220): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:02:31:454 Gamecard/(1148:1220): Se abrio el archivo.
+[TRACE] 18:02:31:454 Gamecard/(1148:1220): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:02:31:454 Gamecard/(1148:1220): Entra a while bloques
+[TRACE] 18:02:31:455 Gamecard/(1148:1220): Config bloque creado
+[TRACE] 18:02:31:455 Gamecard/(1148:1220): Por hacer iteractor
+[TRACE] 18:02:33:274 Gamecard/(1148:1159): Mensaje recibido, cod_op: 6.
+[TRACE] 18:02:33:274 Gamecard/(1148:1159): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:02:33:274 Gamecard/(1148:1159): Codigo de operacion cod_op: 6.
+[INFO] 18:02:33:274 Gamecard/(1148:1159): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:02:33:274 Gamecard/(1148:1159): Mensaje recibido manejado
+[TRACE] 18:02:33:275 Gamecard/(1148:1242): Manejar mensaje: Pokemon: Vaporeon, Id mensaje: 12.
+[TRACE] 18:02:33:275 Gamecard/(1148:1242): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:02:33:276 Gamecard/(1148:1242): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:02:33:276 Gamecard/(1148:1242): Se abrio el archivo.
+[TRACE] 18:02:33:276 Gamecard/(1148:1242): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:02:33:276 Gamecard/(1148:1242): Entra a while bloques
+[TRACE] 18:02:33:276 Gamecard/(1148:1242): Config bloque creado
+[TRACE] 18:02:33:277 Gamecard/(1148:1242): Por hacer iteractor
+[TRACE] 18:02:33:277 Gamecard/(1148:1242): Posicion a agregar: 5-2.
+[TRACE] 18:02:33:277 Gamecard/(1148:1242): Posicion a agregar: 2-2.
+[TRACE] 18:02:33:277 Gamecard/(1148:1242): Posicion a agregar: 4-6.
+[TRACE] 18:02:33:277 Gamecard/(1148:1242): Posicion a agregar: 9-9.
+[ERROR] 18:02:33:807 Gamecard/(1148:1159): Error en 'recibir_codigo_operacion' -1256190968
+[ERROR] 18:02:33:807 Gamecard/(1148:1157): Error en 'recibir_codigo_operacion' -1218458855
+[ERROR] 18:02:33:807 Gamecard/(1148:1153): Error en 'recibir_codigo_operacion' -1
+[TRACE] 18:02:34:435 Gamecard/(1148:1207): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 18:02:34:436 Gamecard/(1148:1207): Mensaje LOCALIZED a enviar: Id_mensaje: 6, Pokemon: Squirtle, Cantidad: 4, Posiciones:5 2 2 2 4 6 9 9 .
+[INFO] 18:02:34:436 Gamecard/(1148:1207): Error en comunicacion al intentar enviar localized. Se efectuara operacion default
+[TRACE] 18:02:34:437 Gamecard/(1148:1207): Recepcion confirmada: 9 6 6
+[TRACE] 18:02:34:450 Gamecard/(1148:1212): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[INFO] 18:02:34:450 Gamecard/(1148:1212): Mensaje LOCALIZED a enviar: Id_mensaje: 7, Pokemon: Pikachu, Cantidad: 4, Posiciones:5 2 2 2 4 6 9 9 .
+[TRACE] 18:02:34:450 Gamecard/(1148:1217): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[INFO] 18:02:34:451 Gamecard/(1148:1217): Mensaje LOCALIZED a enviar: Id_mensaje: 9, Pokemon: Gengar, Cantidad: 0, Posiciones:.
+[INFO] 18:02:34:451 Gamecard/(1148:1217): Error en comunicacion al intentar enviar localized. Se efectuara operacion default
+[INFO] 18:02:34:451 Gamecard/(1148:1212): Error en comunicacion al intentar enviar localized. Se efectuara operacion default
+[TRACE] 18:03:46:997 Gamecard/(1431:1431): Log inicializado
+[TRACE] 18:03:46:998 Gamecard/(1431:1431): Crear metadata
+[TRACE] 18:03:47:62 Gamecard/(1431:1431): Save bitmap.
+[TRACE] 18:03:47:66 Gamecard/(1431:1431): Iniciando conexion con gameboy
+[TRACE] 18:03:47:66 Gamecard/(1431:1431): Esperando Cliente
+[TRACE] 18:03:47:66 Gamecard/(1431:1436): Hilos de suscripcion lanzados
+[TRACE] 18:03:47:66 Gamecard/(1431:1436): Mensaje suscripcion enviado
+[TRACE] 18:03:47:67 Gamecard/(1431:1436): Suscripcion completada
+[TRACE] 18:03:47:67 Gamecard/(1431:1436): Mensaje suscripcion enviado
+[TRACE] 18:03:47:67 Gamecard/(1431:1436): Suscripcion completada
+[TRACE] 18:03:47:67 Gamecard/(1431:1436): Mensaje suscripcion enviado
+[TRACE] 18:03:47:68 Gamecard/(1431:1436): Suscripcion completada
+[TRACE] 18:03:52:329 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:03:52:329 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:03:52:329 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:03:52:329 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:03:52:330 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:03:52:330 Gamecard/(1431:1452): Manejar mensaje: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Cantidad: 1, Id mensaje: 0.
+[TRACE] 18:03:52:330 Gamecard/(1431:1452): File del pokemon no existente, lo creo.
+[TRACE] 18:03:52:330 Gamecard/(1431:1452): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Pikachu/
+[TRACE] 18:03:52:330 Gamecard/(1431:1452): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:03:52:331 Gamecard/(1431:1452): Ya se creo.
+[TRACE] 18:03:52:331 Gamecard/(1431:1452): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:03:52:331 Gamecard/(1431:1452): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:03:52:331 Gamecard/(1431:1452): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:03:52:332 Gamecard/(1431:1452): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:03:52:333 Gamecard/(1431:1452): Se abrio el archivo.
+[TRACE] 18:03:52:333 Gamecard/(1431:1452): Manejar bloques pokemon.
+[TRACE] 18:03:52:333 Gamecard/(1431:1452): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:03:52:333 Gamecard/(1431:1452): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:03:52:334 Gamecard/(1431:1452): Agregar posicion.
+[TRACE] 18:03:52:334 Gamecard/(1431:1452): Paso el while sin entrar
+[TRACE] 18:03:52:334 Gamecard/(1431:1452): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 18:03:52:334 Gamecard/(1431:1452): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:03:52:338 Gamecard/(1431:1452): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:03:52:338 Gamecard/(1431:1452): Termino agregar bloque vacio
+[TRACE] 18:03:52:338 Gamecard/(1431:1452): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:03:52:338 Gamecard/(1431:1452): Lo que se seteo: [0]
+[TRACE] 18:03:52:338 Gamecard/(1431:1452): Bloques final: [0]
+[TRACE] 18:03:52:339 Gamecard/(1431:1452): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:03:52:340 Gamecard/(1431:1452): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:03:52:340 Gamecard/(1431:1452): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:03:52:340 Gamecard/(1431:1452): Save bitmap.
+[TRACE] 18:03:52:344 Gamecard/(1431:1452): Posicion agregada/sumada
+[TRACE] 18:03:52:345 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:03:52:345 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:03:52:345 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:03:52:345 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:03:52:345 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:03:52:347 Gamecard/(1431:1456): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Cantidad: 1, Id mensaje: 1.
+[TRACE] 18:03:52:347 Gamecard/(1431:1456): File del pokemon no existente, lo creo.
+[TRACE] 18:03:52:347 Gamecard/(1431:1456): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Squirtle/
+[TRACE] 18:03:52:347 Gamecard/(1431:1456): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:03:52:347 Gamecard/(1431:1456): Ya se creo.
+[TRACE] 18:03:52:348 Gamecard/(1431:1456): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:03:52:349 Gamecard/(1431:1456): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:03:52:349 Gamecard/(1431:1456): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:03:52:356 Gamecard/(1431:1456): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:03:52:357 Gamecard/(1431:1456): Se abrio el archivo.
+[TRACE] 18:03:52:357 Gamecard/(1431:1456): Manejar bloques pokemon.
+[TRACE] 18:03:52:358 Gamecard/(1431:1456): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:03:52:358 Gamecard/(1431:1456): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:03:52:358 Gamecard/(1431:1456): Agregar posicion.
+[TRACE] 18:03:52:361 Gamecard/(1431:1456): Paso el while sin entrar
+[TRACE] 18:03:52:361 Gamecard/(1431:1456): Bit: 0 estado: 1
+[TRACE] 18:03:52:361 Gamecard/(1431:1456): Va a proceder a asignar el bloque vacio:  1
+[TRACE] 18:03:52:361 Gamecard/(1431:1456): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:03:52:361 Gamecard/(1431:1456): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:03:52:361 Gamecard/(1431:1456): Termino agregar bloque vacio
+[TRACE] 18:03:52:361 Gamecard/(1431:1456): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:03:52:361 Gamecard/(1431:1456): Lo que se seteo: [1]
+[TRACE] 18:03:52:361 Gamecard/(1431:1456): Bloques final: [1]
+[TRACE] 18:03:52:362 Gamecard/(1431:1456): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:03:52:362 Gamecard/(1431:1456): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:03:52:362 Gamecard/(1431:1456): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:03:52:362 Gamecard/(1431:1456): Save bitmap.
+[TRACE] 18:03:52:366 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:03:52:366 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:03:52:366 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:03:52:366 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:03:52:366 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:03:52:379 Gamecard/(1431:1460): Manejar mensaje: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Cantidad: 1, Id mensaje: 2.
+[TRACE] 18:03:52:383 Gamecard/(1431:1460): File del pokemon no existente, lo creo.
+[TRACE] 18:03:52:383 Gamecard/(1431:1460): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Jolteon/
+[TRACE] 18:03:52:383 Gamecard/(1431:1460): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:03:52:384 Gamecard/(1431:1460): Ya se creo.
+[TRACE] 18:03:52:384 Gamecard/(1431:1460): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:03:52:385 Gamecard/(1431:1460): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:03:52:389 Gamecard/(1431:1460): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:03:52:389 Gamecard/(1431:1460): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:03:52:390 Gamecard/(1431:1460): Se abrio el archivo.
+[TRACE] 18:03:52:391 Gamecard/(1431:1460): Manejar bloques pokemon.
+[TRACE] 18:03:52:391 Gamecard/(1431:1460): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:03:52:391 Gamecard/(1431:1460): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:03:52:391 Gamecard/(1431:1460): Agregar posicion.
+[TRACE] 18:03:52:392 Gamecard/(1431:1460): Paso el while sin entrar
+[TRACE] 18:03:52:392 Gamecard/(1431:1460): Bit: 0 estado: 1
+[TRACE] 18:03:52:392 Gamecard/(1431:1460): Bit: 1 estado: 1
+[TRACE] 18:03:52:392 Gamecard/(1431:1460): Va a proceder a asignar el bloque vacio:  2
+[TRACE] 18:03:52:392 Gamecard/(1431:1460): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:03:52:392 Gamecard/(1431:1460): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:03:52:393 Gamecard/(1431:1460): Termino agregar bloque vacio
+[TRACE] 18:03:52:393 Gamecard/(1431:1460): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:03:52:393 Gamecard/(1431:1460): Lo que se seteo: [2]
+[TRACE] 18:03:52:393 Gamecard/(1431:1460): Bloques final: [2]
+[TRACE] 18:03:52:394 Gamecard/(1431:1460): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:03:52:394 Gamecard/(1431:1460): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:03:52:394 Gamecard/(1431:1460): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:03:52:395 Gamecard/(1431:1460): Save bitmap.
+[TRACE] 18:03:52:399 Gamecard/(1431:1460): Posicion agregada/sumada
+[TRACE] 18:03:52:399 Gamecard/(1431:1456): Posicion agregada/sumada
+[TRACE] 18:03:52:402 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:03:52:402 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:03:52:402 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:03:52:403 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:03:52:403 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:03:52:404 Gamecard/(1431:1463): Manejar mensaje: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Cantidad: 1, Id mensaje: 3.
+[TRACE] 18:03:52:404 Gamecard/(1431:1463): File del pokemon no existente, lo creo.
+[TRACE] 18:03:52:404 Gamecard/(1431:1463): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Flareon/
+[TRACE] 18:03:52:404 Gamecard/(1431:1463): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:03:52:405 Gamecard/(1431:1463): Ya se creo.
+[TRACE] 18:03:52:406 Gamecard/(1431:1463): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:03:52:406 Gamecard/(1431:1463): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:03:52:406 Gamecard/(1431:1463): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:03:52:406 Gamecard/(1431:1463): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:03:52:406 Gamecard/(1431:1463): Se abrio el archivo.
+[TRACE] 18:03:52:407 Gamecard/(1431:1463): Manejar bloques pokemon.
+[TRACE] 18:03:52:407 Gamecard/(1431:1463): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:03:52:407 Gamecard/(1431:1463): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:03:52:407 Gamecard/(1431:1463): Agregar posicion.
+[TRACE] 18:03:52:407 Gamecard/(1431:1463): Paso el while sin entrar
+[TRACE] 18:03:52:407 Gamecard/(1431:1463): Bit: 0 estado: 1
+[TRACE] 18:03:52:407 Gamecard/(1431:1463): Bit: 1 estado: 1
+[TRACE] 18:03:52:407 Gamecard/(1431:1463): Bit: 2 estado: 1
+[TRACE] 18:03:52:408 Gamecard/(1431:1463): Va a proceder a asignar el bloque vacio:  3
+[TRACE] 18:03:52:408 Gamecard/(1431:1463): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:03:52:408 Gamecard/(1431:1463): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:03:52:408 Gamecard/(1431:1463): Termino agregar bloque vacio
+[TRACE] 18:03:52:408 Gamecard/(1431:1463): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:03:52:408 Gamecard/(1431:1463): Lo que se seteo: [3]
+[TRACE] 18:03:52:408 Gamecard/(1431:1463): Bloques final: [3]
+[TRACE] 18:03:52:409 Gamecard/(1431:1463): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:03:52:409 Gamecard/(1431:1463): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:03:52:409 Gamecard/(1431:1463): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:03:52:409 Gamecard/(1431:1463): Save bitmap.
+[TRACE] 18:03:52:413 Gamecard/(1431:1463): Posicion agregada/sumada
+[TRACE] 18:03:55:347 Gamecard/(1431:1452): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[INFO] 18:03:55:347 Gamecard/(1431:1452): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 0.
+[TRACE] 18:03:55:348 Gamecard/(1431:1452): Enviado appeared para: Pikachu
+[TRACE] 18:03:55:349 Gamecard/(1431:1452): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 4. 
+[TRACE] 18:03:55:349 Gamecard/(1431:1452): Recepcion confirmada: 7 3 0
+[TRACE] 18:03:55:400 Gamecard/(1431:1456): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:03:55:402 Gamecard/(1431:1460): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[INFO] 18:03:55:402 Gamecard/(1431:1460): Mensaje APPEARED a enviar: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 2.
+[TRACE] 18:03:55:402 Gamecard/(1431:1460): Enviado appeared para: Jolteon
+[INFO] 18:03:55:402 Gamecard/(1431:1456): Mensaje APPEARED a enviar: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 1.
+[TRACE] 18:03:55:402 Gamecard/(1431:1456): Enviado appeared para: Squirtle
+[TRACE] 18:03:55:403 Gamecard/(1431:1460): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 5. 
+[TRACE] 18:03:55:403 Gamecard/(1431:1460): Recepcion confirmada: 7 3 2
+[TRACE] 18:03:55:403 Gamecard/(1431:1456): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 6. 
+[TRACE] 18:03:55:403 Gamecard/(1431:1456): Recepcion confirmada: 7 3 1
+[TRACE] 18:03:55:415 Gamecard/(1431:1463): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[INFO] 18:03:55:415 Gamecard/(1431:1463): Mensaje APPEARED a enviar: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 3.
+[TRACE] 18:03:55:416 Gamecard/(1431:1463): Enviado appeared para: Flareon
+[TRACE] 18:03:55:418 Gamecard/(1431:1463): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7. 
+[TRACE] 18:03:55:418 Gamecard/(1431:1463): Recepcion confirmada: 7 3 3
+[TRACE] 18:04:02:623 Gamecard/(1431:1442): Mensaje recibido, cod_op: 6.
+[TRACE] 18:04:02:623 Gamecard/(1431:1442): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:02:623 Gamecard/(1431:1442): Codigo de operacion cod_op: 6.
+[INFO] 18:04:02:623 Gamecard/(1431:1442): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:04:02:623 Gamecard/(1431:1442): Mensaje recibido manejado
+[TRACE] 18:04:02:625 Gamecard/(1431:1500): Manejar mensaje: Pokemon: Squirtle, Id mensaje: 8.
+[TRACE] 18:04:02:625 Gamecard/(1431:1500): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:04:02:625 Gamecard/(1431:1500): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:02:625 Gamecard/(1431:1500): Se abrio el archivo.
+[TRACE] 18:04:02:625 Gamecard/(1431:1500): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:04:02:626 Gamecard/(1431:1500): Entra a while bloques
+[TRACE] 18:04:02:626 Gamecard/(1431:1500): Config bloque creado
+[TRACE] 18:04:02:626 Gamecard/(1431:1500): Por hacer iteractor
+[TRACE] 18:04:02:626 Gamecard/(1431:1500): Posicion a agregar: 5-2.
+[TRACE] 18:04:02:626 Gamecard/(1431:1442): Mensaje recibido, cod_op: 6.
+[TRACE] 18:04:02:627 Gamecard/(1431:1442): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:02:627 Gamecard/(1431:1442): Codigo de operacion cod_op: 6.
+[INFO] 18:04:02:627 Gamecard/(1431:1442): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:04:02:627 Gamecard/(1431:1442): Mensaje recibido manejado
+[TRACE] 18:04:02:627 Gamecard/(1431:1503): Manejar mensaje: Pokemon: Pikachu, Id mensaje: 9.
+[TRACE] 18:04:02:627 Gamecard/(1431:1503): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:04:02:627 Gamecard/(1431:1503): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:02:628 Gamecard/(1431:1503): Se abrio el archivo.
+[TRACE] 18:04:02:628 Gamecard/(1431:1503): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:04:02:628 Gamecard/(1431:1503): Entra a while bloques
+[TRACE] 18:04:02:628 Gamecard/(1431:1503): Config bloque creado
+[TRACE] 18:04:02:628 Gamecard/(1431:1503): Por hacer iteractor
+[TRACE] 18:04:02:628 Gamecard/(1431:1503): Posicion a agregar: 9-9.
+[TRACE] 18:04:02:629 Gamecard/(1431:1442): Mensaje recibido, cod_op: 6.
+[TRACE] 18:04:02:629 Gamecard/(1431:1442): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:02:629 Gamecard/(1431:1442): Codigo de operacion cod_op: 6.
+[INFO] 18:04:02:629 Gamecard/(1431:1442): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:04:02:629 Gamecard/(1431:1442): Mensaje recibido manejado
+[TRACE] 18:04:02:630 Gamecard/(1431:1506): Manejar mensaje: Pokemon: Gengar, Id mensaje: 10.
+[TRACE] 18:04:02:631 Gamecard/(1431:1442): Mensaje recibido, cod_op: 6.
+[TRACE] 18:04:02:631 Gamecard/(1431:1442): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:02:631 Gamecard/(1431:1442): Codigo de operacion cod_op: 6.
+[INFO] 18:04:02:631 Gamecard/(1431:1442): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:04:02:631 Gamecard/(1431:1442): Mensaje recibido manejado
+[TRACE] 18:04:02:631 Gamecard/(1431:1508): Manejar mensaje: Pokemon: Onix, Id mensaje: 11.
+[TRACE] 18:04:05:626 Gamecard/(1431:1500): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 18:04:05:627 Gamecard/(1431:1500): Mensaje LOCALIZED a enviar: Id_mensaje: 8, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 .
+[TRACE] 18:04:05:627 Gamecard/(1431:1500): Enviado localized para: Squirtle. Cantidad: 1
+[TRACE] 18:04:05:627 Gamecard/(1431:1500): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 12, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 . 
+[TRACE] 18:04:05:627 Gamecard/(1431:1500): Recepcion confirmada: 9 6 8
+[TRACE] 18:04:05:629 Gamecard/(1431:1503): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[INFO] 18:04:05:629 Gamecard/(1431:1503): Mensaje LOCALIZED a enviar: Id_mensaje: 9, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 .
+[TRACE] 18:04:05:629 Gamecard/(1431:1503): Enviado localized para: Pikachu. Cantidad: 1
+[TRACE] 18:04:05:630 Gamecard/(1431:1503): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 . 
+[TRACE] 18:04:05:630 Gamecard/(1431:1503): Recepcion confirmada: 9 6 9
+[INFO] 18:04:05:630 Gamecard/(1431:1506): Mensaje LOCALIZED a enviar: Id_mensaje: 10, Pokemon: Gengar, Cantidad: 0, Posiciones:.
+[TRACE] 18:04:05:631 Gamecard/(1431:1506): Enviado localized para: Gengar. Cantidad: 0
+[INFO] 18:04:05:632 Gamecard/(1431:1508): Mensaje LOCALIZED a enviar: Id_mensaje: 11, Pokemon: Onix, Cantidad: 0, Posiciones:.
+[TRACE] 18:04:05:632 Gamecard/(1431:1508): Enviado localized para: Onix. Cantidad: 0
+[TRACE] 18:04:05:632 Gamecard/(1431:1508): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 14, Pokemon: Onix, Cantidad: 0, Posiciones:. 
+[TRACE] 18:04:05:633 Gamecard/(1431:1508): Recepcion confirmada: 9 6 11
+[TRACE] 18:04:05:633 Gamecard/(1431:1506): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 15, Pokemon: Gengar, Cantidad: 0, Posiciones:. 
+[TRACE] 18:04:05:633 Gamecard/(1431:1506): Recepcion confirmada: 9 6 10
+[TRACE] 18:04:07:381 Gamecard/(1431:1442): Mensaje recibido, cod_op: 6.
+[TRACE] 18:04:07:381 Gamecard/(1431:1442): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:07:382 Gamecard/(1431:1442): Codigo de operacion cod_op: 6.
+[INFO] 18:04:07:382 Gamecard/(1431:1442): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:04:07:382 Gamecard/(1431:1442): Mensaje recibido manejado
+[TRACE] 18:04:07:382 Gamecard/(1431:1542): Manejar mensaje: Pokemon: Vaporeon, Id mensaje: 16.
+[TRACE] 18:04:07:383 Gamecard/(1431:1442): Mensaje recibido, cod_op: 6.
+[TRACE] 18:04:07:383 Gamecard/(1431:1442): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:07:383 Gamecard/(1431:1442): Codigo de operacion cod_op: 6.
+[INFO] 18:04:07:383 Gamecard/(1431:1442): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:04:07:383 Gamecard/(1431:1442): Mensaje recibido manejado
+[TRACE] 18:04:07:384 Gamecard/(1431:1545): Manejar mensaje: Pokemon: Jolteon, Id mensaje: 17.
+[TRACE] 18:04:07:384 Gamecard/(1431:1545): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:04:07:384 Gamecard/(1431:1545): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:07:384 Gamecard/(1431:1545): Se abrio el archivo.
+[TRACE] 18:04:07:384 Gamecard/(1431:1545): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:04:07:385 Gamecard/(1431:1545): Entra a while bloques
+[TRACE] 18:04:07:385 Gamecard/(1431:1545): Config bloque creado
+[TRACE] 18:04:07:385 Gamecard/(1431:1545): Por hacer iteractor
+[TRACE] 18:04:07:385 Gamecard/(1431:1545): Posicion a agregar: 2-2.
+[TRACE] 18:04:07:386 Gamecard/(1431:1442): Mensaje recibido, cod_op: 6.
+[TRACE] 18:04:07:386 Gamecard/(1431:1442): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:07:386 Gamecard/(1431:1442): Codigo de operacion cod_op: 6.
+[INFO] 18:04:07:386 Gamecard/(1431:1442): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:04:07:386 Gamecard/(1431:1442): Mensaje recibido manejado
+[TRACE] 18:04:07:386 Gamecard/(1431:1548): Manejar mensaje: Pokemon: Flareon, Id mensaje: 18.
+[TRACE] 18:04:07:387 Gamecard/(1431:1548): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:04:07:387 Gamecard/(1431:1548): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:07:388 Gamecard/(1431:1548): Se abrio el archivo.
+[TRACE] 18:04:07:388 Gamecard/(1431:1548): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:04:07:389 Gamecard/(1431:1548): Entra a while bloques
+[TRACE] 18:04:07:389 Gamecard/(1431:1548): Config bloque creado
+[TRACE] 18:04:07:389 Gamecard/(1431:1548): Por hacer iteractor
+[TRACE] 18:04:07:389 Gamecard/(1431:1548): Posicion a agregar: 4-6.
+[TRACE] 18:04:07:393 Gamecard/(1431:1442): Mensaje recibido, cod_op: 6.
+[TRACE] 18:04:07:393 Gamecard/(1431:1442): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:07:393 Gamecard/(1431:1442): Codigo de operacion cod_op: 6.
+[INFO] 18:04:07:393 Gamecard/(1431:1442): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:04:07:393 Gamecard/(1431:1442): Mensaje recibido manejado
+[TRACE] 18:04:07:395 Gamecard/(1431:1551): Manejar mensaje: Pokemon: Umbreon, Id mensaje: 19.
+[TRACE] 18:04:07:396 Gamecard/(1431:1442): Mensaje recibido, cod_op: 6.
+[TRACE] 18:04:07:396 Gamecard/(1431:1442): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:07:396 Gamecard/(1431:1442): Codigo de operacion cod_op: 6.
+[INFO] 18:04:07:396 Gamecard/(1431:1442): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:04:07:396 Gamecard/(1431:1442): Mensaje recibido manejado
+[TRACE] 18:04:07:397 Gamecard/(1431:1553): Manejar mensaje: Pokemon: Espeon, Id mensaje: 20.
+[INFO] 18:04:10:383 Gamecard/(1431:1542): Mensaje LOCALIZED a enviar: Id_mensaje: 16, Pokemon: Vaporeon, Cantidad: 0, Posiciones:.
+[TRACE] 18:04:10:383 Gamecard/(1431:1542): Enviado localized para: Vaporeon. Cantidad: 0
+[TRACE] 18:04:10:384 Gamecard/(1431:1542): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:. 
+[TRACE] 18:04:10:384 Gamecard/(1431:1542): Recepcion confirmada: 9 6 16
+[TRACE] 18:04:10:385 Gamecard/(1431:1545): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[INFO] 18:04:10:385 Gamecard/(1431:1545): Mensaje LOCALIZED a enviar: Id_mensaje: 17, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 .
+[TRACE] 18:04:10:386 Gamecard/(1431:1545): Enviado localized para: Jolteon. Cantidad: 1
+[TRACE] 18:04:10:386 Gamecard/(1431:1545): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 . 
+[TRACE] 18:04:10:386 Gamecard/(1431:1545): Recepcion confirmada: 9 6 17
+[TRACE] 18:04:10:390 Gamecard/(1431:1548): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[INFO] 18:04:10:390 Gamecard/(1431:1548): Mensaje LOCALIZED a enviar: Id_mensaje: 18, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 .
+[TRACE] 18:04:10:390 Gamecard/(1431:1548): Enviado localized para: Flareon. Cantidad: 1
+[TRACE] 18:04:10:391 Gamecard/(1431:1548): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 . 
+[TRACE] 18:04:10:391 Gamecard/(1431:1548): Recepcion confirmada: 9 6 18
+[INFO] 18:04:10:397 Gamecard/(1431:1551): Mensaje LOCALIZED a enviar: Id_mensaje: 19, Pokemon: Umbreon, Cantidad: 0, Posiciones:.
+[INFO] 18:04:10:397 Gamecard/(1431:1553): Mensaje LOCALIZED a enviar: Id_mensaje: 20, Pokemon: Espeon, Cantidad: 0, Posiciones:.
+[TRACE] 18:04:10:398 Gamecard/(1431:1553): Enviado localized para: Espeon. Cantidad: 0
+[TRACE] 18:04:10:398 Gamecard/(1431:1551): Enviado localized para: Umbreon. Cantidad: 0
+[TRACE] 18:04:10:402 Gamecard/(1431:1553): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 24, Pokemon: Espeon, Cantidad: 0, Posiciones:. 
+[TRACE] 18:04:10:402 Gamecard/(1431:1553): Recepcion confirmada: 9 6 20
+[TRACE] 18:04:10:402 Gamecard/(1431:1551): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 25, Pokemon: Umbreon, Cantidad: 0, Posiciones:. 
+[TRACE] 18:04:10:402 Gamecard/(1431:1551): Recepcion confirmada: 9 6 19
+[TRACE] 18:04:12:304 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:04:12:304 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:12:304 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:04:12:304 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:04:12:304 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:04:12:304 Gamecard/(1431:1573): Manejar mensaje: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Cantidad: 1, Id mensaje: 26.
+[TRACE] 18:04:12:305 Gamecard/(1431:1573): File del pokemon no existente, lo creo.
+[TRACE] 18:04:12:305 Gamecard/(1431:1573): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Onix/
+[TRACE] 18:04:12:305 Gamecard/(1431:1573): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:04:12:305 Gamecard/(1431:1573): Ya se creo.
+[TRACE] 18:04:12:307 Gamecard/(1431:1573): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:12:307 Gamecard/(1431:1573): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:12:307 Gamecard/(1431:1573): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:12:308 Gamecard/(1431:1573): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:12:308 Gamecard/(1431:1573): Se abrio el archivo.
+[TRACE] 18:04:12:309 Gamecard/(1431:1573): Manejar bloques pokemon.
+[TRACE] 18:04:12:314 Gamecard/(1431:1573): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:04:12:314 Gamecard/(1431:1573): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:12:315 Gamecard/(1431:1573): Agregar posicion.
+[TRACE] 18:04:12:315 Gamecard/(1431:1573): Paso el while sin entrar
+[TRACE] 18:04:12:315 Gamecard/(1431:1573): Bit: 0 estado: 1
+[TRACE] 18:04:12:315 Gamecard/(1431:1573): Bit: 1 estado: 1
+[TRACE] 18:04:12:315 Gamecard/(1431:1573): Bit: 2 estado: 1
+[TRACE] 18:04:12:315 Gamecard/(1431:1573): Bit: 3 estado: 1
+[TRACE] 18:04:12:315 Gamecard/(1431:1573): Va a proceder a asignar el bloque vacio:  4
+[TRACE] 18:04:12:315 Gamecard/(1431:1573): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:12:316 Gamecard/(1431:1573): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:04:12:316 Gamecard/(1431:1573): Termino agregar bloque vacio
+[TRACE] 18:04:12:316 Gamecard/(1431:1573): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:12:316 Gamecard/(1431:1573): Lo que se seteo: [4]
+[TRACE] 18:04:12:316 Gamecard/(1431:1573): Bloques final: [4]
+[TRACE] 18:04:12:317 Gamecard/(1431:1573): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:12:317 Gamecard/(1431:1573): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:04:12:317 Gamecard/(1431:1573): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:04:12:318 Gamecard/(1431:1573): Save bitmap.
+[TRACE] 18:04:12:321 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:04:12:322 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:12:322 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:04:12:322 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:04:12:322 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:04:12:323 Gamecard/(1431:1573): Posicion agregada/sumada
+[TRACE] 18:04:12:324 Gamecard/(1431:1577): Manejar mensaje: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Cantidad: 1, Id mensaje: 27.
+[TRACE] 18:04:12:336 Gamecard/(1431:1577): File del pokemon no existente, lo creo.
+[TRACE] 18:04:12:336 Gamecard/(1431:1577): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Gengar/
+[TRACE] 18:04:12:336 Gamecard/(1431:1577): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:04:12:337 Gamecard/(1431:1577): Ya se creo.
+[TRACE] 18:04:12:337 Gamecard/(1431:1577): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:04:12:337 Gamecard/(1431:1577): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:04:12:337 Gamecard/(1431:1577): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:04:12:337 Gamecard/(1431:1577): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:12:337 Gamecard/(1431:1577): Se abrio el archivo.
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Manejar bloques pokemon.
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Agregar posicion.
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Paso el while sin entrar
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Bit: 0 estado: 1
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Bit: 1 estado: 1
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Bit: 2 estado: 1
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Bit: 3 estado: 1
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Bit: 4 estado: 1
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Va a proceder a asignar el bloque vacio:  5
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:04:12:338 Gamecard/(1431:1577): Termino agregar bloque vacio
+[TRACE] 18:04:12:339 Gamecard/(1431:1577): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:04:12:339 Gamecard/(1431:1577): Lo que se seteo: [5]
+[TRACE] 18:04:12:339 Gamecard/(1431:1577): Bloques final: [5]
+[TRACE] 18:04:12:339 Gamecard/(1431:1577): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:04:12:339 Gamecard/(1431:1577): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:04:12:339 Gamecard/(1431:1577): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:04:12:339 Gamecard/(1431:1577): Save bitmap.
+[TRACE] 18:04:12:344 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:04:12:344 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:12:344 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:04:12:344 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:04:12:344 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:04:12:345 Gamecard/(1431:1581): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Cantidad: 1, Id mensaje: 28.
+[TRACE] 18:04:12:345 Gamecard/(1431:1581): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:04:12:345 Gamecard/(1431:1581): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:12:345 Gamecard/(1431:1581): Se abrio el archivo.
+[TRACE] 18:04:12:346 Gamecard/(1431:1581): Manejar bloques pokemon.
+[TRACE] 18:04:12:346 Gamecard/(1431:1577): Posicion agregada/sumada
+[TRACE] 18:04:12:346 Gamecard/(1431:1581): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:04:12:346 Gamecard/(1431:1581): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:04:12:346 Gamecard/(1431:1581): Agregar posicion.
+[TRACE] 18:04:12:347 Gamecard/(1431:1581): Entro al while
+[TRACE] 18:04:12:347 Gamecard/(1431:1581): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:04:12:347 Gamecard/(1431:1581): Tamanio total del archivo al escribir la sentencia: 11
+[TRACE] 18:04:12:347 Gamecard/(1431:1581): Tamanio de bloques: 64
+[TRACE] 18:04:12:348 Gamecard/(1431:1581): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:04:12:349 Gamecard/(1431:1581): El archivo actualmente ocupa: 12 
+
+[TRACE] 18:04:12:350 Gamecard/(1431:1581): Tamanio de todos los bloques del pokemon: 12
+[TRACE] 18:04:12:350 Gamecard/(1431:1581): Posicion agregada/sumada
+[TRACE] 18:04:12:352 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:04:12:352 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:12:352 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:04:12:352 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:04:12:352 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:04:12:353 Gamecard/(1431:1585): Manejar mensaje: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Cantidad: 1, Id mensaje: 29.
+[TRACE] 18:04:12:353 Gamecard/(1431:1585): File del pokemon no existente, lo creo.
+[TRACE] 18:04:12:353 Gamecard/(1431:1585): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Umbreon/
+[TRACE] 18:04:12:353 Gamecard/(1431:1585): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:04:12:354 Gamecard/(1431:1585): Ya se creo.
+[TRACE] 18:04:12:354 Gamecard/(1431:1585): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:04:12:355 Gamecard/(1431:1585): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:04:12:355 Gamecard/(1431:1585): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:04:12:355 Gamecard/(1431:1585): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:12:355 Gamecard/(1431:1585): Se abrio el archivo.
+[TRACE] 18:04:12:356 Gamecard/(1431:1585): Manejar bloques pokemon.
+[TRACE] 18:04:12:356 Gamecard/(1431:1585): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:04:12:356 Gamecard/(1431:1585): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:04:12:356 Gamecard/(1431:1585): Agregar posicion.
+[TRACE] 18:04:12:356 Gamecard/(1431:1585): Paso el while sin entrar
+[TRACE] 18:04:12:357 Gamecard/(1431:1585): Bit: 0 estado: 1
+[TRACE] 18:04:12:357 Gamecard/(1431:1585): Bit: 1 estado: 1
+[TRACE] 18:04:12:357 Gamecard/(1431:1585): Bit: 2 estado: 1
+[TRACE] 18:04:12:357 Gamecard/(1431:1585): Bit: 3 estado: 1
+[TRACE] 18:04:12:358 Gamecard/(1431:1585): Bit: 4 estado: 1
+[TRACE] 18:04:12:358 Gamecard/(1431:1585): Bit: 5 estado: 1
+[TRACE] 18:04:12:358 Gamecard/(1431:1585): Va a proceder a asignar el bloque vacio:  6
+[TRACE] 18:04:12:358 Gamecard/(1431:1585): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:04:12:358 Gamecard/(1431:1585): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:04:12:358 Gamecard/(1431:1585): Termino agregar bloque vacio
+[TRACE] 18:04:12:359 Gamecard/(1431:1585): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:04:12:359 Gamecard/(1431:1585): Lo que se seteo: [6]
+[TRACE] 18:04:12:359 Gamecard/(1431:1585): Bloques final: [6]
+[TRACE] 18:04:12:359 Gamecard/(1431:1585): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:04:12:359 Gamecard/(1431:1585): El archivo actualmente ocupa: 7 
+
+[TRACE] 18:04:12:360 Gamecard/(1431:1585): Tamanio de todos los bloques del pokemon: 7
+[TRACE] 18:04:12:360 Gamecard/(1431:1585): Save bitmap.
+[TRACE] 18:04:12:378 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:04:12:378 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:12:378 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:04:12:378 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:04:12:378 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:04:12:386 Gamecard/(1431:1589): Manejar mensaje: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Cantidad: 1, Id mensaje: 30.
+[TRACE] 18:04:12:386 Gamecard/(1431:1589): File del pokemon no existente, lo creo.
+[TRACE] 18:04:12:386 Gamecard/(1431:1589): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Espeon/
+[TRACE] 18:04:12:386 Gamecard/(1431:1589): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:04:12:389 Gamecard/(1431:1589): Ya se creo.
+[TRACE] 18:04:12:390 Gamecard/(1431:1589): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:04:12:390 Gamecard/(1431:1589): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:04:12:390 Gamecard/(1431:1589): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:04:12:390 Gamecard/(1431:1589): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:12:390 Gamecard/(1431:1589): Se abrio el archivo.
+[TRACE] 18:04:12:390 Gamecard/(1431:1589): Manejar bloques pokemon.
+[TRACE] 18:04:12:390 Gamecard/(1431:1589): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Agregar posicion.
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Paso el while sin entrar
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Bit: 0 estado: 1
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Bit: 1 estado: 1
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Bit: 2 estado: 1
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Bit: 3 estado: 1
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Bit: 4 estado: 1
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Bit: 5 estado: 1
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Bit: 6 estado: 1
+[TRACE] 18:04:12:391 Gamecard/(1431:1589): Va a proceder a asignar el bloque vacio:  7
+[TRACE] 18:04:12:392 Gamecard/(1431:1589): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:04:12:392 Gamecard/(1431:1589): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:04:12:392 Gamecard/(1431:1589): Termino agregar bloque vacio
+[TRACE] 18:04:12:392 Gamecard/(1431:1589): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:04:12:398 Gamecard/(1431:1589): Lo que se seteo: [7]
+[TRACE] 18:04:12:398 Gamecard/(1431:1589): Bloques final: [7]
+[TRACE] 18:04:12:398 Gamecard/(1431:1589): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:04:12:399 Gamecard/(1431:1589): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:04:12:402 Gamecard/(1431:1438): Mensaje recibido, cod_op: 3.
+[TRACE] 18:04:12:403 Gamecard/(1431:1438): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:12:403 Gamecard/(1431:1438): Codigo de operacion cod_op: 3.
+[INFO] 18:04:12:403 Gamecard/(1431:1438): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:04:12:403 Gamecard/(1431:1438): Mensaje recibido manejado
+[TRACE] 18:04:12:403 Gamecard/(1431:1589): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:04:12:407 Gamecard/(1431:1592): Manejar mensaje: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Cantidad: 1, Id mensaje: 31.
+[TRACE] 18:04:12:407 Gamecard/(1431:1592): File del pokemon no existente, lo creo.
+[TRACE] 18:04:12:407 Gamecard/(1431:1592): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Vaporeon/
+[TRACE] 18:04:12:407 Gamecard/(1431:1592): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:04:12:407 Gamecard/(1431:1592): Ya se creo.
+[TRACE] 18:04:12:407 Gamecard/(1431:1592): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:04:12:411 Gamecard/(1431:1592): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:04:12:411 Gamecard/(1431:1592): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:04:12:412 Gamecard/(1431:1589): Save bitmap.
+[TRACE] 18:04:12:418 Gamecard/(1431:1592): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:12:418 Gamecard/(1431:1592): Se abrio el archivo.
+[TRACE] 18:04:12:419 Gamecard/(1431:1585): Posicion agregada/sumada
+[TRACE] 18:04:12:419 Gamecard/(1431:1592): Manejar bloques pokemon.
+[TRACE] 18:04:12:419 Gamecard/(1431:1592): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:04:12:419 Gamecard/(1431:1592): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:04:12:421 Gamecard/(1431:1592): Agregar posicion.
+[TRACE] 18:04:12:421 Gamecard/(1431:1592): Paso el while sin entrar
+[TRACE] 18:04:12:421 Gamecard/(1431:1592): Bit: 0 estado: 1
+[TRACE] 18:04:12:421 Gamecard/(1431:1592): Bit: 1 estado: 1
+[TRACE] 18:04:12:421 Gamecard/(1431:1592): Bit: 2 estado: 1
+[TRACE] 18:04:12:421 Gamecard/(1431:1592): Bit: 3 estado: 1
+[TRACE] 18:04:12:421 Gamecard/(1431:1592): Bit: 4 estado: 1
+[TRACE] 18:04:12:421 Gamecard/(1431:1592): Bit: 5 estado: 1
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): Bit: 6 estado: 1
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): Bit: 7 estado: 1
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): Va a proceder a asignar el bloque vacio:  8
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): Termino agregar bloque vacio
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): Lo que se seteo: [8]
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): Bloques final: [8]
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): El archivo actualmente ocupa: 7 
+
+[TRACE] 18:04:12:422 Gamecard/(1431:1592): Tamanio de todos los bloques del pokemon: 7
+[TRACE] 18:04:12:423 Gamecard/(1431:1589): Posicion agregada/sumada
+[TRACE] 18:04:12:423 Gamecard/(1431:1592): Save bitmap.
+[TRACE] 18:04:12:437 Gamecard/(1431:1592): Posicion agregada/sumada
+[TRACE] 18:04:15:325 Gamecard/(1431:1573): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[INFO] 18:04:15:325 Gamecard/(1431:1573): Mensaje APPEARED a enviar: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 26.
+[TRACE] 18:04:15:326 Gamecard/(1431:1573): Enviado appeared para: Onix
+[TRACE] 18:04:15:326 Gamecard/(1431:1573): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 32. 
+[TRACE] 18:04:15:326 Gamecard/(1431:1573): Recepcion confirmada: 7 3 26
+[TRACE] 18:04:15:351 Gamecard/(1431:1577): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[INFO] 18:04:15:352 Gamecard/(1431:1577): Mensaje APPEARED a enviar: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 27.
+[TRACE] 18:04:15:352 Gamecard/(1431:1581): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 18:04:15:353 Gamecard/(1431:1581): Mensaje APPEARED a enviar: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 28.
+[TRACE] 18:04:15:353 Gamecard/(1431:1581): Enviado appeared para: Squirtle
+[TRACE] 18:04:15:353 Gamecard/(1431:1577): Enviado appeared para: Gengar
+[TRACE] 18:04:15:382 Gamecard/(1431:1581): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 33. 
+[TRACE] 18:04:15:383 Gamecard/(1431:1581): Recepcion confirmada: 7 3 28
+[TRACE] 18:04:15:384 Gamecard/(1431:1577): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 34. 
+[TRACE] 18:04:15:384 Gamecard/(1431:1577): Recepcion confirmada: 7 3 27
+[TRACE] 18:04:15:422 Gamecard/(1431:1585): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[INFO] 18:04:15:423 Gamecard/(1431:1585): Mensaje APPEARED a enviar: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 29.
+[TRACE] 18:04:15:423 Gamecard/(1431:1589): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[INFO] 18:04:15:423 Gamecard/(1431:1589): Mensaje APPEARED a enviar: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 30.
+[TRACE] 18:04:15:424 Gamecard/(1431:1589): Enviado appeared para: Espeon
+[TRACE] 18:04:15:424 Gamecard/(1431:1585): Enviado appeared para: Umbreon
+[TRACE] 18:04:15:424 Gamecard/(1431:1589): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 35. 
+[TRACE] 18:04:15:424 Gamecard/(1431:1589): Recepcion confirmada: 7 3 30
+[TRACE] 18:04:15:425 Gamecard/(1431:1585): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 36. 
+[TRACE] 18:04:15:425 Gamecard/(1431:1585): Recepcion confirmada: 7 3 29
+[TRACE] 18:04:15:442 Gamecard/(1431:1592): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[INFO] 18:04:15:443 Gamecard/(1431:1592): Mensaje APPEARED a enviar: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 31.
+[TRACE] 18:04:15:443 Gamecard/(1431:1592): Enviado appeared para: Vaporeon
+[TRACE] 18:04:15:446 Gamecard/(1431:1592): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 37. 
+[TRACE] 18:04:15:446 Gamecard/(1431:1592): Recepcion confirmada: 7 3 31
+[TRACE] 18:04:22:629 Gamecard/(1431:1440): Mensaje recibido, cod_op: 5.
+[TRACE] 18:04:22:629 Gamecard/(1431:1440): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:22:629 Gamecard/(1431:1440): Codigo de operacion cod_op: 5.
+[INFO] 18:04:22:629 Gamecard/(1431:1440): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:04:22:629 Gamecard/(1431:1440): Mensaje recibido manejado
+[TRACE] 18:04:22:630 Gamecard/(1431:1618): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 38.
+[TRACE] 18:04:22:630 Gamecard/(1431:1618): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:04:22:630 Gamecard/(1431:1618): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:22:631 Gamecard/(1431:1618): Se abrio el archivo.
+[TRACE] 18:04:22:631 Gamecard/(1431:1618): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:04:22:631 Gamecard/(1431:1618): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:04:22:631 Gamecard/(1431:1618): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:04:22:631 Gamecard/(1431:1618): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:04:22:632 Gamecard/(1431:1618): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:04:22:632 Gamecard/(1431:1618): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:04:22:632 Gamecard/(1431:1618): Compactar bloques
+[TRACE] 18:04:22:632 Gamecard/(1431:1618): En el while, comparando el bloque: 0.
+[TRACE] 18:04:22:632 Gamecard/(1431:1618): En el while, comparando contra el bloque: 0.
+[TRACE] 18:04:25:633 Gamecard/(1431:1618): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 18:04:25:633 Gamecard/(1431:1618): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 38.
+[TRACE] 18:04:25:633 Gamecard/(1431:1618): Enviado resultado de caught: %B
+[TRACE] 18:04:25:634 Gamecard/(1431:1618): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 39. 
+[TRACE] 18:04:25:634 Gamecard/(1431:1618): Recepcion confirmada: 8 5 38
+[TRACE] 18:04:52:633 Gamecard/(1431:1440): Mensaje recibido, cod_op: 5.
+[TRACE] 18:04:52:633 Gamecard/(1431:1440): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:04:52:633 Gamecard/(1431:1440): Codigo de operacion cod_op: 5.
+[INFO] 18:04:52:633 Gamecard/(1431:1440): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:04:52:633 Gamecard/(1431:1440): Mensaje recibido manejado
+[TRACE] 18:04:52:633 Gamecard/(1431:1649): Manejar mensaje: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 40.
+[TRACE] 18:04:52:633 Gamecard/(1431:1649): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:52:634 Gamecard/(1431:1649): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:04:52:634 Gamecard/(1431:1649): Se abrio el archivo.
+[TRACE] 18:04:52:634 Gamecard/(1431:1649): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:52:634 Gamecard/(1431:1649): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:52:635 Gamecard/(1431:1649): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:52:635 Gamecard/(1431:1649): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:04:52:635 Gamecard/(1431:1649): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:04:52:635 Gamecard/(1431:1649): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:04:52:635 Gamecard/(1431:1649): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:52:635 Gamecard/(1431:1649): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:04:52:636 Gamecard/(1431:1649): Save bitmap.
+[TRACE] 18:04:52:640 Gamecard/(1431:1649): Compactar bloques
+[TRACE] 18:04:52:640 Gamecard/(1431:1649): En el while, comparando el bloque: 0.
+[TRACE] 18:04:52:640 Gamecard/(1431:1649): En el while, comparando contra el bloque: 0.
+[TRACE] 18:04:55:641 Gamecard/(1431:1649): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[INFO] 18:04:55:642 Gamecard/(1431:1649): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 40.
+[TRACE] 18:04:55:642 Gamecard/(1431:1649): Enviado resultado de caught: %B
+[TRACE] 18:04:55:643 Gamecard/(1431:1649): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 41. 
+[TRACE] 18:04:55:643 Gamecard/(1431:1649): Recepcion confirmada: 8 5 40
+[TRACE] 18:05:05:450 Gamecard/(1431:1440): Mensaje recibido, cod_op: 5.
+[TRACE] 18:05:05:450 Gamecard/(1431:1440): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:05:05:450 Gamecard/(1431:1440): Codigo de operacion cod_op: 5.
+[INFO] 18:05:05:450 Gamecard/(1431:1440): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:05:05:450 Gamecard/(1431:1440): Mensaje recibido manejado
+[TRACE] 18:05:05:451 Gamecard/(1431:1669): Manejar mensaje: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 42.
+[TRACE] 18:05:05:451 Gamecard/(1431:1669): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:05:05:451 Gamecard/(1431:1669): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:05:05:451 Gamecard/(1431:1669): Se abrio el archivo.
+[TRACE] 18:05:05:451 Gamecard/(1431:1669): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:05:05:451 Gamecard/(1431:1669): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:05:05:452 Gamecard/(1431:1669): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:05:05:452 Gamecard/(1431:1669): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:05:05:452 Gamecard/(1431:1669): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:05:05:488 Gamecard/(1431:1669): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:05:05:488 Gamecard/(1431:1669): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:05:05:489 Gamecard/(1431:1669): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:05:05:489 Gamecard/(1431:1669): Save bitmap.
+[TRACE] 18:05:05:494 Gamecard/(1431:1669): Compactar bloques
+[TRACE] 18:05:05:494 Gamecard/(1431:1669): En el while, comparando el bloque: 0.
+[TRACE] 18:05:05:494 Gamecard/(1431:1669): En el while, comparando contra el bloque: 0.
+[TRACE] 18:05:08:495 Gamecard/(1431:1669): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[INFO] 18:05:08:496 Gamecard/(1431:1669): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 42.
+[TRACE] 18:05:08:496 Gamecard/(1431:1669): Enviado resultado de caught: %B
+[TRACE] 18:05:08:497 Gamecard/(1431:1669): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 43. 
+[TRACE] 18:05:08:497 Gamecard/(1431:1669): Recepcion confirmada: 8 5 42
+[TRACE] 18:05:15:454 Gamecard/(1431:1440): Mensaje recibido, cod_op: 5.
+[TRACE] 18:05:15:454 Gamecard/(1431:1440): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:05:15:454 Gamecard/(1431:1440): Codigo de operacion cod_op: 5.
+[INFO] 18:05:15:454 Gamecard/(1431:1440): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:05:15:454 Gamecard/(1431:1440): Mensaje recibido manejado
+[TRACE] 18:05:15:455 Gamecard/(1431:1685): Manejar mensaje: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 44.
+[TRACE] 18:05:15:455 Gamecard/(1431:1685): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:05:15:455 Gamecard/(1431:1685): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:05:15:456 Gamecard/(1431:1685): Se abrio el archivo.
+[TRACE] 18:05:15:456 Gamecard/(1431:1685): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:05:15:456 Gamecard/(1431:1685): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:05:15:456 Gamecard/(1431:1685): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:05:15:456 Gamecard/(1431:1685): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:05:15:456 Gamecard/(1431:1685): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:05:15:521 Gamecard/(1431:1685): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:05:15:521 Gamecard/(1431:1685): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:05:15:521 Gamecard/(1431:1685): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:05:15:522 Gamecard/(1431:1685): Save bitmap.
+[TRACE] 18:05:15:525 Gamecard/(1431:1685): Compactar bloques
+[TRACE] 18:05:15:525 Gamecard/(1431:1685): En el while, comparando el bloque: 0.
+[TRACE] 18:05:15:525 Gamecard/(1431:1685): En el while, comparando contra el bloque: 0.
+[TRACE] 18:05:18:526 Gamecard/(1431:1685): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[INFO] 18:05:18:526 Gamecard/(1431:1685): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 44.
+[TRACE] 18:05:18:527 Gamecard/(1431:1685): Enviado resultado de caught: %B
+[TRACE] 18:05:18:527 Gamecard/(1431:1685): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 45. 
+[TRACE] 18:05:18:527 Gamecard/(1431:1685): Recepcion confirmada: 8 5 44
+[TRACE] 18:05:20:456 Gamecard/(1431:1440): Mensaje recibido, cod_op: 5.
+[TRACE] 18:05:20:456 Gamecard/(1431:1440): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:05:20:456 Gamecard/(1431:1440): Codigo de operacion cod_op: 5.
+[INFO] 18:05:20:456 Gamecard/(1431:1440): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:05:20:456 Gamecard/(1431:1440): Mensaje recibido manejado
+[TRACE] 18:05:20:457 Gamecard/(1431:1698): Manejar mensaje: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 46.
+[TRACE] 18:05:20:457 Gamecard/(1431:1698): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:05:20:457 Gamecard/(1431:1698): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:05:20:458 Gamecard/(1431:1698): Se abrio el archivo.
+[TRACE] 18:05:20:458 Gamecard/(1431:1698): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:05:20:458 Gamecard/(1431:1698): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:05:20:459 Gamecard/(1431:1698): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:05:20:459 Gamecard/(1431:1698): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:05:20:459 Gamecard/(1431:1698): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:05:20:460 Gamecard/(1431:1698): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:05:20:460 Gamecard/(1431:1698): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:05:20:461 Gamecard/(1431:1698): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:05:20:462 Gamecard/(1431:1698): Save bitmap.
+[TRACE] 18:05:20:472 Gamecard/(1431:1698): Compactar bloques
+[TRACE] 18:05:20:472 Gamecard/(1431:1698): En el while, comparando el bloque: 0.
+[TRACE] 18:05:20:473 Gamecard/(1431:1698): En el while, comparando contra el bloque: 0.
+[TRACE] 18:05:23:473 Gamecard/(1431:1698): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[INFO] 18:05:23:473 Gamecard/(1431:1698): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 46.
+[TRACE] 18:05:23:473 Gamecard/(1431:1698): Enviado resultado de caught: %B
+[TRACE] 18:05:23:474 Gamecard/(1431:1698): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 47. 
+[TRACE] 18:05:23:474 Gamecard/(1431:1698): Recepcion confirmada: 8 5 46
+[TRACE] 18:05:37:644 Gamecard/(1431:1440): Mensaje recibido, cod_op: 5.
+[TRACE] 18:05:37:644 Gamecard/(1431:1440): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:05:37:644 Gamecard/(1431:1440): Codigo de operacion cod_op: 5.
+[INFO] 18:05:37:644 Gamecard/(1431:1440): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:05:37:644 Gamecard/(1431:1440): Mensaje recibido manejado
+[TRACE] 18:05:37:646 Gamecard/(1431:1716): Manejar mensaje: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 48.
+[TRACE] 18:05:37:646 Gamecard/(1431:1716): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:05:37:648 Gamecard/(1431:1716): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:05:37:661 Gamecard/(1431:1716): Se abrio el archivo.
+[TRACE] 18:05:37:661 Gamecard/(1431:1716): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:05:37:661 Gamecard/(1431:1716): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:05:37:661 Gamecard/(1431:1716): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:05:37:661 Gamecard/(1431:1716): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:05:37:662 Gamecard/(1431:1716): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:05:37:676 Gamecard/(1431:1716): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:05:37:676 Gamecard/(1431:1716): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:05:37:677 Gamecard/(1431:1716): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:05:37:677 Gamecard/(1431:1716): Save bitmap.
+[TRACE] 18:05:37:685 Gamecard/(1431:1716): Compactar bloques
+[TRACE] 18:05:37:685 Gamecard/(1431:1716): En el while, comparando el bloque: 0.
+[TRACE] 18:05:37:685 Gamecard/(1431:1716): En el while, comparando contra el bloque: 0.
+[TRACE] 18:05:40:686 Gamecard/(1431:1716): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[INFO] 18:05:40:686 Gamecard/(1431:1716): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 48.
+[TRACE] 18:05:40:687 Gamecard/(1431:1716): Enviado resultado de caught: %B
+[TRACE] 18:05:40:687 Gamecard/(1431:1716): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 49. 
+[TRACE] 18:05:40:687 Gamecard/(1431:1716): Recepcion confirmada: 8 5 48
+[ERROR] 18:15:49:465 Gamecard/(1431:1442): Error en 'recibir_codigo_operacion' -1
+[ERROR] 18:15:49:465 Gamecard/(1431:1440): Error en 'recibir_codigo_operacion' -1
+[ERROR] 18:15:49:465 Gamecard/(1431:1438): Error en 'recibir_codigo_operacion' -1
+[INFO] 18:15:49:465 Gamecard/(1431:1436): Inicio reintento de comunicacion con Broker
+[INFO] 18:15:49:468 Gamecard/(1431:1436): Reintento de comunicación con broker fallido
+[TRACE] 18:16:28:789 Gamecard/(2526:2526): Log inicializado
+[TRACE] 18:16:28:790 Gamecard/(2526:2526): Crear metadata
+[TRACE] 18:16:28:934 Gamecard/(2526:2526): Save bitmap.
+[TRACE] 18:16:28:942 Gamecard/(2526:2526): Iniciando conexion con gameboy
+[TRACE] 18:16:28:944 Gamecard/(2526:2526): Esperando Cliente
+[TRACE] 18:16:28:945 Gamecard/(2526:2531): Hilos de suscripcion lanzados
+[TRACE] 18:16:28:946 Gamecard/(2526:2531): Mensaje suscripcion enviado
+[TRACE] 18:16:28:950 Gamecard/(2526:2531): Suscripcion completada
+[TRACE] 18:16:28:956 Gamecard/(2526:2531): Mensaje suscripcion enviado
+[TRACE] 18:16:28:956 Gamecard/(2526:2531): Suscripcion completada
+[TRACE] 18:16:28:956 Gamecard/(2526:2531): Mensaje suscripcion enviado
+[TRACE] 18:16:28:956 Gamecard/(2526:2531): Suscripcion completada
+[TRACE] 18:16:32:392 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:32:392 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:32:392 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:32:392 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:32:393 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:32:393 Gamecard/(2526:2547): Manejar mensaje: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Cantidad: 1, Id mensaje: 0.
+[TRACE] 18:16:32:393 Gamecard/(2526:2547): File del pokemon no existente, lo creo.
+[TRACE] 18:16:32:394 Gamecard/(2526:2547): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Pikachu/
+[TRACE] 18:16:32:394 Gamecard/(2526:2547): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:16:32:395 Gamecard/(2526:2547): Ya se creo.
+[TRACE] 18:16:32:396 Gamecard/(2526:2547): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:16:32:396 Gamecard/(2526:2547): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:16:32:400 Gamecard/(2526:2547): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:16:32:400 Gamecard/(2526:2547): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:32:400 Gamecard/(2526:2547): Se abrio el archivo.
+[TRACE] 18:16:32:400 Gamecard/(2526:2547): Manejar bloques pokemon.
+[TRACE] 18:16:32:400 Gamecard/(2526:2547): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:32:401 Gamecard/(2526:2547): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:16:32:401 Gamecard/(2526:2547): Agregar posicion.
+[TRACE] 18:16:32:401 Gamecard/(2526:2547): Paso el while sin entrar
+[TRACE] 18:16:32:401 Gamecard/(2526:2547): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 18:16:32:401 Gamecard/(2526:2547): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:16:32:402 Gamecard/(2526:2547): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:16:32:402 Gamecard/(2526:2547): Termino agregar bloque vacio
+[TRACE] 18:16:32:402 Gamecard/(2526:2547): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:16:32:403 Gamecard/(2526:2547): Lo que se seteo: [0]
+[TRACE] 18:16:32:403 Gamecard/(2526:2547): Bloques final: [0]
+[TRACE] 18:16:32:403 Gamecard/(2526:2547): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:16:32:404 Gamecard/(2526:2547): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:16:32:404 Gamecard/(2526:2547): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:16:32:404 Gamecard/(2526:2547): Save bitmap.
+[TRACE] 18:16:32:407 Gamecard/(2526:2547): Posicion agregada/sumada
+[TRACE] 18:16:32:408 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:32:408 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:32:408 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:32:408 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:32:408 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:32:409 Gamecard/(2526:2551): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Cantidad: 1, Id mensaje: 1.
+[TRACE] 18:16:32:409 Gamecard/(2526:2551): File del pokemon no existente, lo creo.
+[TRACE] 18:16:32:409 Gamecard/(2526:2551): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Squirtle/
+[TRACE] 18:16:32:409 Gamecard/(2526:2551): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:16:32:409 Gamecard/(2526:2551): Ya se creo.
+[TRACE] 18:16:32:410 Gamecard/(2526:2551): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:32:410 Gamecard/(2526:2551): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:32:411 Gamecard/(2526:2551): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:32:411 Gamecard/(2526:2551): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:32:411 Gamecard/(2526:2551): Se abrio el archivo.
+[TRACE] 18:16:32:416 Gamecard/(2526:2551): Manejar bloques pokemon.
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): Agregar posicion.
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): Paso el while sin entrar
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): Bit: 0 estado: 1
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): Va a proceder a asignar el bloque vacio:  1
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): Termino agregar bloque vacio
+[TRACE] 18:16:32:417 Gamecard/(2526:2551): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:32:418 Gamecard/(2526:2551): Lo que se seteo: [1]
+[TRACE] 18:16:32:418 Gamecard/(2526:2551): Bloques final: [1]
+[TRACE] 18:16:32:418 Gamecard/(2526:2551): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:32:423 Gamecard/(2526:2551): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:16:32:423 Gamecard/(2526:2551): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:16:32:423 Gamecard/(2526:2551): Save bitmap.
+[TRACE] 18:16:32:426 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:32:426 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:32:426 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:32:426 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:32:426 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:32:428 Gamecard/(2526:2551): Posicion agregada/sumada
+[TRACE] 18:16:32:429 Gamecard/(2526:2555): Manejar mensaje: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Cantidad: 1, Id mensaje: 2.
+[TRACE] 18:16:32:429 Gamecard/(2526:2555): File del pokemon no existente, lo creo.
+[TRACE] 18:16:32:429 Gamecard/(2526:2555): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Jolteon/
+[TRACE] 18:16:32:430 Gamecard/(2526:2555): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:16:32:430 Gamecard/(2526:2555): Ya se creo.
+[TRACE] 18:16:32:430 Gamecard/(2526:2555): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:16:32:430 Gamecard/(2526:2555): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:16:32:430 Gamecard/(2526:2555): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:16:32:431 Gamecard/(2526:2555): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:32:431 Gamecard/(2526:2555): Se abrio el archivo.
+[TRACE] 18:16:32:431 Gamecard/(2526:2555): Manejar bloques pokemon.
+[TRACE] 18:16:32:431 Gamecard/(2526:2555): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:32:432 Gamecard/(2526:2555): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:16:32:432 Gamecard/(2526:2555): Agregar posicion.
+[TRACE] 18:16:32:432 Gamecard/(2526:2555): Paso el while sin entrar
+[TRACE] 18:16:32:432 Gamecard/(2526:2555): Bit: 0 estado: 1
+[TRACE] 18:16:32:433 Gamecard/(2526:2555): Bit: 1 estado: 1
+[TRACE] 18:16:32:433 Gamecard/(2526:2555): Va a proceder a asignar el bloque vacio:  2
+[TRACE] 18:16:32:433 Gamecard/(2526:2555): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:16:32:433 Gamecard/(2526:2555): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:16:32:433 Gamecard/(2526:2555): Termino agregar bloque vacio
+[TRACE] 18:16:32:433 Gamecard/(2526:2555): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:16:32:434 Gamecard/(2526:2555): Lo que se seteo: [2]
+[TRACE] 18:16:32:434 Gamecard/(2526:2555): Bloques final: [2]
+[TRACE] 18:16:32:434 Gamecard/(2526:2555): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:16:32:435 Gamecard/(2526:2555): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:16:32:435 Gamecard/(2526:2555): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:16:32:435 Gamecard/(2526:2555): Save bitmap.
+[TRACE] 18:16:32:438 Gamecard/(2526:2555): Posicion agregada/sumada
+[TRACE] 18:16:32:440 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:32:441 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:32:441 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:32:441 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:32:441 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:32:441 Gamecard/(2526:2558): Manejar mensaje: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Cantidad: 1, Id mensaje: 3.
+[TRACE] 18:16:32:442 Gamecard/(2526:2558): File del pokemon no existente, lo creo.
+[TRACE] 18:16:32:442 Gamecard/(2526:2558): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Flareon/
+[TRACE] 18:16:32:442 Gamecard/(2526:2558): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:16:32:442 Gamecard/(2526:2558): Ya se creo.
+[TRACE] 18:16:32:442 Gamecard/(2526:2558): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:16:32:442 Gamecard/(2526:2558): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:16:32:443 Gamecard/(2526:2558): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:16:32:443 Gamecard/(2526:2558): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:32:443 Gamecard/(2526:2558): Se abrio el archivo.
+[TRACE] 18:16:32:443 Gamecard/(2526:2558): Manejar bloques pokemon.
+[TRACE] 18:16:32:443 Gamecard/(2526:2558): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:32:443 Gamecard/(2526:2558): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:16:32:444 Gamecard/(2526:2558): Agregar posicion.
+[TRACE] 18:16:32:444 Gamecard/(2526:2558): Paso el while sin entrar
+[TRACE] 18:16:32:444 Gamecard/(2526:2558): Bit: 0 estado: 1
+[TRACE] 18:16:32:444 Gamecard/(2526:2558): Bit: 1 estado: 1
+[TRACE] 18:16:32:444 Gamecard/(2526:2558): Bit: 2 estado: 1
+[TRACE] 18:16:32:444 Gamecard/(2526:2558): Va a proceder a asignar el bloque vacio:  3
+[TRACE] 18:16:32:444 Gamecard/(2526:2558): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:16:32:445 Gamecard/(2526:2558): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:16:32:445 Gamecard/(2526:2558): Termino agregar bloque vacio
+[TRACE] 18:16:32:445 Gamecard/(2526:2558): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:16:32:445 Gamecard/(2526:2558): Lo que se seteo: [3]
+[TRACE] 18:16:32:445 Gamecard/(2526:2558): Bloques final: [3]
+[TRACE] 18:16:32:446 Gamecard/(2526:2558): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:16:32:446 Gamecard/(2526:2558): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:16:32:446 Gamecard/(2526:2558): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:16:32:446 Gamecard/(2526:2558): Save bitmap.
+[TRACE] 18:16:32:450 Gamecard/(2526:2558): Posicion agregada/sumada
+[TRACE] 18:16:35:407 Gamecard/(2526:2547): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[INFO] 18:16:35:408 Gamecard/(2526:2547): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 0.
+[TRACE] 18:16:35:408 Gamecard/(2526:2547): Enviado appeared para: Pikachu
+[TRACE] 18:16:35:408 Gamecard/(2526:2547): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 4. 
+[TRACE] 18:16:35:408 Gamecard/(2526:2547): Recepcion confirmada: 7 3 0
+[TRACE] 18:16:35:429 Gamecard/(2526:2551): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 18:16:35:429 Gamecard/(2526:2551): Mensaje APPEARED a enviar: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 1.
+[TRACE] 18:16:35:430 Gamecard/(2526:2551): Enviado appeared para: Squirtle
+[TRACE] 18:16:35:430 Gamecard/(2526:2551): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 5. 
+[TRACE] 18:16:35:430 Gamecard/(2526:2551): Recepcion confirmada: 7 3 1
+[TRACE] 18:16:35:442 Gamecard/(2526:2555): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[INFO] 18:16:35:443 Gamecard/(2526:2555): Mensaje APPEARED a enviar: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 2.
+[TRACE] 18:16:35:443 Gamecard/(2526:2555): Enviado appeared para: Jolteon
+[TRACE] 18:16:35:443 Gamecard/(2526:2555): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6. 
+[TRACE] 18:16:35:443 Gamecard/(2526:2555): Recepcion confirmada: 7 3 2
+[TRACE] 18:16:35:451 Gamecard/(2526:2558): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[INFO] 18:16:35:452 Gamecard/(2526:2558): Mensaje APPEARED a enviar: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 3.
+[TRACE] 18:16:35:452 Gamecard/(2526:2558): Enviado appeared para: Flareon
+[TRACE] 18:16:35:452 Gamecard/(2526:2558): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7. 
+[TRACE] 18:16:35:453 Gamecard/(2526:2558): Recepcion confirmada: 7 3 3
+[TRACE] 18:16:37:630 Gamecard/(2526:2537): Mensaje recibido, cod_op: 6.
+[TRACE] 18:16:37:630 Gamecard/(2526:2537): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:37:630 Gamecard/(2526:2537): Codigo de operacion cod_op: 6.
+[INFO] 18:16:37:630 Gamecard/(2526:2537): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:16:37:630 Gamecard/(2526:2537): Mensaje recibido manejado
+[TRACE] 18:16:37:631 Gamecard/(2526:2597): Manejar mensaje: Pokemon: Squirtle, Id mensaje: 8.
+[TRACE] 18:16:37:635 Gamecard/(2526:2597): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:37:635 Gamecard/(2526:2597): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:37:635 Gamecard/(2526:2597): Se abrio el archivo.
+[TRACE] 18:16:37:635 Gamecard/(2526:2597): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:37:635 Gamecard/(2526:2597): Entra a while bloques
+[TRACE] 18:16:37:635 Gamecard/(2526:2597): Config bloque creado
+[TRACE] 18:16:37:635 Gamecard/(2526:2597): Por hacer iteractor
+[TRACE] 18:16:37:635 Gamecard/(2526:2597): Posicion a agregar: 5-2.
+[TRACE] 18:16:37:636 Gamecard/(2526:2537): Mensaje recibido, cod_op: 6.
+[TRACE] 18:16:37:636 Gamecard/(2526:2537): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:37:636 Gamecard/(2526:2537): Codigo de operacion cod_op: 6.
+[INFO] 18:16:37:636 Gamecard/(2526:2537): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:16:37:636 Gamecard/(2526:2537): Mensaje recibido manejado
+[TRACE] 18:16:37:636 Gamecard/(2526:2605): Manejar mensaje: Pokemon: Pikachu, Id mensaje: 9.
+[TRACE] 18:16:37:636 Gamecard/(2526:2605): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:16:37:637 Gamecard/(2526:2605): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:37:637 Gamecard/(2526:2605): Se abrio el archivo.
+[TRACE] 18:16:37:639 Gamecard/(2526:2605): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[TRACE] 18:16:37:639 Gamecard/(2526:2605): Entra a while bloques
+[TRACE] 18:16:37:639 Gamecard/(2526:2605): Config bloque creado
+[TRACE] 18:16:37:639 Gamecard/(2526:2605): Por hacer iteractor
+[TRACE] 18:16:37:639 Gamecard/(2526:2605): Posicion a agregar: 9-9.
+[TRACE] 18:16:37:640 Gamecard/(2526:2537): Mensaje recibido, cod_op: 6.
+[TRACE] 18:16:37:640 Gamecard/(2526:2537): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:37:640 Gamecard/(2526:2537): Codigo de operacion cod_op: 6.
+[INFO] 18:16:37:640 Gamecard/(2526:2537): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:16:37:640 Gamecard/(2526:2537): Mensaje recibido manejado
+[TRACE] 18:16:37:641 Gamecard/(2526:2608): Manejar mensaje: Pokemon: Gengar, Id mensaje: 10.
+[TRACE] 18:16:37:642 Gamecard/(2526:2537): Mensaje recibido, cod_op: 6.
+[TRACE] 18:16:37:642 Gamecard/(2526:2537): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:37:642 Gamecard/(2526:2537): Codigo de operacion cod_op: 6.
+[INFO] 18:16:37:642 Gamecard/(2526:2537): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:16:37:642 Gamecard/(2526:2537): Mensaje recibido manejado
+[TRACE] 18:16:37:642 Gamecard/(2526:2610): Manejar mensaje: Pokemon: Onix, Id mensaje: 11.
+[TRACE] 18:16:40:636 Gamecard/(2526:2597): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 18:16:40:637 Gamecard/(2526:2597): Mensaje LOCALIZED a enviar: Id_mensaje: 8, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 .
+[TRACE] 18:16:40:637 Gamecard/(2526:2597): Enviado localized para: Squirtle. Cantidad: 1
+[TRACE] 18:16:40:637 Gamecard/(2526:2597): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 12, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 . 
+[TRACE] 18:16:40:637 Gamecard/(2526:2597): Recepcion confirmada: 9 6 8
+[TRACE] 18:16:40:639 Gamecard/(2526:2605): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.txt
+[INFO] 18:16:40:640 Gamecard/(2526:2605): Mensaje LOCALIZED a enviar: Id_mensaje: 9, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 .
+[TRACE] 18:16:40:640 Gamecard/(2526:2605): Enviado localized para: Pikachu. Cantidad: 1
+[TRACE] 18:16:40:640 Gamecard/(2526:2605): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 . 
+[TRACE] 18:16:40:640 Gamecard/(2526:2605): Recepcion confirmada: 9 6 9
+[INFO] 18:16:40:642 Gamecard/(2526:2608): Mensaje LOCALIZED a enviar: Id_mensaje: 10, Pokemon: Gengar, Cantidad: 0, Posiciones:.
+[TRACE] 18:16:40:642 Gamecard/(2526:2608): Enviado localized para: Gengar. Cantidad: 0
+[TRACE] 18:16:40:642 Gamecard/(2526:2608): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:. 
+[TRACE] 18:16:40:642 Gamecard/(2526:2608): Recepcion confirmada: 9 6 10
+[INFO] 18:16:40:643 Gamecard/(2526:2610): Mensaje LOCALIZED a enviar: Id_mensaje: 11, Pokemon: Onix, Cantidad: 0, Posiciones:.
+[TRACE] 18:16:40:643 Gamecard/(2526:2610): Enviado localized para: Onix. Cantidad: 0
+[TRACE] 18:16:40:643 Gamecard/(2526:2610): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:. 
+[TRACE] 18:16:40:644 Gamecard/(2526:2610): Recepcion confirmada: 9 6 11
+[TRACE] 18:16:41:549 Gamecard/(2526:2537): Mensaje recibido, cod_op: 6.
+[TRACE] 18:16:41:549 Gamecard/(2526:2537): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:41:549 Gamecard/(2526:2537): Codigo de operacion cod_op: 6.
+[INFO] 18:16:41:549 Gamecard/(2526:2537): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:16:41:550 Gamecard/(2526:2537): Mensaje recibido manejado
+[TRACE] 18:16:41:550 Gamecard/(2526:2642): Manejar mensaje: Pokemon: Vaporeon, Id mensaje: 16.
+[TRACE] 18:16:41:551 Gamecard/(2526:2537): Mensaje recibido, cod_op: 6.
+[TRACE] 18:16:41:551 Gamecard/(2526:2537): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:41:551 Gamecard/(2526:2537): Codigo de operacion cod_op: 6.
+[INFO] 18:16:41:551 Gamecard/(2526:2537): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:16:41:551 Gamecard/(2526:2537): Mensaje recibido manejado
+[TRACE] 18:16:41:552 Gamecard/(2526:2645): Manejar mensaje: Pokemon: Jolteon, Id mensaje: 17.
+[TRACE] 18:16:41:552 Gamecard/(2526:2645): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:16:41:552 Gamecard/(2526:2645): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:41:552 Gamecard/(2526:2645): Se abrio el archivo.
+[TRACE] 18:16:41:552 Gamecard/(2526:2645): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[TRACE] 18:16:41:553 Gamecard/(2526:2645): Entra a while bloques
+[TRACE] 18:16:41:553 Gamecard/(2526:2645): Config bloque creado
+[TRACE] 18:16:41:553 Gamecard/(2526:2645): Por hacer iteractor
+[TRACE] 18:16:41:553 Gamecard/(2526:2645): Posicion a agregar: 2-2.
+[TRACE] 18:16:41:554 Gamecard/(2526:2537): Mensaje recibido, cod_op: 6.
+[TRACE] 18:16:41:554 Gamecard/(2526:2537): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:41:554 Gamecard/(2526:2537): Codigo de operacion cod_op: 6.
+[INFO] 18:16:41:554 Gamecard/(2526:2537): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:16:41:554 Gamecard/(2526:2537): Mensaje recibido manejado
+[TRACE] 18:16:41:555 Gamecard/(2526:2648): Manejar mensaje: Pokemon: Flareon, Id mensaje: 18.
+[TRACE] 18:16:41:555 Gamecard/(2526:2648): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:16:41:555 Gamecard/(2526:2648): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:41:555 Gamecard/(2526:2648): Se abrio el archivo.
+[TRACE] 18:16:41:556 Gamecard/(2526:2648): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[TRACE] 18:16:41:556 Gamecard/(2526:2648): Entra a while bloques
+[TRACE] 18:16:41:556 Gamecard/(2526:2648): Config bloque creado
+[TRACE] 18:16:41:556 Gamecard/(2526:2648): Por hacer iteractor
+[TRACE] 18:16:41:556 Gamecard/(2526:2648): Posicion a agregar: 4-6.
+[TRACE] 18:16:41:557 Gamecard/(2526:2537): Mensaje recibido, cod_op: 6.
+[TRACE] 18:16:41:557 Gamecard/(2526:2537): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:41:557 Gamecard/(2526:2537): Codigo de operacion cod_op: 6.
+[INFO] 18:16:41:557 Gamecard/(2526:2537): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:16:41:557 Gamecard/(2526:2537): Mensaje recibido manejado
+[TRACE] 18:16:41:562 Gamecard/(2526:2651): Manejar mensaje: Pokemon: Umbreon, Id mensaje: 19.
+[TRACE] 18:16:41:562 Gamecard/(2526:2537): Mensaje recibido, cod_op: 6.
+[TRACE] 18:16:41:562 Gamecard/(2526:2537): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:41:562 Gamecard/(2526:2537): Codigo de operacion cod_op: 6.
+[INFO] 18:16:41:563 Gamecard/(2526:2537): Se recibio un mensaje GET_POKEMON.
+[TRACE] 18:16:41:563 Gamecard/(2526:2537): Mensaje recibido manejado
+[TRACE] 18:16:41:563 Gamecard/(2526:2653): Manejar mensaje: Pokemon: Espeon, Id mensaje: 20.
+[INFO] 18:16:44:551 Gamecard/(2526:2642): Mensaje LOCALIZED a enviar: Id_mensaje: 16, Pokemon: Vaporeon, Cantidad: 0, Posiciones:.
+[TRACE] 18:16:44:551 Gamecard/(2526:2642): Enviado localized para: Vaporeon. Cantidad: 0
+[TRACE] 18:16:44:551 Gamecard/(2526:2642): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:. 
+[TRACE] 18:16:44:551 Gamecard/(2526:2642): Recepcion confirmada: 9 6 16
+[TRACE] 18:16:44:553 Gamecard/(2526:2645): /home/utnso/Escritorio/tall-grass/Files/Jolteon/Metadata.txt
+[INFO] 18:16:44:553 Gamecard/(2526:2645): Mensaje LOCALIZED a enviar: Id_mensaje: 17, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 .
+[TRACE] 18:16:44:557 Gamecard/(2526:2648): /home/utnso/Escritorio/tall-grass/Files/Flareon/Metadata.txt
+[INFO] 18:16:44:557 Gamecard/(2526:2648): Mensaje LOCALIZED a enviar: Id_mensaje: 18, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 .
+[TRACE] 18:16:44:558 Gamecard/(2526:2648): Enviado localized para: Flareon. Cantidad: 1
+[TRACE] 18:16:44:558 Gamecard/(2526:2645): Enviado localized para: Jolteon. Cantidad: 1
+[INFO] 18:16:44:564 Gamecard/(2526:2651): Mensaje LOCALIZED a enviar: Id_mensaje: 19, Pokemon: Umbreon, Cantidad: 0, Posiciones:.
+[INFO] 18:16:44:564 Gamecard/(2526:2653): Mensaje LOCALIZED a enviar: Id_mensaje: 20, Pokemon: Espeon, Cantidad: 0, Posiciones:.
+[TRACE] 18:16:44:565 Gamecard/(2526:2653): Enviado localized para: Espeon. Cantidad: 0
+[TRACE] 18:16:44:566 Gamecard/(2526:2651): Enviado localized para: Umbreon. Cantidad: 0
+[TRACE] 18:16:44:569 Gamecard/(2526:2648): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 22, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 . 
+[TRACE] 18:16:44:570 Gamecard/(2526:2648): Recepcion confirmada: 9 6 18
+[TRACE] 18:16:44:570 Gamecard/(2526:2645): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 23, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 . 
+[TRACE] 18:16:44:570 Gamecard/(2526:2645): Recepcion confirmada: 9 6 17
+[TRACE] 18:16:44:572 Gamecard/(2526:2653): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:. 
+[TRACE] 18:16:44:572 Gamecard/(2526:2653): Recepcion confirmada: 9 6 20
+[TRACE] 18:16:44:573 Gamecard/(2526:2651): Mensaje LOCALIZED_POKEMON llego correctamente al broker: Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:. 
+[TRACE] 18:16:44:573 Gamecard/(2526:2651): Recepcion confirmada: 9 6 19
+[TRACE] 18:16:46:197 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:46:197 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:46:197 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:46:197 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:46:197 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:46:198 Gamecard/(2526:2674): Manejar mensaje: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Cantidad: 1, Id mensaje: 26.
+[TRACE] 18:16:46:198 Gamecard/(2526:2674): File del pokemon no existente, lo creo.
+[TRACE] 18:16:46:198 Gamecard/(2526:2674): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Onix/
+[TRACE] 18:16:46:198 Gamecard/(2526:2674): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:16:46:198 Gamecard/(2526:2674): Ya se creo.
+[TRACE] 18:16:46:199 Gamecard/(2526:2674): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:16:46:199 Gamecard/(2526:2674): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:16:46:199 Gamecard/(2526:2674): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:16:46:199 Gamecard/(2526:2674): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:46:200 Gamecard/(2526:2674): Se abrio el archivo.
+[TRACE] 18:16:46:201 Gamecard/(2526:2674): Manejar bloques pokemon.
+[TRACE] 18:16:46:201 Gamecard/(2526:2674): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:46:201 Gamecard/(2526:2674): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:16:46:201 Gamecard/(2526:2674): Agregar posicion.
+[TRACE] 18:16:46:201 Gamecard/(2526:2674): Paso el while sin entrar
+[TRACE] 18:16:46:202 Gamecard/(2526:2674): Bit: 0 estado: 1
+[TRACE] 18:16:46:202 Gamecard/(2526:2674): Bit: 1 estado: 1
+[TRACE] 18:16:46:202 Gamecard/(2526:2674): Bit: 2 estado: 1
+[TRACE] 18:16:46:202 Gamecard/(2526:2674): Bit: 3 estado: 1
+[TRACE] 18:16:46:202 Gamecard/(2526:2674): Va a proceder a asignar el bloque vacio:  4
+[TRACE] 18:16:46:202 Gamecard/(2526:2674): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:16:46:203 Gamecard/(2526:2674): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:16:46:203 Gamecard/(2526:2674): Termino agregar bloque vacio
+[TRACE] 18:16:46:203 Gamecard/(2526:2674): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:16:46:203 Gamecard/(2526:2674): Lo que se seteo: [4]
+[TRACE] 18:16:46:203 Gamecard/(2526:2674): Bloques final: [4]
+[TRACE] 18:16:46:204 Gamecard/(2526:2674): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:16:46:208 Gamecard/(2526:2674): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:16:46:209 Gamecard/(2526:2674): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:16:46:209 Gamecard/(2526:2674): Save bitmap.
+[TRACE] 18:16:46:213 Gamecard/(2526:2674): Posicion agregada/sumada
+[TRACE] 18:16:46:213 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:46:214 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:46:214 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:46:214 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:46:214 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:46:216 Gamecard/(2526:2678): Manejar mensaje: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Cantidad: 1, Id mensaje: 27.
+[TRACE] 18:16:46:216 Gamecard/(2526:2678): File del pokemon no existente, lo creo.
+[TRACE] 18:16:46:216 Gamecard/(2526:2678): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Gengar/
+[TRACE] 18:16:46:216 Gamecard/(2526:2678): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:16:46:216 Gamecard/(2526:2678): Ya se creo.
+[TRACE] 18:16:46:216 Gamecard/(2526:2678): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:16:46:217 Gamecard/(2526:2678): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:16:46:217 Gamecard/(2526:2678): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:16:46:217 Gamecard/(2526:2678): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:46:218 Gamecard/(2526:2678): Se abrio el archivo.
+[TRACE] 18:16:46:219 Gamecard/(2526:2678): Manejar bloques pokemon.
+[TRACE] 18:16:46:226 Gamecard/(2526:2678): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:46:226 Gamecard/(2526:2678): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): Agregar posicion.
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): Paso el while sin entrar
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): Bit: 0 estado: 1
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): Bit: 1 estado: 1
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): Bit: 2 estado: 1
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): Bit: 3 estado: 1
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): Bit: 4 estado: 1
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): Va a proceder a asignar el bloque vacio:  5
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:16:46:227 Gamecard/(2526:2678): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:16:46:231 Gamecard/(2526:2678): Termino agregar bloque vacio
+[TRACE] 18:16:46:231 Gamecard/(2526:2678): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:16:46:231 Gamecard/(2526:2678): Lo que se seteo: [5]
+[TRACE] 18:16:46:231 Gamecard/(2526:2678): Bloques final: [5]
+[TRACE] 18:16:46:232 Gamecard/(2526:2678): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:16:46:232 Gamecard/(2526:2678): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:16:46:232 Gamecard/(2526:2678): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:16:46:232 Gamecard/(2526:2678): Save bitmap.
+[TRACE] 18:16:46:236 Gamecard/(2526:2678): Posicion agregada/sumada
+[TRACE] 18:16:46:237 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:46:238 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:46:238 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:46:238 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:46:238 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:46:239 Gamecard/(2526:2682): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Cantidad: 1, Id mensaje: 28.
+[TRACE] 18:16:46:239 Gamecard/(2526:2682): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:46:239 Gamecard/(2526:2682): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:46:240 Gamecard/(2526:2682): Se abrio el archivo.
+[TRACE] 18:16:46:240 Gamecard/(2526:2682): Manejar bloques pokemon.
+[TRACE] 18:16:46:240 Gamecard/(2526:2682): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:46:240 Gamecard/(2526:2682): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:46:240 Gamecard/(2526:2682): Agregar posicion.
+[TRACE] 18:16:46:240 Gamecard/(2526:2682): Entro al while
+[TRACE] 18:16:46:241 Gamecard/(2526:2682): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:16:46:241 Gamecard/(2526:2682): Tamanio total del archivo al escribir la sentencia: 11
+[TRACE] 18:16:46:241 Gamecard/(2526:2682): Tamanio de bloques: 64
+[TRACE] 18:16:46:241 Gamecard/(2526:2682): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:16:46:242 Gamecard/(2526:2682): El archivo actualmente ocupa: 12 
+
+[TRACE] 18:16:46:242 Gamecard/(2526:2682): Tamanio de todos los bloques del pokemon: 12
+[TRACE] 18:16:46:242 Gamecard/(2526:2682): Posicion agregada/sumada
+[TRACE] 18:16:46:243 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:46:243 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:46:243 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:46:243 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:46:243 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:46:243 Gamecard/(2526:2686): Manejar mensaje: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Cantidad: 1, Id mensaje: 29.
+[TRACE] 18:16:46:243 Gamecard/(2526:2686): File del pokemon no existente, lo creo.
+[TRACE] 18:16:46:244 Gamecard/(2526:2686): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Umbreon/
+[TRACE] 18:16:46:244 Gamecard/(2526:2686): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:16:46:244 Gamecard/(2526:2686): Ya se creo.
+[TRACE] 18:16:46:244 Gamecard/(2526:2686): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:16:46:245 Gamecard/(2526:2686): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:16:46:246 Gamecard/(2526:2686): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:16:46:246 Gamecard/(2526:2686): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:46:246 Gamecard/(2526:2686): Se abrio el archivo.
+[TRACE] 18:16:46:246 Gamecard/(2526:2686): Manejar bloques pokemon.
+[TRACE] 18:16:46:246 Gamecard/(2526:2686): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:46:246 Gamecard/(2526:2686): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:16:46:247 Gamecard/(2526:2686): Agregar posicion.
+[TRACE] 18:16:46:247 Gamecard/(2526:2686): Paso el while sin entrar
+[TRACE] 18:16:46:247 Gamecard/(2526:2686): Bit: 0 estado: 1
+[TRACE] 18:16:46:247 Gamecard/(2526:2686): Bit: 1 estado: 1
+[TRACE] 18:16:46:247 Gamecard/(2526:2686): Bit: 2 estado: 1
+[TRACE] 18:16:46:247 Gamecard/(2526:2686): Bit: 3 estado: 1
+[TRACE] 18:16:46:248 Gamecard/(2526:2686): Bit: 4 estado: 1
+[TRACE] 18:16:46:248 Gamecard/(2526:2686): Bit: 5 estado: 1
+[TRACE] 18:16:46:248 Gamecard/(2526:2686): Va a proceder a asignar el bloque vacio:  6
+[TRACE] 18:16:46:249 Gamecard/(2526:2686): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:16:46:249 Gamecard/(2526:2686): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:16:46:250 Gamecard/(2526:2686): Termino agregar bloque vacio
+[TRACE] 18:16:46:250 Gamecard/(2526:2686): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:16:46:250 Gamecard/(2526:2686): Lo que se seteo: [6]
+[TRACE] 18:16:46:250 Gamecard/(2526:2686): Bloques final: [6]
+[TRACE] 18:16:46:251 Gamecard/(2526:2686): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:16:46:251 Gamecard/(2526:2686): El archivo actualmente ocupa: 7 
+
+[TRACE] 18:16:46:251 Gamecard/(2526:2686): Tamanio de todos los bloques del pokemon: 7
+[TRACE] 18:16:46:251 Gamecard/(2526:2686): Save bitmap.
+[TRACE] 18:16:46:256 Gamecard/(2526:2686): Posicion agregada/sumada
+[TRACE] 18:16:46:257 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:46:259 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:46:259 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:46:259 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:46:259 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:46:260 Gamecard/(2526:2690): Manejar mensaje: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Cantidad: 1, Id mensaje: 30.
+[TRACE] 18:16:46:260 Gamecard/(2526:2690): File del pokemon no existente, lo creo.
+[TRACE] 18:16:46:260 Gamecard/(2526:2690): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Espeon/
+[TRACE] 18:16:46:260 Gamecard/(2526:2690): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:16:46:261 Gamecard/(2526:2690): Ya se creo.
+[TRACE] 18:16:46:261 Gamecard/(2526:2690): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:16:46:261 Gamecard/(2526:2690): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:16:46:262 Gamecard/(2526:2690): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:16:46:262 Gamecard/(2526:2690): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:46:262 Gamecard/(2526:2690): Se abrio el archivo.
+[TRACE] 18:16:46:262 Gamecard/(2526:2690): Manejar bloques pokemon.
+[TRACE] 18:16:46:262 Gamecard/(2526:2690): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:46:263 Gamecard/(2526:2690): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:16:46:263 Gamecard/(2526:2690): Agregar posicion.
+[TRACE] 18:16:46:263 Gamecard/(2526:2690): Paso el while sin entrar
+[TRACE] 18:16:46:263 Gamecard/(2526:2690): Bit: 0 estado: 1
+[TRACE] 18:16:46:263 Gamecard/(2526:2690): Bit: 1 estado: 1
+[TRACE] 18:16:46:263 Gamecard/(2526:2690): Bit: 2 estado: 1
+[TRACE] 18:16:46:264 Gamecard/(2526:2690): Bit: 3 estado: 1
+[TRACE] 18:16:46:264 Gamecard/(2526:2690): Bit: 4 estado: 1
+[TRACE] 18:16:46:267 Gamecard/(2526:2690): Bit: 5 estado: 1
+[TRACE] 18:16:46:267 Gamecard/(2526:2690): Bit: 6 estado: 1
+[TRACE] 18:16:46:267 Gamecard/(2526:2690): Va a proceder a asignar el bloque vacio:  7
+[TRACE] 18:16:46:267 Gamecard/(2526:2690): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:16:46:267 Gamecard/(2526:2690): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:16:46:267 Gamecard/(2526:2690): Termino agregar bloque vacio
+[TRACE] 18:16:46:267 Gamecard/(2526:2690): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:16:46:267 Gamecard/(2526:2690): Lo que se seteo: [7]
+[TRACE] 18:16:46:268 Gamecard/(2526:2690): Bloques final: [7]
+[TRACE] 18:16:46:268 Gamecard/(2526:2690): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:16:46:269 Gamecard/(2526:2690): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:16:46:270 Gamecard/(2526:2533): Mensaje recibido, cod_op: 3.
+[TRACE] 18:16:46:271 Gamecard/(2526:2533): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:16:46:271 Gamecard/(2526:2533): Codigo de operacion cod_op: 3.
+[INFO] 18:16:46:271 Gamecard/(2526:2533): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 18:16:46:271 Gamecard/(2526:2533): Mensaje recibido manejado
+[TRACE] 18:16:46:271 Gamecard/(2526:2690): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:16:46:271 Gamecard/(2526:2690): Save bitmap.
+[TRACE] 18:16:46:276 Gamecard/(2526:2693): Manejar mensaje: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Cantidad: 1, Id mensaje: 31.
+[TRACE] 18:16:46:276 Gamecard/(2526:2693): File del pokemon no existente, lo creo.
+[TRACE] 18:16:46:276 Gamecard/(2526:2693): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Vaporeon/
+[TRACE] 18:16:46:276 Gamecard/(2526:2693): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.txt
+[TRACE] 18:16:46:277 Gamecard/(2526:2693): Ya se creo.
+[TRACE] 18:16:46:277 Gamecard/(2526:2693): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:16:46:277 Gamecard/(2526:2693): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:16:46:277 Gamecard/(2526:2693): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:16:46:277 Gamecard/(2526:2693): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:16:46:278 Gamecard/(2526:2693): Se abrio el archivo.
+[TRACE] 18:16:46:278 Gamecard/(2526:2693): Manejar bloques pokemon.
+[TRACE] 18:16:46:280 Gamecard/(2526:2693): Abriendo el archivo, dejando OPEN = Y
+[TRACE] 18:16:46:281 Gamecard/(2526:2693): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:16:46:281 Gamecard/(2526:2693): Agregar posicion.
+[TRACE] 18:16:46:281 Gamecard/(2526:2693): Paso el while sin entrar
+[TRACE] 18:16:46:281 Gamecard/(2526:2693): Bit: 0 estado: 1
+[TRACE] 18:16:46:281 Gamecard/(2526:2693): Bit: 1 estado: 1
+[TRACE] 18:16:46:281 Gamecard/(2526:2693): Bit: 2 estado: 1
+[TRACE] 18:16:46:281 Gamecard/(2526:2693): Bit: 3 estado: 1
+[TRACE] 18:16:46:282 Gamecard/(2526:2693): Bit: 4 estado: 1
+[TRACE] 18:16:46:282 Gamecard/(2526:2693): Bit: 5 estado: 1
+[TRACE] 18:16:46:282 Gamecard/(2526:2693): Bit: 6 estado: 1
+[TRACE] 18:16:46:283 Gamecard/(2526:2693): Bit: 7 estado: 1
+[TRACE] 18:16:46:283 Gamecard/(2526:2693): Va a proceder a asignar el bloque vacio:  8
+[TRACE] 18:16:46:284 Gamecard/(2526:2690): Posicion agregada/sumada
+[TRACE] 18:16:46:284 Gamecard/(2526:2693): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:16:46:285 Gamecard/(2526:2693): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 18:16:46:285 Gamecard/(2526:2693): Termino agregar bloque vacio
+[TRACE] 18:16:46:285 Gamecard/(2526:2693): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:16:46:285 Gamecard/(2526:2693): Lo que se seteo: [8]
+[TRACE] 18:16:46:285 Gamecard/(2526:2693): Bloques final: [8]
+[TRACE] 18:16:46:285 Gamecard/(2526:2693): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:16:46:289 Gamecard/(2526:2693): El archivo actualmente ocupa: 7 
+
+[TRACE] 18:16:46:289 Gamecard/(2526:2693): Tamanio de todos los bloques del pokemon: 7
+[TRACE] 18:16:46:290 Gamecard/(2526:2693): Save bitmap.
+[TRACE] 18:16:46:293 Gamecard/(2526:2693): Posicion agregada/sumada
+[TRACE] 18:16:49:214 Gamecard/(2526:2674): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[INFO] 18:16:49:214 Gamecard/(2526:2674): Mensaje APPEARED a enviar: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 26.
+[TRACE] 18:16:49:214 Gamecard/(2526:2674): Enviado appeared para: Onix
+[TRACE] 18:16:49:215 Gamecard/(2526:2674): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 32. 
+[TRACE] 18:16:49:215 Gamecard/(2526:2674): Recepcion confirmada: 7 3 26
+[TRACE] 18:16:49:238 Gamecard/(2526:2678): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[INFO] 18:16:49:239 Gamecard/(2526:2678): Mensaje APPEARED a enviar: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 27.
+[TRACE] 18:16:49:239 Gamecard/(2526:2678): Enviado appeared para: Gengar
+[TRACE] 18:16:49:240 Gamecard/(2526:2678): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 33. 
+[TRACE] 18:16:49:240 Gamecard/(2526:2678): Recepcion confirmada: 7 3 27
+[TRACE] 18:16:49:245 Gamecard/(2526:2682): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 18:16:49:245 Gamecard/(2526:2682): Mensaje APPEARED a enviar: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 28.
+[TRACE] 18:16:49:245 Gamecard/(2526:2682): Enviado appeared para: Squirtle
+[TRACE] 18:16:49:254 Gamecard/(2526:2682): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 34. 
+[TRACE] 18:16:49:254 Gamecard/(2526:2682): Recepcion confirmada: 7 3 28
+[TRACE] 18:16:49:260 Gamecard/(2526:2686): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[INFO] 18:16:49:260 Gamecard/(2526:2686): Mensaje APPEARED a enviar: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 29.
+[TRACE] 18:16:49:260 Gamecard/(2526:2686): Enviado appeared para: Umbreon
+[TRACE] 18:16:49:261 Gamecard/(2526:2686): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 35. 
+[TRACE] 18:16:49:261 Gamecard/(2526:2686): Recepcion confirmada: 7 3 29
+[TRACE] 18:16:49:293 Gamecard/(2526:2690): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[INFO] 18:16:49:293 Gamecard/(2526:2690): Mensaje APPEARED a enviar: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 30.
+[TRACE] 18:16:49:295 Gamecard/(2526:2690): Enviado appeared para: Espeon
+[TRACE] 18:16:49:297 Gamecard/(2526:2690): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 36. 
+[TRACE] 18:16:49:297 Gamecard/(2526:2690): Recepcion confirmada: 7 3 30
+[TRACE] 18:16:49:302 Gamecard/(2526:2693): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[INFO] 18:16:49:302 Gamecard/(2526:2693): Mensaje APPEARED a enviar: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 31.
+[TRACE] 18:16:49:302 Gamecard/(2526:2693): Enviado appeared para: Vaporeon
+[TRACE] 18:16:49:302 Gamecard/(2526:2693): Mensaje APPEARED_POKEMON llego correctamente al broker: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 37. 
+[TRACE] 18:16:49:302 Gamecard/(2526:2693): Recepcion confirmada: 7 3 31
+[TRACE] 18:17:19:220 Gamecard/(2526:2535): Mensaje recibido, cod_op: 5.
+[TRACE] 18:17:19:220 Gamecard/(2526:2535): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:17:19:220 Gamecard/(2526:2535): Codigo de operacion cod_op: 5.
+[INFO] 18:17:19:220 Gamecard/(2526:2535): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:17:19:220 Gamecard/(2526:2535): Mensaje recibido manejado
+[TRACE] 18:17:19:220 Gamecard/(2526:2741): Manejar mensaje: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 38.
+[TRACE] 18:17:19:221 Gamecard/(2526:2741): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:17:19:221 Gamecard/(2526:2741): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:17:19:221 Gamecard/(2526:2741): Se abrio el archivo.
+[TRACE] 18:17:19:221 Gamecard/(2526:2741): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:17:19:222 Gamecard/(2526:2741): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:17:19:222 Gamecard/(2526:2741): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:17:19:222 Gamecard/(2526:2741): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:17:19:222 Gamecard/(2526:2741): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:17:19:223 Gamecard/(2526:2741): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:17:19:223 Gamecard/(2526:2741): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:17:19:223 Gamecard/(2526:2741): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[TRACE] 18:17:19:223 Gamecard/(2526:2741): Save bitmap.
+[TRACE] 18:17:19:226 Gamecard/(2526:2741): Compactar bloques
+[TRACE] 18:17:19:226 Gamecard/(2526:2741): En el while, comparando el bloque: 0.
+[TRACE] 18:17:19:227 Gamecard/(2526:2741): En el while, comparando contra el bloque: 0.
+[TRACE] 18:17:22:227 Gamecard/(2526:2741): /home/utnso/Escritorio/tall-grass/Files/Onix/Metadata.txt
+[INFO] 18:17:22:227 Gamecard/(2526:2741): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 38.
+[TRACE] 18:17:22:227 Gamecard/(2526:2741): Enviado resultado de caught: %B
+[TRACE] 18:17:22:228 Gamecard/(2526:2741): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 39. 
+[TRACE] 18:17:22:228 Gamecard/(2526:2741): Recepcion confirmada: 8 5 38
+[TRACE] 18:17:44:272 Gamecard/(2526:2535): Mensaje recibido, cod_op: 5.
+[TRACE] 18:17:44:272 Gamecard/(2526:2535): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:17:44:272 Gamecard/(2526:2535): Codigo de operacion cod_op: 5.
+[INFO] 18:17:44:272 Gamecard/(2526:2535): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:17:44:272 Gamecard/(2526:2535): Mensaje recibido manejado
+[TRACE] 18:17:44:273 Gamecard/(2526:2769): Manejar mensaje: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 40.
+[TRACE] 18:17:44:273 Gamecard/(2526:2769): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:17:44:273 Gamecard/(2526:2769): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:17:44:273 Gamecard/(2526:2769): Se abrio el archivo.
+[TRACE] 18:17:44:274 Gamecard/(2526:2769): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:17:44:274 Gamecard/(2526:2769): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:17:44:274 Gamecard/(2526:2769): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:17:44:274 Gamecard/(2526:2769): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:17:44:274 Gamecard/(2526:2769): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:17:44:274 Gamecard/(2526:2769): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:17:44:275 Gamecard/(2526:2769): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:17:44:275 Gamecard/(2526:2769): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[TRACE] 18:17:44:275 Gamecard/(2526:2769): Save bitmap.
+[TRACE] 18:17:44:278 Gamecard/(2526:2769): Compactar bloques
+[TRACE] 18:17:44:279 Gamecard/(2526:2769): En el while, comparando el bloque: 0.
+[TRACE] 18:17:44:279 Gamecard/(2526:2769): En el while, comparando contra el bloque: 0.
+[TRACE] 18:17:47:279 Gamecard/(2526:2769): /home/utnso/Escritorio/tall-grass/Files/Espeon/Metadata.txt
+[INFO] 18:17:47:279 Gamecard/(2526:2769): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 40.
+[TRACE] 18:17:47:280 Gamecard/(2526:2769): Enviado resultado de caught: %B
+[TRACE] 18:17:47:280 Gamecard/(2526:2769): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 41. 
+[TRACE] 18:17:47:280 Gamecard/(2526:2769): Recepcion confirmada: 8 5 40
+[TRACE] 18:17:49:273 Gamecard/(2526:2535): Mensaje recibido, cod_op: 5.
+[TRACE] 18:17:49:273 Gamecard/(2526:2535): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:17:49:273 Gamecard/(2526:2535): Codigo de operacion cod_op: 5.
+[INFO] 18:17:49:273 Gamecard/(2526:2535): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:17:49:273 Gamecard/(2526:2535): Mensaje recibido manejado
+[TRACE] 18:17:49:274 Gamecard/(2526:2781): Manejar mensaje: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 42.
+[TRACE] 18:17:49:274 Gamecard/(2526:2781): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:17:49:274 Gamecard/(2526:2781): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:17:49:275 Gamecard/(2526:2781): Se abrio el archivo.
+[TRACE] 18:17:49:275 Gamecard/(2526:2781): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:17:49:275 Gamecard/(2526:2781): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:17:49:275 Gamecard/(2526:2781): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:17:49:276 Gamecard/(2526:2781): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:17:49:276 Gamecard/(2526:2781): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:17:49:276 Gamecard/(2526:2781): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:17:49:276 Gamecard/(2526:2781): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:17:49:277 Gamecard/(2526:2781): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[TRACE] 18:17:49:277 Gamecard/(2526:2781): Save bitmap.
+[TRACE] 18:17:49:293 Gamecard/(2526:2781): Compactar bloques
+[TRACE] 18:17:49:293 Gamecard/(2526:2781): En el while, comparando el bloque: 0.
+[TRACE] 18:17:49:293 Gamecard/(2526:2781): En el while, comparando contra el bloque: 0.
+[TRACE] 18:17:52:294 Gamecard/(2526:2781): /home/utnso/Escritorio/tall-grass/Files/Vaporeon/Metadata.txt
+[INFO] 18:17:52:294 Gamecard/(2526:2781): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 42.
+[TRACE] 18:17:52:295 Gamecard/(2526:2781): Enviado resultado de caught: %B
+[TRACE] 18:17:52:295 Gamecard/(2526:2781): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 43. 
+[TRACE] 18:17:52:295 Gamecard/(2526:2781): Recepcion confirmada: 8 5 42
+[TRACE] 18:17:54:275 Gamecard/(2526:2535): Mensaje recibido, cod_op: 5.
+[TRACE] 18:17:54:275 Gamecard/(2526:2535): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:17:54:275 Gamecard/(2526:2535): Codigo de operacion cod_op: 5.
+[INFO] 18:17:54:275 Gamecard/(2526:2535): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:17:54:275 Gamecard/(2526:2535): Mensaje recibido manejado
+[TRACE] 18:17:54:276 Gamecard/(2526:2797): Manejar mensaje: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 44.
+[TRACE] 18:17:54:276 Gamecard/(2526:2797): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:17:54:276 Gamecard/(2526:2797): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:17:54:277 Gamecard/(2526:2797): Se abrio el archivo.
+[TRACE] 18:17:54:282 Gamecard/(2526:2797): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:17:54:282 Gamecard/(2526:2797): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:17:54:283 Gamecard/(2526:2797): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:17:54:283 Gamecard/(2526:2797): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:17:54:283 Gamecard/(2526:2797): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:17:54:283 Gamecard/(2526:2797): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:17:54:297 Gamecard/(2526:2797): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:17:54:297 Gamecard/(2526:2797): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[TRACE] 18:17:54:298 Gamecard/(2526:2797): Save bitmap.
+[TRACE] 18:17:54:304 Gamecard/(2526:2797): Compactar bloques
+[TRACE] 18:17:54:313 Gamecard/(2526:2797): En el while, comparando el bloque: 0.
+[TRACE] 18:17:54:313 Gamecard/(2526:2797): En el while, comparando contra el bloque: 0.
+[TRACE] 18:17:57:314 Gamecard/(2526:2797): /home/utnso/Escritorio/tall-grass/Files/Umbreon/Metadata.txt
+[INFO] 18:17:57:314 Gamecard/(2526:2797): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 44.
+[TRACE] 18:17:57:315 Gamecard/(2526:2797): Enviado resultado de caught: %B
+[TRACE] 18:17:57:315 Gamecard/(2526:2797): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 45. 
+[TRACE] 18:17:57:315 Gamecard/(2526:2797): Recepcion confirmada: 8 5 44
+[TRACE] 18:18:04:225 Gamecard/(2526:2535): Mensaje recibido, cod_op: 5.
+[TRACE] 18:18:04:225 Gamecard/(2526:2535): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:18:04:225 Gamecard/(2526:2535): Codigo de operacion cod_op: 5.
+[INFO] 18:18:04:225 Gamecard/(2526:2535): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:18:04:225 Gamecard/(2526:2535): Mensaje recibido manejado
+[TRACE] 18:18:04:226 Gamecard/(2526:2807): Manejar mensaje: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 46.
+[TRACE] 18:18:04:227 Gamecard/(2526:2807): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:18:04:227 Gamecard/(2526:2807): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:18:04:227 Gamecard/(2526:2807): Se abrio el archivo.
+[TRACE] 18:18:04:227 Gamecard/(2526:2807): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:18:04:227 Gamecard/(2526:2807): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:18:04:227 Gamecard/(2526:2807): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:18:04:228 Gamecard/(2526:2807): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:18:04:228 Gamecard/(2526:2807): Tamanio de todos los bloques del pokemon: 0
+[TRACE] 18:18:04:259 Gamecard/(2526:2807): El archivo actualmente ocupa: 0 
+
+[TRACE] 18:18:04:260 Gamecard/(2526:2807): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:18:04:260 Gamecard/(2526:2807): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[TRACE] 18:18:04:260 Gamecard/(2526:2807): Save bitmap.
+[TRACE] 18:18:04:264 Gamecard/(2526:2807): Compactar bloques
+[TRACE] 18:18:04:264 Gamecard/(2526:2807): En el while, comparando el bloque: 0.
+[TRACE] 18:18:04:264 Gamecard/(2526:2807): En el while, comparando contra el bloque: 0.
+[TRACE] 18:18:07:264 Gamecard/(2526:2807): /home/utnso/Escritorio/tall-grass/Files/Gengar/Metadata.txt
+[INFO] 18:18:07:265 Gamecard/(2526:2807): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 46.
+[TRACE] 18:18:07:265 Gamecard/(2526:2807): Enviado resultado de caught: %B
+[TRACE] 18:18:07:266 Gamecard/(2526:2807): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 47. 
+[TRACE] 18:18:07:266 Gamecard/(2526:2807): Recepcion confirmada: 8 5 46
+[TRACE] 18:18:39:235 Gamecard/(2526:2535): Mensaje recibido, cod_op: 5.
+[TRACE] 18:18:39:235 Gamecard/(2526:2535): Se lanza el hilo: handle_mensaje_gamecard.
+[TRACE] 18:18:39:235 Gamecard/(2526:2535): Codigo de operacion cod_op: 5.
+[INFO] 18:18:39:235 Gamecard/(2526:2535): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 18:18:39:235 Gamecard/(2526:2535): Mensaje recibido manejado
+[TRACE] 18:18:39:236 Gamecard/(2526:2857): Manejar mensaje: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 48.
+[TRACE] 18:18:39:236 Gamecard/(2526:2857): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:18:39:236 Gamecard/(2526:2857): Archivo: OPEN=N, estaba_abierto=0.
+[TRACE] 18:18:39:236 Gamecard/(2526:2857): Se abrio el archivo.
+[TRACE] 18:18:39:237 Gamecard/(2526:2857): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:18:39:237 Gamecard/(2526:2857): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:18:39:239 Gamecard/(2526:2857): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[TRACE] 18:18:39:239 Gamecard/(2526:2857): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:18:39:240 Gamecard/(2526:2857): Tamanio de todos los bloques del pokemon: 6
+[TRACE] 18:18:39:291 Gamecard/(2526:2857): El archivo actualmente ocupa: 6 
+
+[TRACE] 18:18:39:292 Gamecard/(2526:2857): Compactar bloques
+[TRACE] 18:18:39:292 Gamecard/(2526:2857): En el while, comparando el bloque: 0.
+[TRACE] 18:18:39:292 Gamecard/(2526:2857): En el while, comparando contra el bloque: 0.
+[TRACE] 18:18:42:293 Gamecard/(2526:2857): /home/utnso/Escritorio/tall-grass/Files/Squirtle/Metadata.txt
+[INFO] 18:18:42:293 Gamecard/(2526:2857): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 48.
+[TRACE] 18:18:42:294 Gamecard/(2526:2857): Enviado resultado de caught: %B
+[TRACE] 18:18:42:294 Gamecard/(2526:2857): Mensaje CAUGHT_POKEMON llego correctamente al broker: ok/fail: 1 ID mensaje: 49. 
+[TRACE] 18:18:42:294 Gamecard/(2526:2857): Recepcion confirmada: 8 5 48

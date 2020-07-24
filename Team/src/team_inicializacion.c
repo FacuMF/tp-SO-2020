@@ -205,9 +205,8 @@ void mostrar_entrenadores(t_list * head_entrenadores) {
 
 void mostrar_data_entrenador(void * element) {
 	t_entrenador * entrenador = element;
-	log_trace(logger, "Data Entrenador %c: Posicion %i %i",entrenador->id,
-			entrenador->posicion[0], entrenador->posicion[1]);
-	log_trace(logger, "Estado: %d",entrenador->estado);
+	log_debug(logger, "Data Entrenador %c: Posicion %i %i Estado  %d",entrenador->id,
+			entrenador->posicion[0], entrenador->posicion[1], entrenador->estado);
 	list_iterate(entrenador->pokemones_capturados, mostrar_kokemon);
 	list_iterate(entrenador->pokemones_por_capturar, mostrar_kokemon);
 }
