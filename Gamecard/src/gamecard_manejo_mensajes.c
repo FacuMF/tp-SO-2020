@@ -326,24 +326,24 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 			//Voy a pasar la info del bloque 1 al 2.
 
 			t_config* config_1 = config_create( block_path( num_bloque_a_vaciar ));
+			t_config* config_1_aux = config_create( block_path( num_bloque_a_vaciar ));
 			t_config* config_2 = config_create( block_path( num_bloque_a_llenar ));
 
 			t_dictionary* diccionario_1 = config_1->properties;
+			t_dictionary* diccionario_1_aux = config_1_aux->properties;
 
 			void pasar_key_a_config(void* element){
 
 				char* key = element;
 
-				if( dictionary_has_key(diccionario_1, key)){
 					char* value = config_get_string_value(config_1, key);
 					config_set_value(config_2, key, value);
 
 					config_remove_key(config_1, key);
-				}
 
 			}
 
-			dictionary_iterator(diccionario_1,(void*) pasar_key_a_config);
+			dictionary_iterator(diccionario_1_aux,(void*) pasar_key_a_config);
 
 			config_save(config_1);
 			config_save(config_2);
