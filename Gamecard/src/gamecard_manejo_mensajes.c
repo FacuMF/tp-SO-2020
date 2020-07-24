@@ -349,13 +349,19 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 		log_trace(logger, "Se compararon distinos bloques.");
 
 		int num_bloque_a_vaciar = atoi(bloques[bloque_a_vaciar]);
-		int tamanio_que_comparo = tamanio_archivo( block_path( num_bloque_a_vaciar ) );
+
+		char* block_vaciar_p = block_path(num_bloque_a_vaciar);
+		int tamanio_que_comparo = tamanio_archivo(block_vaciar_p);
+
 
 		log_trace(logger, "Bloque 1 de la comparacion: numero %i , tamanio: %i.",
 				num_bloque_a_vaciar, tamanio_que_comparo);
 
 		int num_bloque_a_llenar = atoi(bloques[bloque_a_llenar]);
-		int tamanio_contra_el_que_comparo = tamanio_archivo( block_path( num_bloque_a_llenar ) );
+
+		char* block_llenar_p = block_path(num_bloque_a_llenar);
+		int tamanio_contra_el_que_comparo = tamanio_archivo(block_llenar_p);
+
 
 		log_trace(logger, "Bloque 2 de la comparacion: numero %i , tamanio: %i.",
 				num_bloque_a_llenar, tamanio_contra_el_que_comparo);
@@ -368,9 +374,9 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 			//Tengo que pasar el bloque que compare => al archivo contra el que compare.
 			//Voy a pasar la info del bloque 1 al 2.
 
-			t_config* config_1 = config_create( block_path( num_bloque_a_vaciar ));
-			t_config* config_1_aux = config_create( block_path( num_bloque_a_vaciar ));
-			t_config* config_2 = config_create( block_path( num_bloque_a_llenar ));
+			t_config* config_1 = config_create( block_vaciar_p);
+			t_config* config_1_aux = config_create( block_vaciar_p);
+			t_config* config_2 = config_create( block_llenar_p);
 
 			t_dictionary* diccionario_1 = config_1->properties;
 			t_dictionary* diccionario_1_aux = config_1_aux->properties;
@@ -384,6 +390,10 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 
 					config_remove_key(config_1, key);
 
+					free(value);
+
+					// NO PONER free(key). ROMPE
+
 			}
 
 			dictionary_iterator(diccionario_1_aux,(void*) pasar_key_a_config);
@@ -392,6 +402,7 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 			config_save(config_2);
 			config_destroy(config_1);
 			config_destroy(config_2);
+			config_destroy(config_1_aux);
 
 			log_trace(logger, "Se va a actualizar size y sacar bloque del metadata.");
 
@@ -400,6 +411,9 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 			sacar_bloque_de_metadata(pokemon,num_bloque_a_vaciar);
 
 		}
+
+		free(block_vaciar_p);
+		free(block_llenar_p);
 
 	}
 
