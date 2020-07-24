@@ -290,7 +290,10 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 	char* posicion = concatenar_posicion(mensaje_catch->posx,mensaje_catch->posy);
 	int bloque_con_posicion = encontrar_bloque_con_posicion(posicion, bloques);
 
-	t_config* config_bloque = config_create(block_path(bloque_con_posicion));
+	char* block_p = block_path(bloque_con_posicion);
+	t_config* config_bloque = config_create(block_p);
+
+
 	int cantidad = config_get_int_value(config_bloque,posicion);
 
 	if(cantidad == 1){
@@ -298,7 +301,11 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 	}
 	else {
 		int cantidad_previa = config_get_int_value(config_bloque,posicion);
-		config_set_value(config_bloque,posicion,string_itoa(cantidad_previa-1));
+
+		char* cant_previa_menos_uno = string_itoa(cantidad_previa - 1);
+		config_set_value(config_bloque, posicion, cant_previa_menos_uno);
+		free(cant_previa_menos_uno);
+
 	}
 
 	config_save(config_bloque);
@@ -307,13 +314,19 @@ void restar_uno_pos_catch(t_catch_pokemon* mensaje_catch){
 
 	actualizar_size_metadata(mensaje_catch->pokemon);
 
-	int tamanio_bloque = tamanio_archivo(block_path(bloque_con_posicion));
+	int tamanio_bloque = tamanio_archivo(block_p);
 
 	if( tamanio_bloque == 0 ){
 		sacar_bloque_de_metadata(mensaje_catch->pokemon,bloque_con_posicion);
 	}
 
 	compactar_bloques(bloques, mensaje_catch->pokemon);
+
+	for(int i = 0; bloques[i] != NULL; i++) free(bloques[i]);
+	free(bloques);
+	free(posicion);
+	free(block_p);
+
 }
 
 void compactar_bloques(char** bloques, char* pokemon){
@@ -390,9 +403,7 @@ void copactar_bloques_si_corresponde(int bloque_a_vaciar, int bloque_a_llenar,ch
 
 					config_remove_key(config_1, key);
 
-					free(value);
-
-					// NO PONER free(key). ROMPE
+					// NO PONER free(key). ni tampoco free(value) ROMPE
 
 			}
 
