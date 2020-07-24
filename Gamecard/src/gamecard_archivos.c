@@ -1,12 +1,17 @@
 #include "gamecard.h"
 
 t_config* read_pokemon_metadata(char* table) {
-	t_config* config_pokemon = config_create(pokemon_metadata_path(table));
+	char* poke_p = pokemon_metadata_path(table);
+	t_config* config_pokemon = config_create(poke_p);
+	free(poke_p);
     return config_pokemon;
 }
 
 t_config* read_file_metadata(char* table){
-	return config_create(files_base_path(table));
+	char* file_p = files_base_path(table);
+	t_config* config_file = config_create(file_p);
+	free(file_p);
+	return config_file;
 }
 
 char** extraer_bloques(char* pokemon){ //TODO destroy config?
@@ -113,16 +118,20 @@ bool file_existing(char* path){
 
 // TAMANIOS DE ARCHIVOS Y SUS ATRIBUTOS
 int tamanio_bloque(){
-	t_config* config_tamanio = leer_config(metadata_path());
+	char* meta_p = metadata_path();
+	t_config* config_tamanio = leer_config(meta_p);
 	int tamanio = config_get_int_value(config_tamanio,"BLOCK_SIZE");
 	config_destroy(config_tamanio);
+	free(meta_p);
 	return tamanio;
 }
 
 int cantidad_bloques(){
-	t_config* config_cantidad = leer_config(metadata_path());
+	char* meta_p = metadata_path();
+	t_config* config_cantidad = leer_config(meta_p);
 	int cantidad = config_get_int_value(config_cantidad, "BLOCKS");
 	config_destroy(config_cantidad);
+	free(meta_p);
 	return cantidad;
 }
 
@@ -196,7 +205,9 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 	if(posicion_existente){
 		log_trace(logger,"La posicion ya existia, se va a borrar la sentencia y escribir en otro bloque");
 		int bloque_viejo = encontrar_bloque_con_posicion(posicion,bloques_pokemon);
-		t_config* config_bloque_viejo = config_create(block_path(bloque_viejo));
+		char* block_p = block_path(bloque_viejo);
+		t_config* config_bloque_viejo = config_create(block_p);
+		free(block_p);
 		int cantidad_vieja = config_get_int_value(config_bloque_viejo,posicion);
 		int cantidad_total = cantidad_vieja + mensaje_new->cantidad;
 
@@ -206,7 +217,9 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 		}
 
 		config_remove_key(config_bloque_viejo,posicion);
-		config_set_value(config_bloque_nuevo, posicion, string_itoa(cantidad_total));
+		char* cant_t = string_itoa(cantidad_total);
+		config_set_value(config_bloque_nuevo, posicion, cant_t);
+		free(cant_t);
 
 		config_save(config_bloque_viejo);
 		config_destroy(config_bloque_viejo);
@@ -217,7 +230,9 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 			return;
 		}
 		log_trace(logger,"Se escribe la posicion en otro bloque ya que no existia");
-		config_set_value(config_bloque_nuevo, posicion, string_itoa(mensaje_new->cantidad));
+		char* cant_n = string_itoa(mensaje_new->cantidad);
+		config_set_value(config_bloque_nuevo, posicion, cant_n);
+		free(cant_n);
 
 	}
 	log_trace(logger,"Termino agregar bloque vacio");
