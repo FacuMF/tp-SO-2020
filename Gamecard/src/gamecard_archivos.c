@@ -163,7 +163,15 @@ int size_bytes(char* data) {
 }
 
 bool sentencia_sobrepasa_tamanio_maximo(int posx, int posy, int cantidad){
-	int tamanio_sentencia = string_length(string_itoa(posx)) + string_length(string_itoa(posy)) + string_length(string_itoa(cantidad)) + 2; // CHEQUEAR
+	char* px = string_itoa(posx);
+	char* py = string_itoa(posy);
+	char* cant = string_itoa(cantidad);
+	int tamanio_sentencia = string_length(px) + string_length(py) + string_length(cant) + 2;
+
+	free(px);
+	free(py);
+	free(cant);
+
 	return tamanio_sentencia > tamanio_bloque();
 }
 
