@@ -199,7 +199,6 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 	char** bloques_pokemon = extraer_bloques(mensaje_new->pokemon);
 	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 
-	t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
 	char* block_p = block_path(contador);
 	t_config* config_bloque_nuevo = config_create(block_p);
 	free(block_p);
