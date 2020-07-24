@@ -162,7 +162,9 @@ int tamanio_todos_los_bloques(char** bloques){
 	int tamanio=0;
 	int i=0;
 	while(bloques[i]!=NULL){
-		tamanio += tamanio_archivo(block_path(atoi(bloques[i])));
+		char* block_p = block_path(atoi(bloques[i]));
+		tamanio += tamanio_archivo(block_p);
+		free(block_p);
 		i++;
 	}
 	log_trace(logger,"Tamanio de todos los bloques del pokemon: %d",tamanio);

@@ -196,8 +196,8 @@ void asignar_bloque(t_new_pokemon* mensaje_new, int posicion_existente){
 }
 
 void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion_existente){
-	char** bloques_pokemon = extraer_bloques(mensaje_new->pokemon);   // free
-	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy); // free
+	char** bloques_pokemon = extraer_bloques(mensaje_new->pokemon);
+	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 
 	t_config* config_metadata = read_pokemon_metadata(mensaje_new->pokemon);
 	char* block_p = block_path(contador);
@@ -247,12 +247,19 @@ void asignar_bloque_vacio(t_new_pokemon* mensaje_new, int contador, int posicion
 	bitarray_set_bit(bitmap_bloques,contador);
 	save_bitmap();
 	pthread_mutex_unlock(&mutex_bitmap);
+
+	free(posicion);
+	for(int i=0;bloques_pokemon[i] != NULL;i++) free(bloques_pokemon[i]);
+	free(bloques_pokemon);
 }
 
 int encontrar_bloque_con_posicion(char* posicion, char** bloques){
 	int n=0;
 	while(bloques[n]!=NULL){
-		t_config* config_bloque = config_create(block_path(atoi(bloques[n])));
+		char* block_p = block_path(atoi(bloques[n]));
+		t_config* config_bloque = config_create(block_p);
+		free(block_p);
+
 		if (config_has_property(config_bloque,posicion)){
 			config_destroy(config_bloque);
 			return atoi(bloques[n]);
@@ -266,25 +273,45 @@ int encontrar_bloque_con_posicion(char* posicion, char** bloques){
 
 
 
-void agregar_bloque_metadata(char* pokemon, int bloque_nuevo){ // Chequear bien esta funcion
-	t_config* config_metadata = config_create(pokemon_metadata_path(pokemon));
-	log_trace(logger,"Path del metadata yendo a agregar el bloque: %s",pokemon_metadata_path(pokemon));
+	// Chequear bien esta funcion
+void agregar_bloque_metadata(char* pokemon, int bloque_nuevo) {
+	char* poke_meta = pokemon_metadata_path(pokemon);
+	t_config* config_metadata = config_create(poke_meta);
+	log_trace(logger,"Path del metadata yendo a agregar el bloque: %s",poke_meta);
+	free(poke_meta);
+	
 	char* bloques = config_get_string_value(config_metadata,"BLOCKS");
 	char* bloques_final;
 
-	bool esta_al_principio = string_contains(bloques,concat("[",concat(string_itoa(bloque_nuevo),",")));
-	bool esta_al_medio = string_contains(bloques,concat(",",concat(string_itoa(bloque_nuevo),",")));
-	bool esta_al_final = string_contains(bloques,concat(",",concat(string_itoa(bloque_nuevo),"]")));
-	bool es_el_unico = string_contains(bloques,concat("[",concat(string_itoa(bloque_nuevo),"]")));
+
+	char* bloque_n = string_itoa(bloque_nuevo);
+	char* conca_coma = concat(bloque_n, ",");
+	char* conca_cor = concat(bloque_n, "]");
+	char* conca1 = concat("[", conca_coma);
+	char* conca2 = concat(",", conca_coma);
+	char* conca3 = concat(",", conca_cor);
+	char* conca4 = concat("[", conca_cor);
+
+	bool esta_al_principio = string_contains(bloques, conca1);
+	bool esta_al_medio = string_contains(bloques, conca2);
+	bool esta_al_final = string_contains(bloques, conca3);
+	bool es_el_unico = string_contains(bloques, conca4);
+
+
+
 	if(esta_al_principio || esta_al_medio || esta_al_final || es_el_unico) return;
 
 	if(strlen(bloques)==2){
-		bloques_final = concat(concat("[",string_itoa(bloque_nuevo)),"]");
+		char* bloque_parcial = concat("[", bloque_n);
+		bloques_final = concat(bloque_parcial, "]");
+		free(bloque_parcial);
 	}else{
 		bloques[strlen(bloques)-1] = ',';
-		char* aux1 = concat(bloques,string_itoa(bloque_nuevo));
+		char* aux1 = concat(bloques,bloque_n);
 		bloques_final = concat(aux1,"]");
+		free(aux1);
 	}
+
 
 	config_set_value(config_metadata,"BLOCKS",bloques_final);
 	log_trace(logger,"Lo que se seteo: %s",config_get_string_value(config_metadata,"BLOCKS"));
@@ -292,12 +319,30 @@ void agregar_bloque_metadata(char* pokemon, int bloque_nuevo){ // Chequear bien 
 	config_save(config_metadata);
 	config_destroy(config_metadata);
 
+
+	free(bloque_n);
+	free(conca_coma);
+	free(conca_cor);
+	free(conca1);
+	free(conca2);
+	free(conca3);
+	free(conca4);
+	free(bloques_final);
+	free(bloques);
+
 }
 
 void actualizar_size_metadata(char* pokemon){
-	t_config* config_metadata = config_create(pokemon_metadata_path(pokemon));
+	char* meta_p = pokemon_metadata_path(pokemon);
+	t_config* config_metadata = config_create(meta_p);
+	free(meta_p);
+
 	int tamanio_definitivo = tamanio_todos_los_bloques(extraer_bloques(pokemon));
-	config_set_value(config_metadata, "SIZE", string_itoa(tamanio_definitivo));
+
+	char* tamanio_d = string_itoa(tamanio_definitivo);
+	config_set_value(config_metadata, "SIZE", tamanio_d);
+	free(tamanio_d);
+
 	config_save(config_metadata);
 	config_destroy(config_metadata);
 
@@ -312,7 +357,10 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 
 	while(bloques[n]!=NULL){
 
-		t_config* config_bloque = config_create(block_path(atoi(bloques[n])));
+		char* block_p = block_path(atoi(bloques[n]));
+		t_config* config_bloque = config_create(block_p);
+		free(block_p);
+
 		t_dictionary* diccionario_bloque = config_bloque->properties;
 
 		void agregar_posicion_a_lista(void* element){
@@ -333,6 +381,9 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 	}
 
 	t_localized_pokemon* pokemon_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_posiciones);
+
+	for(int i=0;bloques[i] != NULL;i++) free(bloques[i]);
+	free(bloques);
 	return pokemon_localized;
 }
 
