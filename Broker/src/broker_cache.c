@@ -77,9 +77,10 @@ void cachear_mensaje(int size_stream, int id_mensaje, int tipo_mensaje,
 							id_mensaje, tamano_a_cachear);
 
 			if (queda_espacio_libre(tamano_a_cachear,
-					list_get(struct_admin_cache, 0)))
+					list_get(struct_admin_cache, 0))){
+				log_debug(logger, "voy a crear particion vacia");
 				crear_y_agregar_particion_sobrante(tamano_a_cachear);
-
+			}
 			borrar_particiones_del_inicio(1);
 
 			agregar_mensaje_a_cache(mensaje_a_cachear, size_stream,
@@ -189,6 +190,10 @@ void crear_y_agregar_particion_sobrante(int tamanio_cacheado) {
 		int tamanio_proxima_particion_vacia = tamanio_cacheado;
 		int offset_proxima_particion_vacia = (particion_a_llenar->offset)
 				+ tamanio_cacheado;
+
+		if(!offset_proxima_particion_vacia==tamano_memoria)//todo revisar
+			break;
+
 
 		while (tamano_a_rellenar > 0) {
 			agrego_part_vacia(offset_proxima_particion_vacia,
@@ -332,7 +337,7 @@ t_list* lista_subs_eviados(int tipo_mensaje) {
 
 _Bool queda_espacio_libre(int tamano_mensaje_a_cachear,
 		t_mensaje_cache* particion_vacia) {
-	return particion_vacia->tamanio >= tamano_mensaje_a_cachear;
+	return particion_vacia->tamanio > tamano_mensaje_a_cachear;
 }
 
 t_mensaje_cache* crear_particion_sobrante(int tamanio_mensaje_cacheado,
