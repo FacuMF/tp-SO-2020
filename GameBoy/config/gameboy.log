@@ -98,3 +98,17 @@
 [INFO] 06:09:59:630 GameBoy/(8489:8489): Se establecio conexion al proceso Broker.
 [INFO] 06:09:59:631 GameBoy/(8491:8491): Se establecio conexion al proceso Broker.
 [INFO] 06:10:27:909 GameBoy/(8543:8543): Se establecio conexion al proceso Broker.
+[INFO] 06:56:23:970 GameBoy/(11965:11965): Se establecio conexion al proceso Broker.
+[INFO] 06:56:23:971 GameBoy/(11965:11965): Llegada de nuevo mensaje a la cola CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 0, id correlativo: 1.
+[INFO] 06:56:23:972 GameBoy/(11968:11968): Se establecio conexion al proceso Broker.
+[INFO] 06:56:23:973 GameBoy/(11968:11968): Llegada de nuevo mensaje a la cola CAUGHT_POKEMON: ok/fail: 0 ID mensaje: 1, id correlativo: 2.
+[INFO] 06:56:23:974 GameBoy/(11971:11971): Se establecio conexion al proceso Broker.
+[INFO] 06:56:23:975 GameBoy/(11971:11971): Llegada de nuevo mensaje a la cola NEW_POKEMON: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 3, Cantidad: 1, Id mensaje: 2.
+[INFO] 06:56:23:976 GameBoy/(11974:11974): Se establecio conexion al proceso Broker.
+[INFO] 06:56:23:977 GameBoy/(11974:11974): Llegada de nuevo mensaje a la cola CATCH_POKEMON: Pokemon: Onyx, Posicion X: 4, Posicion Y: 5, Id mensaje: 3.
+[INFO] 06:56:23:978 GameBoy/(11977:11977): Se establecio conexion al proceso SUSCRIPTOR.
+[INFO] 06:56:23:978 GameBoy/(11977:11977): Se realizo suscripcion a la cola.
+[INFO] 06:56:23:979 GameBoy/(11977:11977): Suscripcion a cola de mensajes NO RECONOCIDO.
+[INFO] 06:56:23:979 GameBoy/(11977:11977): Llegada de nuevo mensaje a la cola NEW_POKEMON: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 3, Cantidad: 1, Id mensaje: 2.
+[INFO] 06:56:33:0 GameBoy/(11987:11987): Se establecio conexion al proceso Broker.
+[INFO] 06:56:33:1 GameBoy/(11987:11987): Llegada de nuevo mensaje a la cola CATCH_POKEMON: Pokemon: Charmander, Posicion X: 4, Posicion Y: 5, Id mensaje: 4.
