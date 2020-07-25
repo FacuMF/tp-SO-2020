@@ -541,15 +541,28 @@ void particion_consolidada_adelante() {
 void consolidar_con_siguiente() {
 	log_trace(logger, "Se consolida con el siguiente.");
 	ordeno_dejando_victima_y_siguiente_adelante();
-	agregar_particion_segun_vicima_y_siguiente();
-	borrar_particiones_del_inicio(2); // borrar victima y siguiente
+	t_mensaje_cache * mensaje = list_get(struct_admin_cache,0); //todo revisar
+	t_mensaje_cache * mensaje2 = list_get(struct_admin_cache,1);
+	int ambas_son_iguales = (mensaje->tamanio == mensaje2->tamanio);
+
+	if(algoritmo_memoria == BS && ambas_son_iguales){
+		agregar_particion_segun_vicima_y_siguiente();
+		borrar_particiones_del_inicio(2); // borrar victima y siguiente
+	}
 }
 
 void consolidar_con_anterior() {
 	log_trace(logger, "Se consolida con el anterior.");
 	ordeno_dejando_anterior_y_victima_adelante();
-	agregar_particion_segun_anterior_y_victima();
-	borrar_particiones_del_inicio(2); // borrar victima y anterior
+
+	t_mensaje_cache * mensaje = list_get(struct_admin_cache,0); //todo: revisar
+	t_mensaje_cache * mensaje2 = list_get(struct_admin_cache,1);
+	int ambas_son_iguales = (mensaje->tamanio == mensaje2->tamanio);
+
+	if(algoritmo_memoria == BS && ambas_son_iguales){
+		agregar_particion_segun_anterior_y_victima();
+		borrar_particiones_del_inicio(2); // borrar victima y anterior
+	}
 }
 
 void consolidar_con_anterior_y_siguiente() {
@@ -624,8 +637,10 @@ _Bool es_ultima_part() {
 
 void borrar_particiones_del_inicio(int cant_particiones_a_borrar) {
 	for (int var = 0; var < cant_particiones_a_borrar; ++var) {
+		log_debug(logger,"1la cache tiene %i particiones", list_size(struct_admin_cache));//TODO
 		list_remove_and_destroy_element(struct_admin_cache, 0, free);
-		//list_remove_and_destroy_element(struct_admin_cache, 0, liverar_t_mensaje_cache ); //Da seg fault, revisar
+		log_debug(logger,"2la cache tiene %i particiones", list_size(struct_admin_cache));//TODO
+		//list_remove_and_destroy_element(struct_admin_cache, 0, liberar_t_mensaje_cache ); //Da seg fault, revisar
 
 	}
 	log_trace(logger,
