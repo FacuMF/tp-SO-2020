@@ -30,16 +30,21 @@ void manejar_appeared_aux(void * element) {
 void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	pthread_mutex_lock(&manejar_mensaje);
 
-	//TODO: Testear con gamecard el necesito mensaje
 	if ((!necesito_mensaje(mensaje_localized->id_correlativo))
 			|| (!requiero_pokemon(mensaje_localized->pokemon))
 			|| (pokemon_en_lista(pokemones_recibidos,
 					mensaje_localized->pokemon))) {
-		liberar_mensaje_localized_pokemon(mensaje_localized);
 		pthread_mutex_unlock(&manejar_mensaje);
+
+		//TODO: TT
+		char * mensaje_localized_mostrado = mostrar_localized(mensaje_localized);
+		log_debug(logger, "Mensaje descartado: %s",mensaje_localized_mostrado);
+		liberar_mensaje_localized_pokemon(mensaje_localized);
+		free(mensaje_localized_mostrado);
+
 		return; // Mensaje descartado
 	}
-	log_trace(logger, "Manejo mensaje localized");
+	log_debug(logger, "Manejo mensaje localized");
 
 	list_add(pokemones_recibidos, mensaje_localized->pokemon);
 
@@ -53,18 +58,23 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 
 	t_list * mensajes_appeared_equivalentes = de_localized_a_lista_appeared(
 			mensaje_localized);
-	t_list * mensajes_appeared_necesitados = list_take_and_remove(
-			mensajes_appeared_equivalentes, necesitados);
 
-	list_iterate(mensajes_appeared_necesitados, manejar_appeared_aux);
+	int a_manejar = (mensaje_localized->cantidad_posiciones < necesitados)? mensaje_localized->cantidad_posiciones : necesitados;
+
+
+	t_list * mensajes_appeared_necesitados = list_take_and_remove(
+			mensajes_appeared_equivalentes, a_manejar);
+
 
 	list_add_all(appeared_auxiliares, mensajes_appeared_equivalentes);
 
 	list_destroy(mensajes_appeared_equivalentes);
-	list_destroy(mensajes_appeared_necesitados);
 	liberar_mensaje_localized_pokemon(mensaje_localized);
 
 	pthread_mutex_unlock(&manejar_mensaje);
+
+	list_iterate(mensajes_appeared_necesitados, manejar_appeared_aux);
+	list_destroy(mensajes_appeared_necesitados);
 }
 
 void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador) {
@@ -84,6 +94,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 
 	char * pokemon = entrenador->catch_pendiente->pokemon;
 	if (mensaje_caught->ok_or_fail) { // SI LO ATRAPO
+		log_debug(logger, "lo atrapó!");
 		list_add(entrenador->pokemones_capturados, pokemon);
 
 		pthread_mutex_lock(&mutex_pokemones_necesitados);
@@ -177,13 +188,14 @@ int pokemon_asignado_a_entrenador(char * pokemon) {
 // AUXILIARES - Mensajes
 int necesito_mensaje(int id_mensaje) {
 	bool corresponde_con_id_buscado(void * element) {
-		int id = (int) element;
+		int id = (int)element;
 		return id == id_mensaje;
 	}
 	pthread_mutex_lock(&mutex_ids_mensajes);
-	int result = list_find(ids_mensajes_utiles,
-			corresponde_con_id_buscado) != NULL;
+	int result = list_find(ids_mensajes_utiles,corresponde_con_id_buscado) != NULL;
 	pthread_mutex_unlock(&mutex_ids_mensajes);
+
+	log_debug(logger,"Necesito mensaje = %i",result);
 
 	return result;
 }

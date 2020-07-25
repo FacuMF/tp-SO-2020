@@ -34,7 +34,11 @@ int requiero_pokemon(char * pokemon){
 	necesitados -= cantidad_entrenadores_buscando_pokemon(pokemon);
 	pthread_mutex_unlock(&mutex_pokemones_necesitados);
 
-	return necesitados>0;
+	int result = necesitados>0;
+
+	log_debug(logger,"Requiero mensaje = %i",result);
+
+	return result;
 }
 
 int pokemon_en_lista(t_list * lista_pokemones,char * pokemon){
@@ -42,7 +46,11 @@ int pokemon_en_lista(t_list * lista_pokemones,char * pokemon){
 		char * pokemon_a_comparar =elemento;
 		return !strcasecmp(pokemon_a_comparar,pokemon);
 	}
-	return list_any_satisfy(lista_pokemones,pokemon_igual_aux);
+	int result = list_any_satisfy(lista_pokemones,pokemon_igual_aux);
+
+	log_debug(logger,"Pokemon en lista = %i",result);
+
+	return result;
 }
 
 int cantidad_repeticiones_en_lista(t_list * lista_pokemones, char *pokemon ){
