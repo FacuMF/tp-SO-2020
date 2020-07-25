@@ -1,0 +1,1002 @@
+[INFO] 05:41:31:827 Gamecard/(4206:4210): Inicio reintento de comunicacion con Broker
+[INFO] 05:41:31:828 Gamecard/(4206:4210): Reintento de comunicación con broker fallido
+[INFO] 05:41:39:735 Gamecard/(4206:4297): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:41:39:736 Gamecard/(4206:4300): File del pokemon no existente, lo creo.
+[INFO] 05:41:39:736 Gamecard/(4206:4300): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:41:42:754 Gamecard/(4206:4300): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 05:41:42:755 Gamecard/(4206:4300): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:41:56:8 Gamecard/(4206:4330): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:41:56:17 Gamecard/(4206:4334): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:41:56:18 Gamecard/(4206:4336): File del pokemon no existente, lo creo.
+[INFO] 05:41:56:20 Gamecard/(4206:4339): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:41:56:22 Gamecard/(4206:4341): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:41:56:23 Gamecard/(4206:4344): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:41:56:24 Gamecard/(4206:4347): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:41:56:25 Gamecard/(4206:4350): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:41:56:27 Gamecard/(4206:4353): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:41:56:54 Gamecard/(4206:4336): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:41:56:64 Gamecard/(4206:4340): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:41:59:38 Gamecard/(4206:4332): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 05:41:59:39 Gamecard/(4206:4332): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:41:59:68 Gamecard/(4206:4336): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 05:41:59:68 Gamecard/(4206:4336): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:15:880 Gamecard/(4498:4498): Log inicializado
+[TRACE] 05:43:15:970 Gamecard/(4498:4498): Crear metadata
+[TRACE] 05:43:17:66 Gamecard/(4498:4498): Save bitmap.
+[TRACE] 05:43:17:239 Gamecard/(4498:4498): Iniciando conexion con gameboy
+[TRACE] 05:43:17:277 Gamecard/(4498:4498): Esperando Cliente
+[TRACE] 05:43:17:247 Gamecard/(4498:4515): Hilos de suscripcion lanzados
+[TRACE] 05:43:20:333 Gamecard/(4498:4498): Cliente aceptado: 5.
+[TRACE] 05:43:20:390 Gamecard/(4498:4498): Esperando Cliente
+[TRACE] 05:43:20:405 Gamecard/(4498:4525): Codigo de operacion cod_op: 3.
+[INFO] 05:43:20:409 Gamecard/(4498:4525): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:43:20:465 Gamecard/(4498:4525): Mensaje recibido manejado
+[TRACE] 05:43:20:487 Gamecard/(4498:4526): Manejar mensaje: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Cantidad: 10, Id mensaje: 9.
+[INFO] 05:43:20:497 Gamecard/(4498:4526): File del pokemon no existente, lo creo.
+[TRACE] 05:43:20:513 Gamecard/(4498:4526): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Pikachu/
+[TRACE] 05:43:20:515 Gamecard/(4498:4526): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.bin
+[TRACE] 05:43:20:517 Gamecard/(4498:4526): Ya se creo.
+[INFO] 05:43:20:521 Gamecard/(4498:4526): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:20:522 Gamecard/(4498:4526): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:20:523 Gamecard/(4498:4526): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:20:531 Gamecard/(4498:4526): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:20:552 Gamecard/(4498:4526): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:20:554 Gamecard/(4498:4526): Se abrio el archivo.
+[TRACE] 05:43:20:555 Gamecard/(4498:4526): Manejar bloques pokemon.
+[TRACE] 05:43:20:556 Gamecard/(4498:4526): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:20:570 Gamecard/(4498:4526): Agregar posicion.
+[TRACE] 05:43:20:573 Gamecard/(4498:4526): Paso el while sin entrar
+[TRACE] 05:43:20:576 Gamecard/(4498:4526): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 05:43:20:577 Gamecard/(4498:4526): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:20:586 Gamecard/(4498:4526): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 05:43:20:587 Gamecard/(4498:4526): Termino agregar bloque vacio
+[TRACE] 05:43:20:589 Gamecard/(4498:4526): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:20:597 Gamecard/(4498:4526): Lo que se seteo: [0]
+[TRACE] 05:43:20:598 Gamecard/(4498:4526): Bloques final: [0]
+[TRACE] 05:43:20:606 Gamecard/(4498:4526): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:20:623 Gamecard/(4498:4526): El archivo actualmente ocupa: 7 
+
+[TRACE] 05:43:20:624 Gamecard/(4498:4526): Tamanio de todos los bloques del pokemon: 7
+[TRACE] 05:43:20:630 Gamecard/(4498:4526): Save bitmap.
+[TRACE] 05:43:20:728 Gamecard/(4498:4526): Posicion agregada/sumada
+[TRACE] 05:43:23:732 Gamecard/(4498:4526): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:23:736 Gamecard/(4498:4526): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:43:23:743 Gamecard/(4498:4526): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 05:43:23:745 Gamecard/(4498:4526): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:23:757 Gamecard/(4498:4526): Recepcion confirmada: 5 3 9
+[TRACE] 05:43:25:989 Gamecard/(4498:4498): Cliente aceptado: 10.
+[TRACE] 05:43:25:993 Gamecard/(4498:4498): Esperando Cliente
+[TRACE] 05:43:25:994 Gamecard/(4498:4498): Cliente aceptado: 12.
+[TRACE] 05:43:25:996 Gamecard/(4498:4541): Codigo de operacion cod_op: 3.
+[TRACE] 05:43:25:996 Gamecard/(4498:4498): Esperando Cliente
+[TRACE] 05:43:25:998 Gamecard/(4498:4543): Codigo de operacion cod_op: 3.
+[INFO] 05:43:25:998 Gamecard/(4498:4541): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:43:26:47 Gamecard/(4498:4541): Mensaje recibido manejado
+[TRACE] 05:43:26:49 Gamecard/(4498:4551): Manejar mensaje: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Cantidad: 3, Id mensaje: 1.
+[INFO] 05:43:26:49 Gamecard/(4498:4543): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:43:26:49 Gamecard/(4498:4498): Cliente aceptado: 13.
+[TRACE] 05:43:26:51 Gamecard/(4498:4543): Mensaje recibido manejado
+[TRACE] 05:43:26:105 Gamecard/(4498:4498): Esperando Cliente
+[TRACE] 05:43:26:106 Gamecard/(4498:4498): Cliente aceptado: 14.
+[TRACE] 05:43:26:144 Gamecard/(4498:4552): Manejar mensaje: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Cantidad: 101, Id mensaje: 2.
+[TRACE] 05:43:26:144 Gamecard/(4498:4553): Codigo de operacion cod_op: 3.
+[INFO] 05:43:26:148 Gamecard/(4498:4553): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:43:26:148 Gamecard/(4498:4553): Mensaje recibido manejado
+[TRACE] 05:43:26:149 Gamecard/(4498:4554): Codigo de operacion cod_op: 3.
+[INFO] 05:43:26:149 Gamecard/(4498:4554): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:43:26:150 Gamecard/(4498:4554): Mensaje recibido manejado
+[TRACE] 05:43:26:152 Gamecard/(4498:4556): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Cantidad: 1, Id mensaje: 4.
+[TRACE] 05:43:26:146 Gamecard/(4498:4551): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:26:153 Gamecard/(4498:4555): Manejar mensaje: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Cantidad: 15, Id mensaje: 3.
+[TRACE] 05:43:26:145 Gamecard/(4498:4498): Esperando Cliente
+[TRACE] 05:43:26:156 Gamecard/(4498:4551): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:26:157 Gamecard/(4498:4498): Cliente aceptado: 15.
+[TRACE] 05:43:26:161 Gamecard/(4498:4551): Se abrio el archivo.
+[TRACE] 05:43:26:161 Gamecard/(4498:4498): Esperando Cliente
+[TRACE] 05:43:26:162 Gamecard/(4498:4498): Cliente aceptado: 16.
+[TRACE] 05:43:26:205 Gamecard/(4498:4551): Manejar bloques pokemon.
+[TRACE] 05:43:26:206 Gamecard/(4498:4551): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:26:211 Gamecard/(4498:4551): Agregar posicion.
+[TRACE] 05:43:26:211 Gamecard/(4498:4557): Codigo de operacion cod_op: 3.
+[INFO] 05:43:26:212 Gamecard/(4498:4552): File del pokemon no existente, lo creo.
+[TRACE] 05:43:26:213 Gamecard/(4498:4551): Entro al while
+[TRACE] 05:43:26:212 Gamecard/(4498:4558): Codigo de operacion cod_op: 3.
+[TRACE] 05:43:26:214 Gamecard/(4498:4498): Esperando Cliente
+[INFO] 05:43:26:214 Gamecard/(4498:4557): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:43:26:258 Gamecard/(4498:4557): Mensaje recibido manejado
+[TRACE] 05:43:26:259 Gamecard/(4498:4552): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Charmander/
+[TRACE] 05:43:26:262 Gamecard/(4498:4559): Manejar mensaje: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Cantidad: 29, Id mensaje: 5.
+[TRACE] 05:43:26:266 Gamecard/(4498:4551): El archivo actualmente ocupa: 7 
+
+[INFO] 05:43:26:266 Gamecard/(4498:4558): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:43:26:267 Gamecard/(4498:4498): Cliente aceptado: 18.
+[TRACE] 05:43:26:267 Gamecard/(4498:4552): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.bin
+[TRACE] 05:43:26:269 Gamecard/(4498:4551): Tamanio total del archivo al escribir la sentencia: 12
+[TRACE] 05:43:26:272 Gamecard/(4498:4551): Tamanio de bloques: 64
+[TRACE] 05:43:26:277 Gamecard/(4498:4558): Mensaje recibido manejado
+[TRACE] 05:43:26:280 Gamecard/(4498:4551): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:26:285 Gamecard/(4498:4552): Ya se creo.
+[INFO] 05:43:26:286 Gamecard/(4498:4552): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:286 Gamecard/(4498:4552): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:287 Gamecard/(4498:4552): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:288 Gamecard/(4498:4552): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:289 Gamecard/(4498:4498): Esperando Cliente
+[TRACE] 05:43:26:291 Gamecard/(4498:4498): Cliente aceptado: 19.
+[TRACE] 05:43:26:338 Gamecard/(4498:4560): Manejar mensaje: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Cantidad: 3001, Id mensaje: 6.
+[TRACE] 05:43:26:291 Gamecard/(4498:4551): El archivo actualmente ocupa: 13 
+
+[TRACE] 05:43:26:339 Gamecard/(4498:4551): Tamanio de todos los bloques del pokemon: 13
+[TRACE] 05:43:26:341 Gamecard/(4498:4551): Posicion agregada/sumada
+[TRACE] 05:43:26:343 Gamecard/(4498:4552): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:344 Gamecard/(4498:4552): Se abrio el archivo.
+[TRACE] 05:43:26:344 Gamecard/(4498:4498): Esperando Cliente
+[TRACE] 05:43:26:345 Gamecard/(4498:4562): Codigo de operacion cod_op: 3.
+[TRACE] 05:43:26:342 Gamecard/(4498:4561): Codigo de operacion cod_op: 3.
+[TRACE] 05:43:26:349 Gamecard/(4498:4552): Manejar bloques pokemon.
+[TRACE] 05:43:26:350 Gamecard/(4498:4552): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:351 Gamecard/(4498:4552): Agregar posicion.
+[TRACE] 05:43:26:354 Gamecard/(4498:4552): Paso el while sin entrar
+[TRACE] 05:43:26:361 Gamecard/(4498:4556): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:363 Gamecard/(4498:4552): Bit: 0 estado: 1
+[TRACE] 05:43:26:371 Gamecard/(4498:4552): Va a proceder a asignar el bloque vacio:  1
+[TRACE] 05:43:26:371 Gamecard/(4498:4552): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:374 Gamecard/(4498:4552): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 05:43:26:375 Gamecard/(4498:4552): Termino agregar bloque vacio
+[TRACE] 05:43:26:376 Gamecard/(4498:4552): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:377 Gamecard/(4498:4552): Lo que se seteo: [1]
+[TRACE] 05:43:26:378 Gamecard/(4498:4552): Bloques final: [1]
+[INFO] 05:43:26:364 Gamecard/(4498:4561): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:43:26:369 Gamecard/(4498:4556): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:26:369 Gamecard/(4498:4562): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:43:26:430 Gamecard/(4498:4552): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:26:432 Gamecard/(4498:4561): Mensaje recibido manejado
+[TRACE] 05:43:26:468 Gamecard/(4498:4562): Mensaje recibido manejado
+[TRACE] 05:43:26:431 Gamecard/(4498:4563): Manejar mensaje: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Cantidad: 34, Id mensaje: 7.
+[INFO] 05:43:26:471 Gamecard/(4498:4556): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:43:26:472 Gamecard/(4498:4552): El archivo actualmente ocupa: 8 
+
+[TRACE] 05:43:26:472 Gamecard/(4498:4552): Tamanio de todos los bloques del pokemon: 8
+[TRACE] 05:43:26:474 Gamecard/(4498:4552): Save bitmap.
+[TRACE] 05:43:26:500 Gamecard/(4498:4564): Manejar mensaje: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Cantidad: 11, Id mensaje: 8.
+[TRACE] 05:43:26:591 Gamecard/(4498:4552): Posicion agregada/sumada
+[TRACE] 05:43:29:355 Gamecard/(4498:4551): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:43:29:359 Gamecard/(4498:4551): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:43:29:361 Gamecard/(4498:4551): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 05:43:29:362 Gamecard/(4498:4551): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:29:362 Gamecard/(4498:4551): Recepcion confirmada: 10 3 1
+[TRACE] 05:43:29:599 Gamecard/(4498:4552): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:29:602 Gamecard/(4498:4552): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:29:609 Gamecard/(4498:4552): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 05:43:29:609 Gamecard/(4498:4552): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:29:611 Gamecard/(4498:4552): Recepcion confirmada: 12 3 2
+[TRACE] 05:43:31:473 Gamecard/(4498:4556): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:31:475 Gamecard/(4498:4556): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:31:476 Gamecard/(4498:4556): Reintentando operacion.
+[TRACE] 05:43:31:476 Gamecard/(4498:4556): Se abrio el archivo.
+[TRACE] 05:43:31:477 Gamecard/(4498:4556): Manejar bloques pokemon.
+[TRACE] 05:43:31:478 Gamecard/(4498:4555): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:31:479 Gamecard/(4498:4556): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:31:481 Gamecard/(4498:4555): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:31:484 Gamecard/(4498:4556): Agregar posicion.
+[INFO] 05:43:31:485 Gamecard/(4498:4555): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:43:31:486 Gamecard/(4498:4556): Entro al while
+[TRACE] 05:43:31:486 Gamecard/(4498:4556): El archivo actualmente ocupa: 8 
+
+[TRACE] 05:43:31:487 Gamecard/(4498:4556): Tamanio total del archivo al escribir la sentencia: 16
+[TRACE] 05:43:31:488 Gamecard/(4498:4556): Tamanio de bloques: 64
+[TRACE] 05:43:31:496 Gamecard/(4498:4556): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:31:498 Gamecard/(4498:4556): El archivo actualmente ocupa: 17 
+
+[TRACE] 05:43:31:499 Gamecard/(4498:4556): Tamanio de todos los bloques del pokemon: 17
+[TRACE] 05:43:31:501 Gamecard/(4498:4556): Posicion agregada/sumada
+[TRACE] 05:43:34:509 Gamecard/(4498:4556): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:34:512 Gamecard/(4498:4556): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:34:513 Gamecard/(4498:4556): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 05:43:34:514 Gamecard/(4498:4556): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:34:515 Gamecard/(4498:4556): Recepcion confirmada: 14 3 4
+[TRACE] 05:43:36:506 Gamecard/(4498:4555): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:36:509 Gamecard/(4498:4555): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:36:510 Gamecard/(4498:4555): Reintentando operacion.
+[TRACE] 05:43:36:511 Gamecard/(4498:4555): Se abrio el archivo.
+[TRACE] 05:43:36:511 Gamecard/(4498:4555): Manejar bloques pokemon.
+[TRACE] 05:43:36:512 Gamecard/(4498:4555): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:36:513 Gamecard/(4498:4559): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:36:515 Gamecard/(4498:4559): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:36:516 Gamecard/(4498:4559): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:43:36:518 Gamecard/(4498:4555): Agregar posicion.
+[TRACE] 05:43:36:521 Gamecard/(4498:4555): Entro al while
+[TRACE] 05:43:36:522 Gamecard/(4498:4555): El archivo actualmente ocupa: 17 
+
+[TRACE] 05:43:36:522 Gamecard/(4498:4555): Tamanio total del archivo al escribir la sentencia: 28
+[TRACE] 05:43:36:524 Gamecard/(4498:4555): Tamanio de bloques: 64
+[TRACE] 05:43:36:530 Gamecard/(4498:4555): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:36:532 Gamecard/(4498:4555): El archivo actualmente ocupa: 29 
+
+[TRACE] 05:43:36:533 Gamecard/(4498:4555): Tamanio de todos los bloques del pokemon: 29
+[TRACE] 05:43:36:534 Gamecard/(4498:4555): Posicion agregada/sumada
+[TRACE] 05:43:39:535 Gamecard/(4498:4555): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:39:538 Gamecard/(4498:4555): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:39:539 Gamecard/(4498:4555): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 05:43:39:540 Gamecard/(4498:4555): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:39:540 Gamecard/(4498:4555): Recepcion confirmada: 13 3 3
+[TRACE] 05:43:41:519 Gamecard/(4498:4559): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:41:521 Gamecard/(4498:4559): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:41:523 Gamecard/(4498:4559): Reintentando operacion.
+[TRACE] 05:43:41:523 Gamecard/(4498:4559): Se abrio el archivo.
+[TRACE] 05:43:41:525 Gamecard/(4498:4560): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:41:528 Gamecard/(4498:4560): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:41:529 Gamecard/(4498:4560): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:43:41:535 Gamecard/(4498:4559): Manejar bloques pokemon.
+[TRACE] 05:43:41:536 Gamecard/(4498:4559): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:41:540 Gamecard/(4498:4559): Agregar posicion.
+[TRACE] 05:43:41:541 Gamecard/(4498:4559): Entro al while
+[TRACE] 05:43:41:542 Gamecard/(4498:4559): El archivo actualmente ocupa: 29 
+
+[TRACE] 05:43:41:543 Gamecard/(4498:4559): Tamanio total del archivo al escribir la sentencia: 38
+[TRACE] 05:43:41:544 Gamecard/(4498:4559): Tamanio de bloques: 64
+[TRACE] 05:43:41:553 Gamecard/(4498:4559): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:41:555 Gamecard/(4498:4559): El archivo actualmente ocupa: 39 
+
+[TRACE] 05:43:41:556 Gamecard/(4498:4559): Tamanio de todos los bloques del pokemon: 39
+[TRACE] 05:43:41:558 Gamecard/(4498:4559): Posicion agregada/sumada
+[TRACE] 05:43:44:559 Gamecard/(4498:4559): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:44:563 Gamecard/(4498:4559): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:44:564 Gamecard/(4498:4559): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 05:43:44:565 Gamecard/(4498:4559): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:44:566 Gamecard/(4498:4559): Recepcion confirmada: 15 3 5
+[TRACE] 05:43:46:547 Gamecard/(4498:4560): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:46:549 Gamecard/(4498:4560): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:46:550 Gamecard/(4498:4560): Reintentando operacion.
+[TRACE] 05:43:46:551 Gamecard/(4498:4560): Se abrio el archivo.
+[TRACE] 05:43:46:552 Gamecard/(4498:4563): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:46:553 Gamecard/(4498:4563): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:46:554 Gamecard/(4498:4563): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:43:46:555 Gamecard/(4498:4560): Manejar bloques pokemon.
+[TRACE] 05:43:46:555 Gamecard/(4498:4560): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:46:560 Gamecard/(4498:4560): Agregar posicion.
+[TRACE] 05:43:46:561 Gamecard/(4498:4560): Entro al while
+[TRACE] 05:43:46:562 Gamecard/(4498:4560): El archivo actualmente ocupa: 39 
+
+[TRACE] 05:43:46:562 Gamecard/(4498:4560): Tamanio total del archivo al escribir la sentencia: 49
+[TRACE] 05:43:46:565 Gamecard/(4498:4560): Tamanio de bloques: 64
+[TRACE] 05:43:46:569 Gamecard/(4498:4560): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:46:571 Gamecard/(4498:4560): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:43:46:572 Gamecard/(4498:4560): Tamanio de todos los bloques del pokemon: 50
+[TRACE] 05:43:46:573 Gamecard/(4498:4560): Posicion agregada/sumada
+[INFO] 05:43:47:298 Gamecard/(4498:4515): Inicio reintento de comunicacion con Broker
+[INFO] 05:43:47:300 Gamecard/(4498:4515): Reintento de comunicación con broker fallido
+[TRACE] 05:43:49:584 Gamecard/(4498:4560): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:49:587 Gamecard/(4498:4560): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:49:588 Gamecard/(4498:4560): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 05:43:49:588 Gamecard/(4498:4560): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:49:589 Gamecard/(4498:4560): Recepcion confirmada: 16 3 6
+[TRACE] 05:43:51:556 Gamecard/(4498:4563): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:51:560 Gamecard/(4498:4563): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:51:561 Gamecard/(4498:4563): Reintentando operacion.
+[TRACE] 05:43:51:562 Gamecard/(4498:4563): Se abrio el archivo.
+[TRACE] 05:43:51:563 Gamecard/(4498:4564): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:51:563 Gamecard/(4498:4563): Manejar bloques pokemon.
+[TRACE] 05:43:51:564 Gamecard/(4498:4563): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:51:567 Gamecard/(4498:4563): Agregar posicion.
+[TRACE] 05:43:51:569 Gamecard/(4498:4563): Entro al while
+[TRACE] 05:43:51:570 Gamecard/(4498:4563): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:43:51:570 Gamecard/(4498:4563): Tamanio total del archivo al escribir la sentencia: 58
+[TRACE] 05:43:51:572 Gamecard/(4498:4563): Tamanio de bloques: 64
+[TRACE] 05:43:51:568 Gamecard/(4498:4564): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:51:575 Gamecard/(4498:4564): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:43:51:582 Gamecard/(4498:4563): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:51:584 Gamecard/(4498:4563): El archivo actualmente ocupa: 59 
+
+[TRACE] 05:43:51:585 Gamecard/(4498:4563): Tamanio de todos los bloques del pokemon: 59
+[TRACE] 05:43:51:665 Gamecard/(4498:4563): Posicion agregada/sumada
+[TRACE] 05:43:54:666 Gamecard/(4498:4563): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:54:669 Gamecard/(4498:4563): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:54:672 Gamecard/(4498:4563): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 05:43:54:675 Gamecard/(4498:4563): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:54:676 Gamecard/(4498:4563): Recepcion confirmada: 18 3 7
+[TRACE] 05:43:56:596 Gamecard/(4498:4564): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:56:599 Gamecard/(4498:4564): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:56:601 Gamecard/(4498:4564): Reintentando operacion.
+[TRACE] 05:43:56:602 Gamecard/(4498:4564): Se abrio el archivo.
+[TRACE] 05:43:56:602 Gamecard/(4498:4564): Manejar bloques pokemon.
+[TRACE] 05:43:56:603 Gamecard/(4498:4564): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:56:606 Gamecard/(4498:4564): Agregar posicion.
+[TRACE] 05:43:56:607 Gamecard/(4498:4564): Entro al while
+[TRACE] 05:43:56:607 Gamecard/(4498:4564): El archivo actualmente ocupa: 59 
+
+[TRACE] 05:43:56:608 Gamecard/(4498:4564): Tamanio total del archivo al escribir la sentencia: 69
+[TRACE] 05:43:56:609 Gamecard/(4498:4564): Tamanio de bloques: 64
+[TRACE] 05:43:56:611 Gamecard/(4498:4564): Paso el while sin entrar
+[TRACE] 05:43:56:612 Gamecard/(4498:4564): Bit: 0 estado: 1
+[TRACE] 05:43:56:613 Gamecard/(4498:4564): Bit: 1 estado: 1
+[TRACE] 05:43:56:614 Gamecard/(4498:4564): Va a proceder a asignar el bloque vacio:  2
+[TRACE] 05:43:56:615 Gamecard/(4498:4564): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:56:618 Gamecard/(4498:4564): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 05:43:56:619 Gamecard/(4498:4564): Termino agregar bloque vacio
+[TRACE] 05:43:56:620 Gamecard/(4498:4564): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:56:622 Gamecard/(4498:4564): Lo que se seteo: [1,2]
+[TRACE] 05:43:56:623 Gamecard/(4498:4564): Bloques final: [1,2]
+[TRACE] 05:43:56:761 Gamecard/(4498:4564): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:56:763 Gamecard/(4498:4564): El archivo actualmente ocupa: 59 
+
+[TRACE] 05:43:56:764 Gamecard/(4498:4564): El archivo actualmente ocupa: 11 
+
+[TRACE] 05:43:56:765 Gamecard/(4498:4564): Tamanio de todos los bloques del pokemon: 70
+[TRACE] 05:43:56:766 Gamecard/(4498:4564): Save bitmap.
+[TRACE] 05:43:56:866 Gamecard/(4498:4564): Posicion agregada/sumada
+[TRACE] 05:43:59:868 Gamecard/(4498:4564): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:43:59:871 Gamecard/(4498:4564): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:43:59:872 Gamecard/(4498:4564): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 05:43:59:872 Gamecard/(4498:4564): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:43:59:873 Gamecard/(4498:4564): Recepcion confirmada: 19 3 8
+[TRACE] 05:44:11:373 Gamecard/(4498:4498): Cliente aceptado: 17.
+[TRACE] 05:44:11:374 Gamecard/(4498:4643): Codigo de operacion cod_op: 5.
+[TRACE] 05:44:11:374 Gamecard/(4498:4498): Esperando Cliente
+[INFO] 05:44:11:375 Gamecard/(4498:4643): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 05:44:11:376 Gamecard/(4498:4643): Mensaje recibido manejado
+[TRACE] 05:44:11:383 Gamecard/(4498:4646): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 1.
+[TRACE] 05:44:11:386 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:44:11:391 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:44:11:394 Gamecard/(4498:4646): Se abrio el archivo.
+[TRACE] 05:44:11:396 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:44:11:401 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:44:11:411 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:44:11:417 Gamecard/(4498:4646): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:44:11:418 Gamecard/(4498:4646): El archivo actualmente ocupa: 11 
+
+[TRACE] 05:44:11:419 Gamecard/(4498:4646): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 05:44:11:420 Gamecard/(4498:4646): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:44:11:422 Gamecard/(4498:4646): Compactar bloques
+[TRACE] 05:44:11:423 Gamecard/(4498:4646): En el while, comparando el bloque: 0.
+[TRACE] 05:44:11:424 Gamecard/(4498:4646): En el while, comparando contra el bloque: 0.
+[TRACE] 05:44:11:428 Gamecard/(4498:4646): En el while, comparando contra el bloque: 1.
+[TRACE] 05:44:11:429 Gamecard/(4498:4646): Se compararon distinos bloques.
+[TRACE] 05:44:11:431 Gamecard/(4498:4646): El archivo actualmente ocupa: 11 
+
+[TRACE] 05:44:11:433 Gamecard/(4498:4646): Bloque 1 de la comparacion: numero 2 , tamanio: 11.
+[TRACE] 05:44:11:434 Gamecard/(4498:4646): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:44:11:435 Gamecard/(4498:4646): Bloque 2 de la comparacion: numero 1 , tamanio: 50.
+[TRACE] 05:44:11:437 Gamecard/(4498:4646): Se compararon los tamanios y se va a compactar.
+[TRACE] 05:44:11:463 Gamecard/(4498:4646): Se va a actualizar size y sacar bloque del metadata.
+[TRACE] 05:44:11:468 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:44:11:470 Gamecard/(4498:4646): El archivo actualmente ocupa: 61 
+
+[TRACE] 05:44:11:471 Gamecard/(4498:4646): El archivo actualmente ocupa: 0 
+
+[TRACE] 05:44:11:472 Gamecard/(4498:4646): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 05:44:11:474 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:44:11:477 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:44:11:489 Gamecard/(4498:4646): Save bitmap.
+[TRACE] 05:44:11:592 Gamecard/(4498:4646): En el while, comparando el bloque: 1.
+[TRACE] 05:44:14:596 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:44:14:610 Gamecard/(4498:4646): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:44:14:614 Gamecard/(4498:4646): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
+[INFO] 05:44:14:615 Gamecard/(4498:4646): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[TRACE] 05:44:14:629 Gamecard/(4498:4646): Recepcion confirmada: 17 5 1
+[INFO] 05:44:17:303 Gamecard/(4498:4515): Inicio reintento de comunicacion con Broker
+[INFO] 05:44:17:304 Gamecard/(4498:4515): Reintento de comunicación con broker fallido
+[TRACE] 05:45:01:383 Gamecard/(4883:4883): Log inicializado
+[TRACE] 05:45:01:473 Gamecard/(4883:4883): Crear metadata
+[TRACE] 05:45:02:504 Gamecard/(4883:4883): Save bitmap.
+[TRACE] 05:45:02:666 Gamecard/(4883:4883): Iniciando conexion con gameboy
+[TRACE] 05:45:02:709 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:02:681 Gamecard/(4883:4896): Hilos de suscripcion lanzados
+[TRACE] 05:45:04:5 Gamecard/(4883:4883): Cliente aceptado: 5.
+[TRACE] 05:45:04:49 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:04:53 Gamecard/(4883:4902): Codigo de operacion cod_op: 3.
+[INFO] 05:45:04:58 Gamecard/(4883:4902): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:45:04:106 Gamecard/(4883:4902): Mensaje recibido manejado
+[TRACE] 05:45:04:132 Gamecard/(4883:4903): Manejar mensaje: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Cantidad: 10, Id mensaje: 9.
+[INFO] 05:45:04:144 Gamecard/(4883:4903): File del pokemon no existente, lo creo.
+[TRACE] 05:45:04:146 Gamecard/(4883:4903): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Pikachu/
+[TRACE] 05:45:04:148 Gamecard/(4883:4903): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.bin
+[TRACE] 05:45:04:149 Gamecard/(4883:4903): Ya se creo.
+[INFO] 05:45:04:153 Gamecard/(4883:4903): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:04:157 Gamecard/(4883:4903): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:04:159 Gamecard/(4883:4903): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:04:165 Gamecard/(4883:4903): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:04:173 Gamecard/(4883:4903): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:04:175 Gamecard/(4883:4903): Se abrio el archivo.
+[TRACE] 05:45:04:176 Gamecard/(4883:4903): Manejar bloques pokemon.
+[TRACE] 05:45:04:178 Gamecard/(4883:4903): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:04:188 Gamecard/(4883:4903): Agregar posicion.
+[TRACE] 05:45:04:194 Gamecard/(4883:4903): Paso el while sin entrar
+[TRACE] 05:45:04:198 Gamecard/(4883:4903): Va a proceder a asignar el bloque vacio:  0
+[TRACE] 05:45:04:199 Gamecard/(4883:4903): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:04:207 Gamecard/(4883:4903): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 05:45:04:208 Gamecard/(4883:4903): Termino agregar bloque vacio
+[TRACE] 05:45:04:210 Gamecard/(4883:4903): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:04:217 Gamecard/(4883:4903): Lo que se seteo: [0]
+[TRACE] 05:45:04:217 Gamecard/(4883:4903): Bloques final: [0]
+[TRACE] 05:45:04:224 Gamecard/(4883:4903): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:04:243 Gamecard/(4883:4903): El archivo actualmente ocupa: 7 
+
+[TRACE] 05:45:04:245 Gamecard/(4883:4903): Tamanio de todos los bloques del pokemon: 7
+[TRACE] 05:45:04:249 Gamecard/(4883:4903): Save bitmap.
+[TRACE] 05:45:04:347 Gamecard/(4883:4903): Posicion agregada/sumada
+[TRACE] 05:45:07:352 Gamecard/(4883:4903): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:07:355 Gamecard/(4883:4903): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:45:07:363 Gamecard/(4883:4903): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 05:45:07:364 Gamecard/(4883:4903): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:45:07:377 Gamecard/(4883:4903): Recepcion confirmada: 5 3 9
+[TRACE] 05:45:12:56 Gamecard/(4883:4883): Cliente aceptado: 10.
+[TRACE] 05:45:12:62 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:12:69 Gamecard/(4883:4883): Cliente aceptado: 12.
+[TRACE] 05:45:12:70 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:12:71 Gamecard/(4883:4883): Cliente aceptado: 13.
+[TRACE] 05:45:12:110 Gamecard/(4883:4938): Codigo de operacion cod_op: 3.
+[TRACE] 05:45:12:113 Gamecard/(4883:4939): Codigo de operacion cod_op: 3.
+[TRACE] 05:45:12:113 Gamecard/(4883:4930): Codigo de operacion cod_op: 3.
+[INFO] 05:45:12:114 Gamecard/(4883:4938): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:45:12:166 Gamecard/(4883:4938): Mensaje recibido manejado
+[TRACE] 05:45:12:167 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:12:167 Gamecard/(4883:4883): Cliente aceptado: 14.
+[TRACE] 05:45:12:168 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:12:168 Gamecard/(4883:4883): Cliente aceptado: 15.
+[TRACE] 05:45:12:169 Gamecard/(4883:4940): Manejar mensaje: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Cantidad: 101, Id mensaje: 2.
+[INFO] 05:45:12:171 Gamecard/(4883:4940): File del pokemon no existente, lo creo.
+[TRACE] 05:45:12:171 Gamecard/(4883:4940): Crear directorio: /home/utnso/Escritorio/tall-grass/Files/Charmander/
+[TRACE] 05:45:12:172 Gamecard/(4883:4940): Crear metadata directorio: /home/utnso/Escritorio/tall-grass/Files/Metadata.bin
+[TRACE] 05:45:12:172 Gamecard/(4883:4940): Ya se creo.
+[INFO] 05:45:12:175 Gamecard/(4883:4940): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:12:176 Gamecard/(4883:4939): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:45:12:176 Gamecard/(4883:4930): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:45:12:211 Gamecard/(4883:4940): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:12:212 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:12:212 Gamecard/(4883:4942): Codigo de operacion cod_op: 3.
+[TRACE] 05:45:12:246 Gamecard/(4883:4943): Manejar mensaje: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Cantidad: 15, Id mensaje: 3.
+[TRACE] 05:45:12:297 Gamecard/(4883:4883): Cliente aceptado: 16.
+[TRACE] 05:45:12:298 Gamecard/(4883:4930): Mensaje recibido manejado
+[TRACE] 05:45:12:247 Gamecard/(4883:4939): Mensaje recibido manejado
+[TRACE] 05:45:12:247 Gamecard/(4883:4941): Codigo de operacion cod_op: 3.
+[TRACE] 05:45:12:299 Gamecard/(4883:4940): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:12:338 Gamecard/(4883:4941): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:45:12:336 Gamecard/(4883:4883): Esperando Cliente
+[INFO] 05:45:12:337 Gamecard/(4883:4942): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:45:12:337 Gamecard/(4883:4945): Codigo de operacion cod_op: 3.
+[TRACE] 05:45:12:298 Gamecard/(4883:4944): Manejar mensaje: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Cantidad: 3, Id mensaje: 1.
+[TRACE] 05:45:12:340 Gamecard/(4883:4946): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Cantidad: 1, Id mensaje: 4.
+[TRACE] 05:45:12:396 Gamecard/(4883:4883): Cliente aceptado: 18.
+[INFO] 05:45:12:396 Gamecard/(4883:4945): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:45:12:397 Gamecard/(4883:4940): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:12:398 Gamecard/(4883:4941): Mensaje recibido manejado
+[TRACE] 05:45:12:441 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:12:442 Gamecard/(4883:4942): Mensaje recibido manejado
+[TRACE] 05:45:12:442 Gamecard/(4883:4947): Manejar mensaje: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Cantidad: 29, Id mensaje: 5.
+[TRACE] 05:45:12:443 Gamecard/(4883:4948): Codigo de operacion cod_op: 3.
+[TRACE] 05:45:12:444 Gamecard/(4883:4883): Cliente aceptado: 17.
+[TRACE] 05:45:12:488 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:12:489 Gamecard/(4883:4949): Codigo de operacion cod_op: 3.
+[TRACE] 05:45:12:496 Gamecard/(4883:4940): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:12:497 Gamecard/(4883:4940): Se abrio el archivo.
+[TRACE] 05:45:12:498 Gamecard/(4883:4940): Manejar bloques pokemon.
+[TRACE] 05:45:12:498 Gamecard/(4883:4940): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:12:500 Gamecard/(4883:4940): Agregar posicion.
+[TRACE] 05:45:12:500 Gamecard/(4883:4940): Paso el while sin entrar
+[TRACE] 05:45:12:503 Gamecard/(4883:4940): Bit: 0 estado: 1
+[TRACE] 05:45:12:504 Gamecard/(4883:4940): Va a proceder a asignar el bloque vacio:  1
+[TRACE] 05:45:12:505 Gamecard/(4883:4940): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:12:508 Gamecard/(4883:4943): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:12:512 Gamecard/(4883:4940): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 05:45:12:513 Gamecard/(4883:4940): Termino agregar bloque vacio
+[TRACE] 05:45:12:514 Gamecard/(4883:4940): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:12:515 Gamecard/(4883:4940): Lo que se seteo: [1]
+[TRACE] 05:45:12:515 Gamecard/(4883:4940): Bloques final: [1]
+[TRACE] 05:45:12:519 Gamecard/(4883:4940): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:12:523 Gamecard/(4883:4940): El archivo actualmente ocupa: 8 
+
+[TRACE] 05:45:12:526 Gamecard/(4883:4940): Tamanio de todos los bloques del pokemon: 8
+[TRACE] 05:45:12:528 Gamecard/(4883:4940): Save bitmap.
+[INFO] 05:45:12:529 Gamecard/(4883:4948): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:45:12:530 Gamecard/(4883:4950): Manejar mensaje: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Cantidad: 34, Id mensaje: 7.
+[INFO] 05:45:12:531 Gamecard/(4883:4949): Se recibio un mensaje NEW_POKEMON.
+[TRACE] 05:45:12:531 Gamecard/(4883:4948): Mensaje recibido manejado
+[TRACE] 05:45:12:535 Gamecard/(4883:4943): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:12:537 Gamecard/(4883:4952): Manejar mensaje: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Cantidad: 11, Id mensaje: 8.
+[TRACE] 05:45:12:536 Gamecard/(4883:4951): Manejar mensaje: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Cantidad: 3001, Id mensaje: 6.
+[TRACE] 05:45:12:536 Gamecard/(4883:4945): Mensaje recibido manejado
+[INFO] 05:45:12:539 Gamecard/(4883:4943): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:45:12:538 Gamecard/(4883:4949): Mensaje recibido manejado
+[TRACE] 05:45:12:668 Gamecard/(4883:4940): Posicion agregada/sumada
+[TRACE] 05:45:15:672 Gamecard/(4883:4940): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:15:675 Gamecard/(4883:4940): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:15:676 Gamecard/(4883:4940): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 05:45:15:677 Gamecard/(4883:4940): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:45:15:678 Gamecard/(4883:4940): Recepcion confirmada: 12 3 2
+[TRACE] 05:45:17:542 Gamecard/(4883:4943): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:17:543 Gamecard/(4883:4943): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:17:545 Gamecard/(4883:4943): Reintentando operacion.
+[TRACE] 05:45:17:545 Gamecard/(4883:4943): Se abrio el archivo.
+[TRACE] 05:45:17:546 Gamecard/(4883:4944): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:17:549 Gamecard/(4883:4944): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:17:550 Gamecard/(4883:4944): Se abrio el archivo.
+[TRACE] 05:45:17:551 Gamecard/(4883:4947): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:17:555 Gamecard/(4883:4947): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:17:558 Gamecard/(4883:4943): Manejar bloques pokemon.
+[TRACE] 05:45:17:559 Gamecard/(4883:4944): Manejar bloques pokemon.
+[INFO] 05:45:17:560 Gamecard/(4883:4947): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:45:17:561 Gamecard/(4883:4943): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:17:566 Gamecard/(4883:4943): Agregar posicion.
+[TRACE] 05:45:17:567 Gamecard/(4883:4943): Entro al while
+[TRACE] 05:45:17:569 Gamecard/(4883:4943): El archivo actualmente ocupa: 8 
+
+[TRACE] 05:45:17:570 Gamecard/(4883:4943): Tamanio total del archivo al escribir la sentencia: 19
+[TRACE] 05:45:17:572 Gamecard/(4883:4943): Tamanio de bloques: 64
+[TRACE] 05:45:17:579 Gamecard/(4883:4943): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:17:581 Gamecard/(4883:4943): El archivo actualmente ocupa: 20 
+
+[TRACE] 05:45:17:582 Gamecard/(4883:4943): Tamanio de todos los bloques del pokemon: 20
+[TRACE] 05:45:17:583 Gamecard/(4883:4944): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:17:586 Gamecard/(4883:4944): Agregar posicion.
+[TRACE] 05:45:17:586 Gamecard/(4883:4944): Entro al while
+[TRACE] 05:45:17:587 Gamecard/(4883:4944): El archivo actualmente ocupa: 7 
+
+[TRACE] 05:45:17:588 Gamecard/(4883:4944): Tamanio total del archivo al escribir la sentencia: 12
+[TRACE] 05:45:17:592 Gamecard/(4883:4943): Posicion agregada/sumada
+[TRACE] 05:45:17:594 Gamecard/(4883:4944): Tamanio de bloques: 64
+[TRACE] 05:45:17:604 Gamecard/(4883:4944): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:17:606 Gamecard/(4883:4944): El archivo actualmente ocupa: 13 
+
+[TRACE] 05:45:17:608 Gamecard/(4883:4944): Tamanio de todos los bloques del pokemon: 13
+[TRACE] 05:45:17:610 Gamecard/(4883:4944): Posicion agregada/sumada
+[TRACE] 05:45:20:601 Gamecard/(4883:4943): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:20:603 Gamecard/(4883:4943): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:20:604 Gamecard/(4883:4943): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 05:45:20:605 Gamecard/(4883:4943): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:45:20:605 Gamecard/(4883:4943): Recepcion confirmada: 13 3 3
+[TRACE] 05:45:20:613 Gamecard/(4883:4944): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[TRACE] 05:45:20:615 Gamecard/(4883:4944): /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:45:20:617 Gamecard/(4883:4944): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 05:45:20:618 Gamecard/(4883:4944): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:45:20:618 Gamecard/(4883:4944): Recepcion confirmada: 10 3 1
+[TRACE] 05:45:22:561 Gamecard/(4883:4947): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:22:564 Gamecard/(4883:4947): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:22:565 Gamecard/(4883:4947): Reintentando operacion.
+[TRACE] 05:45:22:565 Gamecard/(4883:4947): Se abrio el archivo.
+[TRACE] 05:45:22:566 Gamecard/(4883:4946): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:22:567 Gamecard/(4883:4946): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:22:568 Gamecard/(4883:4946): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:45:22:569 Gamecard/(4883:4947): Manejar bloques pokemon.
+[TRACE] 05:45:22:569 Gamecard/(4883:4947): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:22:574 Gamecard/(4883:4947): Agregar posicion.
+[TRACE] 05:45:22:575 Gamecard/(4883:4947): Entro al while
+[TRACE] 05:45:22:577 Gamecard/(4883:4947): El archivo actualmente ocupa: 20 
+
+[TRACE] 05:45:22:579 Gamecard/(4883:4947): Tamanio total del archivo al escribir la sentencia: 29
+[TRACE] 05:45:22:581 Gamecard/(4883:4947): Tamanio de bloques: 64
+[TRACE] 05:45:22:592 Gamecard/(4883:4947): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:22:594 Gamecard/(4883:4947): El archivo actualmente ocupa: 30 
+
+[TRACE] 05:45:22:595 Gamecard/(4883:4947): Tamanio de todos los bloques del pokemon: 30
+[TRACE] 05:45:22:597 Gamecard/(4883:4947): Posicion agregada/sumada
+[TRACE] 05:45:25:598 Gamecard/(4883:4947): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:25:601 Gamecard/(4883:4947): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:25:602 Gamecard/(4883:4947): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 05:45:25:603 Gamecard/(4883:4947): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:45:25:604 Gamecard/(4883:4947): Recepcion confirmada: 15 3 5
+[TRACE] 05:45:27:570 Gamecard/(4883:4946): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:27:572 Gamecard/(4883:4946): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:27:573 Gamecard/(4883:4946): Reintentando operacion.
+[TRACE] 05:45:27:573 Gamecard/(4883:4946): Se abrio el archivo.
+[TRACE] 05:45:27:573 Gamecard/(4883:4946): Manejar bloques pokemon.
+[TRACE] 05:45:27:574 Gamecard/(4883:4946): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:27:577 Gamecard/(4883:4952): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:27:579 Gamecard/(4883:4952): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:27:580 Gamecard/(4883:4952): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:45:27:581 Gamecard/(4883:4946): Agregar posicion.
+[TRACE] 05:45:27:585 Gamecard/(4883:4946): Entro al while
+[TRACE] 05:45:27:586 Gamecard/(4883:4946): El archivo actualmente ocupa: 30 
+
+[TRACE] 05:45:27:586 Gamecard/(4883:4946): Tamanio total del archivo al escribir la sentencia: 38
+[TRACE] 05:45:27:589 Gamecard/(4883:4946): Tamanio de bloques: 64
+[TRACE] 05:45:27:595 Gamecard/(4883:4946): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:27:599 Gamecard/(4883:4946): El archivo actualmente ocupa: 39 
+
+[TRACE] 05:45:27:599 Gamecard/(4883:4946): Tamanio de todos los bloques del pokemon: 39
+[TRACE] 05:45:27:600 Gamecard/(4883:4946): Posicion agregada/sumada
+[TRACE] 05:45:30:602 Gamecard/(4883:4946): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:30:604 Gamecard/(4883:4946): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:30:605 Gamecard/(4883:4946): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 05:45:30:606 Gamecard/(4883:4946): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:45:30:607 Gamecard/(4883:4946): Recepcion confirmada: 14 3 4
+[TRACE] 05:45:32:581 Gamecard/(4883:4952): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:32:583 Gamecard/(4883:4952): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:32:584 Gamecard/(4883:4952): Reintentando operacion.
+[TRACE] 05:45:32:584 Gamecard/(4883:4952): Se abrio el archivo.
+[TRACE] 05:45:32:585 Gamecard/(4883:4952): Manejar bloques pokemon.
+[TRACE] 05:45:32:586 Gamecard/(4883:4950): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:32:591 Gamecard/(4883:4950): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:32:592 Gamecard/(4883:4950): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:45:32:593 Gamecard/(4883:4952): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:32:596 Gamecard/(4883:4952): Agregar posicion.
+[TRACE] 05:45:32:596 Gamecard/(4883:4952): Entro al while
+[TRACE] 05:45:32:597 Gamecard/(4883:4952): El archivo actualmente ocupa: 39 
+
+[TRACE] 05:45:32:599 Gamecard/(4883:4952): Tamanio total del archivo al escribir la sentencia: 49
+[TRACE] 05:45:32:601 Gamecard/(4883:4952): Tamanio de bloques: 64
+[TRACE] 05:45:32:606 Gamecard/(4883:4952): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:32:608 Gamecard/(4883:4952): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:45:32:609 Gamecard/(4883:4952): Tamanio de todos los bloques del pokemon: 50
+[TRACE] 05:45:32:610 Gamecard/(4883:4952): Posicion agregada/sumada
+[INFO] 05:45:32:730 Gamecard/(4883:4896): Inicio reintento de comunicacion con Broker
+[INFO] 05:45:32:732 Gamecard/(4883:4896): Reintento de comunicación con broker fallido
+[TRACE] 05:45:35:611 Gamecard/(4883:4952): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:35:615 Gamecard/(4883:4952): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:35:616 Gamecard/(4883:4952): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 05:45:35:617 Gamecard/(4883:4952): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:45:35:618 Gamecard/(4883:4952): Recepcion confirmada: 17 3 8
+[TRACE] 05:45:37:593 Gamecard/(4883:4950): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:37:596 Gamecard/(4883:4950): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:37:598 Gamecard/(4883:4950): Reintentando operacion.
+[TRACE] 05:45:37:599 Gamecard/(4883:4950): Se abrio el archivo.
+[TRACE] 05:45:37:599 Gamecard/(4883:4950): Manejar bloques pokemon.
+[TRACE] 05:45:37:600 Gamecard/(4883:4950): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:37:602 Gamecard/(4883:4951): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:37:604 Gamecard/(4883:4950): Agregar posicion.
+[TRACE] 05:45:37:604 Gamecard/(4883:4950): Entro al while
+[TRACE] 05:45:37:605 Gamecard/(4883:4950): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:45:37:606 Gamecard/(4883:4950): Tamanio total del archivo al escribir la sentencia: 58
+[TRACE] 05:45:37:607 Gamecard/(4883:4950): Tamanio de bloques: 64
+[TRACE] 05:45:37:609 Gamecard/(4883:4951): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:37:614 Gamecard/(4883:4950): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:37:616 Gamecard/(4883:4950): El archivo actualmente ocupa: 59 
+
+[TRACE] 05:45:37:617 Gamecard/(4883:4950): Tamanio de todos los bloques del pokemon: 59
+[INFO] 05:45:37:618 Gamecard/(4883:4951): Archivo se encuentra abierto, se reintenta operacion
+[TRACE] 05:45:37:710 Gamecard/(4883:4950): Posicion agregada/sumada
+[TRACE] 05:45:40:712 Gamecard/(4883:4950): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:40:715 Gamecard/(4883:4950): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:40:716 Gamecard/(4883:4950): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 05:45:40:716 Gamecard/(4883:4950): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:45:40:717 Gamecard/(4883:4950): Recepcion confirmada: 18 3 7
+[TRACE] 05:45:42:637 Gamecard/(4883:4951): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:42:640 Gamecard/(4883:4951): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:42:641 Gamecard/(4883:4951): Reintentando operacion.
+[TRACE] 05:45:42:641 Gamecard/(4883:4951): Se abrio el archivo.
+[TRACE] 05:45:42:641 Gamecard/(4883:4951): Manejar bloques pokemon.
+[TRACE] 05:45:42:642 Gamecard/(4883:4951): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:42:645 Gamecard/(4883:4951): Agregar posicion.
+[TRACE] 05:45:42:645 Gamecard/(4883:4951): Entro al while
+[TRACE] 05:45:42:646 Gamecard/(4883:4951): El archivo actualmente ocupa: 59 
+
+[TRACE] 05:45:42:647 Gamecard/(4883:4951): Tamanio total del archivo al escribir la sentencia: 69
+[TRACE] 05:45:42:648 Gamecard/(4883:4951): Tamanio de bloques: 64
+[TRACE] 05:45:42:650 Gamecard/(4883:4951): Paso el while sin entrar
+[TRACE] 05:45:42:651 Gamecard/(4883:4951): Bit: 0 estado: 1
+[TRACE] 05:45:42:652 Gamecard/(4883:4951): Bit: 1 estado: 1
+[TRACE] 05:45:42:653 Gamecard/(4883:4951): Va a proceder a asignar el bloque vacio:  2
+[TRACE] 05:45:42:654 Gamecard/(4883:4951): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:42:660 Gamecard/(4883:4951): Se escribe la posicion en otro bloque ya que no existia
+[TRACE] 05:45:42:661 Gamecard/(4883:4951): Termino agregar bloque vacio
+[TRACE] 05:45:42:662 Gamecard/(4883:4951): Path del metadata yendo a agregar el bloque: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:42:664 Gamecard/(4883:4951): Lo que se seteo: [1,2]
+[TRACE] 05:45:42:665 Gamecard/(4883:4951): Bloques final: [1,2]
+[TRACE] 05:45:42:752 Gamecard/(4883:4951): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:42:756 Gamecard/(4883:4951): El archivo actualmente ocupa: 59 
+
+[TRACE] 05:45:42:758 Gamecard/(4883:4951): El archivo actualmente ocupa: 11 
+
+[TRACE] 05:45:42:759 Gamecard/(4883:4951): Tamanio de todos los bloques del pokemon: 70
+[TRACE] 05:45:42:770 Gamecard/(4883:4951): Save bitmap.
+[TRACE] 05:45:42:884 Gamecard/(4883:4951): Posicion agregada/sumada
+[TRACE] 05:45:45:886 Gamecard/(4883:4951): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:45:891 Gamecard/(4883:4951): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:45:892 Gamecard/(4883:4951): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 05:45:45:893 Gamecard/(4883:4951): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[TRACE] 05:45:45:894 Gamecard/(4883:4951): Recepcion confirmada: 16 3 6
+[TRACE] 05:45:49:807 Gamecard/(4883:4883): Cliente aceptado: 19.
+[TRACE] 05:45:49:808 Gamecard/(4883:4883): Esperando Cliente
+[TRACE] 05:45:49:809 Gamecard/(4883:5026): Codigo de operacion cod_op: 5.
+[INFO] 05:45:49:810 Gamecard/(4883:5026): Se recibio un mensaje CATCH_POKEMON.
+[TRACE] 05:45:49:810 Gamecard/(4883:5026): Mensaje recibido manejado
+[TRACE] 05:45:49:815 Gamecard/(4883:5029): Manejar mensaje: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 1.
+[TRACE] 05:45:49:819 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:49:823 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:49:824 Gamecard/(4883:5029): Se abrio el archivo.
+[TRACE] 05:45:49:826 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:49:831 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:49:841 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:49:843 Gamecard/(4883:5029): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:45:49:844 Gamecard/(4883:5029): El archivo actualmente ocupa: 11 
+
+[TRACE] 05:45:49:845 Gamecard/(4883:5029): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 05:45:49:848 Gamecard/(4883:5029): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:45:49:849 Gamecard/(4883:5029): Compactar bloques
+[TRACE] 05:45:49:850 Gamecard/(4883:5029): En el while, comparando el bloque: 0.
+[TRACE] 05:45:49:851 Gamecard/(4883:5029): En el while, comparando contra el bloque: 0.
+[TRACE] 05:45:49:853 Gamecard/(4883:5029): En el while, comparando contra el bloque: 1.
+[TRACE] 05:45:49:854 Gamecard/(4883:5029): Se compararon distinos bloques.
+[TRACE] 05:45:49:858 Gamecard/(4883:5029): El archivo actualmente ocupa: 11 
+
+[TRACE] 05:45:49:859 Gamecard/(4883:5029): Bloque 1 de la comparacion: numero 2 , tamanio: 11.
+[TRACE] 05:45:49:862 Gamecard/(4883:5029): El archivo actualmente ocupa: 50 
+
+[TRACE] 05:45:49:863 Gamecard/(4883:5029): Bloque 2 de la comparacion: numero 1 , tamanio: 50.
+[TRACE] 05:45:49:865 Gamecard/(4883:5029): Se compararon los tamanios y se va a compactar.
+[TRACE] 05:45:49:887 Gamecard/(4883:5029): Se va a actualizar size y sacar bloque del metadata.
+[TRACE] 05:45:49:893 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:49:901 Gamecard/(4883:5029): El archivo actualmente ocupa: 61 
+
+[TRACE] 05:45:49:902 Gamecard/(4883:5029): El archivo actualmente ocupa: 0 
+
+[TRACE] 05:45:49:902 Gamecard/(4883:5029): Tamanio de todos los bloques del pokemon: 61
+[TRACE] 05:45:49:907 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:49:909 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:49:926 Gamecard/(4883:5029): Save bitmap.
+[TRACE] 05:45:50:40 Gamecard/(4883:5029): En el while, comparando el bloque: 1.
+[TRACE] 05:45:53:43 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[TRACE] 05:45:53:46 Gamecard/(4883:5029): /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:45:53:49 Gamecard/(4883:5029): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
+[INFO] 05:45:53:51 Gamecard/(4883:5029): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[TRACE] 05:45:53:53 Gamecard/(4883:5029): Recepcion confirmada: 19 5 1
+[INFO] 05:46:02:741 Gamecard/(4883:4896): Inicio reintento de comunicacion con Broker
+[INFO] 05:46:02:742 Gamecard/(4883:4896): Reintento de comunicación con broker fallido
+[INFO] 05:46:34:851 Gamecard/(5234:5253): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:46:34:946 Gamecard/(5234:5255): File del pokemon no existente, lo creo.
+[INFO] 05:46:34:958 Gamecard/(5234:5255): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:46:38:174 Gamecard/(5234:5255): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 05:46:38:175 Gamecard/(5234:5255): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:46:43:631 Gamecard/(5234:5272): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:46:43:633 Gamecard/(5234:5275): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:46:43:733 Gamecard/(5234:5285): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:46:43:813 Gamecard/(5234:5288): File del pokemon no existente, lo creo.
+[INFO] 05:46:43:816 Gamecard/(5234:5288): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:46:43:819 Gamecard/(5234:5289): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:46:43:900 Gamecard/(5234:5290): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:46:43:990 Gamecard/(5234:5291): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:46:43:993 Gamecard/(5234:5295): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:46:44:6 Gamecard/(5234:5286): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:46:44:24 Gamecard/(5234:5294): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:46:47:78 Gamecard/(5234:5287): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 05:46:47:79 Gamecard/(5234:5287): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:46:47:161 Gamecard/(5234:5288): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 05:46:47:162 Gamecard/(5234:5288): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:46:49:15 Gamecard/(5234:5292): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:46:52:31 Gamecard/(5234:5286): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 05:46:52:32 Gamecard/(5234:5286): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:46:54:24 Gamecard/(5234:5293): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:46:57:53 Gamecard/(5234:5292): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 05:46:57:55 Gamecard/(5234:5292): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:46:59:46 Gamecard/(5234:5296): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:47:02:57 Gamecard/(5234:5293): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 05:47:02:58 Gamecard/(5234:5293): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:47:03:93 Gamecard/(5234:5243): Inicio reintento de comunicacion con Broker
+[INFO] 05:47:03:105 Gamecard/(5234:5243): Reintento de comunicación con broker fallido
+[INFO] 05:47:04:152 Gamecard/(5234:5297): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:47:07:169 Gamecard/(5234:5296): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 05:47:07:170 Gamecard/(5234:5296): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:47:09:164 Gamecard/(5234:5298): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:47:12:173 Gamecard/(5234:5297): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 05:47:12:174 Gamecard/(5234:5297): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:47:17:283 Gamecard/(5234:5298): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 05:47:17:285 Gamecard/(5234:5298): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:47:20:351 Gamecard/(5234:5364): Se recibio un mensaje CATCH_POKEMON.
+[INFO] 05:47:23:541 Gamecard/(5234:5367): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
+[INFO] 05:47:23:543 Gamecard/(5234:5367): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[INFO] 05:47:33:106 Gamecard/(5234:5243): Inicio reintento de comunicacion con Broker
+[INFO] 05:47:33:107 Gamecard/(5234:5243): Reintento de comunicación con broker fallido
+[INFO] 05:47:45:440 Gamecard/(5410:5428): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:47:45:548 Gamecard/(5410:5430): File del pokemon no existente, lo creo.
+[INFO] 05:47:45:562 Gamecard/(5410:5430): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:47:48:791 Gamecard/(5410:5430): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 05:47:48:793 Gamecard/(5410:5430): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:47:57:539 Gamecard/(5410:5450): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:47:57:691 Gamecard/(5410:5456): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:47:57:772 Gamecard/(5410:5467): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:47:57:812 Gamecard/(5410:5469): File del pokemon no existente, lo creo.
+[INFO] 05:47:57:813 Gamecard/(5410:5470): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:47:57:823 Gamecard/(5410:5465): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:47:57:824 Gamecard/(5410:5466): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:47:57:826 Gamecard/(5410:5469): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:47:57:827 Gamecard/(5410:5468): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:47:57:827 Gamecard/(5410:5464): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:47:57:928 Gamecard/(5410:5471): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:48:00:918 Gamecard/(5410:5453): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 05:48:00:919 Gamecard/(5410:5453): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:48:01:42 Gamecard/(5410:5469): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 05:48:01:42 Gamecard/(5410:5469): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:48:02:2 Gamecard/(5410:5472): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:48:06:17 Gamecard/(5410:5471): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 05:48:06:17 Gamecard/(5410:5471): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:48:08:30 Gamecard/(5410:5473): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:48:11:73 Gamecard/(5410:5472): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 05:48:11:74 Gamecard/(5410:5472): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:48:13:48 Gamecard/(5410:5474): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:48:13:469 Gamecard/(5410:5418): Inicio reintento de comunicacion con Broker
+[INFO] 05:48:13:472 Gamecard/(5410:5418): Reintento de comunicación con broker fallido
+[INFO] 05:48:16:59 Gamecard/(5410:5473): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 05:48:16:60 Gamecard/(5410:5473): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:48:18:60 Gamecard/(5410:5475): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:48:21:74 Gamecard/(5410:5474): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 05:48:21:75 Gamecard/(5410:5474): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:48:23:73 Gamecard/(5410:5476): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:48:26:93 Gamecard/(5410:5475): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 05:48:26:95 Gamecard/(5410:5475): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:48:31:219 Gamecard/(5410:5476): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 05:48:31:224 Gamecard/(5410:5476): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:48:34:3 Gamecard/(5410:5549): Se recibio un mensaje CATCH_POKEMON.
+[INFO] 05:48:38:193 Gamecard/(5410:5551): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
+[INFO] 05:48:38:199 Gamecard/(5410:5551): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[INFO] 05:48:43:473 Gamecard/(5410:5418): Inicio reintento de comunicacion con Broker
+[INFO] 05:48:43:474 Gamecard/(5410:5418): Reintento de comunicación con broker fallido
+[INFO] 05:48:57:68 Gamecard/(5600:5618): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:48:57:166 Gamecard/(5600:5620): File del pokemon no existente, lo creo.
+[INFO] 05:48:57:176 Gamecard/(5600:5620): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:49:00:365 Gamecard/(5600:5620): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 05:49:00:367 Gamecard/(5600:5620): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:49:03:346 Gamecard/(5600:5632): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:49:03:514 Gamecard/(5600:5637): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:49:03:514 Gamecard/(5600:5646): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:49:03:529 Gamecard/(5600:5645): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:49:03:643 Gamecard/(5600:5651): File del pokemon no existente, lo creo.
+[INFO] 05:49:03:648 Gamecard/(5600:5651): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:49:03:649 Gamecard/(5600:5652): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:49:03:645 Gamecard/(5600:5647): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:49:03:729 Gamecard/(5600:5649): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:49:03:730 Gamecard/(5600:5648): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:49:03:780 Gamecard/(5600:5656): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:49:06:648 Gamecard/(5600:5634): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 05:49:06:649 Gamecard/(5600:5634): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:49:06:928 Gamecard/(5600:5651): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 05:49:06:928 Gamecard/(5600:5651): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:49:08:833 Gamecard/(5600:5650): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:49:11:848 Gamecard/(5600:5656): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 05:49:11:849 Gamecard/(5600:5656): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:49:13:859 Gamecard/(5600:5655): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:49:16:864 Gamecard/(5600:5650): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 05:49:16:865 Gamecard/(5600:5650): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:49:18:874 Gamecard/(5600:5653): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:49:21:890 Gamecard/(5600:5655): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 05:49:21:891 Gamecard/(5600:5655): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:49:23:891 Gamecard/(5600:5657): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:49:26:44 Gamecard/(5600:5608): Inicio reintento de comunicacion con Broker
+[INFO] 05:49:26:46 Gamecard/(5600:5608): Reintento de comunicación con broker fallido
+[INFO] 05:49:26:906 Gamecard/(5600:5653): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 05:49:26:907 Gamecard/(5600:5653): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:49:28:902 Gamecard/(5600:5654): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:49:31:914 Gamecard/(5600:5657): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 05:49:31:915 Gamecard/(5600:5657): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:49:36:642 Gamecard/(5600:5714): Se recibio un mensaje CATCH_POKEMON.
+[INFO] 05:49:36:654 Gamecard/(5600:5719): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:49:37:43 Gamecard/(5600:5654): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 05:49:37:44 Gamecard/(5600:5654): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:49:44:877 Gamecard/(5600:5719): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
+[INFO] 05:49:44:878 Gamecard/(5600:5719): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[INFO] 05:49:58:85 Gamecard/(5780:5793): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:49:58:182 Gamecard/(5780:5795): File del pokemon no existente, lo creo.
+[INFO] 05:49:58:208 Gamecard/(5780:5795): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:50:01:438 Gamecard/(5780:5795): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 05:50:01:440 Gamecard/(5780:5795): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:50:02:817 Gamecard/(5780:5806): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:50:02:924 Gamecard/(5780:5811): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:50:02:925 Gamecard/(5780:5817): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:50:02:967 Gamecard/(5780:5820): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:50:03:62 Gamecard/(5780:5821): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:50:03:103 Gamecard/(5780:5822): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:50:03:104 Gamecard/(5780:5823): File del pokemon no existente, lo creo.
+[INFO] 05:50:03:106 Gamecard/(5780:5824): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:50:03:109 Gamecard/(5780:5823): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:50:03:262 Gamecard/(5780:5831): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:50:03:363 Gamecard/(5780:5825): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:50:06:106 Gamecard/(5780:5808): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 05:50:06:107 Gamecard/(5780:5808): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:50:06:490 Gamecard/(5780:5823): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 05:50:06:491 Gamecard/(5780:5823): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:50:08:377 Gamecard/(5780:5826): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:50:11:392 Gamecard/(5780:5825): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 05:50:11:393 Gamecard/(5780:5825): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:50:12:432 Gamecard/(5780:5854): Se recibio un mensaje CATCH_POKEMON.
+[INFO] 05:50:13:401 Gamecard/(5780:5828): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:50:16:466 Gamecard/(5780:5826): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 05:50:16:467 Gamecard/(5780:5826): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:50:18:420 Gamecard/(5780:5829): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:50:21:441 Gamecard/(5780:5828): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 05:50:21:442 Gamecard/(5780:5828): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:50:23:441 Gamecard/(5780:5830): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:50:26:448 Gamecard/(5780:5829): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 05:50:26:449 Gamecard/(5780:5829): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:50:27:955 Gamecard/(5780:5787): Inicio reintento de comunicacion con Broker
+[INFO] 05:50:27:957 Gamecard/(5780:5787): Reintento de comunicación con broker fallido
+[INFO] 05:50:28:452 Gamecard/(5780:5832): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:50:31:467 Gamecard/(5780:5830): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 05:50:31:468 Gamecard/(5780:5830): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:50:33:483 Gamecard/(5780:5856): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:50:36:621 Gamecard/(5780:5832): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 05:50:36:622 Gamecard/(5780:5832): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:50:41:728 Gamecard/(5780:5856): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
+[INFO] 05:50:41:730 Gamecard/(5780:5856): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[INFO] 05:50:57:964 Gamecard/(5780:5787): Inicio reintento de comunicacion con Broker
+[INFO] 05:50:57:965 Gamecard/(5780:5787): Reintento de comunicación con broker fallido
+[INFO] 05:52:31:96 Gamecard/(6225:6238): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:52:31:187 Gamecard/(6225:6241): File del pokemon no existente, lo creo.
+[INFO] 05:52:31:202 Gamecard/(6225:6241): Se va a crear file en: /home/utnso/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:52:34:391 Gamecard/(6225:6241): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 05:52:34:393 Gamecard/(6225:6241): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:52:35:787 Gamecard/(6225:6248): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:52:35:887 Gamecard/(6225:6261): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:52:36:43 Gamecard/(6225:6269): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:52:36:44 Gamecard/(6225:6264): File del pokemon no existente, lo creo.
+[INFO] 05:52:36:89 Gamecard/(6225:6263): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:52:36:129 Gamecard/(6225:6271): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:52:36:181 Gamecard/(6225:6252): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:52:36:186 Gamecard/(6225:6264): Se va a crear file en: /home/utnso/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:52:36:188 Gamecard/(6225:6262): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:52:36:247 Gamecard/(6225:6270): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:52:36:263 Gamecard/(6225:6272): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:52:39:251 Gamecard/(6225:6250): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 05:52:39:252 Gamecard/(6225:6250): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:52:39:370 Gamecard/(6225:6264): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 05:52:39:371 Gamecard/(6225:6264): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:52:41:270 Gamecard/(6225:6274): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:52:44:321 Gamecard/(6225:6272): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 05:52:44:321 Gamecard/(6225:6272): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:52:46:279 Gamecard/(6225:6276): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:52:49:302 Gamecard/(6225:6274): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 05:52:49:303 Gamecard/(6225:6274): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:52:51:287 Gamecard/(6225:6275): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:52:54:333 Gamecard/(6225:6276): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 05:52:54:334 Gamecard/(6225:6276): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:52:56:297 Gamecard/(6225:6278): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:52:59:320 Gamecard/(6225:6275): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 05:52:59:321 Gamecard/(6225:6275): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:53:00:282 Gamecard/(6225:6228): Inicio reintento de comunicacion con Broker
+[INFO] 05:53:00:286 Gamecard/(6225:6228): Reintento de comunicación con broker fallido
+[INFO] 05:53:01:393 Gamecard/(6225:6277): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:53:04:408 Gamecard/(6225:6278): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 05:53:04:409 Gamecard/(6225:6278): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:53:09:554 Gamecard/(6225:6277): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 05:53:09:555 Gamecard/(6225:6277): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:53:15:993 Gamecard/(6225:6349): Se recibio un mensaje CATCH_POKEMON.
+[INFO] 05:53:19:251 Gamecard/(6225:6352): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
+[INFO] 05:53:19:253 Gamecard/(6225:6352): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[INFO] 05:54:05:999 Gamecard/(6443:6453): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:54:05:2 Gamecard/(6443:6455): File del pokemon no existente, lo creo.
+[INFO] 05:54:05:2 Gamecard/(6443:6455): Se va a crear file en: /home/utnso/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 05:54:09:23 Gamecard/(6443:6455): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 05:54:09:23 Gamecard/(6443:6455): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:54:12:599 Gamecard/(6443:6475): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:54:12:601 Gamecard/(6443:6478): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:54:12:601 Gamecard/(6443:6480): File del pokemon no existente, lo creo.
+[INFO] 05:54:12:601 Gamecard/(6443:6480): Se va a crear file en: /home/utnso/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 05:54:12:602 Gamecard/(6443:6481): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:54:12:603 Gamecard/(6443:6483): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:54:12:607 Gamecard/(6443:6484): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:54:12:609 Gamecard/(6443:6488): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:54:12:610 Gamecard/(6443:6490): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:54:12:612 Gamecard/(6443:6493): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:54:12:613 Gamecard/(6443:6496): Se recibio un mensaje NEW_POKEMON.
+[INFO] 05:54:15:600 Gamecard/(6443:6477): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 05:54:15:601 Gamecard/(6443:6477): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:54:15:610 Gamecard/(6443:6480): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 05:54:15:611 Gamecard/(6443:6480): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:54:17:604 Gamecard/(6443:6486): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:54:20:606 Gamecard/(6443:6483): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 05:54:20:606 Gamecard/(6443:6483): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:54:22:605 Gamecard/(6443:6489): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:54:25:608 Gamecard/(6443:6486): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 05:54:25:608 Gamecard/(6443:6486): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:54:27:609 Gamecard/(6443:6492): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:54:30:610 Gamecard/(6443:6489): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 05:54:30:611 Gamecard/(6443:6489): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:54:31:484 Gamecard/(6443:6446): Inicio reintento de comunicacion con Broker
+[INFO] 05:54:31:484 Gamecard/(6443:6446): Reintento de comunicación con broker fallido
+[INFO] 05:54:32:610 Gamecard/(6443:6495): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:54:35:612 Gamecard/(6443:6492): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 05:54:35:612 Gamecard/(6443:6492): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:54:37:783 Gamecard/(6443:6498): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 05:54:40:785 Gamecard/(6443:6495): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 05:54:40:785 Gamecard/(6443:6495): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:54:45:789 Gamecard/(6443:6498): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 05:54:45:789 Gamecard/(6443:6498): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 05:54:50:98 Gamecard/(6443:6568): Se recibio un mensaje CATCH_POKEMON.
+[INFO] 05:54:53:145 Gamecard/(6443:6569): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
+[INFO] 05:54:53:145 Gamecard/(6443:6569): Error en comunicacion al intentar enviar caught. Se efectuara operacion default

@@ -148,7 +148,7 @@ void handle_mensajes_gamecard(int conexion, op_code cod_op ){
 	int id_mensaje;
 
 	char* tipo_mensaje = op_code_a_string(cod_op);
-	log_info(logger, "Se recibio un mensaje %s.", tipo_mensaje);
+	log_trace(logger, "Se recibio un mensaje %s.", tipo_mensaje);
 	free(tipo_mensaje);
 
 
@@ -159,9 +159,10 @@ void handle_mensajes_gamecard(int conexion, op_code cod_op ){
 	argumentos->buffer = buffer;
 	argumentos->conexion = conexion;
 
+	pthread_mutex_lock(&mutex_mandar_hilos);
 	pthread_create(&thread, NULL, (void*) manejar_mensajes_gamecard, argumentos);
 	pthread_detach(thread);
-
+	pthread_mutex_unlock(&mutex_mandar_hilos);
 
 	log_trace(logger,"Mensaje recibido manejado");
 
