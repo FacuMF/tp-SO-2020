@@ -1,0 +1,544 @@
+[INFO] 06:37:25:13 Team/(10002:10004): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 06:37:25:14 Team/(10002:10010): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 06:37:25:14 Team/(10002:10010): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 06:37:25:14 Team/(10002:10004): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 06:37:25:15 Team/(10002:10004): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 06:37:25:16 Team/(10002:10004): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 06:37:28:17 Team/(10002:10011): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 12, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 06:37:28:18 Team/(10002:10011): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 13, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 06:37:28:18 Team/(10002:10011): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 14, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 06:37:28:18 Team/(10002:10011): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 15, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 06:37:33:18 Team/(10002:10008): Entrenador B movido a posicon 3 3
+[INFO] 06:37:36:569 Team/(10002:10011): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 06:37:36:569 Team/(10002:10011): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 06:37:36:570 Team/(10002:10011): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 06:37:36:571 Team/(10002:10011): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 06:37:36:572 Team/(10002:10011): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 06:37:38:18 Team/(10002:10008): Entrenador B movido a posicon 4 3
+[INFO] 06:37:43:108 Team/(10002:10008): Entrenador B movido a posicon 5 3
+[INFO] 06:37:48:108 Team/(10002:10008): Entrenador B movido a posicon 6 3
+[INFO] 06:37:53:110 Team/(10002:10008): Entrenador B movido a posicon 7 3
+[INFO] 06:37:54:581 Team/(10002:10012): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[INFO] 06:37:58:111 Team/(10002:10008): Entrenador B movido a posicon 8 3
+[INFO] 06:37:58:652 Team/(10002:10010): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 34
+[INFO] 06:37:58:655 Team/(10002:10010): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 35
+[INFO] 06:37:58:656 Team/(10002:10010): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 36
+[ERROR] 06:37:58:778 Team/(10002:10012): Error en 'recibir_codigo_operacion'
+[ERROR] 06:37:58:778 Team/(10002:10011): Error en 'recibir_codigo_operacion'
+[INFO] 06:37:58:778 Team/(10002:10003): Inicio reintento de comunicacion con Broker
+[ERROR] 06:37:58:779 Team/(10002:10010): Error en 'recibir_codigo_operacion'
+[INFO] 06:37:58:780 Team/(10002:10003): Reintento de comunicación con broker fallido
+[INFO] 06:38:03:112 Team/(10002:10008): Entrenador B movido a posicon 9 3
+[INFO] 06:38:08:114 Team/(10002:10008): Entrenador B movido a posicon 9 4
+[INFO] 06:38:13:115 Team/(10002:10008): Entrenador B movido a posicon 9 5
+[INFO] 06:39:19:216 Team/(10046:10048): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 06:39:19:216 Team/(10046:10054): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 06:39:19:217 Team/(10046:10054): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 06:39:19:217 Team/(10046:10048): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 06:39:19:218 Team/(10046:10048): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 06:39:19:219 Team/(10046:10048): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 06:39:22:220 Team/(10046:10055): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 12, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 06:39:22:220 Team/(10046:10055): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 13, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 06:39:22:220 Team/(10046:10055): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 14, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 06:39:22:221 Team/(10046:10055): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[ERROR] 06:39:24:983 Team/(10046:10056): Error en 'recibir_codigo_operacion'
+[ERROR] 06:39:24:983 Team/(10046:10055): Error en 'recibir_codigo_operacion'
+[ERROR] 06:39:24:983 Team/(10046:10054): Error en 'recibir_codigo_operacion'
+[INFO] 06:39:27:221 Team/(10046:10053): Entrenador C movido a posicon 3 2
+[INFO] 06:39:32:223 Team/(10046:10053): Entrenador C movido a posicon 4 2
+[INFO] 06:39:37:224 Team/(10046:10053): Entrenador C movido a posicon 5 2
+[INFO] 06:39:42:226 Team/(10046:10053): Catch efectuado en posicon 5 2 para Squirtle
+[INFO] 06:39:42:227 Team/(10046:10050): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:39:42:229 Team/(10046:10075): Error en comunicacion al intentar enviar catch. Se efectuara operacion default
+[INFO] 06:39:47:227 Team/(10046:10052): Entrenador B movido a posicon 3 3
+[INFO] 06:39:49:217 Team/(10046:10047): Inicio reintento de comunicacion con Broker
+[INFO] 06:39:49:219 Team/(10046:10047): Reintento de comunicación con broker fallido
+[INFO] 06:39:52:228 Team/(10046:10052): Entrenador B movido a posicon 4 3
+[INFO] 06:45:43:430 Team/(10089:10097): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 06:45:43:430 Team/(10089:10091): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 06:45:43:431 Team/(10089:10097): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 06:45:43:431 Team/(10089:10091): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 06:45:43:432 Team/(10089:10091): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 06:45:43:433 Team/(10089:10091): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 06:45:46:434 Team/(10089:10098): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 12, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 06:45:46:434 Team/(10089:10098): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 13, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 06:45:46:435 Team/(10089:10098): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 14, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 06:45:46:435 Team/(10089:10098): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 06:45:51:435 Team/(10089:10095): Entrenador B movido a posicon 3 3
+[INFO] 06:45:56:435 Team/(10089:10095): Entrenador B movido a posicon 4 3
+[INFO] 06:45:57:473 Team/(10089:10098): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 06:45:57:474 Team/(10089:10098): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 06:45:57:474 Team/(10089:10098): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 06:45:57:475 Team/(10089:10098): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 06:45:57:475 Team/(10089:10098): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 06:46:01:436 Team/(10089:10095): Entrenador B movido a posicon 5 3
+[INFO] 06:46:06:437 Team/(10089:10095): Entrenador B movido a posicon 6 3
+[INFO] 06:46:11:438 Team/(10089:10095): Entrenador B movido a posicon 7 3
+[INFO] 06:46:15:486 Team/(10089:10099): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[INFO] 06:46:16:440 Team/(10089:10095): Entrenador B movido a posicon 8 3
+[INFO] 06:46:21:441 Team/(10089:10095): Entrenador B movido a posicon 9 3
+[INFO] 06:46:26:442 Team/(10089:10095): Entrenador B movido a posicon 9 4
+[INFO] 06:46:30:488 Team/(10089:10099): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[INFO] 06:46:31:443 Team/(10089:10095): Entrenador B movido a posicon 9 5
+[INFO] 06:46:36:444 Team/(10089:10095): Entrenador B movido a posicon 9 6
+[INFO] 06:46:41:445 Team/(10089:10095): Entrenador B movido a posicon 9 7
+[INFO] 06:46:46:446 Team/(10089:10095): Entrenador B movido a posicon 9 8
+[INFO] 06:46:51:448 Team/(10089:10095): Entrenador B movido a posicon 9 9
+[INFO] 06:46:56:449 Team/(10089:10095): Catch efectuado en posicon 9 9 para Pikachu
+[INFO] 06:46:56:450 Team/(10089:10093): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:46:56:454 Team/(10089:10117): Mensaje CATCH_POKEMON: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 30
+[INFO] 06:46:59:461 Team/(10089:10099): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[ERROR] 06:46:59:582 Team/(10089:10099): Error en 'recibir_codigo_operacion'
+[ERROR] 06:46:59:582 Team/(10089:10098): Error en 'recibir_codigo_operacion'
+[ERROR] 06:46:59:582 Team/(10089:10097): Error en 'recibir_codigo_operacion'
+[INFO] 06:46:59:583 Team/(10089:10090): Inicio reintento de comunicacion con Broker
+[INFO] 06:46:59:584 Team/(10089:10090): Reintento de comunicación con broker fallido
+[INFO] 06:47:01:450 Team/(10089:10096): Entrenador C movido a posicon 3 2
+[INFO] 06:47:06:451 Team/(10089:10096): Entrenador C movido a posicon 4 2
+[INFO] 06:47:11:453 Team/(10089:10096): Entrenador C movido a posicon 5 2
+[INFO] 06:47:16:454 Team/(10089:10096): Catch efectuado en posicon 5 2 para Squirtle
+[INFO] 06:47:16:457 Team/(10089:10118): Error en comunicacion al intentar enviar catch. Se efectuara operacion default
+[INFO] 06:47:29:584 Team/(10089:10090): Inicio reintento de comunicacion con Broker
+[INFO] 06:47:29:588 Team/(10089:10090): Reintento de comunicación con broker fallido
+[INFO] 06:47:59:588 Team/(10089:10090): Inicio reintento de comunicacion con Broker
+[INFO] 06:47:59:592 Team/(10089:10090): Reintento de comunicación con broker logrado
+[INFO] 06:48:24:312 Team/(10089:10120): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 6
+[INFO] 06:48:24:312 Team/(10089:10093): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:48:24:314 Team/(10089:10120): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 7
+[INFO] 06:48:24:314 Team/(10089:10120): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 8
+[INFO] 06:48:24:317 Team/(10089:10120): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 9
+[INFO] 06:48:24:321 Team/(10089:10120): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 10
+[INFO] 06:48:24:324 Team/(10089:10120): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 11
+[INFO] 06:48:29:312 Team/(10089:10094): Entrenador A movido a posicon 2 3
+[INFO] 06:48:34:312 Team/(10089:10094): Entrenador A movido a posicon 2 4
+[INFO] 06:48:39:314 Team/(10089:10094): Entrenador A movido a posicon 2 5
+[INFO] 06:48:44:315 Team/(10089:10094): Entrenador A movido a posicon 2 6
+[INFO] 06:48:49:316 Team/(10089:10094): Entrenador A movido a posicon 2 7
+[INFO] 06:48:54:318 Team/(10089:10094): Entrenador A movido a posicon 2 8
+[INFO] 06:48:59:319 Team/(10089:10094): Catch efectuado en posicon 2 8 para Onix
+[INFO] 06:48:59:321 Team/(10089:10093): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:48:59:324 Team/(10089:10133): Mensaje CATCH_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 12
+[INFO] 06:49:02:334 Team/(10089:10124): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 13, id correlativo: 12
+[INFO] 06:49:04:321 Team/(10089:10096): Entrenador C movido a posicon 6 2
+[INFO] 06:49:09:322 Team/(10089:10096): Entrenador C movido a posicon 6 3
+[INFO] 06:49:14:324 Team/(10089:10096): Entrenador C movido a posicon 6 4
+[INFO] 06:49:19:325 Team/(10089:10096): Entrenador C movido a posicon 6 5
+[INFO] 06:49:22:338 Team/(10089:10124): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 15, id correlativo: 14
+[INFO] 06:49:24:326 Team/(10089:10096): Entrenador C movido a posicon 6 6
+[INFO] 06:49:27:336 Team/(10089:10124): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 17, id correlativo: 16
+[INFO] 06:49:29:327 Team/(10089:10096): Catch efectuado en posicon 6 6 para Gengar
+[INFO] 06:49:29:332 Team/(10089:10093): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:49:29:334 Team/(10089:10137): Mensaje CATCH_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 18
+[INFO] 06:49:32:342 Team/(10089:10124): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 20, id correlativo: 18
+[INFO] 06:49:32:344 Team/(10089:10124): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 21, id correlativo: 19
+[INFO] 06:49:34:333 Team/(10089:10095): Entrenador B movido a posicon 8 9
+[INFO] 06:49:39:334 Team/(10089:10095): Entrenador B movido a posicon 7 9
+[INFO] 06:49:44:335 Team/(10089:10095): Entrenador B movido a posicon 6 9
+[INFO] 06:49:49:336 Team/(10089:10095): Entrenador B movido a posicon 5 9
+[INFO] 06:49:54:338 Team/(10089:10095): Entrenador B movido a posicon 5 8
+[INFO] 06:49:59:339 Team/(10089:10095): Entrenador B movido a posicon 5 7
+[INFO] 06:50:04:340 Team/(10089:10095): Entrenador B movido a posicon 5 6
+[INFO] 06:50:09:342 Team/(10089:10095): Entrenador B movido a posicon 5 5
+[INFO] 06:50:14:343 Team/(10089:10095): Catch efectuado en posicon 5 5 para Squirtle
+[INFO] 06:50:14:348 Team/(10089:10138): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 22
+[INFO] 06:50:17:356 Team/(10089:10124): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 23, id correlativo: 22
+[INFO] 06:50:17:356 Team/(10089:10089): Inicio algoritmo de deteccion de deadlock
+[INFO] 06:50:17:356 Team/(10089:10089): Inicio de algoritmo de deteccion de deadlock
+[INFO] 06:50:17:356 Team/(10089:10089): Resultado deteccion deadlock: Detectado
+[INFO] 06:50:17:356 Team/(10089:10093): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:50:22:357 Team/(10089:10094): Entrenador A movido a posicon 3 8
+[INFO] 06:50:27:357 Team/(10089:10094): Entrenador A movido a posicon 4 8
+[INFO] 06:50:32:357 Team/(10089:10094): Entrenador A movido a posicon 5 8
+[INFO] 06:50:37:358 Team/(10089:10094): Entrenador A movido a posicon 5 7
+[INFO] 06:50:42:461 Team/(10089:10094): Entrenador A movido a posicon 5 6
+[INFO] 06:50:47:463 Team/(10089:10094): Entrenador A movido a posicon 5 5
+[INFO] 06:51:12:464 Team/(10089:10094): Intercambio efectuado entre EA y EB
+[INFO] 06:51:12:465 Team/(10089:10093): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:51:17:465 Team/(10089:10095): Entrenador B movido a posicon 6 5
+[INFO] 06:51:22:465 Team/(10089:10095): Entrenador B movido a posicon 6 6
+[INFO] 06:51:47:466 Team/(10089:10095): Intercambio efectuado entre EB y EC
+[INFO] 06:51:47:467 Team/(10089:10089): Inicio de algoritmo de deteccion de deadlock
+[INFO] 06:51:47:467 Team/(10089:10089): Resultado deteccion deadlock: NO Detectado
+[INFO] 06:51:47:467 Team/(10089:10089): Ciclos CPU totales: 58
+[INFO] 06:51:47:467 Team/(10089:10089): Ciclos Totales EA = 18
+[INFO] 06:51:47:467 Team/(10089:10089): Ciclos Totales EB = 30
+[INFO] 06:51:47:467 Team/(10089:10089): Ciclos Totales EC = 10
+[INFO] 06:51:47:467 Team/(10089:10089): Cantidad de cambios de contexto: 14
+[INFO] 06:51:47:467 Team/(10089:10089): Deadlocks Encontrados y Resueltos: 1
+[INFO] 07:02:46:335 Team/(10146:10148): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 07:02:46:336 Team/(10146:10154): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 07:02:46:336 Team/(10146:10154): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 07:02:46:336 Team/(10146:10154): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 5
+[INFO] 07:02:46:336 Team/(10146:10148): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 07:02:46:338 Team/(10146:10148): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 07:02:46:339 Team/(10146:10148): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 07:02:49:339 Team/(10146:10155): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 12, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 07:02:49:339 Team/(10146:10155): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 13, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:02:49:340 Team/(10146:10155): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:02:49:340 Team/(10146:10155): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:02:51:337 Team/(10146:10153): Entrenador C movido a posicon 3 2
+[INFO] 07:02:56:338 Team/(10146:10153): Entrenador C movido a posicon 4 2
+[INFO] 07:02:59:420 Team/(10146:10155): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 07:02:59:421 Team/(10146:10155): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 07:02:59:421 Team/(10146:10155): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 07:02:59:422 Team/(10146:10155): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 07:02:59:423 Team/(10146:10155): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 07:03:01:339 Team/(10146:10153): Entrenador C movido a posicon 5 2
+[INFO] 07:03:06:340 Team/(10146:10153): Catch efectuado en posicon 5 2 para Squirtle
+[INFO] 07:03:06:343 Team/(10146:10150): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:03:06:345 Team/(10146:10172): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 26
+[INFO] 07:03:09:353 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[INFO] 07:03:11:344 Team/(10146:10152): Entrenador B movido a posicon 3 3
+[INFO] 07:03:16:345 Team/(10146:10152): Entrenador B movido a posicon 4 3
+[INFO] 07:03:17:431 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[INFO] 07:03:21:346 Team/(10146:10152): Entrenador B movido a posicon 5 3
+[INFO] 07:03:26:348 Team/(10146:10152): Entrenador B movido a posicon 6 3
+[INFO] 07:03:31:349 Team/(10146:10152): Entrenador B movido a posicon 7 3
+[INFO] 07:03:32:436 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[INFO] 07:03:36:351 Team/(10146:10152): Entrenador B movido a posicon 8 3
+[INFO] 07:03:41:352 Team/(10146:10152): Entrenador B movido a posicon 9 3
+[INFO] 07:03:46:353 Team/(10146:10152): Entrenador B movido a posicon 9 4
+[INFO] 07:03:51:355 Team/(10146:10152): Entrenador B movido a posicon 9 5
+[INFO] 07:03:56:356 Team/(10146:10152): Entrenador B movido a posicon 9 6
+[INFO] 07:04:01:357 Team/(10146:10152): Entrenador B movido a posicon 9 7
+[INFO] 07:04:06:359 Team/(10146:10152): Entrenador B movido a posicon 9 8
+[INFO] 07:04:11:361 Team/(10146:10152): Entrenador B movido a posicon 9 9
+[INFO] 07:04:16:362 Team/(10146:10152): Catch efectuado en posicon 9 9 para Pikachu
+[INFO] 07:04:16:367 Team/(10146:10177): Mensaje CATCH_POKEMON: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 32
+[INFO] 07:04:19:377 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[INFO] 07:04:52:553 Team/(10146:10154): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 40
+[INFO] 07:04:52:553 Team/(10146:10150): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:04:52:556 Team/(10146:10154): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 41
+[INFO] 07:04:52:560 Team/(10146:10154): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 42
+[INFO] 07:04:52:565 Team/(10146:10154): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 43
+[INFO] 07:04:52:570 Team/(10146:10154): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 44
+[INFO] 07:04:52:574 Team/(10146:10154): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 45
+[INFO] 07:04:57:553 Team/(10146:10151): Entrenador A movido a posicon 2 3
+[INFO] 07:05:02:554 Team/(10146:10151): Entrenador A movido a posicon 2 4
+[INFO] 07:05:07:555 Team/(10146:10151): Entrenador A movido a posicon 2 5
+[INFO] 07:05:12:557 Team/(10146:10151): Entrenador A movido a posicon 2 6
+[INFO] 07:05:17:558 Team/(10146:10151): Entrenador A movido a posicon 2 7
+[INFO] 07:05:22:560 Team/(10146:10151): Entrenador A movido a posicon 2 8
+[INFO] 07:05:27:561 Team/(10146:10151): Catch efectuado en posicon 2 8 para Onix
+[INFO] 07:05:27:562 Team/(10146:10150): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:05:27:566 Team/(10146:10185): Mensaje CATCH_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 46
+[INFO] 07:05:30:575 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 47, id correlativo: 46
+[INFO] 07:05:32:562 Team/(10146:10153): Entrenador C movido a posicon 6 2
+[INFO] 07:05:37:564 Team/(10146:10153): Entrenador C movido a posicon 6 3
+[INFO] 07:05:42:565 Team/(10146:10153): Entrenador C movido a posicon 6 4
+[INFO] 07:05:47:566 Team/(10146:10153): Entrenador C movido a posicon 6 5
+[INFO] 07:05:50:583 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 49, id correlativo: 48
+[INFO] 07:05:52:567 Team/(10146:10153): Entrenador C movido a posicon 6 6
+[INFO] 07:05:55:581 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 51, id correlativo: 50
+[INFO] 07:05:57:568 Team/(10146:10153): Catch efectuado en posicon 6 6 para Gengar
+[INFO] 07:05:57:570 Team/(10146:10150): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:05:57:572 Team/(10146:10188): Mensaje CATCH_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 53
+[INFO] 07:06:00:581 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 54, id correlativo: 52
+[INFO] 07:06:00:583 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 55, id correlativo: 53
+[INFO] 07:06:02:570 Team/(10146:10152): Entrenador B movido a posicon 8 9
+[INFO] 07:06:07:571 Team/(10146:10152): Entrenador B movido a posicon 7 9
+[INFO] 07:06:12:572 Team/(10146:10152): Entrenador B movido a posicon 6 9
+[INFO] 07:06:17:573 Team/(10146:10152): Entrenador B movido a posicon 5 9
+[INFO] 07:06:22:574 Team/(10146:10152): Entrenador B movido a posicon 5 8
+[INFO] 07:06:27:576 Team/(10146:10152): Entrenador B movido a posicon 5 7
+[INFO] 07:06:32:578 Team/(10146:10152): Entrenador B movido a posicon 5 6
+[INFO] 07:06:37:579 Team/(10146:10152): Entrenador B movido a posicon 5 5
+[INFO] 07:06:42:580 Team/(10146:10152): Catch efectuado en posicon 5 5 para Squirtle
+[INFO] 07:06:42:584 Team/(10146:10190): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 56
+[INFO] 07:06:45:593 Team/(10146:10156): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 57, id correlativo: 56
+[INFO] 07:06:45:593 Team/(10146:10146): Inicio algoritmo de deteccion de deadlock
+[INFO] 07:06:45:593 Team/(10146:10146): Inicio de algoritmo de deteccion de deadlock
+[INFO] 07:06:45:593 Team/(10146:10146): Resultado deteccion deadlock: Detectado
+[INFO] 07:06:45:593 Team/(10146:10150): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:06:50:593 Team/(10146:10151): Entrenador A movido a posicon 3 8
+[INFO] 07:06:55:594 Team/(10146:10151): Entrenador A movido a posicon 4 8
+[INFO] 07:07:00:594 Team/(10146:10151): Entrenador A movido a posicon 5 8
+[INFO] 07:07:05:595 Team/(10146:10151): Entrenador A movido a posicon 5 7
+[INFO] 07:07:10:595 Team/(10146:10151): Entrenador A movido a posicon 5 6
+[INFO] 07:07:15:595 Team/(10146:10151): Entrenador A movido a posicon 5 5
+[INFO] 07:07:40:596 Team/(10146:10151): Intercambio efectuado entre EA y EB
+[INFO] 07:07:40:597 Team/(10146:10150): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:07:45:598 Team/(10146:10152): Entrenador B movido a posicon 6 5
+[INFO] 07:07:50:599 Team/(10146:10152): Entrenador B movido a posicon 6 6
+[INFO] 07:08:15:601 Team/(10146:10152): Intercambio efectuado entre EB y EC
+[INFO] 07:08:15:602 Team/(10146:10146): Inicio de algoritmo de deteccion de deadlock
+[INFO] 07:08:15:602 Team/(10146:10146): Resultado deteccion deadlock: NO Detectado
+[INFO] 07:08:15:602 Team/(10146:10146): Ciclos CPU totales: 58
+[INFO] 07:08:15:602 Team/(10146:10146): Ciclos Totales EA = 18
+[INFO] 07:08:15:602 Team/(10146:10146): Ciclos Totales EB = 30
+[INFO] 07:08:15:602 Team/(10146:10146): Ciclos Totales EC = 10
+[INFO] 07:08:15:602 Team/(10146:10146): Cantidad de cambios de contexto: 14
+[INFO] 07:08:15:602 Team/(10146:10146): Deadlocks Encontrados y Resueltos: 1
+[INFO] 07:15:12:459 Team/(10200:10208): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 07:15:12:459 Team/(10200:10202): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 07:15:12:459 Team/(10200:10208): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 07:15:12:460 Team/(10200:10202): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 07:15:12:461 Team/(10200:10202): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 07:15:12:462 Team/(10200:10202): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 07:15:15:463 Team/(10200:10209): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 12, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:15:15:463 Team/(10200:10209): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 07:15:15:463 Team/(10200:10209): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 14, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:15:15:464 Team/(10200:10209): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:15:20:464 Team/(10200:10206): Entrenador B movido a posicon 3 3
+[ERROR] 07:15:22:820 Team/(10200:10210): Error en 'recibir_codigo_operacion'
+[ERROR] 07:15:22:820 Team/(10200:10209): Error en 'recibir_codigo_operacion'
+[ERROR] 07:15:22:820 Team/(10200:10208): Error en 'recibir_codigo_operacion'
+[INFO] 07:15:25:464 Team/(10200:10206): Entrenador B movido a posicon 4 3
+[INFO] 07:15:30:465 Team/(10200:10206): Entrenador B movido a posicon 5 3
+[INFO] 07:16:18:79 Team/(10230:10232): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 07:16:18:79 Team/(10230:10238): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 07:16:18:80 Team/(10230:10238): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 07:16:18:81 Team/(10230:10232): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 07:16:18:82 Team/(10230:10232): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 07:16:18:83 Team/(10230:10232): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 07:16:21:84 Team/(10230:10239): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 12, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:16:21:84 Team/(10230:10239): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 07:16:21:84 Team/(10230:10239): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 14, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:16:21:84 Team/(10230:10239): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:16:26:84 Team/(10230:10236): Entrenador B movido a posicon 3 3
+[INFO] 07:16:31:85 Team/(10230:10236): Entrenador B movido a posicon 4 3
+[ERROR] 07:16:32:120 Team/(10230:10240): Error en 'recibir_codigo_operacion'
+[ERROR] 07:16:32:120 Team/(10230:10239): Error en 'recibir_codigo_operacion'
+[ERROR] 07:16:32:120 Team/(10230:10238): Error en 'recibir_codigo_operacion'
+[INFO] 07:16:36:86 Team/(10230:10236): Entrenador B movido a posicon 5 3
+[INFO] 07:16:41:87 Team/(10230:10236): Entrenador B movido a posicon 6 3
+[INFO] 07:16:46:88 Team/(10230:10236): Entrenador B movido a posicon 7 3
+[INFO] 07:16:48:80 Team/(10230:10231): Inicio reintento de comunicacion con Broker
+[INFO] 07:16:48:84 Team/(10230:10231): Reintento de comunicación con broker fallido
+[INFO] 07:16:51:89 Team/(10230:10236): Entrenador B movido a posicon 8 3
+[INFO] 07:16:56:90 Team/(10230:10236): Entrenador B movido a posicon 9 3
+[INFO] 07:17:01:92 Team/(10230:10236): Entrenador B movido a posicon 9 4
+[INFO] 07:17:06:93 Team/(10230:10236): Entrenador B movido a posicon 9 5
+[INFO] 07:17:11:94 Team/(10230:10236): Entrenador B movido a posicon 9 6
+[INFO] 07:17:16:95 Team/(10230:10236): Entrenador B movido a posicon 9 7
+[INFO] 07:17:18:84 Team/(10230:10231): Inicio reintento de comunicacion con Broker
+[INFO] 07:17:18:89 Team/(10230:10231): Reintento de comunicación con broker fallido
+[INFO] 07:17:21:96 Team/(10230:10236): Entrenador B movido a posicon 9 8
+[INFO] 07:17:26:98 Team/(10230:10236): Entrenador B movido a posicon 9 9
+[INFO] 07:17:31:100 Team/(10230:10236): Catch efectuado en posicon 9 9 para Pikachu
+[INFO] 07:17:31:101 Team/(10230:10234): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[INFO] 07:17:31:103 Team/(10230:10258): Error en comunicacion al intentar enviar catch. Se efectuara operacion default
+[INFO] 07:17:36:101 Team/(10230:10237): Entrenador C movido a posicon 3 2
+[INFO] 07:17:41:102 Team/(10230:10237): Entrenador C movido a posicon 4 2
+[INFO] 07:17:46:103 Team/(10230:10237): Entrenador C movido a posicon 5 2
+[INFO] 07:17:48:89 Team/(10230:10231): Inicio reintento de comunicacion con Broker
+[INFO] 07:17:48:92 Team/(10230:10231): Reintento de comunicación con broker fallido
+[INFO] 07:17:51:105 Team/(10230:10237): Catch efectuado en posicon 5 2 para Squirtle
+[INFO] 07:17:51:106 Team/(10230:10259): Error en comunicacion al intentar enviar catch. Se efectuara operacion default
+[INFO] 07:18:47:524 Team/(10265:10267): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 07:18:47:525 Team/(10265:10273): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 07:18:47:525 Team/(10265:10273): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 07:18:47:525 Team/(10265:10267): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 07:18:47:526 Team/(10265:10267): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 07:18:47:527 Team/(10265:10267): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 07:18:50:528 Team/(10265:10274): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 12, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:18:50:529 Team/(10265:10274): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 13, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:18:50:529 Team/(10265:10274): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:18:50:529 Team/(10265:10274): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 15, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 07:18:55:529 Team/(10265:10272): Entrenador C movido a posicon 3 2
+[INFO] 07:19:00:529 Team/(10265:10272): Entrenador C movido a posicon 4 2
+[INFO] 07:19:05:530 Team/(10265:10272): Entrenador C movido a posicon 5 2
+[INFO] 07:19:10:532 Team/(10265:10272): Catch efectuado en posicon 5 2 para Squirtle
+[INFO] 07:19:10:533 Team/(10265:10269): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[INFO] 07:19:10:536 Team/(10265:10280): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 16
+[INFO] 07:19:13:545 Team/(10265:10275): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 17, id correlativo: 16
+[INFO] 07:19:15:533 Team/(10265:10271): Entrenador B movido a posicon 3 3
+[INFO] 07:19:20:534 Team/(10265:10271): Entrenador B movido a posicon 4 3
+[INFO] 07:19:25:536 Team/(10265:10271): Entrenador B movido a posicon 5 3
+[INFO] 07:19:30:537 Team/(10265:10271): Entrenador B movido a posicon 6 3
+[INFO] 07:19:35:538 Team/(10265:10271): Entrenador B movido a posicon 7 3
+[INFO] 07:19:40:540 Team/(10265:10271): Entrenador B movido a posicon 8 3
+[INFO] 07:19:45:540 Team/(10265:10271): Entrenador B movido a posicon 9 3
+[INFO] 07:19:50:540 Team/(10265:10271): Entrenador B movido a posicon 9 4
+[INFO] 07:19:55:250 Team/(10265:10274): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 07:19:55:251 Team/(10265:10274): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 07:19:55:251 Team/(10265:10274): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 07:19:55:252 Team/(10265:10274): Mensaje LOCALIZED_POKEMON: id correlativo: 21, Id_mensaje: 26, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 07:19:55:252 Team/(10265:10274): Mensaje LOCALIZED_POKEMON: id correlativo: 22, Id_mensaje: 27, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 07:19:55:541 Team/(10265:10271): Entrenador B movido a posicon 9 5
+[INFO] 07:20:00:541 Team/(10265:10271): Entrenador B movido a posicon 9 6
+[INFO] 07:20:05:541 Team/(10265:10271): Entrenador B movido a posicon 9 7
+[INFO] 07:20:08:264 Team/(10265:10275): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[INFO] 07:20:10:542 Team/(10265:10271): Entrenador B movido a posicon 9 8
+[INFO] 07:20:15:542 Team/(10265:10271): Entrenador B movido a posicon 9 9
+[INFO] 07:20:20:543 Team/(10265:10271): Catch efectuado en posicon 9 9 para Pikachu
+[INFO] 07:20:20:546 Team/(10265:10303): Mensaje CATCH_POKEMON: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 30
+[INFO] 07:20:23:556 Team/(10265:10275): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[INFO] 07:20:28:265 Team/(10265:10275): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[INFO] 07:22:00:364 Team/(10310:10312): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 07:22:00:364 Team/(10310:10318): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 07:22:00:365 Team/(10310:10318): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 07:22:00:365 Team/(10310:10312): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 07:22:00:366 Team/(10310:10312): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 07:22:00:367 Team/(10310:10312): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 07:22:03:368 Team/(10310:10319): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 12, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:22:03:369 Team/(10310:10319): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 13, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:22:03:370 Team/(10310:10319): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 14, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 07:22:03:370 Team/(10310:10319): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:22:08:369 Team/(10310:10317): Entrenador C movido a posicon 3 2
+[INFO] 07:22:13:369 Team/(10310:10317): Entrenador C movido a posicon 4 2
+[INFO] 07:22:18:371 Team/(10310:10317): Entrenador C movido a posicon 5 2
+[INFO] 07:22:23:372 Team/(10310:10317): Catch efectuado en posicon 5 2 para Squirtle
+[INFO] 07:22:23:373 Team/(10310:10314): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[INFO] 07:22:23:377 Team/(10310:10321): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 16
+[INFO] 07:22:26:386 Team/(10310:10320): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 17, id correlativo: 16
+[ERROR] 07:22:27:559 Team/(10310:10320): Error en 'recibir_codigo_operacion'
+[ERROR] 07:22:27:559 Team/(10310:10319): Error en 'recibir_codigo_operacion'
+[ERROR] 07:22:27:559 Team/(10310:10318): Error en 'recibir_codigo_operacion'
+[INFO] 07:22:28:373 Team/(10310:10316): Entrenador B movido a posicon 3 3
+[INFO] 07:22:30:366 Team/(10310:10311): Inicio reintento de comunicacion con Broker
+[INFO] 07:22:30:368 Team/(10310:10311): Reintento de comunicación con broker fallido
+[INFO] 07:22:33:374 Team/(10310:10316): Entrenador B movido a posicon 4 3
+[INFO] 07:22:38:374 Team/(10310:10316): Entrenador B movido a posicon 5 3
+[INFO] 07:22:43:374 Team/(10310:10316): Entrenador B movido a posicon 6 3
+[INFO] 07:22:48:376 Team/(10310:10316): Entrenador B movido a posicon 7 3
+[INFO] 07:22:53:377 Team/(10310:10316): Entrenador B movido a posicon 8 3
+[INFO] 07:22:58:378 Team/(10310:10316): Entrenador B movido a posicon 9 3
+[INFO] 07:23:00:368 Team/(10310:10311): Inicio reintento de comunicacion con Broker
+[INFO] 07:23:00:372 Team/(10310:10311): Reintento de comunicación con broker fallido
+[INFO] 07:23:03:380 Team/(10310:10316): Entrenador B movido a posicon 9 4
+[INFO] 07:23:08:381 Team/(10310:10316): Entrenador B movido a posicon 9 5
+[INFO] 07:23:13:383 Team/(10310:10316): Entrenador B movido a posicon 9 6
+[INFO] 07:23:18:385 Team/(10310:10316): Entrenador B movido a posicon 9 7
+[INFO] 07:23:23:386 Team/(10310:10316): Entrenador B movido a posicon 9 8
+[INFO] 07:23:28:388 Team/(10310:10316): Entrenador B movido a posicon 9 9
+[INFO] 07:25:21:388 Team/(10343:10351): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 07:25:21:388 Team/(10343:10345): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 07:25:21:389 Team/(10343:10351): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 07:25:21:390 Team/(10343:10345): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 07:25:21:391 Team/(10343:10345): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 07:25:21:392 Team/(10343:10345): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 07:25:24:393 Team/(10343:10352): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 12, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:25:24:393 Team/(10343:10352): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 07:25:24:394 Team/(10343:10352): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:25:24:394 Team/(10343:10352): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:25:29:393 Team/(10343:10350): Entrenador C movido a posicon 3 2
+[INFO] 07:25:33:213 Team/(10343:10352): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 07:25:33:214 Team/(10343:10352): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 07:25:33:214 Team/(10343:10352): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 07:25:33:215 Team/(10343:10352): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 07:25:33:216 Team/(10343:10352): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 07:25:34:394 Team/(10343:10350): Entrenador C movido a posicon 4 2
+[INFO] 07:25:39:396 Team/(10343:10350): Entrenador C movido a posicon 5 2
+[INFO] 07:27:10:41 Team/(10374:10382): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 07:27:10:41 Team/(10374:10376): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 07:27:10:42 Team/(10374:10382): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 07:27:10:43 Team/(10374:10376): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 07:27:10:44 Team/(10374:10376): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 07:27:10:45 Team/(10374:10376): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 07:27:13:44 Team/(10374:10383): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 12, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:27:13:45 Team/(10374:10383): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 07:27:13:46 Team/(10374:10383): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:27:13:46 Team/(10374:10383): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[ERROR] 07:27:16:262 Team/(10374:10384): Error en 'recibir_codigo_operacion'
+[ERROR] 07:27:16:262 Team/(10374:10383): Error en 'recibir_codigo_operacion'
+[ERROR] 07:27:16:262 Team/(10374:10382): Error en 'recibir_codigo_operacion'
+[INFO] 07:27:18:45 Team/(10374:10381): Entrenador C movido a posicon 3 2
+[INFO] 07:27:23:45 Team/(10374:10381): Entrenador C movido a posicon 4 2
+[INFO] 07:27:28:46 Team/(10374:10381): Entrenador C movido a posicon 5 2
+[INFO] 07:27:33:47 Team/(10374:10381): Catch efectuado en posicon 5 2 para Squirtle
+[INFO] 07:27:33:48 Team/(10374:10378): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[INFO] 07:27:33:51 Team/(10374:10399): Error en comunicacion al intentar enviar catch. Se efectuara operacion default
+[INFO] 07:32:12:930 Team/(10411:10419): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[INFO] 07:32:12:931 Team/(10411:10413): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[INFO] 07:32:12:931 Team/(10411:10419): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[INFO] 07:32:12:932 Team/(10411:10413): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[INFO] 07:32:12:933 Team/(10411:10413): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[INFO] 07:32:12:934 Team/(10411:10413): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[INFO] 07:32:15:936 Team/(10411:10420): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 12, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:32:15:937 Team/(10411:10420): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 13, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:32:15:937 Team/(10411:10420): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 14, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:32:15:938 Team/(10411:10420): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 15, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 07:32:20:938 Team/(10411:10418): Entrenador C movido a posicon 3 2
+[INFO] 07:32:20:984 Team/(10411:10420): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 07:32:20:985 Team/(10411:10420): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 07:32:20:985 Team/(10411:10420): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 07:32:20:986 Team/(10411:10420): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 07:32:20:986 Team/(10411:10420): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 07:32:25:939 Team/(10411:10418): Entrenador C movido a posicon 4 2
+[INFO] 07:32:30:940 Team/(10411:10418): Entrenador C movido a posicon 5 2
+[INFO] 07:32:35:941 Team/(10411:10418): Catch efectuado en posicon 5 2 para Squirtle
+[INFO] 07:32:35:943 Team/(10411:10415): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:32:35:946 Team/(10411:10435): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 26
+[INFO] 07:32:38:954 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 28, id correlativo: 26
+[INFO] 07:32:38:993 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 27
+[INFO] 07:32:40:943 Team/(10411:10417): Entrenador B movido a posicon 3 3
+[INFO] 07:32:45:944 Team/(10411:10417): Entrenador B movido a posicon 4 3
+[INFO] 07:32:50:946 Team/(10411:10417): Entrenador B movido a posicon 5 3
+[INFO] 07:32:53:999 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[INFO] 07:32:55:947 Team/(10411:10417): Entrenador B movido a posicon 6 3
+[INFO] 07:33:00:948 Team/(10411:10417): Entrenador B movido a posicon 7 3
+[INFO] 07:33:05:949 Team/(10411:10417): Entrenador B movido a posicon 8 3
+[INFO] 07:33:10:951 Team/(10411:10417): Entrenador B movido a posicon 9 3
+[INFO] 07:33:15:952 Team/(10411:10417): Entrenador B movido a posicon 9 4
+[INFO] 07:33:20:954 Team/(10411:10417): Entrenador B movido a posicon 9 5
+[INFO] 07:33:25:955 Team/(10411:10417): Entrenador B movido a posicon 9 6
+[INFO] 07:33:30:956 Team/(10411:10417): Entrenador B movido a posicon 9 7
+[INFO] 07:33:35:957 Team/(10411:10417): Entrenador B movido a posicon 9 8
+[INFO] 07:33:40:958 Team/(10411:10417): Entrenador B movido a posicon 9 9
+[INFO] 07:33:45:959 Team/(10411:10417): Catch efectuado en posicon 9 9 para Pikachu
+[INFO] 07:33:45:964 Team/(10411:10438): Mensaje CATCH_POKEMON: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 32
+[INFO] 07:33:48:975 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[INFO] 07:34:35:473 Team/(10411:10419): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 40
+[INFO] 07:34:35:474 Team/(10411:10415): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:34:35:475 Team/(10411:10419): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 41
+[INFO] 07:34:35:478 Team/(10411:10419): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 42
+[INFO] 07:34:35:481 Team/(10411:10419): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 43
+[INFO] 07:34:35:486 Team/(10411:10419): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 44
+[INFO] 07:34:35:489 Team/(10411:10419): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 45
+[INFO] 07:34:40:474 Team/(10411:10416): Entrenador A movido a posicon 2 3
+[INFO] 07:34:45:474 Team/(10411:10416): Entrenador A movido a posicon 2 4
+[INFO] 07:34:50:476 Team/(10411:10416): Entrenador A movido a posicon 2 5
+[INFO] 07:34:55:477 Team/(10411:10416): Entrenador A movido a posicon 2 6
+[INFO] 07:35:00:485 Team/(10411:10416): Entrenador A movido a posicon 2 7
+[INFO] 07:35:05:486 Team/(10411:10416): Entrenador A movido a posicon 2 8
+[INFO] 07:35:10:488 Team/(10411:10416): Catch efectuado en posicon 2 8 para Onix
+[INFO] 07:35:10:489 Team/(10411:10415): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:35:10:493 Team/(10411:10448): Mensaje CATCH_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 46
+[INFO] 07:35:13:501 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 47, id correlativo: 46
+[INFO] 07:35:15:489 Team/(10411:10418): Entrenador C movido a posicon 6 2
+[INFO] 07:35:20:491 Team/(10411:10418): Entrenador C movido a posicon 6 3
+[INFO] 07:35:25:492 Team/(10411:10418): Entrenador C movido a posicon 6 4
+[INFO] 07:35:30:494 Team/(10411:10418): Entrenador C movido a posicon 6 5
+[INFO] 07:35:33:506 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 49, id correlativo: 48
+[INFO] 07:35:35:495 Team/(10411:10418): Entrenador C movido a posicon 6 6
+[INFO] 07:35:38:506 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 51, id correlativo: 50
+[INFO] 07:35:40:497 Team/(10411:10418): Catch efectuado en posicon 6 6 para Gengar
+[INFO] 07:35:40:498 Team/(10411:10415): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:35:40:500 Team/(10411:10451): Mensaje CATCH_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 53
+[INFO] 07:35:43:507 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 54, id correlativo: 52
+[INFO] 07:35:43:510 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 55, id correlativo: 53
+[INFO] 07:35:45:498 Team/(10411:10417): Entrenador B movido a posicon 8 9
+[INFO] 07:35:50:499 Team/(10411:10417): Entrenador B movido a posicon 7 9
+[INFO] 07:35:55:501 Team/(10411:10417): Entrenador B movido a posicon 6 9
+[INFO] 07:36:00:502 Team/(10411:10417): Entrenador B movido a posicon 5 9
+[INFO] 07:36:05:502 Team/(10411:10417): Entrenador B movido a posicon 5 8
+[INFO] 07:36:10:502 Team/(10411:10417): Entrenador B movido a posicon 5 7
+[INFO] 07:36:15:503 Team/(10411:10417): Entrenador B movido a posicon 5 6
+[INFO] 07:36:20:503 Team/(10411:10417): Entrenador B movido a posicon 5 5
+[INFO] 07:36:25:504 Team/(10411:10417): Catch efectuado en posicon 5 5 para Squirtle
+[INFO] 07:36:25:507 Team/(10411:10453): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 56
+[INFO] 07:36:28:516 Team/(10411:10421): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 57, id correlativo: 56
+[INFO] 07:36:28:518 Team/(10411:10411): Inicio algoritmo de deteccion de deadlock
+[INFO] 07:36:28:518 Team/(10411:10411): Inicio de algoritmo de deteccion de deadlock
+[INFO] 07:36:28:518 Team/(10411:10411): Resultado deteccion deadlock: Detectado
+[INFO] 07:36:28:518 Team/(10411:10415): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:36:33:518 Team/(10411:10416): Entrenador A movido a posicon 3 8
+[INFO] 07:36:38:519 Team/(10411:10416): Entrenador A movido a posicon 4 8
+[INFO] 07:36:43:521 Team/(10411:10416): Entrenador A movido a posicon 5 8
+[INFO] 07:36:48:523 Team/(10411:10416): Entrenador A movido a posicon 5 7
+[INFO] 07:36:53:524 Team/(10411:10416): Entrenador A movido a posicon 5 6
+[INFO] 07:36:58:525 Team/(10411:10416): Entrenador A movido a posicon 5 5
+[INFO] 07:37:23:527 Team/(10411:10416): Intercambio efectuado entre EA y EB
+[INFO] 07:37:23:527 Team/(10411:10415): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:37:28:527 Team/(10411:10417): Entrenador B movido a posicon 6 5
+[INFO] 07:37:33:528 Team/(10411:10417): Entrenador B movido a posicon 6 6
+[INFO] 07:37:58:529 Team/(10411:10417): Intercambio efectuado entre EB y EC
+[INFO] 07:37:58:529 Team/(10411:10411): Inicio de algoritmo de deteccion de deadlock
+[INFO] 07:37:58:529 Team/(10411:10411): Resultado deteccion deadlock: NO Detectado
+[INFO] 07:37:58:529 Team/(10411:10411): Ciclos CPU totales: 58
+[INFO] 07:37:58:529 Team/(10411:10411): Ciclos Totales EA = 18
+[INFO] 07:37:58:529 Team/(10411:10411): Ciclos Totales EB = 30
+[INFO] 07:37:58:529 Team/(10411:10411): Ciclos Totales EC = 10
+[INFO] 07:37:58:529 Team/(10411:10411): Cantidad de cambios de contexto: 14
+[INFO] 07:37:58:529 Team/(10411:10411): Deadlocks Encontrados y Resueltos: 1

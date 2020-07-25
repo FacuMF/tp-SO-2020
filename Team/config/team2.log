@@ -1,0 +1,604 @@
+[INFO] 06:37:33:566 Team/(10013:10015): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[INFO] 06:37:33:567 Team/(10013:10024): Mensaje LOCALIZED_POKEMON: id correlativo: -1240465344, Id_mensaje: 14, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 06:37:33:567 Team/(10013:10024): Mensaje LOCALIZED_POKEMON: id correlativo: 0, Id_mensaje: 15, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 06:37:33:568 Team/(10013:10015): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[INFO] 06:37:33:569 Team/(10013:10015): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[INFO] 06:37:33:570 Team/(10013:10015): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[INFO] 06:37:33:571 Team/(10013:10015): Mensaje GET_POKEMON: Pokemon: Espeon, Id mensaje: 20
+[INFO] 06:37:36:569 Team/(10013:10024): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 06:37:36:569 Team/(10013:10024): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 06:37:36:570 Team/(10013:10024): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 06:37:36:571 Team/(10013:10024): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 06:37:36:572 Team/(10013:10024): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 06:37:41:570 Team/(10013:10018): Entrenador A movido a posicon 2 2
+[INFO] 06:37:41:570 Team/(10013:10017): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:37:46:570 Team/(10013:10019): Entrenador B movido a posicon 5 5
+[INFO] 06:37:46:570 Team/(10013:10017): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:37:51:571 Team/(10013:10018): Catch efectuado en posicon 2 2 para Jolteon
+[INFO] 06:37:51:571 Team/(10013:10017): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:37:51:574 Team/(10013:10026): Mensaje CATCH_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 26
+[INFO] 06:37:54:581 Team/(10013:10025): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[INFO] 06:37:56:571 Team/(10013:10019): Entrenador B movido a posicon 4 5
+[INFO] 06:37:56:571 Team/(10013:10017): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:37:58:652 Team/(10013:10023): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 34
+[INFO] 06:37:58:655 Team/(10013:10023): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 35
+[INFO] 06:37:58:655 Team/(10013:10023): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 36
+[ERROR] 06:37:58:778 Team/(10013:10025): Error en 'recibir_codigo_operacion'
+[ERROR] 06:37:58:778 Team/(10013:10024): Error en 'recibir_codigo_operacion'
+[ERROR] 06:37:58:778 Team/(10013:10023): Error en 'recibir_codigo_operacion'
+[INFO] 06:38:01:572 Team/(10013:10019): Entrenador B movido a posicon 4 6
+[INFO] 06:38:01:572 Team/(10013:10017): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:38:03:567 Team/(10013:10014): Inicio reintento de comunicacion con Broker
+[INFO] 06:38:03:569 Team/(10013:10014): Reintento de comunicación con broker fallido
+[INFO] 06:38:06:572 Team/(10013:10019): Catch efectuado en posicon 4 6 para Flareon
+[INFO] 06:38:06:573 Team/(10013:10034): Error en comunicacion al intentar enviar catch. Se efectuara operacion default
+[INFO] 06:39:24:861 Team/(10058:10060): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[INFO] 06:39:24:861 Team/(10058:10069): Mensaje LOCALIZED_POKEMON: id correlativo: -1239416648, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 06:39:24:861 Team/(10058:10069): Mensaje LOCALIZED_POKEMON: id correlativo: 0, Id_mensaje: 14, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 06:39:24:862 Team/(10058:10060): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[INFO] 06:39:24:863 Team/(10058:10060): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[INFO] 06:39:24:864 Team/(10058:10060): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[ERROR] 06:39:24:982 Team/(10058:10069): Error en 'recibir_codigo_operacion'
+[ERROR] 06:39:24:982 Team/(10058:10068): Error en 'recibir_codigo_operacion'
+[ERROR] 06:39:24:982 Team/(10058:10070): Error en 'recibir_codigo_operacion'
+[ERROR] 06:39:24:983 Team/(10058:10060): Opcode inválido.
+[INFO] 06:45:54:470 Team/(10100:10102): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[INFO] 06:45:54:471 Team/(10100:10102): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[INFO] 06:45:54:471 Team/(10100:10111): Mensaje LOCALIZED_POKEMON: id correlativo: 143017128, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 06:45:54:472 Team/(10100:10102): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[INFO] 06:45:54:473 Team/(10100:10102): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[INFO] 06:45:54:473 Team/(10100:10102): Mensaje GET_POKEMON: Pokemon: Espeon, Id mensaje: 20
+[INFO] 06:45:57:473 Team/(10100:10111): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 06:45:57:474 Team/(10100:10111): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 06:45:57:474 Team/(10100:10111): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 06:45:57:475 Team/(10100:10111): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 06:45:57:475 Team/(10100:10111): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 06:46:02:474 Team/(10100:10105): Entrenador A movido a posicon 2 2
+[INFO] 06:46:02:475 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:46:07:475 Team/(10100:10106): Entrenador B movido a posicon 5 5
+[INFO] 06:46:07:475 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:46:12:475 Team/(10100:10105): Catch efectuado en posicon 2 2 para Jolteon
+[INFO] 06:46:12:476 Team/(10100:10104): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:46:12:479 Team/(10100:10113): Mensaje CATCH_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 26
+[INFO] 06:46:15:486 Team/(10100:10112): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[INFO] 06:46:17:476 Team/(10100:10106): Entrenador B movido a posicon 4 5
+[INFO] 06:46:17:476 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:46:22:476 Team/(10100:10106): Entrenador B movido a posicon 4 6
+[INFO] 06:46:22:477 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:46:27:477 Team/(10100:10106): Catch efectuado en posicon 4 6 para Flareon
+[INFO] 06:46:27:481 Team/(10100:10114): Mensaje CATCH_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 28
+[INFO] 06:46:30:488 Team/(10100:10112): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[INFO] 06:46:59:461 Team/(10100:10112): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[ERROR] 06:46:59:582 Team/(10100:10112): Error en 'recibir_codigo_operacion'
+[ERROR] 06:46:59:582 Team/(10100:10111): Error en 'recibir_codigo_operacion'
+[ERROR] 06:46:59:582 Team/(10100:10110): Error en 'recibir_codigo_operacion'
+[INFO] 06:46:59:582 Team/(10100:10101): Inicio reintento de comunicacion con Broker
+[INFO] 06:46:59:584 Team/(10100:10101): Reintento de comunicación con broker fallido
+[INFO] 06:47:29:584 Team/(10100:10101): Inicio reintento de comunicacion con Broker
+[INFO] 06:47:29:588 Team/(10100:10101): Reintento de comunicación con broker fallido
+[INFO] 06:47:59:588 Team/(10100:10101): Inicio reintento de comunicacion con Broker
+[INFO] 06:47:59:592 Team/(10100:10101): Reintento de comunicación con broker logrado
+[INFO] 06:48:24:311 Team/(10100:10121): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 6
+[INFO] 06:48:24:314 Team/(10100:10121): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 7
+[INFO] 06:48:24:314 Team/(10100:10121): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 8
+[INFO] 06:48:24:317 Team/(10100:10121): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 9
+[INFO] 06:48:24:317 Team/(10100:10104): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:48:24:321 Team/(10100:10121): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 10
+[INFO] 06:48:24:324 Team/(10100:10121): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 11
+[INFO] 06:48:29:317 Team/(10100:10107): Entrenador C movido a posicon 10 9
+[INFO] 06:48:29:318 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:48:34:318 Team/(10100:10108): Entrenador D movido a posicon 8 2
+[INFO] 06:48:34:318 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:48:39:318 Team/(10100:10109): Entrenador E movido a posicon 3 9
+[INFO] 06:48:39:319 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:48:44:319 Team/(10100:10107): Entrenador C movido a posicon 10 8
+[INFO] 06:48:44:319 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:48:49:319 Team/(10100:10108): Entrenador D movido a posicon 7 2
+[INFO] 06:48:49:319 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:48:54:320 Team/(10100:10109): Entrenador E movido a posicon 4 9
+[INFO] 06:48:54:320 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:48:59:320 Team/(10100:10107): Entrenador C movido a posicon 10 7
+[INFO] 06:48:59:321 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:49:02:334 Team/(10100:10125): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 13, id correlativo: 12
+[INFO] 06:49:04:321 Team/(10100:10108): Entrenador D movido a posicon 7 1
+[INFO] 06:49:04:322 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:49:09:322 Team/(10100:10109): Entrenador E movido a posicon 4 10
+[INFO] 06:49:09:323 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:49:14:323 Team/(10100:10107): Entrenador C movido a posicon 10 6
+[INFO] 06:49:14:325 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:49:19:325 Team/(10100:10108): Catch efectuado en posicon 7 1 para Espeon
+[INFO] 06:49:19:325 Team/(10100:10104): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:49:19:329 Team/(10100:10134): Mensaje CATCH_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 14
+[INFO] 06:49:22:338 Team/(10100:10125): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 15, id correlativo: 14
+[INFO] 06:49:24:326 Team/(10100:10109): Catch efectuado en posicon 4 10 para Vaporeon
+[INFO] 06:49:24:327 Team/(10100:10104): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:49:24:328 Team/(10100:10135): Mensaje CATCH_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 16
+[INFO] 06:49:27:336 Team/(10100:10125): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 17, id correlativo: 16
+[INFO] 06:49:29:327 Team/(10100:10107): Catch efectuado en posicon 10 6 para Umbreon
+[INFO] 06:49:29:334 Team/(10100:10136): Mensaje CATCH_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 19
+[INFO] 06:49:32:342 Team/(10100:10125): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 20, id correlativo: 18
+[INFO] 06:49:32:344 Team/(10100:10125): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 21, id correlativo: 19
+[INFO] 06:49:32:345 Team/(10100:10100): Inicio algoritmo de deteccion de deadlock
+[INFO] 06:49:32:345 Team/(10100:10100): Inicio de algoritmo de deteccion de deadlock
+[INFO] 06:49:32:345 Team/(10100:10100): Resultado deteccion deadlock: Detectado
+[INFO] 06:49:32:345 Team/(10100:10104): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:49:37:345 Team/(10100:10105): Entrenador A movido a posicon 3 2
+[INFO] 06:49:37:345 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:49:42:345 Team/(10100:10105): Entrenador A movido a posicon 4 2
+[INFO] 06:49:42:346 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:49:47:346 Team/(10100:10105): Entrenador A movido a posicon 4 3
+[INFO] 06:49:47:346 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:49:52:346 Team/(10100:10105): Entrenador A movido a posicon 4 4
+[INFO] 06:49:52:346 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:49:57:347 Team/(10100:10105): Entrenador A movido a posicon 4 5
+[INFO] 06:49:57:347 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:02:347 Team/(10100:10105): Entrenador A movido a posicon 4 6
+[INFO] 06:50:02:347 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:07:348 Team/(10100:10105): Entrenador A movido a posicon 4 7
+[INFO] 06:50:07:348 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:12:348 Team/(10100:10105): Entrenador A movido a posicon 4 8
+[INFO] 06:50:12:348 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:17:349 Team/(10100:10105): Entrenador A movido a posicon 4 9
+[INFO] 06:50:17:349 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:17:356 Team/(10100:10125): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 23, id correlativo: 22
+[INFO] 06:50:22:349 Team/(10100:10105): Entrenador A movido a posicon 4 10
+[INFO] 06:50:22:349 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:27:349 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:32:351 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:37:352 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:42:461 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:47:462 Team/(10100:10105): Intercambio efectuado entre EA y EE
+[INFO] 06:50:47:464 Team/(10100:10104): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:50:52:464 Team/(10100:10109): Entrenador E movido a posicon 5 10
+[INFO] 06:50:52:465 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:50:57:466 Team/(10100:10109): Entrenador E movido a posicon 6 10
+[INFO] 06:50:57:467 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:02:467 Team/(10100:10109): Entrenador E movido a posicon 7 10
+[INFO] 06:51:02:468 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:07:468 Team/(10100:10109): Entrenador E movido a posicon 7 9
+[INFO] 06:51:07:469 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:12:470 Team/(10100:10109): Entrenador E movido a posicon 7 8
+[INFO] 06:51:12:471 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:17:471 Team/(10100:10109): Entrenador E movido a posicon 7 7
+[INFO] 06:51:17:538 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:22:538 Team/(10100:10109): Entrenador E movido a posicon 7 6
+[INFO] 06:51:22:539 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:27:539 Team/(10100:10109): Entrenador E movido a posicon 7 5
+[INFO] 06:51:27:646 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:32:646 Team/(10100:10109): Entrenador E movido a posicon 7 4
+[INFO] 06:51:32:865 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:37:865 Team/(10100:10109): Entrenador E movido a posicon 7 3
+[INFO] 06:51:37:866 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:42:866 Team/(10100:10109): Entrenador E movido a posicon 7 2
+[INFO] 06:51:42:867 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:47:867 Team/(10100:10109): Entrenador E movido a posicon 7 1
+[INFO] 06:51:47:868 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:52:869 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:51:57:870 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:02:919 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:07:921 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:12:922 Team/(10100:10109): Intercambio efectuado entre EE y ED
+[INFO] 06:52:12:923 Team/(10100:10104): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:52:17:923 Team/(10100:10108): Entrenador D movido a posicon 8 1
+[INFO] 06:52:17:925 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:22:925 Team/(10100:10108): Entrenador D movido a posicon 9 1
+[INFO] 06:52:22:926 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:27:926 Team/(10100:10108): Entrenador D movido a posicon 10 1
+[INFO] 06:52:27:927 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:32:927 Team/(10100:10108): Entrenador D movido a posicon 10 2
+[INFO] 06:52:32:928 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:37:928 Team/(10100:10108): Entrenador D movido a posicon 10 3
+[INFO] 06:52:38:95 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:43:95 Team/(10100:10108): Entrenador D movido a posicon 10 4
+[INFO] 06:52:43:96 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:48:96 Team/(10100:10108): Entrenador D movido a posicon 10 5
+[INFO] 06:52:48:97 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:53:97 Team/(10100:10108): Entrenador D movido a posicon 10 6
+[INFO] 06:52:53:98 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:52:58:98 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:03:103 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:08:105 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:13:106 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:18:107 Team/(10100:10108): Intercambio efectuado entre ED y EC
+[INFO] 06:53:18:109 Team/(10100:10104): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 06:53:23:109 Team/(10100:10107): Entrenador C movido a posicon 9 6
+[INFO] 06:53:23:110 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:28:110 Team/(10100:10107): Entrenador C movido a posicon 8 6
+[INFO] 06:53:28:111 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:33:111 Team/(10100:10107): Entrenador C movido a posicon 7 6
+[INFO] 06:53:33:112 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:38:113 Team/(10100:10107): Entrenador C movido a posicon 6 6
+[INFO] 06:53:38:114 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:43:114 Team/(10100:10107): Entrenador C movido a posicon 5 6
+[INFO] 06:53:43:115 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:48:115 Team/(10100:10107): Entrenador C movido a posicon 4 6
+[INFO] 06:53:48:116 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:53:116 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:53:58:117 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:54:03:119 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:54:08:120 Team/(10100:10104): Cambio de entrenador por finalizacion de quantum
+[INFO] 06:54:13:121 Team/(10100:10107): Intercambio efectuado entre EC y EB
+[INFO] 06:54:13:123 Team/(10100:10100): Inicio de algoritmo de deteccion de deadlock
+[INFO] 06:54:13:123 Team/(10100:10100): Resultado deteccion deadlock: NO Detectado
+[INFO] 06:54:13:123 Team/(10100:10100): Ciclos CPU totales: 75
+[INFO] 06:54:13:123 Team/(10100:10100): Ciclos Totales EA = 17
+[INFO] 06:54:13:123 Team/(10100:10100): Ciclos Totales EB = 4
+[INFO] 06:54:13:123 Team/(10100:10100): Ciclos Totales EC = 16
+[INFO] 06:54:13:123 Team/(10100:10100): Ciclos Totales ED = 17
+[INFO] 06:54:13:123 Team/(10100:10100): Ciclos Totales EE = 21
+[INFO] 06:54:13:123 Team/(10100:10100): Cantidad de cambios de contexto: 150
+[INFO] 06:54:13:123 Team/(10100:10100): Deadlocks Encontrados y Resueltos: 1
+[INFO] 07:02:56:418 Team/(10159:10161): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[INFO] 07:02:56:419 Team/(10159:10161): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[INFO] 07:02:56:419 Team/(10159:10170): Mensaje LOCALIZED_POKEMON: id correlativo: 0, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:02:56:419 Team/(10159:10170): Mensaje LOCALIZED_POKEMON: id correlativo: 0, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:02:56:420 Team/(10159:10161): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[INFO] 07:02:56:421 Team/(10159:10161): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[INFO] 07:02:56:422 Team/(10159:10161): Mensaje GET_POKEMON: Pokemon: Espeon, Id mensaje: 20
+[INFO] 07:02:59:420 Team/(10159:10170): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 07:02:59:421 Team/(10159:10170): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 07:02:59:421 Team/(10159:10170): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 07:02:59:422 Team/(10159:10170): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 07:02:59:423 Team/(10159:10170): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 07:03:04:421 Team/(10159:10164): Entrenador A movido a posicon 2 2
+[INFO] 07:03:04:421 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:03:09:353 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[INFO] 07:03:09:422 Team/(10159:10165): Entrenador B movido a posicon 5 5
+[INFO] 07:03:09:422 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:03:14:422 Team/(10159:10164): Catch efectuado en posicon 2 2 para Jolteon
+[INFO] 07:03:14:422 Team/(10159:10163): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:03:14:424 Team/(10159:10173): Mensaje CATCH_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 28
+[INFO] 07:03:17:431 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[INFO] 07:03:19:422 Team/(10159:10165): Entrenador B movido a posicon 4 5
+[INFO] 07:03:19:423 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:03:24:423 Team/(10159:10165): Entrenador B movido a posicon 4 6
+[INFO] 07:03:24:423 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:03:29:423 Team/(10159:10165): Catch efectuado en posicon 4 6 para Flareon
+[INFO] 07:03:29:427 Team/(10159:10174): Mensaje CATCH_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 30
+[INFO] 07:03:32:436 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[INFO] 07:04:19:377 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[INFO] 07:04:52:553 Team/(10159:10169): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 40
+[INFO] 07:04:52:556 Team/(10159:10169): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 41
+[INFO] 07:04:52:560 Team/(10159:10169): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 42
+[INFO] 07:04:52:565 Team/(10159:10169): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 43
+[INFO] 07:04:52:565 Team/(10159:10163): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:04:52:569 Team/(10159:10169): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 44
+[INFO] 07:04:52:574 Team/(10159:10169): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 45
+[INFO] 07:04:57:565 Team/(10159:10166): Entrenador C movido a posicon 10 9
+[INFO] 07:04:57:565 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:02:566 Team/(10159:10167): Entrenador D movido a posicon 8 2
+[INFO] 07:05:02:566 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:07:566 Team/(10159:10168): Entrenador E movido a posicon 3 9
+[INFO] 07:05:07:566 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:12:566 Team/(10159:10166): Entrenador C movido a posicon 10 8
+[INFO] 07:05:12:567 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:17:567 Team/(10159:10167): Entrenador D movido a posicon 7 2
+[INFO] 07:05:17:567 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:22:567 Team/(10159:10168): Entrenador E movido a posicon 4 9
+[INFO] 07:05:22:568 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:27:568 Team/(10159:10166): Entrenador C movido a posicon 10 7
+[INFO] 07:05:27:568 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:30:575 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 47, id correlativo: 46
+[INFO] 07:05:32:568 Team/(10159:10167): Entrenador D movido a posicon 7 1
+[INFO] 07:05:32:568 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:37:568 Team/(10159:10168): Entrenador E movido a posicon 4 10
+[INFO] 07:05:37:569 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:42:569 Team/(10159:10166): Entrenador C movido a posicon 10 6
+[INFO] 07:05:42:569 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:05:47:569 Team/(10159:10167): Catch efectuado en posicon 7 1 para Espeon
+[INFO] 07:05:47:569 Team/(10159:10163): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:05:47:573 Team/(10159:10186): Mensaje CATCH_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 48
+[INFO] 07:05:50:583 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 49, id correlativo: 48
+[INFO] 07:05:52:569 Team/(10159:10168): Catch efectuado en posicon 4 10 para Vaporeon
+[INFO] 07:05:52:570 Team/(10159:10163): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:05:52:571 Team/(10159:10187): Mensaje CATCH_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 50
+[INFO] 07:05:55:581 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 51, id correlativo: 50
+[INFO] 07:05:57:570 Team/(10159:10166): Catch efectuado en posicon 10 6 para Umbreon
+[INFO] 07:05:57:571 Team/(10159:10189): Mensaje CATCH_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 52
+[INFO] 07:06:00:581 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 54, id correlativo: 52
+[INFO] 07:06:00:581 Team/(10159:10159): Inicio algoritmo de deteccion de deadlock
+[INFO] 07:06:00:581 Team/(10159:10159): Inicio de algoritmo de deteccion de deadlock
+[INFO] 07:06:00:581 Team/(10159:10159): Resultado deteccion deadlock: Detectado
+[INFO] 07:06:00:581 Team/(10159:10163): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:06:00:583 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 55, id correlativo: 53
+[INFO] 07:06:05:581 Team/(10159:10164): Entrenador A movido a posicon 3 2
+[INFO] 07:06:05:582 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:10:582 Team/(10159:10164): Entrenador A movido a posicon 4 2
+[INFO] 07:06:10:582 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:15:582 Team/(10159:10164): Entrenador A movido a posicon 4 3
+[INFO] 07:06:15:583 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:20:583 Team/(10159:10164): Entrenador A movido a posicon 4 4
+[INFO] 07:06:20:583 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:25:583 Team/(10159:10164): Entrenador A movido a posicon 4 5
+[INFO] 07:06:25:583 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:30:584 Team/(10159:10164): Entrenador A movido a posicon 4 6
+[INFO] 07:06:30:584 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:35:584 Team/(10159:10164): Entrenador A movido a posicon 4 7
+[INFO] 07:06:35:584 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:40:584 Team/(10159:10164): Entrenador A movido a posicon 4 8
+[INFO] 07:06:40:585 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:45:585 Team/(10159:10164): Entrenador A movido a posicon 4 9
+[INFO] 07:06:45:585 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:45:593 Team/(10159:10171): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 57, id correlativo: 56
+[INFO] 07:06:50:585 Team/(10159:10164): Entrenador A movido a posicon 4 10
+[INFO] 07:06:50:586 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:06:55:586 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:00:587 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:05:588 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:10:590 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:15:591 Team/(10159:10164): Intercambio efectuado entre EA y EE
+[INFO] 07:07:15:592 Team/(10159:10163): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:07:20:593 Team/(10159:10168): Entrenador E movido a posicon 5 10
+[INFO] 07:07:20:594 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:25:594 Team/(10159:10168): Entrenador E movido a posicon 6 10
+[INFO] 07:07:25:595 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:30:595 Team/(10159:10168): Entrenador E movido a posicon 7 10
+[INFO] 07:07:30:596 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:35:596 Team/(10159:10168): Entrenador E movido a posicon 7 9
+[INFO] 07:07:35:598 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:40:598 Team/(10159:10168): Entrenador E movido a posicon 7 8
+[INFO] 07:07:40:598 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:45:598 Team/(10159:10168): Entrenador E movido a posicon 7 7
+[INFO] 07:07:45:599 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:50:599 Team/(10159:10168): Entrenador E movido a posicon 7 6
+[INFO] 07:07:50:600 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:07:55:600 Team/(10159:10168): Entrenador E movido a posicon 7 5
+[INFO] 07:07:55:600 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:00:600 Team/(10159:10168): Entrenador E movido a posicon 7 4
+[INFO] 07:08:00:601 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:05:601 Team/(10159:10168): Entrenador E movido a posicon 7 3
+[INFO] 07:08:05:602 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:10:602 Team/(10159:10168): Entrenador E movido a posicon 7 2
+[INFO] 07:08:10:606 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:15:606 Team/(10159:10168): Entrenador E movido a posicon 7 1
+[INFO] 07:08:15:606 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:20:607 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:25:608 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:30:609 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:35:611 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:40:612 Team/(10159:10168): Intercambio efectuado entre EE y ED
+[INFO] 07:08:40:613 Team/(10159:10163): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:08:45:613 Team/(10159:10167): Entrenador D movido a posicon 8 1
+[INFO] 07:08:45:614 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:50:615 Team/(10159:10167): Entrenador D movido a posicon 9 1
+[INFO] 07:08:50:616 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:08:55:616 Team/(10159:10167): Entrenador D movido a posicon 10 1
+[INFO] 07:08:55:617 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:00:617 Team/(10159:10167): Entrenador D movido a posicon 10 2
+[INFO] 07:09:00:618 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:05:619 Team/(10159:10167): Entrenador D movido a posicon 10 3
+[INFO] 07:09:05:620 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:10:620 Team/(10159:10167): Entrenador D movido a posicon 10 4
+[INFO] 07:09:10:621 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:15:621 Team/(10159:10167): Entrenador D movido a posicon 10 5
+[INFO] 07:09:15:622 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:20:622 Team/(10159:10167): Entrenador D movido a posicon 10 6
+[INFO] 07:09:20:623 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:25:623 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:30:625 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:35:626 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:40:627 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:45:628 Team/(10159:10167): Intercambio efectuado entre ED y EC
+[INFO] 07:09:45:629 Team/(10159:10163): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:09:50:629 Team/(10159:10166): Entrenador C movido a posicon 9 6
+[INFO] 07:09:50:630 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:09:55:631 Team/(10159:10166): Entrenador C movido a posicon 8 6
+[INFO] 07:09:55:631 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:10:00:631 Team/(10159:10166): Entrenador C movido a posicon 7 6
+[INFO] 07:10:00:632 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:10:05:632 Team/(10159:10166): Entrenador C movido a posicon 6 6
+[INFO] 07:10:05:633 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:10:10:633 Team/(10159:10166): Entrenador C movido a posicon 5 6
+[INFO] 07:10:10:634 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:10:15:634 Team/(10159:10166): Entrenador C movido a posicon 4 6
+[INFO] 07:10:15:636 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:10:20:636 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:10:25:637 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:10:30:638 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:10:35:639 Team/(10159:10163): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:10:40:640 Team/(10159:10166): Intercambio efectuado entre EC y EB
+[INFO] 07:10:40:641 Team/(10159:10159): Inicio de algoritmo de deteccion de deadlock
+[INFO] 07:10:40:641 Team/(10159:10159): Resultado deteccion deadlock: NO Detectado
+[INFO] 07:10:40:642 Team/(10159:10159): Ciclos CPU totales: 75
+[INFO] 07:10:40:642 Team/(10159:10159): Ciclos Totales EA = 17
+[INFO] 07:10:40:642 Team/(10159:10159): Ciclos Totales EB = 4
+[INFO] 07:10:40:642 Team/(10159:10159): Ciclos Totales EC = 16
+[INFO] 07:10:40:642 Team/(10159:10159): Ciclos Totales ED = 17
+[INFO] 07:10:40:642 Team/(10159:10159): Ciclos Totales EE = 21
+[INFO] 07:10:40:642 Team/(10159:10159): Cantidad de cambios de contexto: 150
+[INFO] 07:10:40:642 Team/(10159:10159): Deadlocks Encontrados y Resueltos: 1
+[INFO] 07:15:22:699 Team/(10211:10213): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[INFO] 07:15:22:700 Team/(10211:10222): Mensaje LOCALIZED_POKEMON: id correlativo: 0, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:15:22:700 Team/(10211:10222): Mensaje LOCALIZED_POKEMON: id correlativo: -1247803904, Id_mensaje: 14, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:15:22:701 Team/(10211:10213): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[INFO] 07:15:22:702 Team/(10211:10213): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[INFO] 07:15:22:703 Team/(10211:10213): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[ERROR] 07:15:22:819 Team/(10211:10222): Error en 'recibir_codigo_operacion'
+[ERROR] 07:15:22:820 Team/(10211:10221): Error en 'recibir_codigo_operacion'
+[ERROR] 07:15:22:820 Team/(10211:10213): Opcode inválido.
+[INFO] 07:16:31:998 Team/(10241:10243): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[INFO] 07:16:31:998 Team/(10241:10252): Mensaje LOCALIZED_POKEMON: id correlativo: 0, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:16:31:998 Team/(10241:10252): Mensaje LOCALIZED_POKEMON: id correlativo: -1239415296, Id_mensaje: 14, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[INFO] 07:16:31:999 Team/(10241:10243): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[INFO] 07:16:31:999 Team/(10241:10243): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[INFO] 07:16:31:0 Team/(10241:10243): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[ERROR] 07:16:32:120 Team/(10241:10253): Error en 'recibir_codigo_operacion'
+[ERROR] 07:16:32:120 Team/(10241:10251): Error en 'recibir_codigo_operacion'
+[ERROR] 07:16:32:120 Team/(10241:10252): Error en 'recibir_codigo_operacion'
+[ERROR] 07:16:32:121 Team/(10241:10243): Opcode inválido.
+[INFO] 07:19:52:246 Team/(10289:10291): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 18
+[INFO] 07:19:52:247 Team/(10289:10301): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 17, id correlativo: 774905966
+[INFO] 07:19:52:248 Team/(10289:10291): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 19
+[INFO] 07:19:52:249 Team/(10289:10291): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 20
+[INFO] 07:19:52:250 Team/(10289:10291): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 21
+[INFO] 07:19:52:251 Team/(10289:10291): Mensaje GET_POKEMON: Pokemon: Espeon, Id mensaje: 22
+[INFO] 07:19:55:250 Team/(10289:10300): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 07:19:55:250 Team/(10289:10300): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 07:19:55:251 Team/(10289:10300): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 07:19:55:251 Team/(10289:10300): Mensaje LOCALIZED_POKEMON: id correlativo: 21, Id_mensaje: 26, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 07:19:55:252 Team/(10289:10300): Mensaje LOCALIZED_POKEMON: id correlativo: 22, Id_mensaje: 27, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 07:20:00:250 Team/(10289:10294): Entrenador A movido a posicon 2 2
+[INFO] 07:20:05:251 Team/(10289:10294): Catch efectuado en posicon 2 2 para Jolteon
+[INFO] 07:20:05:252 Team/(10289:10293): Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU
+[INFO] 07:20:05:254 Team/(10289:10302): Mensaje CATCH_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 28
+[INFO] 07:20:08:264 Team/(10289:10301): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[INFO] 07:20:10:252 Team/(10289:10295): Entrenador B movido a posicon 5 5
+[INFO] 07:20:15:254 Team/(10289:10295): Entrenador B movido a posicon 4 5
+[INFO] 07:20:20:255 Team/(10289:10295): Entrenador B movido a posicon 4 6
+[INFO] 07:20:23:556 Team/(10289:10301): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[INFO] 07:20:25:256 Team/(10289:10295): Catch efectuado en posicon 4 6 para Flareon
+[INFO] 07:20:25:258 Team/(10289:10304): Mensaje CATCH_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 32
+[INFO] 07:20:28:266 Team/(10289:10301): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[INFO] 07:22:27:432 Team/(10322:10324): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 18
+[ERROR] 07:22:27:558 Team/(10322:10333): Error en 'recibir_codigo_operacion'
+[ERROR] 07:22:27:558 Team/(10322:10332): Error en 'recibir_codigo_operacion'
+[ERROR] 07:22:27:559 Team/(10322:10334): Error en 'recibir_codigo_operacion'
+[ERROR] 07:22:27:559 Team/(10322:10324): Opcode inválido.
+[INFO] 07:25:30:209 Team/(10354:10356): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[INFO] 07:25:30:211 Team/(10354:10356): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[INFO] 07:25:30:211 Team/(10354:10365): Mensaje LOCALIZED_POKEMON: id correlativo: -1228930984, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:25:30:211 Team/(10354:10365): Mensaje LOCALIZED_POKEMON: id correlativo: -1228922864, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 07:25:30:212 Team/(10354:10356): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[INFO] 07:25:30:213 Team/(10354:10356): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[INFO] 07:25:30:214 Team/(10354:10356): Mensaje GET_POKEMON: Pokemon: Espeon, Id mensaje: 20
+[INFO] 07:25:33:212 Team/(10354:10365): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 07:25:33:213 Team/(10354:10365): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 07:25:33:214 Team/(10354:10365): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 07:25:33:214 Team/(10354:10365): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 07:25:33:215 Team/(10354:10365): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 07:25:38:213 Team/(10354:10359): Entrenador A movido a posicon 2 2
+[INFO] 07:25:38:214 Team/(10354:10358): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:25:43:214 Team/(10354:10360): Entrenador B movido a posicon 5 5
+[INFO] 07:25:43:214 Team/(10354:10358): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:27:16:141 Team/(10385:10387): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[INFO] 07:27:16:142 Team/(10385:10396): Mensaje LOCALIZED_POKEMON: id correlativo: -20, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[INFO] 07:27:16:142 Team/(10385:10396): Mensaje LOCALIZED_POKEMON: id correlativo: -1247803888, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[ERROR] 07:27:16:261 Team/(10385:10395): Error en 'recibir_codigo_operacion'
+[ERROR] 07:27:16:261 Team/(10385:10396): Error en 'recibir_codigo_operacion'
+[ERROR] 07:27:16:262 Team/(10385:10397): Error en 'recibir_codigo_operacion'
+[ERROR] 07:27:16:262 Team/(10385:10387): Opcode inválido.
+[INFO] 07:32:17:981 Team/(10422:10424): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[INFO] 07:32:17:981 Team/(10422:10433): Mensaje LOCALIZED_POKEMON: id correlativo: -1239416768, Id_mensaje: 15, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[INFO] 07:32:17:982 Team/(10422:10424): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[INFO] 07:32:17:983 Team/(10422:10424): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[INFO] 07:32:17:984 Team/(10422:10424): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[INFO] 07:32:17:985 Team/(10422:10424): Mensaje GET_POKEMON: Pokemon: Espeon, Id mensaje: 20
+[INFO] 07:32:20:984 Team/(10422:10433): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[INFO] 07:32:20:985 Team/(10422:10433): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[INFO] 07:32:20:985 Team/(10422:10433): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 23, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[INFO] 07:32:20:986 Team/(10422:10433): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 24, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[INFO] 07:32:20:987 Team/(10422:10433): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[INFO] 07:32:25:985 Team/(10422:10427): Entrenador A movido a posicon 2 2
+[INFO] 07:32:25:985 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:32:30:985 Team/(10422:10428): Entrenador B movido a posicon 5 5
+[INFO] 07:32:30:986 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:32:35:986 Team/(10422:10427): Catch efectuado en posicon 2 2 para Jolteon
+[INFO] 07:32:35:986 Team/(10422:10426): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:32:35:987 Team/(10422:10436): Mensaje CATCH_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 27
+[INFO] 07:32:38:954 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 28, id correlativo: 26
+[INFO] 07:32:38:993 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 27
+[INFO] 07:32:40:986 Team/(10422:10428): Entrenador B movido a posicon 4 5
+[INFO] 07:32:40:987 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:32:45:987 Team/(10422:10428): Entrenador B movido a posicon 4 6
+[INFO] 07:32:45:987 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:32:50:987 Team/(10422:10428): Catch efectuado en posicon 4 6 para Flareon
+[INFO] 07:32:50:991 Team/(10422:10437): Mensaje CATCH_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 30
+[INFO] 07:32:53:999 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[INFO] 07:33:48:976 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[INFO] 07:34:35:473 Team/(10422:10432): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 40
+[INFO] 07:34:35:475 Team/(10422:10432): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 41
+[INFO] 07:34:35:478 Team/(10422:10432): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 42
+[INFO] 07:34:35:481 Team/(10422:10432): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 43
+[INFO] 07:34:35:482 Team/(10422:10426): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:34:35:485 Team/(10422:10432): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 44
+[INFO] 07:34:35:489 Team/(10422:10432): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 45
+[INFO] 07:34:40:482 Team/(10422:10429): Entrenador C movido a posicon 10 9
+[INFO] 07:34:40:482 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:34:45:482 Team/(10422:10430): Entrenador D movido a posicon 8 2
+[INFO] 07:34:45:482 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:34:50:483 Team/(10422:10431): Entrenador E movido a posicon 3 9
+[INFO] 07:34:50:483 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:34:55:483 Team/(10422:10429): Entrenador C movido a posicon 10 8
+[INFO] 07:34:55:485 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:35:00:485 Team/(10422:10430): Entrenador D movido a posicon 7 2
+[INFO] 07:35:00:486 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:35:05:487 Team/(10422:10431): Entrenador E movido a posicon 4 9
+[INFO] 07:35:05:488 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:35:10:488 Team/(10422:10429): Entrenador C movido a posicon 10 7
+[INFO] 07:35:10:490 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:35:13:501 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 47, id correlativo: 46
+[INFO] 07:35:15:490 Team/(10422:10430): Entrenador D movido a posicon 7 1
+[INFO] 07:35:15:490 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:35:20:491 Team/(10422:10431): Entrenador E movido a posicon 4 10
+[INFO] 07:35:20:492 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:35:25:492 Team/(10422:10429): Entrenador C movido a posicon 10 6
+[INFO] 07:35:25:494 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:35:30:494 Team/(10422:10430): Catch efectuado en posicon 7 1 para Espeon
+[INFO] 07:35:30:495 Team/(10422:10426): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:35:30:499 Team/(10422:10449): Mensaje CATCH_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 48
+[INFO] 07:35:33:507 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 49, id correlativo: 48
+[INFO] 07:35:35:495 Team/(10422:10431): Catch efectuado en posicon 4 10 para Vaporeon
+[INFO] 07:35:35:496 Team/(10422:10426): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:35:35:499 Team/(10422:10450): Mensaje CATCH_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 50
+[INFO] 07:35:38:506 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 51, id correlativo: 50
+[INFO] 07:35:40:496 Team/(10422:10429): Catch efectuado en posicon 10 6 para Umbreon
+[INFO] 07:35:40:500 Team/(10422:10452): Mensaje CATCH_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 52
+[INFO] 07:35:43:508 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 54, id correlativo: 52
+[INFO] 07:35:43:508 Team/(10422:10422): Inicio algoritmo de deteccion de deadlock
+[INFO] 07:35:43:508 Team/(10422:10422): Inicio de algoritmo de deteccion de deadlock
+[INFO] 07:35:43:508 Team/(10422:10422): Resultado deteccion deadlock: Detectado
+[INFO] 07:35:43:508 Team/(10422:10426): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:35:43:510 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 55, id correlativo: 53
+[INFO] 07:35:48:508 Team/(10422:10427): Entrenador A movido a posicon 3 2
+[INFO] 07:35:48:508 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:35:53:509 Team/(10422:10427): Entrenador A movido a posicon 4 2
+[INFO] 07:35:53:509 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:35:58:509 Team/(10422:10427): Entrenador A movido a posicon 4 3
+[INFO] 07:35:58:509 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:03:509 Team/(10422:10427): Entrenador A movido a posicon 4 4
+[INFO] 07:36:03:510 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:08:510 Team/(10422:10427): Entrenador A movido a posicon 4 5
+[INFO] 07:36:08:511 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:13:511 Team/(10422:10427): Entrenador A movido a posicon 4 6
+[INFO] 07:36:13:512 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:18:513 Team/(10422:10427): Entrenador A movido a posicon 4 7
+[INFO] 07:36:18:514 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:23:514 Team/(10422:10427): Entrenador A movido a posicon 4 8
+[INFO] 07:36:23:515 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:28:515 Team/(10422:10427): Entrenador A movido a posicon 4 9
+[INFO] 07:36:28:516 Team/(10422:10434): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 57, id correlativo: 56
+[INFO] 07:36:28:518 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:33:518 Team/(10422:10427): Entrenador A movido a posicon 4 10
+[INFO] 07:36:33:519 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:38:519 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:43:521 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:48:523 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:53:524 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:36:58:525 Team/(10422:10427): Intercambio efectuado entre EA y EE
+[INFO] 07:36:58:527 Team/(10422:10426): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[INFO] 07:37:03:527 Team/(10422:10431): Entrenador E movido a posicon 5 10
+[INFO] 07:37:03:528 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:08:528 Team/(10422:10431): Entrenador E movido a posicon 6 10
+[INFO] 07:37:08:529 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:13:529 Team/(10422:10431): Entrenador E movido a posicon 7 10
+[INFO] 07:37:13:530 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:18:531 Team/(10422:10431): Entrenador E movido a posicon 7 9
+[INFO] 07:37:18:532 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:23:532 Team/(10422:10431): Entrenador E movido a posicon 7 8
+[INFO] 07:37:23:533 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:28:533 Team/(10422:10431): Entrenador E movido a posicon 7 7
+[INFO] 07:37:28:534 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:33:535 Team/(10422:10431): Entrenador E movido a posicon 7 6
+[INFO] 07:37:33:536 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:38:536 Team/(10422:10431): Entrenador E movido a posicon 7 5
+[INFO] 07:37:38:537 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:43:537 Team/(10422:10431): Entrenador E movido a posicon 7 4
+[INFO] 07:37:43:538 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:48:539 Team/(10422:10431): Entrenador E movido a posicon 7 3
+[INFO] 07:37:48:540 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:53:540 Team/(10422:10431): Entrenador E movido a posicon 7 2
+[INFO] 07:37:53:541 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:37:58:541 Team/(10422:10431): Entrenador E movido a posicon 7 1
+[INFO] 07:37:58:543 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:38:03:543 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
+[INFO] 07:38:08:544 Team/(10422:10426): Cambio de entrenador por finalizacion de quantum
