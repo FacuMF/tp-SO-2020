@@ -1381,3 +1381,1330 @@
 [INFO] 01:53:57:927 Team/(26912:26912): Ciclos Totales EC = 10
 [INFO] 01:53:57:927 Team/(26912:26912): Cantidad de cambios de contexto: 14
 [INFO] 01:53:57:927 Team/(26912:26912): Deadlocks Encontrados y Resueltos: 1
+[TRACE] 03:16:10:891 Team/(27969:27969): Log inicializado
+[TRACE] 03:16:10:893 Team/(27969:27969): Entrenadores cargados
+[TRACE] 03:16:10:894 Team/(27969:27973): Entrenador lanzado: Pos 1 3
+[TRACE] 03:16:10:894 Team/(27969:27973): Entrenador lanzado: Pos 2 3
+[TRACE] 03:16:10:895 Team/(27969:27972): Iniciar conexion con gameboy
+[TRACE] 03:16:10:895 Team/(27969:27973): Entrenador lanzado: Pos 2 2
+[DEBUG] 03:16:10:895 Team/(27969:27971): Pokemon en lista = 0
+[DEBUG] 03:16:10:896 Team/(27969:27971): Pok buscado: Pikachu, pok comparado: Squirtle
+[DEBUG] 03:16:10:896 Team/(27969:27971): Pokemon en lista = 0
+[DEBUG] 03:16:10:897 Team/(27969:27971): Pok buscado: Gengar, pok comparado: Squirtle
+[DEBUG] 03:16:10:897 Team/(27969:27971): Pok buscado: Gengar, pok comparado: Pikachu
+[DEBUG] 03:16:10:897 Team/(27969:27971): Pokemon en lista = 0
+[DEBUG] 03:16:10:898 Team/(27969:27971): Pok buscado: Squirtle, pok comparado: Squirtle
+[DEBUG] 03:16:10:899 Team/(27969:27971): Pok buscado: Squirtle, pok comparado: Pikachu
+[TRACE] 03:16:10:899 Team/(27969:27972): Esperando Cliente
+[DEBUG] 03:16:10:899 Team/(27969:27971): Pok buscado: Squirtle, pok comparado: Gengar
+[DEBUG] 03:16:10:900 Team/(27969:27971): Pokemon en lista = 1
+[DEBUG] 03:16:10:900 Team/(27969:27971): Pok buscado: Onix, pok comparado: Squirtle
+[DEBUG] 03:16:10:900 Team/(27969:27971): Pok buscado: Onix, pok comparado: Pikachu
+[DEBUG] 03:16:10:901 Team/(27969:27971): Pok buscado: Onix, pok comparado: Gengar
+[DEBUG] 03:16:10:901 Team/(27969:27971): Pokemon en lista = 0
+[TRACE] 03:16:10:902 Team/(27969:27970): Mensaje suscripcion enviado
+[TRACE] 03:16:10:902 Team/(27969:27970): Suscripcion completada
+[TRACE] 03:16:10:902 Team/(27969:27971): Enviado get para: Squirtle
+[TRACE] 03:16:10:903 Team/(27969:27970): Mensaje suscripcion enviado
+[TRACE] 03:16:10:903 Team/(27969:27970): Suscripcion completada
+[TRACE] 03:16:10:903 Team/(27969:27970): Mensaje suscripcion enviado
+[TRACE] 03:16:10:903 Team/(27969:27970): Suscripcion completada
+[TRACE] 03:16:10:907 Team/(27969:27979): Mensaje recibido, cod_op: 2.
+[INFO] 03:16:10:907 Team/(27969:27979): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[DEBUG] 03:16:10:907 Team/(27969:27979): Requiero mensaje = 0
+[TRACE] 03:16:10:907 Team/(27969:27979): Recepcion confirmada: 7 2 6
+[TRACE] 03:16:10:907 Team/(27969:27979): Mensaje recibido manejado.
+[TRACE] 03:16:10:908 Team/(27969:27979): Mensaje recibido, cod_op: 2.
+[INFO] 03:16:10:908 Team/(27969:27979): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[DEBUG] 03:16:10:908 Team/(27969:27979): Requiero mensaje = 0
+[TRACE] 03:16:10:908 Team/(27969:27979): Recepcion confirmada: 7 2 7
+[TRACE] 03:16:10:908 Team/(27969:27979): Mensaje recibido manejado.
+[INFO] 03:16:10:910 Team/(27969:27971): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[DEBUG] 03:16:10:910 Team/(27969:27971): Recepcion id_mensaje: 8
+[TRACE] 03:16:10:910 Team/(27969:27971): Mensaje recibido manejado.
+[TRACE] 03:16:10:911 Team/(27969:27971): Enviado get para: Pikachu
+[INFO] 03:16:10:927 Team/(27969:27971): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[DEBUG] 03:16:10:927 Team/(27969:27971): Recepcion id_mensaje: 9
+[TRACE] 03:16:10:927 Team/(27969:27971): Mensaje recibido manejado.
+[TRACE] 03:16:10:927 Team/(27969:27971): Enviado get para: Gengar
+[INFO] 03:16:10:936 Team/(27969:27971): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[DEBUG] 03:16:10:936 Team/(27969:27971): Recepcion id_mensaje: 10
+[TRACE] 03:16:10:936 Team/(27969:27971): Mensaje recibido manejado.
+[TRACE] 03:16:10:936 Team/(27969:27971): Enviado get para: Onix
+[INFO] 03:16:10:952 Team/(27969:27971): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[DEBUG] 03:16:10:952 Team/(27969:27971): Recepcion id_mensaje: 11
+[TRACE] 03:16:10:952 Team/(27969:27971): Mensaje recibido manejado.
+[TRACE] 03:16:13:934 Team/(27969:27981): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:13:934 Team/(27969:27981): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 12, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[DEBUG] 03:16:13:934 Team/(27969:27981): Necesito mensaje = 1
+[DEBUG] 03:16:13:934 Team/(27969:27981): Requiero mensaje = 1
+[DEBUG] 03:16:13:934 Team/(27969:27981): Pokemon en lista = 0
+[DEBUG] 03:16:13:934 Team/(27969:27981): Manejo mensaje localized
+[DEBUG] 03:16:13:934 Team/(27969:27981): Requiero mensaje = 1
+[TRACE] 03:16:13:935 Team/(27969:27981): Manejo mensaje appeared
+[TRACE] 03:16:13:935 Team/(27969:27981): Nuevo ent en ready: Posicion 2 2
+[TRACE] 03:16:13:935 Team/(27969:27981): Recepcion confirmada: 9 7 8
+[TRACE] 03:16:13:935 Team/(27969:27973): Planificador corto plazo en curso
+[TRACE] 03:16:13:935 Team/(27969:27981): Mensaje recibido manejado.
+[DEBUG] 03:16:13:935 Team/(27969:27976): EC activo. Posicion 2 2
+[DEBUG] 03:16:13:935 Team/(27969:27976): EC despierto. Posicion 2 2
+[DEBUG] 03:16:13:935 Team/(27969:27976): EC espera para cazar. Posicion 2 2
+[DEBUG] 03:16:13:935 Team/(27969:27976): EC cazando. Posicion 2 2
+[TRACE] 03:16:13:955 Team/(27969:27981): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:13:955 Team/(27969:27981): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[DEBUG] 03:16:13:955 Team/(27969:27981): Necesito mensaje = 1
+[DEBUG] 03:16:13:956 Team/(27969:27981): Requiero mensaje = 1
+[DEBUG] 03:16:13:956 Team/(27969:27981): Pok buscado: Gengar, pok comparado: Squirtle
+[DEBUG] 03:16:13:956 Team/(27969:27981): Pok buscado: Gengar, pok comparado: Squirtle
+[DEBUG] 03:16:13:956 Team/(27969:27981): Pokemon en lista = 0
+[DEBUG] 03:16:13:956 Team/(27969:27981): Manejo mensaje localized
+[TRACE] 03:16:13:956 Team/(27969:27981): Recepcion confirmada: 9 7 10
+[TRACE] 03:16:13:956 Team/(27969:27981): Mensaje recibido manejado.
+[TRACE] 03:16:13:957 Team/(27969:27981): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:13:958 Team/(27969:27981): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[DEBUG] 03:16:13:958 Team/(27969:27981): Necesito mensaje = 1
+[DEBUG] 03:16:13:958 Team/(27969:27981): Requiero mensaje = 1
+[DEBUG] 03:16:13:958 Team/(27969:27981): Pok buscado: Pikachu, pok comparado: Squirtle
+[DEBUG] 03:16:13:958 Team/(27969:27981): Pok buscado: Pikachu, pok comparado: Squirtle
+[DEBUG] 03:16:13:958 Team/(27969:27981): Pok buscado: Pikachu, pok comparado: Gengar
+[DEBUG] 03:16:13:958 Team/(27969:27981): Pokemon en lista = 0
+[DEBUG] 03:16:13:958 Team/(27969:27981): Manejo mensaje localized
+[DEBUG] 03:16:13:958 Team/(27969:27981): Requiero mensaje = 1
+[TRACE] 03:16:13:958 Team/(27969:27981): Manejo mensaje appeared
+[TRACE] 03:16:13:958 Team/(27969:27981): Nuevo ent en ready: Posicion 2 3
+[TRACE] 03:16:13:958 Team/(27969:27981): Recepcion confirmada: 9 7 9
+[TRACE] 03:16:13:958 Team/(27969:27981): Mensaje recibido manejado.
+[TRACE] 03:16:13:984 Team/(27969:27981): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:13:984 Team/(27969:27981): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[DEBUG] 03:16:13:984 Team/(27969:27981): Necesito mensaje = 1
+[DEBUG] 03:16:13:985 Team/(27969:27981): Requiero mensaje = 1
+[DEBUG] 03:16:13:985 Team/(27969:27981): Pok buscado: Onix, pok comparado: Squirtle
+[DEBUG] 03:16:13:985 Team/(27969:27981): Pok buscado: Onix, pok comparado: Squirtle
+[DEBUG] 03:16:13:985 Team/(27969:27981): Pok buscado: Onix, pok comparado: Gengar
+[DEBUG] 03:16:13:985 Team/(27969:27981): Pok buscado: Onix, pok comparado: Pikachu
+[DEBUG] 03:16:13:985 Team/(27969:27981): Pok buscado: Onix, pok comparado: Pikachu
+[DEBUG] 03:16:13:985 Team/(27969:27981): Pokemon en lista = 0
+[DEBUG] 03:16:13:985 Team/(27969:27981): Manejo mensaje localized
+[TRACE] 03:16:13:985 Team/(27969:27981): Recepcion confirmada: 9 7 11
+[TRACE] 03:16:13:985 Team/(27969:27981): Mensaje recibido manejado.
+[INFO] 03:16:18:936 Team/(27969:27976): Entrenador C movido a posicon 3 2
+[TRACE] 03:16:18:936 Team/(27969:27976): Ciclos restantes: 3
+[TRACE] 03:16:22:687 Team/(27969:27981): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:688 Team/(27969:27981): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:16:22:688 Team/(27969:27981): Necesito mensaje = 0
+[DEBUG] 03:16:22:688 Team/(27969:27981): Mensaje descartado: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[TRACE] 03:16:22:688 Team/(27969:27981): Recepcion confirmada: 9 7 16
+[TRACE] 03:16:22:688 Team/(27969:27981): Mensaje recibido manejado.
+[TRACE] 03:16:22:728 Team/(27969:27981): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:728 Team/(27969:27981): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[DEBUG] 03:16:22:728 Team/(27969:27981): Necesito mensaje = 0
+[DEBUG] 03:16:22:728 Team/(27969:27981): Mensaje descartado: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[TRACE] 03:16:22:728 Team/(27969:27981): Recepcion confirmada: 9 7 17
+[TRACE] 03:16:22:728 Team/(27969:27981): Mensaje recibido manejado.
+[TRACE] 03:16:22:731 Team/(27969:27981): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:731 Team/(27969:27981): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 23, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[DEBUG] 03:16:22:731 Team/(27969:27981): Necesito mensaje = 0
+[DEBUG] 03:16:22:731 Team/(27969:27981): Mensaje descartado: id correlativo: 19, Id_mensaje: 23, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[TRACE] 03:16:22:731 Team/(27969:27981): Recepcion confirmada: 9 7 19
+[TRACE] 03:16:22:731 Team/(27969:27981): Mensaje recibido manejado.
+[TRACE] 03:16:22:733 Team/(27969:27981): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:734 Team/(27969:27981): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 24, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[DEBUG] 03:16:22:734 Team/(27969:27981): Necesito mensaje = 0
+[DEBUG] 03:16:22:734 Team/(27969:27981): Mensaje descartado: id correlativo: 18, Id_mensaje: 24, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[TRACE] 03:16:22:734 Team/(27969:27981): Recepcion confirmada: 9 7 18
+[TRACE] 03:16:22:734 Team/(27969:27981): Mensaje recibido manejado.
+[TRACE] 03:16:22:742 Team/(27969:27981): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:742 Team/(27969:27981): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:16:22:742 Team/(27969:27981): Necesito mensaje = 0
+[DEBUG] 03:16:22:742 Team/(27969:27981): Mensaje descartado: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[TRACE] 03:16:22:742 Team/(27969:27981): Recepcion confirmada: 9 7 20
+[TRACE] 03:16:22:743 Team/(27969:27981): Mensaje recibido manejado.
+[INFO] 03:16:23:936 Team/(27969:27976): Entrenador C movido a posicon 4 2
+[TRACE] 03:16:23:936 Team/(27969:27976): Ciclos restantes: 2
+[INFO] 03:16:28:937 Team/(27969:27976): Entrenador C movido a posicon 5 2
+[TRACE] 03:16:28:938 Team/(27969:27976): Ciclos restantes: 1
+[INFO] 03:16:33:938 Team/(27969:27976): Catch efectuado en posicon 5 2 para Squirtle
+[TRACE] 03:16:33:938 Team/(27969:27976): Ciclos restantes: 0
+[DEBUG] 03:16:33:938 Team/(27969:27976): EC dormido. Posicion 5 2
+[TRACE] 03:16:33:939 Team/(27969:27973): Planificador corto plazo en curso
+[DEBUG] 03:16:33:939 Team/(27969:27973): EnNu: B, r5.000000. EnEx: C, r2.500000
+[INFO] 03:16:33:939 Team/(27969:27973): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:16:33:939 Team/(27969:27975): EB activo. Posicion 2 3
+[DEBUG] 03:16:33:939 Team/(27969:27975): EB despierto. Posicion 2 3
+[DEBUG] 03:16:33:939 Team/(27969:27975): EB espera para cazar. Posicion 2 3
+[DEBUG] 03:16:33:939 Team/(27969:27975): EB cazando. Posicion 2 3
+[TRACE] 03:16:33:940 Team/(27969:28051): Enviado catch para: Squirtle
+[INFO] 03:16:33:941 Team/(27969:28051): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 26
+[TRACE] 03:16:33:941 Team/(27969:28051): Recepcion id_mensaje: 26
+[TRACE] 03:16:33:942 Team/(27969:28051): Mensaje recibido manejado.
+[DEBUG] 03:16:33:942 Team/(27969:28051): Esperando caught de pokemon Squirtle con id 26
+[TRACE] 03:16:36:981 Team/(27969:27983): Mensaje recibido, cod_op: 4.
+[INFO] 03:16:36:982 Team/(27969:27983): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[DEBUG] 03:16:36:982 Team/(27969:27983): Esperando a manejar caught
+[DEBUG] 03:16:36:982 Team/(27969:27983): Manejo mensaje caught
+[DEBUG] 03:16:36:982 Team/(27969:27983): lo atrapó!
+[DEBUG] 03:16:36:982 Team/(27969:27983): Data Entrenador A: Posicion 1 3 Estado  0
+[DEBUG] 03:16:36:982 Team/(27969:27976): EC activo. Posicion 5 2
+[TRACE] 03:16:36:982 Team/(27969:27983): Pikachu
+[TRACE] 03:16:36:982 Team/(27969:27983): Pikachu
+[TRACE] 03:16:36:982 Team/(27969:27983): Squirtle
+[DEBUG] 03:16:36:982 Team/(27969:27983): Data Entrenador B: Posicion 2 3 Estado  2
+[TRACE] 03:16:36:982 Team/(27969:27983): Pikachu
+[TRACE] 03:16:36:982 Team/(27969:27983): Gengar
+[DEBUG] 03:16:36:982 Team/(27969:27983): Data Entrenador C: Posicion 5 2 Estado  4
+[TRACE] 03:16:36:982 Team/(27969:27983): Squirtle
+[TRACE] 03:16:36:982 Team/(27969:27983): Squirtle
+[TRACE] 03:16:36:982 Team/(27969:27983): Onix
+[TRACE] 03:16:36:982 Team/(27969:27983): Recepcion confirmada: 10 4 26
+[TRACE] 03:16:36:983 Team/(27969:27983): Mensaje recibido manejado.
+[DEBUG] 03:16:36:983 Team/(27969:27976): EC bloqueado normal. Posicion 5 2
+[INFO] 03:16:38:939 Team/(27969:27975): Entrenador B movido a posicon 3 3
+[TRACE] 03:16:38:940 Team/(27969:27975): Ciclos restantes: 13
+[TRACE] 03:16:40:787 Team/(27969:27983): Mensaje recibido, cod_op: 4.
+[INFO] 03:16:40:787 Team/(27969:27983): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[TRACE] 03:16:40:787 Team/(27969:27983): Aun no tengo el entrenador con el catch
+[TRACE] 03:16:40:787 Team/(27969:27983): Recepcion confirmada: 10 4 28
+[TRACE] 03:16:40:787 Team/(27969:27983): Mensaje recibido manejado.
+[INFO] 03:16:43:940 Team/(27969:27975): Entrenador B movido a posicon 4 3
+[TRACE] 03:16:43:941 Team/(27969:27975): Ciclos restantes: 12
+[INFO] 03:16:48:941 Team/(27969:27975): Entrenador B movido a posicon 5 3
+[TRACE] 03:16:48:942 Team/(27969:27975): Ciclos restantes: 11
+[INFO] 03:16:53:942 Team/(27969:27975): Entrenador B movido a posicon 6 3
+[TRACE] 03:16:53:958 Team/(27969:27975): Ciclos restantes: 10
+[TRACE] 03:16:55:774 Team/(27969:27983): Mensaje recibido, cod_op: 4.
+[INFO] 03:16:55:774 Team/(27969:27983): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[TRACE] 03:16:55:774 Team/(27969:27983): Aun no tengo el entrenador con el catch
+[TRACE] 03:16:55:774 Team/(27969:27983): Recepcion confirmada: 10 4 30
+[TRACE] 03:16:55:774 Team/(27969:27983): Mensaje recibido manejado.
+[INFO] 03:16:58:958 Team/(27969:27975): Entrenador B movido a posicon 7 3
+[TRACE] 03:16:58:959 Team/(27969:27975): Ciclos restantes: 9
+[TRACE] 03:17:50:928 Team/(28114:28114): Log inicializado
+[TRACE] 03:17:50:928 Team/(28114:28114): Entrenadores cargados
+[TRACE] 03:17:50:929 Team/(28114:28118): Entrenador lanzado: Pos 1 3
+[TRACE] 03:17:50:929 Team/(28114:28118): Entrenador lanzado: Pos 2 3
+[TRACE] 03:17:50:929 Team/(28114:28117): Iniciar conexion con gameboy
+[TRACE] 03:17:50:929 Team/(28114:28118): Entrenador lanzado: Pos 2 2
+[TRACE] 03:17:50:930 Team/(28114:28117): Esperando Cliente
+[DEBUG] 03:17:50:931 Team/(28114:28116): Pokemon en lista = 0
+[DEBUG] 03:17:50:931 Team/(28114:28116): Pok buscado: Pikachu, pok comparado: Squirtle
+[DEBUG] 03:17:50:931 Team/(28114:28116): Pokemon en lista = 0
+[DEBUG] 03:17:50:932 Team/(28114:28116): Pok buscado: Gengar, pok comparado: Squirtle
+[DEBUG] 03:17:50:932 Team/(28114:28116): Pok buscado: Gengar, pok comparado: Pikachu
+[DEBUG] 03:17:50:932 Team/(28114:28116): Pokemon en lista = 0
+[DEBUG] 03:17:50:932 Team/(28114:28116): Pok buscado: Squirtle, pok comparado: Squirtle
+[DEBUG] 03:17:50:933 Team/(28114:28116): Pok buscado: Squirtle, pok comparado: Pikachu
+[DEBUG] 03:17:50:933 Team/(28114:28116): Pok buscado: Squirtle, pok comparado: Gengar
+[DEBUG] 03:17:50:933 Team/(28114:28116): Pokemon en lista = 1
+[DEBUG] 03:17:50:934 Team/(28114:28116): Pok buscado: Onix, pok comparado: Squirtle
+[DEBUG] 03:17:50:934 Team/(28114:28116): Pok buscado: Onix, pok comparado: Pikachu
+[DEBUG] 03:17:50:934 Team/(28114:28116): Pok buscado: Onix, pok comparado: Gengar
+[DEBUG] 03:17:50:934 Team/(28114:28116): Pokemon en lista = 0
+[TRACE] 03:17:50:935 Team/(28114:28116): Enviado get para: Squirtle
+[TRACE] 03:17:50:936 Team/(28114:28115): Mensaje suscripcion enviado
+[TRACE] 03:17:50:936 Team/(28114:28115): Suscripcion completada
+[TRACE] 03:17:50:938 Team/(28114:28115): Mensaje suscripcion enviado
+[TRACE] 03:17:50:938 Team/(28114:28115): Suscripcion completada
+[TRACE] 03:17:50:938 Team/(28114:28115): Mensaje suscripcion enviado
+[TRACE] 03:17:50:938 Team/(28114:28115): Suscripcion completada
+[TRACE] 03:17:50:946 Team/(28114:28124): Mensaje recibido, cod_op: 2.
+[INFO] 03:17:50:946 Team/(28114:28124): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 6
+[DEBUG] 03:17:50:947 Team/(28114:28124): Requiero mensaje = 1
+[TRACE] 03:17:50:947 Team/(28114:28124): Manejo mensaje appeared
+[TRACE] 03:17:50:947 Team/(28114:28124): Nuevo ent en ready: Posicion 2 2
+[TRACE] 03:17:50:947 Team/(28114:28118): Planificador corto plazo en curso
+[DEBUG] 03:17:50:947 Team/(28114:28121): EC activo. Posicion 2 2
+[DEBUG] 03:17:50:947 Team/(28114:28121): EC despierto. Posicion 2 2
+[DEBUG] 03:17:50:947 Team/(28114:28121): EC espera para cazar. Posicion 2 2
+[DEBUG] 03:17:50:947 Team/(28114:28121): EC cazando. Posicion 2 2
+[TRACE] 03:17:50:947 Team/(28114:28124): Recepcion confirmada: 7 2 6
+[TRACE] 03:17:50:948 Team/(28114:28124): Mensaje recibido manejado.
+[INFO] 03:17:50:948 Team/(28114:28116): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[DEBUG] 03:17:50:948 Team/(28114:28116): Recepcion id_mensaje: 8
+[TRACE] 03:17:50:948 Team/(28114:28116): Mensaje recibido manejado.
+[TRACE] 03:17:50:948 Team/(28114:28116): Enviado get para: Pikachu
+[TRACE] 03:17:50:948 Team/(28114:28124): Mensaje recibido, cod_op: 2.
+[INFO] 03:17:50:949 Team/(28114:28124): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[DEBUG] 03:17:50:949 Team/(28114:28124): Requiero mensaje = 0
+[TRACE] 03:17:50:949 Team/(28114:28124): Recepcion confirmada: 7 2 7
+[TRACE] 03:17:50:949 Team/(28114:28124): Mensaje recibido manejado.
+[INFO] 03:17:50:961 Team/(28114:28116): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[DEBUG] 03:17:50:962 Team/(28114:28116): Recepcion id_mensaje: 9
+[TRACE] 03:17:50:962 Team/(28114:28116): Mensaje recibido manejado.
+[TRACE] 03:17:50:962 Team/(28114:28116): Enviado get para: Gengar
+[INFO] 03:17:50:965 Team/(28114:28116): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[DEBUG] 03:17:50:965 Team/(28114:28116): Recepcion id_mensaje: 10
+[TRACE] 03:17:50:965 Team/(28114:28116): Mensaje recibido manejado.
+[TRACE] 03:17:50:966 Team/(28114:28116): Enviado get para: Onix
+[INFO] 03:17:50:973 Team/(28114:28116): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[DEBUG] 03:17:50:973 Team/(28114:28116): Recepcion id_mensaje: 11
+[TRACE] 03:17:50:973 Team/(28114:28116): Mensaje recibido manejado.
+[TRACE] 03:17:53:976 Team/(28114:28126): Mensaje recibido, cod_op: 7.
+[INFO] 03:17:53:976 Team/(28114:28126): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 12, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[DEBUG] 03:17:53:976 Team/(28114:28126): Necesito mensaje = 1
+[DEBUG] 03:17:53:976 Team/(28114:28126): Requiero mensaje = 1
+[DEBUG] 03:17:53:976 Team/(28114:28126): Pok buscado: Squirtle, pok comparado: Squirtle
+[DEBUG] 03:17:53:976 Team/(28114:28126): Pokemon en lista = 1
+[DEBUG] 03:17:53:976 Team/(28114:28126): Mensaje descartado: id correlativo: 8, Id_mensaje: 12, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[TRACE] 03:17:53:976 Team/(28114:28126): Recepcion confirmada: 9 7 8
+[TRACE] 03:17:53:980 Team/(28114:28126): Mensaje recibido manejado.
+[TRACE] 03:17:53:984 Team/(28114:28126): Mensaje recibido, cod_op: 7.
+[INFO] 03:17:53:984 Team/(28114:28126): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[DEBUG] 03:17:53:984 Team/(28114:28126): Necesito mensaje = 1
+[DEBUG] 03:17:53:984 Team/(28114:28126): Requiero mensaje = 1
+[DEBUG] 03:17:53:984 Team/(28114:28126): Pok buscado: Pikachu, pok comparado: Squirtle
+[DEBUG] 03:17:53:984 Team/(28114:28126): Pokemon en lista = 0
+[DEBUG] 03:17:53:984 Team/(28114:28126): Manejo mensaje localized
+[DEBUG] 03:17:53:984 Team/(28114:28126): Requiero mensaje = 1
+[TRACE] 03:17:53:984 Team/(28114:28126): Manejo mensaje appeared
+[TRACE] 03:17:53:984 Team/(28114:28126): Nuevo ent en ready: Posicion 2 3
+[TRACE] 03:17:53:985 Team/(28114:28126): Recepcion confirmada: 9 7 9
+[TRACE] 03:17:53:985 Team/(28114:28126): Mensaje recibido manejado.
+[TRACE] 03:17:53:986 Team/(28114:28126): Mensaje recibido, cod_op: 7.
+[INFO] 03:17:53:986 Team/(28114:28126): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[DEBUG] 03:17:53:986 Team/(28114:28126): Necesito mensaje = 1
+[DEBUG] 03:17:53:986 Team/(28114:28126): Requiero mensaje = 1
+[DEBUG] 03:17:53:986 Team/(28114:28126): Pok buscado: Gengar, pok comparado: Squirtle
+[DEBUG] 03:17:53:986 Team/(28114:28126): Pok buscado: Gengar, pok comparado: Pikachu
+[DEBUG] 03:17:53:986 Team/(28114:28126): Pok buscado: Gengar, pok comparado: Pikachu
+[DEBUG] 03:17:53:986 Team/(28114:28126): Pokemon en lista = 0
+[DEBUG] 03:17:53:986 Team/(28114:28126): Manejo mensaje localized
+[TRACE] 03:17:53:986 Team/(28114:28126): Recepcion confirmada: 9 7 10
+[TRACE] 03:17:53:986 Team/(28114:28126): Mensaje recibido manejado.
+[TRACE] 03:17:54:6 Team/(28114:28126): Mensaje recibido, cod_op: 7.
+[INFO] 03:17:54:6 Team/(28114:28126): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[DEBUG] 03:17:54:6 Team/(28114:28126): Necesito mensaje = 1
+[DEBUG] 03:17:54:6 Team/(28114:28126): Requiero mensaje = 1
+[DEBUG] 03:17:54:6 Team/(28114:28126): Pok buscado: Onix, pok comparado: Squirtle
+[DEBUG] 03:17:54:7 Team/(28114:28126): Pok buscado: Onix, pok comparado: Pikachu
+[DEBUG] 03:17:54:7 Team/(28114:28126): Pok buscado: Onix, pok comparado: Pikachu
+[DEBUG] 03:17:54:7 Team/(28114:28126): Pok buscado: Onix, pok comparado: Gengar
+[DEBUG] 03:17:54:7 Team/(28114:28126): Pokemon en lista = 0
+[DEBUG] 03:17:54:7 Team/(28114:28126): Manejo mensaje localized
+[TRACE] 03:17:54:7 Team/(28114:28126): Recepcion confirmada: 9 7 11
+[TRACE] 03:17:54:8 Team/(28114:28126): Mensaje recibido manejado.
+[INFO] 03:17:55:948 Team/(28114:28121): Entrenador C movido a posicon 3 2
+[TRACE] 03:17:55:949 Team/(28114:28121): Ciclos restantes: 3
+[INFO] 03:18:00:950 Team/(28114:28121): Entrenador C movido a posicon 4 2
+[TRACE] 03:18:00:950 Team/(28114:28121): Ciclos restantes: 2
+[INFO] 03:18:05:951 Team/(28114:28121): Entrenador C movido a posicon 5 2
+[TRACE] 03:18:05:951 Team/(28114:28121): Ciclos restantes: 1
+[TRACE] 03:18:06:608 Team/(28114:28126): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:608 Team/(28114:28126): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:18:06:608 Team/(28114:28126): Necesito mensaje = 0
+[DEBUG] 03:18:06:608 Team/(28114:28126): Mensaje descartado: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[TRACE] 03:18:06:608 Team/(28114:28126): Recepcion confirmada: 9 7 16
+[TRACE] 03:18:06:608 Team/(28114:28126): Mensaje recibido manejado.
+[TRACE] 03:18:06:640 Team/(28114:28126): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:640 Team/(28114:28126): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[DEBUG] 03:18:06:640 Team/(28114:28126): Necesito mensaje = 0
+[DEBUG] 03:18:06:641 Team/(28114:28126): Mensaje descartado: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[TRACE] 03:18:06:641 Team/(28114:28126): Recepcion confirmada: 9 7 17
+[TRACE] 03:18:06:641 Team/(28114:28126): Mensaje recibido manejado.
+[TRACE] 03:18:06:663 Team/(28114:28126): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:663 Team/(28114:28126): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 24, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[DEBUG] 03:18:06:663 Team/(28114:28126): Necesito mensaje = 0
+[DEBUG] 03:18:06:663 Team/(28114:28126): Mensaje descartado: id correlativo: 18, Id_mensaje: 24, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[TRACE] 03:18:06:663 Team/(28114:28126): Recepcion confirmada: 9 7 18
+[TRACE] 03:18:06:663 Team/(28114:28126): Mensaje recibido manejado.
+[TRACE] 03:18:06:668 Team/(28114:28126): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:668 Team/(28114:28126): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 23, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[DEBUG] 03:18:06:668 Team/(28114:28126): Necesito mensaje = 0
+[DEBUG] 03:18:06:668 Team/(28114:28126): Mensaje descartado: id correlativo: 19, Id_mensaje: 23, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[TRACE] 03:18:06:668 Team/(28114:28126): Recepcion confirmada: 9 7 19
+[TRACE] 03:18:06:668 Team/(28114:28126): Mensaje recibido manejado.
+[TRACE] 03:18:06:681 Team/(28114:28126): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:681 Team/(28114:28126): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:18:06:681 Team/(28114:28126): Necesito mensaje = 0
+[DEBUG] 03:18:06:682 Team/(28114:28126): Mensaje descartado: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[TRACE] 03:18:06:682 Team/(28114:28126): Recepcion confirmada: 9 7 20
+[TRACE] 03:18:06:682 Team/(28114:28126): Mensaje recibido manejado.
+[INFO] 03:18:10:951 Team/(28114:28121): Catch efectuado en posicon 5 2 para Squirtle
+[TRACE] 03:18:10:952 Team/(28114:28121): Ciclos restantes: 0
+[DEBUG] 03:18:10:952 Team/(28114:28121): EC dormido. Posicion 5 2
+[TRACE] 03:18:10:952 Team/(28114:28118): Planificador corto plazo en curso
+[DEBUG] 03:18:10:952 Team/(28114:28118): EnNu: B, r5.000000. EnEx: C, r2.500000
+[INFO] 03:18:10:952 Team/(28114:28118): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:18:10:952 Team/(28114:28120): EB activo. Posicion 2 3
+[DEBUG] 03:18:10:952 Team/(28114:28120): EB despierto. Posicion 2 3
+[DEBUG] 03:18:10:953 Team/(28114:28120): EB espera para cazar. Posicion 2 3
+[DEBUG] 03:18:10:953 Team/(28114:28120): EB cazando. Posicion 2 3
+[TRACE] 03:18:10:954 Team/(28114:28189): Enviado catch para: Squirtle
+[INFO] 03:18:10:956 Team/(28114:28189): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 26
+[TRACE] 03:18:10:957 Team/(28114:28189): Recepcion id_mensaje: 26
+[TRACE] 03:18:10:957 Team/(28114:28189): Mensaje recibido manejado.
+[DEBUG] 03:18:10:957 Team/(28114:28189): Esperando caught de pokemon Squirtle con id 26
+[TRACE] 03:18:13:998 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:18:13:998 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[DEBUG] 03:18:13:998 Team/(28114:28128): Esperando a manejar caught
+[DEBUG] 03:18:13:998 Team/(28114:28128): Manejo mensaje caught
+[DEBUG] 03:18:13:998 Team/(28114:28128): lo atrapó!
+[DEBUG] 03:18:13:998 Team/(28114:28128): Data Entrenador A: Posicion 1 3 Estado  0
+[DEBUG] 03:18:13:998 Team/(28114:28121): EC activo. Posicion 5 2
+[TRACE] 03:18:13:998 Team/(28114:28128): Pikachu
+[TRACE] 03:18:13:998 Team/(28114:28128): Pikachu
+[TRACE] 03:18:13:998 Team/(28114:28128): Squirtle
+[DEBUG] 03:18:13:998 Team/(28114:28128): Data Entrenador B: Posicion 2 3 Estado  2
+[TRACE] 03:18:13:998 Team/(28114:28128): Pikachu
+[TRACE] 03:18:13:998 Team/(28114:28128): Gengar
+[DEBUG] 03:18:13:998 Team/(28114:28128): Data Entrenador C: Posicion 5 2 Estado  4
+[TRACE] 03:18:13:999 Team/(28114:28128): Squirtle
+[TRACE] 03:18:13:999 Team/(28114:28128): Squirtle
+[TRACE] 03:18:13:999 Team/(28114:28128): Onix
+[TRACE] 03:18:13:999 Team/(28114:28128): Recepcion confirmada: 10 4 26
+[TRACE] 03:18:13:999 Team/(28114:28128): Mensaje recibido manejado.
+[DEBUG] 03:18:13:0 Team/(28114:28121): EC bloqueado normal. Posicion 5 2
+[INFO] 03:18:15:953 Team/(28114:28120): Entrenador B movido a posicon 3 3
+[TRACE] 03:18:15:953 Team/(28114:28120): Ciclos restantes: 13
+[INFO] 03:18:20:954 Team/(28114:28120): Entrenador B movido a posicon 4 3
+[TRACE] 03:18:20:954 Team/(28114:28120): Ciclos restantes: 12
+[TRACE] 03:18:24:701 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:18:24:702 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[TRACE] 03:18:24:702 Team/(28114:28128): Aun no tengo el entrenador con el catch
+[TRACE] 03:18:24:702 Team/(28114:28128): Recepcion confirmada: 10 4 28
+[TRACE] 03:18:24:702 Team/(28114:28128): Mensaje recibido manejado.
+[INFO] 03:18:25:955 Team/(28114:28120): Entrenador B movido a posicon 5 3
+[TRACE] 03:18:25:972 Team/(28114:28120): Ciclos restantes: 11
+[INFO] 03:18:30:973 Team/(28114:28120): Entrenador B movido a posicon 6 3
+[TRACE] 03:18:30:973 Team/(28114:28120): Ciclos restantes: 10
+[INFO] 03:18:35:974 Team/(28114:28120): Entrenador B movido a posicon 7 3
+[TRACE] 03:18:35:974 Team/(28114:28120): Ciclos restantes: 9
+[TRACE] 03:18:39:721 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:18:39:721 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[TRACE] 03:18:39:721 Team/(28114:28128): Aun no tengo el entrenador con el catch
+[TRACE] 03:18:39:721 Team/(28114:28128): Recepcion confirmada: 10 4 30
+[TRACE] 03:18:39:721 Team/(28114:28128): Mensaje recibido manejado.
+[INFO] 03:18:40:975 Team/(28114:28120): Entrenador B movido a posicon 8 3
+[TRACE] 03:18:40:975 Team/(28114:28120): Ciclos restantes: 8
+[INFO] 03:18:45:976 Team/(28114:28120): Entrenador B movido a posicon 9 3
+[TRACE] 03:18:45:977 Team/(28114:28120): Ciclos restantes: 7
+[INFO] 03:18:50:977 Team/(28114:28120): Entrenador B movido a posicon 9 4
+[TRACE] 03:18:50:978 Team/(28114:28120): Ciclos restantes: 6
+[INFO] 03:18:55:978 Team/(28114:28120): Entrenador B movido a posicon 9 5
+[TRACE] 03:18:55:979 Team/(28114:28120): Ciclos restantes: 5
+[INFO] 03:19:00:980 Team/(28114:28120): Entrenador B movido a posicon 9 6
+[TRACE] 03:19:00:980 Team/(28114:28120): Ciclos restantes: 4
+[INFO] 03:19:05:981 Team/(28114:28120): Entrenador B movido a posicon 9 7
+[TRACE] 03:19:05:981 Team/(28114:28120): Ciclos restantes: 3
+[INFO] 03:19:10:982 Team/(28114:28120): Entrenador B movido a posicon 9 8
+[TRACE] 03:19:10:983 Team/(28114:28120): Ciclos restantes: 2
+[INFO] 03:19:15:984 Team/(28114:28120): Entrenador B movido a posicon 9 9
+[TRACE] 03:19:15:984 Team/(28114:28120): Ciclos restantes: 1
+[INFO] 03:19:20:985 Team/(28114:28120): Catch efectuado en posicon 9 9 para Pikachu
+[TRACE] 03:19:20:986 Team/(28114:28120): Ciclos restantes: 0
+[DEBUG] 03:19:20:986 Team/(28114:28120): EB dormido. Posicion 9 9
+[TRACE] 03:19:20:987 Team/(28114:28213): Enviado catch para: Pikachu
+[INFO] 03:19:20:988 Team/(28114:28213): Mensaje CATCH_POKEMON: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 32
+[TRACE] 03:19:20:988 Team/(28114:28213): Recepcion id_mensaje: 32
+[TRACE] 03:19:20:988 Team/(28114:28213): Mensaje recibido manejado.
+[DEBUG] 03:19:20:988 Team/(28114:28213): Esperando caught de pokemon Pikachu con id 32
+[TRACE] 03:19:24:70 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:19:24:70 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[DEBUG] 03:19:24:70 Team/(28114:28128): Esperando a manejar caught
+[DEBUG] 03:19:24:70 Team/(28114:28128): Manejo mensaje caught
+[DEBUG] 03:19:24:70 Team/(28114:28128): lo atrapó!
+[DEBUG] 03:19:24:70 Team/(28114:28128): Data Entrenador A: Posicion 1 3 Estado  0
+[DEBUG] 03:19:24:70 Team/(28114:28120): EB activo. Posicion 9 9
+[TRACE] 03:19:24:70 Team/(28114:28128): Pikachu
+[TRACE] 03:19:24:70 Team/(28114:28128): Pikachu
+[TRACE] 03:19:24:70 Team/(28114:28128): Squirtle
+[DEBUG] 03:19:24:71 Team/(28114:28128): Data Entrenador B: Posicion 9 9 Estado  4
+[TRACE] 03:19:24:71 Team/(28114:28128): Pikachu
+[TRACE] 03:19:24:71 Team/(28114:28128): Pikachu
+[TRACE] 03:19:24:71 Team/(28114:28128): Gengar
+[DEBUG] 03:19:24:71 Team/(28114:28128): Data Entrenador C: Posicion 5 2 Estado  3
+[TRACE] 03:19:24:71 Team/(28114:28128): Squirtle
+[TRACE] 03:19:24:71 Team/(28114:28128): Squirtle
+[TRACE] 03:19:24:71 Team/(28114:28128): Onix
+[TRACE] 03:19:24:71 Team/(28114:28128): Recepcion confirmada: 10 4 32
+[TRACE] 03:19:24:71 Team/(28114:28128): Mensaje recibido manejado.
+[DEBUG] 03:19:24:71 Team/(28114:28120): EB bloqueado normal. Posicion 9 9
+[TRACE] 03:20:04:975 Team/(28114:28124): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:04:975 Team/(28114:28124): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 40
+[DEBUG] 03:20:04:975 Team/(28114:28124): Requiero mensaje = 1
+[TRACE] 03:20:04:975 Team/(28114:28124): Manejo mensaje appeared
+[TRACE] 03:20:04:975 Team/(28114:28124): Nuevo ent en ready: Posicion 1 3
+[TRACE] 03:20:04:976 Team/(28114:28124): Recepcion confirmada: 7 2 40
+[TRACE] 03:20:04:976 Team/(28114:28118): Planificador corto plazo en curso
+[TRACE] 03:20:04:976 Team/(28114:28124): Mensaje recibido manejado.
+[DEBUG] 03:20:04:976 Team/(28114:28118): EnNu: A, r5.000000. EnEx: B, r2.500000
+[INFO] 03:20:04:976 Team/(28114:28118): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:20:04:976 Team/(28114:28119): EA activo. Posicion 1 3
+[DEBUG] 03:20:04:976 Team/(28114:28119): EA despierto. Posicion 1 3
+[DEBUG] 03:20:04:976 Team/(28114:28119): EA espera para cazar. Posicion 1 3
+[DEBUG] 03:20:04:976 Team/(28114:28119): EA cazando. Posicion 1 3
+[TRACE] 03:20:05:44 Team/(28114:28124): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:44 Team/(28114:28124): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 41
+[DEBUG] 03:20:05:44 Team/(28114:28124): Requiero mensaje = 1
+[TRACE] 03:20:05:44 Team/(28114:28124): Manejo mensaje appeared
+[TRACE] 03:20:05:44 Team/(28114:28124): Nuevo ent en ready: Posicion 5 2
+[TRACE] 03:20:05:44 Team/(28114:28124): Recepcion confirmada: 7 2 41
+[TRACE] 03:20:05:44 Team/(28114:28124): Mensaje recibido manejado.
+[TRACE] 03:20:05:80 Team/(28114:28124): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:80 Team/(28114:28124): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 42
+[DEBUG] 03:20:05:80 Team/(28114:28124): Requiero mensaje = 1
+[TRACE] 03:20:05:80 Team/(28114:28124): Manejo mensaje appeared
+[TRACE] 03:20:05:81 Team/(28114:28124): Nuevo ent en ready: Posicion 9 9
+[TRACE] 03:20:05:81 Team/(28114:28124): Recepcion confirmada: 7 2 42
+[TRACE] 03:20:05:81 Team/(28114:28124): Mensaje recibido manejado.
+[TRACE] 03:20:05:162 Team/(28114:28124): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:162 Team/(28114:28124): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 43
+[DEBUG] 03:20:05:162 Team/(28114:28124): Requiero mensaje = 0
+[TRACE] 03:20:05:162 Team/(28114:28124): Recepcion confirmada: 7 2 43
+[TRACE] 03:20:05:162 Team/(28114:28124): Mensaje recibido manejado.
+[TRACE] 03:20:05:212 Team/(28114:28124): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:212 Team/(28114:28124): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 44
+[DEBUG] 03:20:05:214 Team/(28114:28124): Requiero mensaje = 0
+[TRACE] 03:20:05:216 Team/(28114:28124): Recepcion confirmada: 7 2 44
+[TRACE] 03:20:05:219 Team/(28114:28124): Mensaje recibido manejado.
+[TRACE] 03:20:05:237 Team/(28114:28124): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:237 Team/(28114:28124): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 45
+[DEBUG] 03:20:05:237 Team/(28114:28124): Requiero mensaje = 0
+[TRACE] 03:20:05:238 Team/(28114:28124): Recepcion confirmada: 7 2 45
+[TRACE] 03:20:05:238 Team/(28114:28124): Mensaje recibido manejado.
+[INFO] 03:20:09:976 Team/(28114:28119): Entrenador A movido a posicon 2 3
+[TRACE] 03:20:09:976 Team/(28114:28119): Ciclos restantes: 6
+[INFO] 03:20:14:977 Team/(28114:28119): Entrenador A movido a posicon 2 4
+[TRACE] 03:20:14:977 Team/(28114:28119): Ciclos restantes: 5
+[INFO] 03:20:19:978 Team/(28114:28119): Entrenador A movido a posicon 2 5
+[TRACE] 03:20:19:978 Team/(28114:28119): Ciclos restantes: 4
+[INFO] 03:20:24:979 Team/(28114:28119): Entrenador A movido a posicon 2 6
+[TRACE] 03:20:24:979 Team/(28114:28119): Ciclos restantes: 3
+[INFO] 03:20:29:980 Team/(28114:28119): Entrenador A movido a posicon 2 7
+[TRACE] 03:20:29:980 Team/(28114:28119): Ciclos restantes: 2
+[INFO] 03:20:34:982 Team/(28114:28119): Entrenador A movido a posicon 2 8
+[TRACE] 03:20:34:982 Team/(28114:28119): Ciclos restantes: 1
+[INFO] 03:20:39:983 Team/(28114:28119): Catch efectuado en posicon 2 8 para Onix
+[TRACE] 03:20:39:984 Team/(28114:28119): Ciclos restantes: 0
+[DEBUG] 03:20:39:984 Team/(28114:28119): EA dormido. Posicion 2 8
+[TRACE] 03:20:39:984 Team/(28114:28118): Planificador corto plazo en curso
+[DEBUG] 03:20:39:984 Team/(28114:28118): EnNu: C, r2.500000. EnEx: A, r2.500000
+[INFO] 03:20:39:985 Team/(28114:28118): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:20:39:985 Team/(28114:28121): EC activo. Posicion 5 2
+[DEBUG] 03:20:39:985 Team/(28114:28121): EC despierto. Posicion 5 2
+[DEBUG] 03:20:39:985 Team/(28114:28121): EC espera para cazar. Posicion 5 2
+[DEBUG] 03:20:39:985 Team/(28114:28121): EC cazando. Posicion 5 2
+[TRACE] 03:20:39:986 Team/(28114:28258): Enviado catch para: Onix
+[INFO] 03:20:39:987 Team/(28114:28258): Mensaje CATCH_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 46
+[TRACE] 03:20:39:987 Team/(28114:28258): Recepcion id_mensaje: 46
+[TRACE] 03:20:39:987 Team/(28114:28258): Mensaje recibido manejado.
+[DEBUG] 03:20:39:988 Team/(28114:28258): Esperando caught de pokemon Onix con id 46
+[TRACE] 03:20:43:60 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:20:43:60 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 47, id correlativo: 46
+[DEBUG] 03:20:43:60 Team/(28114:28128): Esperando a manejar caught
+[DEBUG] 03:20:43:60 Team/(28114:28128): Manejo mensaje caught
+[DEBUG] 03:20:43:60 Team/(28114:28128): lo atrapó!
+[DEBUG] 03:20:43:60 Team/(28114:28128): Data Entrenador A: Posicion 2 8 Estado  4
+[DEBUG] 03:20:43:60 Team/(28114:28119): EA activo. Posicion 2 8
+[TRACE] 03:20:43:60 Team/(28114:28128): Pikachu
+[TRACE] 03:20:43:60 Team/(28114:28128): Onix
+[TRACE] 03:20:43:61 Team/(28114:28128): Pikachu
+[TRACE] 03:20:43:61 Team/(28114:28128): Squirtle
+[DEBUG] 03:20:43:61 Team/(28114:28128): Data Entrenador B: Posicion 9 9 Estado  1
+[TRACE] 03:20:43:61 Team/(28114:28128): Pikachu
+[TRACE] 03:20:43:61 Team/(28114:28128): Pikachu
+[TRACE] 03:20:43:61 Team/(28114:28128): Gengar
+[DEBUG] 03:20:43:61 Team/(28114:28119): EA blockeado deadlock. Posicion 2 8
+[DEBUG] 03:20:43:61 Team/(28114:28128): Data Entrenador C: Posicion 5 2 Estado  2
+[TRACE] 03:20:43:62 Team/(28114:28128): Squirtle
+[TRACE] 03:20:43:62 Team/(28114:28128): Squirtle
+[TRACE] 03:20:43:62 Team/(28114:28128): Onix
+[TRACE] 03:20:43:62 Team/(28114:28128): Recepcion confirmada: 10 4 46
+[TRACE] 03:20:43:63 Team/(28114:28128): Mensaje recibido manejado.
+[INFO] 03:20:44:985 Team/(28114:28121): Entrenador C movido a posicon 6 2
+[TRACE] 03:20:44:986 Team/(28114:28121): Ciclos restantes: 5
+[INFO] 03:20:49:987 Team/(28114:28121): Entrenador C movido a posicon 6 3
+[TRACE] 03:20:49:987 Team/(28114:28121): Ciclos restantes: 4
+[INFO] 03:20:54:988 Team/(28114:28121): Entrenador C movido a posicon 6 4
+[TRACE] 03:20:54:989 Team/(28114:28121): Ciclos restantes: 3
+[INFO] 03:20:59:989 Team/(28114:28121): Entrenador C movido a posicon 6 5
+[TRACE] 03:20:59:990 Team/(28114:28121): Ciclos restantes: 2
+[TRACE] 03:21:03:237 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:03:237 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 49, id correlativo: 48
+[TRACE] 03:21:03:238 Team/(28114:28128): Aun no tengo el entrenador con el catch
+[TRACE] 03:21:03:238 Team/(28114:28128): Recepcion confirmada: 10 4 48
+[TRACE] 03:21:03:238 Team/(28114:28128): Mensaje recibido manejado.
+[INFO] 03:21:04:991 Team/(28114:28121): Entrenador C movido a posicon 6 6
+[TRACE] 03:21:04:992 Team/(28114:28121): Ciclos restantes: 1
+[TRACE] 03:21:08:272 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:08:272 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 51, id correlativo: 50
+[TRACE] 03:21:08:273 Team/(28114:28128): Aun no tengo el entrenador con el catch
+[TRACE] 03:21:08:273 Team/(28114:28128): Recepcion confirmada: 10 4 50
+[TRACE] 03:21:08:273 Team/(28114:28128): Mensaje recibido manejado.
+[INFO] 03:21:09:992 Team/(28114:28121): Catch efectuado en posicon 6 6 para Gengar
+[TRACE] 03:21:09:993 Team/(28114:28121): Ciclos restantes: 0
+[DEBUG] 03:21:09:994 Team/(28114:28121): EC dormido. Posicion 6 6
+[TRACE] 03:21:09:994 Team/(28114:28118): Planificador corto plazo en curso
+[DEBUG] 03:21:09:994 Team/(28114:28118): EnNu: B, r2.500000. EnEx: C, r1.250000
+[INFO] 03:21:09:994 Team/(28114:28118): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:21:09:994 Team/(28114:28120): EB activo. Posicion 9 9
+[DEBUG] 03:21:09:994 Team/(28114:28120): EB despierto. Posicion 9 9
+[DEBUG] 03:21:09:994 Team/(28114:28120): EB espera para cazar. Posicion 9 9
+[DEBUG] 03:21:09:994 Team/(28114:28120): EB cazando. Posicion 9 9
+[TRACE] 03:21:09:996 Team/(28114:28277): Enviado catch para: Gengar
+[INFO] 03:21:09:998 Team/(28114:28277): Mensaje CATCH_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 52
+[TRACE] 03:21:09:998 Team/(28114:28277): Recepcion id_mensaje: 52
+[TRACE] 03:21:09:998 Team/(28114:28277): Mensaje recibido manejado.
+[DEBUG] 03:21:09:998 Team/(28114:28277): Esperando caught de pokemon Gengar con id 52
+[TRACE] 03:21:13:24 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:13:24 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 54, id correlativo: 52
+[DEBUG] 03:21:13:24 Team/(28114:28128): Esperando a manejar caught
+[DEBUG] 03:21:13:25 Team/(28114:28128): Manejo mensaje caught
+[DEBUG] 03:21:13:25 Team/(28114:28128): lo atrapó!
+[DEBUG] 03:21:13:25 Team/(28114:28128): Data Entrenador A: Posicion 2 8 Estado  5
+[DEBUG] 03:21:13:25 Team/(28114:28121): EC activo. Posicion 6 6
+[TRACE] 03:21:13:25 Team/(28114:28128): Pikachu
+[TRACE] 03:21:13:25 Team/(28114:28128): Onix
+[TRACE] 03:21:13:25 Team/(28114:28128): Pikachu
+[TRACE] 03:21:13:25 Team/(28114:28128): Squirtle
+[DEBUG] 03:21:13:25 Team/(28114:28128): Data Entrenador B: Posicion 9 9 Estado  2
+[TRACE] 03:21:13:25 Team/(28114:28128): Pikachu
+[TRACE] 03:21:13:25 Team/(28114:28128): Pikachu
+[TRACE] 03:21:13:25 Team/(28114:28128): Gengar
+[DEBUG] 03:21:13:25 Team/(28114:28121): EC blockeado deadlock. Posicion 6 6
+[DEBUG] 03:21:13:25 Team/(28114:28128): Data Entrenador C: Posicion 6 6 Estado  5
+[TRACE] 03:21:13:25 Team/(28114:28128): Squirtle
+[TRACE] 03:21:13:26 Team/(28114:28128): Gengar
+[TRACE] 03:21:13:26 Team/(28114:28128): Squirtle
+[TRACE] 03:21:13:26 Team/(28114:28128): Onix
+[TRACE] 03:21:13:26 Team/(28114:28128): Recepcion confirmada: 10 4 52
+[TRACE] 03:21:13:26 Team/(28114:28128): Mensaje recibido manejado.
+[TRACE] 03:21:13:243 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:13:243 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 55, id correlativo: 53
+[TRACE] 03:21:13:244 Team/(28114:28128): Aun no tengo el entrenador con el catch
+[TRACE] 03:21:13:244 Team/(28114:28128): Recepcion confirmada: 10 4 53
+[TRACE] 03:21:13:244 Team/(28114:28128): Mensaje recibido manejado.
+[INFO] 03:21:14:995 Team/(28114:28120): Entrenador B movido a posicon 8 9
+[TRACE] 03:21:14:995 Team/(28114:28120): Ciclos restantes: 8
+[INFO] 03:21:19:996 Team/(28114:28120): Entrenador B movido a posicon 7 9
+[TRACE] 03:21:19:997 Team/(28114:28120): Ciclos restantes: 7
+[INFO] 03:21:24:998 Team/(28114:28120): Entrenador B movido a posicon 6 9
+[TRACE] 03:21:24:998 Team/(28114:28120): Ciclos restantes: 6
+[INFO] 03:21:29:999 Team/(28114:28120): Entrenador B movido a posicon 5 9
+[TRACE] 03:21:29:999 Team/(28114:28120): Ciclos restantes: 5
+[INFO] 03:21:34:0 Team/(28114:28120): Entrenador B movido a posicon 5 8
+[TRACE] 03:21:34:0 Team/(28114:28120): Ciclos restantes: 4
+[INFO] 03:21:39:1 Team/(28114:28120): Entrenador B movido a posicon 5 7
+[TRACE] 03:21:39:1 Team/(28114:28120): Ciclos restantes: 3
+[INFO] 03:21:45:2 Team/(28114:28120): Entrenador B movido a posicon 5 6
+[TRACE] 03:21:45:3 Team/(28114:28120): Ciclos restantes: 2
+[INFO] 03:21:50:3 Team/(28114:28120): Entrenador B movido a posicon 5 5
+[TRACE] 03:21:50:4 Team/(28114:28120): Ciclos restantes: 1
+[INFO] 03:21:55:4 Team/(28114:28120): Catch efectuado en posicon 5 5 para Squirtle
+[TRACE] 03:21:55:5 Team/(28114:28120): Ciclos restantes: 0
+[DEBUG] 03:21:55:6 Team/(28114:28120): EB dormido. Posicion 5 5
+[TRACE] 03:21:55:7 Team/(28114:28296): Enviado catch para: Squirtle
+[INFO] 03:21:55:9 Team/(28114:28296): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 56
+[TRACE] 03:21:55:9 Team/(28114:28296): Recepcion id_mensaje: 56
+[TRACE] 03:21:55:9 Team/(28114:28296): Mensaje recibido manejado.
+[DEBUG] 03:21:55:9 Team/(28114:28296): Esperando caught de pokemon Squirtle con id 56
+[TRACE] 03:21:58:52 Team/(28114:28128): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:58:52 Team/(28114:28128): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 57, id correlativo: 56
+[DEBUG] 03:21:58:52 Team/(28114:28128): Esperando a manejar caught
+[DEBUG] 03:21:58:52 Team/(28114:28128): Manejo mensaje caught
+[DEBUG] 03:21:58:53 Team/(28114:28128): lo atrapó!
+[DEBUG] 03:21:58:53 Team/(28114:28128): Data Entrenador A: Posicion 2 8 Estado  5
+[DEBUG] 03:21:58:53 Team/(28114:28120): EB activo. Posicion 5 5
+[TRACE] 03:21:58:53 Team/(28114:28128): Pikachu
+[TRACE] 03:21:58:53 Team/(28114:28128): Onix
+[TRACE] 03:21:58:53 Team/(28114:28128): Pikachu
+[TRACE] 03:21:58:53 Team/(28114:28128): Squirtle
+[DEBUG] 03:21:58:53 Team/(28114:28120): EB blockeado deadlock. Posicion 5 5
+[DEBUG] 03:21:58:53 Team/(28114:28128): Data Entrenador B: Posicion 5 5 Estado  5
+[TRACE] 03:21:58:53 Team/(28114:28128): Pikachu
+[TRACE] 03:21:58:53 Team/(28114:28128): Squirtle
+[TRACE] 03:21:58:53 Team/(28114:28128): Pikachu
+[TRACE] 03:21:58:53 Team/(28114:28128): Gengar
+[DEBUG] 03:21:58:53 Team/(28114:28128): Data Entrenador C: Posicion 6 6 Estado  5
+[TRACE] 03:21:58:54 Team/(28114:28128): Squirtle
+[TRACE] 03:21:58:54 Team/(28114:28128): Gengar
+[TRACE] 03:21:58:54 Team/(28114:28128): Squirtle
+[TRACE] 03:21:58:54 Team/(28114:28128): Onix
+[INFO] 03:21:58:54 Team/(28114:28114): Inicio algoritmo de deteccion de deadlock
+[INFO] 03:21:58:54 Team/(28114:28114): Inicio de algoritmo de deteccion de deadlock
+[DEBUG] 03:21:58:54 Team/(28114:28114): Data Entrenador A: Posicion 2 8 Estado  5
+[TRACE] 03:21:58:54 Team/(28114:28114): Pikachu
+[TRACE] 03:21:58:54 Team/(28114:28114): Onix
+[TRACE] 03:21:58:54 Team/(28114:28114): Pikachu
+[TRACE] 03:21:58:54 Team/(28114:28114): Squirtle
+[DEBUG] 03:21:58:54 Team/(28114:28114): Data Entrenador B: Posicion 5 5 Estado  5
+[TRACE] 03:21:58:54 Team/(28114:28114): Pikachu
+[TRACE] 03:21:58:54 Team/(28114:28114): Squirtle
+[TRACE] 03:21:58:54 Team/(28114:28114): Pikachu
+[TRACE] 03:21:58:54 Team/(28114:28114): Gengar
+[DEBUG] 03:21:58:55 Team/(28114:28114): Data Entrenador C: Posicion 6 6 Estado  5
+[TRACE] 03:21:58:55 Team/(28114:28114): Squirtle
+[TRACE] 03:21:58:55 Team/(28114:28114): Gengar
+[TRACE] 03:21:58:55 Team/(28114:28114): Squirtle
+[TRACE] 03:21:58:55 Team/(28114:28114): Onix
+[INFO] 03:21:58:55 Team/(28114:28114): Resultado deteccion deadlock: Detectado
+[DEBUG] 03:21:58:55 Team/(28114:28114): deadlock en curso
+[DEBUG] 03:21:58:55 Team/(28114:28114): Pok buscado: Squirtle, pok comparado: Onix
+[DEBUG] 03:21:58:55 Team/(28114:28114): Pokemon en lista = 0
+[DEBUG] 03:21:58:55 Team/(28114:28114): Pok buscado: Squirtle, pok comparado: Squirtle
+[DEBUG] 03:21:58:55 Team/(28114:28114): Pokemon en lista = 1
+[DEBUG] 03:21:58:55 Team/(28114:28114): Pok buscado: Squirtle, pok comparado: Gengar
+[DEBUG] 03:21:58:55 Team/(28114:28114): Pokemon en lista = 0
+[DEBUG] 03:21:58:55 Team/(28114:28114): Pok buscado: Gengar, pok comparado: Onix
+[TRACE] 03:21:58:55 Team/(28114:28128): Recepcion confirmada: 10 4 56
+[DEBUG] 03:21:58:55 Team/(28114:28114): Pokemon en lista = 0
+[TRACE] 03:21:58:56 Team/(28114:28114): Nuevo ent en ready: Posicion 2 8
+[TRACE] 03:21:58:56 Team/(28114:28118): Planificador corto plazo en curso
+[DEBUG] 03:21:58:56 Team/(28114:28118): EnNu: A, r2.500000. EnEx: B, r1.250000
+[INFO] 03:21:58:56 Team/(28114:28118): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:21:58:56 Team/(28114:28119): EA activo. Posicion 2 8
+[DEBUG] 03:21:58:56 Team/(28114:28119): EA despierto. Posicion 2 8
+[TRACE] 03:21:58:56 Team/(28114:28128): Mensaje recibido manejado.
+[INFO] 03:22:03:57 Team/(28114:28119): Entrenador A movido a posicon 3 8
+[TRACE] 03:22:03:57 Team/(28114:28119): Ciclos restantes: 10
+[INFO] 03:22:08:58 Team/(28114:28119): Entrenador A movido a posicon 4 8
+[TRACE] 03:22:08:58 Team/(28114:28119): Ciclos restantes: 9
+[INFO] 03:22:13:58 Team/(28114:28119): Entrenador A movido a posicon 5 8
+[TRACE] 03:22:13:59 Team/(28114:28119): Ciclos restantes: 8
+[INFO] 03:22:18:59 Team/(28114:28119): Entrenador A movido a posicon 5 7
+[TRACE] 03:22:18:60 Team/(28114:28119): Ciclos restantes: 7
+[INFO] 03:22:23:61 Team/(28114:28119): Entrenador A movido a posicon 5 6
+[TRACE] 03:22:23:62 Team/(28114:28119): Ciclos restantes: 6
+[INFO] 03:22:28:62 Team/(28114:28119): Entrenador A movido a posicon 5 5
+[TRACE] 03:22:28:63 Team/(28114:28119): Ciclos restantes: 5
+[TRACE] 03:22:33:64 Team/(28114:28119): Intercambio en proceso
+[TRACE] 03:22:33:66 Team/(28114:28119): Ciclos restantes: 4
+[TRACE] 03:22:38:66 Team/(28114:28119): Intercambio en proceso
+[TRACE] 03:22:38:67 Team/(28114:28119): Ciclos restantes: 3
+[TRACE] 03:22:43:67 Team/(28114:28119): Intercambio en proceso
+[TRACE] 03:22:43:68 Team/(28114:28119): Ciclos restantes: 2
+[TRACE] 03:22:48:69 Team/(28114:28119): Intercambio en proceso
+[TRACE] 03:22:48:69 Team/(28114:28119): Ciclos restantes: 1
+[INFO] 03:22:53:70 Team/(28114:28119): Intercambio efectuado entre EA y EB
+[TRACE] 03:22:53:70 Team/(28114:28119): Ciclos restantes: 0
+[DEBUG] 03:22:53:70 Team/(28114:28119): EA dormido. Posicion 5 5
+[DEBUG] 03:22:53:70 Team/(28114:28120): EB activo. Posicion 5 5
+[DEBUG] 03:22:53:71 Team/(28114:28119): EA activo. Posicion 5 5
+[DEBUG] 03:22:53:71 Team/(28114:28119): EA pasa a exit. Posicion 5 5
+[DEBUG] 03:22:53:71 Team/(28114:28120): EB blockeado deadlock. Posicion 5 5
+[DEBUG] 03:22:53:71 Team/(28114:28114): deadlock en curso
+[DEBUG] 03:22:53:71 Team/(28114:28114): Pok buscado: Gengar, pok comparado: Onix
+[DEBUG] 03:22:53:71 Team/(28114:28114): Pokemon en lista = 0
+[DEBUG] 03:22:53:71 Team/(28114:28114): Pok buscado: Gengar, pok comparado: Gengar
+[DEBUG] 03:22:53:71 Team/(28114:28114): Pokemon en lista = 1
+[DEBUG] 03:22:53:72 Team/(28114:28114): Pok buscado: Onix, pok comparado: Onix
+[DEBUG] 03:22:53:72 Team/(28114:28114): Pokemon en lista = 1
+[TRACE] 03:22:53:72 Team/(28114:28114): es intercambio ideal
+[DEBUG] 03:22:53:72 Team/(28114:28114): Pok buscado: Onix, pok comparado: Onix
+[DEBUG] 03:22:53:72 Team/(28114:28114): Pokemon en lista = 1
+[TRACE] 03:22:53:72 Team/(28114:28114): Nuevo ent en ready: Posicion 5 5
+[TRACE] 03:22:53:72 Team/(28114:28118): Planificador corto plazo en curso
+[DEBUG] 03:22:53:72 Team/(28114:28118): EnNu: B, r1.250000. EnEx: A, r1.250000
+[INFO] 03:22:53:72 Team/(28114:28118): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:22:53:72 Team/(28114:28120): EB activo. Posicion 5 5
+[DEBUG] 03:22:53:73 Team/(28114:28120): EB despierto. Posicion 5 5
+[INFO] 03:22:58:73 Team/(28114:28120): Entrenador B movido a posicon 6 5
+[TRACE] 03:22:58:74 Team/(28114:28120): Ciclos restantes: 6
+[INFO] 03:23:03:75 Team/(28114:28120): Entrenador B movido a posicon 6 6
+[TRACE] 03:23:03:76 Team/(28114:28120): Ciclos restantes: 5
+[TRACE] 03:23:08:77 Team/(28114:28120): Intercambio en proceso
+[TRACE] 03:23:08:77 Team/(28114:28120): Ciclos restantes: 4
+[TRACE] 03:23:13:78 Team/(28114:28120): Intercambio en proceso
+[TRACE] 03:23:13:79 Team/(28114:28120): Ciclos restantes: 3
+[TRACE] 03:23:18:79 Team/(28114:28120): Intercambio en proceso
+[TRACE] 03:23:18:80 Team/(28114:28120): Ciclos restantes: 2
+[TRACE] 03:23:23:80 Team/(28114:28120): Intercambio en proceso
+[TRACE] 03:23:23:81 Team/(28114:28120): Ciclos restantes: 1
+[INFO] 03:23:28:82 Team/(28114:28120): Intercambio efectuado entre EB y EC
+[TRACE] 03:23:28:82 Team/(28114:28120): Ciclos restantes: 0
+[DEBUG] 03:23:28:83 Team/(28114:28120): EB dormido. Posicion 6 6
+[DEBUG] 03:23:28:83 Team/(28114:28121): EC activo. Posicion 6 6
+[DEBUG] 03:23:28:83 Team/(28114:28120): EB activo. Posicion 6 6
+[DEBUG] 03:23:28:83 Team/(28114:28120): EB pasa a exit. Posicion 6 6
+[DEBUG] 03:23:28:83 Team/(28114:28121): EC pasa a exit. Posicion 6 6
+[INFO] 03:23:28:83 Team/(28114:28114): Inicio de algoritmo de deteccion de deadlock
+[DEBUG] 03:23:28:83 Team/(28114:28114): Data Entrenador A: Posicion 5 5 Estado  6
+[TRACE] 03:23:28:83 Team/(28114:28114): Pikachu
+[TRACE] 03:23:28:83 Team/(28114:28114): Squirtle
+[TRACE] 03:23:28:83 Team/(28114:28114): Pikachu
+[TRACE] 03:23:28:83 Team/(28114:28114): Squirtle
+[DEBUG] 03:23:28:83 Team/(28114:28114): Data Entrenador B: Posicion 6 6 Estado  6
+[TRACE] 03:23:28:84 Team/(28114:28114): Pikachu
+[TRACE] 03:23:28:84 Team/(28114:28114): Gengar
+[TRACE] 03:23:28:85 Team/(28114:28114): Pikachu
+[TRACE] 03:23:28:85 Team/(28114:28114): Gengar
+[DEBUG] 03:23:28:85 Team/(28114:28114): Data Entrenador C: Posicion 6 6 Estado  6
+[TRACE] 03:23:28:85 Team/(28114:28114): Squirtle
+[TRACE] 03:23:28:85 Team/(28114:28114): Onix
+[TRACE] 03:23:28:85 Team/(28114:28114): Squirtle
+[TRACE] 03:23:28:86 Team/(28114:28114): Onix
+[INFO] 03:23:28:86 Team/(28114:28114): Resultado deteccion deadlock: NO Detectado
+[INFO] 03:23:28:86 Team/(28114:28114): Ciclos CPU totales: 58
+[INFO] 03:23:28:86 Team/(28114:28114): Ciclos Totales EA = 18
+[INFO] 03:23:28:86 Team/(28114:28114): Ciclos Totales EB = 30
+[INFO] 03:23:28:86 Team/(28114:28114): Ciclos Totales EC = 10
+[INFO] 03:23:28:86 Team/(28114:28114): Cantidad de cambios de contexto: 14
+[INFO] 03:23:28:86 Team/(28114:28114): Deadlocks Encontrados y Resueltos: 1
+[TRACE] 03:33:23:533 Team/(28515:28515): Log inicializado
+[TRACE] 03:33:23:548 Team/(28515:28515): Entrenadores cargados
+[TRACE] 03:33:23:552 Team/(28515:28519): Entrenador lanzado: Pos 1 3
+[TRACE] 03:33:23:555 Team/(28515:28519): Entrenador lanzado: Pos 2 3
+[TRACE] 03:33:23:555 Team/(28515:28518): Iniciar conexion con gameboy
+[DEBUG] 03:33:23:555 Team/(28515:28517): Pokemon en lista = 0
+[TRACE] 03:33:23:556 Team/(28515:28519): Entrenador lanzado: Pos 2 2
+[DEBUG] 03:33:23:557 Team/(28515:28517): Pok buscado: Pikachu, pok comparado: Squirtle
+[DEBUG] 03:33:23:557 Team/(28515:28517): Pokemon en lista = 0
+[DEBUG] 03:33:23:558 Team/(28515:28517): Pok buscado: Gengar, pok comparado: Squirtle
+[TRACE] 03:33:23:565 Team/(28515:28516): Mensaje suscripcion enviado
+[TRACE] 03:33:23:565 Team/(28515:28518): Esperando Cliente
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pok buscado: Gengar, pok comparado: Pikachu
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pokemon en lista = 0
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pok buscado: Squirtle, pok comparado: Squirtle
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pok buscado: Squirtle, pok comparado: Pikachu
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pok buscado: Squirtle, pok comparado: Gengar
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pokemon en lista = 1
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pok buscado: Onix, pok comparado: Squirtle
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pok buscado: Onix, pok comparado: Pikachu
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pok buscado: Onix, pok comparado: Gengar
+[DEBUG] 03:33:23:566 Team/(28515:28517): Pokemon en lista = 0
+[TRACE] 03:33:23:567 Team/(28515:28516): Suscripcion completada
+[TRACE] 03:33:23:578 Team/(28515:28517): Enviado get para: Squirtle
+[TRACE] 03:33:23:579 Team/(28515:28526): Mensaje recibido, cod_op: 2.
+[INFO] 03:33:23:579 Team/(28515:28526): Mensaje APPEARED_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 6
+[DEBUG] 03:33:23:579 Team/(28515:28526): Requiero mensaje = 0
+[TRACE] 03:33:23:579 Team/(28515:28526): Recepcion confirmada: 4 2 6
+[TRACE] 03:33:23:579 Team/(28515:28526): Mensaje recibido manejado.
+[TRACE] 03:33:23:580 Team/(28515:28526): Mensaje recibido, cod_op: 2.
+[INFO] 03:33:23:582 Team/(28515:28526): Mensaje APPEARED_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 7
+[DEBUG] 03:33:23:583 Team/(28515:28526): Requiero mensaje = 0
+[TRACE] 03:33:23:583 Team/(28515:28526): Recepcion confirmada: 4 2 7
+[TRACE] 03:33:23:583 Team/(28515:28526): Mensaje recibido manejado.
+[TRACE] 03:33:23:584 Team/(28515:28516): Mensaje suscripcion enviado
+[TRACE] 03:33:23:584 Team/(28515:28516): Suscripcion completada
+[INFO] 03:33:23:584 Team/(28515:28517): Mensaje GET_POKEMON: Pokemon: Squirtle, Id mensaje: 8
+[DEBUG] 03:33:23:585 Team/(28515:28517): Recepcion id_mensaje: 8
+[TRACE] 03:33:23:585 Team/(28515:28517): Mensaje recibido manejado.
+[TRACE] 03:33:23:585 Team/(28515:28517): Enviado get para: Pikachu
+[TRACE] 03:33:23:586 Team/(28515:28516): Mensaje suscripcion enviado
+[TRACE] 03:33:23:587 Team/(28515:28516): Suscripcion completada
+[INFO] 03:33:23:600 Team/(28515:28517): Mensaje GET_POKEMON: Pokemon: Pikachu, Id mensaje: 9
+[DEBUG] 03:33:23:600 Team/(28515:28517): Recepcion id_mensaje: 9
+[TRACE] 03:33:23:600 Team/(28515:28517): Mensaje recibido manejado.
+[TRACE] 03:33:23:601 Team/(28515:28517): Enviado get para: Gengar
+[INFO] 03:33:23:613 Team/(28515:28517): Mensaje GET_POKEMON: Pokemon: Gengar, Id mensaje: 10
+[DEBUG] 03:33:23:613 Team/(28515:28517): Recepcion id_mensaje: 10
+[TRACE] 03:33:23:613 Team/(28515:28517): Mensaje recibido manejado.
+[TRACE] 03:33:23:614 Team/(28515:28517): Enviado get para: Onix
+[INFO] 03:33:23:628 Team/(28515:28517): Mensaje GET_POKEMON: Pokemon: Onix, Id mensaje: 11
+[DEBUG] 03:33:23:628 Team/(28515:28517): Recepcion id_mensaje: 11
+[TRACE] 03:33:23:628 Team/(28515:28517): Mensaje recibido manejado.
+[TRACE] 03:33:26:607 Team/(28515:28529): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:26:607 Team/(28515:28529): Mensaje LOCALIZED_POKEMON: id correlativo: 8, Id_mensaje: 12, Pokemon: Squirtle, Cantidad: 1, Posiciones:5 2 
+[DEBUG] 03:33:26:607 Team/(28515:28529): Necesito mensaje = 1
+[DEBUG] 03:33:26:607 Team/(28515:28529): Requiero mensaje = 1
+[DEBUG] 03:33:26:607 Team/(28515:28529): Pokemon en lista = 0
+[DEBUG] 03:33:26:607 Team/(28515:28529): Manejo mensaje localized
+[DEBUG] 03:33:26:608 Team/(28515:28529): Requiero mensaje = 1
+[TRACE] 03:33:26:608 Team/(28515:28529): Manejo mensaje appeared
+[TRACE] 03:33:26:608 Team/(28515:28529): Nuevo ent en ready: Posicion 2 2
+[TRACE] 03:33:26:608 Team/(28515:28529): Recepcion confirmada: 9 7 8
+[TRACE] 03:33:26:608 Team/(28515:28519): Planificador corto plazo en curso
+[TRACE] 03:33:26:609 Team/(28515:28529): Mensaje recibido manejado.
+[DEBUG] 03:33:26:609 Team/(28515:28522): EC activo. Posicion 2 2
+[DEBUG] 03:33:26:609 Team/(28515:28522): EC despierto. Posicion 2 2
+[DEBUG] 03:33:26:609 Team/(28515:28522): EC espera para cazar. Posicion 2 2
+[DEBUG] 03:33:26:609 Team/(28515:28522): EC cazando. Posicion 2 2
+[TRACE] 03:33:26:638 Team/(28515:28529): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:26:638 Team/(28515:28529): Mensaje LOCALIZED_POKEMON: id correlativo: 9, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[DEBUG] 03:33:26:638 Team/(28515:28529): Necesito mensaje = 1
+[DEBUG] 03:33:26:640 Team/(28515:28529): Requiero mensaje = 1
+[DEBUG] 03:33:26:640 Team/(28515:28529): Pok buscado: Pikachu, pok comparado: Squirtle
+[DEBUG] 03:33:26:640 Team/(28515:28529): Pok buscado: Pikachu, pok comparado: Squirtle
+[DEBUG] 03:33:26:640 Team/(28515:28529): Pokemon en lista = 0
+[DEBUG] 03:33:26:640 Team/(28515:28529): Manejo mensaje localized
+[DEBUG] 03:33:26:640 Team/(28515:28529): Requiero mensaje = 1
+[TRACE] 03:33:26:641 Team/(28515:28529): Manejo mensaje appeared
+[TRACE] 03:33:26:641 Team/(28515:28529): Nuevo ent en ready: Posicion 2 3
+[TRACE] 03:33:26:641 Team/(28515:28529): Recepcion confirmada: 9 7 9
+[TRACE] 03:33:26:641 Team/(28515:28529): Mensaje recibido manejado.
+[TRACE] 03:33:26:643 Team/(28515:28529): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:26:643 Team/(28515:28529): Mensaje LOCALIZED_POKEMON: id correlativo: 10, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:26:643 Team/(28515:28529): Necesito mensaje = 1
+[DEBUG] 03:33:26:643 Team/(28515:28529): Requiero mensaje = 1
+[DEBUG] 03:33:26:643 Team/(28515:28529): Pok buscado: Gengar, pok comparado: Squirtle
+[DEBUG] 03:33:26:643 Team/(28515:28529): Pok buscado: Gengar, pok comparado: Squirtle
+[DEBUG] 03:33:26:644 Team/(28515:28529): Pok buscado: Gengar, pok comparado: Pikachu
+[DEBUG] 03:33:26:644 Team/(28515:28529): Pok buscado: Gengar, pok comparado: Pikachu
+[DEBUG] 03:33:26:644 Team/(28515:28529): Pokemon en lista = 0
+[DEBUG] 03:33:26:644 Team/(28515:28529): Manejo mensaje localized
+[TRACE] 03:33:26:644 Team/(28515:28529): Recepcion confirmada: 9 7 10
+[TRACE] 03:33:26:644 Team/(28515:28529): Mensaje recibido manejado.
+[TRACE] 03:33:26:663 Team/(28515:28529): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:26:663 Team/(28515:28529): Mensaje LOCALIZED_POKEMON: id correlativo: 11, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:26:663 Team/(28515:28529): Necesito mensaje = 1
+[DEBUG] 03:33:26:663 Team/(28515:28529): Requiero mensaje = 1
+[DEBUG] 03:33:26:663 Team/(28515:28529): Pok buscado: Onix, pok comparado: Squirtle
+[DEBUG] 03:33:26:663 Team/(28515:28529): Pok buscado: Onix, pok comparado: Squirtle
+[DEBUG] 03:33:26:664 Team/(28515:28529): Pok buscado: Onix, pok comparado: Pikachu
+[DEBUG] 03:33:26:664 Team/(28515:28529): Pok buscado: Onix, pok comparado: Pikachu
+[DEBUG] 03:33:26:664 Team/(28515:28529): Pok buscado: Onix, pok comparado: Gengar
+[DEBUG] 03:33:26:664 Team/(28515:28529): Pokemon en lista = 0
+[DEBUG] 03:33:26:664 Team/(28515:28529): Manejo mensaje localized
+[TRACE] 03:33:26:664 Team/(28515:28529): Recepcion confirmada: 9 7 11
+[TRACE] 03:33:26:664 Team/(28515:28529): Mensaje recibido manejado.
+[INFO] 03:33:31:609 Team/(28515:28522): Entrenador C movido a posicon 3 2
+[TRACE] 03:33:31:610 Team/(28515:28522): Ciclos restantes: 3
+[INFO] 03:33:36:611 Team/(28515:28522): Entrenador C movido a posicon 4 2
+[TRACE] 03:33:36:612 Team/(28515:28522): Ciclos restantes: 2
+[INFO] 03:33:41:612 Team/(28515:28522): Entrenador C movido a posicon 5 2
+[TRACE] 03:33:41:613 Team/(28515:28522): Ciclos restantes: 1
+[INFO] 03:33:46:613 Team/(28515:28522): Catch efectuado en posicon 5 2 para Squirtle
+[TRACE] 03:33:46:614 Team/(28515:28522): Ciclos restantes: 0
+[DEBUG] 03:33:46:614 Team/(28515:28522): EC dormido. Posicion 5 2
+[TRACE] 03:33:46:614 Team/(28515:28519): Planificador corto plazo en curso
+[DEBUG] 03:33:46:614 Team/(28515:28519): EnNu: B, r5.000000. EnEx: C, r2.500000
+[INFO] 03:33:46:614 Team/(28515:28519): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[DEBUG] 03:33:46:615 Team/(28515:28521): EB activo. Posicion 2 3
+[DEBUG] 03:33:46:615 Team/(28515:28521): EB despierto. Posicion 2 3
+[DEBUG] 03:33:46:615 Team/(28515:28521): EB espera para cazar. Posicion 2 3
+[DEBUG] 03:33:46:615 Team/(28515:28521): EB cazando. Posicion 2 3
+[TRACE] 03:33:46:616 Team/(28515:28551): Enviado catch para: Squirtle
+[INFO] 03:33:46:632 Team/(28515:28551): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 2, Id mensaje: 16
+[TRACE] 03:33:46:632 Team/(28515:28551): Recepcion id_mensaje: 16
+[TRACE] 03:33:46:632 Team/(28515:28551): Mensaje recibido manejado.
+[DEBUG] 03:33:46:632 Team/(28515:28551): Esperando caught de pokemon Squirtle con id 16
+[TRACE] 03:33:49:698 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:33:49:698 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 22, id correlativo: 16
+[DEBUG] 03:33:49:698 Team/(28515:28532): Esperando a manejar caught
+[DEBUG] 03:33:49:698 Team/(28515:28532): Manejo mensaje caught
+[DEBUG] 03:33:49:698 Team/(28515:28532): lo atrapó!
+[DEBUG] 03:33:49:698 Team/(28515:28532): Data Entrenador A: Posicion 1 3 Estado  0
+[DEBUG] 03:33:49:698 Team/(28515:28522): EC activo. Posicion 5 2
+[TRACE] 03:33:49:698 Team/(28515:28532): Pikachu
+[TRACE] 03:33:49:698 Team/(28515:28532): Pikachu
+[TRACE] 03:33:49:698 Team/(28515:28532): Squirtle
+[DEBUG] 03:33:49:698 Team/(28515:28532): Data Entrenador B: Posicion 2 3 Estado  2
+[TRACE] 03:33:49:698 Team/(28515:28532): Pikachu
+[TRACE] 03:33:49:698 Team/(28515:28532): Gengar
+[DEBUG] 03:33:49:698 Team/(28515:28532): Data Entrenador C: Posicion 5 2 Estado  4
+[TRACE] 03:33:49:698 Team/(28515:28532): Squirtle
+[TRACE] 03:33:49:698 Team/(28515:28532): Squirtle
+[TRACE] 03:33:49:699 Team/(28515:28532): Onix
+[TRACE] 03:33:49:699 Team/(28515:28532): Recepcion confirmada: 10 4 16
+[TRACE] 03:33:49:699 Team/(28515:28532): Mensaje recibido manejado.
+[DEBUG] 03:33:49:699 Team/(28515:28522): EC bloqueado normal. Posicion 5 2
+[TRACE] 03:33:50:4 Team/(28515:28529): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:50:4 Team/(28515:28529): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 23, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:50:4 Team/(28515:28529): Necesito mensaje = 0
+[DEBUG] 03:33:50:4 Team/(28515:28529): Mensaje descartado: id correlativo: 17, Id_mensaje: 23, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[TRACE] 03:33:50:4 Team/(28515:28529): Recepcion confirmada: 9 7 17
+[TRACE] 03:33:50:4 Team/(28515:28529): Mensaje recibido manejado.
+[TRACE] 03:33:51:29 Team/(28515:28529): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:51:29 Team/(28515:28529): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 24, Pokemon: Jolteon, Cantidad: 2, Posiciones:2 2 4 6 
+[DEBUG] 03:33:51:29 Team/(28515:28529): Necesito mensaje = 0
+[DEBUG] 03:33:51:29 Team/(28515:28529): Mensaje descartado: id correlativo: 18, Id_mensaje: 24, Pokemon: Jolteon, Cantidad: 2, Posiciones:2 2 4 6 
+[TRACE] 03:33:51:29 Team/(28515:28529): Recepcion confirmada: 9 7 18
+[TRACE] 03:33:51:29 Team/(28515:28529): Mensaje recibido manejado.
+[TRACE] 03:33:51:52 Team/(28515:28529): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:51:52 Team/(28515:28529): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 25, Pokemon: Flareon, Cantidad: 2, Posiciones:2 2 4 6 
+[DEBUG] 03:33:51:52 Team/(28515:28529): Necesito mensaje = 0
+[DEBUG] 03:33:51:52 Team/(28515:28529): Mensaje descartado: id correlativo: 19, Id_mensaje: 25, Pokemon: Flareon, Cantidad: 2, Posiciones:2 2 4 6 
+[TRACE] 03:33:51:52 Team/(28515:28529): Recepcion confirmada: 9 7 19
+[TRACE] 03:33:51:52 Team/(28515:28529): Mensaje recibido manejado.
+[TRACE] 03:33:51:58 Team/(28515:28529): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:51:58 Team/(28515:28529): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 26, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:51:58 Team/(28515:28529): Necesito mensaje = 0
+[DEBUG] 03:33:51:58 Team/(28515:28529): Mensaje descartado: id correlativo: 20, Id_mensaje: 26, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[TRACE] 03:33:51:58 Team/(28515:28529): Recepcion confirmada: 9 7 20
+[TRACE] 03:33:51:58 Team/(28515:28529): Mensaje recibido manejado.
+[TRACE] 03:33:51:63 Team/(28515:28529): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:51:63 Team/(28515:28529): Mensaje LOCALIZED_POKEMON: id correlativo: 21, Id_mensaje: 27, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:51:82 Team/(28515:28529): Necesito mensaje = 0
+[DEBUG] 03:33:51:83 Team/(28515:28529): Mensaje descartado: id correlativo: 21, Id_mensaje: 27, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[TRACE] 03:33:51:83 Team/(28515:28529): Recepcion confirmada: 9 7 21
+[TRACE] 03:33:51:83 Team/(28515:28529): Mensaje recibido manejado.
+[INFO] 03:33:51:616 Team/(28515:28521): Entrenador B movido a posicon 3 3
+[TRACE] 03:33:51:616 Team/(28515:28521): Ciclos restantes: 13
+[INFO] 03:33:56:616 Team/(28515:28521): Entrenador B movido a posicon 4 3
+[TRACE] 03:33:56:617 Team/(28515:28521): Ciclos restantes: 12
+[INFO] 03:34:01:617 Team/(28515:28521): Entrenador B movido a posicon 5 3
+[TRACE] 03:34:01:617 Team/(28515:28521): Ciclos restantes: 11
+[TRACE] 03:34:04:102 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:34:04:102 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[TRACE] 03:34:04:102 Team/(28515:28532): Aun no tengo el entrenador con el catch
+[TRACE] 03:34:04:102 Team/(28515:28532): Recepcion confirmada: 10 4 28
+[TRACE] 03:34:04:102 Team/(28515:28532): Mensaje recibido manejado.
+[INFO] 03:34:06:618 Team/(28515:28521): Entrenador B movido a posicon 6 3
+[TRACE] 03:34:06:618 Team/(28515:28521): Ciclos restantes: 10
+[INFO] 03:34:11:619 Team/(28515:28521): Entrenador B movido a posicon 7 3
+[TRACE] 03:34:11:619 Team/(28515:28521): Ciclos restantes: 9
+[INFO] 03:34:16:619 Team/(28515:28521): Entrenador B movido a posicon 8 3
+[TRACE] 03:34:16:620 Team/(28515:28521): Ciclos restantes: 8
+[INFO] 03:34:21:620 Team/(28515:28521): Entrenador B movido a posicon 9 3
+[TRACE] 03:34:21:620 Team/(28515:28521): Ciclos restantes: 7
+[INFO] 03:34:26:621 Team/(28515:28521): Entrenador B movido a posicon 9 4
+[TRACE] 03:34:26:621 Team/(28515:28521): Ciclos restantes: 6
+[INFO] 03:34:31:621 Team/(28515:28521): Entrenador B movido a posicon 9 5
+[TRACE] 03:34:31:621 Team/(28515:28521): Ciclos restantes: 5
+[INFO] 03:34:36:622 Team/(28515:28521): Entrenador B movido a posicon 9 6
+[TRACE] 03:34:36:623 Team/(28515:28521): Ciclos restantes: 4
+[INFO] 03:34:41:623 Team/(28515:28521): Entrenador B movido a posicon 9 7
+[TRACE] 03:34:41:623 Team/(28515:28521): Ciclos restantes: 3
+[TRACE] 03:34:44:84 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:34:44:85 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 0 ID mensaje: 31, id correlativo: 30
+[TRACE] 03:34:44:85 Team/(28515:28532): Aun no tengo el entrenador con el catch
+[TRACE] 03:34:44:85 Team/(28515:28532): Recepcion confirmada: 10 4 30
+[TRACE] 03:34:44:85 Team/(28515:28532): Mensaje recibido manejado.
+[INFO] 03:34:46:624 Team/(28515:28521): Entrenador B movido a posicon 9 8
+[TRACE] 03:34:46:624 Team/(28515:28521): Ciclos restantes: 2
+[INFO] 03:34:51:625 Team/(28515:28521): Entrenador B movido a posicon 9 9
+[TRACE] 03:34:51:625 Team/(28515:28521): Ciclos restantes: 1
+[INFO] 03:34:56:626 Team/(28515:28521): Catch efectuado en posicon 9 9 para Pikachu
+[TRACE] 03:34:56:627 Team/(28515:28521): Ciclos restantes: 0
+[DEBUG] 03:34:56:627 Team/(28515:28521): EB dormido. Posicion 9 9
+[TRACE] 03:34:56:629 Team/(28515:28624): Enviado catch para: Pikachu
+[INFO] 03:34:56:642 Team/(28515:28624): Mensaje CATCH_POKEMON: Pokemon: Pikachu, Posicion X: 9, Posicion Y: 9, Id mensaje: 32
+[TRACE] 03:34:56:642 Team/(28515:28624): Recepcion id_mensaje: 32
+[TRACE] 03:34:56:642 Team/(28515:28624): Mensaje recibido manejado.
+[DEBUG] 03:34:56:642 Team/(28515:28624): Esperando caught de pokemon Pikachu con id 32
+[TRACE] 03:34:59:707 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:34:59:707 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[DEBUG] 03:34:59:707 Team/(28515:28532): Esperando a manejar caught
+[DEBUG] 03:34:59:707 Team/(28515:28532): Manejo mensaje caught
+[DEBUG] 03:34:59:707 Team/(28515:28532): lo atrapó!
+[DEBUG] 03:34:59:707 Team/(28515:28532): Data Entrenador A: Posicion 1 3 Estado  0
+[DEBUG] 03:34:59:707 Team/(28515:28521): EB activo. Posicion 9 9
+[TRACE] 03:34:59:707 Team/(28515:28532): Pikachu
+[TRACE] 03:34:59:707 Team/(28515:28532): Pikachu
+[TRACE] 03:34:59:707 Team/(28515:28532): Squirtle
+[DEBUG] 03:34:59:707 Team/(28515:28532): Data Entrenador B: Posicion 9 9 Estado  4
+[TRACE] 03:34:59:707 Team/(28515:28532): Pikachu
+[TRACE] 03:34:59:707 Team/(28515:28532): Pikachu
+[TRACE] 03:34:59:707 Team/(28515:28532): Gengar
+[DEBUG] 03:34:59:707 Team/(28515:28532): Data Entrenador C: Posicion 5 2 Estado  3
+[TRACE] 03:34:59:707 Team/(28515:28532): Squirtle
+[TRACE] 03:34:59:707 Team/(28515:28532): Squirtle
+[TRACE] 03:34:59:708 Team/(28515:28532): Onix
+[TRACE] 03:34:59:708 Team/(28515:28532): Recepcion confirmada: 10 4 32
+[TRACE] 03:34:59:708 Team/(28515:28532): Mensaje recibido manejado.
+[DEBUG] 03:34:59:708 Team/(28515:28521): EB bloqueado normal. Posicion 9 9
+[TRACE] 03:35:22:186 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:35:22:186 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 35, id correlativo: 34
+[TRACE] 03:35:22:187 Team/(28515:28532): Aun no tengo el entrenador con el catch
+[TRACE] 03:35:22:187 Team/(28515:28532): Recepcion confirmada: 10 4 34
+[TRACE] 03:35:22:187 Team/(28515:28532): Mensaje recibido manejado.
+[TRACE] 03:35:34:402 Team/(28515:28526): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:402 Team/(28515:28526): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 42
+[DEBUG] 03:35:34:402 Team/(28515:28526): Requiero mensaje = 1
+[TRACE] 03:35:34:402 Team/(28515:28526): Manejo mensaje appeared
+[TRACE] 03:35:34:402 Team/(28515:28526): Nuevo ent en ready: Posicion 1 3
+[TRACE] 03:35:34:402 Team/(28515:28526): Recepcion confirmada: 4 2 42
+[TRACE] 03:35:34:402 Team/(28515:28519): Planificador corto plazo en curso
+[TRACE] 03:35:34:402 Team/(28515:28526): Mensaje recibido manejado.
+[DEBUG] 03:35:34:402 Team/(28515:28519): EnNu: A, r5.000000. EnEx: B, r2.500000
+[INFO] 03:35:34:403 Team/(28515:28519): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[DEBUG] 03:35:34:403 Team/(28515:28520): EA activo. Posicion 1 3
+[DEBUG] 03:35:34:403 Team/(28515:28520): EA despierto. Posicion 1 3
+[DEBUG] 03:35:34:403 Team/(28515:28520): EA espera para cazar. Posicion 1 3
+[DEBUG] 03:35:34:403 Team/(28515:28520): EA cazando. Posicion 1 3
+[TRACE] 03:35:34:486 Team/(28515:28526): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:486 Team/(28515:28526): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 43
+[DEBUG] 03:35:34:487 Team/(28515:28526): Requiero mensaje = 1
+[TRACE] 03:35:34:487 Team/(28515:28526): Manejo mensaje appeared
+[TRACE] 03:35:34:487 Team/(28515:28526): Nuevo ent en ready: Posicion 5 2
+[TRACE] 03:35:34:487 Team/(28515:28526): Recepcion confirmada: 4 2 43
+[TRACE] 03:35:34:487 Team/(28515:28526): Mensaje recibido manejado.
+[TRACE] 03:35:34:540 Team/(28515:28526): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:540 Team/(28515:28526): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 44
+[DEBUG] 03:35:34:540 Team/(28515:28526): Requiero mensaje = 1
+[TRACE] 03:35:34:540 Team/(28515:28526): Manejo mensaje appeared
+[TRACE] 03:35:34:540 Team/(28515:28526): Nuevo ent en ready: Posicion 9 9
+[TRACE] 03:35:34:540 Team/(28515:28526): Recepcion confirmada: 4 2 44
+[TRACE] 03:35:34:540 Team/(28515:28526): Mensaje recibido manejado.
+[TRACE] 03:35:34:618 Team/(28515:28526): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:618 Team/(28515:28526): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 45
+[DEBUG] 03:35:34:618 Team/(28515:28526): Requiero mensaje = 0
+[TRACE] 03:35:34:619 Team/(28515:28526): Recepcion confirmada: 4 2 45
+[TRACE] 03:35:34:619 Team/(28515:28526): Mensaje recibido manejado.
+[TRACE] 03:35:34:655 Team/(28515:28526): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:655 Team/(28515:28526): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 46
+[DEBUG] 03:35:34:656 Team/(28515:28526): Requiero mensaje = 0
+[TRACE] 03:35:34:656 Team/(28515:28526): Recepcion confirmada: 4 2 46
+[TRACE] 03:35:34:657 Team/(28515:28526): Mensaje recibido manejado.
+[TRACE] 03:35:34:698 Team/(28515:28526): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:698 Team/(28515:28526): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 47
+[DEBUG] 03:35:34:698 Team/(28515:28526): Requiero mensaje = 0
+[TRACE] 03:35:34:698 Team/(28515:28526): Recepcion confirmada: 4 2 47
+[TRACE] 03:35:34:699 Team/(28515:28526): Mensaje recibido manejado.
+[INFO] 03:35:39:403 Team/(28515:28520): Entrenador A movido a posicon 2 3
+[TRACE] 03:35:39:404 Team/(28515:28520): Ciclos restantes: 6
+[INFO] 03:35:44:404 Team/(28515:28520): Entrenador A movido a posicon 2 4
+[TRACE] 03:35:44:405 Team/(28515:28520): Ciclos restantes: 5
+[INFO] 03:35:49:406 Team/(28515:28520): Entrenador A movido a posicon 2 5
+[TRACE] 03:35:49:406 Team/(28515:28520): Ciclos restantes: 4
+[INFO] 03:35:54:407 Team/(28515:28520): Entrenador A movido a posicon 2 6
+[TRACE] 03:35:54:408 Team/(28515:28520): Ciclos restantes: 3
+[INFO] 03:35:59:408 Team/(28515:28520): Entrenador A movido a posicon 2 7
+[TRACE] 03:35:59:409 Team/(28515:28520): Ciclos restantes: 2
+[TRACE] 03:36:02:706 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:02:706 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 49, id correlativo: 48
+[TRACE] 03:36:02:706 Team/(28515:28532): Aun no tengo el entrenador con el catch
+[TRACE] 03:36:02:706 Team/(28515:28532): Recepcion confirmada: 10 4 48
+[TRACE] 03:36:02:706 Team/(28515:28532): Mensaje recibido manejado.
+[INFO] 03:36:04:410 Team/(28515:28520): Entrenador A movido a posicon 2 8
+[TRACE] 03:36:04:410 Team/(28515:28520): Ciclos restantes: 1
+[INFO] 03:36:09:410 Team/(28515:28520): Catch efectuado en posicon 2 8 para Onix
+[TRACE] 03:36:09:411 Team/(28515:28520): Ciclos restantes: 0
+[DEBUG] 03:36:09:411 Team/(28515:28520): EA dormido. Posicion 2 8
+[TRACE] 03:36:09:411 Team/(28515:28519): Planificador corto plazo en curso
+[DEBUG] 03:36:09:411 Team/(28515:28519): EnNu: C, r2.500000. EnEx: A, r2.500000
+[INFO] 03:36:09:411 Team/(28515:28519): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[DEBUG] 03:36:09:411 Team/(28515:28522): EC activo. Posicion 5 2
+[DEBUG] 03:36:09:411 Team/(28515:28522): EC despierto. Posicion 5 2
+[DEBUG] 03:36:09:411 Team/(28515:28522): EC espera para cazar. Posicion 5 2
+[DEBUG] 03:36:09:411 Team/(28515:28522): EC cazando. Posicion 5 2
+[TRACE] 03:36:09:418 Team/(28515:28695): Enviado catch para: Onix
+[INFO] 03:36:09:431 Team/(28515:28695): Mensaje CATCH_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 50
+[TRACE] 03:36:09:431 Team/(28515:28695): Recepcion id_mensaje: 50
+[TRACE] 03:36:09:431 Team/(28515:28695): Mensaje recibido manejado.
+[DEBUG] 03:36:09:431 Team/(28515:28695): Esperando caught de pokemon Onix con id 50
+[TRACE] 03:36:12:470 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:12:471 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 51, id correlativo: 50
+[DEBUG] 03:36:12:471 Team/(28515:28532): Esperando a manejar caught
+[DEBUG] 03:36:12:471 Team/(28515:28532): Manejo mensaje caught
+[DEBUG] 03:36:12:471 Team/(28515:28532): lo atrapó!
+[DEBUG] 03:36:12:471 Team/(28515:28532): Data Entrenador A: Posicion 2 8 Estado  4
+[DEBUG] 03:36:12:471 Team/(28515:28520): EA activo. Posicion 2 8
+[TRACE] 03:36:12:471 Team/(28515:28532): Pikachu
+[TRACE] 03:36:12:471 Team/(28515:28532): Onix
+[TRACE] 03:36:12:471 Team/(28515:28532): Pikachu
+[TRACE] 03:36:12:471 Team/(28515:28532): Squirtle
+[DEBUG] 03:36:12:471 Team/(28515:28532): Data Entrenador B: Posicion 9 9 Estado  1
+[TRACE] 03:36:12:471 Team/(28515:28532): Pikachu
+[TRACE] 03:36:12:471 Team/(28515:28532): Pikachu
+[TRACE] 03:36:12:471 Team/(28515:28532): Gengar
+[DEBUG] 03:36:12:471 Team/(28515:28532): Data Entrenador C: Posicion 5 2 Estado  2
+[TRACE] 03:36:12:471 Team/(28515:28532): Squirtle
+[TRACE] 03:36:12:471 Team/(28515:28532): Squirtle
+[TRACE] 03:36:12:472 Team/(28515:28532): Onix
+[TRACE] 03:36:12:472 Team/(28515:28532): Recepcion confirmada: 10 4 50
+[TRACE] 03:36:12:472 Team/(28515:28532): Mensaje recibido manejado.
+[DEBUG] 03:36:12:472 Team/(28515:28520): EA blockeado deadlock. Posicion 2 8
+[INFO] 03:36:14:412 Team/(28515:28522): Entrenador C movido a posicon 6 2
+[TRACE] 03:36:14:413 Team/(28515:28522): Ciclos restantes: 5
+[INFO] 03:36:19:413 Team/(28515:28522): Entrenador C movido a posicon 6 3
+[TRACE] 03:36:19:414 Team/(28515:28522): Ciclos restantes: 4
+[TRACE] 03:36:22:684 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:22:684 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 53, id correlativo: 52
+[TRACE] 03:36:22:685 Team/(28515:28532): Aun no tengo el entrenador con el catch
+[TRACE] 03:36:22:685 Team/(28515:28532): Recepcion confirmada: 10 4 52
+[TRACE] 03:36:22:685 Team/(28515:28532): Mensaje recibido manejado.
+[INFO] 03:36:24:414 Team/(28515:28522): Entrenador C movido a posicon 6 4
+[TRACE] 03:36:24:415 Team/(28515:28522): Ciclos restantes: 3
+[INFO] 03:36:29:416 Team/(28515:28522): Entrenador C movido a posicon 6 5
+[TRACE] 03:36:29:417 Team/(28515:28522): Ciclos restantes: 2
+[INFO] 03:36:34:417 Team/(28515:28522): Entrenador C movido a posicon 6 6
+[TRACE] 03:36:34:418 Team/(28515:28522): Ciclos restantes: 1
+[INFO] 03:36:39:418 Team/(28515:28522): Catch efectuado en posicon 6 6 para Gengar
+[TRACE] 03:36:39:419 Team/(28515:28522): Ciclos restantes: 0
+[DEBUG] 03:36:39:420 Team/(28515:28522): EC dormido. Posicion 6 6
+[TRACE] 03:36:39:420 Team/(28515:28519): Planificador corto plazo en curso
+[DEBUG] 03:36:39:420 Team/(28515:28519): EnNu: B, r2.500000. EnEx: C, r1.250000
+[INFO] 03:36:39:420 Team/(28515:28519): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[DEBUG] 03:36:39:420 Team/(28515:28521): EB activo. Posicion 9 9
+[DEBUG] 03:36:39:420 Team/(28515:28521): EB despierto. Posicion 9 9
+[DEBUG] 03:36:39:420 Team/(28515:28521): EB espera para cazar. Posicion 9 9
+[DEBUG] 03:36:39:420 Team/(28515:28521): EB cazando. Posicion 9 9
+[TRACE] 03:36:39:423 Team/(28515:28720): Enviado catch para: Gengar
+[INFO] 03:36:39:437 Team/(28515:28720): Mensaje CATCH_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 54
+[TRACE] 03:36:39:437 Team/(28515:28720): Recepcion id_mensaje: 54
+[TRACE] 03:36:39:437 Team/(28515:28720): Mensaje recibido manejado.
+[DEBUG] 03:36:39:438 Team/(28515:28720): Esperando caught de pokemon Gengar con id 54
+[TRACE] 03:36:42:480 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:42:480 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 56, id correlativo: 54
+[DEBUG] 03:36:42:480 Team/(28515:28532): Esperando a manejar caught
+[DEBUG] 03:36:42:480 Team/(28515:28532): Manejo mensaje caught
+[DEBUG] 03:36:42:481 Team/(28515:28532): lo atrapó!
+[DEBUG] 03:36:42:481 Team/(28515:28532): Data Entrenador A: Posicion 2 8 Estado  5
+[DEBUG] 03:36:42:481 Team/(28515:28522): EC activo. Posicion 6 6
+[TRACE] 03:36:42:481 Team/(28515:28532): Pikachu
+[TRACE] 03:36:42:481 Team/(28515:28532): Onix
+[TRACE] 03:36:42:481 Team/(28515:28532): Pikachu
+[TRACE] 03:36:42:481 Team/(28515:28532): Squirtle
+[DEBUG] 03:36:42:481 Team/(28515:28532): Data Entrenador B: Posicion 9 9 Estado  2
+[DEBUG] 03:36:42:481 Team/(28515:28522): EC blockeado deadlock. Posicion 6 6
+[TRACE] 03:36:42:481 Team/(28515:28532): Pikachu
+[TRACE] 03:36:42:481 Team/(28515:28532): Pikachu
+[TRACE] 03:36:42:482 Team/(28515:28532): Gengar
+[DEBUG] 03:36:42:482 Team/(28515:28532): Data Entrenador C: Posicion 6 6 Estado  5
+[TRACE] 03:36:42:482 Team/(28515:28532): Squirtle
+[TRACE] 03:36:42:482 Team/(28515:28532): Gengar
+[TRACE] 03:36:42:482 Team/(28515:28532): Squirtle
+[TRACE] 03:36:42:482 Team/(28515:28532): Onix
+[TRACE] 03:36:42:482 Team/(28515:28532): Recepcion confirmada: 10 4 54
+[TRACE] 03:36:42:482 Team/(28515:28532): Mensaje recibido manejado.
+[TRACE] 03:36:42:701 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:42:701 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 57, id correlativo: 55
+[TRACE] 03:36:42:701 Team/(28515:28532): Aun no tengo el entrenador con el catch
+[TRACE] 03:36:42:701 Team/(28515:28532): Recepcion confirmada: 10 4 55
+[TRACE] 03:36:42:701 Team/(28515:28532): Mensaje recibido manejado.
+[INFO] 03:36:44:420 Team/(28515:28521): Entrenador B movido a posicon 8 9
+[TRACE] 03:36:44:421 Team/(28515:28521): Ciclos restantes: 8
+[INFO] 03:36:49:421 Team/(28515:28521): Entrenador B movido a posicon 7 9
+[TRACE] 03:36:49:422 Team/(28515:28521): Ciclos restantes: 7
+[INFO] 03:36:54:422 Team/(28515:28521): Entrenador B movido a posicon 6 9
+[TRACE] 03:36:54:423 Team/(28515:28521): Ciclos restantes: 6
+[INFO] 03:36:59:423 Team/(28515:28521): Entrenador B movido a posicon 5 9
+[TRACE] 03:36:59:424 Team/(28515:28521): Ciclos restantes: 5
+[INFO] 03:37:04:424 Team/(28515:28521): Entrenador B movido a posicon 5 8
+[TRACE] 03:37:04:425 Team/(28515:28521): Ciclos restantes: 4
+[INFO] 03:37:09:426 Team/(28515:28521): Entrenador B movido a posicon 5 7
+[TRACE] 03:37:09:426 Team/(28515:28521): Ciclos restantes: 3
+[INFO] 03:37:14:427 Team/(28515:28521): Entrenador B movido a posicon 5 6
+[TRACE] 03:37:14:427 Team/(28515:28521): Ciclos restantes: 2
+[INFO] 03:37:19:428 Team/(28515:28521): Entrenador B movido a posicon 5 5
+[TRACE] 03:37:19:429 Team/(28515:28521): Ciclos restantes: 1
+[INFO] 03:37:24:429 Team/(28515:28521): Catch efectuado en posicon 5 5 para Squirtle
+[TRACE] 03:37:24:430 Team/(28515:28521): Ciclos restantes: 0
+[DEBUG] 03:37:24:430 Team/(28515:28521): EB dormido. Posicion 5 5
+[TRACE] 03:37:24:432 Team/(28515:28737): Enviado catch para: Squirtle
+[INFO] 03:37:24:448 Team/(28515:28737): Mensaje CATCH_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 58
+[TRACE] 03:37:24:449 Team/(28515:28737): Recepcion id_mensaje: 58
+[TRACE] 03:37:24:449 Team/(28515:28737): Mensaje recibido manejado.
+[DEBUG] 03:37:24:449 Team/(28515:28737): Esperando caught de pokemon Squirtle con id 58
+[TRACE] 03:37:27:531 Team/(28515:28532): Mensaje recibido, cod_op: 4.
+[INFO] 03:37:27:531 Team/(28515:28532): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 59, id correlativo: 58
+[DEBUG] 03:37:27:531 Team/(28515:28532): Esperando a manejar caught
+[DEBUG] 03:37:27:531 Team/(28515:28532): Manejo mensaje caught
+[DEBUG] 03:37:27:531 Team/(28515:28532): lo atrapó!
+[DEBUG] 03:37:27:531 Team/(28515:28532): Data Entrenador A: Posicion 2 8 Estado  5
+[DEBUG] 03:37:27:531 Team/(28515:28521): EB activo. Posicion 5 5
+[TRACE] 03:37:27:531 Team/(28515:28532): Pikachu
+[TRACE] 03:37:27:531 Team/(28515:28532): Onix
+[TRACE] 03:37:27:531 Team/(28515:28532): Pikachu
+[TRACE] 03:37:27:531 Team/(28515:28532): Squirtle
+[DEBUG] 03:37:27:531 Team/(28515:28532): Data Entrenador B: Posicion 5 5 Estado  4
+[TRACE] 03:37:27:532 Team/(28515:28532): Pikachu
+[TRACE] 03:37:27:532 Team/(28515:28532): Squirtle
+[TRACE] 03:37:27:532 Team/(28515:28532): Pikachu
+[TRACE] 03:37:27:532 Team/(28515:28532): Gengar
+[DEBUG] 03:37:27:532 Team/(28515:28532): Data Entrenador C: Posicion 6 6 Estado  5
+[TRACE] 03:37:27:532 Team/(28515:28532): Squirtle
+[TRACE] 03:37:27:532 Team/(28515:28532): Gengar
+[TRACE] 03:37:27:532 Team/(28515:28532): Squirtle
+[TRACE] 03:37:27:532 Team/(28515:28532): Onix
+[TRACE] 03:37:27:532 Team/(28515:28532): Recepcion confirmada: 10 4 58
+[INFO] 03:37:27:533 Team/(28515:28515): Inicio algoritmo de deteccion de deadlock
+[INFO] 03:37:27:533 Team/(28515:28515): Inicio de algoritmo de deteccion de deadlock
+[DEBUG] 03:37:27:533 Team/(28515:28515): Data Entrenador A: Posicion 2 8 Estado  5
+[TRACE] 03:37:27:533 Team/(28515:28515): Pikachu
+[TRACE] 03:37:27:533 Team/(28515:28515): Onix
+[DEBUG] 03:37:27:533 Team/(28515:28521): EB blockeado deadlock. Posicion 5 5
+[TRACE] 03:37:27:533 Team/(28515:28515): Pikachu
+[TRACE] 03:37:27:533 Team/(28515:28515): Squirtle
+[DEBUG] 03:37:27:533 Team/(28515:28515): Data Entrenador B: Posicion 5 5 Estado  5
+[TRACE] 03:37:27:533 Team/(28515:28515): Pikachu
+[TRACE] 03:37:27:533 Team/(28515:28515): Squirtle
+[TRACE] 03:37:27:533 Team/(28515:28515): Pikachu
+[TRACE] 03:37:27:534 Team/(28515:28515): Gengar
+[DEBUG] 03:37:27:534 Team/(28515:28515): Data Entrenador C: Posicion 6 6 Estado  5
+[TRACE] 03:37:27:534 Team/(28515:28515): Squirtle
+[TRACE] 03:37:27:534 Team/(28515:28515): Gengar
+[TRACE] 03:37:27:534 Team/(28515:28515): Squirtle
+[TRACE] 03:37:27:534 Team/(28515:28515): Onix
+[INFO] 03:37:27:534 Team/(28515:28515): Resultado deteccion deadlock: Detectado
+[DEBUG] 03:37:27:534 Team/(28515:28515): deadlock en curso
+[DEBUG] 03:37:27:534 Team/(28515:28515): Pok buscado: Squirtle, pok comparado: Onix
+[DEBUG] 03:37:27:534 Team/(28515:28515): Pokemon en lista = 0
+[DEBUG] 03:37:27:534 Team/(28515:28515): Pok buscado: Squirtle, pok comparado: Squirtle
+[DEBUG] 03:37:27:534 Team/(28515:28515): Pokemon en lista = 1
+[DEBUG] 03:37:27:535 Team/(28515:28515): Pok buscado: Squirtle, pok comparado: Gengar
+[DEBUG] 03:37:27:535 Team/(28515:28515): Pokemon en lista = 0
+[TRACE] 03:37:27:535 Team/(28515:28532): Mensaje recibido manejado.
+[DEBUG] 03:37:27:535 Team/(28515:28515): Pok buscado: Gengar, pok comparado: Onix
+[DEBUG] 03:37:27:535 Team/(28515:28515): Pokemon en lista = 0
+[TRACE] 03:37:27:535 Team/(28515:28515): Nuevo ent en ready: Posicion 2 8
+[TRACE] 03:37:27:536 Team/(28515:28519): Planificador corto plazo en curso
+[DEBUG] 03:37:27:536 Team/(28515:28519): EnNu: A, r2.500000. EnEx: B, r1.250000
+[INFO] 03:37:27:536 Team/(28515:28519): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[DEBUG] 03:37:27:536 Team/(28515:28520): EA activo. Posicion 2 8
+[DEBUG] 03:37:27:536 Team/(28515:28520): EA despierto. Posicion 2 8
+[INFO] 03:37:32:537 Team/(28515:28520): Entrenador A movido a posicon 3 8
+[TRACE] 03:37:32:537 Team/(28515:28520): Ciclos restantes: 10
+[INFO] 03:37:37:537 Team/(28515:28520): Entrenador A movido a posicon 4 8
+[TRACE] 03:37:37:538 Team/(28515:28520): Ciclos restantes: 9
+[INFO] 03:37:42:538 Team/(28515:28520): Entrenador A movido a posicon 5 8
+[TRACE] 03:37:42:538 Team/(28515:28520): Ciclos restantes: 8
+[INFO] 03:37:47:539 Team/(28515:28520): Entrenador A movido a posicon 5 7
+[TRACE] 03:37:47:539 Team/(28515:28520): Ciclos restantes: 7
+[INFO] 03:37:52:540 Team/(28515:28520): Entrenador A movido a posicon 5 6
+[TRACE] 03:37:52:541 Team/(28515:28520): Ciclos restantes: 6
+[INFO] 03:37:57:542 Team/(28515:28520): Entrenador A movido a posicon 5 5
+[TRACE] 03:37:57:542 Team/(28515:28520): Ciclos restantes: 5
+[TRACE] 03:38:02:543 Team/(28515:28520): Intercambio en proceso
+[TRACE] 03:38:02:544 Team/(28515:28520): Ciclos restantes: 4
+[TRACE] 03:38:07:544 Team/(28515:28520): Intercambio en proceso
+[TRACE] 03:38:07:545 Team/(28515:28520): Ciclos restantes: 3
+[TRACE] 03:38:12:545 Team/(28515:28520): Intercambio en proceso
+[TRACE] 03:38:12:546 Team/(28515:28520): Ciclos restantes: 2
+[TRACE] 03:38:17:546 Team/(28515:28520): Intercambio en proceso
+[TRACE] 03:38:17:547 Team/(28515:28520): Ciclos restantes: 1
+[INFO] 03:38:22:548 Team/(28515:28520): Intercambio efectuado entre EA y EB
+[TRACE] 03:38:22:549 Team/(28515:28520): Ciclos restantes: 0
+[DEBUG] 03:38:22:549 Team/(28515:28520): EA dormido. Posicion 5 5
+[DEBUG] 03:38:22:549 Team/(28515:28521): EB activo. Posicion 5 5
+[DEBUG] 03:38:22:549 Team/(28515:28520): EA activo. Posicion 5 5
+[DEBUG] 03:38:22:549 Team/(28515:28520): EA pasa a exit. Posicion 5 5
+[DEBUG] 03:38:22:549 Team/(28515:28521): EB blockeado deadlock. Posicion 5 5
+[DEBUG] 03:38:22:550 Team/(28515:28515): deadlock en curso
+[DEBUG] 03:38:22:550 Team/(28515:28515): Pok buscado: Gengar, pok comparado: Onix
+[DEBUG] 03:38:22:550 Team/(28515:28515): Pokemon en lista = 0
+[DEBUG] 03:38:22:550 Team/(28515:28515): Pok buscado: Gengar, pok comparado: Gengar
+[DEBUG] 03:38:22:550 Team/(28515:28515): Pokemon en lista = 1
+[DEBUG] 03:38:22:550 Team/(28515:28515): Pok buscado: Onix, pok comparado: Onix
+[DEBUG] 03:38:22:550 Team/(28515:28515): Pokemon en lista = 1
+[TRACE] 03:38:22:550 Team/(28515:28515): es intercambio ideal
+[DEBUG] 03:38:22:550 Team/(28515:28515): Pok buscado: Onix, pok comparado: Onix
+[DEBUG] 03:38:22:550 Team/(28515:28515): Pokemon en lista = 1
+[TRACE] 03:38:22:550 Team/(28515:28515): Nuevo ent en ready: Posicion 5 5
+[TRACE] 03:38:22:550 Team/(28515:28519): Planificador corto plazo en curso
+[DEBUG] 03:38:22:550 Team/(28515:28519): EnNu: B, r1.250000. EnEx: A, r1.250000
+[INFO] 03:38:22:550 Team/(28515:28519): Cambio de entrenador por finalizacion de sus ciclos de CPU
+[DEBUG] 03:38:22:550 Team/(28515:28521): EB activo. Posicion 5 5
+[DEBUG] 03:38:22:550 Team/(28515:28521): EB despierto. Posicion 5 5
+[INFO] 03:38:27:551 Team/(28515:28521): Entrenador B movido a posicon 6 5
+[TRACE] 03:38:27:552 Team/(28515:28521): Ciclos restantes: 6
+[INFO] 03:38:32:552 Team/(28515:28521): Entrenador B movido a posicon 6 6
+[TRACE] 03:38:32:553 Team/(28515:28521): Ciclos restantes: 5
+[TRACE] 03:38:37:553 Team/(28515:28521): Intercambio en proceso
+[TRACE] 03:38:37:554 Team/(28515:28521): Ciclos restantes: 4
+[TRACE] 03:38:42:554 Team/(28515:28521): Intercambio en proceso
+[TRACE] 03:38:42:557 Team/(28515:28521): Ciclos restantes: 3
+[TRACE] 03:38:47:557 Team/(28515:28521): Intercambio en proceso
+[TRACE] 03:38:47:558 Team/(28515:28521): Ciclos restantes: 2
+[TRACE] 03:38:52:559 Team/(28515:28521): Intercambio en proceso
+[TRACE] 03:38:52:560 Team/(28515:28521): Ciclos restantes: 1
+[INFO] 03:38:57:560 Team/(28515:28521): Intercambio efectuado entre EB y EC
+[TRACE] 03:38:57:561 Team/(28515:28521): Ciclos restantes: 0
+[DEBUG] 03:38:57:561 Team/(28515:28521): EB dormido. Posicion 6 6
+[DEBUG] 03:38:57:561 Team/(28515:28522): EC activo. Posicion 6 6
+[DEBUG] 03:38:57:561 Team/(28515:28521): EB activo. Posicion 6 6
+[DEBUG] 03:38:57:561 Team/(28515:28521): EB pasa a exit. Posicion 6 6
+[DEBUG] 03:38:57:562 Team/(28515:28522): EC pasa a exit. Posicion 6 6
+[INFO] 03:38:57:562 Team/(28515:28515): Inicio de algoritmo de deteccion de deadlock
+[DEBUG] 03:38:57:563 Team/(28515:28515): Data Entrenador A: Posicion 5 5 Estado  6
+[TRACE] 03:38:57:563 Team/(28515:28515): Pikachu
+[TRACE] 03:38:57:563 Team/(28515:28515): Squirtle
+[TRACE] 03:38:57:563 Team/(28515:28515): Pikachu
+[TRACE] 03:38:57:563 Team/(28515:28515): Squirtle
+[DEBUG] 03:38:57:563 Team/(28515:28515): Data Entrenador B: Posicion 6 6 Estado  6
+[TRACE] 03:38:57:563 Team/(28515:28515): Pikachu
+[TRACE] 03:38:57:563 Team/(28515:28515): Gengar
+[TRACE] 03:38:57:564 Team/(28515:28515): Pikachu
+[TRACE] 03:38:57:564 Team/(28515:28515): Gengar
+[DEBUG] 03:38:57:564 Team/(28515:28515): Data Entrenador C: Posicion 6 6 Estado  6
+[TRACE] 03:38:57:564 Team/(28515:28515): Squirtle
+[TRACE] 03:38:57:564 Team/(28515:28515): Onix
+[TRACE] 03:38:57:564 Team/(28515:28515): Squirtle
+[TRACE] 03:38:57:564 Team/(28515:28515): Onix
+[INFO] 03:38:57:564 Team/(28515:28515): Resultado deteccion deadlock: NO Detectado
+[INFO] 03:38:57:564 Team/(28515:28515): Ciclos CPU totales: 58
+[INFO] 03:38:57:565 Team/(28515:28515): Ciclos Totales EA = 18
+[INFO] 03:38:57:565 Team/(28515:28515): Ciclos Totales EB = 30
+[INFO] 03:38:57:565 Team/(28515:28515): Ciclos Totales EC = 10
+[INFO] 03:38:57:565 Team/(28515:28515): Cantidad de cambios de contexto: 14
+[INFO] 03:38:57:565 Team/(28515:28515): Deadlocks Encontrados y Resueltos: 1

@@ -2860,3 +2860,1917 @@
 [INFO] 01:55:30:308 Team/(26952:26952): Ciclos Totales EE = 21
 [INFO] 01:55:30:308 Team/(26952:26952): Cantidad de cambios de contexto: 150
 [INFO] 01:55:30:308 Team/(26952:26952): Deadlocks Encontrados y Resueltos: 1
+[TRACE] 03:16:19:645 Team/(28005:28005): Log inicializado
+[TRACE] 03:16:19:646 Team/(28005:28005): Entrenadores cargados
+[TRACE] 03:16:19:646 Team/(28005:28009): Entrenador lanzado: Pos 2 3
+[TRACE] 03:16:19:647 Team/(28005:28009): Entrenador lanzado: Pos 6 5
+[TRACE] 03:16:19:647 Team/(28005:28008): Iniciar conexion con gameboy
+[TRACE] 03:16:19:648 Team/(28005:28009): Entrenador lanzado: Pos 9 9
+[DEBUG] 03:16:19:648 Team/(28005:28007): Pokemon en lista = 0
+[TRACE] 03:16:19:648 Team/(28005:28009): Entrenador lanzado: Pos 9 2
+[TRACE] 03:16:19:649 Team/(28005:28009): Entrenador lanzado: Pos 2 9
+[DEBUG] 03:16:19:650 Team/(28005:28007): Pok buscado: Jolteon, pok comparado: Vaporeon
+[DEBUG] 03:16:19:650 Team/(28005:28007): Pokemon en lista = 0
+[DEBUG] 03:16:19:651 Team/(28005:28007): Pok buscado: Flareon, pok comparado: Vaporeon
+[DEBUG] 03:16:19:651 Team/(28005:28007): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:16:19:651 Team/(28005:28007): Pokemon en lista = 0
+[DEBUG] 03:16:19:652 Team/(28005:28007): Pok buscado: Umbreon, pok comparado: Vaporeon
+[DEBUG] 03:16:19:652 Team/(28005:28007): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:16:19:652 Team/(28005:28007): Pok buscado: Umbreon, pok comparado: Flareon
+[DEBUG] 03:16:19:653 Team/(28005:28007): Pokemon en lista = 0
+[TRACE] 03:16:19:653 Team/(28005:28008): Esperando Cliente
+[DEBUG] 03:16:19:653 Team/(28005:28007): Pok buscado: Espeon, pok comparado: Vaporeon
+[DEBUG] 03:16:19:653 Team/(28005:28007): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:16:19:653 Team/(28005:28007): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:16:19:653 Team/(28005:28007): Pok buscado: Espeon, pok comparado: Umbreon
+[DEBUG] 03:16:19:654 Team/(28005:28007): Pokemon en lista = 0
+[TRACE] 03:16:19:655 Team/(28005:28007): Enviado get para: Vaporeon
+[TRACE] 03:16:19:655 Team/(28005:28006): Mensaje suscripcion enviado
+[TRACE] 03:16:19:655 Team/(28005:28006): Suscripcion completada
+[TRACE] 03:16:19:660 Team/(28005:28006): Mensaje suscripcion enviado
+[TRACE] 03:16:19:660 Team/(28005:28006): Suscripcion completada
+[TRACE] 03:16:19:661 Team/(28005:28006): Mensaje suscripcion enviado
+[TRACE] 03:16:19:661 Team/(28005:28006): Suscripcion completada
+[TRACE] 03:16:19:663 Team/(28005:28019): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:19:663 Team/(28005:28019): Mensaje LOCALIZED_POKEMON: id correlativo: 0, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[DEBUG] 03:16:19:663 Team/(28005:28019): Necesito mensaje = 0
+[DEBUG] 03:16:19:663 Team/(28005:28019): Mensaje descartado: id correlativo: 0, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[TRACE] 03:16:19:663 Team/(28005:28019): Recepcion confirmada: 9 7 0
+[TRACE] 03:16:19:663 Team/(28005:28019): Mensaje recibido manejado.
+[TRACE] 03:16:19:663 Team/(28005:28019): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:19:664 Team/(28005:28019): Mensaje LOCALIZED_POKEMON: id correlativo: -1247805256, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[DEBUG] 03:16:19:664 Team/(28005:28019): Necesito mensaje = 0
+[DEBUG] 03:16:19:664 Team/(28005:28019): Mensaje descartado: id correlativo: -1247805256, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[TRACE] 03:16:19:664 Team/(28005:28019): Recepcion confirmada: 9 7 -1247805256
+[TRACE] 03:16:19:664 Team/(28005:28019): Mensaje recibido manejado.
+[TRACE] 03:16:19:664 Team/(28005:28019): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:19:664 Team/(28005:28019): Mensaje LOCALIZED_POKEMON: id correlativo: -1247805352, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[INFO] 03:16:19:665 Team/(28005:28007): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[DEBUG] 03:16:19:666 Team/(28005:28007): Recepcion id_mensaje: 16
+[TRACE] 03:16:19:666 Team/(28005:28007): Mensaje recibido manejado.
+[TRACE] 03:16:19:666 Team/(28005:28007): Enviado get para: Jolteon
+[DEBUG] 03:16:19:667 Team/(28005:28019): Necesito mensaje = 0
+[DEBUG] 03:16:19:667 Team/(28005:28019): Mensaje descartado: id correlativo: -1247805352, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[TRACE] 03:16:19:667 Team/(28005:28019): Recepcion confirmada: 9 7 -1247805352
+[TRACE] 03:16:19:668 Team/(28005:28019): Mensaje recibido manejado.
+[INFO] 03:16:19:682 Team/(28005:28007): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[DEBUG] 03:16:19:682 Team/(28005:28007): Recepcion id_mensaje: 17
+[TRACE] 03:16:19:682 Team/(28005:28007): Mensaje recibido manejado.
+[TRACE] 03:16:19:682 Team/(28005:28007): Enviado get para: Flareon
+[INFO] 03:16:19:697 Team/(28005:28007): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[DEBUG] 03:16:19:697 Team/(28005:28007): Recepcion id_mensaje: 18
+[TRACE] 03:16:19:697 Team/(28005:28007): Mensaje recibido manejado.
+[TRACE] 03:16:19:698 Team/(28005:28007): Enviado get para: Umbreon
+[INFO] 03:16:19:707 Team/(28005:28007): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[DEBUG] 03:16:19:707 Team/(28005:28007): Recepcion id_mensaje: 19
+[TRACE] 03:16:19:707 Team/(28005:28007): Mensaje recibido manejado.
+[TRACE] 03:16:19:708 Team/(28005:28007): Enviado get para: Espeon
+[INFO] 03:16:19:717 Team/(28005:28007): Mensaje GET_POKEMON: Pokemon: Espeon, Id mensaje: 20
+[DEBUG] 03:16:19:717 Team/(28005:28007): Recepcion id_mensaje: 20
+[TRACE] 03:16:19:718 Team/(28005:28007): Mensaje recibido manejado.
+[TRACE] 03:16:22:690 Team/(28005:28019): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:690 Team/(28005:28019): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:16:22:690 Team/(28005:28019): Necesito mensaje = 1
+[DEBUG] 03:16:22:690 Team/(28005:28019): Requiero mensaje = 1
+[DEBUG] 03:16:22:690 Team/(28005:28019): Pokemon en lista = 0
+[DEBUG] 03:16:22:690 Team/(28005:28019): Manejo mensaje localized
+[TRACE] 03:16:22:690 Team/(28005:28019): Recepcion confirmada: 9 7 16
+[TRACE] 03:16:22:690 Team/(28005:28019): Mensaje recibido manejado.
+[TRACE] 03:16:22:729 Team/(28005:28019): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:729 Team/(28005:28019): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[DEBUG] 03:16:22:729 Team/(28005:28019): Necesito mensaje = 1
+[DEBUG] 03:16:22:729 Team/(28005:28019): Requiero mensaje = 1
+[DEBUG] 03:16:22:729 Team/(28005:28019): Pok buscado: Jolteon, pok comparado: Vaporeon
+[DEBUG] 03:16:22:729 Team/(28005:28019): Pokemon en lista = 0
+[DEBUG] 03:16:22:729 Team/(28005:28019): Manejo mensaje localized
+[DEBUG] 03:16:22:730 Team/(28005:28019): Requiero mensaje = 1
+[TRACE] 03:16:22:730 Team/(28005:28019): Manejo mensaje appeared
+[TRACE] 03:16:22:730 Team/(28005:28019): Nuevo ent en ready: Posicion 2 3
+[TRACE] 03:16:22:730 Team/(28005:28019): Recepcion confirmada: 9 7 17
+[TRACE] 03:16:22:730 Team/(28005:28009): Planificador corto plazo en curso
+[TRACE] 03:16:22:730 Team/(28005:28019): Mensaje recibido manejado.
+[DEBUG] 03:16:22:730 Team/(28005:28010): EA activo. Posicion 2 3
+[DEBUG] 03:16:22:730 Team/(28005:28010): EA despierto. Posicion 2 3
+[DEBUG] 03:16:22:730 Team/(28005:28010): EA espera para cazar. Posicion 2 3
+[DEBUG] 03:16:22:730 Team/(28005:28010): EA cazando. Posicion 2 3
+[TRACE] 03:16:22:732 Team/(28005:28019): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:732 Team/(28005:28019): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 23, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[DEBUG] 03:16:22:732 Team/(28005:28019): Necesito mensaje = 1
+[DEBUG] 03:16:22:732 Team/(28005:28019): Requiero mensaje = 1
+[DEBUG] 03:16:22:732 Team/(28005:28019): Pok buscado: Umbreon, pok comparado: Vaporeon
+[DEBUG] 03:16:22:732 Team/(28005:28019): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:16:22:732 Team/(28005:28019): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:16:22:732 Team/(28005:28019): Pokemon en lista = 0
+[DEBUG] 03:16:22:732 Team/(28005:28019): Manejo mensaje localized
+[TRACE] 03:16:22:732 Team/(28005:28019): Recepcion confirmada: 9 7 19
+[TRACE] 03:16:22:733 Team/(28005:28019): Mensaje recibido manejado.
+[TRACE] 03:16:22:734 Team/(28005:28019): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:734 Team/(28005:28019): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 24, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[DEBUG] 03:16:22:734 Team/(28005:28019): Necesito mensaje = 1
+[DEBUG] 03:16:22:734 Team/(28005:28019): Requiero mensaje = 1
+[DEBUG] 03:16:22:734 Team/(28005:28019): Pok buscado: Flareon, pok comparado: Vaporeon
+[DEBUG] 03:16:22:734 Team/(28005:28019): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:16:22:734 Team/(28005:28019): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:16:22:734 Team/(28005:28019): Pok buscado: Flareon, pok comparado: Umbreon
+[DEBUG] 03:16:22:735 Team/(28005:28019): Pokemon en lista = 0
+[DEBUG] 03:16:22:735 Team/(28005:28019): Manejo mensaje localized
+[DEBUG] 03:16:22:735 Team/(28005:28019): Requiero mensaje = 1
+[TRACE] 03:16:22:735 Team/(28005:28019): Manejo mensaje appeared
+[TRACE] 03:16:22:735 Team/(28005:28019): Nuevo ent en ready: Posicion 6 5
+[TRACE] 03:16:22:735 Team/(28005:28019): Recepcion confirmada: 9 7 18
+[TRACE] 03:16:22:735 Team/(28005:28019): Mensaje recibido manejado.
+[TRACE] 03:16:22:743 Team/(28005:28019): Mensaje recibido, cod_op: 7.
+[INFO] 03:16:22:743 Team/(28005:28019): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:16:22:743 Team/(28005:28019): Necesito mensaje = 1
+[DEBUG] 03:16:22:743 Team/(28005:28019): Requiero mensaje = 1
+[DEBUG] 03:16:22:743 Team/(28005:28019): Pok buscado: Espeon, pok comparado: Vaporeon
+[DEBUG] 03:16:22:743 Team/(28005:28019): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:16:22:743 Team/(28005:28019): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:16:22:743 Team/(28005:28019): Pok buscado: Espeon, pok comparado: Umbreon
+[DEBUG] 03:16:22:743 Team/(28005:28019): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:16:22:743 Team/(28005:28019): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:16:22:743 Team/(28005:28019): Pokemon en lista = 0
+[DEBUG] 03:16:22:743 Team/(28005:28019): Manejo mensaje localized
+[TRACE] 03:16:22:743 Team/(28005:28019): Recepcion confirmada: 9 7 20
+[TRACE] 03:16:22:744 Team/(28005:28019): Mensaje recibido manejado.
+[INFO] 03:16:27:730 Team/(28005:28010): Entrenador A movido a posicon 2 2
+[TRACE] 03:16:27:731 Team/(28005:28010): Ciclos restantes: 1
+[DEBUG] 03:16:27:731 Team/(28005:28010): EA dormido. Posicion 2 2
+[TRACE] 03:16:27:731 Team/(28005:28009): Planificador corto plazo en curso
+[DEBUG] 03:16:27:731 Team/(28005:28009): EnNu: B, r5.000000. EnEx: A, r4.000000
+[INFO] 03:16:27:731 Team/(28005:28009): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:16:27:731 Team/(28005:28011): EB activo. Posicion 6 5
+[DEBUG] 03:16:27:731 Team/(28005:28011): EB despierto. Posicion 6 5
+[DEBUG] 03:16:27:731 Team/(28005:28011): EB espera para cazar. Posicion 6 5
+[DEBUG] 03:16:27:731 Team/(28005:28011): EB cazando. Posicion 6 5
+[INFO] 03:16:32:732 Team/(28005:28011): Entrenador B movido a posicon 5 5
+[TRACE] 03:16:32:732 Team/(28005:28011): Ciclos restantes: 3
+[DEBUG] 03:16:32:732 Team/(28005:28011): EB dormido. Posicion 5 5
+[TRACE] 03:16:32:732 Team/(28005:28009): Planificador corto plazo en curso
+[DEBUG] 03:16:32:732 Team/(28005:28009): EnNu: A, r4.000000. EnEx: B, r4.000000
+[INFO] 03:16:32:732 Team/(28005:28009): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:16:32:733 Team/(28005:28010): EA despierto. Posicion 2 2
+[TRACE] 03:16:36:984 Team/(28005:28022): Mensaje recibido, cod_op: 4.
+[INFO] 03:16:36:984 Team/(28005:28022): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[TRACE] 03:16:36:984 Team/(28005:28022): Aun no tengo el entrenador con el catch
+[TRACE] 03:16:36:984 Team/(28005:28022): Recepcion confirmada: 10 4 26
+[TRACE] 03:16:36:984 Team/(28005:28022): Mensaje recibido manejado.
+[INFO] 03:16:37:733 Team/(28005:28010): Catch efectuado en posicon 2 2 para Jolteon
+[TRACE] 03:16:37:733 Team/(28005:28010): Ciclos restantes: 0
+[DEBUG] 03:16:37:733 Team/(28005:28010): EA dormido. Posicion 2 2
+[TRACE] 03:16:37:734 Team/(28005:28009): Planificador corto plazo en curso
+[DEBUG] 03:16:37:734 Team/(28005:28009): EnNu: B, r4.000000. EnEx: A, r2.000000
+[INFO] 03:16:37:734 Team/(28005:28009): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:16:37:734 Team/(28005:28011): EB despierto. Posicion 5 5
+[TRACE] 03:16:37:735 Team/(28005:28057): Enviado catch para: Jolteon
+[INFO] 03:16:37:736 Team/(28005:28057): Mensaje CATCH_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 28
+[TRACE] 03:16:37:736 Team/(28005:28057): Recepcion id_mensaje: 28
+[TRACE] 03:16:37:736 Team/(28005:28057): Mensaje recibido manejado.
+[DEBUG] 03:16:37:736 Team/(28005:28057): Esperando caught de pokemon Jolteon con id 28
+[TRACE] 03:16:40:788 Team/(28005:28022): Mensaje recibido, cod_op: 4.
+[INFO] 03:16:40:788 Team/(28005:28022): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[DEBUG] 03:16:40:788 Team/(28005:28022): Esperando a manejar caught
+[DEBUG] 03:16:40:788 Team/(28005:28022): Manejo mensaje caught
+[DEBUG] 03:16:40:789 Team/(28005:28022): lo atrapó!
+[DEBUG] 03:16:40:789 Team/(28005:28022): Data Entrenador A: Posicion 2 2 Estado  4
+[DEBUG] 03:16:40:789 Team/(28005:28010): EA activo. Posicion 2 2
+[TRACE] 03:16:40:789 Team/(28005:28022): Jolteon
+[TRACE] 03:16:40:789 Team/(28005:28022): Vaporeon
+[DEBUG] 03:16:40:789 Team/(28005:28022): Data Entrenador B: Posicion 5 5 Estado  2
+[TRACE] 03:16:40:789 Team/(28005:28022): Jolteon
+[DEBUG] 03:16:40:789 Team/(28005:28022): Data Entrenador C: Posicion 9 9 Estado  0
+[TRACE] 03:16:40:789 Team/(28005:28022): Flareon
+[DEBUG] 03:16:40:789 Team/(28005:28022): Data Entrenador D: Posicion 9 2 Estado  0
+[TRACE] 03:16:40:789 Team/(28005:28022): Umbreon
+[DEBUG] 03:16:40:789 Team/(28005:28022): Data Entrenador E: Posicion 2 9 Estado  0
+[TRACE] 03:16:40:790 Team/(28005:28022): Espeon
+[TRACE] 03:16:40:790 Team/(28005:28022): Recepcion confirmada: 10 4 28
+[DEBUG] 03:16:40:790 Team/(28005:28010): EA blockeado deadlock. Posicion 2 2
+[TRACE] 03:16:40:790 Team/(28005:28022): Mensaje recibido manejado.
+[INFO] 03:16:42:734 Team/(28005:28011): Entrenador B movido a posicon 4 5
+[TRACE] 03:16:42:735 Team/(28005:28011): Ciclos restantes: 2
+[DEBUG] 03:16:42:735 Team/(28005:28011): EB dormido. Posicion 4 5
+[TRACE] 03:16:42:735 Team/(28005:28009): Planificador corto plazo en curso
+[DEBUG] 03:16:42:735 Team/(28005:28009): EnNu: B, r3.000000. EnEx: B, r3.000000
+[INFO] 03:16:42:735 Team/(28005:28009): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:16:42:735 Team/(28005:28011): EB despierto. Posicion 4 5
+[INFO] 03:16:47:736 Team/(28005:28011): Entrenador B movido a posicon 4 6
+[TRACE] 03:16:47:736 Team/(28005:28011): Ciclos restantes: 1
+[DEBUG] 03:16:47:736 Team/(28005:28011): EB dormido. Posicion 4 6
+[TRACE] 03:16:47:736 Team/(28005:28009): Planificador corto plazo en curso
+[DEBUG] 03:16:47:737 Team/(28005:28009): EnNu: B, r2.000000. EnEx: B, r2.000000
+[INFO] 03:16:47:737 Team/(28005:28009): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:16:47:737 Team/(28005:28011): EB despierto. Posicion 4 6
+[INFO] 03:16:52:737 Team/(28005:28011): Catch efectuado en posicon 4 6 para Flareon
+[TRACE] 03:16:52:737 Team/(28005:28011): Ciclos restantes: 0
+[DEBUG] 03:16:52:737 Team/(28005:28011): EB dormido. Posicion 4 6
+[TRACE] 03:16:52:738 Team/(28005:28063): Enviado catch para: Flareon
+[INFO] 03:16:52:740 Team/(28005:28063): Mensaje CATCH_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 30
+[TRACE] 03:16:52:740 Team/(28005:28063): Recepcion id_mensaje: 30
+[TRACE] 03:16:52:740 Team/(28005:28063): Mensaje recibido manejado.
+[DEBUG] 03:16:52:740 Team/(28005:28063): Esperando caught de pokemon Flareon con id 30
+[TRACE] 03:16:55:775 Team/(28005:28022): Mensaje recibido, cod_op: 4.
+[INFO] 03:16:55:775 Team/(28005:28022): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[DEBUG] 03:16:55:775 Team/(28005:28022): Esperando a manejar caught
+[DEBUG] 03:16:55:775 Team/(28005:28022): Manejo mensaje caught
+[DEBUG] 03:16:55:775 Team/(28005:28022): lo atrapó!
+[DEBUG] 03:16:55:775 Team/(28005:28022): Data Entrenador A: Posicion 2 2 Estado  5
+[DEBUG] 03:16:55:775 Team/(28005:28011): EB activo. Posicion 4 6
+[TRACE] 03:16:55:775 Team/(28005:28022): Jolteon
+[TRACE] 03:16:55:775 Team/(28005:28022): Vaporeon
+[DEBUG] 03:16:55:775 Team/(28005:28022): Data Entrenador B: Posicion 4 6 Estado  4
+[TRACE] 03:16:55:776 Team/(28005:28022): Flareon
+[TRACE] 03:16:55:776 Team/(28005:28022): Jolteon
+[DEBUG] 03:16:55:776 Team/(28005:28022): Data Entrenador C: Posicion 9 9 Estado  0
+[TRACE] 03:16:55:776 Team/(28005:28022): Flareon
+[DEBUG] 03:16:55:776 Team/(28005:28022): Data Entrenador D: Posicion 9 2 Estado  0
+[TRACE] 03:16:55:776 Team/(28005:28022): Umbreon
+[DEBUG] 03:16:55:776 Team/(28005:28022): Data Entrenador E: Posicion 2 9 Estado  0
+[TRACE] 03:16:55:776 Team/(28005:28022): Espeon
+[TRACE] 03:16:55:776 Team/(28005:28022): Recepcion confirmada: 10 4 30
+[TRACE] 03:16:55:776 Team/(28005:28022): Mensaje recibido manejado.
+[DEBUG] 03:16:55:776 Team/(28005:28011): EB blockeado deadlock. Posicion 4 6
+[TRACE] 03:18:03:580 Team/(28148:28148): Log inicializado
+[TRACE] 03:18:03:581 Team/(28148:28148): Entrenadores cargados
+[TRACE] 03:18:03:581 Team/(28148:28152): Entrenador lanzado: Pos 2 3
+[TRACE] 03:18:03:582 Team/(28148:28152): Entrenador lanzado: Pos 6 5
+[TRACE] 03:18:03:582 Team/(28148:28151): Iniciar conexion con gameboy
+[TRACE] 03:18:03:583 Team/(28148:28152): Entrenador lanzado: Pos 9 9
+[DEBUG] 03:18:03:583 Team/(28148:28150): Pokemon en lista = 0
+[TRACE] 03:18:03:584 Team/(28148:28152): Entrenador lanzado: Pos 9 2
+[TRACE] 03:18:03:584 Team/(28148:28152): Entrenador lanzado: Pos 2 9
+[DEBUG] 03:18:03:585 Team/(28148:28150): Pok buscado: Jolteon, pok comparado: Vaporeon
+[DEBUG] 03:18:03:585 Team/(28148:28150): Pokemon en lista = 0
+[DEBUG] 03:18:03:585 Team/(28148:28150): Pok buscado: Flareon, pok comparado: Vaporeon
+[DEBUG] 03:18:03:586 Team/(28148:28150): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:18:03:586 Team/(28148:28150): Pokemon en lista = 0
+[DEBUG] 03:18:03:586 Team/(28148:28150): Pok buscado: Umbreon, pok comparado: Vaporeon
+[DEBUG] 03:18:03:586 Team/(28148:28150): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:18:03:587 Team/(28148:28150): Pok buscado: Umbreon, pok comparado: Flareon
+[DEBUG] 03:18:03:587 Team/(28148:28150): Pokemon en lista = 0
+[TRACE] 03:18:03:587 Team/(28148:28151): Esperando Cliente
+[DEBUG] 03:18:03:587 Team/(28148:28150): Pok buscado: Espeon, pok comparado: Vaporeon
+[DEBUG] 03:18:03:588 Team/(28148:28150): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:18:03:588 Team/(28148:28150): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:18:03:588 Team/(28148:28150): Pok buscado: Espeon, pok comparado: Umbreon
+[DEBUG] 03:18:03:588 Team/(28148:28150): Pokemon en lista = 0
+[TRACE] 03:18:03:590 Team/(28148:28149): Mensaje suscripcion enviado
+[TRACE] 03:18:03:590 Team/(28148:28150): Enviado get para: Vaporeon
+[TRACE] 03:18:03:590 Team/(28148:28149): Suscripcion completada
+[TRACE] 03:18:03:595 Team/(28148:28149): Mensaje suscripcion enviado
+[TRACE] 03:18:03:596 Team/(28148:28149): Suscripcion completada
+[TRACE] 03:18:03:596 Team/(28148:28149): Mensaje suscripcion enviado
+[TRACE] 03:18:03:596 Team/(28148:28149): Suscripcion completada
+[TRACE] 03:18:03:598 Team/(28148:28162): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:03:598 Team/(28148:28162): Mensaje LOCALIZED_POKEMON: id correlativo: 0, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[DEBUG] 03:18:03:598 Team/(28148:28162): Necesito mensaje = 0
+[DEBUG] 03:18:03:598 Team/(28148:28162): Mensaje descartado: id correlativo: 0, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[TRACE] 03:18:03:599 Team/(28148:28162): Recepcion confirmada: 9 7 0
+[TRACE] 03:18:03:599 Team/(28148:28162): Mensaje recibido manejado.
+[TRACE] 03:18:03:599 Team/(28148:28162): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:03:599 Team/(28148:28162): Mensaje LOCALIZED_POKEMON: id correlativo: -1245708200, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[DEBUG] 03:18:03:599 Team/(28148:28162): Necesito mensaje = 0
+[DEBUG] 03:18:03:599 Team/(28148:28162): Mensaje descartado: id correlativo: -1245708200, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[TRACE] 03:18:03:600 Team/(28148:28162): Recepcion confirmada: 9 7 -1245708200
+[INFO] 03:18:03:600 Team/(28148:28150): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 16
+[DEBUG] 03:18:03:601 Team/(28148:28150): Recepcion id_mensaje: 16
+[TRACE] 03:18:03:601 Team/(28148:28150): Mensaje recibido manejado.
+[TRACE] 03:18:03:601 Team/(28148:28150): Enviado get para: Jolteon
+[TRACE] 03:18:03:601 Team/(28148:28162): Mensaje recibido manejado.
+[TRACE] 03:18:03:602 Team/(28148:28162): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:03:602 Team/(28148:28162): Mensaje LOCALIZED_POKEMON: id correlativo: -1245708200, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[DEBUG] 03:18:03:602 Team/(28148:28162): Necesito mensaje = 0
+[DEBUG] 03:18:03:603 Team/(28148:28162): Mensaje descartado: id correlativo: -1245708200, Id_mensaje: 13, Pokemon: Pikachu, Cantidad: 1, Posiciones:9 9 
+[TRACE] 03:18:03:603 Team/(28148:28162): Recepcion confirmada: 9 7 -1245708200
+[TRACE] 03:18:03:603 Team/(28148:28162): Mensaje recibido manejado.
+[INFO] 03:18:03:617 Team/(28148:28150): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 17
+[DEBUG] 03:18:03:617 Team/(28148:28150): Recepcion id_mensaje: 17
+[TRACE] 03:18:03:617 Team/(28148:28150): Mensaje recibido manejado.
+[TRACE] 03:18:03:621 Team/(28148:28150): Enviado get para: Flareon
+[INFO] 03:18:03:630 Team/(28148:28150): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 18
+[DEBUG] 03:18:03:630 Team/(28148:28150): Recepcion id_mensaje: 18
+[TRACE] 03:18:03:630 Team/(28148:28150): Mensaje recibido manejado.
+[TRACE] 03:18:03:630 Team/(28148:28150): Enviado get para: Umbreon
+[INFO] 03:18:03:640 Team/(28148:28150): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 19
+[DEBUG] 03:18:03:640 Team/(28148:28150): Recepcion id_mensaje: 19
+[TRACE] 03:18:03:640 Team/(28148:28150): Mensaje recibido manejado.
+[TRACE] 03:18:03:640 Team/(28148:28150): Enviado get para: Espeon
+[INFO] 03:18:03:647 Team/(28148:28150): Mensaje GET_POKEMON: Pokemon: Espeon, Id mensaje: 20
+[DEBUG] 03:18:03:647 Team/(28148:28150): Recepcion id_mensaje: 20
+[TRACE] 03:18:03:647 Team/(28148:28150): Mensaje recibido manejado.
+[TRACE] 03:18:06:609 Team/(28148:28162): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:609 Team/(28148:28162): Mensaje LOCALIZED_POKEMON: id correlativo: 16, Id_mensaje: 21, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:18:06:609 Team/(28148:28162): Necesito mensaje = 1
+[DEBUG] 03:18:06:609 Team/(28148:28162): Requiero mensaje = 1
+[DEBUG] 03:18:06:609 Team/(28148:28162): Pokemon en lista = 0
+[DEBUG] 03:18:06:609 Team/(28148:28162): Manejo mensaje localized
+[TRACE] 03:18:06:610 Team/(28148:28162): Recepcion confirmada: 9 7 16
+[TRACE] 03:18:06:610 Team/(28148:28162): Mensaje recibido manejado.
+[TRACE] 03:18:06:642 Team/(28148:28162): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:642 Team/(28148:28162): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 22, Pokemon: Jolteon, Cantidad: 1, Posiciones:2 2 
+[DEBUG] 03:18:06:642 Team/(28148:28162): Necesito mensaje = 1
+[DEBUG] 03:18:06:642 Team/(28148:28162): Requiero mensaje = 1
+[DEBUG] 03:18:06:642 Team/(28148:28162): Pok buscado: Jolteon, pok comparado: Vaporeon
+[DEBUG] 03:18:06:642 Team/(28148:28162): Pokemon en lista = 0
+[DEBUG] 03:18:06:642 Team/(28148:28162): Manejo mensaje localized
+[DEBUG] 03:18:06:642 Team/(28148:28162): Requiero mensaje = 1
+[TRACE] 03:18:06:642 Team/(28148:28162): Manejo mensaje appeared
+[TRACE] 03:18:06:642 Team/(28148:28162): Nuevo ent en ready: Posicion 2 3
+[TRACE] 03:18:06:643 Team/(28148:28162): Recepcion confirmada: 9 7 17
+[TRACE] 03:18:06:643 Team/(28148:28152): Planificador corto plazo en curso
+[TRACE] 03:18:06:643 Team/(28148:28162): Mensaje recibido manejado.
+[DEBUG] 03:18:06:643 Team/(28148:28153): EA activo. Posicion 2 3
+[DEBUG] 03:18:06:643 Team/(28148:28153): EA despierto. Posicion 2 3
+[DEBUG] 03:18:06:643 Team/(28148:28153): EA espera para cazar. Posicion 2 3
+[DEBUG] 03:18:06:643 Team/(28148:28153): EA cazando. Posicion 2 3
+[TRACE] 03:18:06:664 Team/(28148:28162): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:664 Team/(28148:28162): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 24, Pokemon: Flareon, Cantidad: 1, Posiciones:4 6 
+[DEBUG] 03:18:06:664 Team/(28148:28162): Necesito mensaje = 1
+[DEBUG] 03:18:06:664 Team/(28148:28162): Requiero mensaje = 1
+[DEBUG] 03:18:06:664 Team/(28148:28162): Pok buscado: Flareon, pok comparado: Vaporeon
+[DEBUG] 03:18:06:664 Team/(28148:28162): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:18:06:664 Team/(28148:28162): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:18:06:664 Team/(28148:28162): Pokemon en lista = 0
+[DEBUG] 03:18:06:664 Team/(28148:28162): Manejo mensaje localized
+[DEBUG] 03:18:06:665 Team/(28148:28162): Requiero mensaje = 1
+[TRACE] 03:18:06:665 Team/(28148:28162): Manejo mensaje appeared
+[TRACE] 03:18:06:665 Team/(28148:28162): Nuevo ent en ready: Posicion 6 5
+[TRACE] 03:18:06:665 Team/(28148:28162): Recepcion confirmada: 9 7 18
+[TRACE] 03:18:06:665 Team/(28148:28162): Mensaje recibido manejado.
+[TRACE] 03:18:06:669 Team/(28148:28162): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:669 Team/(28148:28162): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 23, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[DEBUG] 03:18:06:669 Team/(28148:28162): Necesito mensaje = 1
+[DEBUG] 03:18:06:669 Team/(28148:28162): Requiero mensaje = 1
+[DEBUG] 03:18:06:669 Team/(28148:28162): Pok buscado: Umbreon, pok comparado: Vaporeon
+[DEBUG] 03:18:06:669 Team/(28148:28162): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:18:06:669 Team/(28148:28162): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:18:06:669 Team/(28148:28162): Pok buscado: Umbreon, pok comparado: Flareon
+[DEBUG] 03:18:06:669 Team/(28148:28162): Pok buscado: Umbreon, pok comparado: Flareon
+[DEBUG] 03:18:06:669 Team/(28148:28162): Pokemon en lista = 0
+[DEBUG] 03:18:06:669 Team/(28148:28162): Manejo mensaje localized
+[TRACE] 03:18:06:669 Team/(28148:28162): Recepcion confirmada: 9 7 19
+[TRACE] 03:18:06:669 Team/(28148:28162): Mensaje recibido manejado.
+[TRACE] 03:18:06:683 Team/(28148:28162): Mensaje recibido, cod_op: 7.
+[INFO] 03:18:06:683 Team/(28148:28162): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 25, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:18:06:683 Team/(28148:28162): Necesito mensaje = 1
+[DEBUG] 03:18:06:683 Team/(28148:28162): Requiero mensaje = 1
+[DEBUG] 03:18:06:683 Team/(28148:28162): Pok buscado: Espeon, pok comparado: Vaporeon
+[DEBUG] 03:18:06:684 Team/(28148:28162): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:18:06:684 Team/(28148:28162): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:18:06:684 Team/(28148:28162): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:18:06:684 Team/(28148:28162): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:18:06:684 Team/(28148:28162): Pok buscado: Espeon, pok comparado: Umbreon
+[DEBUG] 03:18:06:684 Team/(28148:28162): Pokemon en lista = 0
+[DEBUG] 03:18:06:684 Team/(28148:28162): Manejo mensaje localized
+[TRACE] 03:18:06:684 Team/(28148:28162): Recepcion confirmada: 9 7 20
+[TRACE] 03:18:06:684 Team/(28148:28162): Mensaje recibido manejado.
+[INFO] 03:18:11:644 Team/(28148:28153): Entrenador A movido a posicon 2 2
+[TRACE] 03:18:11:644 Team/(28148:28153): Ciclos restantes: 1
+[DEBUG] 03:18:11:644 Team/(28148:28153): EA dormido. Posicion 2 2
+[TRACE] 03:18:11:644 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:18:11:644 Team/(28148:28152): EnNu: B, r5.000000. EnEx: A, r4.000000
+[INFO] 03:18:11:644 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:18:11:644 Team/(28148:28154): EB activo. Posicion 6 5
+[DEBUG] 03:18:11:644 Team/(28148:28154): EB despierto. Posicion 6 5
+[DEBUG] 03:18:11:644 Team/(28148:28154): EB espera para cazar. Posicion 6 5
+[DEBUG] 03:18:11:644 Team/(28148:28154): EB cazando. Posicion 6 5
+[TRACE] 03:18:13:0 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:18:13:1 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 27, id correlativo: 26
+[TRACE] 03:18:13:1 Team/(28148:28164): Aun no tengo el entrenador con el catch
+[TRACE] 03:18:13:1 Team/(28148:28164): Recepcion confirmada: 10 4 26
+[TRACE] 03:18:13:2 Team/(28148:28164): Mensaje recibido manejado.
+[INFO] 03:18:16:645 Team/(28148:28154): Entrenador B movido a posicon 5 5
+[TRACE] 03:18:16:645 Team/(28148:28154): Ciclos restantes: 3
+[DEBUG] 03:18:16:645 Team/(28148:28154): EB dormido. Posicion 5 5
+[TRACE] 03:18:16:645 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:18:16:645 Team/(28148:28152): EnNu: A, r4.000000. EnEx: B, r4.000000
+[INFO] 03:18:16:645 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:18:16:646 Team/(28148:28153): EA despierto. Posicion 2 2
+[INFO] 03:18:21:646 Team/(28148:28153): Catch efectuado en posicon 2 2 para Jolteon
+[TRACE] 03:18:21:646 Team/(28148:28153): Ciclos restantes: 0
+[DEBUG] 03:18:21:646 Team/(28148:28153): EA dormido. Posicion 2 2
+[TRACE] 03:18:21:646 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:18:21:646 Team/(28148:28152): EnNu: B, r4.000000. EnEx: A, r2.000000
+[INFO] 03:18:21:646 Team/(28148:28152): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:18:21:646 Team/(28148:28154): EB despierto. Posicion 5 5
+[TRACE] 03:18:21:648 Team/(28148:28197): Enviado catch para: Jolteon
+[INFO] 03:18:21:649 Team/(28148:28197): Mensaje CATCH_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 28
+[TRACE] 03:18:21:650 Team/(28148:28197): Recepcion id_mensaje: 28
+[TRACE] 03:18:21:650 Team/(28148:28197): Mensaje recibido manejado.
+[DEBUG] 03:18:21:650 Team/(28148:28197): Esperando caught de pokemon Jolteon con id 28
+[TRACE] 03:18:24:702 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:18:24:702 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[DEBUG] 03:18:24:703 Team/(28148:28164): Esperando a manejar caught
+[DEBUG] 03:18:24:703 Team/(28148:28164): Manejo mensaje caught
+[DEBUG] 03:18:24:703 Team/(28148:28164): lo atrapó!
+[DEBUG] 03:18:24:703 Team/(28148:28164): Data Entrenador A: Posicion 2 2 Estado  4
+[DEBUG] 03:18:24:703 Team/(28148:28153): EA activo. Posicion 2 2
+[TRACE] 03:18:24:703 Team/(28148:28164): Jolteon
+[TRACE] 03:18:24:703 Team/(28148:28164): Vaporeon
+[DEBUG] 03:18:24:703 Team/(28148:28164): Data Entrenador B: Posicion 5 5 Estado  2
+[TRACE] 03:18:24:703 Team/(28148:28164): Jolteon
+[DEBUG] 03:18:24:703 Team/(28148:28164): Data Entrenador C: Posicion 9 9 Estado  0
+[TRACE] 03:18:24:703 Team/(28148:28164): Flareon
+[DEBUG] 03:18:24:703 Team/(28148:28164): Data Entrenador D: Posicion 9 2 Estado  0
+[TRACE] 03:18:24:703 Team/(28148:28164): Umbreon
+[DEBUG] 03:18:24:703 Team/(28148:28164): Data Entrenador E: Posicion 2 9 Estado  0
+[TRACE] 03:18:24:703 Team/(28148:28164): Espeon
+[TRACE] 03:18:24:703 Team/(28148:28164): Recepcion confirmada: 10 4 28
+[TRACE] 03:18:24:704 Team/(28148:28164): Mensaje recibido manejado.
+[DEBUG] 03:18:24:704 Team/(28148:28153): EA blockeado deadlock. Posicion 2 2
+[INFO] 03:18:26:647 Team/(28148:28154): Entrenador B movido a posicon 4 5
+[TRACE] 03:18:26:647 Team/(28148:28154): Ciclos restantes: 2
+[DEBUG] 03:18:26:647 Team/(28148:28154): EB dormido. Posicion 4 5
+[TRACE] 03:18:26:647 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:18:26:647 Team/(28148:28152): EnNu: B, r3.000000. EnEx: B, r3.000000
+[INFO] 03:18:26:647 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:18:26:647 Team/(28148:28154): EB despierto. Posicion 4 5
+[INFO] 03:18:31:648 Team/(28148:28154): Entrenador B movido a posicon 4 6
+[TRACE] 03:18:31:648 Team/(28148:28154): Ciclos restantes: 1
+[DEBUG] 03:18:31:649 Team/(28148:28154): EB dormido. Posicion 4 6
+[TRACE] 03:18:31:649 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:18:31:651 Team/(28148:28152): EnNu: B, r2.000000. EnEx: B, r2.000000
+[INFO] 03:18:31:651 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:18:31:651 Team/(28148:28154): EB despierto. Posicion 4 6
+[INFO] 03:18:36:651 Team/(28148:28154): Catch efectuado en posicon 4 6 para Flareon
+[TRACE] 03:18:36:651 Team/(28148:28154): Ciclos restantes: 0
+[DEBUG] 03:18:36:651 Team/(28148:28154): EB dormido. Posicion 4 6
+[TRACE] 03:18:36:652 Team/(28148:28203): Enviado catch para: Flareon
+[INFO] 03:18:36:654 Team/(28148:28203): Mensaje CATCH_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 30
+[TRACE] 03:18:36:654 Team/(28148:28203): Recepcion id_mensaje: 30
+[TRACE] 03:18:36:655 Team/(28148:28203): Mensaje recibido manejado.
+[DEBUG] 03:18:36:655 Team/(28148:28203): Esperando caught de pokemon Flareon con id 30
+[TRACE] 03:18:39:723 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:18:39:723 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 31, id correlativo: 30
+[DEBUG] 03:18:39:723 Team/(28148:28164): Esperando a manejar caught
+[DEBUG] 03:18:39:723 Team/(28148:28164): Manejo mensaje caught
+[DEBUG] 03:18:39:723 Team/(28148:28164): lo atrapó!
+[DEBUG] 03:18:39:723 Team/(28148:28164): Data Entrenador A: Posicion 2 2 Estado  5
+[DEBUG] 03:18:39:723 Team/(28148:28154): EB activo. Posicion 4 6
+[TRACE] 03:18:39:723 Team/(28148:28164): Jolteon
+[TRACE] 03:18:39:723 Team/(28148:28164): Vaporeon
+[DEBUG] 03:18:39:723 Team/(28148:28164): Data Entrenador B: Posicion 4 6 Estado  4
+[TRACE] 03:18:39:723 Team/(28148:28164): Flareon
+[TRACE] 03:18:39:723 Team/(28148:28164): Jolteon
+[DEBUG] 03:18:39:724 Team/(28148:28164): Data Entrenador C: Posicion 9 9 Estado  0
+[TRACE] 03:18:39:724 Team/(28148:28164): Flareon
+[DEBUG] 03:18:39:724 Team/(28148:28164): Data Entrenador D: Posicion 9 2 Estado  0
+[TRACE] 03:18:39:724 Team/(28148:28164): Umbreon
+[DEBUG] 03:18:39:724 Team/(28148:28164): Data Entrenador E: Posicion 2 9 Estado  0
+[TRACE] 03:18:39:724 Team/(28148:28164): Espeon
+[DEBUG] 03:18:39:724 Team/(28148:28154): EB blockeado deadlock. Posicion 4 6
+[TRACE] 03:18:39:724 Team/(28148:28164): Recepcion confirmada: 10 4 30
+[TRACE] 03:18:39:724 Team/(28148:28164): Mensaje recibido manejado.
+[TRACE] 03:19:24:72 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:19:24:72 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[TRACE] 03:19:24:72 Team/(28148:28164): Aun no tengo el entrenador con el catch
+[TRACE] 03:19:24:72 Team/(28148:28164): Recepcion confirmada: 10 4 32
+[TRACE] 03:19:24:72 Team/(28148:28164): Mensaje recibido manejado.
+[TRACE] 03:20:04:977 Team/(28148:28160): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:04:977 Team/(28148:28160): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 40
+[DEBUG] 03:20:04:977 Team/(28148:28160): Requiero mensaje = 0
+[TRACE] 03:20:04:977 Team/(28148:28160): Recepcion confirmada: 8 2 40
+[TRACE] 03:20:04:978 Team/(28148:28160): Mensaje recibido manejado.
+[TRACE] 03:20:05:45 Team/(28148:28160): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:45 Team/(28148:28160): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 41
+[DEBUG] 03:20:05:45 Team/(28148:28160): Requiero mensaje = 0
+[TRACE] 03:20:05:45 Team/(28148:28160): Recepcion confirmada: 8 2 41
+[TRACE] 03:20:05:45 Team/(28148:28160): Mensaje recibido manejado.
+[TRACE] 03:20:05:81 Team/(28148:28160): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:81 Team/(28148:28160): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 42
+[DEBUG] 03:20:05:81 Team/(28148:28160): Requiero mensaje = 0
+[TRACE] 03:20:05:81 Team/(28148:28160): Recepcion confirmada: 8 2 42
+[TRACE] 03:20:05:81 Team/(28148:28160): Mensaje recibido manejado.
+[TRACE] 03:20:05:170 Team/(28148:28160): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:170 Team/(28148:28160): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 43
+[DEBUG] 03:20:05:170 Team/(28148:28160): Requiero mensaje = 1
+[TRACE] 03:20:05:170 Team/(28148:28160): Manejo mensaje appeared
+[TRACE] 03:20:05:170 Team/(28148:28160): Nuevo ent en ready: Posicion 9 9
+[TRACE] 03:20:05:170 Team/(28148:28160): Recepcion confirmada: 8 2 43
+[TRACE] 03:20:05:170 Team/(28148:28152): Planificador corto plazo en curso
+[TRACE] 03:20:05:170 Team/(28148:28160): Mensaje recibido manejado.
+[DEBUG] 03:20:05:171 Team/(28148:28152): EnNu: C, r5.000000. EnEx: B, r1.000000
+[INFO] 03:20:05:171 Team/(28148:28152): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:20:05:171 Team/(28148:28155): EC activo. Posicion 9 9
+[DEBUG] 03:20:05:173 Team/(28148:28155): EC despierto. Posicion 9 9
+[DEBUG] 03:20:05:174 Team/(28148:28155): EC espera para cazar. Posicion 9 9
+[DEBUG] 03:20:05:174 Team/(28148:28155): EC cazando. Posicion 9 9
+[TRACE] 03:20:05:219 Team/(28148:28160): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:219 Team/(28148:28160): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 44
+[DEBUG] 03:20:05:219 Team/(28148:28160): Requiero mensaje = 1
+[TRACE] 03:20:05:220 Team/(28148:28160): Manejo mensaje appeared
+[TRACE] 03:20:05:220 Team/(28148:28160): Nuevo ent en ready: Posicion 9 2
+[TRACE] 03:20:05:220 Team/(28148:28160): Recepcion confirmada: 8 2 44
+[TRACE] 03:20:05:220 Team/(28148:28160): Mensaje recibido manejado.
+[TRACE] 03:20:05:240 Team/(28148:28160): Mensaje recibido, cod_op: 2.
+[INFO] 03:20:05:240 Team/(28148:28160): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 45
+[DEBUG] 03:20:05:240 Team/(28148:28160): Requiero mensaje = 1
+[TRACE] 03:20:05:241 Team/(28148:28160): Manejo mensaje appeared
+[TRACE] 03:20:05:241 Team/(28148:28160): Nuevo ent en ready: Posicion 2 9
+[TRACE] 03:20:05:241 Team/(28148:28160): Recepcion confirmada: 8 2 45
+[TRACE] 03:20:05:241 Team/(28148:28160): Mensaje recibido manejado.
+[INFO] 03:20:10:174 Team/(28148:28155): Entrenador C movido a posicon 10 9
+[TRACE] 03:20:10:174 Team/(28148:28155): Ciclos restantes: 4
+[DEBUG] 03:20:10:174 Team/(28148:28155): EC dormido. Posicion 10 9
+[TRACE] 03:20:10:174 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:10:174 Team/(28148:28152): EnNu: D, r5.000000. EnEx: C, r4.000000
+[INFO] 03:20:10:174 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:10:174 Team/(28148:28156): ED activo. Posicion 9 2
+[DEBUG] 03:20:10:174 Team/(28148:28156): ED despierto. Posicion 9 2
+[DEBUG] 03:20:10:174 Team/(28148:28156): ED espera para cazar. Posicion 9 2
+[DEBUG] 03:20:10:175 Team/(28148:28156): ED cazando. Posicion 9 2
+[INFO] 03:20:15:175 Team/(28148:28156): Entrenador D movido a posicon 8 2
+[TRACE] 03:20:15:175 Team/(28148:28156): Ciclos restantes: 3
+[DEBUG] 03:20:15:175 Team/(28148:28156): ED dormido. Posicion 8 2
+[TRACE] 03:20:15:175 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:15:175 Team/(28148:28152): EnNu: E, r5.000000. EnEx: D, r4.000000
+[INFO] 03:20:15:175 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:15:175 Team/(28148:28157): EE activo. Posicion 2 9
+[DEBUG] 03:20:15:176 Team/(28148:28157): EE despierto. Posicion 2 9
+[DEBUG] 03:20:15:176 Team/(28148:28157): EE espera para cazar. Posicion 2 9
+[DEBUG] 03:20:15:176 Team/(28148:28157): EE cazando. Posicion 2 9
+[INFO] 03:20:20:177 Team/(28148:28157): Entrenador E movido a posicon 3 9
+[TRACE] 03:20:20:177 Team/(28148:28157): Ciclos restantes: 3
+[DEBUG] 03:20:20:177 Team/(28148:28157): EE dormido. Posicion 3 9
+[TRACE] 03:20:20:177 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:20:177 Team/(28148:28152): EnNu: C, r4.000000. EnEx: E, r4.000000
+[INFO] 03:20:20:178 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:20:178 Team/(28148:28155): EC despierto. Posicion 10 9
+[INFO] 03:20:25:178 Team/(28148:28155): Entrenador C movido a posicon 10 8
+[TRACE] 03:20:25:178 Team/(28148:28155): Ciclos restantes: 3
+[DEBUG] 03:20:25:178 Team/(28148:28155): EC dormido. Posicion 10 8
+[TRACE] 03:20:25:178 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:25:178 Team/(28148:28152): EnNu: D, r4.000000. EnEx: C, r3.000000
+[INFO] 03:20:25:178 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:25:178 Team/(28148:28156): ED despierto. Posicion 8 2
+[INFO] 03:20:30:179 Team/(28148:28156): Entrenador D movido a posicon 7 2
+[TRACE] 03:20:30:179 Team/(28148:28156): Ciclos restantes: 2
+[DEBUG] 03:20:30:179 Team/(28148:28156): ED dormido. Posicion 7 2
+[TRACE] 03:20:30:179 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:30:179 Team/(28148:28152): EnNu: E, r4.000000. EnEx: D, r3.000000
+[INFO] 03:20:30:179 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:30:179 Team/(28148:28157): EE despierto. Posicion 3 9
+[INFO] 03:20:35:180 Team/(28148:28157): Entrenador E movido a posicon 4 9
+[TRACE] 03:20:35:180 Team/(28148:28157): Ciclos restantes: 2
+[DEBUG] 03:20:35:180 Team/(28148:28157): EE dormido. Posicion 4 9
+[TRACE] 03:20:35:180 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:35:180 Team/(28148:28152): EnNu: C, r3.000000. EnEx: E, r3.000000
+[INFO] 03:20:35:181 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:35:181 Team/(28148:28155): EC despierto. Posicion 10 8
+[INFO] 03:20:40:181 Team/(28148:28155): Entrenador C movido a posicon 10 7
+[TRACE] 03:20:40:181 Team/(28148:28155): Ciclos restantes: 2
+[DEBUG] 03:20:40:181 Team/(28148:28155): EC dormido. Posicion 10 7
+[TRACE] 03:20:40:181 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:40:181 Team/(28148:28152): EnNu: D, r3.000000. EnEx: C, r2.000000
+[INFO] 03:20:40:182 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:40:182 Team/(28148:28156): ED despierto. Posicion 7 2
+[TRACE] 03:20:43:64 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:20:43:64 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 47, id correlativo: 46
+[TRACE] 03:20:43:64 Team/(28148:28164): Aun no tengo el entrenador con el catch
+[TRACE] 03:20:43:64 Team/(28148:28164): Recepcion confirmada: 10 4 46
+[TRACE] 03:20:43:64 Team/(28148:28164): Mensaje recibido manejado.
+[INFO] 03:20:45:182 Team/(28148:28156): Entrenador D movido a posicon 7 1
+[TRACE] 03:20:45:182 Team/(28148:28156): Ciclos restantes: 1
+[DEBUG] 03:20:45:182 Team/(28148:28156): ED dormido. Posicion 7 1
+[TRACE] 03:20:45:182 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:45:182 Team/(28148:28152): EnNu: E, r3.000000. EnEx: D, r2.000000
+[INFO] 03:20:45:182 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:45:182 Team/(28148:28157): EE despierto. Posicion 4 9
+[INFO] 03:20:50:183 Team/(28148:28157): Entrenador E movido a posicon 4 10
+[TRACE] 03:20:50:183 Team/(28148:28157): Ciclos restantes: 1
+[DEBUG] 03:20:50:183 Team/(28148:28157): EE dormido. Posicion 4 10
+[TRACE] 03:20:50:183 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:50:183 Team/(28148:28152): EnNu: C, r2.000000. EnEx: E, r2.000000
+[INFO] 03:20:50:183 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:50:183 Team/(28148:28155): EC despierto. Posicion 10 7
+[INFO] 03:20:55:184 Team/(28148:28155): Entrenador C movido a posicon 10 6
+[TRACE] 03:20:55:184 Team/(28148:28155): Ciclos restantes: 1
+[DEBUG] 03:20:55:184 Team/(28148:28155): EC dormido. Posicion 10 6
+[TRACE] 03:20:55:185 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:20:55:185 Team/(28148:28152): EnNu: D, r2.000000. EnEx: C, r1.000000
+[INFO] 03:20:55:185 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:20:55:185 Team/(28148:28156): ED despierto. Posicion 7 1
+[INFO] 03:21:00:185 Team/(28148:28156): Catch efectuado en posicon 7 1 para Espeon
+[TRACE] 03:21:00:186 Team/(28148:28156): Ciclos restantes: 0
+[DEBUG] 03:21:00:186 Team/(28148:28156): ED dormido. Posicion 7 1
+[TRACE] 03:21:00:186 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:00:186 Team/(28148:28152): EnNu: E, r2.000000. EnEx: D, r1.000000
+[INFO] 03:21:00:186 Team/(28148:28152): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:21:00:186 Team/(28148:28157): EE despierto. Posicion 4 10
+[TRACE] 03:21:00:187 Team/(28148:28265): Enviado catch para: Espeon
+[INFO] 03:21:00:189 Team/(28148:28265): Mensaje CATCH_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 48
+[TRACE] 03:21:00:189 Team/(28148:28265): Recepcion id_mensaje: 48
+[TRACE] 03:21:00:189 Team/(28148:28265): Mensaje recibido manejado.
+[DEBUG] 03:21:00:189 Team/(28148:28265): Esperando caught de pokemon Espeon con id 48
+[TRACE] 03:21:03:238 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:03:239 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 49, id correlativo: 48
+[DEBUG] 03:21:03:239 Team/(28148:28164): Esperando a manejar caught
+[DEBUG] 03:21:03:239 Team/(28148:28164): Manejo mensaje caught
+[DEBUG] 03:21:03:239 Team/(28148:28164): lo atrapó!
+[DEBUG] 03:21:03:239 Team/(28148:28164): Data Entrenador A: Posicion 2 2 Estado  5
+[DEBUG] 03:21:03:239 Team/(28148:28156): ED activo. Posicion 7 1
+[TRACE] 03:21:03:239 Team/(28148:28164): Jolteon
+[TRACE] 03:21:03:239 Team/(28148:28164): Vaporeon
+[DEBUG] 03:21:03:239 Team/(28148:28164): Data Entrenador B: Posicion 4 6 Estado  5
+[TRACE] 03:21:03:239 Team/(28148:28164): Flareon
+[TRACE] 03:21:03:239 Team/(28148:28164): Jolteon
+[DEBUG] 03:21:03:239 Team/(28148:28164): Data Entrenador C: Posicion 10 6 Estado  1
+[TRACE] 03:21:03:239 Team/(28148:28164): Flareon
+[DEBUG] 03:21:03:239 Team/(28148:28164): Data Entrenador D: Posicion 7 1 Estado  4
+[TRACE] 03:21:03:239 Team/(28148:28164): Espeon
+[TRACE] 03:21:03:239 Team/(28148:28164): Umbreon
+[DEBUG] 03:21:03:240 Team/(28148:28164): Data Entrenador E: Posicion 4 10 Estado  2
+[TRACE] 03:21:03:240 Team/(28148:28164): Espeon
+[TRACE] 03:21:03:240 Team/(28148:28164): Recepcion confirmada: 10 4 48
+[TRACE] 03:21:03:240 Team/(28148:28164): Mensaje recibido manejado.
+[DEBUG] 03:21:03:240 Team/(28148:28156): ED blockeado deadlock. Posicion 7 1
+[INFO] 03:21:05:186 Team/(28148:28157): Catch efectuado en posicon 4 10 para Vaporeon
+[TRACE] 03:21:05:186 Team/(28148:28157): Ciclos restantes: 0
+[DEBUG] 03:21:05:186 Team/(28148:28157): EE dormido. Posicion 4 10
+[TRACE] 03:21:05:186 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:05:187 Team/(28148:28152): EnNu: C, r1.000000. EnEx: E, r1.000000
+[INFO] 03:21:05:187 Team/(28148:28152): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:21:05:187 Team/(28148:28155): EC despierto. Posicion 10 6
+[TRACE] 03:21:05:188 Team/(28148:28271): Enviado catch para: Vaporeon
+[INFO] 03:21:05:189 Team/(28148:28271): Mensaje CATCH_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 50
+[TRACE] 03:21:05:189 Team/(28148:28271): Recepcion id_mensaje: 50
+[TRACE] 03:21:05:189 Team/(28148:28271): Mensaje recibido manejado.
+[DEBUG] 03:21:05:189 Team/(28148:28271): Esperando caught de pokemon Vaporeon con id 50
+[TRACE] 03:21:08:274 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:08:274 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 51, id correlativo: 50
+[DEBUG] 03:21:08:274 Team/(28148:28164): Esperando a manejar caught
+[DEBUG] 03:21:08:274 Team/(28148:28164): Manejo mensaje caught
+[DEBUG] 03:21:08:274 Team/(28148:28164): lo atrapó!
+[DEBUG] 03:21:08:274 Team/(28148:28164): Data Entrenador A: Posicion 2 2 Estado  5
+[DEBUG] 03:21:08:274 Team/(28148:28157): EE activo. Posicion 4 10
+[TRACE] 03:21:08:274 Team/(28148:28164): Jolteon
+[TRACE] 03:21:08:274 Team/(28148:28164): Vaporeon
+[DEBUG] 03:21:08:274 Team/(28148:28164): Data Entrenador B: Posicion 4 6 Estado  5
+[TRACE] 03:21:08:274 Team/(28148:28164): Flareon
+[TRACE] 03:21:08:275 Team/(28148:28164): Jolteon
+[DEBUG] 03:21:08:275 Team/(28148:28164): Data Entrenador C: Posicion 10 6 Estado  2
+[TRACE] 03:21:08:275 Team/(28148:28164): Flareon
+[DEBUG] 03:21:08:275 Team/(28148:28164): Data Entrenador D: Posicion 7 1 Estado  5
+[TRACE] 03:21:08:275 Team/(28148:28164): Espeon
+[TRACE] 03:21:08:275 Team/(28148:28164): Umbreon
+[DEBUG] 03:21:08:275 Team/(28148:28164): Data Entrenador E: Posicion 4 10 Estado  4
+[TRACE] 03:21:08:275 Team/(28148:28164): Vaporeon
+[DEBUG] 03:21:08:275 Team/(28148:28157): EE blockeado deadlock. Posicion 4 10
+[TRACE] 03:21:08:275 Team/(28148:28164): Espeon
+[TRACE] 03:21:08:275 Team/(28148:28164): Recepcion confirmada: 10 4 50
+[TRACE] 03:21:08:276 Team/(28148:28164): Mensaje recibido manejado.
+[INFO] 03:21:10:187 Team/(28148:28155): Catch efectuado en posicon 10 6 para Umbreon
+[TRACE] 03:21:10:187 Team/(28148:28155): Ciclos restantes: 0
+[DEBUG] 03:21:10:187 Team/(28148:28155): EC dormido. Posicion 10 6
+[TRACE] 03:21:10:188 Team/(28148:28281): Enviado catch para: Umbreon
+[INFO] 03:21:10:189 Team/(28148:28281): Mensaje CATCH_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 53
+[TRACE] 03:21:10:189 Team/(28148:28281): Recepcion id_mensaje: 53
+[TRACE] 03:21:10:190 Team/(28148:28281): Mensaje recibido manejado.
+[DEBUG] 03:21:10:190 Team/(28148:28281): Esperando caught de pokemon Umbreon con id 53
+[TRACE] 03:21:13:27 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:13:27 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 54, id correlativo: 52
+[TRACE] 03:21:13:27 Team/(28148:28164): Aun no tengo el entrenador con el catch
+[TRACE] 03:21:13:27 Team/(28148:28164): Recepcion confirmada: 10 4 52
+[TRACE] 03:21:13:27 Team/(28148:28164): Mensaje recibido manejado.
+[TRACE] 03:21:13:244 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:13:245 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 55, id correlativo: 53
+[DEBUG] 03:21:13:245 Team/(28148:28164): Esperando a manejar caught
+[DEBUG] 03:21:13:245 Team/(28148:28164): Manejo mensaje caught
+[DEBUG] 03:21:13:245 Team/(28148:28164): lo atrapó!
+[DEBUG] 03:21:13:245 Team/(28148:28164): Data Entrenador A: Posicion 2 2 Estado  5
+[DEBUG] 03:21:13:245 Team/(28148:28155): EC activo. Posicion 10 6
+[DEBUG] 03:21:13:245 Team/(28148:28155): EC blockeado deadlock. Posicion 10 6
+[TRACE] 03:21:13:245 Team/(28148:28164): Jolteon
+[TRACE] 03:21:13:245 Team/(28148:28164): Vaporeon
+[DEBUG] 03:21:13:245 Team/(28148:28164): Data Entrenador B: Posicion 4 6 Estado  5
+[TRACE] 03:21:13:245 Team/(28148:28164): Flareon
+[TRACE] 03:21:13:245 Team/(28148:28164): Jolteon
+[DEBUG] 03:21:13:245 Team/(28148:28164): Data Entrenador C: Posicion 10 6 Estado  5
+[TRACE] 03:21:13:245 Team/(28148:28164): Umbreon
+[TRACE] 03:21:13:245 Team/(28148:28164): Flareon
+[DEBUG] 03:21:13:246 Team/(28148:28164): Data Entrenador D: Posicion 7 1 Estado  5
+[TRACE] 03:21:13:246 Team/(28148:28164): Espeon
+[TRACE] 03:21:13:246 Team/(28148:28164): Umbreon
+[DEBUG] 03:21:13:246 Team/(28148:28164): Data Entrenador E: Posicion 4 10 Estado  5
+[TRACE] 03:21:13:246 Team/(28148:28164): Vaporeon
+[TRACE] 03:21:13:246 Team/(28148:28164): Espeon
+[TRACE] 03:21:13:246 Team/(28148:28164): Recepcion confirmada: 10 4 53
+[INFO] 03:21:13:246 Team/(28148:28148): Inicio algoritmo de deteccion de deadlock
+[INFO] 03:21:13:246 Team/(28148:28148): Inicio de algoritmo de deteccion de deadlock
+[DEBUG] 03:21:13:246 Team/(28148:28148): Data Entrenador A: Posicion 2 2 Estado  5
+[TRACE] 03:21:13:246 Team/(28148:28148): Jolteon
+[TRACE] 03:21:13:246 Team/(28148:28148): Vaporeon
+[DEBUG] 03:21:13:246 Team/(28148:28148): Data Entrenador B: Posicion 4 6 Estado  5
+[TRACE] 03:21:13:246 Team/(28148:28148): Flareon
+[TRACE] 03:21:13:247 Team/(28148:28148): Jolteon
+[DEBUG] 03:21:13:247 Team/(28148:28148): Data Entrenador C: Posicion 10 6 Estado  5
+[TRACE] 03:21:13:247 Team/(28148:28148): Umbreon
+[TRACE] 03:21:13:247 Team/(28148:28148): Flareon
+[DEBUG] 03:21:13:247 Team/(28148:28148): Data Entrenador D: Posicion 7 1 Estado  5
+[TRACE] 03:21:13:247 Team/(28148:28148): Espeon
+[TRACE] 03:21:13:247 Team/(28148:28148): Umbreon
+[DEBUG] 03:21:13:247 Team/(28148:28148): Data Entrenador E: Posicion 4 10 Estado  5
+[TRACE] 03:21:13:247 Team/(28148:28148): Vaporeon
+[TRACE] 03:21:13:247 Team/(28148:28148): Espeon
+[INFO] 03:21:13:247 Team/(28148:28148): Resultado deteccion deadlock: Detectado
+[DEBUG] 03:21:13:247 Team/(28148:28148): deadlock en curso
+[DEBUG] 03:21:13:247 Team/(28148:28148): Pok buscado: Vaporeon, pok comparado: Jolteon
+[DEBUG] 03:21:13:248 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:21:13:248 Team/(28148:28148): Pok buscado: Vaporeon, pok comparado: Flareon
+[DEBUG] 03:21:13:248 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:21:13:248 Team/(28148:28148): Pok buscado: Vaporeon, pok comparado: Umbreon
+[DEBUG] 03:21:13:248 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:21:13:248 Team/(28148:28148): Pok buscado: Vaporeon, pok comparado: Espeon
+[DEBUG] 03:21:13:248 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:21:13:249 Team/(28148:28148): Pok buscado: Vaporeon, pok comparado: Vaporeon
+[DEBUG] 03:21:13:249 Team/(28148:28148): Pokemon en lista = 1
+[DEBUG] 03:21:13:249 Team/(28148:28148): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:21:13:249 Team/(28148:28148): Pokemon en lista = 0
+[TRACE] 03:21:13:249 Team/(28148:28148): Nuevo ent en ready: Posicion 2 2
+[TRACE] 03:21:13:250 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:13:250 Team/(28148:28152): EnNu: A, r2.000000. EnEx: C, r0.500000
+[INFO] 03:21:13:250 Team/(28148:28152): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:21:13:250 Team/(28148:28153): EA activo. Posicion 2 2
+[DEBUG] 03:21:13:250 Team/(28148:28153): EA despierto. Posicion 2 2
+[TRACE] 03:21:13:250 Team/(28148:28164): Mensaje recibido manejado.
+[INFO] 03:21:18:251 Team/(28148:28153): Entrenador A movido a posicon 3 2
+[TRACE] 03:21:18:251 Team/(28148:28153): Ciclos restantes: 14
+[DEBUG] 03:21:18:251 Team/(28148:28153): EA dormido. Posicion 3 2
+[TRACE] 03:21:18:251 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:18:251 Team/(28148:28152): EnNu: A, r1.000000. EnEx: A, r1.000000
+[INFO] 03:21:18:251 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:21:18:251 Team/(28148:28153): EA despierto. Posicion 3 2
+[INFO] 03:21:23:251 Team/(28148:28153): Entrenador A movido a posicon 4 2
+[TRACE] 03:21:23:251 Team/(28148:28153): Ciclos restantes: 13
+[DEBUG] 03:21:23:251 Team/(28148:28153): EA dormido. Posicion 4 2
+[TRACE] 03:21:23:251 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:23:251 Team/(28148:28152): EnNu: A, r0.000000. EnEx: A, r0.000000
+[INFO] 03:21:23:252 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:21:23:252 Team/(28148:28153): EA despierto. Posicion 4 2
+[INFO] 03:21:28:252 Team/(28148:28153): Entrenador A movido a posicon 4 3
+[TRACE] 03:21:28:253 Team/(28148:28153): Ciclos restantes: 12
+[DEBUG] 03:21:28:253 Team/(28148:28153): EA dormido. Posicion 4 3
+[TRACE] 03:21:28:253 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:28:253 Team/(28148:28152): EnNu: A, r-1.000000. EnEx: A, r-1.000000
+[INFO] 03:21:28:253 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:21:28:253 Team/(28148:28153): EA despierto. Posicion 4 3
+[INFO] 03:21:33:253 Team/(28148:28153): Entrenador A movido a posicon 4 4
+[TRACE] 03:21:33:254 Team/(28148:28153): Ciclos restantes: 11
+[DEBUG] 03:21:33:254 Team/(28148:28153): EA dormido. Posicion 4 4
+[TRACE] 03:21:33:254 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:33:254 Team/(28148:28152): EnNu: A, r-2.000000. EnEx: A, r-2.000000
+[INFO] 03:21:33:254 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:21:33:254 Team/(28148:28153): EA despierto. Posicion 4 4
+[INFO] 03:21:38:254 Team/(28148:28153): Entrenador A movido a posicon 4 5
+[TRACE] 03:21:38:255 Team/(28148:28153): Ciclos restantes: 10
+[DEBUG] 03:21:38:255 Team/(28148:28153): EA dormido. Posicion 4 5
+[TRACE] 03:21:38:255 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:38:255 Team/(28148:28152): EnNu: A, r-3.000000. EnEx: A, r-3.000000
+[INFO] 03:21:38:255 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:21:38:255 Team/(28148:28153): EA despierto. Posicion 4 5
+[INFO] 03:21:43:255 Team/(28148:28153): Entrenador A movido a posicon 4 6
+[TRACE] 03:21:43:256 Team/(28148:28153): Ciclos restantes: 9
+[DEBUG] 03:21:43:256 Team/(28148:28153): EA dormido. Posicion 4 6
+[TRACE] 03:21:43:256 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:43:256 Team/(28148:28152): EnNu: A, r-4.000000. EnEx: A, r-4.000000
+[INFO] 03:21:43:256 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:21:43:256 Team/(28148:28153): EA despierto. Posicion 4 6
+[INFO] 03:21:48:257 Team/(28148:28153): Entrenador A movido a posicon 4 7
+[TRACE] 03:21:48:257 Team/(28148:28153): Ciclos restantes: 8
+[DEBUG] 03:21:48:257 Team/(28148:28153): EA dormido. Posicion 4 7
+[TRACE] 03:21:48:257 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:48:257 Team/(28148:28152): EnNu: A, r-5.000000. EnEx: A, r-5.000000
+[INFO] 03:21:48:257 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:21:48:257 Team/(28148:28153): EA despierto. Posicion 4 7
+[INFO] 03:21:53:257 Team/(28148:28153): Entrenador A movido a posicon 4 8
+[TRACE] 03:21:53:258 Team/(28148:28153): Ciclos restantes: 7
+[DEBUG] 03:21:53:258 Team/(28148:28153): EA dormido. Posicion 4 8
+[TRACE] 03:21:53:258 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:53:258 Team/(28148:28152): EnNu: A, r-6.000000. EnEx: A, r-6.000000
+[INFO] 03:21:53:258 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:21:53:258 Team/(28148:28153): EA despierto. Posicion 4 8
+[TRACE] 03:21:58:57 Team/(28148:28164): Mensaje recibido, cod_op: 4.
+[INFO] 03:21:58:57 Team/(28148:28164): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 57, id correlativo: 56
+[TRACE] 03:21:58:57 Team/(28148:28164): Aun no tengo el entrenador con el catch
+[TRACE] 03:21:58:57 Team/(28148:28164): Recepcion confirmada: 10 4 56
+[TRACE] 03:21:58:57 Team/(28148:28164): Mensaje recibido manejado.
+[INFO] 03:21:58:258 Team/(28148:28153): Entrenador A movido a posicon 4 9
+[TRACE] 03:21:58:258 Team/(28148:28153): Ciclos restantes: 6
+[DEBUG] 03:21:58:258 Team/(28148:28153): EA dormido. Posicion 4 9
+[TRACE] 03:21:58:258 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:21:58:259 Team/(28148:28152): EnNu: A, r-7.000000. EnEx: A, r-7.000000
+[INFO] 03:21:58:259 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:21:58:259 Team/(28148:28153): EA despierto. Posicion 4 9
+[INFO] 03:22:03:259 Team/(28148:28153): Entrenador A movido a posicon 4 10
+[TRACE] 03:22:03:259 Team/(28148:28153): Ciclos restantes: 5
+[DEBUG] 03:22:03:259 Team/(28148:28153): EA dormido. Posicion 4 10
+[TRACE] 03:22:03:259 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:03:260 Team/(28148:28152): EnNu: A, r-8.000000. EnEx: A, r-8.000000
+[INFO] 03:22:03:260 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:03:260 Team/(28148:28153): EA despierto. Posicion 4 10
+[TRACE] 03:22:08:260 Team/(28148:28153): Intercambio en proceso
+[TRACE] 03:22:08:260 Team/(28148:28153): Ciclos restantes: 4
+[DEBUG] 03:22:08:260 Team/(28148:28153): EA dormido. Posicion 4 10
+[TRACE] 03:22:08:260 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:08:261 Team/(28148:28152): EnNu: A, r-9.000000. EnEx: A, r-9.000000
+[INFO] 03:22:08:261 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:08:261 Team/(28148:28153): EA despierto. Posicion 4 10
+[TRACE] 03:22:13:261 Team/(28148:28153): Intercambio en proceso
+[TRACE] 03:22:13:261 Team/(28148:28153): Ciclos restantes: 3
+[DEBUG] 03:22:13:261 Team/(28148:28153): EA dormido. Posicion 4 10
+[TRACE] 03:22:13:261 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:13:261 Team/(28148:28152): EnNu: A, r-10.000000. EnEx: A, r-10.000000
+[INFO] 03:22:13:261 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:13:261 Team/(28148:28153): EA despierto. Posicion 4 10
+[TRACE] 03:22:18:262 Team/(28148:28153): Intercambio en proceso
+[TRACE] 03:22:18:262 Team/(28148:28153): Ciclos restantes: 2
+[DEBUG] 03:22:18:262 Team/(28148:28153): EA dormido. Posicion 4 10
+[TRACE] 03:22:18:262 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:18:262 Team/(28148:28152): EnNu: A, r-11.000000. EnEx: A, r-11.000000
+[INFO] 03:22:18:262 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:18:262 Team/(28148:28153): EA despierto. Posicion 4 10
+[TRACE] 03:22:23:263 Team/(28148:28153): Intercambio en proceso
+[TRACE] 03:22:23:263 Team/(28148:28153): Ciclos restantes: 1
+[DEBUG] 03:22:23:263 Team/(28148:28153): EA dormido. Posicion 4 10
+[TRACE] 03:22:23:263 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:23:263 Team/(28148:28152): EnNu: A, r-12.000000. EnEx: A, r-12.000000
+[INFO] 03:22:23:263 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:23:263 Team/(28148:28153): EA despierto. Posicion 4 10
+[INFO] 03:22:28:263 Team/(28148:28153): Intercambio efectuado entre EA y EE
+[TRACE] 03:22:28:263 Team/(28148:28153): Ciclos restantes: 0
+[DEBUG] 03:22:28:263 Team/(28148:28153): EA dormido. Posicion 4 10
+[DEBUG] 03:22:28:264 Team/(28148:28157): EE activo. Posicion 4 10
+[DEBUG] 03:22:28:264 Team/(28148:28153): EA activo. Posicion 4 10
+[DEBUG] 03:22:28:264 Team/(28148:28153): EA pasa a exit. Posicion 4 10
+[DEBUG] 03:22:28:264 Team/(28148:28157): EE blockeado deadlock. Posicion 4 10
+[DEBUG] 03:22:28:264 Team/(28148:28148): deadlock en curso
+[DEBUG] 03:22:28:264 Team/(28148:28148): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:22:28:264 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:22:28:264 Team/(28148:28148): Pok buscado: Espeon, pok comparado: Umbreon
+[DEBUG] 03:22:28:264 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:22:28:264 Team/(28148:28148): Pok buscado: Espeon, pok comparado: Espeon
+[DEBUG] 03:22:28:264 Team/(28148:28148): Pokemon en lista = 1
+[DEBUG] 03:22:28:264 Team/(28148:28148): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:22:28:264 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:22:28:264 Team/(28148:28148): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:22:28:265 Team/(28148:28148): Pokemon en lista = 0
+[TRACE] 03:22:28:265 Team/(28148:28148): Nuevo ent en ready: Posicion 4 10
+[TRACE] 03:22:28:265 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:28:265 Team/(28148:28152): EnNu: E, r1.000000. EnEx: A, r-6.000000
+[INFO] 03:22:28:265 Team/(28148:28152): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:22:28:265 Team/(28148:28157): EE activo. Posicion 4 10
+[DEBUG] 03:22:28:265 Team/(28148:28157): EE despierto. Posicion 4 10
+[INFO] 03:22:33:265 Team/(28148:28157): Entrenador E movido a posicon 5 10
+[TRACE] 03:22:33:266 Team/(28148:28157): Ciclos restantes: 16
+[DEBUG] 03:22:33:266 Team/(28148:28157): EE dormido. Posicion 5 10
+[TRACE] 03:22:33:266 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:33:266 Team/(28148:28152): EnNu: E, r0.000000. EnEx: E, r0.000000
+[INFO] 03:22:33:266 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:33:266 Team/(28148:28157): EE despierto. Posicion 5 10
+[INFO] 03:22:38:266 Team/(28148:28157): Entrenador E movido a posicon 6 10
+[TRACE] 03:22:38:267 Team/(28148:28157): Ciclos restantes: 15
+[DEBUG] 03:22:38:267 Team/(28148:28157): EE dormido. Posicion 6 10
+[TRACE] 03:22:38:267 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:38:267 Team/(28148:28152): EnNu: E, r-1.000000. EnEx: E, r-1.000000
+[INFO] 03:22:38:267 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:38:267 Team/(28148:28157): EE despierto. Posicion 6 10
+[INFO] 03:22:43:268 Team/(28148:28157): Entrenador E movido a posicon 7 10
+[TRACE] 03:22:43:268 Team/(28148:28157): Ciclos restantes: 14
+[DEBUG] 03:22:43:268 Team/(28148:28157): EE dormido. Posicion 7 10
+[TRACE] 03:22:43:268 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:43:268 Team/(28148:28152): EnNu: E, r-2.000000. EnEx: E, r-2.000000
+[INFO] 03:22:43:268 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:43:268 Team/(28148:28157): EE despierto. Posicion 7 10
+[INFO] 03:22:48:268 Team/(28148:28157): Entrenador E movido a posicon 7 9
+[TRACE] 03:22:48:268 Team/(28148:28157): Ciclos restantes: 13
+[DEBUG] 03:22:48:269 Team/(28148:28157): EE dormido. Posicion 7 9
+[TRACE] 03:22:48:269 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:48:269 Team/(28148:28152): EnNu: E, r-3.000000. EnEx: E, r-3.000000
+[INFO] 03:22:48:269 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:48:269 Team/(28148:28157): EE despierto. Posicion 7 9
+[INFO] 03:22:53:270 Team/(28148:28157): Entrenador E movido a posicon 7 8
+[TRACE] 03:22:53:270 Team/(28148:28157): Ciclos restantes: 12
+[DEBUG] 03:22:53:270 Team/(28148:28157): EE dormido. Posicion 7 8
+[TRACE] 03:22:53:270 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:53:271 Team/(28148:28152): EnNu: E, r-4.000000. EnEx: E, r-4.000000
+[INFO] 03:22:53:271 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:53:271 Team/(28148:28157): EE despierto. Posicion 7 8
+[INFO] 03:22:58:271 Team/(28148:28157): Entrenador E movido a posicon 7 7
+[TRACE] 03:22:58:271 Team/(28148:28157): Ciclos restantes: 11
+[DEBUG] 03:22:58:272 Team/(28148:28157): EE dormido. Posicion 7 7
+[TRACE] 03:22:58:272 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:22:58:272 Team/(28148:28152): EnNu: E, r-5.000000. EnEx: E, r-5.000000
+[INFO] 03:22:58:272 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:22:58:272 Team/(28148:28157): EE despierto. Posicion 7 7
+[INFO] 03:23:03:272 Team/(28148:28157): Entrenador E movido a posicon 7 6
+[TRACE] 03:23:03:273 Team/(28148:28157): Ciclos restantes: 10
+[DEBUG] 03:23:03:273 Team/(28148:28157): EE dormido. Posicion 7 6
+[TRACE] 03:23:03:273 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:03:273 Team/(28148:28152): EnNu: E, r-6.000000. EnEx: E, r-6.000000
+[INFO] 03:23:03:273 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:03:273 Team/(28148:28157): EE despierto. Posicion 7 6
+[INFO] 03:23:08:274 Team/(28148:28157): Entrenador E movido a posicon 7 5
+[TRACE] 03:23:08:274 Team/(28148:28157): Ciclos restantes: 9
+[DEBUG] 03:23:08:274 Team/(28148:28157): EE dormido. Posicion 7 5
+[TRACE] 03:23:08:274 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:08:274 Team/(28148:28152): EnNu: E, r-7.000000. EnEx: E, r-7.000000
+[INFO] 03:23:08:274 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:08:274 Team/(28148:28157): EE despierto. Posicion 7 5
+[INFO] 03:23:13:275 Team/(28148:28157): Entrenador E movido a posicon 7 4
+[TRACE] 03:23:13:275 Team/(28148:28157): Ciclos restantes: 8
+[DEBUG] 03:23:13:275 Team/(28148:28157): EE dormido. Posicion 7 4
+[TRACE] 03:23:13:275 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:13:275 Team/(28148:28152): EnNu: E, r-8.000000. EnEx: E, r-8.000000
+[INFO] 03:23:13:275 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:13:275 Team/(28148:28157): EE despierto. Posicion 7 4
+[INFO] 03:23:18:275 Team/(28148:28157): Entrenador E movido a posicon 7 3
+[TRACE] 03:23:18:275 Team/(28148:28157): Ciclos restantes: 7
+[DEBUG] 03:23:18:275 Team/(28148:28157): EE dormido. Posicion 7 3
+[TRACE] 03:23:18:276 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:18:276 Team/(28148:28152): EnNu: E, r-9.000000. EnEx: E, r-9.000000
+[INFO] 03:23:18:276 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:18:276 Team/(28148:28157): EE despierto. Posicion 7 3
+[INFO] 03:23:23:276 Team/(28148:28157): Entrenador E movido a posicon 7 2
+[TRACE] 03:23:23:277 Team/(28148:28157): Ciclos restantes: 6
+[DEBUG] 03:23:23:277 Team/(28148:28157): EE dormido. Posicion 7 2
+[TRACE] 03:23:23:277 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:23:277 Team/(28148:28152): EnNu: E, r-10.000000. EnEx: E, r-10.000000
+[INFO] 03:23:23:277 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:23:277 Team/(28148:28157): EE despierto. Posicion 7 2
+[INFO] 03:23:28:277 Team/(28148:28157): Entrenador E movido a posicon 7 1
+[TRACE] 03:23:28:278 Team/(28148:28157): Ciclos restantes: 5
+[DEBUG] 03:23:28:278 Team/(28148:28157): EE dormido. Posicion 7 1
+[TRACE] 03:23:28:278 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:28:278 Team/(28148:28152): EnNu: E, r-11.000000. EnEx: E, r-11.000000
+[INFO] 03:23:28:278 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:28:278 Team/(28148:28157): EE despierto. Posicion 7 1
+[TRACE] 03:23:33:278 Team/(28148:28157): Intercambio en proceso
+[TRACE] 03:23:33:279 Team/(28148:28157): Ciclos restantes: 4
+[DEBUG] 03:23:33:279 Team/(28148:28157): EE dormido. Posicion 7 1
+[TRACE] 03:23:33:279 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:33:279 Team/(28148:28152): EnNu: E, r-12.000000. EnEx: E, r-12.000000
+[INFO] 03:23:33:279 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:33:279 Team/(28148:28157): EE despierto. Posicion 7 1
+[TRACE] 03:23:38:280 Team/(28148:28157): Intercambio en proceso
+[TRACE] 03:23:38:281 Team/(28148:28157): Ciclos restantes: 3
+[DEBUG] 03:23:38:281 Team/(28148:28157): EE dormido. Posicion 7 1
+[TRACE] 03:23:38:281 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:38:281 Team/(28148:28152): EnNu: E, r-13.000000. EnEx: E, r-13.000000
+[INFO] 03:23:38:282 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:38:282 Team/(28148:28157): EE despierto. Posicion 7 1
+[TRACE] 03:23:43:282 Team/(28148:28157): Intercambio en proceso
+[TRACE] 03:23:43:283 Team/(28148:28157): Ciclos restantes: 2
+[DEBUG] 03:23:43:283 Team/(28148:28157): EE dormido. Posicion 7 1
+[TRACE] 03:23:43:283 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:43:283 Team/(28148:28152): EnNu: E, r-14.000000. EnEx: E, r-14.000000
+[INFO] 03:23:43:284 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:43:284 Team/(28148:28157): EE despierto. Posicion 7 1
+[TRACE] 03:23:48:285 Team/(28148:28157): Intercambio en proceso
+[TRACE] 03:23:48:285 Team/(28148:28157): Ciclos restantes: 1
+[DEBUG] 03:23:48:285 Team/(28148:28157): EE dormido. Posicion 7 1
+[TRACE] 03:23:48:285 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:48:285 Team/(28148:28152): EnNu: E, r-15.000000. EnEx: E, r-15.000000
+[INFO] 03:23:48:285 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:48:285 Team/(28148:28157): EE despierto. Posicion 7 1
+[INFO] 03:23:53:286 Team/(28148:28157): Intercambio efectuado entre EE y ED
+[TRACE] 03:23:53:286 Team/(28148:28157): Ciclos restantes: 0
+[DEBUG] 03:23:53:286 Team/(28148:28157): EE dormido. Posicion 7 1
+[DEBUG] 03:23:53:286 Team/(28148:28156): ED activo. Posicion 7 1
+[DEBUG] 03:23:53:287 Team/(28148:28157): EE activo. Posicion 7 1
+[DEBUG] 03:23:53:287 Team/(28148:28157): EE pasa a exit. Posicion 7 1
+[DEBUG] 03:23:53:287 Team/(28148:28156): ED blockeado deadlock. Posicion 7 1
+[DEBUG] 03:23:53:287 Team/(28148:28148): deadlock en curso
+[DEBUG] 03:23:53:287 Team/(28148:28148): Pok buscado: Umbreon, pok comparado: Flareon
+[DEBUG] 03:23:53:287 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:23:53:287 Team/(28148:28148): Pok buscado: Umbreon, pok comparado: Umbreon
+[DEBUG] 03:23:53:287 Team/(28148:28148): Pokemon en lista = 1
+[DEBUG] 03:23:53:287 Team/(28148:28148): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:23:53:287 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:23:53:287 Team/(28148:28148): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:23:53:287 Team/(28148:28148): Pokemon en lista = 0
+[TRACE] 03:23:53:287 Team/(28148:28148): Nuevo ent en ready: Posicion 7 1
+[TRACE] 03:23:53:288 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:53:288 Team/(28148:28152): EnNu: D, r1.000000. EnEx: E, r-7.500000
+[INFO] 03:23:53:288 Team/(28148:28152): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:23:53:288 Team/(28148:28156): ED activo. Posicion 7 1
+[DEBUG] 03:23:53:288 Team/(28148:28156): ED despierto. Posicion 7 1
+[INFO] 03:23:58:288 Team/(28148:28156): Entrenador D movido a posicon 8 1
+[TRACE] 03:23:58:289 Team/(28148:28156): Ciclos restantes: 12
+[DEBUG] 03:23:58:289 Team/(28148:28156): ED dormido. Posicion 8 1
+[TRACE] 03:23:58:289 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:23:58:289 Team/(28148:28152): EnNu: D, r0.000000. EnEx: D, r0.000000
+[INFO] 03:23:58:289 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:23:58:289 Team/(28148:28156): ED despierto. Posicion 8 1
+[INFO] 03:24:03:290 Team/(28148:28156): Entrenador D movido a posicon 9 1
+[TRACE] 03:24:03:291 Team/(28148:28156): Ciclos restantes: 11
+[DEBUG] 03:24:03:291 Team/(28148:28156): ED dormido. Posicion 9 1
+[TRACE] 03:24:03:291 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:03:291 Team/(28148:28152): EnNu: D, r-1.000000. EnEx: D, r-1.000000
+[INFO] 03:24:03:291 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:03:291 Team/(28148:28156): ED despierto. Posicion 9 1
+[INFO] 03:24:08:292 Team/(28148:28156): Entrenador D movido a posicon 10 1
+[TRACE] 03:24:08:293 Team/(28148:28156): Ciclos restantes: 10
+[DEBUG] 03:24:08:293 Team/(28148:28156): ED dormido. Posicion 10 1
+[TRACE] 03:24:08:294 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:08:294 Team/(28148:28152): EnNu: D, r-2.000000. EnEx: D, r-2.000000
+[INFO] 03:24:08:294 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:08:294 Team/(28148:28156): ED despierto. Posicion 10 1
+[INFO] 03:24:13:295 Team/(28148:28156): Entrenador D movido a posicon 10 2
+[TRACE] 03:24:13:295 Team/(28148:28156): Ciclos restantes: 9
+[DEBUG] 03:24:13:296 Team/(28148:28156): ED dormido. Posicion 10 2
+[TRACE] 03:24:13:296 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:13:296 Team/(28148:28152): EnNu: D, r-3.000000. EnEx: D, r-3.000000
+[INFO] 03:24:13:296 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:13:296 Team/(28148:28156): ED despierto. Posicion 10 2
+[INFO] 03:24:18:296 Team/(28148:28156): Entrenador D movido a posicon 10 3
+[TRACE] 03:24:18:297 Team/(28148:28156): Ciclos restantes: 8
+[DEBUG] 03:24:18:297 Team/(28148:28156): ED dormido. Posicion 10 3
+[TRACE] 03:24:18:297 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:18:297 Team/(28148:28152): EnNu: D, r-4.000000. EnEx: D, r-4.000000
+[INFO] 03:24:18:297 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:18:298 Team/(28148:28156): ED despierto. Posicion 10 3
+[INFO] 03:24:23:298 Team/(28148:28156): Entrenador D movido a posicon 10 4
+[TRACE] 03:24:23:299 Team/(28148:28156): Ciclos restantes: 7
+[DEBUG] 03:24:23:299 Team/(28148:28156): ED dormido. Posicion 10 4
+[TRACE] 03:24:23:299 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:23:299 Team/(28148:28152): EnNu: D, r-5.000000. EnEx: D, r-5.000000
+[INFO] 03:24:23:299 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:23:299 Team/(28148:28156): ED despierto. Posicion 10 4
+[INFO] 03:24:28:300 Team/(28148:28156): Entrenador D movido a posicon 10 5
+[TRACE] 03:24:28:302 Team/(28148:28156): Ciclos restantes: 6
+[DEBUG] 03:24:28:302 Team/(28148:28156): ED dormido. Posicion 10 5
+[TRACE] 03:24:28:302 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:28:303 Team/(28148:28152): EnNu: D, r-6.000000. EnEx: D, r-6.000000
+[INFO] 03:24:28:303 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:28:303 Team/(28148:28156): ED despierto. Posicion 10 5
+[INFO] 03:24:33:304 Team/(28148:28156): Entrenador D movido a posicon 10 6
+[TRACE] 03:24:33:304 Team/(28148:28156): Ciclos restantes: 5
+[DEBUG] 03:24:33:304 Team/(28148:28156): ED dormido. Posicion 10 6
+[TRACE] 03:24:33:304 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:33:305 Team/(28148:28152): EnNu: D, r-7.000000. EnEx: D, r-7.000000
+[INFO] 03:24:33:305 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:33:305 Team/(28148:28156): ED despierto. Posicion 10 6
+[TRACE] 03:24:38:306 Team/(28148:28156): Intercambio en proceso
+[TRACE] 03:24:38:306 Team/(28148:28156): Ciclos restantes: 4
+[DEBUG] 03:24:38:307 Team/(28148:28156): ED dormido. Posicion 10 6
+[TRACE] 03:24:38:307 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:38:307 Team/(28148:28152): EnNu: D, r-8.000000. EnEx: D, r-8.000000
+[INFO] 03:24:38:307 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:38:307 Team/(28148:28156): ED despierto. Posicion 10 6
+[TRACE] 03:24:43:307 Team/(28148:28156): Intercambio en proceso
+[TRACE] 03:24:43:308 Team/(28148:28156): Ciclos restantes: 3
+[DEBUG] 03:24:43:308 Team/(28148:28156): ED dormido. Posicion 10 6
+[TRACE] 03:24:43:308 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:43:308 Team/(28148:28152): EnNu: D, r-9.000000. EnEx: D, r-9.000000
+[INFO] 03:24:43:309 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:43:309 Team/(28148:28156): ED despierto. Posicion 10 6
+[TRACE] 03:24:48:309 Team/(28148:28156): Intercambio en proceso
+[TRACE] 03:24:48:310 Team/(28148:28156): Ciclos restantes: 2
+[DEBUG] 03:24:48:310 Team/(28148:28156): ED dormido. Posicion 10 6
+[TRACE] 03:24:48:310 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:48:310 Team/(28148:28152): EnNu: D, r-10.000000. EnEx: D, r-10.000000
+[INFO] 03:24:48:310 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:48:310 Team/(28148:28156): ED despierto. Posicion 10 6
+[TRACE] 03:24:53:311 Team/(28148:28156): Intercambio en proceso
+[TRACE] 03:24:53:312 Team/(28148:28156): Ciclos restantes: 1
+[DEBUG] 03:24:53:312 Team/(28148:28156): ED dormido. Posicion 10 6
+[TRACE] 03:24:53:312 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:53:312 Team/(28148:28152): EnNu: D, r-11.000000. EnEx: D, r-11.000000
+[INFO] 03:24:53:312 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:24:53:312 Team/(28148:28156): ED despierto. Posicion 10 6
+[INFO] 03:24:58:313 Team/(28148:28156): Intercambio efectuado entre ED y EC
+[TRACE] 03:24:58:315 Team/(28148:28156): Ciclos restantes: 0
+[DEBUG] 03:24:58:316 Team/(28148:28156): ED dormido. Posicion 10 6
+[DEBUG] 03:24:58:316 Team/(28148:28155): EC activo. Posicion 10 6
+[DEBUG] 03:24:58:316 Team/(28148:28156): ED activo. Posicion 10 6
+[DEBUG] 03:24:58:316 Team/(28148:28156): ED pasa a exit. Posicion 10 6
+[DEBUG] 03:24:58:316 Team/(28148:28155): EC blockeado deadlock. Posicion 10 6
+[DEBUG] 03:24:58:316 Team/(28148:28148): deadlock en curso
+[DEBUG] 03:24:58:317 Team/(28148:28148): Pok buscado: Flareon, pok comparado: Flareon
+[DEBUG] 03:24:58:317 Team/(28148:28148): Pokemon en lista = 1
+[DEBUG] 03:24:58:317 Team/(28148:28148): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:24:58:317 Team/(28148:28148): Pokemon en lista = 0
+[DEBUG] 03:24:58:317 Team/(28148:28148): Pok buscado: Jolteon, pok comparado: Jolteon
+[DEBUG] 03:24:58:317 Team/(28148:28148): Pokemon en lista = 1
+[TRACE] 03:24:58:317 Team/(28148:28148): es intercambio ideal
+[DEBUG] 03:24:58:317 Team/(28148:28148): Pok buscado: Jolteon, pok comparado: Jolteon
+[DEBUG] 03:24:58:317 Team/(28148:28148): Pokemon en lista = 1
+[TRACE] 03:24:58:317 Team/(28148:28148): Nuevo ent en ready: Posicion 10 6
+[TRACE] 03:24:58:317 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:24:58:318 Team/(28148:28152): EnNu: C, r0.500000. EnEx: D, r-5.500000
+[INFO] 03:24:58:318 Team/(28148:28152): Cambio de entrenador por finalizacion de sus ciclos de cpu
+[DEBUG] 03:24:58:318 Team/(28148:28155): EC activo. Posicion 10 6
+[DEBUG] 03:24:58:318 Team/(28148:28155): EC despierto. Posicion 10 6
+[INFO] 03:25:03:319 Team/(28148:28155): Entrenador C movido a posicon 9 6
+[TRACE] 03:25:03:320 Team/(28148:28155): Ciclos restantes: 10
+[DEBUG] 03:25:03:320 Team/(28148:28155): EC dormido. Posicion 9 6
+[TRACE] 03:25:03:320 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:03:320 Team/(28148:28152): EnNu: C, r-0.500000. EnEx: C, r-0.500000
+[INFO] 03:25:03:320 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:03:320 Team/(28148:28155): EC despierto. Posicion 9 6
+[INFO] 03:25:08:320 Team/(28148:28155): Entrenador C movido a posicon 8 6
+[TRACE] 03:25:08:322 Team/(28148:28155): Ciclos restantes: 9
+[DEBUG] 03:25:08:322 Team/(28148:28155): EC dormido. Posicion 8 6
+[TRACE] 03:25:08:322 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:08:322 Team/(28148:28152): EnNu: C, r-1.500000. EnEx: C, r-1.500000
+[INFO] 03:25:08:322 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:08:323 Team/(28148:28155): EC despierto. Posicion 8 6
+[INFO] 03:25:13:323 Team/(28148:28155): Entrenador C movido a posicon 7 6
+[TRACE] 03:25:13:324 Team/(28148:28155): Ciclos restantes: 8
+[DEBUG] 03:25:13:324 Team/(28148:28155): EC dormido. Posicion 7 6
+[TRACE] 03:25:13:324 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:13:325 Team/(28148:28152): EnNu: C, r-2.500000. EnEx: C, r-2.500000
+[INFO] 03:25:13:325 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:13:325 Team/(28148:28155): EC despierto. Posicion 7 6
+[INFO] 03:25:18:326 Team/(28148:28155): Entrenador C movido a posicon 6 6
+[TRACE] 03:25:18:327 Team/(28148:28155): Ciclos restantes: 7
+[DEBUG] 03:25:18:327 Team/(28148:28155): EC dormido. Posicion 6 6
+[TRACE] 03:25:18:327 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:18:327 Team/(28148:28152): EnNu: C, r-3.500000. EnEx: C, r-3.500000
+[INFO] 03:25:18:327 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:18:327 Team/(28148:28155): EC despierto. Posicion 6 6
+[INFO] 03:25:23:328 Team/(28148:28155): Entrenador C movido a posicon 5 6
+[TRACE] 03:25:23:328 Team/(28148:28155): Ciclos restantes: 6
+[DEBUG] 03:25:23:328 Team/(28148:28155): EC dormido. Posicion 5 6
+[TRACE] 03:25:23:329 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:23:329 Team/(28148:28152): EnNu: C, r-4.500000. EnEx: C, r-4.500000
+[INFO] 03:25:23:329 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:23:329 Team/(28148:28155): EC despierto. Posicion 5 6
+[INFO] 03:25:28:329 Team/(28148:28155): Entrenador C movido a posicon 4 6
+[TRACE] 03:25:28:331 Team/(28148:28155): Ciclos restantes: 5
+[DEBUG] 03:25:28:332 Team/(28148:28155): EC dormido. Posicion 4 6
+[TRACE] 03:25:28:332 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:28:332 Team/(28148:28152): EnNu: C, r-5.500000. EnEx: C, r-5.500000
+[INFO] 03:25:28:332 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:28:332 Team/(28148:28155): EC despierto. Posicion 4 6
+[TRACE] 03:25:33:332 Team/(28148:28155): Intercambio en proceso
+[TRACE] 03:25:33:334 Team/(28148:28155): Ciclos restantes: 4
+[DEBUG] 03:25:33:334 Team/(28148:28155): EC dormido. Posicion 4 6
+[TRACE] 03:25:33:334 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:33:337 Team/(28148:28152): EnNu: C, r-6.500000. EnEx: C, r-6.500000
+[INFO] 03:25:33:338 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:33:338 Team/(28148:28155): EC despierto. Posicion 4 6
+[TRACE] 03:25:38:338 Team/(28148:28155): Intercambio en proceso
+[TRACE] 03:25:38:339 Team/(28148:28155): Ciclos restantes: 3
+[DEBUG] 03:25:38:339 Team/(28148:28155): EC dormido. Posicion 4 6
+[TRACE] 03:25:38:339 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:38:340 Team/(28148:28152): EnNu: C, r-7.500000. EnEx: C, r-7.500000
+[INFO] 03:25:38:340 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:38:340 Team/(28148:28155): EC despierto. Posicion 4 6
+[TRACE] 03:25:43:341 Team/(28148:28155): Intercambio en proceso
+[TRACE] 03:25:43:342 Team/(28148:28155): Ciclos restantes: 2
+[DEBUG] 03:25:43:342 Team/(28148:28155): EC dormido. Posicion 4 6
+[TRACE] 03:25:43:342 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:43:343 Team/(28148:28152): EnNu: C, r-8.500000. EnEx: C, r-8.500000
+[INFO] 03:25:43:343 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:43:343 Team/(28148:28155): EC despierto. Posicion 4 6
+[TRACE] 03:25:48:343 Team/(28148:28155): Intercambio en proceso
+[TRACE] 03:25:48:344 Team/(28148:28155): Ciclos restantes: 1
+[DEBUG] 03:25:48:344 Team/(28148:28155): EC dormido. Posicion 4 6
+[TRACE] 03:25:48:344 Team/(28148:28152): Planificador corto plazo en curso
+[DEBUG] 03:25:48:344 Team/(28148:28152): EnNu: C, r-9.500000. EnEx: C, r-9.500000
+[INFO] 03:25:48:344 Team/(28148:28152): Cambio de entrenador por finalizacion de quantum
+[DEBUG] 03:25:48:344 Team/(28148:28155): EC despierto. Posicion 4 6
+[INFO] 03:25:53:345 Team/(28148:28155): Intercambio efectuado entre EC y EB
+[TRACE] 03:25:53:346 Team/(28148:28155): Ciclos restantes: 0
+[DEBUG] 03:25:53:346 Team/(28148:28155): EC dormido. Posicion 4 6
+[DEBUG] 03:25:53:346 Team/(28148:28154): EB activo. Posicion 4 6
+[DEBUG] 03:25:53:346 Team/(28148:28155): EC activo. Posicion 4 6
+[DEBUG] 03:25:53:346 Team/(28148:28155): EC pasa a exit. Posicion 4 6
+[DEBUG] 03:25:53:347 Team/(28148:28154): EB pasa a exit. Posicion 4 6
+[INFO] 03:25:53:347 Team/(28148:28148): Inicio de algoritmo de deteccion de deadlock
+[DEBUG] 03:25:53:348 Team/(28148:28148): Data Entrenador A: Posicion 4 10 Estado  6
+[TRACE] 03:25:53:348 Team/(28148:28148): Vaporeon
+[TRACE] 03:25:53:348 Team/(28148:28148): Vaporeon
+[DEBUG] 03:25:53:348 Team/(28148:28148): Data Entrenador B: Posicion 4 6 Estado  6
+[TRACE] 03:25:53:348 Team/(28148:28148): Jolteon
+[TRACE] 03:25:53:348 Team/(28148:28148): Jolteon
+[DEBUG] 03:25:53:348 Team/(28148:28148): Data Entrenador C: Posicion 4 6 Estado  6
+[TRACE] 03:25:53:348 Team/(28148:28148): Flareon
+[TRACE] 03:25:53:348 Team/(28148:28148): Flareon
+[DEBUG] 03:25:53:348 Team/(28148:28148): Data Entrenador D: Posicion 10 6 Estado  6
+[TRACE] 03:25:53:348 Team/(28148:28148): Umbreon
+[TRACE] 03:25:53:348 Team/(28148:28148): Umbreon
+[DEBUG] 03:25:53:348 Team/(28148:28148): Data Entrenador E: Posicion 7 1 Estado  6
+[TRACE] 03:25:53:348 Team/(28148:28148): Espeon
+[TRACE] 03:25:53:348 Team/(28148:28148): Espeon
+[INFO] 03:25:53:349 Team/(28148:28148): Resultado deteccion deadlock: NO Detectado
+[INFO] 03:25:53:349 Team/(28148:28148): Ciclos CPU totales: 75
+[INFO] 03:25:53:349 Team/(28148:28148): Ciclos Totales EA = 17
+[INFO] 03:25:53:349 Team/(28148:28148): Ciclos Totales EB = 4
+[INFO] 03:25:53:349 Team/(28148:28148): Ciclos Totales EC = 16
+[INFO] 03:25:53:349 Team/(28148:28148): Ciclos Totales ED = 17
+[INFO] 03:25:53:349 Team/(28148:28148): Ciclos Totales EE = 21
+[INFO] 03:25:53:350 Team/(28148:28148): Cantidad de cambios de contexto: 150
+[INFO] 03:25:53:350 Team/(28148:28148): Deadlocks Encontrados y Resueltos: 1
+[TRACE] 03:33:47:948 Team/(28558:28558): Log inicializado
+[TRACE] 03:33:47:975 Team/(28558:28558): Entrenadores cargados
+[TRACE] 03:33:47:975 Team/(28558:28562): Entrenador lanzado: Pos 2 3
+[TRACE] 03:33:47:976 Team/(28558:28562): Entrenador lanzado: Pos 6 5
+[TRACE] 03:33:47:977 Team/(28558:28561): Iniciar conexion con gameboy
+[TRACE] 03:33:47:979 Team/(28558:28561): Esperando Cliente
+[DEBUG] 03:33:47:979 Team/(28558:28560): Pokemon en lista = 0
+[DEBUG] 03:33:47:980 Team/(28558:28560): Pok buscado: Jolteon, pok comparado: Vaporeon
+[DEBUG] 03:33:47:980 Team/(28558:28560): Pokemon en lista = 0
+[DEBUG] 03:33:47:980 Team/(28558:28560): Pok buscado: Flareon, pok comparado: Vaporeon
+[TRACE] 03:33:47:981 Team/(28558:28562): Entrenador lanzado: Pos 9 9
+[DEBUG] 03:33:47:981 Team/(28558:28560): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:33:47:982 Team/(28558:28560): Pokemon en lista = 0
+[DEBUG] 03:33:47:982 Team/(28558:28560): Pok buscado: Umbreon, pok comparado: Vaporeon
+[DEBUG] 03:33:47:983 Team/(28558:28560): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:33:47:983 Team/(28558:28560): Pok buscado: Umbreon, pok comparado: Flareon
+[DEBUG] 03:33:47:983 Team/(28558:28560): Pokemon en lista = 0
+[DEBUG] 03:33:47:984 Team/(28558:28560): Pok buscado: Espeon, pok comparado: Vaporeon
+[DEBUG] 03:33:47:984 Team/(28558:28560): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:33:47:984 Team/(28558:28560): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:33:47:985 Team/(28558:28560): Pok buscado: Espeon, pok comparado: Umbreon
+[TRACE] 03:33:47:985 Team/(28558:28559): Mensaje suscripcion enviado
+[DEBUG] 03:33:47:985 Team/(28558:28560): Pokemon en lista = 0
+[TRACE] 03:33:47:985 Team/(28558:28559): Suscripcion completada
+[TRACE] 03:33:47:985 Team/(28558:28560): Enviado get para: Vaporeon
+[TRACE] 03:33:47:986 Team/(28558:28559): Mensaje suscripcion enviado
+[TRACE] 03:33:47:986 Team/(28558:28559): Suscripcion completada
+[TRACE] 03:33:47:987 Team/(28558:28559): Mensaje suscripcion enviado
+[TRACE] 03:33:47:987 Team/(28558:28559): Suscripcion completada
+[TRACE] 03:33:47:987 Team/(28558:28562): Entrenador lanzado: Pos 9 2
+[TRACE] 03:33:47:987 Team/(28558:28562): Entrenador lanzado: Pos 2 9
+[TRACE] 03:33:47:990 Team/(28558:28570): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:47:990 Team/(28558:28570): Mensaje LOCALIZED_POKEMON: id correlativo: -1245708128, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:47:990 Team/(28558:28570): Necesito mensaje = 0
+[DEBUG] 03:33:47:990 Team/(28558:28570): Mensaje descartado: id correlativo: -1245708128, Id_mensaje: 14, Pokemon: Gengar, Cantidad: 0, Posiciones:
+[TRACE] 03:33:47:990 Team/(28558:28570): Recepcion confirmada: 9 7 -1245708128
+[TRACE] 03:33:47:991 Team/(28558:28570): Mensaje recibido manejado.
+[TRACE] 03:33:47:991 Team/(28558:28570): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:47:991 Team/(28558:28570): Mensaje LOCALIZED_POKEMON: id correlativo: -1245708128, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:47:991 Team/(28558:28570): Necesito mensaje = 0
+[DEBUG] 03:33:47:991 Team/(28558:28570): Mensaje descartado: id correlativo: -1245708128, Id_mensaje: 15, Pokemon: Onix, Cantidad: 0, Posiciones:
+[TRACE] 03:33:47:992 Team/(28558:28570): Recepcion confirmada: 9 7 -1245708128
+[TRACE] 03:33:47:992 Team/(28558:28570): Mensaje recibido manejado.
+[INFO] 03:33:47:993 Team/(28558:28560): Mensaje GET_POKEMON: Pokemon: Vaporeon, Id mensaje: 17
+[DEBUG] 03:33:47:993 Team/(28558:28560): Recepcion id_mensaje: 17
+[TRACE] 03:33:47:993 Team/(28558:28560): Mensaje recibido manejado.
+[TRACE] 03:33:47:994 Team/(28558:28560): Enviado get para: Jolteon
+[INFO] 03:33:47:0 Team/(28558:28560): Mensaje GET_POKEMON: Pokemon: Jolteon, Id mensaje: 18
+[DEBUG] 03:33:47:0 Team/(28558:28560): Recepcion id_mensaje: 18
+[TRACE] 03:33:47:0 Team/(28558:28560): Mensaje recibido manejado.
+[TRACE] 03:33:47:1 Team/(28558:28560): Enviado get para: Flareon
+[INFO] 03:33:48:24 Team/(28558:28560): Mensaje GET_POKEMON: Pokemon: Flareon, Id mensaje: 19
+[DEBUG] 03:33:48:24 Team/(28558:28560): Recepcion id_mensaje: 19
+[TRACE] 03:33:48:24 Team/(28558:28560): Mensaje recibido manejado.
+[TRACE] 03:33:48:25 Team/(28558:28560): Enviado get para: Umbreon
+[INFO] 03:33:48:32 Team/(28558:28560): Mensaje GET_POKEMON: Pokemon: Umbreon, Id mensaje: 20
+[DEBUG] 03:33:48:32 Team/(28558:28560): Recepcion id_mensaje: 20
+[TRACE] 03:33:48:32 Team/(28558:28560): Mensaje recibido manejado.
+[TRACE] 03:33:48:32 Team/(28558:28560): Enviado get para: Espeon
+[INFO] 03:33:48:37 Team/(28558:28560): Mensaje GET_POKEMON: Pokemon: Espeon, Id mensaje: 21
+[DEBUG] 03:33:48:37 Team/(28558:28560): Recepcion id_mensaje: 21
+[TRACE] 03:33:48:37 Team/(28558:28560): Mensaje recibido manejado.
+[TRACE] 03:33:49:700 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:33:49:700 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 22, id correlativo: 16
+[TRACE] 03:33:49:700 Team/(28558:28572): Aun no tengo el entrenador con el catch
+[TRACE] 03:33:49:700 Team/(28558:28572): Recepcion confirmada: 10 4 16
+[TRACE] 03:33:49:701 Team/(28558:28572): Mensaje recibido manejado.
+[TRACE] 03:33:50:5 Team/(28558:28570): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:50:5 Team/(28558:28570): Mensaje LOCALIZED_POKEMON: id correlativo: 17, Id_mensaje: 23, Pokemon: Vaporeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:50:5 Team/(28558:28570): Necesito mensaje = 1
+[DEBUG] 03:33:50:5 Team/(28558:28570): Requiero mensaje = 1
+[DEBUG] 03:33:50:5 Team/(28558:28570): Pokemon en lista = 0
+[DEBUG] 03:33:50:5 Team/(28558:28570): Manejo mensaje localized
+[TRACE] 03:33:51:5 Team/(28558:28570): Recepcion confirmada: 9 7 17
+[TRACE] 03:33:51:5 Team/(28558:28570): Mensaje recibido manejado.
+[TRACE] 03:33:51:29 Team/(28558:28570): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:51:29 Team/(28558:28570): Mensaje LOCALIZED_POKEMON: id correlativo: 18, Id_mensaje: 24, Pokemon: Jolteon, Cantidad: 2, Posiciones:2 2 4 6 
+[DEBUG] 03:33:51:30 Team/(28558:28570): Necesito mensaje = 1
+[DEBUG] 03:33:51:30 Team/(28558:28570): Requiero mensaje = 1
+[DEBUG] 03:33:51:30 Team/(28558:28570): Pok buscado: Jolteon, pok comparado: Vaporeon
+[DEBUG] 03:33:51:30 Team/(28558:28570): Pokemon en lista = 0
+[DEBUG] 03:33:51:30 Team/(28558:28570): Manejo mensaje localized
+[DEBUG] 03:33:51:30 Team/(28558:28570): Requiero mensaje = 1
+[TRACE] 03:33:51:30 Team/(28558:28570): Manejo mensaje appeared
+[TRACE] 03:33:51:30 Team/(28558:28570): Nuevo ent en ready: Posicion 2 3
+[TRACE] 03:33:51:30 Team/(28558:28570): Recepcion confirmada: 9 7 18
+[TRACE] 03:33:51:30 Team/(28558:28562): Planificador corto plazo en curso
+[TRACE] 03:33:51:30 Team/(28558:28570): Mensaje recibido manejado.
+[DEBUG] 03:33:51:31 Team/(28558:28563): EA activo. Posicion 2 3
+[DEBUG] 03:33:51:31 Team/(28558:28563): EA despierto. Posicion 2 3
+[DEBUG] 03:33:51:31 Team/(28558:28563): EA espera para cazar. Posicion 2 3
+[DEBUG] 03:33:51:31 Team/(28558:28563): EA cazando. Posicion 2 3
+[TRACE] 03:33:51:56 Team/(28558:28570): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:51:56 Team/(28558:28570): Mensaje LOCALIZED_POKEMON: id correlativo: 19, Id_mensaje: 25, Pokemon: Flareon, Cantidad: 2, Posiciones:2 2 4 6 
+[DEBUG] 03:33:51:56 Team/(28558:28570): Necesito mensaje = 1
+[DEBUG] 03:33:51:56 Team/(28558:28570): Requiero mensaje = 1
+[DEBUG] 03:33:51:56 Team/(28558:28570): Pok buscado: Flareon, pok comparado: Vaporeon
+[DEBUG] 03:33:51:56 Team/(28558:28570): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:33:51:56 Team/(28558:28570): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:33:51:56 Team/(28558:28570): Pokemon en lista = 0
+[DEBUG] 03:33:51:56 Team/(28558:28570): Manejo mensaje localized
+[DEBUG] 03:33:51:56 Team/(28558:28570): Requiero mensaje = 1
+[TRACE] 03:33:51:56 Team/(28558:28570): Manejo mensaje appeared
+[TRACE] 03:33:51:56 Team/(28558:28570): Nuevo ent en ready: Posicion 6 5
+[TRACE] 03:33:51:56 Team/(28558:28570): Recepcion confirmada: 9 7 19
+[TRACE] 03:33:51:57 Team/(28558:28562): Planificador corto plazo en curso
+[TRACE] 03:33:51:57 Team/(28558:28570): Mensaje recibido manejado.
+[DEBUG] 03:33:51:57 Team/(28558:28562): EnNu: B, r5.000000. EnEx: A, r4.000000
+[TRACE] 03:33:51:57 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:33:51:57 Team/(28558:28562): EnNu: B, r5.000000. EnEx: A, r4.000000
+[TRACE] 03:33:51:58 Team/(28558:28570): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:51:58 Team/(28558:28570): Mensaje LOCALIZED_POKEMON: id correlativo: 20, Id_mensaje: 26, Pokemon: Umbreon, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:51:58 Team/(28558:28570): Necesito mensaje = 1
+[DEBUG] 03:33:51:58 Team/(28558:28570): Requiero mensaje = 1
+[DEBUG] 03:33:51:59 Team/(28558:28570): Pok buscado: Umbreon, pok comparado: Vaporeon
+[DEBUG] 03:33:51:59 Team/(28558:28570): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:33:51:59 Team/(28558:28570): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:33:51:59 Team/(28558:28570): Pok buscado: Umbreon, pok comparado: Flareon
+[DEBUG] 03:33:51:59 Team/(28558:28570): Pok buscado: Umbreon, pok comparado: Flareon
+[DEBUG] 03:33:51:59 Team/(28558:28570): Pokemon en lista = 0
+[DEBUG] 03:33:51:59 Team/(28558:28570): Manejo mensaje localized
+[TRACE] 03:33:51:59 Team/(28558:28570): Recepcion confirmada: 9 7 20
+[TRACE] 03:33:51:59 Team/(28558:28570): Mensaje recibido manejado.
+[TRACE] 03:33:51:70 Team/(28558:28570): Mensaje recibido, cod_op: 7.
+[INFO] 03:33:51:70 Team/(28558:28570): Mensaje LOCALIZED_POKEMON: id correlativo: 21, Id_mensaje: 27, Pokemon: Espeon, Cantidad: 0, Posiciones:
+[DEBUG] 03:33:51:70 Team/(28558:28570): Necesito mensaje = 1
+[DEBUG] 03:33:51:70 Team/(28558:28570): Requiero mensaje = 1
+[DEBUG] 03:33:51:70 Team/(28558:28570): Pok buscado: Espeon, pok comparado: Vaporeon
+[DEBUG] 03:33:51:70 Team/(28558:28570): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:33:51:70 Team/(28558:28570): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:33:51:70 Team/(28558:28570): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:33:51:70 Team/(28558:28570): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:33:51:70 Team/(28558:28570): Pok buscado: Espeon, pok comparado: Umbreon
+[DEBUG] 03:33:51:71 Team/(28558:28570): Pokemon en lista = 0
+[DEBUG] 03:33:51:71 Team/(28558:28570): Manejo mensaje localized
+[TRACE] 03:33:51:72 Team/(28558:28570): Recepcion confirmada: 9 7 21
+[TRACE] 03:33:51:72 Team/(28558:28570): Mensaje recibido manejado.
+[INFO] 03:33:56:32 Team/(28558:28563): Entrenador A movido a posicon 2 2
+[TRACE] 03:33:56:32 Team/(28558:28563): Ciclos restantes: 1
+[INFO] 03:34:01:32 Team/(28558:28563): Catch efectuado en posicon 2 2 para Jolteon
+[TRACE] 03:34:01:32 Team/(28558:28563): Ciclos restantes: 0
+[DEBUG] 03:34:01:33 Team/(28558:28563): EA dormido. Posicion 2 2
+[TRACE] 03:34:01:33 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:34:01:33 Team/(28558:28562): EnNu: B, r5.000000. EnEx: A, r2.500000
+[INFO] 03:34:01:33 Team/(28558:28562): Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU
+[DEBUG] 03:34:01:33 Team/(28558:28564): EB activo. Posicion 6 5
+[DEBUG] 03:34:01:33 Team/(28558:28564): EB despierto. Posicion 6 5
+[DEBUG] 03:34:01:34 Team/(28558:28564): EB espera para cazar. Posicion 6 5
+[DEBUG] 03:34:01:34 Team/(28558:28564): EB cazando. Posicion 6 5
+[TRACE] 03:34:01:41 Team/(28558:28603): Enviado catch para: Jolteon
+[INFO] 03:34:01:55 Team/(28558:28603): Mensaje CATCH_POKEMON: Pokemon: Jolteon, Posicion X: 2, Posicion Y: 2, Id mensaje: 28
+[TRACE] 03:34:01:56 Team/(28558:28603): Recepcion id_mensaje: 28
+[TRACE] 03:34:01:56 Team/(28558:28603): Mensaje recibido manejado.
+[DEBUG] 03:34:01:56 Team/(28558:28603): Esperando caught de pokemon Jolteon con id 28
+[TRACE] 03:34:04:103 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:34:04:103 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 29, id correlativo: 28
+[DEBUG] 03:34:04:103 Team/(28558:28572): Esperando a manejar caught
+[DEBUG] 03:34:04:103 Team/(28558:28572): Manejo mensaje caught
+[DEBUG] 03:34:04:103 Team/(28558:28572): lo atrapó!
+[DEBUG] 03:34:04:103 Team/(28558:28572): Data Entrenador A: Posicion 2 2 Estado  4
+[DEBUG] 03:34:04:103 Team/(28558:28563): EA activo. Posicion 2 2
+[TRACE] 03:34:04:104 Team/(28558:28572): Jolteon
+[TRACE] 03:34:04:104 Team/(28558:28572): Vaporeon
+[DEBUG] 03:34:04:104 Team/(28558:28572): Data Entrenador B: Posicion 6 5 Estado  2
+[TRACE] 03:34:04:104 Team/(28558:28572): Jolteon
+[DEBUG] 03:34:04:104 Team/(28558:28572): Data Entrenador C: Posicion 9 9 Estado  0
+[TRACE] 03:34:04:104 Team/(28558:28572): Flareon
+[DEBUG] 03:34:04:104 Team/(28558:28572): Data Entrenador D: Posicion 9 2 Estado  0
+[TRACE] 03:34:04:104 Team/(28558:28572): Umbreon
+[DEBUG] 03:34:04:104 Team/(28558:28572): Data Entrenador E: Posicion 2 9 Estado  0
+[TRACE] 03:34:04:104 Team/(28558:28572): Espeon
+[TRACE] 03:34:04:104 Team/(28558:28572): Recepcion confirmada: 10 4 28
+[TRACE] 03:34:04:105 Team/(28558:28572): Mensaje recibido manejado.
+[DEBUG] 03:34:04:105 Team/(28558:28563): EA blockeado deadlock. Posicion 2 2
+[INFO] 03:34:06:35 Team/(28558:28564): Entrenador B movido a posicon 5 5
+[TRACE] 03:34:06:36 Team/(28558:28564): Ciclos restantes: 7
+[INFO] 03:34:11:37 Team/(28558:28564): Entrenador B movido a posicon 4 5
+[TRACE] 03:34:11:38 Team/(28558:28564): Ciclos restantes: 6
+[INFO] 03:34:16:38 Team/(28558:28564): Entrenador B movido a posicon 3 5
+[TRACE] 03:34:16:39 Team/(28558:28564): Ciclos restantes: 5
+[INFO] 03:34:21:39 Team/(28558:28564): Entrenador B movido a posicon 2 5
+[TRACE] 03:34:21:41 Team/(28558:28564): Ciclos restantes: 4
+[INFO] 03:34:26:41 Team/(28558:28564): Entrenador B movido a posicon 2 4
+[TRACE] 03:34:26:42 Team/(28558:28564): Ciclos restantes: 3
+[INFO] 03:34:31:42 Team/(28558:28564): Entrenador B movido a posicon 2 3
+[TRACE] 03:34:31:42 Team/(28558:28564): Ciclos restantes: 2
+[INFO] 03:34:36:43 Team/(28558:28564): Entrenador B movido a posicon 2 2
+[TRACE] 03:34:36:44 Team/(28558:28564): Ciclos restantes: 1
+[INFO] 03:34:41:45 Team/(28558:28564): Catch efectuado en posicon 2 2 para Flareon
+[TRACE] 03:34:41:46 Team/(28558:28564): Ciclos restantes: 0
+[DEBUG] 03:34:41:46 Team/(28558:28564): EB dormido. Posicion 2 2
+[TRACE] 03:34:41:47 Team/(28558:28615): Enviado catch para: Flareon
+[INFO] 03:34:41:66 Team/(28558:28615): Mensaje CATCH_POKEMON: Pokemon: Flareon, Posicion X: 2, Posicion Y: 2, Id mensaje: 30
+[TRACE] 03:34:41:66 Team/(28558:28615): Recepcion id_mensaje: 30
+[TRACE] 03:34:41:66 Team/(28558:28615): Mensaje recibido manejado.
+[DEBUG] 03:34:41:66 Team/(28558:28615): Esperando caught de pokemon Flareon con id 30
+[TRACE] 03:34:44:86 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:34:44:86 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 0 ID mensaje: 31, id correlativo: 30
+[DEBUG] 03:34:44:86 Team/(28558:28572): Esperando a manejar caught
+[DEBUG] 03:34:44:86 Team/(28558:28572): Manejo mensaje caught
+[TRACE] 03:34:44:86 Team/(28558:28572): Nuevo ent en ready: Posicion 2 2
+[TRACE] 03:34:44:86 Team/(28558:28572): Recepcion confirmada: 10 4 30
+[TRACE] 03:34:44:86 Team/(28558:28562): Planificador corto plazo en curso
+[TRACE] 03:34:44:86 Team/(28558:28572): Mensaje recibido manejado.
+[DEBUG] 03:34:44:86 Team/(28558:28562): EnNu: B, r2.500000. EnEx: B, r2.500000
+[DEBUG] 03:34:44:86 Team/(28558:28562): Entrenador en exec: B, r2.500000.
+[DEBUG] 03:34:44:86 Team/(28558:28564): EB activo. Posicion 2 2
+[DEBUG] 03:34:44:86 Team/(28558:28564): EB despierto. Posicion 2 2
+[DEBUG] 03:34:44:86 Team/(28558:28564): EB espera para cazar. Posicion 2 2
+[DEBUG] 03:34:44:86 Team/(28558:28564): EB cazando. Posicion 2 2
+[INFO] 03:34:49:87 Team/(28558:28564): Entrenador B movido a posicon 3 2
+[TRACE] 03:34:49:87 Team/(28558:28564): Ciclos restantes: 6
+[INFO] 03:34:54:87 Team/(28558:28564): Entrenador B movido a posicon 4 2
+[TRACE] 03:34:54:87 Team/(28558:28564): Ciclos restantes: 5
+[INFO] 03:34:59:87 Team/(28558:28564): Entrenador B movido a posicon 4 3
+[TRACE] 03:34:59:87 Team/(28558:28564): Ciclos restantes: 4
+[TRACE] 03:34:59:709 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:34:59:709 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 33, id correlativo: 32
+[TRACE] 03:34:59:709 Team/(28558:28572): Aun no tengo el entrenador con el catch
+[TRACE] 03:34:59:709 Team/(28558:28572): Recepcion confirmada: 10 4 32
+[TRACE] 03:34:59:709 Team/(28558:28572): Mensaje recibido manejado.
+[INFO] 03:35:04:88 Team/(28558:28564): Entrenador B movido a posicon 4 4
+[TRACE] 03:35:04:88 Team/(28558:28564): Ciclos restantes: 3
+[INFO] 03:35:09:88 Team/(28558:28564): Entrenador B movido a posicon 4 5
+[TRACE] 03:35:09:89 Team/(28558:28564): Ciclos restantes: 2
+[INFO] 03:35:14:89 Team/(28558:28564): Entrenador B movido a posicon 4 6
+[TRACE] 03:35:14:90 Team/(28558:28564): Ciclos restantes: 1
+[INFO] 03:35:19:90 Team/(28558:28564): Catch efectuado en posicon 4 6 para Flareon
+[TRACE] 03:35:19:91 Team/(28558:28564): Ciclos restantes: 0
+[DEBUG] 03:35:19:91 Team/(28558:28564): EB dormido. Posicion 4 6
+[TRACE] 03:35:19:93 Team/(28558:28636): Enviado catch para: Flareon
+[INFO] 03:35:19:110 Team/(28558:28636): Mensaje CATCH_POKEMON: Pokemon: Flareon, Posicion X: 4, Posicion Y: 6, Id mensaje: 34
+[TRACE] 03:35:19:110 Team/(28558:28636): Recepcion id_mensaje: 34
+[TRACE] 03:35:19:110 Team/(28558:28636): Mensaje recibido manejado.
+[DEBUG] 03:35:19:110 Team/(28558:28636): Esperando caught de pokemon Flareon con id 34
+[TRACE] 03:35:22:190 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:35:22:190 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 35, id correlativo: 34
+[DEBUG] 03:35:22:190 Team/(28558:28572): Esperando a manejar caught
+[DEBUG] 03:35:22:190 Team/(28558:28572): Manejo mensaje caught
+[DEBUG] 03:35:22:190 Team/(28558:28572): lo atrapó!
+[DEBUG] 03:35:22:190 Team/(28558:28572): Data Entrenador A: Posicion 2 2 Estado  5
+[DEBUG] 03:35:22:190 Team/(28558:28564): EB activo. Posicion 4 6
+[TRACE] 03:35:22:190 Team/(28558:28572): Jolteon
+[TRACE] 03:35:22:190 Team/(28558:28572): Vaporeon
+[DEBUG] 03:35:22:190 Team/(28558:28572): Data Entrenador B: Posicion 4 6 Estado  4
+[TRACE] 03:35:22:191 Team/(28558:28572): Flareon
+[TRACE] 03:35:22:191 Team/(28558:28572): Jolteon
+[DEBUG] 03:35:22:191 Team/(28558:28572): Data Entrenador C: Posicion 9 9 Estado  0
+[TRACE] 03:35:22:191 Team/(28558:28572): Flareon
+[DEBUG] 03:35:22:191 Team/(28558:28572): Data Entrenador D: Posicion 9 2 Estado  0
+[TRACE] 03:35:22:191 Team/(28558:28572): Umbreon
+[DEBUG] 03:35:22:191 Team/(28558:28572): Data Entrenador E: Posicion 2 9 Estado  0
+[DEBUG] 03:35:22:191 Team/(28558:28564): EB blockeado deadlock. Posicion 4 6
+[TRACE] 03:35:22:191 Team/(28558:28572): Espeon
+[TRACE] 03:35:22:193 Team/(28558:28572): Recepcion confirmada: 10 4 34
+[TRACE] 03:35:22:193 Team/(28558:28572): Mensaje recibido manejado.
+[TRACE] 03:35:34:404 Team/(28558:28568): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:404 Team/(28558:28568): Mensaje APPEARED_POKEMON: Pokemon: Onix, Posicion X: 2, Posicion Y: 8, Id mensaje: 42
+[DEBUG] 03:35:34:404 Team/(28558:28568): Requiero mensaje = 0
+[TRACE] 03:35:34:404 Team/(28558:28568): Recepcion confirmada: 7 2 42
+[TRACE] 03:35:34:404 Team/(28558:28568): Mensaje recibido manejado.
+[TRACE] 03:35:34:488 Team/(28558:28568): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:488 Team/(28558:28568): Mensaje APPEARED_POKEMON: Pokemon: Gengar, Posicion X: 6, Posicion Y: 6, Id mensaje: 43
+[DEBUG] 03:35:34:488 Team/(28558:28568): Requiero mensaje = 0
+[TRACE] 03:35:34:488 Team/(28558:28568): Recepcion confirmada: 7 2 43
+[TRACE] 03:35:34:488 Team/(28558:28568): Mensaje recibido manejado.
+[TRACE] 03:35:34:541 Team/(28558:28568): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:541 Team/(28558:28568): Mensaje APPEARED_POKEMON: Pokemon: Squirtle, Posicion X: 5, Posicion Y: 5, Id mensaje: 44
+[DEBUG] 03:35:34:541 Team/(28558:28568): Requiero mensaje = 0
+[TRACE] 03:35:34:541 Team/(28558:28568): Recepcion confirmada: 7 2 44
+[TRACE] 03:35:34:541 Team/(28558:28568): Mensaje recibido manejado.
+[TRACE] 03:35:34:619 Team/(28558:28568): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:625 Team/(28558:28568): Mensaje APPEARED_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 45
+[DEBUG] 03:35:34:632 Team/(28558:28568): Requiero mensaje = 1
+[TRACE] 03:35:34:632 Team/(28558:28568): Manejo mensaje appeared
+[TRACE] 03:35:34:633 Team/(28558:28568): Nuevo ent en ready: Posicion 9 9
+[TRACE] 03:35:34:633 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:35:34:633 Team/(28558:28562): EnNu: C, r5.000000. EnEx: B, r1.250000
+[INFO] 03:35:34:633 Team/(28558:28562): Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU
+[DEBUG] 03:35:34:634 Team/(28558:28565): EC activo. Posicion 9 9
+[DEBUG] 03:35:34:634 Team/(28558:28565): EC despierto. Posicion 9 9
+[DEBUG] 03:35:34:634 Team/(28558:28565): EC espera para cazar. Posicion 9 9
+[DEBUG] 03:35:34:634 Team/(28558:28565): EC cazando. Posicion 9 9
+[TRACE] 03:35:34:634 Team/(28558:28568): Recepcion confirmada: 7 2 45
+[TRACE] 03:35:34:634 Team/(28558:28568): Mensaje recibido manejado.
+[TRACE] 03:35:34:658 Team/(28558:28568): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:658 Team/(28558:28568): Mensaje APPEARED_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 46
+[DEBUG] 03:35:34:658 Team/(28558:28568): Requiero mensaje = 1
+[TRACE] 03:35:34:658 Team/(28558:28568): Manejo mensaje appeared
+[TRACE] 03:35:34:658 Team/(28558:28568): Nuevo ent en ready: Posicion 9 2
+[TRACE] 03:35:34:668 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:35:34:670 Team/(28558:28562): EnNu: D, r5.000000. EnEx: C, r4.000000
+[TRACE] 03:35:34:670 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:35:34:670 Team/(28558:28562): EnNu: D, r5.000000. EnEx: C, r4.000000
+[TRACE] 03:35:34:670 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:35:34:670 Team/(28558:28562): EnNu: D, r5.000000. EnEx: C, r4.000000
+[TRACE] 03:35:34:684 Team/(28558:28568): Recepcion confirmada: 7 2 46
+[TRACE] 03:35:34:684 Team/(28558:28568): Mensaje recibido manejado.
+[TRACE] 03:35:34:700 Team/(28558:28568): Mensaje recibido, cod_op: 2.
+[INFO] 03:35:34:701 Team/(28558:28568): Mensaje APPEARED_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 47
+[DEBUG] 03:35:34:701 Team/(28558:28568): Requiero mensaje = 1
+[TRACE] 03:35:34:701 Team/(28558:28568): Manejo mensaje appeared
+[TRACE] 03:35:34:701 Team/(28558:28568): Nuevo ent en ready: Posicion 2 9
+[TRACE] 03:35:34:701 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:35:34:701 Team/(28558:28562): EnNu: E, r5.000000. EnEx: C, r4.000000
+[TRACE] 03:35:34:702 Team/(28558:28568): Recepcion confirmada: 7 2 47
+[TRACE] 03:35:34:702 Team/(28558:28568): Mensaje recibido manejado.
+[INFO] 03:35:39:634 Team/(28558:28565): Entrenador C movido a posicon 10 9
+[TRACE] 03:35:39:634 Team/(28558:28565): Ciclos restantes: 4
+[INFO] 03:35:44:635 Team/(28558:28565): Entrenador C movido a posicon 10 8
+[TRACE] 03:35:44:635 Team/(28558:28565): Ciclos restantes: 3
+[INFO] 03:35:49:635 Team/(28558:28565): Entrenador C movido a posicon 10 7
+[TRACE] 03:35:49:635 Team/(28558:28565): Ciclos restantes: 2
+[INFO] 03:35:54:637 Team/(28558:28565): Entrenador C movido a posicon 10 6
+[TRACE] 03:35:54:637 Team/(28558:28565): Ciclos restantes: 1
+[INFO] 03:35:59:638 Team/(28558:28565): Catch efectuado en posicon 10 6 para Umbreon
+[TRACE] 03:35:59:638 Team/(28558:28565): Ciclos restantes: 0
+[DEBUG] 03:35:59:638 Team/(28558:28565): EC dormido. Posicion 10 6
+[TRACE] 03:35:59:638 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:35:59:638 Team/(28558:28562): EnNu: E, r5.000000. EnEx: C, r2.500000
+[INFO] 03:35:59:638 Team/(28558:28562): Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU
+[DEBUG] 03:35:59:638 Team/(28558:28574): EE activo. Posicion 2 9
+[DEBUG] 03:35:59:638 Team/(28558:28574): EE despierto. Posicion 2 9
+[DEBUG] 03:35:59:639 Team/(28558:28574): EE espera para cazar. Posicion 2 9
+[DEBUG] 03:35:59:639 Team/(28558:28574): EE cazando. Posicion 2 9
+[TRACE] 03:35:59:640 Team/(28558:28685): Enviado catch para: Umbreon
+[INFO] 03:35:59:657 Team/(28558:28685): Mensaje CATCH_POKEMON: Pokemon: Umbreon, Posicion X: 10, Posicion Y: 6, Id mensaje: 48
+[TRACE] 03:35:59:657 Team/(28558:28685): Recepcion id_mensaje: 48
+[TRACE] 03:35:59:658 Team/(28558:28685): Mensaje recibido manejado.
+[DEBUG] 03:35:59:658 Team/(28558:28685): Esperando caught de pokemon Umbreon con id 48
+[TRACE] 03:36:02:707 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:02:707 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 49, id correlativo: 48
+[DEBUG] 03:36:02:707 Team/(28558:28572): Esperando a manejar caught
+[DEBUG] 03:36:02:707 Team/(28558:28572): Manejo mensaje caught
+[DEBUG] 03:36:02:707 Team/(28558:28572): lo atrapó!
+[DEBUG] 03:36:02:708 Team/(28558:28572): Data Entrenador A: Posicion 2 2 Estado  5
+[DEBUG] 03:36:02:708 Team/(28558:28565): EC activo. Posicion 10 6
+[TRACE] 03:36:02:708 Team/(28558:28572): Jolteon
+[TRACE] 03:36:02:708 Team/(28558:28572): Vaporeon
+[DEBUG] 03:36:02:708 Team/(28558:28572): Data Entrenador B: Posicion 4 6 Estado  5
+[TRACE] 03:36:02:708 Team/(28558:28572): Flareon
+[TRACE] 03:36:02:708 Team/(28558:28572): Jolteon
+[DEBUG] 03:36:02:708 Team/(28558:28572): Data Entrenador C: Posicion 10 6 Estado  4
+[TRACE] 03:36:02:708 Team/(28558:28572): Umbreon
+[TRACE] 03:36:02:708 Team/(28558:28572): Flareon
+[DEBUG] 03:36:02:708 Team/(28558:28572): Data Entrenador D: Posicion 9 2 Estado  1
+[TRACE] 03:36:02:708 Team/(28558:28572): Umbreon
+[DEBUG] 03:36:02:708 Team/(28558:28572): Data Entrenador E: Posicion 2 9 Estado  2
+[TRACE] 03:36:02:708 Team/(28558:28572): Espeon
+[TRACE] 03:36:02:709 Team/(28558:28572): Recepcion confirmada: 10 4 48
+[TRACE] 03:36:02:709 Team/(28558:28572): Mensaje recibido manejado.
+[DEBUG] 03:36:02:709 Team/(28558:28565): EC blockeado deadlock. Posicion 10 6
+[INFO] 03:36:04:639 Team/(28558:28574): Entrenador E movido a posicon 3 9
+[TRACE] 03:36:04:639 Team/(28558:28574): Ciclos restantes: 3
+[INFO] 03:36:09:640 Team/(28558:28574): Entrenador E movido a posicon 4 9
+[TRACE] 03:36:09:640 Team/(28558:28574): Ciclos restantes: 2
+[TRACE] 03:36:12:473 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:12:473 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 51, id correlativo: 50
+[TRACE] 03:36:12:473 Team/(28558:28572): Aun no tengo el entrenador con el catch
+[TRACE] 03:36:12:473 Team/(28558:28572): Recepcion confirmada: 10 4 50
+[TRACE] 03:36:12:473 Team/(28558:28572): Mensaje recibido manejado.
+[INFO] 03:36:14:640 Team/(28558:28574): Entrenador E movido a posicon 4 10
+[TRACE] 03:36:14:640 Team/(28558:28574): Ciclos restantes: 1
+[INFO] 03:36:19:641 Team/(28558:28574): Catch efectuado en posicon 4 10 para Vaporeon
+[TRACE] 03:36:19:641 Team/(28558:28574): Ciclos restantes: 0
+[DEBUG] 03:36:19:641 Team/(28558:28574): EE dormido. Posicion 4 10
+[TRACE] 03:36:19:641 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:36:19:641 Team/(28558:28562): EnNu: D, r5.000000. EnEx: E, r2.500000
+[INFO] 03:36:19:642 Team/(28558:28562): Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU
+[DEBUG] 03:36:19:642 Team/(28558:28573): ED activo. Posicion 9 2
+[DEBUG] 03:36:19:642 Team/(28558:28573): ED despierto. Posicion 9 2
+[DEBUG] 03:36:19:642 Team/(28558:28573): ED espera para cazar. Posicion 9 2
+[DEBUG] 03:36:19:642 Team/(28558:28573): ED cazando. Posicion 9 2
+[TRACE] 03:36:19:649 Team/(28558:28707): Enviado catch para: Vaporeon
+[INFO] 03:36:19:662 Team/(28558:28707): Mensaje CATCH_POKEMON: Pokemon: Vaporeon, Posicion X: 4, Posicion Y: 10, Id mensaje: 52
+[TRACE] 03:36:19:663 Team/(28558:28707): Recepcion id_mensaje: 52
+[TRACE] 03:36:19:663 Team/(28558:28707): Mensaje recibido manejado.
+[DEBUG] 03:36:19:663 Team/(28558:28707): Esperando caught de pokemon Vaporeon con id 52
+[TRACE] 03:36:22:685 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:22:685 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 53, id correlativo: 52
+[DEBUG] 03:36:22:686 Team/(28558:28572): Esperando a manejar caught
+[DEBUG] 03:36:22:686 Team/(28558:28572): Manejo mensaje caught
+[DEBUG] 03:36:22:686 Team/(28558:28572): lo atrapó!
+[DEBUG] 03:36:22:686 Team/(28558:28572): Data Entrenador A: Posicion 2 2 Estado  5
+[DEBUG] 03:36:22:686 Team/(28558:28574): EE activo. Posicion 4 10
+[TRACE] 03:36:22:686 Team/(28558:28572): Jolteon
+[TRACE] 03:36:22:686 Team/(28558:28572): Vaporeon
+[DEBUG] 03:36:22:686 Team/(28558:28572): Data Entrenador B: Posicion 4 6 Estado  5
+[TRACE] 03:36:22:686 Team/(28558:28572): Flareon
+[TRACE] 03:36:22:686 Team/(28558:28572): Jolteon
+[DEBUG] 03:36:22:686 Team/(28558:28572): Data Entrenador C: Posicion 10 6 Estado  5
+[TRACE] 03:36:22:686 Team/(28558:28572): Umbreon
+[TRACE] 03:36:22:686 Team/(28558:28572): Flareon
+[DEBUG] 03:36:22:686 Team/(28558:28572): Data Entrenador D: Posicion 9 2 Estado  2
+[TRACE] 03:36:22:686 Team/(28558:28572): Umbreon
+[DEBUG] 03:36:22:686 Team/(28558:28572): Data Entrenador E: Posicion 4 10 Estado  4
+[TRACE] 03:36:22:687 Team/(28558:28572): Vaporeon
+[TRACE] 03:36:22:687 Team/(28558:28572): Espeon
+[TRACE] 03:36:22:687 Team/(28558:28572): Recepcion confirmada: 10 4 52
+[TRACE] 03:36:22:687 Team/(28558:28572): Mensaje recibido manejado.
+[DEBUG] 03:36:22:687 Team/(28558:28574): EE blockeado deadlock. Posicion 4 10
+[INFO] 03:36:24:643 Team/(28558:28573): Entrenador D movido a posicon 8 2
+[TRACE] 03:36:24:643 Team/(28558:28573): Ciclos restantes: 3
+[INFO] 03:36:29:644 Team/(28558:28573): Entrenador D movido a posicon 7 2
+[TRACE] 03:36:29:644 Team/(28558:28573): Ciclos restantes: 2
+[INFO] 03:36:34:644 Team/(28558:28573): Entrenador D movido a posicon 7 1
+[TRACE] 03:36:34:644 Team/(28558:28573): Ciclos restantes: 1
+[INFO] 03:36:39:644 Team/(28558:28573): Catch efectuado en posicon 7 1 para Espeon
+[TRACE] 03:36:39:644 Team/(28558:28573): Ciclos restantes: 0
+[DEBUG] 03:36:39:644 Team/(28558:28573): ED dormido. Posicion 7 1
+[TRACE] 03:36:39:645 Team/(28558:28726): Enviado catch para: Espeon
+[INFO] 03:36:39:647 Team/(28558:28726): Mensaje CATCH_POKEMON: Pokemon: Espeon, Posicion X: 7, Posicion Y: 1, Id mensaje: 55
+[TRACE] 03:36:39:647 Team/(28558:28726): Recepcion id_mensaje: 55
+[TRACE] 03:36:39:647 Team/(28558:28726): Mensaje recibido manejado.
+[DEBUG] 03:36:39:647 Team/(28558:28726): Esperando caught de pokemon Espeon con id 55
+[TRACE] 03:36:42:483 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:42:483 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 56, id correlativo: 54
+[TRACE] 03:36:42:484 Team/(28558:28572): Aun no tengo el entrenador con el catch
+[TRACE] 03:36:42:484 Team/(28558:28572): Recepcion confirmada: 10 4 54
+[TRACE] 03:36:42:484 Team/(28558:28572): Mensaje recibido manejado.
+[TRACE] 03:36:42:702 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:36:42:702 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 57, id correlativo: 55
+[DEBUG] 03:36:42:702 Team/(28558:28572): Esperando a manejar caught
+[DEBUG] 03:36:42:702 Team/(28558:28572): Manejo mensaje caught
+[DEBUG] 03:36:42:702 Team/(28558:28572): lo atrapó!
+[DEBUG] 03:36:42:702 Team/(28558:28572): Data Entrenador A: Posicion 2 2 Estado  5
+[DEBUG] 03:36:42:702 Team/(28558:28573): ED activo. Posicion 7 1
+[TRACE] 03:36:42:702 Team/(28558:28572): Jolteon
+[TRACE] 03:36:42:702 Team/(28558:28572): Vaporeon
+[DEBUG] 03:36:42:702 Team/(28558:28572): Data Entrenador B: Posicion 4 6 Estado  5
+[TRACE] 03:36:42:702 Team/(28558:28572): Flareon
+[TRACE] 03:36:42:702 Team/(28558:28572): Jolteon
+[DEBUG] 03:36:42:702 Team/(28558:28572): Data Entrenador C: Posicion 10 6 Estado  5
+[TRACE] 03:36:42:703 Team/(28558:28572): Umbreon
+[TRACE] 03:36:42:703 Team/(28558:28572): Flareon
+[DEBUG] 03:36:42:703 Team/(28558:28572): Data Entrenador D: Posicion 7 1 Estado  4
+[TRACE] 03:36:42:703 Team/(28558:28572): Espeon
+[TRACE] 03:36:42:703 Team/(28558:28572): Umbreon
+[DEBUG] 03:36:42:703 Team/(28558:28572): Data Entrenador E: Posicion 4 10 Estado  5
+[TRACE] 03:36:42:703 Team/(28558:28572): Vaporeon
+[TRACE] 03:36:42:703 Team/(28558:28572): Espeon
+[TRACE] 03:36:42:703 Team/(28558:28572): Recepcion confirmada: 10 4 55
+[INFO] 03:36:42:703 Team/(28558:28558): Inicio algoritmo de deteccion de deadlock
+[INFO] 03:36:42:703 Team/(28558:28558): Inicio de algoritmo de deteccion de deadlock
+[DEBUG] 03:36:42:703 Team/(28558:28558): Data Entrenador A: Posicion 2 2 Estado  5
+[TRACE] 03:36:42:703 Team/(28558:28558): Jolteon
+[TRACE] 03:36:42:704 Team/(28558:28558): Vaporeon
+[DEBUG] 03:36:42:704 Team/(28558:28558): Data Entrenador B: Posicion 4 6 Estado  5
+[TRACE] 03:36:42:704 Team/(28558:28558): Flareon
+[TRACE] 03:36:42:704 Team/(28558:28558): Jolteon
+[DEBUG] 03:36:42:704 Team/(28558:28558): Data Entrenador C: Posicion 10 6 Estado  5
+[TRACE] 03:36:42:704 Team/(28558:28558): Umbreon
+[TRACE] 03:36:42:704 Team/(28558:28558): Flareon
+[DEBUG] 03:36:42:704 Team/(28558:28558): Data Entrenador D: Posicion 7 1 Estado  4
+[TRACE] 03:36:42:704 Team/(28558:28558): Espeon
+[TRACE] 03:36:42:704 Team/(28558:28558): Umbreon
+[DEBUG] 03:36:42:704 Team/(28558:28558): Data Entrenador E: Posicion 4 10 Estado  5
+[TRACE] 03:36:42:704 Team/(28558:28558): Vaporeon
+[TRACE] 03:36:42:704 Team/(28558:28558): Espeon
+[INFO] 03:36:42:704 Team/(28558:28558): Resultado deteccion deadlock: Detectado
+[DEBUG] 03:36:42:704 Team/(28558:28558): deadlock en curso
+[DEBUG] 03:36:42:704 Team/(28558:28558): Pok buscado: Vaporeon, pok comparado: Jolteon
+[DEBUG] 03:36:42:704 Team/(28558:28558): Pokemon en lista = 0
+[DEBUG] 03:36:42:705 Team/(28558:28558): Pok buscado: Vaporeon, pok comparado: Flareon
+[DEBUG] 03:36:42:705 Team/(28558:28558): Pokemon en lista = 0
+[DEBUG] 03:36:42:705 Team/(28558:28558): Pok buscado: Vaporeon, pok comparado: Umbreon
+[DEBUG] 03:36:42:705 Team/(28558:28558): Pokemon en lista = 0
+[DEBUG] 03:36:42:705 Team/(28558:28558): Pok buscado: Vaporeon, pok comparado: Vaporeon
+[DEBUG] 03:36:42:705 Team/(28558:28573): ED blockeado deadlock. Posicion 7 1
+[TRACE] 03:36:42:705 Team/(28558:28572): Mensaje recibido manejado.
+[DEBUG] 03:36:42:705 Team/(28558:28558): Pokemon en lista = 1
+[DEBUG] 03:36:42:705 Team/(28558:28558): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:36:42:705 Team/(28558:28558): Pokemon en lista = 0
+[TRACE] 03:36:42:706 Team/(28558:28558): Nuevo ent en ready: Posicion 2 2
+[TRACE] 03:36:42:706 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:36:42:706 Team/(28558:28562): EnNu: A, r2.500000. EnEx: D, r2.500000
+[INFO] 03:36:42:706 Team/(28558:28562): Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU
+[DEBUG] 03:36:42:706 Team/(28558:28563): EA activo. Posicion 2 2
+[DEBUG] 03:36:42:706 Team/(28558:28563): EA despierto. Posicion 2 2
+[INFO] 03:36:47:707 Team/(28558:28563): Entrenador A movido a posicon 3 2
+[TRACE] 03:36:47:707 Team/(28558:28563): Ciclos restantes: 14
+[INFO] 03:36:52:707 Team/(28558:28563): Entrenador A movido a posicon 4 2
+[TRACE] 03:36:52:708 Team/(28558:28563): Ciclos restantes: 13
+[INFO] 03:36:57:708 Team/(28558:28563): Entrenador A movido a posicon 4 3
+[TRACE] 03:36:57:708 Team/(28558:28563): Ciclos restantes: 12
+[INFO] 03:37:02:709 Team/(28558:28563): Entrenador A movido a posicon 4 4
+[TRACE] 03:37:02:709 Team/(28558:28563): Ciclos restantes: 11
+[INFO] 03:37:07:710 Team/(28558:28563): Entrenador A movido a posicon 4 5
+[TRACE] 03:37:07:710 Team/(28558:28563): Ciclos restantes: 10
+[INFO] 03:37:12:711 Team/(28558:28563): Entrenador A movido a posicon 4 6
+[TRACE] 03:37:12:711 Team/(28558:28563): Ciclos restantes: 9
+[INFO] 03:37:17:712 Team/(28558:28563): Entrenador A movido a posicon 4 7
+[TRACE] 03:37:17:712 Team/(28558:28563): Ciclos restantes: 8
+[INFO] 03:37:22:713 Team/(28558:28563): Entrenador A movido a posicon 4 8
+[TRACE] 03:37:22:713 Team/(28558:28563): Ciclos restantes: 7
+[TRACE] 03:37:27:539 Team/(28558:28572): Mensaje recibido, cod_op: 4.
+[INFO] 03:37:27:539 Team/(28558:28572): Mensaje CAUGHT_POKEMON: ok/fail: 1 ID mensaje: 59, id correlativo: 58
+[TRACE] 03:37:27:539 Team/(28558:28572): Aun no tengo el entrenador con el catch
+[TRACE] 03:37:27:539 Team/(28558:28572): Recepcion confirmada: 10 4 58
+[TRACE] 03:37:27:539 Team/(28558:28572): Mensaje recibido manejado.
+[INFO] 03:37:27:713 Team/(28558:28563): Entrenador A movido a posicon 4 9
+[TRACE] 03:37:27:714 Team/(28558:28563): Ciclos restantes: 6
+[INFO] 03:37:32:714 Team/(28558:28563): Entrenador A movido a posicon 4 10
+[TRACE] 03:37:32:714 Team/(28558:28563): Ciclos restantes: 5
+[TRACE] 03:37:37:715 Team/(28558:28563): Intercambio en proceso
+[TRACE] 03:37:37:715 Team/(28558:28563): Ciclos restantes: 4
+[TRACE] 03:37:42:716 Team/(28558:28563): Intercambio en proceso
+[TRACE] 03:37:42:717 Team/(28558:28563): Ciclos restantes: 3
+[TRACE] 03:37:47:717 Team/(28558:28563): Intercambio en proceso
+[TRACE] 03:37:47:717 Team/(28558:28563): Ciclos restantes: 2
+[TRACE] 03:37:52:717 Team/(28558:28563): Intercambio en proceso
+[TRACE] 03:37:52:717 Team/(28558:28563): Ciclos restantes: 1
+[INFO] 03:37:57:718 Team/(28558:28563): Intercambio efectuado entre EA y EE
+[TRACE] 03:37:57:718 Team/(28558:28563): Ciclos restantes: 0
+[DEBUG] 03:37:57:718 Team/(28558:28563): EA dormido. Posicion 4 10
+[DEBUG] 03:37:57:718 Team/(28558:28574): EE activo. Posicion 4 10
+[DEBUG] 03:37:57:718 Team/(28558:28563): EA activo. Posicion 4 10
+[DEBUG] 03:37:57:718 Team/(28558:28563): EA pasa a exit. Posicion 4 10
+[DEBUG] 03:37:57:718 Team/(28558:28574): EE blockeado deadlock. Posicion 4 10
+[DEBUG] 03:37:57:719 Team/(28558:28558): deadlock en curso
+[DEBUG] 03:37:57:719 Team/(28558:28558): Pok buscado: Espeon, pok comparado: Flareon
+[DEBUG] 03:37:57:719 Team/(28558:28558): Pokemon en lista = 0
+[DEBUG] 03:37:57:719 Team/(28558:28558): Pok buscado: Espeon, pok comparado: Umbreon
+[DEBUG] 03:37:57:719 Team/(28558:28558): Pokemon en lista = 0
+[DEBUG] 03:37:57:719 Team/(28558:28558): Pok buscado: Espeon, pok comparado: Espeon
+[DEBUG] 03:37:57:719 Team/(28558:28558): Pokemon en lista = 1
+[DEBUG] 03:37:57:719 Team/(28558:28558): Pok buscado: Espeon, pok comparado: Jolteon
+[DEBUG] 03:37:57:719 Team/(28558:28558): Pokemon en lista = 0
+[DEBUG] 03:37:57:719 Team/(28558:28558): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:37:57:720 Team/(28558:28558): Pokemon en lista = 0
+[TRACE] 03:37:57:720 Team/(28558:28558): Nuevo ent en ready: Posicion 4 10
+[TRACE] 03:37:57:720 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:37:57:720 Team/(28558:28562): EnNu: E, r2.500000. EnEx: A, r1.250000
+[INFO] 03:37:57:720 Team/(28558:28562): Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU
+[DEBUG] 03:37:57:720 Team/(28558:28574): EE activo. Posicion 4 10
+[DEBUG] 03:37:57:720 Team/(28558:28574): EE despierto. Posicion 4 10
+[INFO] 03:38:02:720 Team/(28558:28574): Entrenador E movido a posicon 5 10
+[TRACE] 03:38:02:720 Team/(28558:28574): Ciclos restantes: 16
+[INFO] 03:38:07:721 Team/(28558:28574): Entrenador E movido a posicon 6 10
+[TRACE] 03:38:07:721 Team/(28558:28574): Ciclos restantes: 15
+[INFO] 03:38:12:721 Team/(28558:28574): Entrenador E movido a posicon 7 10
+[TRACE] 03:38:12:721 Team/(28558:28574): Ciclos restantes: 14
+[INFO] 03:38:17:721 Team/(28558:28574): Entrenador E movido a posicon 7 9
+[TRACE] 03:38:17:721 Team/(28558:28574): Ciclos restantes: 13
+[INFO] 03:38:22:722 Team/(28558:28574): Entrenador E movido a posicon 7 8
+[TRACE] 03:38:22:723 Team/(28558:28574): Ciclos restantes: 12
+[INFO] 03:38:27:724 Team/(28558:28574): Entrenador E movido a posicon 7 7
+[TRACE] 03:38:27:724 Team/(28558:28574): Ciclos restantes: 11
+[INFO] 03:38:32:724 Team/(28558:28574): Entrenador E movido a posicon 7 6
+[TRACE] 03:38:32:724 Team/(28558:28574): Ciclos restantes: 10
+[INFO] 03:38:37:725 Team/(28558:28574): Entrenador E movido a posicon 7 5
+[TRACE] 03:38:37:725 Team/(28558:28574): Ciclos restantes: 9
+[INFO] 03:38:42:726 Team/(28558:28574): Entrenador E movido a posicon 7 4
+[TRACE] 03:38:42:726 Team/(28558:28574): Ciclos restantes: 8
+[INFO] 03:38:47:727 Team/(28558:28574): Entrenador E movido a posicon 7 3
+[TRACE] 03:38:47:729 Team/(28558:28574): Ciclos restantes: 7
+[INFO] 03:38:52:729 Team/(28558:28574): Entrenador E movido a posicon 7 2
+[TRACE] 03:38:52:731 Team/(28558:28574): Ciclos restantes: 6
+[INFO] 03:38:57:731 Team/(28558:28574): Entrenador E movido a posicon 7 1
+[TRACE] 03:38:57:731 Team/(28558:28574): Ciclos restantes: 5
+[TRACE] 03:39:02:732 Team/(28558:28574): Intercambio en proceso
+[TRACE] 03:39:02:733 Team/(28558:28574): Ciclos restantes: 4
+[TRACE] 03:39:07:733 Team/(28558:28574): Intercambio en proceso
+[TRACE] 03:39:07:734 Team/(28558:28574): Ciclos restantes: 3
+[TRACE] 03:39:12:735 Team/(28558:28574): Intercambio en proceso
+[TRACE] 03:39:12:735 Team/(28558:28574): Ciclos restantes: 2
+[TRACE] 03:39:17:736 Team/(28558:28574): Intercambio en proceso
+[TRACE] 03:39:17:737 Team/(28558:28574): Ciclos restantes: 1
+[INFO] 03:39:22:737 Team/(28558:28574): Intercambio efectuado entre EE y ED
+[TRACE] 03:39:22:738 Team/(28558:28574): Ciclos restantes: 0
+[DEBUG] 03:39:22:740 Team/(28558:28574): EE dormido. Posicion 7 1
+[DEBUG] 03:39:22:740 Team/(28558:28573): ED activo. Posicion 7 1
+[DEBUG] 03:39:22:741 Team/(28558:28574): EE activo. Posicion 7 1
+[DEBUG] 03:39:22:741 Team/(28558:28574): EE pasa a exit. Posicion 7 1
+[DEBUG] 03:39:22:741 Team/(28558:28573): ED blockeado deadlock. Posicion 7 1
+[DEBUG] 03:39:22:741 Team/(28558:28558): deadlock en curso
+[DEBUG] 03:39:22:741 Team/(28558:28558): Pok buscado: Umbreon, pok comparado: Flareon
+[DEBUG] 03:39:22:741 Team/(28558:28558): Pokemon en lista = 0
+[DEBUG] 03:39:22:741 Team/(28558:28558): Pok buscado: Umbreon, pok comparado: Umbreon
+[DEBUG] 03:39:22:742 Team/(28558:28558): Pokemon en lista = 1
+[DEBUG] 03:39:22:742 Team/(28558:28558): Pok buscado: Umbreon, pok comparado: Jolteon
+[DEBUG] 03:39:22:742 Team/(28558:28558): Pokemon en lista = 0
+[DEBUG] 03:39:22:742 Team/(28558:28558): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:39:22:742 Team/(28558:28558): Pokemon en lista = 0
+[TRACE] 03:39:22:742 Team/(28558:28558): Nuevo ent en ready: Posicion 7 1
+[TRACE] 03:39:22:742 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:39:22:742 Team/(28558:28562): EnNu: D, r2.500000. EnEx: E, r1.250000
+[INFO] 03:39:22:742 Team/(28558:28562): Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU
+[DEBUG] 03:39:22:742 Team/(28558:28573): ED activo. Posicion 7 1
+[DEBUG] 03:39:22:742 Team/(28558:28573): ED despierto. Posicion 7 1
+[INFO] 03:39:27:743 Team/(28558:28573): Entrenador D movido a posicon 8 1
+[TRACE] 03:39:27:743 Team/(28558:28573): Ciclos restantes: 12
+[INFO] 03:39:32:744 Team/(28558:28573): Entrenador D movido a posicon 9 1
+[TRACE] 03:39:32:745 Team/(28558:28573): Ciclos restantes: 11
+[INFO] 03:39:37:745 Team/(28558:28573): Entrenador D movido a posicon 10 1
+[TRACE] 03:39:37:746 Team/(28558:28573): Ciclos restantes: 10
+[INFO] 03:39:42:746 Team/(28558:28573): Entrenador D movido a posicon 10 2
+[TRACE] 03:39:42:746 Team/(28558:28573): Ciclos restantes: 9
+[INFO] 03:39:47:747 Team/(28558:28573): Entrenador D movido a posicon 10 3
+[TRACE] 03:39:47:748 Team/(28558:28573): Ciclos restantes: 8
+[INFO] 03:39:52:748 Team/(28558:28573): Entrenador D movido a posicon 10 4
+[TRACE] 03:39:52:749 Team/(28558:28573): Ciclos restantes: 7
+[INFO] 03:39:57:750 Team/(28558:28573): Entrenador D movido a posicon 10 5
+[TRACE] 03:39:57:750 Team/(28558:28573): Ciclos restantes: 6
+[ERROR] 03:39:58:73 Team/(28558:28572): Error en 'recibir_codigo_operacion'
+[INFO] 03:39:58:73 Team/(28558:28559): Inicio reintento de comunicacion con Broker
+[TRACE] 03:39:58:73 Team/(28558:28559): Mensaje suscripcion enviado
+[TRACE] 03:39:58:74 Team/(28558:28559): Suscripcion completada
+[TRACE] 03:39:58:75 Team/(28558:28559): Mensaje suscripcion enviado
+[TRACE] 03:39:58:76 Team/(28558:28559): Suscripcion completada
+[TRACE] 03:39:58:81 Team/(28558:28559): Mensaje suscripcion enviado
+[ERROR] 03:39:58:81 Team/(28558:28570): Error en 'recibir_codigo_operacion'
+[TRACE] 03:39:58:84 Team/(28558:28559): Suscripcion completada
+[INFO] 03:39:58:84 Team/(28558:28559): Reintento de comunicación con broker fallido
+[ERROR] 03:39:58:84 Team/(28558:28568): Error en 'recibir_codigo_operacion'
+[ERROR] 03:39:58:91 Team/(28558:28765): Error en 'recibir_codigo_operacion'
+[ERROR] 03:39:58:91 Team/(28558:28764): Error en 'recibir_codigo_operacion'
+[ERROR] 03:39:58:91 Team/(28558:28763): Error en 'recibir_codigo_operacion'
+[INFO] 03:40:02:751 Team/(28558:28573): Entrenador D movido a posicon 10 6
+[TRACE] 03:40:02:752 Team/(28558:28573): Ciclos restantes: 5
+[TRACE] 03:40:07:753 Team/(28558:28573): Intercambio en proceso
+[TRACE] 03:40:07:754 Team/(28558:28573): Ciclos restantes: 4
+[TRACE] 03:40:12:754 Team/(28558:28573): Intercambio en proceso
+[TRACE] 03:40:12:754 Team/(28558:28573): Ciclos restantes: 3
+[TRACE] 03:40:17:755 Team/(28558:28573): Intercambio en proceso
+[TRACE] 03:40:17:755 Team/(28558:28573): Ciclos restantes: 2
+[TRACE] 03:40:22:756 Team/(28558:28573): Intercambio en proceso
+[TRACE] 03:40:22:757 Team/(28558:28573): Ciclos restantes: 1
+[INFO] 03:40:27:757 Team/(28558:28573): Intercambio efectuado entre ED y EC
+[TRACE] 03:40:27:758 Team/(28558:28573): Ciclos restantes: 0
+[DEBUG] 03:40:27:758 Team/(28558:28573): ED dormido. Posicion 10 6
+[DEBUG] 03:40:27:758 Team/(28558:28565): EC activo. Posicion 10 6
+[DEBUG] 03:40:27:758 Team/(28558:28573): ED activo. Posicion 10 6
+[DEBUG] 03:40:27:758 Team/(28558:28573): ED pasa a exit. Posicion 10 6
+[DEBUG] 03:40:27:758 Team/(28558:28565): EC blockeado deadlock. Posicion 10 6
+[DEBUG] 03:40:27:758 Team/(28558:28558): deadlock en curso
+[DEBUG] 03:40:27:759 Team/(28558:28558): Pok buscado: Flareon, pok comparado: Flareon
+[DEBUG] 03:40:27:759 Team/(28558:28558): Pokemon en lista = 1
+[DEBUG] 03:40:27:759 Team/(28558:28558): Pok buscado: Flareon, pok comparado: Jolteon
+[DEBUG] 03:40:27:759 Team/(28558:28558): Pokemon en lista = 0
+[DEBUG] 03:40:27:759 Team/(28558:28558): Pok buscado: Jolteon, pok comparado: Jolteon
+[DEBUG] 03:40:27:759 Team/(28558:28558): Pokemon en lista = 1
+[TRACE] 03:40:27:759 Team/(28558:28558): es intercambio ideal
+[DEBUG] 03:40:27:759 Team/(28558:28558): Pok buscado: Jolteon, pok comparado: Jolteon
+[DEBUG] 03:40:27:759 Team/(28558:28558): Pokemon en lista = 1
+[TRACE] 03:40:27:759 Team/(28558:28558): Nuevo ent en ready: Posicion 10 6
+[TRACE] 03:40:27:760 Team/(28558:28562): Planificador corto plazo en curso
+[DEBUG] 03:40:27:760 Team/(28558:28562): EnNu: C, r2.500000. EnEx: D, r1.250000
+[INFO] 03:40:27:760 Team/(28558:28562): Cambio de entrenador sin desalojo por finalizacion de ciclo de CPU
+[DEBUG] 03:40:27:760 Team/(28558:28565): EC activo. Posicion 10 6
+[DEBUG] 03:40:27:760 Team/(28558:28565): EC despierto. Posicion 10 6
+[INFO] 03:40:28:84 Team/(28558:28559): Inicio reintento de comunicacion con Broker
+[TRACE] 03:40:28:85 Team/(28558:28559): Mensaje suscripcion enviado
+[TRACE] 03:40:28:85 Team/(28558:28559): Suscripcion completada
+[TRACE] 03:40:28:85 Team/(28558:28559): Mensaje suscripcion enviado
+[TRACE] 03:40:28:85 Team/(28558:28559): Suscripcion completada
+[TRACE] 03:40:28:86 Team/(28558:28559): Mensaje suscripcion enviado
+[TRACE] 03:40:28:86 Team/(28558:28559): Suscripcion completada
+[INFO] 03:40:28:86 Team/(28558:28559): Reintento de comunicación con broker logrado
+[INFO] 03:40:32:760 Team/(28558:28565): Entrenador C movido a posicon 9 6
+[TRACE] 03:40:32:761 Team/(28558:28565): Ciclos restantes: 10
+[INFO] 03:40:37:761 Team/(28558:28565): Entrenador C movido a posicon 8 6
+[TRACE] 03:40:37:762 Team/(28558:28565): Ciclos restantes: 9
+[INFO] 03:40:42:763 Team/(28558:28565): Entrenador C movido a posicon 7 6
+[TRACE] 03:40:42:764 Team/(28558:28565): Ciclos restantes: 8
+[INFO] 03:40:47:764 Team/(28558:28565): Entrenador C movido a posicon 6 6
+[TRACE] 03:40:47:765 Team/(28558:28565): Ciclos restantes: 7
+[INFO] 03:40:52:765 Team/(28558:28565): Entrenador C movido a posicon 5 6
+[TRACE] 03:40:52:766 Team/(28558:28565): Ciclos restantes: 6
+[INFO] 03:40:57:766 Team/(28558:28565): Entrenador C movido a posicon 4 6
+[TRACE] 03:40:57:767 Team/(28558:28565): Ciclos restantes: 5
+[TRACE] 03:41:02:767 Team/(28558:28565): Intercambio en proceso
+[TRACE] 03:41:02:768 Team/(28558:28565): Ciclos restantes: 4
+[TRACE] 03:41:07:769 Team/(28558:28565): Intercambio en proceso
+[TRACE] 03:41:07:769 Team/(28558:28565): Ciclos restantes: 3
+[TRACE] 03:41:12:770 Team/(28558:28565): Intercambio en proceso
+[TRACE] 03:41:12:771 Team/(28558:28565): Ciclos restantes: 2
+[TRACE] 03:41:17:772 Team/(28558:28565): Intercambio en proceso
+[TRACE] 03:41:17:772 Team/(28558:28565): Ciclos restantes: 1
+[INFO] 03:41:22:773 Team/(28558:28565): Intercambio efectuado entre EC y EB
+[TRACE] 03:41:22:774 Team/(28558:28565): Ciclos restantes: 0
+[DEBUG] 03:41:22:774 Team/(28558:28565): EC dormido. Posicion 4 6
+[DEBUG] 03:41:22:774 Team/(28558:28564): EB activo. Posicion 4 6
+[DEBUG] 03:41:22:774 Team/(28558:28565): EC activo. Posicion 4 6
+[DEBUG] 03:41:22:774 Team/(28558:28565): EC pasa a exit. Posicion 4 6
+[DEBUG] 03:41:22:775 Team/(28558:28564): EB pasa a exit. Posicion 4 6
+[INFO] 03:41:22:776 Team/(28558:28558): Inicio de algoritmo de deteccion de deadlock
+[DEBUG] 03:41:22:776 Team/(28558:28558): Data Entrenador A: Posicion 4 10 Estado  6
+[TRACE] 03:41:22:776 Team/(28558:28558): Vaporeon
+[TRACE] 03:41:22:776 Team/(28558:28558): Vaporeon
+[DEBUG] 03:41:22:776 Team/(28558:28558): Data Entrenador B: Posicion 4 6 Estado  6
+[TRACE] 03:41:22:776 Team/(28558:28558): Jolteon
+[TRACE] 03:41:22:776 Team/(28558:28558): Jolteon
+[DEBUG] 03:41:22:776 Team/(28558:28558): Data Entrenador C: Posicion 4 6 Estado  6
+[TRACE] 03:41:22:777 Team/(28558:28558): Flareon
+[TRACE] 03:41:22:777 Team/(28558:28558): Flareon
+[DEBUG] 03:41:22:777 Team/(28558:28558): Data Entrenador D: Posicion 10 6 Estado  6
+[TRACE] 03:41:22:777 Team/(28558:28558): Umbreon
+[TRACE] 03:41:22:777 Team/(28558:28558): Umbreon
+[DEBUG] 03:41:22:777 Team/(28558:28558): Data Entrenador E: Posicion 7 1 Estado  6
+[TRACE] 03:41:22:777 Team/(28558:28558): Espeon
+[TRACE] 03:41:22:777 Team/(28558:28558): Espeon
+[INFO] 03:41:22:777 Team/(28558:28558): Resultado deteccion deadlock: NO Detectado
+[INFO] 03:41:22:778 Team/(28558:28558): Ciclos CPU totales: 86
+[INFO] 03:41:22:778 Team/(28558:28558): Ciclos Totales EA = 17
+[INFO] 03:41:22:778 Team/(28558:28558): Ciclos Totales EB = 15
+[INFO] 03:41:22:778 Team/(28558:28558): Ciclos Totales EC = 16
+[INFO] 03:41:22:778 Team/(28558:28558): Ciclos Totales ED = 17
+[INFO] 03:41:22:778 Team/(28558:28558): Ciclos Totales EE = 21
+[INFO] 03:41:22:778 Team/(28558:28558): Cantidad de cambios de contexto: 26
+[INFO] 03:41:22:778 Team/(28558:28558): Deadlocks Encontrados y Resueltos: 1
