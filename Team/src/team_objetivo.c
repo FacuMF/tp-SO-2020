@@ -44,6 +44,7 @@ int requiero_pokemon(char * pokemon){
 int pokemon_en_lista(t_list * lista_pokemones,char * pokemon){
 	bool pokemon_igual_aux(void*elemento){
 		char * pokemon_a_comparar =elemento;
+		log_debug(logger, "Pok buscado: %s, pok comparado: %s", pokemon,pokemon_a_comparar);
 		return !strcasecmp(pokemon_a_comparar,pokemon);
 	}
 	int result = list_any_satisfy(lista_pokemones,pokemon_igual_aux);

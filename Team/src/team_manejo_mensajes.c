@@ -8,7 +8,10 @@ void manejar_appeared(t_appeared_pokemon * mensaje_appeared) {
 		return;
 	}
 
-	list_add(pokemones_recibidos, mensaje_appeared->pokemon);
+	char * pokemon_recibido = malloc(strlen(mensaje_appeared->pokemon)+1);
+		memcpy(pokemon_recibido,mensaje_appeared->pokemon,strlen(mensaje_appeared->pokemon));
+		pokemon_recibido[strlen(mensaje_appeared->pokemon)]='\0';
+		list_add(pokemones_recibidos, pokemon_recibido);
 
 	log_trace(logger, "Manejo mensaje appeared");
 
@@ -46,7 +49,11 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	}
 	log_debug(logger, "Manejo mensaje localized");
 
-	list_add(pokemones_recibidos, mensaje_localized->pokemon);
+
+	char * pokemon_recibido = malloc(strlen(mensaje_localized->pokemon)+1);
+	memcpy(pokemon_recibido,mensaje_localized->pokemon,strlen(mensaje_localized->pokemon));
+	pokemon_recibido[strlen(mensaje_localized->pokemon)]='\0';
+	list_add(pokemones_recibidos, pokemon_recibido);
 
 	pthread_mutex_lock(&mutex_pokemones_necesitados);
 	int necesitados = cantidad_repeticiones_en_lista(pokemones_necesitados,
