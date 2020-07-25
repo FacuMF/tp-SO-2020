@@ -71,7 +71,7 @@ void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador)
 	if (entrenador == NULL){
 		entrenador = obtener_entrenador_segun_id_mensaje(
 				mensaje_caught->id_correlativo);
-		log_trace(logger, "encontre entrenador con id correlaivo %d", entrenador->catch_pendiente->id_mensaje);
+		//log_trace(logger, "encontre entrenador con id correlaivo %d", entrenador->catch_pendiente->id_mensaje);
 	}
 	if (entrenador == NULL) {
 		log_trace(logger,"Aun no tengo el entrenador con el catch");
