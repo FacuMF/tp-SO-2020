@@ -63,7 +63,7 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 	}
 
 	// 7. Conectarse a broker y enviar resultado
-	t_caught_pokemon* caught_pokemon = crear_caught_pokemon(mensaje_catch->id_mensaje, respuesta_existe_pos_archivo);
+	t_caught_pokemon* caught_pokemon = crear_caught_pokemon(mensaje_catch->id_mensaje, respuesta_existe_pos_archivo, mensaje_catch->id_mensaje);
 	enviar_caught_pokemon_a_broker(caught_pokemon);
 	liberar_mensaje_caught_pokemon(caught_pokemon);
 }
@@ -87,7 +87,7 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 		respuesta_localized = obtener_pos_y_cant_localized(mensaje_get);
 	}else{
 		t_list * lista_vacia = list_create();
-		respuesta_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_vacia);
+		respuesta_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_vacia, mensaje_get->id_mensaje);
 	}
 
 	// 4. Esperar los segundos definidos por config

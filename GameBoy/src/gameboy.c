@@ -236,7 +236,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		t_caught_pokemon* mensaje_caught;
 		cargar_parametros_caught_pokemon(&id_mensaje_correlativo, &ok_fail,
 				arg);
-		mensaje_caught = crear_caught_pokemon(id_mensaje_correlativo, ok_fail);
+		mensaje_caught = crear_caught_pokemon(id_mensaje_correlativo, ok_fail, -5);
 		mensaje_serializado = serializar_caught_pokemon(mensaje_caught);
 		liberar_mensaje_caught_pokemon(mensaje_caught);
 		break;
@@ -297,7 +297,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		list_add(posiciones, posicion3);
 
 		t_localized_pokemon* mensaje_localized = crear_localized_pokemon(10,
-				"Pikachu", posiciones);
+				"Pikachu", posiciones, -5);
 
 		mensaje_serializado = serializar_localized_pokemon(mensaje_localized);
 		liberar_mensaje_localized_pokemon(mensaje_localized);

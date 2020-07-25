@@ -7,6 +7,7 @@
 typedef struct{
 	int id_mensaje;
 	bool ok_or_fail;
+	int id_correlativo;
 }t_caught_pokemon;
 
 typedef struct{
@@ -46,6 +47,7 @@ typedef struct{
 }t_subscriptor;
 
 typedef struct{
+	int id_correlativo;
 	int id_mensaje;
 	int size_pokemon;
 	char* pokemon;
@@ -99,7 +101,7 @@ void* serializar_cache_catch_pokemon(t_catch_pokemon*, int);
 t_catch_pokemon* deserializar_catch_pokemon(t_buffer* buffer);
 t_catch_pokemon* deserializar_cache_catch_pokemon(void*);
 
-t_caught_pokemon* crear_caught_pokemon(int, int);
+t_caught_pokemon* crear_caught_pokemon(int, int, int);
 t_buffer* serializar_caught_pokemon(t_caught_pokemon*);
 void *serializar_cache_caught_pokemon(t_caught_pokemon*, int);
 t_caught_pokemon* deserializar_caught_pokemon(t_buffer* buffer);
@@ -115,7 +117,7 @@ t_subscriptor* crear_suscripcion(int,int);
 t_buffer* serializar_suscripcion(t_subscriptor*);
 t_subscriptor* deserializar_suscripcion(t_buffer* buffer);
 
-t_localized_pokemon* crear_localized_pokemon(int,char*,t_list*);
+t_localized_pokemon* crear_localized_pokemon(int,char*,t_list*, int);
 t_buffer* serializar_localized_pokemon(t_localized_pokemon*);
 void* serializar_cache_localized_pokemon(t_localized_pokemon*, int);
 t_localized_pokemon* deserializar_localized_pokemon(t_buffer* buffer);

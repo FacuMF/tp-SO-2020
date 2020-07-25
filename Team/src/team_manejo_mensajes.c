@@ -31,7 +31,7 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	pthread_mutex_lock(&manejar_mensaje);
 
 	//TODO: Testear con gamecard el necesito mensaje
-	if ((!necesito_mensaje(mensaje_localized->id_mensaje))
+	if ((!necesito_mensaje(mensaje_localized->id_correlativo))
 			|| (!requiero_pokemon(mensaje_localized->pokemon))
 			|| (pokemon_en_lista(pokemones_recibidos,
 					mensaje_localized->pokemon))) {
@@ -68,9 +68,11 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 }
 
 void manejar_caught(t_caught_pokemon* mensaje_caught, t_entrenador * entrenador) {
-	if (entrenador == NULL)
+	if (entrenador == NULL){
 		entrenador = obtener_entrenador_segun_id_mensaje(
-				mensaje_caught->id_mensaje);
+				mensaje_caught->id_correlativo);
+		log_trace(logger, "encontre entrenador con id correlaivo %d", entrenador->catch_pendiente->id_mensaje);
+	}
 	if (entrenador == NULL) {
 		log_trace(logger,"Aun no tengo el entrenador con el catch");
 		liberar_mensaje_caught_pokemon(mensaje_caught);

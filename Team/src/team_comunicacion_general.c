@@ -89,7 +89,7 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	case CAUGHT_POKEMON:
 		;
 		t_caught_pokemon* mensaje_caught= deserializar_caught_pokemon(buffer);
-		id_mensaje = mensaje_caught->id_mensaje;
+		id_mensaje = mensaje_caught->id_correlativo;
 
 		cadena_mensaje =mostrar_caught_pokemon(mensaje_caught);
 		log_info(logger, "Mensaje CAUGHT_POKEMON: %s",cadena_mensaje );
@@ -100,7 +100,7 @@ int manejar_recibo_mensajes(int conexion, op_code cod_op, int es_respuesta) {
 	case LOCALIZED_POKEMON:
 		;
 		t_localized_pokemon* mensaje_localized= deserializar_localized_pokemon(buffer);
-		id_mensaje = mensaje_localized->id_mensaje;
+		id_mensaje = mensaje_localized->id_correlativo;
 
 		cadena_mensaje = mostrar_localized(mensaje_localized);
 		log_info(logger, "Mensaje LOCALIZED_POKEMON: %s",cadena_mensaje);

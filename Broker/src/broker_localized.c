@@ -15,6 +15,8 @@ void manejar_mensaje_localized(t_conexion_buffer *combo) {
 	int id_mensaje_recibido = asignar_id_localized_pokemon(
 			mensaje_localized_pokemon);
 
+	//TODO: asignar id correlativo??
+
 	log_info(logger, "Llegada de mensaje nuevo %i a cola LOCALIZED_POKEMON",
 			id_mensaje_recibido);
 
@@ -65,8 +67,8 @@ void enviar_localized_pokemon_a_suscriptor(int suscriptor,
 		t_localized_pokemon* mensaje) {
 
 	//Envio del mensaje
-	log_trace(logger, "Se va a enviar mensaje LOCALIZED_POKEMON id: %i a sub: %i.",
-				mensaje->id_mensaje, suscriptor);
+	log_trace(logger, "Se va a enviar mensaje LOCALIZED_POKEMON id: %i , id correaltivo: %d a sub: %i.",
+				mensaje->id_mensaje,mensaje->id_correlativo, suscriptor);
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	mensaje_serializado = serializar_localized_pokemon(mensaje);
 

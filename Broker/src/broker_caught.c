@@ -15,6 +15,9 @@ void manejar_mensaje_caught(t_conexion_buffer *combo) {
 	int id_mensaje_recibido = asignar_id_caught_pokemon(
 			mensaje_caught_pokemon);
 
+
+	//TODO: asignar id correaltivo??
+
 	log_info(logger, "Llegada de mensaje nuevo %i a cola CAUGHT_POKEMON",
 			id_mensaje_recibido);
 
@@ -64,8 +67,8 @@ void enviar_caught_pokemon_a_suscriptor(int suscriptor,
 		t_caught_pokemon* mensaje) {
 
 	//Envio del mensaje
-	log_trace(logger, "Se va a enviar mensaje CAUGHT_POKEMON id: %i a sub: %i.",
-				mensaje->id_mensaje, suscriptor);
+	log_trace(logger, "Se va a enviar mensaje CAUGHT_POKEMON id: %i, id correlativo: %d a sub: %i.",
+				mensaje->id_mensaje,mensaje->id_correlativo, suscriptor);
 	t_buffer* mensaje_serializado = malloc(sizeof(t_buffer));
 	mensaje_serializado = serializar_caught_pokemon(mensaje);
 
@@ -80,6 +83,7 @@ void cachear_caught_pokemon(t_caught_pokemon* mensaje){
 
 	int tipo_mensaje = CAUGHT_POKEMON;
 	int id_mensaje = mensaje->id_mensaje;
+	//TODO: agregar mensaje correlativo??
 	void* mensaje_a_cachear = serializar_cache_caught_pokemon(mensaje, size_stream);
 
 	cachear_mensaje(size_stream, id_mensaje, tipo_mensaje, mensaje_a_cachear);
