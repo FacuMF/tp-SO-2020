@@ -23,6 +23,8 @@ void iniciar_gamecard(char*argumentos_iniciales[]){
 
 		iniciar_semaforos_gamecard();
 
+		//borrar_directorios();
+
 		crear_metadata_bin();
 
 		//Creo bitmap
@@ -55,6 +57,8 @@ void finalizar_gamecard(){
 
 
 void crear_metadata_bin(){
+	borrar_directorios();
+
 	log_trace(logger, "Crear metadata");
 
 	char* block_base_p = blocks_base_path();

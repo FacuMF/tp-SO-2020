@@ -53,6 +53,7 @@ char* bitmap_path();
 char* pokemon_metadata_path(char* pokemon);
 
 // SEMAFOROS
+pthread_mutex_t mutex_new_archivo;
 pthread_mutex_t mutex_bitmap;
 pthread_mutex_t mutex_suscripcion;
 sem_t sem_suscripcion;
@@ -116,6 +117,8 @@ bool file_existing(char* path);
 void crear_file_si_no_existe(t_new_pokemon* mensaje_new);
 void delete_from_path(char* path);
 void limpiar_file(char* path);
+void borrar_directorios();
+
 
 // TAMANIO DE ARCHIVOS Y SUS ATRIBUTOS
 int tamanio_bloque();

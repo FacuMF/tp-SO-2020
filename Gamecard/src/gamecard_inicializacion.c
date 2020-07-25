@@ -40,6 +40,7 @@ void iniciar_chars_necesarios(){
 void iniciar_semaforos_gamecard(){
 	pthread_mutex_init(&mutex_bitmap, NULL);
 	pthread_mutex_init(&mutex_suscripcion, NULL);
+	pthread_mutex_init(&mutex_new_archivo, NULL);
 	sem_init(&sem_suscripcion, 1, 0);
 	pthread_mutex_init(&mutex_open_file, NULL);
 

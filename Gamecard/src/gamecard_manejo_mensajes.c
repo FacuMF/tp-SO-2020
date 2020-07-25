@@ -7,20 +7,28 @@ void manejar_new_pokemon(t_new_pokemon *mensaje_new){
 	log_trace(logger, "Manejar mensaje: %s.", mostrar_new);
 	free(mostrar_new);
 
+
 	// 1. Verificar si existe pokemon en el Filesystem
+	pthread_mutex_lock(&mutex_new_archivo);
 	crear_file_si_no_existe(mensaje_new);
+
 
 	// 2. Verifico si puedo abrir, y reintento si no.
 	intentar_abrir_archivo(mensaje_new->pokemon);
+	pthread_mutex_unlock(&mutex_new_archivo);
+
 
 	// 3. Verifica si las pos existen, si no la crea al final. //TODO
 	manejar_bloques_pokemon(mensaje_new); // revisar, cambiar estado open.
 
+
 	// 4. Esperar para cerrar
 	sleep(config_get_int_value(config,"TIEMPO_RETARDO_OPERACION"));
 
+
 	// 5. Cerrar archivo
 	cerrar_archivo_pokemon(mensaje_new->pokemon);
+
 
 	// 6. Enviar mensaje al broker
 	t_appeared_pokemon * mensaje_appeared = de_new_a_appeared(mensaje_new);
@@ -37,36 +45,45 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 	bool respuesta_existe_pos_archivo = false;
 
 	// 1. Verifico si existe
+	pthread_mutex_lock(&mutex_new_archivo);
 	respuesta_existe_archivo = informar_error_no_existe_pokemon_catch(mensaje_catch); // Si existe -> true;
+
 
 	// 2. Verifico si se puede abrir.
 	if (respuesta_existe_archivo){ //Si no existe archivo no entra
 		intentar_abrir_archivo(mensaje_catch->pokemon);
 	}
+	pthread_mutex_unlock(&mutex_new_archivo);
+
 
 	// 3. Verifica que exista la posicion.
 	if (respuesta_existe_archivo){ //Si no existe archivo no entra
 		respuesta_existe_pos_archivo = informar_error_no_existe_pos_catch(mensaje_catch); // Si existe -> true;
 	}
 
+
 	// 4. Si la unidad es 1, elimino la linea. Si es mayor, resto una unidad.
 	if (respuesta_existe_pos_archivo){ //Si no posicion en archivo no entra => bool respuesta_pos queda en false;
 		restar_uno_pos_catch(mensaje_catch);
 	}
 
+
 	// 5. Esperar los segundos definidos por config
 	sleep(config_get_int_value(config,"TIEMPO_RETARDO_OPERACION"));
+
 
 	// 6. Cerrar archivo
 	if(respuesta_existe_archivo){ //Si no existe archivo no entra
 		cerrar_archivo_pokemon(mensaje_catch->pokemon);
 	}
 
+
 	// 7. Conectarse a broker y enviar resultado
 	t_caught_pokemon* caught_pokemon = crear_caught_pokemon(mensaje_catch->id_mensaje, respuesta_existe_pos_archivo, mensaje_catch->id_mensaje);
 	enviar_caught_pokemon_a_broker(caught_pokemon);
 	liberar_mensaje_caught_pokemon(caught_pokemon);
 }
+
 
 void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 	char* mostrar_get = mostrar_get_pokemon(mensaje_get);
@@ -107,7 +124,7 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 void manejar_bloques_pokemon(t_new_pokemon * mensaje_new){
 	log_trace(logger, "Manejar bloques pokemon.");
 
-	log_trace(logger,"Abriendo el archivo, dejando OPEN = Y");
+	//log_trace(logger,"Abriendo el archivo, dejando OPEN = Y");
 	char ** bloques = extraer_bloques(mensaje_new->pokemon);
 	char* posicion = concatenar_posicion(mensaje_new->posx,mensaje_new->posy);
 
@@ -212,21 +229,21 @@ bool abrir_archivo(char* pokemon){
 
 	pthread_mutex_lock(&mutex_open_file);
 
-	t_config* config = read_pokemon_metadata(pokemon);
-	char* estado = config_get_string_value(config,"OPEN");
+	t_config* config_archivo = read_pokemon_metadata(pokemon);
+	char* estado = config_get_string_value(config_archivo,"OPEN");
 
-	bool estaba_abierto = strcmp(estado,"Y") == 0;
+	bool estaba_abierto = (strcasecmp(estado,"Y") == 0);
 
-	log_trace(logger, "Archivo: OPEN=%s, estaba_abierto=%i.", estado, estaba_abierto);
 
-	if( strcmp(estado,"N") == 0 ){ // Abro el archivo. Si estaba cerrado.
-
-		config_set_value(config, "OPEN", "Y");
-		config_save(config);
+	if( !estaba_abierto ){ // Abro el archivo. Si estaba cerrado.
+		config_set_value(config_archivo, "OPEN", "Y");
+		config_save(config_archivo);
 
 	}
 
-	config_destroy(config);
+	config_destroy(config_archivo);
+
+	config_archivo = read_pokemon_metadata(pokemon);
 
 	pthread_mutex_unlock(&mutex_open_file);
 
@@ -239,12 +256,12 @@ void crear_file_si_no_existe(t_new_pokemon * mensaje_new){
 	char* file = pokemon_metadata_path(mensaje_new->pokemon);
 
 	if(!file_existing(file)){
-		log_trace(logger,"File del pokemon no existente, lo creo.");
+		log_info(logger,"File del pokemon no existente, lo creo.");
 		create_new_file_pokemon(mensaje_new->pokemon);
 
 	}
 
-	free(file);
+	//free(file);
 }
 
 
@@ -286,7 +303,7 @@ void intentar_abrir_archivo(char* pokemon){
 	bool archivo_abierto_por_otro = abrir_archivo(pokemon);
 
 	while ( archivo_abierto_por_otro ){
-		log_warning(logger,"Archivo se encuentra abierto, se reintenta operacion"); // Podria cambiarse a log_info
+		log_info(logger,"Archivo se encuentra abierto, se reintenta operacion");
 		sleep( config_get_int_value(config,"TIEMPO_DE_REINTENTO_OPERACION") );
 
 		archivo_abierto_por_otro = abrir_archivo(pokemon);
@@ -485,7 +502,7 @@ void sacar_bloque_de_metadata(char* pokemon,int bloque_con_posicion){ // mucho r
 
 	else {
 		char* aux = concat(bloque_con_pos,",");
-		char* concat_aux = concat(",", aux);
+		char* concat_aux = concat(",", aux); // Ej ",8,"
 		char**bloques_separados = string_split(bloques, concat_aux);
 		char* bloques_nuevos = string_new();
 		string_append(&bloques_nuevos,bloques_separados[0]);
@@ -543,8 +560,6 @@ void save_bitmap() {
 
 			fprintf(file_birarray, "%i", bitarray_test_bit(bitmap_bloques, renglon*8+bit) );
 
-			//log_debug(logger, "SAVE BITARRAY bloque %i: %i",renglon*8+bit, bitarray_test_bit(bitmap_bloques, renglon*8+bit));
-
 		}
 
 		fprintf(file_birarray, "\n" );
@@ -562,6 +577,7 @@ void cerrar_archivo_pokemon(char* pokemon){
 	config_save(config_pokemon);
 	config_destroy(config_pokemon);
 
+	config_pokemon = read_pokemon_metadata(pokemon);
 	pthread_mutex_unlock(&mutex_open_file);
 }
 

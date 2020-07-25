@@ -96,6 +96,7 @@ void crear_pokemon_dir(char* tableName) {
 void crear_pokemon_metadata_file(char* tableName){
 
 	char* poke_meta_p = pokemon_metadata_path(tableName);
+	log_info(logger,"Se va a crear file en: %s", poke_meta_p);
 	create_file( poke_meta_p );
 	log_trace(logger, poke_meta_p);
 	free(poke_meta_p);
@@ -137,6 +138,10 @@ void delete_from_path(char* path){
 void limpiar_file(char* path){
 	delete_from_path(path);
 	create_file(path);
+}
+
+void borrar_directorios(){
+	delete_from_path(PUNTO_MONTAJE);
 }
 
 
