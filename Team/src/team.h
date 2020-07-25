@@ -61,7 +61,7 @@ sem_t cpu_disponible_sjf;
 sem_t sincro_deadlock;
 
 pthread_mutex_t manejar_mensaje;
-
+pthread_mutex_t mutex_hilos;
 pthread_mutex_t mutex_pokemones_necesitados;
 pthread_mutex_t mutex_ids_mensajes;
 
