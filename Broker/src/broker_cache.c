@@ -423,10 +423,10 @@ void vaciar_particion(t_mensaje_cache* particion) {
 	particion->tipo_mensaje = VACIO;
 	particion->flags_lru = -20;
 	particion->id = -20;
-	list_clean(particion->subscribers_enviados);
-	list_destroy(particion->subscribers_enviados);
-	list_clean(particion->subscribers_recibidos);
-	list_destroy(particion->subscribers_recibidos);
+	//list_clean(particion->subscribers_enviados); //TODO: revisar
+	//list_destroy(particion->subscribers_enviados);
+	//list_clean(particion->subscribers_recibidos);
+	//list_destroy(particion->subscribers_recibidos);
 }
 
 void consolidar_cache() {
