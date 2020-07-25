@@ -1000,3 +1000,51 @@
 [INFO] 05:54:50:98 Gamecard/(6443:6568): Se recibio un mensaje CATCH_POKEMON.
 [INFO] 05:54:53:145 Gamecard/(6443:6569): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
 [INFO] 05:54:53:145 Gamecard/(6443:6569): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
+[INFO] 06:09:31:602 Gamecard/(8270:8282): Se recibio un mensaje NEW_POKEMON.
+[INFO] 06:09:31:603 Gamecard/(8270:8283): File del pokemon no existente, lo creo.
+[INFO] 06:09:31:603 Gamecard/(8270:8283): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 06:09:34:615 Gamecard/(8270:8283): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 06:09:34:616 Gamecard/(8270:8283): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:09:53:736 Gamecard/(8440:8457): Se recibio NEW POKEMON: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Cantidad: 10, Id mensaje: 9.
+[INFO] 06:09:53:736 Gamecard/(8440:8457): File del pokemon no existente, lo creo.
+[INFO] 06:09:53:736 Gamecard/(8440:8457): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Pikachu/Metadata.bin
+[INFO] 06:09:56:742 Gamecard/(8440:8457): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 2, Posicion Y: 5, Id mensaje: 9.
+[INFO] 06:09:56:744 Gamecard/(8440:8457): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:09:59:622 Gamecard/(8440:8475): Se recibio NEW POKEMON: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Cantidad: 3, Id mensaje: 1.
+[INFO] 06:09:59:623 Gamecard/(8440:8478): Se recibio NEW POKEMON: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Cantidad: 101, Id mensaje: 2.
+[INFO] 06:09:59:624 Gamecard/(8440:8478): File del pokemon no existente, lo creo.
+[INFO] 06:09:59:624 Gamecard/(8440:8478): Se va a crear file en: /home/utnso/Escritorio/tall-grass/Files/Charmander/Metadata.bin
+[INFO] 06:09:59:626 Gamecard/(8440:8482): Se recibio NEW POKEMON: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Cantidad: 15, Id mensaje: 3.
+[INFO] 06:09:59:629 Gamecard/(8440:8487): Se recibio NEW POKEMON: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Cantidad: 29, Id mensaje: 5.
+[INFO] 06:09:59:631 Gamecard/(8440:8493): Se recibio NEW POKEMON: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Cantidad: 1, Id mensaje: 4.
+[INFO] 06:09:59:631 Gamecard/(8440:8482): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 06:09:59:631 Gamecard/(8440:8492): Se recibio NEW POKEMON: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Cantidad: 34, Id mensaje: 7.
+[INFO] 06:09:59:631 Gamecard/(8440:8494): Se recibio NEW POKEMON: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Cantidad: 3001, Id mensaje: 6.
+[INFO] 06:09:59:633 Gamecard/(8440:8497): Se recibio NEW POKEMON: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Cantidad: 11, Id mensaje: 8.
+[INFO] 06:10:02:624 Gamecard/(8440:8475): Mensaje APPEARED a enviar: Pokemon: Pikachu, Posicion X: 1, Posicion Y: 9, Id mensaje: 1.
+[INFO] 06:10:02:624 Gamecard/(8440:8475): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:10:02:632 Gamecard/(8440:8478): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 4, Posicion Y: 1, Id mensaje: 2.
+[INFO] 06:10:02:632 Gamecard/(8440:8478): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:10:04:632 Gamecard/(8440:8487): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 06:10:07:640 Gamecard/(8440:8482): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 517, Posicion Y: 2046, Id mensaje: 3.
+[INFO] 06:10:07:641 Gamecard/(8440:8482): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:10:09:635 Gamecard/(8440:8493): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 06:10:12:645 Gamecard/(8440:8487): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 723, Posicion Y: 97, Id mensaje: 5.
+[INFO] 06:10:12:645 Gamecard/(8440:8487): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:10:14:637 Gamecard/(8440:8492): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 06:10:17:637 Gamecard/(8440:8493): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 4.
+[INFO] 06:10:17:637 Gamecard/(8440:8493): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:10:19:639 Gamecard/(8440:8494): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 06:10:22:414 Gamecard/(8440:8445): Inicio reintento de comunicacion con Broker
+[INFO] 06:10:22:414 Gamecard/(8440:8445): Reintento de comunicación con broker fallido
+[INFO] 06:10:22:644 Gamecard/(8440:8492): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 12, Posicion Y: 17, Id mensaje: 7.
+[INFO] 06:10:22:645 Gamecard/(8440:8492): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:10:24:673 Gamecard/(8440:8497): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 06:10:27:674 Gamecard/(8440:8494): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 65, Posicion Y: 93, Id mensaje: 6.
+[INFO] 06:10:27:674 Gamecard/(8440:8494): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:10:27:912 Gamecard/(8440:8545): Se recibio CATCH POKEMON: Pokemon: Charmander, Posicion X: 413, Posicion Y: 17, Id mensaje: 1.
+[INFO] 06:10:29:794 Gamecard/(8440:8545): Archivo se encuentra abierto, se reintenta operacion
+[INFO] 06:10:32:794 Gamecard/(8440:8497): Mensaje APPEARED a enviar: Pokemon: Charmander, Posicion X: 129, Posicion Y: 547, Id mensaje: 8.
+[INFO] 06:10:32:794 Gamecard/(8440:8497): Error en comunicacion al intentar enviar appeared. Se Continua ejecucion
+[INFO] 06:10:37:910 Gamecard/(8440:8545): Mensaje CAUGHT a enviar: ok/fail: 1 ID mensaje: 1, id correlativo: 1.
+[INFO] 06:10:37:910 Gamecard/(8440:8545): Error en comunicacion al intentar enviar caught. Se efectuara operacion default
