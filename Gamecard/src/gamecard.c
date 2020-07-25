@@ -23,8 +23,6 @@ void iniciar_gamecard(char*argumentos_iniciales[]){
 
 		iniciar_semaforos_gamecard();
 
-		//borrar_directorios();
-
 		crear_metadata_bin();
 
 		//Creo bitmap

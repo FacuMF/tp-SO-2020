@@ -26,7 +26,7 @@ char *obtener_path_gamecard(char *path_leido) {
 }
 void iniciar_chars_necesarios(){
 	// EXTENSION
-	EXTENSION = ".txt";
+	EXTENSION = ".bin";
 
 	PUNTO_MONTAJE= concat( config_get_string_value(config,"PUNTO_MONTAJE_TALLGRASS"), "/");
 	METADATA_BASE_PATH = "Metadata";
