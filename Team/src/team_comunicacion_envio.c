@@ -32,8 +32,11 @@ void enviar_suscripcion_broker(op_code tipo_mensaje) {
 
 		int* argument = malloc(sizeof(int));
 		*argument = socket_broker;
+
+		pthread_mutex_lock(&mutex_hilos);
 		pthread_create(&thread, NULL, (void*) esperar_mensajes_cola, argument);
 		pthread_detach(thread);
+		pthread_mutex_unlock(&mutex_hilos);
 
 		log_trace(logger, "Suscripcion completada");
 	}

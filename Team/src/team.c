@@ -6,17 +6,26 @@ int main(int argv, char*archivo_config[]) {
 
 	iniciar_team(archivo_config);
 
+	pthread_mutex_lock(&mutex_hilos);
 	pthread_create(&thread, NULL, (void*) suscribirse_a_colas_necesarias, NULL);
 	pthread_detach(thread);
+	pthread_mutex_unlock(&mutex_hilos);
 
+	pthread_mutex_lock(&mutex_hilos);
 	pthread_create(&thread, NULL, (void*) enviar_requests_pokemones, NULL);
 	pthread_detach(thread);
+	pthread_mutex_unlock(&mutex_hilos);
 
+	pthread_mutex_lock(&mutex_hilos);
 	pthread_create(&thread, NULL, (void*) iniciar_conexion_con_gameboy, NULL);
 	pthread_detach(thread);
+	pthread_mutex_unlock(&mutex_hilos);
 
+	pthread_mutex_lock(&mutex_hilos);
 	pthread_create(&thread, NULL, (void*) iniciar_planificador, NULL);
 	pthread_detach(thread);
+	pthread_mutex_unlock(&mutex_hilos);
+
 
 	while (!objetivo_global_completo()) {
 		sem_wait(&verificar_objetivo_global);
@@ -70,6 +79,7 @@ void iniciar_team(char*argumentos_iniciales[]){
 	sem_init(&entrenadores_ready,1,1);
 	sem_init(&verificar_objetivo_global,1,0);
 
+	pthread_mutex_init(&mutex_hilos, NULL);
 	pthread_mutex_init(&chequeo_sem_suscrip, NULL);
 	sem_init(&suscripcion,1,0);
 
@@ -100,6 +110,7 @@ void finalizar_team() {
 	pthread_mutex_destroy(&manejar_mensaje);
 	pthread_mutex_destroy(&mutex_pokemones_necesitados);
 	pthread_mutex_destroy(&mutex_ids_mensajes);
+	pthread_mutex_destroy(&mutex_hilos);
 
 	sem_close(&entrenadores_ready);
 	sem_close(&cpu_disponible);

@@ -65,6 +65,7 @@ void inicializacion_semaforos(){
 	pthread_mutex_init(&mutex_id_mensaje, NULL);
 	pthread_mutex_init(&mutex_lru_flag, NULL);
 	pthread_mutex_init(&mutex_suscribir, NULL);
+	pthread_mutex_init(&mutex_hilos, NULL);
 }
 
 void* esperar_mensajes() {
@@ -88,9 +89,11 @@ void handle_cliente(int socket_servidor) {
 
 	int* argument = malloc(sizeof(int));
 	*argument = socket_cliente;
+	pthread_mutex_lock(&mutex_hilos);
 	pthread_create(&thread, NULL, (void*) recibir_mensaje_del_cliente,
 			argument);
 	pthread_detach(thread);
+	pthread_mutex_unlock(&mutex_hilos);
 	// Si termina el hilo, que sus recursos se liberen automaticamente
 
 }
@@ -140,28 +143,40 @@ void handle_mensaje(int cod_op, int socket_cliente) { //Lanzar un hilo para mane
 		manejar_mensaje_suscriptor(info_mensaje_a_manejar);
 		break;
 	case APPEARED_POKEMON:
+		pthread_mutex_lock(&mutex_hilos);
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_appeared,
 				info_mensaje_a_manejar);
+		pthread_mutex_unlock(&mutex_hilos);
 		break;
 	case NEW_POKEMON:
+		pthread_mutex_lock(&mutex_hilos);
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_new,
 				info_mensaje_a_manejar);
+		pthread_mutex_unlock(&mutex_hilos);
 		break;
 	case CATCH_POKEMON:
+		pthread_mutex_lock(&mutex_hilos);
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_catch,
 				info_mensaje_a_manejar);
+		pthread_mutex_unlock(&mutex_hilos);
 		break;
 	case CAUGHT_POKEMON:
+		pthread_mutex_lock(&mutex_hilos);
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_caught,
 				info_mensaje_a_manejar);
+		pthread_mutex_unlock(&mutex_hilos);
 		break;
 	case GET_POKEMON:
+		pthread_mutex_lock(&mutex_hilos);
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_get,
 				info_mensaje_a_manejar);
+		pthread_mutex_unlock(&mutex_hilos);
 		break;
 	case LOCALIZED_POKEMON:
+		pthread_mutex_lock(&mutex_hilos);
 		pthread_create(&thread, NULL, (void*) manejar_mensaje_localized,
 				info_mensaje_a_manejar);
+		pthread_mutex_unlock(&mutex_hilos);
 		break;
 	case CONFIRMACION:
 		//pthread_create(&thread, NULL, (void*) manejar_mensaje_confirmacion,

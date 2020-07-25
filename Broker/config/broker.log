@@ -1,0 +1,597 @@
+<<<<<<< HEAD
+[INFO] 05:42:06:449 Broker/(1008:1010): Llegada de mensaje nuevo 0 a cola CAUGHT_POKEMON
+[INFO] 05:42:06:450 Broker/(1008:1010): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+[INFO] 05:42:06:452 Broker/(1008:1012): Llegada de mensaje nuevo 1 a cola CAUGHT_POKEMON
+[INFO] 05:42:06:452 Broker/(1008:1012): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 4.
+[INFO] 05:42:06:454 Broker/(1008:1014): Llegada de mensaje nuevo 2 a cola CATCH_POKEMON
+[INFO] 05:42:06:454 Broker/(1008:1014): Se almaceno un mensaje CATCH_POKEMON en la posicion 32.
+[INFO] 05:42:06:457 Broker/(1008:1016): Llegada de mensaje nuevo 3 a cola CATCH_POKEMON
+[INFO] 05:42:06:457 Broker/(1008:1016): Se elimino una particion CAUGHT_POKEMON en la posicion 0.
+[INFO] 05:42:06:457 Broker/(1008:1016): Se elimino una particion CAUGHT_POKEMON en la posicion 4.
+[INFO] 05:42:06:457 Broker/(1008:1016): Se asociaron los bolques vacios que iniciaban en 0 y 4.
+[INFO] 05:42:06:457 Broker/(1008:1016): Se asociaron los bolques vacios que iniciaban en 0 y 8.
+[INFO] 05:42:06:457 Broker/(1008:1016): Se asociaron los bolques vacios que iniciaban en 0 y 16.
+[INFO] 05:42:06:457 Broker/(1008:1016): Se almaceno un mensaje CATCH_POKEMON en la posicion 0.
+[INFO] 05:42:06:459 Broker/(1008:1018): Llegada de mensaje nuevo 4 a cola CATCH_POKEMON
+[INFO] 05:42:06:459 Broker/(1008:1018): Se elimino una particion CATCH_POKEMON en la posicion 32.
+[INFO] 05:42:06:459 Broker/(1008:1018): Se almaceno un mensaje CATCH_POKEMON en la posicion 32.
+[INFO] 05:42:06:461 Broker/(1008:1019): Suscripcion de 11 a la cola 4.
+[INFO] 05:42:16:465 Broker/(1008:1022): Llegada de mensaje nuevo 5 a cola CATCH_POKEMON
+[INFO] 05:42:16:465 Broker/(1008:1022): Se elimino una particion CATCH_POKEMON en la posicion 0.
+[INFO] 05:42:16:465 Broker/(1008:1022): Se almaceno un mensaje CATCH_POKEMON en la posicion 0.
+[INFO] 05:45:00:951 Broker/(1036:1038): Llegada de mensaje nuevo 0 a cola CAUGHT_POKEMON
+[INFO] 05:45:00:951 Broker/(1036:1038): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+[INFO] 05:45:00:954 Broker/(1036:1040): Llegada de mensaje nuevo 1 a cola CAUGHT_POKEMON
+[INFO] 05:45:00:954 Broker/(1036:1040): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 4.
+[INFO] 05:45:00:956 Broker/(1036:1042): Llegada de mensaje nuevo 2 a cola CATCH_POKEMON
+[INFO] 05:45:00:956 Broker/(1036:1042): Se almaceno un mensaje CATCH_POKEMON en la posicion 8.
+[INFO] 05:45:00:958 Broker/(1036:1044): Llegada de mensaje nuevo 3 a cola CATCH_POKEMON
+[INFO] 05:45:00:958 Broker/(1036:1044): Se almaceno un mensaje CATCH_POKEMON en la posicion 27.
+[INFO] 05:45:00:961 Broker/(1036:1046): Llegada de mensaje nuevo 4 a cola CATCH_POKEMON
+[INFO] 05:45:00:961 Broker/(1036:1046): Se almaceno un mensaje CATCH_POKEMON en la posicion 47.
+[INFO] 05:45:00:963 Broker/(1036:1047): Suscripcion de 11 a la cola 4.
+[INFO] 05:45:10:966 Broker/(1036:1049): Llegada de mensaje nuevo 5 a cola CATCH_POKEMON
+[INFO] 05:45:10:966 Broker/(1036:1049): Se elimino una particion CAUGHT_POKEMON en la posicion 0.
+[INFO] 05:45:10:966 Broker/(1036:1049): Se ejecuto la compactacion.
+[INFO] 05:45:10:966 Broker/(1036:1049): Se elimino una particion CAUGHT_POKEMON en la posicion 0.
+[INFO] 05:45:10:966 Broker/(1036:1049): Se ejecuto la compactacion.
+[INFO] 05:45:10:966 Broker/(1036:1049): Se elimino una particion CATCH_POKEMON en la posicion 0.
+[INFO] 05:45:10:966 Broker/(1036:1049): Se ejecuto la compactacion.
+[INFO] 05:45:10:966 Broker/(1036:1049): Se almaceno un mensaje CATCH_POKEMON en la posicion 36.
+[INFO] 05:46:25:342 Broker/(1052:1054): Llegada de mensaje nuevo 0 a cola CAUGHT_POKEMON
+[INFO] 05:46:25:343 Broker/(1052:1054): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+[INFO] 05:46:25:345 Broker/(1052:1056): Llegada de mensaje nuevo 1 a cola CAUGHT_POKEMON
+[INFO] 05:46:25:346 Broker/(1052:1056): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 4.
+[INFO] 05:46:25:348 Broker/(1052:1058): Llegada de mensaje nuevo 2 a cola NEW_POKEMON
+[INFO] 05:46:25:348 Broker/(1052:1058): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 05:46:25:350 Broker/(1052:1060): Llegada de mensaje nuevo 3 a cola CATCH_POKEMON
+[INFO] 05:46:25:350 Broker/(1052:1060): Se almaceno un mensaje CATCH_POKEMON en la posicion 16.
+[INFO] 05:46:25:352 Broker/(1052:1061): Suscripcion de 10 a la cola 3.
+[INFO] 05:46:35:355 Broker/(1052:1063): Llegada de mensaje nuevo 4 a cola CATCH_POKEMON
+[INFO] 05:46:35:356 Broker/(1052:1063): Se elimino una particion CAUGHT_POKEMON en la posicion 0.
+[INFO] 05:46:35:356 Broker/(1052:1063): Se elimino una particion CAUGHT_POKEMON en la posicion 4.
+[INFO] 05:46:35:356 Broker/(1052:1063): Se asociaron los bolques vacios que iniciaban en 0 y 4.
+[INFO] 05:46:35:356 Broker/(1052:1063): Se asociaron los bolques vacios que iniciaban en 0 y 8.
+[INFO] 05:46:35:356 Broker/(1052:1063): Se elimino una particion CATCH_POKEMON en la posicion 16.
+[INFO] 05:46:35:356 Broker/(1052:1063): Se asociaron los bolques vacios que iniciaban en 0 y 16.
+[INFO] 05:46:35:356 Broker/(1052:1063): Se almaceno un mensaje CATCH_POKEMON en la posicion 0.
+[INFO] 05:47:57:383 Broker/(1067:1069): Llegada de mensaje nuevo 0 a cola CAUGHT_POKEMON
+[INFO] 05:47:57:383 Broker/(1067:1069): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+[INFO] 05:47:57:385 Broker/(1067:1071): Llegada de mensaje nuevo 1 a cola CAUGHT_POKEMON
+[INFO] 05:47:57:385 Broker/(1067:1071): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 4.
+[INFO] 05:47:57:387 Broker/(1067:1073): Llegada de mensaje nuevo 2 a cola CATCH_POKEMON
+[INFO] 05:47:57:387 Broker/(1067:1073): Se almaceno un mensaje CATCH_POKEMON en la posicion 8.
+[INFO] 05:47:57:389 Broker/(1067:1075): Llegada de mensaje nuevo 3 a cola CATCH_POKEMON
+[INFO] 05:47:57:389 Broker/(1067:1075): Se almaceno un mensaje CATCH_POKEMON en la posicion 27.
+[INFO] 05:47:57:391 Broker/(1067:1077): Llegada de mensaje nuevo 4 a cola CATCH_POKEMON
+[INFO] 05:47:57:391 Broker/(1067:1077): Se almaceno un mensaje CATCH_POKEMON en la posicion 47.
+[INFO] 05:47:57:394 Broker/(1067:1078): Suscripcion de 11 a la cola 4.
+[INFO] 05:48:07:398 Broker/(1067:1080): Llegada de mensaje nuevo 5 a cola CATCH_POKEMON
+[INFO] 05:48:07:398 Broker/(1067:1080): Se elimino una particion CATCH_POKEMON en la posicion 8.
+[INFO] 05:48:07:398 Broker/(1067:1080): Se elimino una particion CATCH_POKEMON en la posicion 27.
+[INFO] 05:48:07:398 Broker/(1067:1080): Se almaceno un mensaje CATCH_POKEMON en la posicion 8.
+[INFO] 06:36:41:927 Broker/(1427:1428): Suscripcion de 5 a la cola 3.
+[INFO] 06:36:41:928 Broker/(1427:1429): Suscripcion de 7 a la cola 5.
+[INFO] 06:36:41:929 Broker/(1427:1430): Suscripcion de 8 a la cola 6.
+[INFO] 06:37:08:616 Broker/(1427:1432): Llegada de mensaje nuevo 0 a cola NEW_POKEMON
+[INFO] 06:37:08:616 Broker/(1427:1432): Envio de NEW_POKEMON 0 a suscriptor 5
+[INFO] 06:37:08:616 Broker/(1427:1432): Se almaceno un mensaje NEW_POKEMON en la posicion 0.
+[INFO] 06:37:08:618 Broker/(1427:1434): Llegada de mensaje nuevo 1 a cola NEW_POKEMON
+[INFO] 06:37:08:618 Broker/(1427:1434): Envio de NEW_POKEMON 1 a suscriptor 5
+[INFO] 06:37:08:618 Broker/(1427:1434): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:37:08:620 Broker/(1427:1436): Llegada de mensaje nuevo 2 a cola NEW_POKEMON
+[INFO] 06:37:08:620 Broker/(1427:1436): Envio de NEW_POKEMON 2 a suscriptor 5
+[INFO] 06:37:08:620 Broker/(1427:1436): Se elimino una particion NEW_POKEMON en la posicion 0.
+[INFO] 06:37:08:620 Broker/(1427:1436): Se almaceno un mensaje NEW_POKEMON en la posicion 0.
+[INFO] 06:37:08:623 Broker/(1427:1438): Llegada de mensaje nuevo 3 a cola NEW_POKEMON
+[INFO] 06:37:08:623 Broker/(1427:1438): Envio de NEW_POKEMON 3 a suscriptor 5
+[INFO] 06:37:08:623 Broker/(1427:1438): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:37:08:623 Broker/(1427:1438): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:37:11:624 Broker/(1427:1440): Llegada de mensaje nuevo 4 a cola APPEARED_POKEMON
+[INFO] 06:37:11:624 Broker/(1427:1440): Se elimino una particion NEW_POKEMON en la posicion 0.
+[INFO] 06:37:11:624 Broker/(1427:1440): Se almaceno un mensaje APPEARED_POKEMON en la posicion 0.
+[INFO] 06:37:11:627 Broker/(1427:1442): Llegada de mensaje nuevo 5 a cola APPEARED_POKEMON
+[INFO] 06:37:11:627 Broker/(1427:1442): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:37:11:627 Broker/(1427:1442): Se almaceno un mensaje APPEARED_POKEMON en la posicion 32.
+[INFO] 06:37:11:630 Broker/(1427:1444): Llegada de mensaje nuevo 6 a cola APPEARED_POKEMON
+[INFO] 06:37:11:630 Broker/(1427:1444): Se elimino una particion APPEARED_POKEMON en la posicion 0.
+[INFO] 06:37:11:630 Broker/(1427:1444): Se almaceno un mensaje APPEARED_POKEMON en la posicion 0.
+[INFO] 06:37:11:633 Broker/(1427:1446): Llegada de mensaje nuevo 7 a cola APPEARED_POKEMON
+[INFO] 06:37:11:633 Broker/(1427:1446): Se elimino una particion APPEARED_POKEMON en la posicion 32.
+[INFO] 06:37:11:633 Broker/(1427:1446): Se almaceno un mensaje APPEARED_POKEMON en la posicion 32.
+[INFO] 06:37:25:13 Broker/(1427:1448): Suscripcion de 18 a la cola 2.
+[INFO] 06:37:25:13 Broker/(1427:1449): Llegada de mensaje nuevo 8 a cola GET_POKEMON
+[INFO] 06:37:25:13 Broker/(1427:1449): Envio de APPEARED_POKEMON 8 a suscriptor 8
+[INFO] 06:37:25:13 Broker/(1427:1449): Se elimino una particion APPEARED_POKEMON en la posicion 0.
+[INFO] 06:37:25:13 Broker/(1427:1449): Se almaceno un mensaje GET_POKEMON en la posicion 0.
+[INFO] 06:37:25:13 Broker/(1427:1450): Suscripcion de 19 a la cola 7.
+[INFO] 06:37:25:14 Broker/(1427:1451): Suscripcion de 20 a la cola 4.
+[INFO] 06:37:25:14 Broker/(1427:1453): Llegada de mensaje nuevo 9 a cola GET_POKEMON
+[INFO] 06:37:25:14 Broker/(1427:1453): Envio de APPEARED_POKEMON 9 a suscriptor 8
+[INFO] 06:37:25:14 Broker/(1427:1453): Se almaceno un mensaje GET_POKEMON en la posicion 16.
+[INFO] 06:37:25:15 Broker/(1427:1455): Llegada de mensaje nuevo 10 a cola GET_POKEMON
+[INFO] 06:37:25:15 Broker/(1427:1455): Envio de APPEARED_POKEMON 10 a suscriptor 8
+[INFO] 06:37:25:15 Broker/(1427:1455): Se elimino una particion APPEARED_POKEMON en la posicion 32.
+[INFO] 06:37:25:15 Broker/(1427:1455): Se almaceno un mensaje GET_POKEMON en la posicion 32.
+[INFO] 06:37:25:16 Broker/(1427:1457): Llegada de mensaje nuevo 11 a cola GET_POKEMON
+[INFO] 06:37:25:16 Broker/(1427:1457): Envio de APPEARED_POKEMON 11 a suscriptor 8
+[INFO] 06:37:25:16 Broker/(1427:1457): Se almaceno un mensaje GET_POKEMON en la posicion 48.
+[INFO] 06:37:28:17 Broker/(1427:1460): Llegada de mensaje nuevo 12 a cola LOCALIZED_POKEMON
+[INFO] 06:37:28:17 Broker/(1427:1460): Envio de LOCALIZED_POKEMON 12 a suscriptor 19
+[INFO] 06:37:28:17 Broker/(1427:1460): Se elimino una particion GET_POKEMON en la posicion 0.
+[INFO] 06:37:28:17 Broker/(1427:1460): Se elimino una particion GET_POKEMON en la posicion 16.
+[INFO] 06:37:28:17 Broker/(1427:1460): Se asociaron los bolques vacios que iniciaban en 0 y 16.
+[INFO] 06:37:28:17 Broker/(1427:1460): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:37:28:17 Broker/(1427:1461): Llegada de mensaje nuevo 13 a cola LOCALIZED_POKEMON
+[INFO] 06:37:28:17 Broker/(1427:1461): Envio de LOCALIZED_POKEMON 13 a suscriptor 19
+[INFO] 06:37:28:17 Broker/(1427:1461): Se elimino una particion GET_POKEMON en la posicion 32.
+[INFO] 06:37:28:17 Broker/(1427:1461): Se elimino una particion GET_POKEMON en la posicion 48.
+[INFO] 06:37:28:17 Broker/(1427:1461): Se asociaron los bolques vacios que iniciaban en 48 y 56.
+[INFO] 06:37:28:17 Broker/(1427:1461): Se asociaron los bolques vacios que iniciaban en 32 y 48.
+[INFO] 06:37:28:17 Broker/(1427:1461): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 32.
+[INFO] 06:37:28:17 Broker/(1427:1464): Llegada de mensaje nuevo 14 a cola LOCALIZED_POKEMON
+[INFO] 06:37:28:17 Broker/(1427:1464): Envio de LOCALIZED_POKEMON 14 a suscriptor 19
+[INFO] 06:37:28:17 Broker/(1427:1464): Se elimino una particion LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:37:28:17 Broker/(1427:1464): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:37:28:17 Broker/(1427:1465): Llegada de mensaje nuevo 15 a cola LOCALIZED_POKEMON
+[INFO] 06:37:28:17 Broker/(1427:1465): Envio de LOCALIZED_POKEMON 15 a suscriptor 19
+[INFO] 06:37:28:17 Broker/(1427:1465): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:37:33:566 Broker/(1427:1467): Suscripcion de 29 a la cola 2.
+[INFO] 06:37:33:566 Broker/(1427:1468): Llegada de mensaje nuevo 16 a cola GET_POKEMON
+[INFO] 06:37:33:566 Broker/(1427:1468): Envio de APPEARED_POKEMON 16 a suscriptor 8
+[INFO] 06:37:33:566 Broker/(1427:1468): Se elimino una particion LOCALIZED_POKEMON en la posicion 32.
+[INFO] 06:37:33:566 Broker/(1427:1468): Se almaceno un mensaje GET_POKEMON en la posicion 32.
+[INFO] 06:37:33:567 Broker/(1427:1469): Suscripcion de 30 a la cola 7.
+[INFO] 06:37:33:567 Broker/(1427:1470): Suscripcion de 31 a la cola 4.
+[INFO] 06:37:33:567 Broker/(1427:1472): Llegada de mensaje nuevo 17 a cola GET_POKEMON
+[INFO] 06:37:33:567 Broker/(1427:1472): Envio de APPEARED_POKEMON 17 a suscriptor 8
+[INFO] 06:37:33:567 Broker/(1427:1472): Se almaceno un mensaje GET_POKEMON en la posicion 48.
+[INFO] 06:37:33:568 Broker/(1427:1474): Llegada de mensaje nuevo 18 a cola GET_POKEMON
+[INFO] 06:37:33:568 Broker/(1427:1474): Envio de APPEARED_POKEMON 18 a suscriptor 8
+[INFO] 06:37:33:568 Broker/(1427:1474): Se elimino una particion LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:37:33:568 Broker/(1427:1474): Se almaceno un mensaje GET_POKEMON en la posicion 0.
+[INFO] 06:37:33:569 Broker/(1427:1476): Llegada de mensaje nuevo 19 a cola GET_POKEMON
+[INFO] 06:37:33:569 Broker/(1427:1476): Envio de APPEARED_POKEMON 19 a suscriptor 8
+[INFO] 06:37:33:569 Broker/(1427:1476): Se elimino una particion LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:37:33:569 Broker/(1427:1476): Se almaceno un mensaje GET_POKEMON en la posicion 16.
+[INFO] 06:37:33:570 Broker/(1427:1478): Llegada de mensaje nuevo 20 a cola GET_POKEMON
+[INFO] 06:37:33:570 Broker/(1427:1478): Envio de APPEARED_POKEMON 20 a suscriptor 8
+[INFO] 06:37:33:570 Broker/(1427:1478): Se elimino una particion GET_POKEMON en la posicion 32.
+[INFO] 06:37:33:570 Broker/(1427:1478): Se almaceno un mensaje GET_POKEMON en la posicion 32.
+[INFO] 06:37:36:568 Broker/(1427:1480): Llegada de mensaje nuevo 21 a cola LOCALIZED_POKEMON
+[INFO] 06:37:36:568 Broker/(1427:1480): Envio de LOCALIZED_POKEMON 21 a suscriptor 19
+[INFO] 06:37:36:568 Broker/(1427:1480): Envio de LOCALIZED_POKEMON 21 a suscriptor 30
+[INFO] 06:37:36:568 Broker/(1427:1480): Se elimino una particion GET_POKEMON en la posicion 48.
+[INFO] 06:37:36:568 Broker/(1427:1480): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 48.
+[INFO] 06:37:36:569 Broker/(1427:1482): Llegada de mensaje nuevo 22 a cola LOCALIZED_POKEMON
+[INFO] 06:37:36:569 Broker/(1427:1482): Envio de LOCALIZED_POKEMON 22 a suscriptor 19
+[INFO] 06:37:36:569 Broker/(1427:1482): Envio de LOCALIZED_POKEMON 22 a suscriptor 30
+[INFO] 06:37:36:569 Broker/(1427:1482): Se elimino una particion GET_POKEMON en la posicion 0.
+[INFO] 06:37:36:569 Broker/(1427:1482): Se elimino una particion GET_POKEMON en la posicion 16.
+[INFO] 06:37:36:569 Broker/(1427:1482): Se asociaron los bolques vacios que iniciaban en 0 y 16.
+[INFO] 06:37:36:569 Broker/(1427:1482): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:37:36:570 Broker/(1427:1484): Llegada de mensaje nuevo 23 a cola LOCALIZED_POKEMON
+[INFO] 06:37:36:570 Broker/(1427:1484): Envio de LOCALIZED_POKEMON 23 a suscriptor 19
+[INFO] 06:37:36:570 Broker/(1427:1484): Envio de LOCALIZED_POKEMON 23 a suscriptor 30
+[INFO] 06:37:36:570 Broker/(1427:1484): Se elimino una particion GET_POKEMON en la posicion 32.
+[INFO] 06:37:36:570 Broker/(1427:1484): Se elimino una particion LOCALIZED_POKEMON en la posicion 48.
+[INFO] 06:37:36:570 Broker/(1427:1484): Se asociaron los bolques vacios que iniciaban en 32 y 48.
+[INFO] 06:37:36:570 Broker/(1427:1484): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 32.
+[INFO] 06:37:36:570 Broker/(1427:1486): Llegada de mensaje nuevo 24 a cola LOCALIZED_POKEMON
+[INFO] 06:37:36:570 Broker/(1427:1486): Envio de LOCALIZED_POKEMON 24 a suscriptor 19
+[INFO] 06:37:36:570 Broker/(1427:1486): Envio de LOCALIZED_POKEMON 24 a suscriptor 30
+[INFO] 06:37:36:570 Broker/(1427:1486): Se elimino una particion LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:37:36:571 Broker/(1427:1486): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:37:36:571 Broker/(1427:1488): Llegada de mensaje nuevo 25 a cola LOCALIZED_POKEMON
+[INFO] 06:37:36:571 Broker/(1427:1488): Envio de LOCALIZED_POKEMON 25 a suscriptor 19
+[INFO] 06:37:36:571 Broker/(1427:1488): Envio de LOCALIZED_POKEMON 25 a suscriptor 30
+[INFO] 06:37:36:571 Broker/(1427:1488): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:37:51:574 Broker/(1427:1492): Llegada de mensaje nuevo 26 a cola CATCH_POKEMON
+[INFO] 06:37:51:574 Broker/(1427:1492): Envio de CATCH_POKEMON 26 a suscriptor 7
+[INFO] 06:37:51:574 Broker/(1427:1492): Se elimino una particion LOCALIZED_POKEMON en la posicion 32.
+[INFO] 06:37:51:574 Broker/(1427:1492): Se almaceno un mensaje CATCH_POKEMON en la posicion 32.
+[INFO] 06:37:54:581 Broker/(1427:1494): Llegada de mensaje nuevo 27 a cola CAUGHT_POKEMON
+[INFO] 06:37:54:581 Broker/(1427:1494): Envio de CAUGHT_POKEMON 27 a suscriptor 20
+[INFO] 06:37:54:581 Broker/(1427:1494): Envio de CAUGHT_POKEMON 27 a suscriptor 31
+[INFO] 06:37:54:581 Broker/(1427:1494): Se elimino una particion LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:37:54:581 Broker/(1427:1494): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+[INFO] 06:37:55:645 Broker/(1427:1496): Llegada de mensaje nuevo 28 a cola NEW_POKEMON
+[INFO] 06:37:55:645 Broker/(1427:1496): Envio de NEW_POKEMON 28 a suscriptor 5
+[INFO] 06:37:55:645 Broker/(1427:1496): Se elimino una particion LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:37:55:645 Broker/(1427:1496): Se asociaron los bolques vacios que iniciaban en 8 y 16.
+[INFO] 06:37:55:645 Broker/(1427:1496): Se elimino una particion CATCH_POKEMON en la posicion 32.
+[INFO] 06:37:55:645 Broker/(1427:1496): Se asociaron los bolques vacios que iniciaban en 8 y 32.
+[INFO] 06:37:55:645 Broker/(1427:1496): Se almaceno un mensaje NEW_POKEMON en la posicion 8.
+[INFO] 06:37:55:647 Broker/(1427:1498): Llegada de mensaje nuevo 29 a cola NEW_POKEMON
+[INFO] 06:37:55:647 Broker/(1427:1498): Envio de NEW_POKEMON 29 a suscriptor 5
+[INFO] 06:37:55:647 Broker/(1427:1498): Se almaceno un mensaje NEW_POKEMON en la posicion 40.
+[INFO] 06:37:55:649 Broker/(1427:1500): Llegada de mensaje nuevo 30 a cola NEW_POKEMON
+[INFO] 06:37:55:649 Broker/(1427:1500): Envio de NEW_POKEMON 30 a suscriptor 5
+[INFO] 06:37:55:649 Broker/(1427:1500): Se elimino una particion CAUGHT_POKEMON en la posicion 0.
+[INFO] 06:37:55:649 Broker/(1427:1500): Se asociaron los bolques vacios que iniciaban en 0 y 4.
+[INFO] 06:37:55:649 Broker/(1427:1500): Se elimino una particion NEW_POKEMON en la posicion 8.
+[INFO] 06:37:55:649 Broker/(1427:1500): Se almaceno un mensaje NEW_POKEMON en la posicion 8.
+[INFO] 06:37:55:651 Broker/(1427:1502): Llegada de mensaje nuevo 31 a cola NEW_POKEMON
+[INFO] 06:37:55:651 Broker/(1427:1502): Envio de NEW_POKEMON 31 a suscriptor 5
+[INFO] 06:37:55:651 Broker/(1427:1502): Se elimino una particion NEW_POKEMON en la posicion 40.
+[INFO] 06:37:55:651 Broker/(1427:1502): Se almaceno un mensaje NEW_POKEMON en la posicion 40.
+[INFO] 06:37:55:653 Broker/(1427:1504): Llegada de mensaje nuevo 32 a cola NEW_POKEMON
+[INFO] 06:37:55:654 Broker/(1427:1504): Envio de NEW_POKEMON 32 a suscriptor 5
+[INFO] 06:37:55:654 Broker/(1427:1504): Se elimino una particion NEW_POKEMON en la posicion 8.
+[INFO] 06:37:55:654 Broker/(1427:1504): Se almaceno un mensaje NEW_POKEMON en la posicion 8.
+[INFO] 06:37:55:656 Broker/(1427:1506): Llegada de mensaje nuevo 33 a cola NEW_POKEMON
+[INFO] 06:37:55:656 Broker/(1427:1506): Envio de NEW_POKEMON 33 a suscriptor 5
+[INFO] 06:37:55:656 Broker/(1427:1506): Se elimino una particion NEW_POKEMON en la posicion 40.
+[INFO] 06:37:55:656 Broker/(1427:1506): Se almaceno un mensaje NEW_POKEMON en la posicion 40.
+[INFO] 06:37:58:651 Broker/(1427:1508): Llegada de mensaje nuevo 34 a cola APPEARED_POKEMON
+[INFO] 06:37:58:651 Broker/(1427:1508): Envio de APPEARED_POKEMON 34 a suscriptor 18
+[INFO] 06:37:58:651 Broker/(1427:1508): Envio de APPEARED_POKEMON 34 a suscriptor 29
+[INFO] 06:37:58:651 Broker/(1427:1508): Se elimino una particion NEW_POKEMON en la posicion 8.
+[INFO] 06:37:58:651 Broker/(1427:1508): Se almaceno un mensaje APPEARED_POKEMON en la posicion 8.
+[INFO] 06:37:58:654 Broker/(1427:1510): Llegada de mensaje nuevo 35 a cola APPEARED_POKEMON
+[INFO] 06:37:58:654 Broker/(1427:1510): Envio de APPEARED_POKEMON 35 a suscriptor 18
+[INFO] 06:37:58:654 Broker/(1427:1510): Envio de APPEARED_POKEMON 35 a suscriptor 29
+[INFO] 06:37:58:654 Broker/(1427:1510): Se elimino una particion NEW_POKEMON en la posicion 40.
+[INFO] 06:37:58:654 Broker/(1427:1510): Se asociaron los bolques vacios que iniciaban en 24 y 40.
+[INFO] 06:37:58:654 Broker/(1427:1510): Se almaceno un mensaje APPEARED_POKEMON en la posicion 24.
+[INFO] 06:37:58:654 Broker/(1427:1512): Llegada de mensaje nuevo 36 a cola APPEARED_POKEMON
+[INFO] 06:37:58:654 Broker/(1427:1512): Envio de APPEARED_POKEMON 36 a suscriptor 18
+[INFO] 06:37:58:654 Broker/(1427:1512): Envio de APPEARED_POKEMON 36 a suscriptor 29
+[INFO] 06:37:58:655 Broker/(1427:1512): Se almaceno un mensaje APPEARED_POKEMON en la posicion 56.
+[INFO] 06:38:52:301 Broker/(1514:1515): Suscripcion de 5 a la cola 3.
+[INFO] 06:38:52:302 Broker/(1514:1516): Suscripcion de 7 a la cola 5.
+[INFO] 06:38:52:303 Broker/(1514:1517): Suscripcion de 8 a la cola 6.
+[INFO] 06:39:06:234 Broker/(1514:1520): Llegada de mensaje nuevo 0 a cola NEW_POKEMON
+[INFO] 06:39:06:234 Broker/(1514:1520): Envio de NEW_POKEMON 0 a suscriptor 5
+[INFO] 06:39:06:234 Broker/(1514:1520): Se almaceno un mensaje NEW_POKEMON en la posicion 0.
+[INFO] 06:39:06:237 Broker/(1514:1522): Llegada de mensaje nuevo 1 a cola NEW_POKEMON
+[INFO] 06:39:06:237 Broker/(1514:1522): Envio de NEW_POKEMON 1 a suscriptor 5
+[INFO] 06:39:06:237 Broker/(1514:1522): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:39:06:240 Broker/(1514:1524): Llegada de mensaje nuevo 2 a cola NEW_POKEMON
+[INFO] 06:39:06:240 Broker/(1514:1524): Envio de NEW_POKEMON 2 a suscriptor 5
+[INFO] 06:39:06:240 Broker/(1514:1524): Se elimino una particion NEW_POKEMON en la posicion 0.
+[INFO] 06:39:06:240 Broker/(1514:1524): Se almaceno un mensaje NEW_POKEMON en la posicion 0.
+[INFO] 06:39:06:242 Broker/(1514:1526): Llegada de mensaje nuevo 3 a cola NEW_POKEMON
+[INFO] 06:39:06:242 Broker/(1514:1526): Envio de NEW_POKEMON 3 a suscriptor 5
+[INFO] 06:39:06:242 Broker/(1514:1526): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:39:06:242 Broker/(1514:1526): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:39:09:245 Broker/(1514:1528): Llegada de mensaje nuevo 4 a cola APPEARED_POKEMON
+[INFO] 06:39:09:245 Broker/(1514:1528): Se elimino una particion NEW_POKEMON en la posicion 0.
+[INFO] 06:39:09:245 Broker/(1514:1528): Se almaceno un mensaje APPEARED_POKEMON en la posicion 0.
+[INFO] 06:39:09:248 Broker/(1514:1530): Llegada de mensaje nuevo 5 a cola APPEARED_POKEMON
+[INFO] 06:39:09:248 Broker/(1514:1530): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:39:09:248 Broker/(1514:1530): Se almaceno un mensaje APPEARED_POKEMON en la posicion 32.
+[INFO] 06:39:09:251 Broker/(1514:1532): Llegada de mensaje nuevo 6 a cola APPEARED_POKEMON
+[INFO] 06:39:09:251 Broker/(1514:1532): Se elimino una particion APPEARED_POKEMON en la posicion 0.
+[INFO] 06:39:09:251 Broker/(1514:1532): Se almaceno un mensaje APPEARED_POKEMON en la posicion 0.
+[INFO] 06:39:09:255 Broker/(1514:1534): Llegada de mensaje nuevo 7 a cola APPEARED_POKEMON
+[INFO] 06:39:09:255 Broker/(1514:1534): Se elimino una particion APPEARED_POKEMON en la posicion 32.
+[INFO] 06:39:09:255 Broker/(1514:1534): Se almaceno un mensaje APPEARED_POKEMON en la posicion 32.
+[INFO] 06:39:19:215 Broker/(1514:1537): Suscripcion de 18 a la cola 2.
+[INFO] 06:39:19:215 Broker/(1514:1538): Llegada de mensaje nuevo 8 a cola GET_POKEMON
+[INFO] 06:39:19:216 Broker/(1514:1538): Envio de APPEARED_POKEMON 8 a suscriptor 8
+[INFO] 06:39:19:216 Broker/(1514:1538): Se elimino una particion APPEARED_POKEMON en la posicion 0.
+[INFO] 06:39:19:216 Broker/(1514:1538): Se almaceno un mensaje GET_POKEMON en la posicion 0.
+[INFO] 06:39:19:216 Broker/(1514:1539): Suscripcion de 19 a la cola 7.
+[INFO] 06:39:19:217 Broker/(1514:1540): Suscripcion de 20 a la cola 4.
+[INFO] 06:39:19:217 Broker/(1514:1542): Llegada de mensaje nuevo 9 a cola GET_POKEMON
+[INFO] 06:39:19:217 Broker/(1514:1542): Envio de APPEARED_POKEMON 9 a suscriptor 8
+[INFO] 06:39:19:217 Broker/(1514:1542): Se almaceno un mensaje GET_POKEMON en la posicion 16.
+[INFO] 06:39:19:218 Broker/(1514:1544): Llegada de mensaje nuevo 10 a cola GET_POKEMON
+[INFO] 06:39:19:218 Broker/(1514:1544): Envio de APPEARED_POKEMON 10 a suscriptor 8
+[INFO] 06:39:19:218 Broker/(1514:1544): Se elimino una particion APPEARED_POKEMON en la posicion 32.
+[INFO] 06:39:19:218 Broker/(1514:1544): Se almaceno un mensaje GET_POKEMON en la posicion 32.
+[INFO] 06:39:19:218 Broker/(1514:1546): Llegada de mensaje nuevo 11 a cola GET_POKEMON
+[INFO] 06:39:19:219 Broker/(1514:1546): Envio de APPEARED_POKEMON 11 a suscriptor 8
+[INFO] 06:39:19:219 Broker/(1514:1546): Se almaceno un mensaje GET_POKEMON en la posicion 48.
+[INFO] 06:39:22:219 Broker/(1514:1551): Llegada de mensaje nuevo 12 a cola LOCALIZED_POKEMON
+[INFO] 06:39:22:219 Broker/(1514:1551): Envio de LOCALIZED_POKEMON 12 a suscriptor 19
+[INFO] 06:39:22:219 Broker/(1514:1551): Se elimino una particion GET_POKEMON en la posicion 0.
+[INFO] 06:39:22:219 Broker/(1514:1551): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:39:22:219 Broker/(1514:1552): Llegada de mensaje nuevo 13 a cola LOCALIZED_POKEMON
+[INFO] 06:39:22:219 Broker/(1514:1552): Envio de LOCALIZED_POKEMON 13 a suscriptor 19
+[INFO] 06:39:22:219 Broker/(1514:1552): Se elimino una particion GET_POKEMON en la posicion 16.
+[INFO] 06:39:22:219 Broker/(1514:1552): Se elimino una particion GET_POKEMON en la posicion 32.
+[INFO] 06:39:22:219 Broker/(1514:1552): Se elimino una particion GET_POKEMON en la posicion 48.
+[INFO] 06:39:22:219 Broker/(1514:1552): Se asociaron los bolques vacios que iniciaban en 48 y 56.
+[INFO] 06:39:22:219 Broker/(1514:1552): Se asociaron los bolques vacios que iniciaban en 32 y 48.
+[INFO] 06:39:22:219 Broker/(1514:1552): Se asociaron los bolques vacios que iniciaban en 16 y 32.
+[INFO] 06:39:22:219 Broker/(1514:1552): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:39:22:220 Broker/(1514:1555): Llegada de mensaje nuevo 14 a cola LOCALIZED_POKEMON
+[INFO] 06:39:22:220 Broker/(1514:1555): Envio de LOCALIZED_POKEMON 14 a suscriptor 19
+[INFO] 06:39:22:220 Broker/(1514:1555): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 48.
+[INFO] 06:39:22:220 Broker/(1514:1556): Llegada de mensaje nuevo 15 a cola LOCALIZED_POKEMON
+[INFO] 06:39:22:220 Broker/(1514:1556): Envio de LOCALIZED_POKEMON 15 a suscriptor 19
+[INFO] 06:39:22:220 Broker/(1514:1556): Se elimino una particion LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:39:22:220 Broker/(1514:1556): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:39:24:860 Broker/(1514:1557): Suscripcion de 28 a la cola 2.
+[INFO] 06:39:24:860 Broker/(1514:1559): Llegada de mensaje nuevo 16 a cola GET_POKEMON
+[INFO] 06:39:24:860 Broker/(1514:1559): Envio de APPEARED_POKEMON 16 a suscriptor 8
+[INFO] 06:39:24:860 Broker/(1514:1559): Se elimino una particion LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:39:24:860 Broker/(1514:1559): Se almaceno un mensaje GET_POKEMON en la posicion 16.
+[INFO] 06:39:24:861 Broker/(1514:1560): Suscripcion de 30 a la cola 7.
+[INFO] 06:39:24:861 Broker/(1514:1561): Suscripcion de 31 a la cola 4.
+[INFO] 06:39:24:861 Broker/(1514:1563): Llegada de mensaje nuevo 17 a cola GET_POKEMON
+[INFO] 06:39:24:861 Broker/(1514:1563): Envio de APPEARED_POKEMON 17 a suscriptor 8
+[INFO] 06:39:24:861 Broker/(1514:1563): Se almaceno un mensaje GET_POKEMON en la posicion 32.
+[INFO] 06:39:24:862 Broker/(1514:1565): Llegada de mensaje nuevo 18 a cola GET_POKEMON
+[INFO] 06:39:24:863 Broker/(1514:1565): Envio de APPEARED_POKEMON 18 a suscriptor 8
+[INFO] 06:39:24:863 Broker/(1514:1565): Se elimino una particion LOCALIZED_POKEMON en la posicion 48.
+[INFO] 06:39:24:863 Broker/(1514:1565): Se almaceno un mensaje GET_POKEMON en la posicion 48.
+[INFO] 06:39:24:864 Broker/(1514:1567): Llegada de mensaje nuevo 19 a cola GET_POKEMON
+[INFO] 06:39:24:864 Broker/(1514:1567): Envio de APPEARED_POKEMON 19 a suscriptor 8
+[INFO] 06:39:24:864 Broker/(1514:1567): Se almaceno un mensaje GET_POKEMON en la posicion 64.
+[INFO] 06:44:55:320 Broker/(1590:1591): Suscripcion de 5 a la cola 3.
+[INFO] 06:44:55:320 Broker/(1590:1592): Suscripcion de 7 a la cola 5.
+[INFO] 06:44:55:321 Broker/(1590:1593): Suscripcion de 8 a la cola 6.
+[INFO] 06:45:04:86 Broker/(1590:1595): Llegada de mensaje nuevo 0 a cola NEW_POKEMON
+[INFO] 06:45:04:86 Broker/(1590:1595): Envio de NEW_POKEMON 0 a suscriptor 5
+[INFO] 06:45:04:86 Broker/(1590:1595): Se almaceno un mensaje NEW_POKEMON en la posicion 0.
+[INFO] 06:45:04:88 Broker/(1590:1597): Llegada de mensaje nuevo 1 a cola NEW_POKEMON
+[INFO] 06:45:04:88 Broker/(1590:1597): Envio de NEW_POKEMON 1 a suscriptor 5
+[INFO] 06:45:04:88 Broker/(1590:1597): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:45:04:91 Broker/(1590:1599): Llegada de mensaje nuevo 2 a cola NEW_POKEMON
+[INFO] 06:45:04:91 Broker/(1590:1599): Envio de NEW_POKEMON 2 a suscriptor 5
+[INFO] 06:45:04:91 Broker/(1590:1599): Se elimino una particion NEW_POKEMON en la posicion 0.
+[INFO] 06:45:04:91 Broker/(1590:1599): Se almaceno un mensaje NEW_POKEMON en la posicion 0.
+[INFO] 06:45:04:93 Broker/(1590:1601): Llegada de mensaje nuevo 3 a cola NEW_POKEMON
+[INFO] 06:45:04:93 Broker/(1590:1601): Envio de NEW_POKEMON 3 a suscriptor 5
+[INFO] 06:45:04:93 Broker/(1590:1601): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:45:04:93 Broker/(1590:1601): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:45:07:94 Broker/(1590:1603): Llegada de mensaje nuevo 4 a cola APPEARED_POKEMON
+[INFO] 06:45:07:94 Broker/(1590:1603): Se elimino una particion NEW_POKEMON en la posicion 0.
+[INFO] 06:45:07:94 Broker/(1590:1603): Se almaceno un mensaje APPEARED_POKEMON en la posicion 0.
+[INFO] 06:45:07:96 Broker/(1590:1605): Llegada de mensaje nuevo 5 a cola APPEARED_POKEMON
+[INFO] 06:45:07:96 Broker/(1590:1605): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:45:07:96 Broker/(1590:1605): Se almaceno un mensaje APPEARED_POKEMON en la posicion 32.
+[INFO] 06:45:07:99 Broker/(1590:1607): Llegada de mensaje nuevo 6 a cola APPEARED_POKEMON
+[INFO] 06:45:07:99 Broker/(1590:1607): Se elimino una particion APPEARED_POKEMON en la posicion 0.
+[INFO] 06:45:07:99 Broker/(1590:1607): Se almaceno un mensaje APPEARED_POKEMON en la posicion 0.
+[INFO] 06:45:07:102 Broker/(1590:1609): Llegada de mensaje nuevo 7 a cola APPEARED_POKEMON
+[INFO] 06:45:07:102 Broker/(1590:1609): Se elimino una particion APPEARED_POKEMON en la posicion 32.
+[INFO] 06:45:07:102 Broker/(1590:1609): Se almaceno un mensaje APPEARED_POKEMON en la posicion 32.
+[INFO] 06:45:43:430 Broker/(1590:1610): Suscripcion de 17 a la cola 2.
+[INFO] 06:45:43:430 Broker/(1590:1612): Llegada de mensaje nuevo 8 a cola GET_POKEMON
+[INFO] 06:45:43:430 Broker/(1590:1612): Envio de APPEARED_POKEMON 8 a suscriptor 8
+[INFO] 06:45:43:430 Broker/(1590:1612): Se elimino una particion APPEARED_POKEMON en la posicion 0.
+[INFO] 06:45:43:430 Broker/(1590:1612): Se almaceno un mensaje GET_POKEMON en la posicion 0.
+[INFO] 06:45:43:430 Broker/(1590:1613): Suscripcion de 19 a la cola 7.
+[INFO] 06:45:43:431 Broker/(1590:1615): Llegada de mensaje nuevo 9 a cola GET_POKEMON
+[INFO] 06:45:43:431 Broker/(1590:1615): Envio de APPEARED_POKEMON 9 a suscriptor 8
+[INFO] 06:45:43:431 Broker/(1590:1615): Se almaceno un mensaje GET_POKEMON en la posicion 16.
+[INFO] 06:45:43:431 Broker/(1590:1616): Suscripcion de 21 a la cola 4.
+[INFO] 06:45:43:432 Broker/(1590:1618): Llegada de mensaje nuevo 10 a cola GET_POKEMON
+[INFO] 06:45:43:432 Broker/(1590:1618): Envio de APPEARED_POKEMON 10 a suscriptor 8
+[INFO] 06:45:43:432 Broker/(1590:1618): Se elimino una particion APPEARED_POKEMON en la posicion 32.
+[INFO] 06:45:43:432 Broker/(1590:1618): Se almaceno un mensaje GET_POKEMON en la posicion 32.
+[INFO] 06:45:43:433 Broker/(1590:1620): Llegada de mensaje nuevo 11 a cola GET_POKEMON
+[INFO] 06:45:43:433 Broker/(1590:1620): Envio de APPEARED_POKEMON 11 a suscriptor 8
+[INFO] 06:45:43:433 Broker/(1590:1620): Se almaceno un mensaje GET_POKEMON en la posicion 48.
+[INFO] 06:45:46:434 Broker/(1590:1624): Llegada de mensaje nuevo 12 a cola LOCALIZED_POKEMON
+[INFO] 06:45:46:434 Broker/(1590:1624): Envio de LOCALIZED_POKEMON 12 a suscriptor 19
+[INFO] 06:45:46:434 Broker/(1590:1624): Se elimino una particion GET_POKEMON en la posicion 0.
+[INFO] 06:45:46:434 Broker/(1590:1624): Se elimino una particion GET_POKEMON en la posicion 16.
+[INFO] 06:45:46:434 Broker/(1590:1624): Se asociaron los bolques vacios que iniciaban en 0 y 16.
+[INFO] 06:45:46:434 Broker/(1590:1624): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:45:46:434 Broker/(1590:1625): Llegada de mensaje nuevo 13 a cola LOCALIZED_POKEMON
+[INFO] 06:45:46:434 Broker/(1590:1625): Envio de LOCALIZED_POKEMON 13 a suscriptor 19
+[INFO] 06:45:46:434 Broker/(1590:1625): Se elimino una particion GET_POKEMON en la posicion 32.
+[INFO] 06:45:46:434 Broker/(1590:1625): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 32.
+[INFO] 06:45:46:434 Broker/(1590:1626): Llegada de mensaje nuevo 14 a cola LOCALIZED_POKEMON
+[INFO] 06:45:46:434 Broker/(1590:1626): Envio de LOCALIZED_POKEMON 14 a suscriptor 19
+[INFO] 06:45:46:434 Broker/(1590:1626): Se elimino una particion GET_POKEMON en la posicion 48.
+[INFO] 06:45:46:434 Broker/(1590:1626): Se asociaron los bolques vacios que iniciaban en 48 y 56.
+[INFO] 06:45:46:434 Broker/(1590:1626): Se elimino una particion LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:45:46:434 Broker/(1590:1626): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:45:46:434 Broker/(1590:1628): Llegada de mensaje nuevo 15 a cola LOCALIZED_POKEMON
+[INFO] 06:45:46:434 Broker/(1590:1628): Envio de LOCALIZED_POKEMON 15 a suscriptor 19
+[INFO] 06:45:46:434 Broker/(1590:1628): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 48.
+[INFO] 06:45:54:470 Broker/(1590:1629): Suscripcion de 28 a la cola 2.
+[INFO] 06:45:54:470 Broker/(1590:1631): Llegada de mensaje nuevo 16 a cola GET_POKEMON
+[INFO] 06:45:54:470 Broker/(1590:1631): Envio de APPEARED_POKEMON 16 a suscriptor 8
+[INFO] 06:45:54:470 Broker/(1590:1631): Se elimino una particion LOCALIZED_POKEMON en la posicion 32.
+[INFO] 06:45:54:470 Broker/(1590:1631): Se almaceno un mensaje GET_POKEMON en la posicion 32.
+[INFO] 06:45:54:471 Broker/(1590:1633): Llegada de mensaje nuevo 17 a cola GET_POKEMON
+[INFO] 06:45:54:471 Broker/(1590:1633): Envio de APPEARED_POKEMON 17 a suscriptor 8
+[INFO] 06:45:54:471 Broker/(1590:1633): Se elimino una particion LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:45:54:471 Broker/(1590:1633): Se almaceno un mensaje GET_POKEMON en la posicion 0.
+[INFO] 06:45:54:471 Broker/(1590:1634): Suscripcion de 31 a la cola 7.
+[INFO] 06:45:54:471 Broker/(1590:1635): Suscripcion de 32 a la cola 4.
+[INFO] 06:45:54:472 Broker/(1590:1637): Llegada de mensaje nuevo 18 a cola GET_POKEMON
+[INFO] 06:45:54:472 Broker/(1590:1637): Envio de APPEARED_POKEMON 18 a suscriptor 8
+[INFO] 06:45:54:472 Broker/(1590:1637): Se almaceno un mensaje GET_POKEMON en la posicion 16.
+[INFO] 06:45:54:472 Broker/(1590:1639): Llegada de mensaje nuevo 19 a cola GET_POKEMON
+[INFO] 06:45:54:472 Broker/(1590:1639): Envio de APPEARED_POKEMON 19 a suscriptor 8
+[INFO] 06:45:54:472 Broker/(1590:1639): Se elimino una particion LOCALIZED_POKEMON en la posicion 48.
+[INFO] 06:45:54:472 Broker/(1590:1639): Se almaceno un mensaje GET_POKEMON en la posicion 48.
+[INFO] 06:45:54:473 Broker/(1590:1641): Llegada de mensaje nuevo 20 a cola GET_POKEMON
+[INFO] 06:45:54:473 Broker/(1590:1641): Envio de APPEARED_POKEMON 20 a suscriptor 8
+[INFO] 06:45:54:473 Broker/(1590:1641): Se elimino una particion GET_POKEMON en la posicion 32.
+[INFO] 06:45:54:473 Broker/(1590:1641): Se almaceno un mensaje GET_POKEMON en la posicion 32.
+[INFO] 06:45:57:472 Broker/(1590:1644): Llegada de mensaje nuevo 21 a cola LOCALIZED_POKEMON
+[INFO] 06:45:57:473 Broker/(1590:1644): Envio de LOCALIZED_POKEMON 21 a suscriptor 19
+[INFO] 06:45:57:473 Broker/(1590:1644): Envio de LOCALIZED_POKEMON 21 a suscriptor 31
+[INFO] 06:45:57:473 Broker/(1590:1644): Se elimino una particion GET_POKEMON en la posicion 0.
+[INFO] 06:45:57:473 Broker/(1590:1644): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:45:57:473 Broker/(1590:1645): Llegada de mensaje nuevo 22 a cola LOCALIZED_POKEMON
+[INFO] 06:45:57:473 Broker/(1590:1645): Envio de LOCALIZED_POKEMON 22 a suscriptor 19
+[INFO] 06:45:57:473 Broker/(1590:1645): Envio de LOCALIZED_POKEMON 22 a suscriptor 31
+[INFO] 06:45:57:473 Broker/(1590:1645): Se elimino una particion GET_POKEMON en la posicion 16.
+[INFO] 06:45:57:473 Broker/(1590:1645): Se elimino una particion GET_POKEMON en la posicion 48.
+[INFO] 06:45:57:473 Broker/(1590:1645): Se elimino una particion GET_POKEMON en la posicion 32.
+[INFO] 06:45:57:473 Broker/(1590:1645): Se asociaron los bolques vacios que iniciaban en 32 y 48.
+[INFO] 06:45:57:473 Broker/(1590:1645): Se asociaron los bolques vacios que iniciaban en 16 y 32.
+[INFO] 06:45:57:473 Broker/(1590:1645): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:45:57:473 Broker/(1590:1647): Llegada de mensaje nuevo 23 a cola LOCALIZED_POKEMON
+[INFO] 06:45:57:473 Broker/(1590:1647): Envio de LOCALIZED_POKEMON 23 a suscriptor 19
+[INFO] 06:45:57:473 Broker/(1590:1647): Envio de LOCALIZED_POKEMON 23 a suscriptor 31
+[INFO] 06:45:57:473 Broker/(1590:1647): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 48.
+[INFO] 06:45:57:473 Broker/(1590:1649): Llegada de mensaje nuevo 24 a cola LOCALIZED_POKEMON
+[INFO] 06:45:57:473 Broker/(1590:1649): Envio de LOCALIZED_POKEMON 24 a suscriptor 19
+[INFO] 06:45:57:473 Broker/(1590:1649): Envio de LOCALIZED_POKEMON 24 a suscriptor 31
+[INFO] 06:45:57:473 Broker/(1590:1649): Se elimino una particion LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:45:57:473 Broker/(1590:1649): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:45:57:474 Broker/(1590:1651): Llegada de mensaje nuevo 25 a cola LOCALIZED_POKEMON
+[INFO] 06:45:57:474 Broker/(1590:1651): Envio de LOCALIZED_POKEMON 25 a suscriptor 19
+[INFO] 06:45:57:474 Broker/(1590:1651): Envio de LOCALIZED_POKEMON 25 a suscriptor 31
+[INFO] 06:45:57:474 Broker/(1590:1651): Se elimino una particion LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:45:57:474 Broker/(1590:1651): Se almaceno un mensaje LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:46:12:479 Broker/(1590:1653): Llegada de mensaje nuevo 26 a cola CATCH_POKEMON
+[INFO] 06:46:12:479 Broker/(1590:1653): Envio de CATCH_POKEMON 26 a suscriptor 7
+[INFO] 06:46:12:479 Broker/(1590:1653): Se elimino una particion LOCALIZED_POKEMON en la posicion 48.
+[INFO] 06:46:12:479 Broker/(1590:1653): Se asociaron los bolques vacios que iniciaban en 32 y 48.
+[INFO] 06:46:12:479 Broker/(1590:1653): Se almaceno un mensaje CATCH_POKEMON en la posicion 32.
+[INFO] 06:46:15:486 Broker/(1590:1655): Llegada de mensaje nuevo 27 a cola CAUGHT_POKEMON
+[INFO] 06:46:15:486 Broker/(1590:1655): Envio de CAUGHT_POKEMON 27 a suscriptor 21
+[INFO] 06:46:15:486 Broker/(1590:1655): Envio de CAUGHT_POKEMON 27 a suscriptor 32
+[INFO] 06:46:15:486 Broker/(1590:1655): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 64.
+[INFO] 06:46:27:480 Broker/(1590:1657): Llegada de mensaje nuevo 28 a cola CATCH_POKEMON
+[INFO] 06:46:27:480 Broker/(1590:1657): Envio de CATCH_POKEMON 28 a suscriptor 7
+[INFO] 06:46:27:480 Broker/(1590:1657): Se elimino una particion LOCALIZED_POKEMON en la posicion 0.
+[INFO] 06:46:27:480 Broker/(1590:1657): Se elimino una particion LOCALIZED_POKEMON en la posicion 16.
+[INFO] 06:46:27:480 Broker/(1590:1657): Se asociaron los bolques vacios que iniciaban en 0 y 16.
+[INFO] 06:46:27:480 Broker/(1590:1657): Se almaceno un mensaje CATCH_POKEMON en la posicion 0.
+[INFO] 06:46:30:487 Broker/(1590:1659): Llegada de mensaje nuevo 29 a cola CAUGHT_POKEMON
+[INFO] 06:46:30:487 Broker/(1590:1659): Envio de CAUGHT_POKEMON 29 a suscriptor 21
+[INFO] 06:46:30:487 Broker/(1590:1659): Envio de CAUGHT_POKEMON 29 a suscriptor 32
+[INFO] 06:46:30:487 Broker/(1590:1659): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 68.
+[INFO] 06:46:56:454 Broker/(1590:1661): Llegada de mensaje nuevo 30 a cola CATCH_POKEMON
+[INFO] 06:46:56:454 Broker/(1590:1661): Envio de CATCH_POKEMON 30 a suscriptor 7
+[INFO] 06:46:56:454 Broker/(1590:1661): Se elimino una particion CATCH_POKEMON en la posicion 32.
+[INFO] 06:46:56:454 Broker/(1590:1661): Se almaceno un mensaje CATCH_POKEMON en la posicion 32.
+[INFO] 06:46:59:461 Broker/(1590:1663): Llegada de mensaje nuevo 31 a cola CAUGHT_POKEMON
+[INFO] 06:46:59:461 Broker/(1590:1663): Envio de CAUGHT_POKEMON 31 a suscriptor 21
+[INFO] 06:46:59:461 Broker/(1590:1663): Envio de CAUGHT_POKEMON 31 a suscriptor 32
+[INFO] 06:46:59:461 Broker/(1590:1663): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 72.
+[INFO] 06:47:59:591 Broker/(1668:1671): Suscripcion de 8 a la cola 2.
+[INFO] 06:47:59:592 Broker/(1668:1670): Suscripcion de 7 a la cola 2.
+[INFO] 06:47:59:593 Broker/(1668:1675): Suscripcion de 12 a la cola 7.
+[INFO] 06:47:59:593 Broker/(1668:1674): Suscripcion de 11 a la cola 6.
+[INFO] 06:47:59:593 Broker/(1668:1673): Suscripcion de 10 a la cola 7.
+[INFO] 06:47:59:593 Broker/(1668:1672): Suscripcion de 9 a la cola 5.
+[INFO] 06:47:59:593 Broker/(1668:1676): Suscripcion de 13 a la cola 4.
+[INFO] 06:47:59:593 Broker/(1668:1677): Suscripcion de 14 a la cola 4.
+[INFO] 06:47:59:593 Broker/(1668:1669): Suscripcion de 5 a la cola 3.
+[INFO] 06:48:21:303 Broker/(1668:1681): Llegada de mensaje nuevo 0 a cola NEW_POKEMON
+[INFO] 06:48:21:303 Broker/(1668:1681): Envio de NEW_POKEMON 0 a suscriptor 5
+[INFO] 06:48:21:303 Broker/(1668:1681): Se almaceno un mensaje NEW_POKEMON en la posicion 0.
+[INFO] 06:48:21:305 Broker/(1668:1683): Llegada de mensaje nuevo 1 a cola NEW_POKEMON
+[INFO] 06:48:21:305 Broker/(1668:1683): Envio de NEW_POKEMON 1 a suscriptor 5
+[INFO] 06:48:21:305 Broker/(1668:1683): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:48:21:307 Broker/(1668:1685): Llegada de mensaje nuevo 2 a cola NEW_POKEMON
+[INFO] 06:48:21:307 Broker/(1668:1685): Envio de NEW_POKEMON 2 a suscriptor 5
+[INFO] 06:48:21:307 Broker/(1668:1685): Se elimino una particion NEW_POKEMON en la posicion 0.
+[INFO] 06:48:21:308 Broker/(1668:1685): Se almaceno un mensaje NEW_POKEMON en la posicion 0.
+[INFO] 06:48:21:309 Broker/(1668:1687): Llegada de mensaje nuevo 3 a cola NEW_POKEMON
+[INFO] 06:48:21:310 Broker/(1668:1687): Envio de NEW_POKEMON 3 a suscriptor 5
+[INFO] 06:48:21:310 Broker/(1668:1687): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:48:21:310 Broker/(1668:1687): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:48:21:312 Broker/(1668:1689): Llegada de mensaje nuevo 4 a cola NEW_POKEMON
+[INFO] 06:48:21:312 Broker/(1668:1689): Envio de NEW_POKEMON 4 a suscriptor 5
+[INFO] 06:48:21:312 Broker/(1668:1689): Se elimino una particion NEW_POKEMON en la posicion 0.
+[INFO] 06:48:21:312 Broker/(1668:1689): Se almaceno un mensaje NEW_POKEMON en la posicion 0.
+[INFO] 06:48:21:314 Broker/(1668:1691): Llegada de mensaje nuevo 5 a cola NEW_POKEMON
+[INFO] 06:48:21:314 Broker/(1668:1691): Envio de NEW_POKEMON 5 a suscriptor 5
+[INFO] 06:48:21:314 Broker/(1668:1691): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:48:21:314 Broker/(1668:1691): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:48:24:311 Broker/(1668:1693): Llegada de mensaje nuevo 6 a cola APPEARED_POKEMON
+[INFO] 06:48:24:311 Broker/(1668:1693): Envio de APPEARED_POKEMON 6 a suscriptor 8
+[INFO] 06:48:24:311 Broker/(1668:1693): Envio de APPEARED_POKEMON 6 a suscriptor 7
+[INFO] 06:48:24:311 Broker/(1668:1693): Se elimino una particion NEW_POKEMON en la posicion 0.
+[INFO] 06:48:24:311 Broker/(1668:1693): Se almaceno un mensaje APPEARED_POKEMON en la posicion 0.
+[INFO] 06:48:24:313 Broker/(1668:1695): Llegada de mensaje nuevo 7 a cola APPEARED_POKEMON
+[INFO] 06:48:24:313 Broker/(1668:1695): Envio de APPEARED_POKEMON 7 a suscriptor 8
+[INFO] 06:48:24:313 Broker/(1668:1695): Envio de APPEARED_POKEMON 7 a suscriptor 7
+[INFO] 06:48:24:313 Broker/(1668:1695): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:48:24:314 Broker/(1668:1695): Se asociaron los bolques vacios que iniciaban en 16 y 32.
+[INFO] 06:48:24:314 Broker/(1668:1695): Se almaceno un mensaje APPEARED_POKEMON en la posicion 16.
+[INFO] 06:48:24:314 Broker/(1668:1697): Llegada de mensaje nuevo 8 a cola APPEARED_POKEMON
+[INFO] 06:48:24:314 Broker/(1668:1697): Envio de APPEARED_POKEMON 8 a suscriptor 8
+[INFO] 06:48:24:314 Broker/(1668:1697): Envio de APPEARED_POKEMON 8 a suscriptor 7
+[INFO] 06:48:24:314 Broker/(1668:1697): Se almaceno un mensaje APPEARED_POKEMON en la posicion 48.
+[INFO] 06:48:24:317 Broker/(1668:1699): Llegada de mensaje nuevo 9 a cola APPEARED_POKEMON
+[INFO] 06:48:24:317 Broker/(1668:1699): Envio de APPEARED_POKEMON 9 a suscriptor 8
+[INFO] 06:48:24:317 Broker/(1668:1699): Envio de APPEARED_POKEMON 9 a suscriptor 7
+[INFO] 06:48:24:317 Broker/(1668:1699): Se elimino una particion APPEARED_POKEMON en la posicion 0.
+[INFO] 06:48:24:317 Broker/(1668:1699): Se elimino una particion APPEARED_POKEMON en la posicion 16.
+[INFO] 06:48:24:317 Broker/(1668:1699): Se almaceno un mensaje APPEARED_POKEMON en la posicion 16.
+[INFO] 06:48:24:320 Broker/(1668:1701): Llegada de mensaje nuevo 10 a cola APPEARED_POKEMON
+[INFO] 06:48:24:320 Broker/(1668:1701): Envio de APPEARED_POKEMON 10 a suscriptor 8
+[INFO] 06:48:24:320 Broker/(1668:1701): Envio de APPEARED_POKEMON 10 a suscriptor 7
+[INFO] 06:48:24:320 Broker/(1668:1701): Se elimino una particion APPEARED_POKEMON en la posicion 48.
+[INFO] 06:48:24:321 Broker/(1668:1701): Se almaceno un mensaje APPEARED_POKEMON en la posicion 48.
+[INFO] 06:48:24:323 Broker/(1668:1703): Llegada de mensaje nuevo 11 a cola APPEARED_POKEMON
+[INFO] 06:48:24:323 Broker/(1668:1703): Envio de APPEARED_POKEMON 11 a suscriptor 8
+[INFO] 06:48:24:323 Broker/(1668:1703): Envio de APPEARED_POKEMON 11 a suscriptor 7
+[INFO] 06:48:24:323 Broker/(1668:1703): Se elimino una particion APPEARED_POKEMON en la posicion 16.
+[INFO] 06:48:24:324 Broker/(1668:1703): Se almaceno un mensaje APPEARED_POKEMON en la posicion 16.
+[INFO] 06:48:59:324 Broker/(1668:1705): Llegada de mensaje nuevo 12 a cola CATCH_POKEMON
+[INFO] 06:48:59:324 Broker/(1668:1705): Envio de CATCH_POKEMON 12 a suscriptor 9
+[INFO] 06:48:59:324 Broker/(1668:1705): Se almaceno un mensaje CATCH_POKEMON en la posicion 0.
+[INFO] 06:49:02:333 Broker/(1668:1707): Llegada de mensaje nuevo 13 a cola CAUGHT_POKEMON
+[INFO] 06:49:02:333 Broker/(1668:1707): Envio de CAUGHT_POKEMON 13 a suscriptor 14
+[INFO] 06:49:02:333 Broker/(1668:1707): Envio de CAUGHT_POKEMON 13 a suscriptor 13
+[INFO] 06:49:02:333 Broker/(1668:1707): Se elimino una particion APPEARED_POKEMON en la posicion 48.
+[INFO] 06:49:02:333 Broker/(1668:1707): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 48.
+[INFO] 06:49:19:329 Broker/(1668:1710): Llegada de mensaje nuevo 14 a cola CATCH_POKEMON
+[INFO] 06:49:19:329 Broker/(1668:1710): Envio de CATCH_POKEMON 14 a suscriptor 9
+[INFO] 06:49:19:329 Broker/(1668:1710): Se elimino una particion APPEARED_POKEMON en la posicion 16.
+[INFO] 06:49:19:329 Broker/(1668:1710): Se almaceno un mensaje CATCH_POKEMON en la posicion 16.
+[INFO] 06:49:22:337 Broker/(1668:1712): Llegada de mensaje nuevo 15 a cola CAUGHT_POKEMON
+[INFO] 06:49:22:337 Broker/(1668:1712): Envio de CAUGHT_POKEMON 15 a suscriptor 14
+[INFO] 06:49:22:337 Broker/(1668:1712): Envio de CAUGHT_POKEMON 15 a suscriptor 13
+[INFO] 06:49:22:337 Broker/(1668:1712): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 52.
+[INFO] 06:49:24:328 Broker/(1668:1714): Llegada de mensaje nuevo 16 a cola CATCH_POKEMON
+[INFO] 06:49:24:328 Broker/(1668:1714): Envio de CATCH_POKEMON 16 a suscriptor 9
+[INFO] 06:49:24:328 Broker/(1668:1714): Se elimino una particion CATCH_POKEMON en la posicion 0.
+[INFO] 06:49:24:328 Broker/(1668:1714): Se elimino una particion CAUGHT_POKEMON en la posicion 48.
+[INFO] 06:49:24:328 Broker/(1668:1714): Se elimino una particion CATCH_POKEMON en la posicion 16.
+[INFO] 06:49:24:328 Broker/(1668:1714): Se asociaron los bolques vacios que iniciaban en 16 y 48.
+[INFO] 06:49:24:328 Broker/(1668:1714): Se almaceno un mensaje CATCH_POKEMON en la posicion 16.
+[INFO] 06:49:27:335 Broker/(1668:1716): Llegada de mensaje nuevo 17 a cola CAUGHT_POKEMON
+[INFO] 06:49:27:335 Broker/(1668:1716): Envio de CAUGHT_POKEMON 17 a suscriptor 14
+[INFO] 06:49:27:335 Broker/(1668:1716): Envio de CAUGHT_POKEMON 17 a suscriptor 13
+[INFO] 06:49:27:335 Broker/(1668:1716): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+[INFO] 06:49:29:333 Broker/(1668:1719): Llegada de mensaje nuevo 18 a cola CATCH_POKEMON
+[INFO] 06:49:29:333 Broker/(1668:1719): Envio de CATCH_POKEMON 18 a suscriptor 9
+[INFO] 06:49:29:333 Broker/(1668:1719): Se almaceno un mensaje CATCH_POKEMON en la posicion 48.
+[INFO] 06:49:29:334 Broker/(1668:1720): Llegada de mensaje nuevo 19 a cola CATCH_POKEMON
+[INFO] 06:49:29:334 Broker/(1668:1720): Envio de CATCH_POKEMON 19 a suscriptor 9
+[INFO] 06:49:29:334 Broker/(1668:1720): Se elimino una particion CAUGHT_POKEMON en la posicion 52.
+[INFO] 06:49:29:334 Broker/(1668:1720): Se elimino una particion CATCH_POKEMON en la posicion 16.
+[INFO] 06:49:29:334 Broker/(1668:1720): Se almaceno un mensaje CATCH_POKEMON en la posicion 16.
+[INFO] 06:49:32:341 Broker/(1668:1722): Llegada de mensaje nuevo 20 a cola CAUGHT_POKEMON
+[INFO] 06:49:32:341 Broker/(1668:1722): Envio de CAUGHT_POKEMON 20 a suscriptor 14
+[INFO] 06:49:32:341 Broker/(1668:1722): Envio de CAUGHT_POKEMON 20 a suscriptor 13
+[INFO] 06:49:32:341 Broker/(1668:1722): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 4.
+[INFO] 06:49:32:344 Broker/(1668:1724): Llegada de mensaje nuevo 21 a cola CAUGHT_POKEMON
+[INFO] 06:49:32:344 Broker/(1668:1724): Envio de CAUGHT_POKEMON 21 a suscriptor 14
+[INFO] 06:49:32:344 Broker/(1668:1724): Envio de CAUGHT_POKEMON 21 a suscriptor 13
+[INFO] 06:49:32:344 Broker/(1668:1724): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 8.
+[INFO] 06:50:14:348 Broker/(1668:1727): Llegada de mensaje nuevo 22 a cola CATCH_POKEMON
+[INFO] 06:50:14:348 Broker/(1668:1727): Envio de CATCH_POKEMON 22 a suscriptor 9
+[INFO] 06:50:14:348 Broker/(1668:1727): Se elimino una particion CAUGHT_POKEMON en la posicion 0.
+[INFO] 06:50:14:348 Broker/(1668:1727): Se elimino una particion CATCH_POKEMON en la posicion 48.
+[INFO] 06:50:14:348 Broker/(1668:1727): Se almaceno un mensaje CATCH_POKEMON en la posicion 48.
+[INFO] 06:50:17:355 Broker/(1668:1729): Llegada de mensaje nuevo 23 a cola CAUGHT_POKEMON
+[INFO] 06:50:17:356 Broker/(1668:1729): Envio de CAUGHT_POKEMON 23 a suscriptor 14
+[INFO] 06:50:17:356 Broker/(1668:1729): Envio de CAUGHT_POKEMON 23 a suscriptor 13
+[INFO] 06:50:17:356 Broker/(1668:1729): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+=======
+[INFO] 06:56:23:971 Broker/(11837:11967): Llegada de mensaje nuevo 0 a cola CAUGHT_POKEMON
+[INFO] 06:56:23:971 Broker/(11837:11967): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+[INFO] 06:56:23:973 Broker/(11837:11970): Llegada de mensaje nuevo 1 a cola CAUGHT_POKEMON
+[INFO] 06:56:23:973 Broker/(11837:11970): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 4.
+[INFO] 06:56:23:975 Broker/(11837:11973): Llegada de mensaje nuevo 2 a cola NEW_POKEMON
+[INFO] 06:56:23:975 Broker/(11837:11973): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:56:23:977 Broker/(11837:11976): Llegada de mensaje nuevo 3 a cola CATCH_POKEMON
+[INFO] 06:56:23:977 Broker/(11837:11976): Se almaceno un mensaje CATCH_POKEMON en la posicion 16.
+[INFO] 06:56:23:979 Broker/(11837:11978): Suscripcion de 10 a la cola 3.
+[INFO] 06:56:33:1 Broker/(11837:11989): Llegada de mensaje nuevo 4 a cola CATCH_POKEMON
+[INFO] 06:56:33:1 Broker/(11837:11989): Se elimino una particion CAUGHT_POKEMON en la posicion 0.
+[INFO] 06:56:33:1 Broker/(11837:11989): Se elimino una particion CAUGHT_POKEMON en la posicion 4.
+[INFO] 06:56:33:1 Broker/(11837:11989): Se asociaron los bolques vacios que iniciaban en 0 y 4.
+[INFO] 06:56:33:2 Broker/(11837:11989): Se asociaron los bolques vacios que iniciaban en 0 y 8.
+[INFO] 06:56:33:2 Broker/(11837:11989): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:56:33:2 Broker/(11837:11989): Se almaceno un mensaje CATCH_POKEMON en la posicion 32.
+>>>>>>> 0ff903455136adf7aa15a42232bcad4df881a02f

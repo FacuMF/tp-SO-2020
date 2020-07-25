@@ -56,9 +56,11 @@ void lanzar_hilo_entrenador(void*element) {
 	t_entrenador * entrenador = element;
 	pthread_t hilo_entrenador;
 
+	pthread_mutex_lock(&mutex_hilos);
 	int result = pthread_create(&hilo_entrenador, NULL, (void*) ser_entrenador,
 			(void*) entrenador);
 	pthread_detach(hilo_entrenador);
+	pthread_mutex_unlock(&mutex_hilos);
 
 	(result != 0) ?
 			log_error(logger, "Error lanzando el hilo") :

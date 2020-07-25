@@ -22,8 +22,10 @@ void esperar_cliente(int socket_servidor) {	// Hilo coordinador
 
 	int * argument = malloc(sizeof(int));
 	*argument = socket_cliente;
+	pthread_mutex_lock(&mutex_hilos);
 	pthread_create(&thread, NULL, (void*) esperar_mensaje_gameboy, argument);
 	pthread_detach(thread);
+	pthread_mutex_unlock(&mutex_hilos);
 }
 
 void esperar_mensaje_gameboy(void* input){

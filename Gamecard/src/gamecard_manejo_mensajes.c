@@ -4,7 +4,7 @@
 
 void manejar_new_pokemon(t_new_pokemon *mensaje_new){
 	char* mostrar_new = mostrar_new_pokemon(mensaje_new);
-	log_trace(logger, "Manejar mensaje: %s.", mostrar_new);
+	log_info(logger, "Se recibio NEW POKEMON: %s.", mostrar_new);
 	free(mostrar_new);
 
 
@@ -15,11 +15,11 @@ void manejar_new_pokemon(t_new_pokemon *mensaje_new){
 
 	// 2. Verifico si puedo abrir, y reintento si no.
 	intentar_abrir_archivo(mensaje_new->pokemon);
-	pthread_mutex_unlock(&mutex_new_archivo);
 
 
 	// 3. Verifica si las pos existen, si no la crea al final. //TODO
 	manejar_bloques_pokemon(mensaje_new); // revisar, cambiar estado open.
+	pthread_mutex_unlock(&mutex_new_archivo);
 
 
 	// 4. Esperar para cerrar
@@ -38,7 +38,7 @@ void manejar_new_pokemon(t_new_pokemon *mensaje_new){
 
 void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 	char* mostrar_catch = mostrar_catch_pokemon(mensaje_catch);
-	log_trace(logger, "Manejar mensaje: %s.", mostrar_catch);
+	log_info(logger, "Se recibio CATCH POKEMON: %s.", mostrar_catch);
 	free(mostrar_catch);
 
 	bool respuesta_existe_archivo = true;
@@ -87,7 +87,7 @@ void manejar_catch_pokemon(t_catch_pokemon * mensaje_catch){
 
 void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 	char* mostrar_get = mostrar_get_pokemon(mensaje_get);
-	log_trace(logger, "Manejar mensaje: %s.", mostrar_get);
+	log_info(logger, "Se recibio GET POKEMON: %s.", mostrar_get);
 	free(mostrar_get);
 
 	bool respuesta_get = true;
