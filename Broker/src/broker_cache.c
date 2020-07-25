@@ -332,7 +332,7 @@ t_list* lista_subs_eviados(int tipo_mensaje) {
 
 _Bool queda_espacio_libre(int tamano_mensaje_a_cachear,
 		t_mensaje_cache* particion_vacia) {
-	return particion_vacia->tamanio > tamano_mensaje_a_cachear;
+	return particion_vacia->tamanio >= tamano_mensaje_a_cachear;
 }
 
 t_mensaje_cache* crear_particion_sobrante(int tamanio_mensaje_cacheado,
@@ -894,7 +894,7 @@ _Bool es_vacia_particion(t_mensaje_cache* particion) {
 	return particion->tipo_mensaje == VACIO;
 }
 _Bool es_ultima_particion(t_mensaje_cache* particion) {
-	return particion->offset + particion->tamanio == tamano_memoria;
+	return particion->offset + particion->tamanio >= tamano_memoria;
 }
 
 void mover_info_cache(int desde_offset, int hasta_offset, int tamanio) {
