@@ -104,7 +104,7 @@ void enviar_mensaje_catch(void * element) { //mismo que get
 				socket_broker, recibir_codigo_operacion(socket_broker), 1);
 		log_debug(logger,"Esperando caught de pokemon %s con id %d",mensaje_catch_a_enviar->pokemon,entrenador->catch_pendiente->id_mensaje);
 
-		close(socket_broker);
+		//close(socket_broker);
 	} else {
 		log_info(logger, "Error en comunicacion al intentar enviar catch. Se efectuara operacion default");
 		t_caught_pokemon * mensaje_caught = crear_caught_pokemon(99, 1, entrenador->catch_pendiente->id_mensaje );

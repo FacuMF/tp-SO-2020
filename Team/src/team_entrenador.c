@@ -169,9 +169,13 @@ void cazar_pokemon(t_entrenador * entrenador) {
 			log_info(logger, "Catch efectuado en posicon %d %d para %s",
 					entrenador->posicion[0], entrenador->posicion[1],
 					entrenador->catch_pendiente->pokemon);
+
+			pthread_mutex_lock(&mutex_hilos);
 			pthread_create(&thread, NULL, (void*) enviar_mensaje_catch,
 					entrenador);
 			pthread_detach(thread);
+			pthread_mutex_unlock(&mutex_hilos);
+
 		}
 
 		entrenador->ciclos_cpu_restantes--;
@@ -250,7 +254,7 @@ void preparar_entrenador(t_entrenador * entrenador,
 	log_trace(logger, "Nuevo ent en ready: Posicion %i %i",
 			entrenador->posicion[0], entrenador->posicion[1]);
 
-	liberar_mensaje_appeared_pokemon(mensaje_appeared);
+	//liberar_mensaje_appeared_pokemon(mensaje_appeared);
 
 }
 

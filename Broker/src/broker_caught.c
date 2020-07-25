@@ -29,7 +29,7 @@ void manejar_mensaje_caught(t_conexion_buffer *combo) {
 
 	cachear_caught_pokemon(mensaje_caught_pokemon);
 
-	liberar_mensaje_caught_pokemon(mensaje_caught_pokemon);
+	//liberar_mensaje_caught_pokemon(mensaje_caught_pokemon);
 	pthread_exit(NULL);
 }
 
