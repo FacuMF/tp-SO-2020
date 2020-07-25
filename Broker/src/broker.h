@@ -82,7 +82,7 @@ int id_mensajes;
 
 //Semaforos
 pthread_mutex_t mutex_memoria_cache;
-
+pthread_mutex_t mutex_hilos;
 pthread_mutex_t mutex_id_mensaje;
 pthread_mutex_t mutex_lru_flag;
 pthread_mutex_t mutex_suscribir;

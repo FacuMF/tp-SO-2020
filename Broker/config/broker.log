@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [INFO] 05:42:06:449 Broker/(1008:1010): Llegada de mensaje nuevo 0 a cola CAUGHT_POKEMON
 [INFO] 05:42:06:450 Broker/(1008:1010): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
 [INFO] 05:42:06:452 Broker/(1008:1012): Llegada de mensaje nuevo 1 a cola CAUGHT_POKEMON
@@ -576,3 +577,21 @@
 [INFO] 06:50:17:356 Broker/(1668:1729): Envio de CAUGHT_POKEMON 23 a suscriptor 14
 [INFO] 06:50:17:356 Broker/(1668:1729): Envio de CAUGHT_POKEMON 23 a suscriptor 13
 [INFO] 06:50:17:356 Broker/(1668:1729): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+=======
+[INFO] 06:56:23:971 Broker/(11837:11967): Llegada de mensaje nuevo 0 a cola CAUGHT_POKEMON
+[INFO] 06:56:23:971 Broker/(11837:11967): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 0.
+[INFO] 06:56:23:973 Broker/(11837:11970): Llegada de mensaje nuevo 1 a cola CAUGHT_POKEMON
+[INFO] 06:56:23:973 Broker/(11837:11970): Se almaceno un mensaje CAUGHT_POKEMON en la posicion 4.
+[INFO] 06:56:23:975 Broker/(11837:11973): Llegada de mensaje nuevo 2 a cola NEW_POKEMON
+[INFO] 06:56:23:975 Broker/(11837:11973): Se almaceno un mensaje NEW_POKEMON en la posicion 32.
+[INFO] 06:56:23:977 Broker/(11837:11976): Llegada de mensaje nuevo 3 a cola CATCH_POKEMON
+[INFO] 06:56:23:977 Broker/(11837:11976): Se almaceno un mensaje CATCH_POKEMON en la posicion 16.
+[INFO] 06:56:23:979 Broker/(11837:11978): Suscripcion de 10 a la cola 3.
+[INFO] 06:56:33:1 Broker/(11837:11989): Llegada de mensaje nuevo 4 a cola CATCH_POKEMON
+[INFO] 06:56:33:1 Broker/(11837:11989): Se elimino una particion CAUGHT_POKEMON en la posicion 0.
+[INFO] 06:56:33:1 Broker/(11837:11989): Se elimino una particion CAUGHT_POKEMON en la posicion 4.
+[INFO] 06:56:33:1 Broker/(11837:11989): Se asociaron los bolques vacios que iniciaban en 0 y 4.
+[INFO] 06:56:33:2 Broker/(11837:11989): Se asociaron los bolques vacios que iniciaban en 0 y 8.
+[INFO] 06:56:33:2 Broker/(11837:11989): Se elimino una particion NEW_POKEMON en la posicion 32.
+[INFO] 06:56:33:2 Broker/(11837:11989): Se almaceno un mensaje CATCH_POKEMON en la posicion 32.
+>>>>>>> 0ff903455136adf7aa15a42232bcad4df881a02f
