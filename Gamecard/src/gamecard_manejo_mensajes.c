@@ -87,7 +87,7 @@ void manejar_get_pokemon(t_get_pokemon * mensaje_get){
 		respuesta_localized = obtener_pos_y_cant_localized(mensaje_get);
 	}else{
 		t_list * lista_vacia = list_create();
-		respuesta_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_vacia, mensaje_get->id_mensaje);
+		respuesta_localized = crear_localized_pokemon(-10,mensaje_get->pokemon,lista_vacia, mensaje_get->id_mensaje);
 	}
 
 	// 4. Esperar los segundos definidos por config

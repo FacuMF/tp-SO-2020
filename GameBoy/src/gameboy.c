@@ -236,7 +236,7 @@ t_buffer* mensaje_a_enviar(t_modulo modulo, op_code tipo_mensaje, char* arg[]) {
 		t_caught_pokemon* mensaje_caught;
 		cargar_parametros_caught_pokemon(&id_mensaje_correlativo, &ok_fail,
 				arg);
-		mensaje_caught = crear_caught_pokemon(id_mensaje_correlativo, ok_fail, -5);
+		mensaje_caught = crear_caught_pokemon(-5, ok_fail, id_mensaje_correlativo);
 		mensaje_serializado = serializar_caught_pokemon(mensaje_caught);
 		liberar_mensaje_caught_pokemon(mensaje_caught);
 		break;

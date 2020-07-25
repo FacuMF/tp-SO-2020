@@ -413,7 +413,7 @@ t_localized_pokemon* obtener_pos_y_cant_localized(t_get_pokemon* mensaje_get){ /
 		config_destroy(config_bloque);
 	}
 
-	t_localized_pokemon* pokemon_localized = crear_localized_pokemon(mensaje_get->id_mensaje,mensaje_get->pokemon,lista_posiciones, mensaje_get->id_mensaje);
+	t_localized_pokemon* pokemon_localized = crear_localized_pokemon(-10,mensaje_get->pokemon,lista_posiciones, mensaje_get->id_mensaje);
 
 	//for(int i=0;bloques[i] != NULL;i++) free(bloques[i]);
 	//free(bloques);
