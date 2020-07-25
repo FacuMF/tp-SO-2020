@@ -76,7 +76,7 @@ void manejar_localized(t_localized_pokemon* mensaje_localized) {
 	list_add_all(appeared_auxiliares, mensajes_appeared_equivalentes);
 
 	list_destroy(mensajes_appeared_equivalentes);
-	liberar_mensaje_localized_pokemon(mensaje_localized);
+	//liberar_mensaje_localized_pokemon(mensaje_localized);
 
 	pthread_mutex_unlock(&manejar_mensaje);
 
