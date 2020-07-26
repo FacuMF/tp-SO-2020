@@ -545,7 +545,7 @@ void consolidar_con_siguiente() {
 	t_mensaje_cache * mensaje2 = list_get(struct_admin_cache,1);
 	int ambas_son_iguales = (mensaje->tamanio == mensaje2->tamanio);
 
-	if(algoritmo_memoria == BS && ambas_son_iguales){
+	if( (algoritmo_memoria == BS && ambas_son_iguales) || algoritmo_memoria == PARTICIONES ){ //TODO revisar si funciona
 		agregar_particion_segun_vicima_y_siguiente();
 		borrar_particiones_del_inicio(2); // borrar victima y siguiente
 	}
@@ -559,7 +559,7 @@ void consolidar_con_anterior() {
 	t_mensaje_cache * mensaje2 = list_get(struct_admin_cache,1);
 	int ambas_son_iguales = (mensaje->tamanio == mensaje2->tamanio);
 
-	if(algoritmo_memoria == BS && ambas_son_iguales){
+	if( (algoritmo_memoria == BS && ambas_son_iguales) || algoritmo_memoria == PARTICIONES ){ //TODO revisar si funciona
 		agregar_particion_segun_anterior_y_victima();
 		borrar_particiones_del_inicio(2); // borrar victima y anterior
 	}
